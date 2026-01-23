@@ -1,0 +1,15 @@
+# typed: true
+# frozen_string_literal: true
+
+
+class OpenApiSDK::Models::Components::PostHrisEmployeesEmployeeIdDocumentsRequestBody
+  extend ::Crystalline::MetadataFields::ClassMethods
+end
+
+
+class OpenApiSDK::Models::Components::PostHrisEmployeesEmployeeIdDocumentsRequestBody
+  def category_id(); end
+  def category_id=(str_); end
+  def document(); end
+  def document=(str_); end
+end

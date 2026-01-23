@@ -1,0 +1,10 @@
+# PostAtsCandidatesCandidateIdTagsRequestBodyGreenhouse
+
+Fields specific to Greenhouse.
+
+
+## Fields
+
+| Field                                                                                                                                                                  | Type                                                                                                                                                                   | Required                                                                                                                                                               | Description                                                                                                                                                            |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `post_headers`                                                                                                                                                         | [T.nilable(Models::Components::PostAtsCandidatesCandidateIdTagsRequestBodyPostHeaders)](../../models/shared/postatscandidatescandidateidtagsrequestbodypostheaders.md) | :heavy_minus_sign:                                                                                                                                                     | Headers we will pass with `POST` requests to Greenhouse.                                                                                                               |

@@ -1,0 +1,17 @@
+# typed: true
+# frozen_string_literal: true
+
+
+class OpenApiSDK::Models::Operations::GetIntegrationsIntegrationIdIntegrationFieldsRequest
+  extend ::Crystalline::MetadataFields::ClassMethods
+end
+
+
+class OpenApiSDK::Models::Operations::GetIntegrationsIntegrationIdIntegrationFieldsRequest
+  def integration_id(); end
+  def integration_id=(str_); end
+  def cursor(); end
+  def cursor=(str_); end
+  def page_size(); end
+  def page_size=(str_); end
+end

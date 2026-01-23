@@ -1,0 +1,9 @@
+# WebhookConnectionFlowFailedWebhookPayloadRequest
+
+
+## Fields
+
+| Field                                                                                                               | Type                                                                                                                | Required                                                                                                            | Description                                                                                                         |
+| ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| `x_kombo_signature`                                                                                                 | *::String*                                                                                                          | :heavy_check_mark:                                                                                                  | HMAC signature for webhook verification. See the webhook documentation for details on how to verify this signature. |
+| `body`                                                                                                              | [Models::Components::ConnectionFlowFailedWebhookPayload](../../models/shared/connectionflowfailedwebhookpayload.md) | :heavy_check_mark:                                                                                                  | N/A                                                                                                                 |

@@ -1,0 +1,19 @@
+# typed: true
+# frozen_string_literal: true
+
+
+class OpenApiSDK::Models::Components::PostAtsCandidatesCandidateIdResultLinksRequestBodyRemoteFields
+  extend ::Crystalline::MetadataFields::ClassMethods
+end
+
+
+class OpenApiSDK::Models::Components::PostAtsCandidatesCandidateIdResultLinksRequestBodyRemoteFields
+  def icims(); end
+  def icims=(str_); end
+  def oracle(); end
+  def oracle=(str_); end
+  def greenhouse(); end
+  def greenhouse=(str_); end
+  def workable(); end
+  def workable=(str_); end
+end
