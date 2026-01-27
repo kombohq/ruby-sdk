@@ -15,11 +15,11 @@ module OpenApiSDK
         # The Kombo ID of the application you want to reject.
         field :application_id, ::String, { 'path_param': { 'field_name': 'application_id', 'style': 'simple', 'explode': false } }
         # POST /ats/applications/:application_id/reject Request body
-        field :body, Models::Components::PostAtsApplicationsApplicationIdRejectRequestBody, { 'request': { 'media_type': 'application/json' } }
+        field :body, Models::Shared::PostAtsApplicationsApplicationIdRejectRequestBody, { 'request': { 'media_type': 'application/json' } }
         # ID of the integration you want to interact with.
         field :integration_id, Crystalline::Nilable.new(::String), { 'header': { 'field_name': 'X-Integration-Id', 'style': 'simple', 'explode': false } }
 
-        sig { params(application_id: ::String, body: Models::Components::PostAtsApplicationsApplicationIdRejectRequestBody, integration_id: T.nilable(::String)).void }
+        sig { params(application_id: ::String, body: Models::Shared::PostAtsApplicationsApplicationIdRejectRequestBody, integration_id: T.nilable(::String)).void }
         def initialize(application_id:, body:, integration_id: nil)
           @application_id = application_id
           @body = body

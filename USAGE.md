@@ -1,10 +1,12 @@
 <!-- Start SDK Example Usage [usage] -->
 ```ruby
-require 'openapi'
+require 'kombo'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Kombo.new(
-      api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
     )
 
 res = s.general.check_api_key()

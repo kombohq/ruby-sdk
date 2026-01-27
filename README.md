@@ -39,8 +39,7 @@ Developer-friendly & type-safe Ruby SDK specifically catered to leverage *openap
 The SDK can be installed using [RubyGems](https://rubygems.org/):
 
 ```bash
-gem install specific_install
-gem specific_install  
+gem install kombo
 ```
 <!-- End SDK Installation [installation] -->
 
@@ -50,11 +49,13 @@ gem specific_install
 ### Example
 
 ```ruby
-require 'openapi'
+require 'kombo'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Kombo.new(
-      api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
     )
 
 res = s.general.check_api_key()
@@ -77,13 +78,15 @@ This SDK supports the following security scheme globally:
 | --------- | ---- | ----------- |
 | `api_key` | http | HTTP Bearer |
 
-To authenticate with the API the `api_key` parameter must be set when initializing the SDK client instance. For example:
+You can set the security parameters through the `security` optional parameter when initializing the SDK client instance. For example:
 ```ruby
-require 'openapi'
+require 'kombo'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Kombo.new(
-      api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
     )
 
 res = s.general.check_api_key()
@@ -196,15 +199,17 @@ The following global parameter is available.
 ### Example
 
 ```ruby
-require 'openapi'
+require 'kombo'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
-      api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
     )
 
-res = s.general.delete_integration(integration_id: '<id>', body: Models::Components::DeleteIntegrationsIntegrationIdRequestBody.new())
+res = s.general.delete_integration(integration_id: '<id>', body: Models::Shared::DeleteIntegrationsIntegrationIdRequestBody.new())
 
 unless res.delete_integrations_integration_id_positive_response.nil?
   # handle response
@@ -237,11 +242,13 @@ When custom error responses are specified for an operation, the SDK may also thr
 ### Example
 
 ```ruby
-require 'openapi'
+require 'kombo'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Kombo.new(
-      api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
     )
 
 begin
@@ -276,12 +283,14 @@ You can override the default server globally by passing a server name to the `se
 #### Example
 
 ```ruby
-require 'openapi'
+require 'kombo'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Kombo.new(
       server: "eu",
-      api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
     )
 
 res = s.general.check_api_key()
@@ -296,12 +305,14 @@ end
 
 The default server can also be overridden globally by passing a URL to the `server_url (String)` optional parameter when initializing the SDK client instance. For example:
 ```ruby
-require 'openapi'
+require 'kombo'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Kombo.new(
       server_url: 'https://api.kombo.dev/v1',
-      api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
     )
 
 res = s.general.check_api_key()

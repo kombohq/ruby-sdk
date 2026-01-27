@@ -147,7 +147,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Components::GetAtsApplicationsPositiveResponse)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::GetAtsApplicationsPositiveResponse)
           response = Models::Operations::GetAtsApplicationsResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -208,7 +208,7 @@ module OpenApiSDK
     end
 
 
-    sig { params(body: Models::Components::PutAtsApplicationsApplicationIdStageRequestBody, application_id: ::String, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::PutAtsApplicationsApplicationIdStageResponse) }
+    sig { params(body: Models::Shared::PutAtsApplicationsApplicationIdStageRequestBody, application_id: ::String, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::PutAtsApplicationsApplicationIdStageResponse) }
     def move_application_to_stage(body:, application_id:, integration_id: nil, timeout_ms: nil)
       # move_application_to_stage - Move application to stage
       # Moves an application to a specified stage. Use job-specific stages from GET /jobs, not the deprecated /application-stages endpoint.
@@ -324,7 +324,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Components::PutAtsApplicationsApplicationIdStagePositiveResponse)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::PutAtsApplicationsApplicationIdStagePositiveResponse)
           response = Models::Operations::PutAtsApplicationsApplicationIdStageResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -355,7 +355,7 @@ module OpenApiSDK
     end
 
 
-    sig { params(body: Models::Components::PostAtsApplicationsApplicationIdResultLinksRequestBody, application_id: ::String, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::PostAtsApplicationsApplicationIdResultLinksResponse) }
+    sig { params(body: Models::Shared::PostAtsApplicationsApplicationIdResultLinksRequestBody, application_id: ::String, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::PostAtsApplicationsApplicationIdResultLinksResponse) }
     def add_application_result_link(body:, application_id:, integration_id: nil, timeout_ms: nil)
       # add_application_result_link - Add result link to application
       # Add a result link to an application.
@@ -489,7 +489,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Components::PostAtsApplicationsApplicationIdResultLinksPositiveResponse)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::PostAtsApplicationsApplicationIdResultLinksPositiveResponse)
           response = Models::Operations::PostAtsApplicationsApplicationIdResultLinksResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -520,7 +520,7 @@ module OpenApiSDK
     end
 
 
-    sig { params(body: Models::Components::PostAtsApplicationsApplicationIdNotesRequestBody, application_id: ::String, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::PostAtsApplicationsApplicationIdNotesResponse) }
+    sig { params(body: Models::Shared::PostAtsApplicationsApplicationIdNotesRequestBody, application_id: ::String, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::PostAtsApplicationsApplicationIdNotesResponse) }
     def add_application_note(body:, application_id:, integration_id: nil, timeout_ms: nil)
       # add_application_note - Add note to application
       # Add a note to an application.
@@ -640,7 +640,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Components::PostAtsApplicationsApplicationIdNotesPositiveResponse)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::PostAtsApplicationsApplicationIdNotesPositiveResponse)
           response = Models::Operations::PostAtsApplicationsApplicationIdNotesResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -768,7 +768,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Components::GetAtsApplicationsApplicationIdAttachmentsPositiveResponse)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::GetAtsApplicationsApplicationIdAttachmentsPositiveResponse)
           response = Models::Operations::GetAtsApplicationsApplicationIdAttachmentsResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -799,7 +799,7 @@ module OpenApiSDK
     end
 
 
-    sig { params(body: Models::Components::PostAtsApplicationsApplicationIdAttachmentsRequestBody, application_id: ::String, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::PostAtsApplicationsApplicationIdAttachmentsResponse) }
+    sig { params(body: Models::Shared::PostAtsApplicationsApplicationIdAttachmentsRequestBody, application_id: ::String, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::PostAtsApplicationsApplicationIdAttachmentsResponse) }
     def add_application_attachment(body:, application_id:, integration_id: nil, timeout_ms: nil)
       # add_application_attachment - Add attachment to application
       # Uploads an attachment file for the specified applicant.
@@ -926,7 +926,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Components::PostAtsApplicationsApplicationIdAttachmentsPositiveResponse)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::PostAtsApplicationsApplicationIdAttachmentsPositiveResponse)
           response = Models::Operations::PostAtsApplicationsApplicationIdAttachmentsResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -957,7 +957,7 @@ module OpenApiSDK
     end
 
 
-    sig { params(body: Models::Components::PostAtsApplicationsApplicationIdRejectRequestBody, application_id: ::String, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::PostAtsApplicationsApplicationIdRejectResponse) }
+    sig { params(body: Models::Shared::PostAtsApplicationsApplicationIdRejectRequestBody, application_id: ::String, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::PostAtsApplicationsApplicationIdRejectResponse) }
     def reject_application(body:, application_id:, integration_id: nil, timeout_ms: nil)
       # reject_application - Reject application
       # Rejects an application with a provided reason.
@@ -1077,7 +1077,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Components::PostAtsApplicationsApplicationIdRejectPositiveResponse)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::PostAtsApplicationsApplicationIdRejectPositiveResponse)
           response = Models::Operations::PostAtsApplicationsApplicationIdRejectResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -1207,7 +1207,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Components::GetAtsCandidatesPositiveResponse)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::GetAtsCandidatesPositiveResponse)
           response = Models::Operations::GetAtsCandidatesResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -1267,7 +1267,7 @@ module OpenApiSDK
     end
 
 
-    sig { params(body: Models::Components::PostAtsCandidatesRequestBody, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::PostAtsCandidatesResponse) }
+    sig { params(body: Models::Shared::PostAtsCandidatesRequestBody, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::PostAtsCandidatesResponse) }
     def create_candidate(body:, integration_id: nil, timeout_ms: nil)
       # create_candidate - Create candidate
       # Create a new candidate and application for the specified job.
@@ -1437,7 +1437,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Components::PostAtsCandidatesPositiveResponse)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::PostAtsCandidatesPositiveResponse)
           response = Models::Operations::PostAtsCandidatesResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -1563,7 +1563,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Components::GetAtsCandidatesCandidateIdAttachmentsPositiveResponse)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::GetAtsCandidatesCandidateIdAttachmentsPositiveResponse)
           response = Models::Operations::GetAtsCandidatesCandidateIdAttachmentsResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -1594,7 +1594,7 @@ module OpenApiSDK
     end
 
 
-    sig { params(body: Models::Components::PostAtsCandidatesCandidateIdAttachmentsRequestBody, candidate_id: ::String, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::PostAtsCandidatesCandidateIdAttachmentsResponse) }
+    sig { params(body: Models::Shared::PostAtsCandidatesCandidateIdAttachmentsRequestBody, candidate_id: ::String, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::PostAtsCandidatesCandidateIdAttachmentsResponse) }
     def add_candidate_attachment(body:, candidate_id:, integration_id: nil, timeout_ms: nil)
       # add_candidate_attachment - Add attachment to candidate
       # Uploads an attachment file for the specified candidate.
@@ -1722,7 +1722,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Components::PostAtsCandidatesCandidateIdAttachmentsPositiveResponse)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::PostAtsCandidatesCandidateIdAttachmentsPositiveResponse)
           response = Models::Operations::PostAtsCandidatesCandidateIdAttachmentsResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -1753,7 +1753,7 @@ module OpenApiSDK
     end
 
 
-    sig { params(body: Models::Components::PostAtsCandidatesCandidateIdResultLinksRequestBody, candidate_id: ::String, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::PostAtsCandidatesCandidateIdResultLinksResponse) }
+    sig { params(body: Models::Shared::PostAtsCandidatesCandidateIdResultLinksRequestBody, candidate_id: ::String, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::PostAtsCandidatesCandidateIdResultLinksResponse) }
     def add_candidate_result_link(body:, candidate_id:, integration_id: nil, timeout_ms: nil)
       # add_candidate_result_link - Add result link to candidate
       # Add a result link to a candidate.
@@ -1892,7 +1892,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Components::PostAtsCandidatesCandidateIdResultLinksPositiveResponse)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::PostAtsCandidatesCandidateIdResultLinksPositiveResponse)
           response = Models::Operations::PostAtsCandidatesCandidateIdResultLinksResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -1923,7 +1923,7 @@ module OpenApiSDK
     end
 
 
-    sig { params(body: Models::Components::PostAtsCandidatesCandidateIdTagsRequestBody, candidate_id: ::String, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::PostAtsCandidatesCandidateIdTagsResponse) }
+    sig { params(body: Models::Shared::PostAtsCandidatesCandidateIdTagsRequestBody, candidate_id: ::String, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::PostAtsCandidatesCandidateIdTagsResponse) }
     def add_candidate_tag(body:, candidate_id:, integration_id: nil, timeout_ms: nil)
       # add_candidate_tag - Add tag to candidate
       # Add a tag to a candidate.
@@ -2043,7 +2043,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Components::PostAtsCandidatesCandidateIdTagsPositiveResponse)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::PostAtsCandidatesCandidateIdTagsPositiveResponse)
           response = Models::Operations::PostAtsCandidatesCandidateIdTagsResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -2074,7 +2074,7 @@ module OpenApiSDK
     end
 
 
-    sig { params(body: Models::Components::DeleteAtsCandidatesCandidateIdTagsRequestBody, candidate_id: ::String, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::DeleteAtsCandidatesCandidateIdTagsResponse) }
+    sig { params(body: Models::Shared::DeleteAtsCandidatesCandidateIdTagsRequestBody, candidate_id: ::String, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::DeleteAtsCandidatesCandidateIdTagsResponse) }
     def remove_candidate_tag(body:, candidate_id:, integration_id: nil, timeout_ms: nil)
       # remove_candidate_tag - Remove tag from candidate
       # Remove a tag from a candidate based on its name.
@@ -2194,7 +2194,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Components::DeleteAtsCandidatesCandidateIdTagsPositiveResponse)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::DeleteAtsCandidatesCandidateIdTagsPositiveResponse)
           response = Models::Operations::DeleteAtsCandidatesCandidateIdTagsResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -2320,7 +2320,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Components::GetAtsTagsPositiveResponse)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::GetAtsTagsPositiveResponse)
           response = Models::Operations::GetAtsTagsResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -2481,7 +2481,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Components::GetAtsApplicationStagesPositiveResponse)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::GetAtsApplicationStagesPositiveResponse)
           response = Models::Operations::GetAtsApplicationStagesResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -2647,7 +2647,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Components::GetAtsJobsPositiveResponse)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::GetAtsJobsPositiveResponse)
           response = Models::Operations::GetAtsJobsResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -2710,7 +2710,7 @@ module OpenApiSDK
     end
 
 
-    sig { params(body: Models::Components::PostAtsJobsJobIdApplicationsRequestBody, job_id: ::String, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::PostAtsJobsJobIdApplicationsResponse) }
+    sig { params(body: Models::Shared::PostAtsJobsJobIdApplicationsRequestBody, job_id: ::String, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::PostAtsJobsJobIdApplicationsResponse) }
     def create_application(body:, job_id:, integration_id: nil, timeout_ms: nil)
       # create_application - Create application
       # Create a new application and candidate for the specified job.
@@ -2875,7 +2875,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Components::PostAtsJobsJobIdApplicationsPositiveResponse)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::PostAtsJobsJobIdApplicationsPositiveResponse)
           response = Models::Operations::PostAtsJobsJobIdApplicationsResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -3002,7 +3002,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Components::GetAtsUsersPositiveResponse)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::GetAtsUsersPositiveResponse)
           response = Models::Operations::GetAtsUsersResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -3154,7 +3154,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Components::GetAtsOffersPositiveResponse)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::GetAtsOffersPositiveResponse)
           response = Models::Operations::GetAtsOffersResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -3307,7 +3307,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Components::GetAtsRejectionReasonsPositiveResponse)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::GetAtsRejectionReasonsPositiveResponse)
           response = Models::Operations::GetAtsRejectionReasonsResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -3459,7 +3459,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Components::GetAtsInterviewsPositiveResponse)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::GetAtsInterviewsPositiveResponse)
           response = Models::Operations::GetAtsInterviewsResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -3516,7 +3516,7 @@ module OpenApiSDK
     end
 
 
-    sig { params(body: Models::Components::PostAtsImportTrackedApplicationRequestBody, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::PostAtsImportTrackedApplicationResponse) }
+    sig { params(body: Models::Shared::PostAtsImportTrackedApplicationRequestBody, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::PostAtsImportTrackedApplicationResponse) }
     def import_tracked_application(body:, integration_id: nil, timeout_ms: nil)
       # import_tracked_application - Import tracked application
       # Import tracked application
@@ -3631,7 +3631,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Components::PostAtsImportTrackedApplicationPositiveResponse)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::PostAtsImportTrackedApplicationPositiveResponse)
           response = Models::Operations::PostAtsImportTrackedApplicationResponse.new(
             status_code: http_response.status,
             content_type: content_type,

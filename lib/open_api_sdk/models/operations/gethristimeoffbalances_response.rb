@@ -21,9 +21,9 @@ module OpenApiSDK
         # Raw HTTP response; suitable for custom response parsing
         field :raw_response, ::Faraday::Response
         # GET /hris/time-off-balances Positive response
-        field :get_hris_time_off_balances_positive_response, Crystalline::Nilable.new(Models::Components::GetHrisTimeOffBalancesPositiveResponse)
+        field :get_hris_time_off_balances_positive_response, Crystalline::Nilable.new(Models::Shared::GetHrisTimeOffBalancesPositiveResponse)
 
-        sig { params(content_type: ::String, status_code: ::Integer, raw_response: ::Faraday::Response, get_hris_time_off_balances_positive_response: T.nilable(Models::Components::GetHrisTimeOffBalancesPositiveResponse)).void }
+        sig { params(content_type: ::String, status_code: ::Integer, raw_response: ::Faraday::Response, get_hris_time_off_balances_positive_response: T.nilable(Models::Shared::GetHrisTimeOffBalancesPositiveResponse)).void }
         def initialize(content_type:, status_code:, raw_response:, get_hris_time_off_balances_positive_response: nil)
           @content_type = content_type
           @status_code = status_code

@@ -104,7 +104,7 @@ module OpenApiSDK
               end
               raise StandardError, 'invalid multipart/form-data file' if T.unsafe(file_name) == '' || T.unsafe(content).nil?
 
-              form.append([field_name, [file_name, content]])
+              form.append(["#{field_name}[]", [file_name, content]])
             end
           else
             # Handle single file
@@ -141,7 +141,7 @@ module OpenApiSDK
               next if value.nil?
 
               form.append(
-                [field_name, [nil, val_to_string(value)]]
+                ["#{field_name}[]", [nil, val_to_string(value)]]
               )
             end
           else

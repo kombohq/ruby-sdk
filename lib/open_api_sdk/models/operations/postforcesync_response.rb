@@ -19,9 +19,9 @@ module OpenApiSDK
         # Raw HTTP response; suitable for custom response parsing
         field :raw_response, ::Faraday::Response
         # POST /force-sync Positive response
-        field :post_force_sync_positive_response, Crystalline::Nilable.new(Models::Components::PostForceSyncPositiveResponse)
+        field :post_force_sync_positive_response, Crystalline::Nilable.new(Models::Shared::PostForceSyncPositiveResponse)
 
-        sig { params(content_type: ::String, status_code: ::Integer, raw_response: ::Faraday::Response, post_force_sync_positive_response: T.nilable(Models::Components::PostForceSyncPositiveResponse)).void }
+        sig { params(content_type: ::String, status_code: ::Integer, raw_response: ::Faraday::Response, post_force_sync_positive_response: T.nilable(Models::Shared::PostForceSyncPositiveResponse)).void }
         def initialize(content_type:, status_code:, raw_response:, post_force_sync_positive_response: nil)
           @content_type = content_type
           @status_code = status_code

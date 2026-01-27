@@ -15,11 +15,11 @@ module OpenApiSDK
         # The Kombo ID of the candidate you want to remove the tag from.
         field :candidate_id, ::String, { 'path_param': { 'field_name': 'candidate_id', 'style': 'simple', 'explode': false } }
         # DELETE /ats/candidates/:candidate_id/tags Request body
-        field :body, Models::Components::DeleteAtsCandidatesCandidateIdTagsRequestBody, { 'request': { 'media_type': 'application/json' } }
+        field :body, Models::Shared::DeleteAtsCandidatesCandidateIdTagsRequestBody, { 'request': { 'media_type': 'application/json' } }
         # ID of the integration you want to interact with.
         field :integration_id, Crystalline::Nilable.new(::String), { 'header': { 'field_name': 'X-Integration-Id', 'style': 'simple', 'explode': false } }
 
-        sig { params(candidate_id: ::String, body: Models::Components::DeleteAtsCandidatesCandidateIdTagsRequestBody, integration_id: T.nilable(::String)).void }
+        sig { params(candidate_id: ::String, body: Models::Shared::DeleteAtsCandidatesCandidateIdTagsRequestBody, integration_id: T.nilable(::String)).void }
         def initialize(candidate_id:, body:, integration_id: nil)
           @candidate_id = candidate_id
           @body = body

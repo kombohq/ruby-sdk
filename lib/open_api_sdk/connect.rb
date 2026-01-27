@@ -39,7 +39,7 @@ module OpenApiSDK
     end
 
 
-    sig { params(request: Models::Components::PostConnectCreateLinkRequestBody, timeout_ms: T.nilable(Integer)).returns(Models::Operations::PostConnectCreateLinkResponse) }
+    sig { params(request: Models::Shared::PostConnectCreateLinkRequestBody, timeout_ms: T.nilable(Integer)).returns(Models::Operations::PostConnectCreateLinkResponse) }
     def create_connection_link(request:, timeout_ms: nil)
       # create_connection_link - Create connection link
       # Generate a unique link that allows your user to enter the embedded Kombo Connect flow.
@@ -150,7 +150,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Components::PostConnectCreateLinkPositiveResponse)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::PostConnectCreateLinkPositiveResponse)
           response = Models::Operations::PostConnectCreateLinkResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -281,7 +281,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Components::GetConnectIntegrationByTokenTokenPositiveResponse)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::GetConnectIntegrationByTokenTokenPositiveResponse)
           response = Models::Operations::GetConnectIntegrationByTokenTokenResponse.new(
             status_code: http_response.status,
             content_type: content_type,

@@ -45,12 +45,14 @@ Top level filters use AND, while individual filters use OR if they accept multip
 
 <!-- UsageSnippet language="ruby" operationID="GetAtsApplications" method="get" path="/ats/applications" -->
 ```ruby
-require 'openapi'
+require 'kombo'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
-      api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
     )
 
 res = s.ats.get_applications(page_size: 100, include_deleted: false, ignore_unsupported_filters: false)
@@ -110,15 +112,17 @@ Moves an application to a specified stage. Use job-specific stages from GET /job
 
 <!-- UsageSnippet language="ruby" operationID="PutAtsApplicationsApplicationIdStage" method="put" path="/ats/applications/{application_id}/stage" -->
 ```ruby
-require 'openapi'
+require 'kombo'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
-      api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
     )
 
-res = s.ats.move_application_to_stage(application_id: 'GRKdd9dibYKKCrmGRSMJf3wu', body: Models::Components::PutAtsApplicationsApplicationIdStageRequestBody.new(
+res = s.ats.move_application_to_stage(application_id: 'GRKdd9dibYKKCrmGRSMJf3wu', body: Models::Shared::PutAtsApplicationsApplicationIdStageRequestBody.new(
   stage_id: '3PJ8PZhZZa1eEdd2DtPNtVup',
 ))
 
@@ -130,11 +134,11 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                                     | Type                                                                                                                                          | Required                                                                                                                                      | Description                                                                                                                                   | Example                                                                                                                                       |
-| --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| `application_id`                                                                                                                              | *::String*                                                                                                                                    | :heavy_check_mark:                                                                                                                            | The Kombo ID of the application you want to move to a different stage.                                                                        |                                                                                                                                               |
-| `body`                                                                                                                                        | [Models::Components::PutAtsApplicationsApplicationIdStageRequestBody](../../models/shared/putatsapplicationsapplicationidstagerequestbody.md) | :heavy_check_mark:                                                                                                                            | PUT /ats/applications/:application_id/stage Request body                                                                                      |                                                                                                                                               |
-| `integration_id`                                                                                                                              | *T.nilable(::String)*                                                                                                                         | :heavy_minus_sign:                                                                                                                            | ID of the integration you want to interact with.                                                                                              | workday:HWUTwvyx2wLoSUHphiWVrp28                                                                                                              |
+| Parameter                                                                                                                                 | Type                                                                                                                                      | Required                                                                                                                                  | Description                                                                                                                               | Example                                                                                                                                   |
+| ----------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| `application_id`                                                                                                                          | *::String*                                                                                                                                | :heavy_check_mark:                                                                                                                        | The Kombo ID of the application you want to move to a different stage.                                                                    |                                                                                                                                           |
+| `body`                                                                                                                                    | [Models::Shared::PutAtsApplicationsApplicationIdStageRequestBody](../../models/shared/putatsapplicationsapplicationidstagerequestbody.md) | :heavy_check_mark:                                                                                                                        | PUT /ats/applications/:application_id/stage Request body                                                                                  |                                                                                                                                           |
+| `integration_id`                                                                                                                          | *T.nilable(::String)*                                                                                                                     | :heavy_minus_sign:                                                                                                                        | ID of the integration you want to interact with.                                                                                          | workday:HWUTwvyx2wLoSUHphiWVrp28                                                                                                          |
 
 ### Response
 
@@ -185,25 +189,27 @@ This can, for example, be used to link a candidate back to a test result/assessm
 
 <!-- UsageSnippet language="ruby" operationID="PostAtsApplicationsApplicationIdResultLinks" method="post" path="/ats/applications/{application_id}/result-links" -->
 ```ruby
-require 'openapi'
+require 'kombo'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
-      api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
     )
 
-res = s.ats.add_application_result_link(application_id: '8Xi6iZrwusZqJmDGXs49GBmJ', body: Models::Components::PostAtsApplicationsApplicationIdResultLinksRequestBody.new(
+res = s.ats.add_application_result_link(application_id: '8Xi6iZrwusZqJmDGXs49GBmJ', body: Models::Shared::PostAtsApplicationsApplicationIdResultLinksRequestBody.new(
   label: 'Assessment Result',
   url: 'https://example.com/test-results/5BtP1WC1UboS7CF3yxjKcvjG',
-  details: Models::Components::PostAtsApplicationsApplicationIdResultLinksRequestBodyDetails.new(
+  details: Models::Shared::PostAtsApplicationsApplicationIdResultLinksRequestBodyDetails.new(
     custom_field_name_prefix: 'Acme:',
     attributes: [
-      Models::Components::PostAtsApplicationsApplicationIdResultLinksRequestBodyAttribute.new(
+      Models::Shared::PostAtsApplicationsApplicationIdResultLinksRequestBodyAttribute.new(
         key: 'Score',
         value: '100%',
       ),
-      Models::Components::PostAtsApplicationsApplicationIdResultLinksRequestBodyAttribute.new(
+      Models::Shared::PostAtsApplicationsApplicationIdResultLinksRequestBodyAttribute.new(
         key: 'Time',
         value: '2:30h',
       ),
@@ -219,11 +225,11 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                                                   | Type                                                                                                                                                        | Required                                                                                                                                                    | Description                                                                                                                                                 | Example                                                                                                                                                     |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `application_id`                                                                                                                                            | *::String*                                                                                                                                                  | :heavy_check_mark:                                                                                                                                          | The Kombo ID of the application you want to create the link for.                                                                                            |                                                                                                                                                             |
-| `body`                                                                                                                                                      | [Models::Components::PostAtsApplicationsApplicationIdResultLinksRequestBody](../../models/shared/postatsapplicationsapplicationidresultlinksrequestbody.md) | :heavy_check_mark:                                                                                                                                          | POST /ats/applications/:application_id/result-links Request body                                                                                            |                                                                                                                                                             |
-| `integration_id`                                                                                                                                            | *T.nilable(::String)*                                                                                                                                       | :heavy_minus_sign:                                                                                                                                          | ID of the integration you want to interact with.                                                                                                            | workday:HWUTwvyx2wLoSUHphiWVrp28                                                                                                                            |
+| Parameter                                                                                                                                               | Type                                                                                                                                                    | Required                                                                                                                                                | Description                                                                                                                                             | Example                                                                                                                                                 |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `application_id`                                                                                                                                        | *::String*                                                                                                                                              | :heavy_check_mark:                                                                                                                                      | The Kombo ID of the application you want to create the link for.                                                                                        |                                                                                                                                                         |
+| `body`                                                                                                                                                  | [Models::Shared::PostAtsApplicationsApplicationIdResultLinksRequestBody](../../models/shared/postatsapplicationsapplicationidresultlinksrequestbody.md) | :heavy_check_mark:                                                                                                                                      | POST /ats/applications/:application_id/result-links Request body                                                                                        |                                                                                                                                                         |
+| `integration_id`                                                                                                                                        | *T.nilable(::String)*                                                                                                                                   | :heavy_minus_sign:                                                                                                                                      | ID of the integration you want to interact with.                                                                                                        | workday:HWUTwvyx2wLoSUHphiWVrp28                                                                                                                        |
 
 ### Response
 
@@ -260,17 +266,19 @@ Add extra information to an application. This can be any extra text information 
 
 <!-- UsageSnippet language="ruby" operationID="PostAtsApplicationsApplicationIdNotes" method="post" path="/ats/applications/{application_id}/notes" -->
 ```ruby
-require 'openapi'
+require 'kombo'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
-      api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
     )
 
-res = s.ats.add_application_note(application_id: '8Xi6iZrwusZqJmDGXs49GBmJ', body: Models::Components::PostAtsApplicationsApplicationIdNotesRequestBody.new(
+res = s.ats.add_application_note(application_id: '8Xi6iZrwusZqJmDGXs49GBmJ', body: Models::Shared::PostAtsApplicationsApplicationIdNotesRequestBody.new(
   content: 'A new message from the candidate is available in YourChat!',
-  content_type: Models::Components::ContentType::PLAIN_TEXT,
+  content_type: Models::Shared::ContentType::PLAIN_TEXT,
 ))
 
 unless res.post_ats_applications_application_id_notes_positive_response.nil?
@@ -281,11 +289,11 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                                       | Type                                                                                                                                            | Required                                                                                                                                        | Description                                                                                                                                     | Example                                                                                                                                         |
-| ----------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| `application_id`                                                                                                                                | *::String*                                                                                                                                      | :heavy_check_mark:                                                                                                                              | The Kombo ID of the application you want to create the note for.                                                                                |                                                                                                                                                 |
-| `body`                                                                                                                                          | [Models::Components::PostAtsApplicationsApplicationIdNotesRequestBody](../../models/shared/postatsapplicationsapplicationidnotesrequestbody.md) | :heavy_check_mark:                                                                                                                              | POST /ats/applications/:application_id/notes Request body                                                                                       |                                                                                                                                                 |
-| `integration_id`                                                                                                                                | *T.nilable(::String)*                                                                                                                           | :heavy_minus_sign:                                                                                                                              | ID of the integration you want to interact with.                                                                                                | workday:HWUTwvyx2wLoSUHphiWVrp28                                                                                                                |
+| Parameter                                                                                                                                   | Type                                                                                                                                        | Required                                                                                                                                    | Description                                                                                                                                 | Example                                                                                                                                     |
+| ------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| `application_id`                                                                                                                            | *::String*                                                                                                                                  | :heavy_check_mark:                                                                                                                          | The Kombo ID of the application you want to create the note for.                                                                            |                                                                                                                                             |
+| `body`                                                                                                                                      | [Models::Shared::PostAtsApplicationsApplicationIdNotesRequestBody](../../models/shared/postatsapplicationsapplicationidnotesrequestbody.md) | :heavy_check_mark:                                                                                                                          | POST /ats/applications/:application_id/notes Request body                                                                                   |                                                                                                                                             |
+| `integration_id`                                                                                                                            | *T.nilable(::String)*                                                                                                                       | :heavy_minus_sign:                                                                                                                          | ID of the integration you want to interact with.                                                                                            | workday:HWUTwvyx2wLoSUHphiWVrp28                                                                                                            |
 
 ### Response
 
@@ -312,12 +320,14 @@ Get attachments from an application. If the ATS stores the attachments on the ca
 
 <!-- UsageSnippet language="ruby" operationID="GetAtsApplicationsApplicationIdAttachments" method="get" path="/ats/applications/{application_id}/attachments" -->
 ```ruby
-require 'openapi'
+require 'kombo'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
-      api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
     )
 
 res = s.ats.get_application_attachments(application_id: '8Xi6iZrwusZqJmDGXs49GBmJ')
@@ -377,20 +387,22 @@ Uploads an attachment file for the specified applicant.
 
 <!-- UsageSnippet language="ruby" operationID="PostAtsApplicationsApplicationIdAttachments" method="post" path="/ats/applications/{application_id}/attachments" -->
 ```ruby
-require 'openapi'
+require 'kombo'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
-      api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
     )
 
-res = s.ats.add_application_attachment(application_id: 'GRKdd9dibYKKCrmGRSMJf3wu', body: Models::Components::PostAtsApplicationsApplicationIdAttachmentsRequestBody.new(
-  attachment: Models::Components::PostAtsApplicationsApplicationIdAttachmentsRequestBodyAttachment.new(
+res = s.ats.add_application_attachment(application_id: 'GRKdd9dibYKKCrmGRSMJf3wu', body: Models::Shared::PostAtsApplicationsApplicationIdAttachmentsRequestBody.new(
+  attachment: Models::Shared::PostAtsApplicationsApplicationIdAttachmentsRequestBodyAttachment.new(
     name: 'Frank Doe CV.txt',
     content_type: 'text/plain',
     data: 'SGkgdGhlcmUsIEtvbWJvIGlzIGN1cnJlbnRseSBoaXJpbmcgZW5naW5lZXJzIHRoYXQgbG92ZSB0byB3b3JrIG9uIGRldmVsb3BlciBwcm9kdWN0cy4=',
-    type: Models::Components::PostAtsApplicationsApplicationIdAttachmentsRequestBodyType::CV,
+    type: Models::Shared::PostAtsApplicationsApplicationIdAttachmentsRequestBodyType::CV,
   ),
 ))
 
@@ -402,11 +414,11 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                                                   | Type                                                                                                                                                        | Required                                                                                                                                                    | Description                                                                                                                                                 | Example                                                                                                                                                     |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `application_id`                                                                                                                                            | *::String*                                                                                                                                                  | :heavy_check_mark:                                                                                                                                          | POST /ats/applications/:application_id/attachments Parameter                                                                                                |                                                                                                                                                             |
-| `body`                                                                                                                                                      | [Models::Components::PostAtsApplicationsApplicationIdAttachmentsRequestBody](../../models/shared/postatsapplicationsapplicationidattachmentsrequestbody.md) | :heavy_check_mark:                                                                                                                                          | POST /ats/applications/:application_id/attachments Request body                                                                                             |                                                                                                                                                             |
-| `integration_id`                                                                                                                                            | *T.nilable(::String)*                                                                                                                                       | :heavy_minus_sign:                                                                                                                                          | ID of the integration you want to interact with.                                                                                                            | workday:HWUTwvyx2wLoSUHphiWVrp28                                                                                                                            |
+| Parameter                                                                                                                                               | Type                                                                                                                                                    | Required                                                                                                                                                | Description                                                                                                                                             | Example                                                                                                                                                 |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `application_id`                                                                                                                                        | *::String*                                                                                                                                              | :heavy_check_mark:                                                                                                                                      | POST /ats/applications/:application_id/attachments Parameter                                                                                            |                                                                                                                                                         |
+| `body`                                                                                                                                                  | [Models::Shared::PostAtsApplicationsApplicationIdAttachmentsRequestBody](../../models/shared/postatsapplicationsapplicationidattachmentsrequestbody.md) | :heavy_check_mark:                                                                                                                                      | POST /ats/applications/:application_id/attachments Request body                                                                                         |                                                                                                                                                         |
+| `integration_id`                                                                                                                                        | *T.nilable(::String)*                                                                                                                                   | :heavy_minus_sign:                                                                                                                                      | ID of the integration you want to interact with.                                                                                                        | workday:HWUTwvyx2wLoSUHphiWVrp28                                                                                                                        |
 
 ### Response
 
@@ -443,15 +455,17 @@ Rejects an application with a provided reason. Optionally, you can provide a fre
 
 <!-- UsageSnippet language="ruby" operationID="PostAtsApplicationsApplicationIdReject" method="post" path="/ats/applications/{application_id}/reject" -->
 ```ruby
-require 'openapi'
+require 'kombo'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
-      api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
     )
 
-res = s.ats.reject_application(application_id: 'GRKdd9dibYKKCrmGRSMJf3wu', body: Models::Components::PostAtsApplicationsApplicationIdRejectRequestBody.new(
+res = s.ats.reject_application(application_id: 'GRKdd9dibYKKCrmGRSMJf3wu', body: Models::Shared::PostAtsApplicationsApplicationIdRejectRequestBody.new(
   rejection_reason_id: '3PJ8PZhZZa1eEdd2DtPNtVup',
   note: 'Candidate was a great culture fit but didn\'t bring the hard skills we need.',
 ))
@@ -464,11 +478,11 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                                         | Type                                                                                                                                              | Required                                                                                                                                          | Description                                                                                                                                       | Example                                                                                                                                           |
-| ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `application_id`                                                                                                                                  | *::String*                                                                                                                                        | :heavy_check_mark:                                                                                                                                | The Kombo ID of the application you want to reject.                                                                                               |                                                                                                                                                   |
-| `body`                                                                                                                                            | [Models::Components::PostAtsApplicationsApplicationIdRejectRequestBody](../../models/shared/postatsapplicationsapplicationidrejectrequestbody.md) | :heavy_check_mark:                                                                                                                                | POST /ats/applications/:application_id/reject Request body                                                                                        |                                                                                                                                                   |
-| `integration_id`                                                                                                                                  | *T.nilable(::String)*                                                                                                                             | :heavy_minus_sign:                                                                                                                                | ID of the integration you want to interact with.                                                                                                  | workday:HWUTwvyx2wLoSUHphiWVrp28                                                                                                                  |
+| Parameter                                                                                                                                     | Type                                                                                                                                          | Required                                                                                                                                      | Description                                                                                                                                   | Example                                                                                                                                       |
+| --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| `application_id`                                                                                                                              | *::String*                                                                                                                                    | :heavy_check_mark:                                                                                                                            | The Kombo ID of the application you want to reject.                                                                                           |                                                                                                                                               |
+| `body`                                                                                                                                        | [Models::Shared::PostAtsApplicationsApplicationIdRejectRequestBody](../../models/shared/postatsapplicationsapplicationidrejectrequestbody.md) | :heavy_check_mark:                                                                                                                            | POST /ats/applications/:application_id/reject Request body                                                                                    |                                                                                                                                               |
+| `integration_id`                                                                                                                              | *T.nilable(::String)*                                                                                                                         | :heavy_minus_sign:                                                                                                                            | ID of the integration you want to interact with.                                                                                              | workday:HWUTwvyx2wLoSUHphiWVrp28                                                                                                              |
 
 ### Response
 
@@ -491,12 +505,14 @@ Top level filters use AND, while individual filters use OR if they accept multip
 
 <!-- UsageSnippet language="ruby" operationID="GetAtsCandidates" method="get" path="/ats/candidates" -->
 ```ruby
-require 'openapi'
+require 'kombo'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
-      api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
     )
 
 res = s.ats.get_candidates(page_size: 100, include_deleted: false, ignore_unsupported_filters: false)
@@ -616,52 +632,54 @@ Create a new candidate and application for the specified job.
 
 <!-- UsageSnippet language="ruby" operationID="PostAtsCandidates" method="post" path="/ats/candidates" -->
 ```ruby
-require 'openapi'
+require 'kombo'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
-      api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
     )
 
-res = s.ats.create_candidate(body: Models::Components::PostAtsCandidatesRequestBody.new(
-  candidate: Models::Components::PostAtsCandidatesRequestBodyCandidate.new(
+res = s.ats.create_candidate(body: Models::Shared::PostAtsCandidatesRequestBody.new(
+  candidate: Models::Shared::PostAtsCandidatesRequestBodyCandidate.new(
     first_name: 'Frank',
     last_name: 'Doe',
     email_address: 'frank.doe@example.com',
     company: 'Acme Inc.',
     title: 'Head of Integrations',
     phone_number: '+1-541-754-3010',
-    location: Models::Components::PostAtsCandidatesRequestBodyLocation.new(
+    location: Models::Shared::PostAtsCandidatesRequestBodyLocation.new(
       city: 'New York',
       country: 'US',
       state: 'NY',
     ),
-    gender: Models::Components::PostAtsCandidatesRequestBodyGender::MALE,
+    gender: Models::Shared::PostAtsCandidatesRequestBodyGender::MALE,
     availability_date: DateTime.iso8601('2021-01-01T00:00:00Z'),
-    salary_expectations: Models::Components::PostAtsCandidatesRequestBodySalaryExpectations.new(
-      period: Models::Components::PostAtsCandidatesRequestBodyPeriod::YEAR,
+    salary_expectations: Models::Shared::PostAtsCandidatesRequestBodySalaryExpectations.new(
+      period: Models::Shared::PostAtsCandidatesRequestBodyPeriod::YEAR,
       amount: 100_000.0,
     ),
     social_links: [
-      Models::Components::PostAtsCandidatesRequestBodySocialLink.new(
+      Models::Shared::PostAtsCandidatesRequestBodySocialLink.new(
         url: 'https://www.linkedin.com/in/frank-doe-123456789/',
       ),
-      Models::Components::PostAtsCandidatesRequestBodySocialLink.new(
+      Models::Shared::PostAtsCandidatesRequestBodySocialLink.new(
         url: 'https://twitter.com/frankdoe',
       ),
     ],
   ),
-  application: Models::Components::PostAtsCandidatesRequestBodyApplication.new(
+  application: Models::Shared::PostAtsCandidatesRequestBodyApplication.new(
     job_id: 'BDpgnpZ148nrGh4mYHNxJBgx',
     stage_id: '8x3YKRDcuRnwShdh96ShBNn1',
   ),
   screening_question_answers: [
-    Models::Components::PostAtsCandidatesRequestBodyScreeningQuestionAnswer.new(
+    Models::Shared::PostAtsCandidatesRequestBodyScreeningQuestionAnswer.new(
       question_id: '3phFBNXRweGnDmsU9o2vdPuQ',
       answer: 'Yes',
     ),
-    Models::Components::PostAtsCandidatesRequestBodyScreeningQuestionAnswer.new(
+    Models::Shared::PostAtsCandidatesRequestBodyScreeningQuestionAnswer.new(
       question_id: 'EYJjhMQT3LtVKXnTbnRT8s6U',
       answer: [
         'GUzE666zfyjeoCJX6A8n7wh6',
@@ -671,11 +689,11 @@ res = s.ats.create_candidate(body: Models::Components::PostAtsCandidatesRequestB
     ),
   ],
   attachments: [
-    Models::Components::PostAtsCandidatesRequestBodyAttachment.new(
+    Models::Shared::PostAtsCandidatesRequestBodyAttachment.new(
       name: 'Frank Doe CV.txt',
       content_type: 'text/plain',
       data: 'SGkgdGhlcmUsIEtvbWJvIGlzIGN1cnJlbnRseSBoaXJpbmcgZW5naW5lZXJzIHRoYXQgbG92ZSB0byB3b3JrIG9uIGRldmVsb3BlciBwcm9kdWN0cy4=',
-      type: Models::Components::PostAtsCandidatesRequestBodyAttachmentType::CV,
+      type: Models::Shared::PostAtsCandidatesRequestBodyAttachmentType::CV,
     ),
   ],
 ))
@@ -688,10 +706,10 @@ end
 
 ### Parameters
 
-| Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             | Example                                                                                                 |
-| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| `body`                                                                                                  | [Models::Components::PostAtsCandidatesRequestBody](../../models/shared/postatscandidatesrequestbody.md) | :heavy_check_mark:                                                                                      | POST /ats/candidates Request body                                                                       |                                                                                                         |
-| `integration_id`                                                                                        | *T.nilable(::String)*                                                                                   | :heavy_minus_sign:                                                                                      | ID of the integration you want to interact with.                                                        | workday:HWUTwvyx2wLoSUHphiWVrp28                                                                        |
+| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         | Example                                                                                             |
+| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `body`                                                                                              | [Models::Shared::PostAtsCandidatesRequestBody](../../models/shared/postatscandidatesrequestbody.md) | :heavy_check_mark:                                                                                  | POST /ats/candidates Request body                                                                   |                                                                                                     |
+| `integration_id`                                                                                    | *T.nilable(::String)*                                                                               | :heavy_minus_sign:                                                                                  | ID of the integration you want to interact with.                                                    | workday:HWUTwvyx2wLoSUHphiWVrp28                                                                    |
 
 ### Response
 
@@ -716,12 +734,14 @@ Get attachments from a candidate, including all attachments of all of their appl
 
 <!-- UsageSnippet language="ruby" operationID="GetAtsCandidatesCandidateIdAttachments" method="get" path="/ats/candidates/{candidate_id}/attachments" -->
 ```ruby
-require 'openapi'
+require 'kombo'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
-      api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
     )
 
 res = s.ats.get_candidate_attachments(candidate_id: '8Xi6iZrwusZqJmDGXs49GBmJ')
@@ -782,20 +802,22 @@ Uploads an attachment file for the specified candidate.
 
 <!-- UsageSnippet language="ruby" operationID="PostAtsCandidatesCandidateIdAttachments" method="post" path="/ats/candidates/{candidate_id}/attachments" -->
 ```ruby
-require 'openapi'
+require 'kombo'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
-      api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
     )
 
-res = s.ats.add_candidate_attachment(candidate_id: 'GRKdd9dibYKKCrmGRSMJf3wu', body: Models::Components::PostAtsCandidatesCandidateIdAttachmentsRequestBody.new(
-  attachment: Models::Components::PostAtsCandidatesCandidateIdAttachmentsRequestBodyAttachment.new(
+res = s.ats.add_candidate_attachment(candidate_id: 'GRKdd9dibYKKCrmGRSMJf3wu', body: Models::Shared::PostAtsCandidatesCandidateIdAttachmentsRequestBody.new(
+  attachment: Models::Shared::PostAtsCandidatesCandidateIdAttachmentsRequestBodyAttachment.new(
     name: 'Frank Doe CV.txt',
     content_type: 'text/plain',
     data: 'SGkgdGhlcmUsIEtvbWJvIGlzIGN1cnJlbnRseSBoaXJpbmcgZW5naW5lZXJzIHRoYXQgbG92ZSB0byB3b3JrIG9uIGRldmVsb3BlciBwcm9kdWN0cy4=',
-    type: Models::Components::PostAtsCandidatesCandidateIdAttachmentsRequestBodyType::CV,
+    type: Models::Shared::PostAtsCandidatesCandidateIdAttachmentsRequestBodyType::CV,
   ),
 ))
 
@@ -807,11 +829,11 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                                           | Type                                                                                                                                                | Required                                                                                                                                            | Description                                                                                                                                         | Example                                                                                                                                             |
-| --------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `candidate_id`                                                                                                                                      | *::String*                                                                                                                                          | :heavy_check_mark:                                                                                                                                  | The Kombo ID of the candidate you want to add the attachment to.                                                                                    |                                                                                                                                                     |
-| `body`                                                                                                                                              | [Models::Components::PostAtsCandidatesCandidateIdAttachmentsRequestBody](../../models/shared/postatscandidatescandidateidattachmentsrequestbody.md) | :heavy_check_mark:                                                                                                                                  | POST /ats/candidates/:candidate_id/attachments Request body                                                                                         |                                                                                                                                                     |
-| `integration_id`                                                                                                                                    | *T.nilable(::String)*                                                                                                                               | :heavy_minus_sign:                                                                                                                                  | ID of the integration you want to interact with.                                                                                                    | workday:HWUTwvyx2wLoSUHphiWVrp28                                                                                                                    |
+| Parameter                                                                                                                                       | Type                                                                                                                                            | Required                                                                                                                                        | Description                                                                                                                                     | Example                                                                                                                                         |
+| ----------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| `candidate_id`                                                                                                                                  | *::String*                                                                                                                                      | :heavy_check_mark:                                                                                                                              | The Kombo ID of the candidate you want to add the attachment to.                                                                                |                                                                                                                                                 |
+| `body`                                                                                                                                          | [Models::Shared::PostAtsCandidatesCandidateIdAttachmentsRequestBody](../../models/shared/postatscandidatescandidateidattachmentsrequestbody.md) | :heavy_check_mark:                                                                                                                              | POST /ats/candidates/:candidate_id/attachments Request body                                                                                     |                                                                                                                                                 |
+| `integration_id`                                                                                                                                | *T.nilable(::String)*                                                                                                                           | :heavy_minus_sign:                                                                                                                              | ID of the integration you want to interact with.                                                                                                | workday:HWUTwvyx2wLoSUHphiWVrp28                                                                                                                |
 
 ### Response
 
@@ -867,25 +889,27 @@ Add a result link to a candidate.
 
 <!-- UsageSnippet language="ruby" operationID="PostAtsCandidatesCandidateIdResultLinks" method="post" path="/ats/candidates/{candidate_id}/result-links" -->
 ```ruby
-require 'openapi'
+require 'kombo'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
-      api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
     )
 
-res = s.ats.add_candidate_result_link(candidate_id: '8Xi6iZrwusZqJmDGXs49GBmJ', body: Models::Components::PostAtsCandidatesCandidateIdResultLinksRequestBody.new(
+res = s.ats.add_candidate_result_link(candidate_id: '8Xi6iZrwusZqJmDGXs49GBmJ', body: Models::Shared::PostAtsCandidatesCandidateIdResultLinksRequestBody.new(
   label: 'Assessment Result',
   url: 'https://example.com/test-results/5BtP1WC1UboS7CF3yxjKcvjG',
-  details: Models::Components::PostAtsCandidatesCandidateIdResultLinksRequestBodyDetails.new(
+  details: Models::Shared::PostAtsCandidatesCandidateIdResultLinksRequestBodyDetails.new(
     custom_field_name_prefix: 'Acme:',
     attributes: [
-      Models::Components::PostAtsCandidatesCandidateIdResultLinksRequestBodyAttribute.new(
+      Models::Shared::PostAtsCandidatesCandidateIdResultLinksRequestBodyAttribute.new(
         key: 'Score',
         value: '100%',
       ),
-      Models::Components::PostAtsCandidatesCandidateIdResultLinksRequestBodyAttribute.new(
+      Models::Shared::PostAtsCandidatesCandidateIdResultLinksRequestBodyAttribute.new(
         key: 'Time',
         value: '2:30h',
       ),
@@ -901,11 +925,11 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                                           | Type                                                                                                                                                | Required                                                                                                                                            | Description                                                                                                                                         | Example                                                                                                                                             |
-| --------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `candidate_id`                                                                                                                                      | *::String*                                                                                                                                          | :heavy_check_mark:                                                                                                                                  | The Kombo ID of the candidate you want to add the result link to.                                                                                   |                                                                                                                                                     |
-| `body`                                                                                                                                              | [Models::Components::PostAtsCandidatesCandidateIdResultLinksRequestBody](../../models/shared/postatscandidatescandidateidresultlinksrequestbody.md) | :heavy_check_mark:                                                                                                                                  | POST /ats/candidates/:candidate_id/result-links Request body                                                                                        |                                                                                                                                                     |
-| `integration_id`                                                                                                                                    | *T.nilable(::String)*                                                                                                                               | :heavy_minus_sign:                                                                                                                                  | ID of the integration you want to interact with.                                                                                                    | workday:HWUTwvyx2wLoSUHphiWVrp28                                                                                                                    |
+| Parameter                                                                                                                                       | Type                                                                                                                                            | Required                                                                                                                                        | Description                                                                                                                                     | Example                                                                                                                                         |
+| ----------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| `candidate_id`                                                                                                                                  | *::String*                                                                                                                                      | :heavy_check_mark:                                                                                                                              | The Kombo ID of the candidate you want to add the result link to.                                                                               |                                                                                                                                                 |
+| `body`                                                                                                                                          | [Models::Shared::PostAtsCandidatesCandidateIdResultLinksRequestBody](../../models/shared/postatscandidatescandidateidresultlinksrequestbody.md) | :heavy_check_mark:                                                                                                                              | POST /ats/candidates/:candidate_id/result-links Request body                                                                                    |                                                                                                                                                 |
+| `integration_id`                                                                                                                                | *T.nilable(::String)*                                                                                                                           | :heavy_minus_sign:                                                                                                                              | ID of the integration you want to interact with.                                                                                                | workday:HWUTwvyx2wLoSUHphiWVrp28                                                                                                                |
 
 ### Response
 
@@ -942,16 +966,18 @@ Kombo takes care of creating the tag if required, finding out the right ID, and 
 
 <!-- UsageSnippet language="ruby" operationID="PostAtsCandidatesCandidateIdTags" method="post" path="/ats/candidates/{candidate_id}/tags" -->
 ```ruby
-require 'openapi'
+require 'kombo'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
-      api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
     )
 
-res = s.ats.add_candidate_tag(candidate_id: '8Xi6iZrwusZqJmDGXs49GBmJ', body: Models::Components::PostAtsCandidatesCandidateIdTagsRequestBody.new(
-  tag: Models::Components::PostAtsCandidatesCandidateIdTagsRequestBodyTag.new(
+res = s.ats.add_candidate_tag(candidate_id: '8Xi6iZrwusZqJmDGXs49GBmJ', body: Models::Shared::PostAtsCandidatesCandidateIdTagsRequestBody.new(
+  tag: Models::Shared::PostAtsCandidatesCandidateIdTagsRequestBodyTag.new(
     name: 'Excellent Fit',
   ),
 ))
@@ -964,11 +990,11 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                             | Type                                                                                                                                  | Required                                                                                                                              | Description                                                                                                                           | Example                                                                                                                               |
-| ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| `candidate_id`                                                                                                                        | *::String*                                                                                                                            | :heavy_check_mark:                                                                                                                    | The Kombo ID of the candidate you want to add the tag to.                                                                             |                                                                                                                                       |
-| `body`                                                                                                                                | [Models::Components::PostAtsCandidatesCandidateIdTagsRequestBody](../../models/shared/postatscandidatescandidateidtagsrequestbody.md) | :heavy_check_mark:                                                                                                                    | POST /ats/candidates/:candidate_id/tags Request body                                                                                  |                                                                                                                                       |
-| `integration_id`                                                                                                                      | *T.nilable(::String)*                                                                                                                 | :heavy_minus_sign:                                                                                                                    | ID of the integration you want to interact with.                                                                                      | workday:HWUTwvyx2wLoSUHphiWVrp28                                                                                                      |
+| Parameter                                                                                                                         | Type                                                                                                                              | Required                                                                                                                          | Description                                                                                                                       | Example                                                                                                                           |
+| --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| `candidate_id`                                                                                                                    | *::String*                                                                                                                        | :heavy_check_mark:                                                                                                                | The Kombo ID of the candidate you want to add the tag to.                                                                         |                                                                                                                                   |
+| `body`                                                                                                                            | [Models::Shared::PostAtsCandidatesCandidateIdTagsRequestBody](../../models/shared/postatscandidatescandidateidtagsrequestbody.md) | :heavy_check_mark:                                                                                                                | POST /ats/candidates/:candidate_id/tags Request body                                                                              |                                                                                                                                   |
+| `integration_id`                                                                                                                  | *T.nilable(::String)*                                                                                                             | :heavy_minus_sign:                                                                                                                | ID of the integration you want to interact with.                                                                                  | workday:HWUTwvyx2wLoSUHphiWVrp28                                                                                                  |
 
 ### Response
 
@@ -1005,16 +1031,18 @@ This will also succeed if the tag does not exist on the candidate.
 
 <!-- UsageSnippet language="ruby" operationID="DeleteAtsCandidatesCandidateIdTags" method="delete" path="/ats/candidates/{candidate_id}/tags" -->
 ```ruby
-require 'openapi'
+require 'kombo'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
-      api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
     )
 
-res = s.ats.remove_candidate_tag(candidate_id: '8Xi6iZrwusZqJmDGXs49GBmJ', body: Models::Components::DeleteAtsCandidatesCandidateIdTagsRequestBody.new(
-  tag: Models::Components::DeleteAtsCandidatesCandidateIdTagsRequestBodyTag.new(
+res = s.ats.remove_candidate_tag(candidate_id: '8Xi6iZrwusZqJmDGXs49GBmJ', body: Models::Shared::DeleteAtsCandidatesCandidateIdTagsRequestBody.new(
+  tag: Models::Shared::DeleteAtsCandidatesCandidateIdTagsRequestBodyTag.new(
     name: 'Excellent Fit',
   ),
 ))
@@ -1027,11 +1055,11 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                                 | Type                                                                                                                                      | Required                                                                                                                                  | Description                                                                                                                               | Example                                                                                                                                   |
-| ----------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| `candidate_id`                                                                                                                            | *::String*                                                                                                                                | :heavy_check_mark:                                                                                                                        | The Kombo ID of the candidate you want to remove the tag from.                                                                            |                                                                                                                                           |
-| `body`                                                                                                                                    | [Models::Components::DeleteAtsCandidatesCandidateIdTagsRequestBody](../../models/shared/deleteatscandidatescandidateidtagsrequestbody.md) | :heavy_check_mark:                                                                                                                        | DELETE /ats/candidates/:candidate_id/tags Request body                                                                                    |                                                                                                                                           |
-| `integration_id`                                                                                                                          | *T.nilable(::String)*                                                                                                                     | :heavy_minus_sign:                                                                                                                        | ID of the integration you want to interact with.                                                                                          | workday:HWUTwvyx2wLoSUHphiWVrp28                                                                                                          |
+| Parameter                                                                                                                             | Type                                                                                                                                  | Required                                                                                                                              | Description                                                                                                                           | Example                                                                                                                               |
+| ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| `candidate_id`                                                                                                                        | *::String*                                                                                                                            | :heavy_check_mark:                                                                                                                    | The Kombo ID of the candidate you want to remove the tag from.                                                                        |                                                                                                                                       |
+| `body`                                                                                                                                | [Models::Shared::DeleteAtsCandidatesCandidateIdTagsRequestBody](../../models/shared/deleteatscandidatescandidateidtagsrequestbody.md) | :heavy_check_mark:                                                                                                                    | DELETE /ats/candidates/:candidate_id/tags Request body                                                                                |                                                                                                                                       |
+| `integration_id`                                                                                                                      | *T.nilable(::String)*                                                                                                                 | :heavy_minus_sign:                                                                                                                    | ID of the integration you want to interact with.                                                                                      | workday:HWUTwvyx2wLoSUHphiWVrp28                                                                                                      |
 
 ### Response
 
@@ -1054,12 +1082,14 @@ Top level filters use AND, while individual filters use OR if they accept multip
 
 <!-- UsageSnippet language="ruby" operationID="GetAtsTags" method="get" path="/ats/tags" -->
 ```ruby
-require 'openapi'
+require 'kombo'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
-      api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
     )
 
 res = s.ats.get_tags(page_size: 100, include_deleted: false, ignore_unsupported_filters: false)
@@ -1114,12 +1144,14 @@ Top level filters use AND, while individual filters use OR if they accept multip
 
 <!-- UsageSnippet language="ruby" operationID="GetAtsApplicationStages" method="get" path="/ats/application-stages" -->
 ```ruby
-require 'openapi'
+require 'kombo'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
-      api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
     )
 
 res = s.ats.get_application_stages(page_size: 100, include_deleted: false, ignore_unsupported_filters: false)
@@ -1172,12 +1204,14 @@ Top level filters use AND, while individual filters use OR if they accept multip
 
 <!-- UsageSnippet language="ruby" operationID="GetAtsJobs" method="get" path="/ats/jobs" -->
 ```ruby
-require 'openapi'
+require 'kombo'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
-      api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
     )
 
 res = s.ats.get_jobs(page_size: 100, include_deleted: false, ignore_unsupported_filters: false)
@@ -1288,48 +1322,50 @@ Visit our in-depth guides to learn more about:
 
 <!-- UsageSnippet language="ruby" operationID="PostAtsJobsJobIdApplications" method="post" path="/ats/jobs/{job_id}/applications" -->
 ```ruby
-require 'openapi'
+require 'kombo'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
-      api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
     )
 
-res = s.ats.create_application(job_id: 'BDpgnpZ148nrGh4mYHNxJBgx', body: Models::Components::PostAtsJobsJobIdApplicationsRequestBody.new(
+res = s.ats.create_application(job_id: 'BDpgnpZ148nrGh4mYHNxJBgx', body: Models::Shared::PostAtsJobsJobIdApplicationsRequestBody.new(
   stage_id: '8x3YKRDcuRnwShdh96ShBNn1',
-  candidate: Models::Components::PostAtsJobsJobIdApplicationsRequestBodyCandidate.new(
+  candidate: Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyCandidate.new(
     first_name: 'Frank',
     last_name: 'Doe',
     email_address: 'frank.doe@example.com',
     company: 'Acme Inc.',
     title: 'Head of Integrations',
     phone_number: '+1-541-754-3010',
-    location: Models::Components::PostAtsJobsJobIdApplicationsRequestBodyLocation.new(
+    location: Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyLocation.new(
       city: 'New York',
       country: 'US',
     ),
-    gender: Models::Components::PostAtsJobsJobIdApplicationsRequestBodyGender::MALE,
+    gender: Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyGender::MALE,
     availability_date: DateTime.iso8601('2021-01-01T00:00:00Z'),
-    salary_expectations: Models::Components::PostAtsJobsJobIdApplicationsRequestBodySalaryExpectations.new(
-      period: Models::Components::PostAtsJobsJobIdApplicationsRequestBodyPeriod::YEAR,
+    salary_expectations: Models::Shared::PostAtsJobsJobIdApplicationsRequestBodySalaryExpectations.new(
+      period: Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyPeriod::YEAR,
       amount: 100_000.0,
     ),
   ),
   attachments: [
-    Models::Components::PostAtsJobsJobIdApplicationsRequestBodyAttachment.new(
+    Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyAttachment.new(
       name: 'Frank Doe CV.txt',
       content_type: 'text/plain',
       data: 'SGkgdGhlcmUsIEtvbWJvIGlzIGN1cnJlbnRseSBoaXJpbmcgZW5naW5lZXJzIHRoYXQgbG92ZSB0byB3b3JrIG9uIGRldmVsb3BlciBwcm9kdWN0cy4=',
-      type: Models::Components::PostAtsJobsJobIdApplicationsRequestBodyAttachmentType::CV,
+      type: Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyAttachmentType::CV,
     ),
   ],
   screening_question_answers: [
-    Models::Components::PostAtsJobsJobIdApplicationsRequestBodyScreeningQuestionAnswer.new(
+    Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyScreeningQuestionAnswer.new(
       question_id: '3phFBNXRweGnDmsU9o2vdPuQ',
       answer: 'Yes',
     ),
-    Models::Components::PostAtsJobsJobIdApplicationsRequestBodyScreeningQuestionAnswer.new(
+    Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyScreeningQuestionAnswer.new(
       question_id: 'EYJjhMQT3LtVKXnTbnRT8s6U',
       answer: [
         'GUzE666zfyjeoCJX6A8n7wh6',
@@ -1351,7 +1387,7 @@ end
 | Parameter                                                                                                                                                                                                                                 | Type                                                                                                                                                                                                                                      | Required                                                                                                                                                                                                                                  | Description                                                                                                                                                                                                                               | Example                                                                                                                                                                                                                                   |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `job_id`                                                                                                                                                                                                                                  | *::String*                                                                                                                                                                                                                                | :heavy_check_mark:                                                                                                                                                                                                                        | The Kombo ID or Remote ID of the Job this candidate should apply for. If you want to use the ID of the integrated system (remote_id) you need to prefix the id with "remote:". You can use the remote ID if you do not want to sync jobs. |                                                                                                                                                                                                                                           |
-| `body`                                                                                                                                                                                                                                    | [Models::Components::PostAtsJobsJobIdApplicationsRequestBody](../../models/shared/postatsjobsjobidapplicationsrequestbody.md)                                                                                                             | :heavy_check_mark:                                                                                                                                                                                                                        | POST /ats/jobs/:job_id/applications Request body                                                                                                                                                                                          |                                                                                                                                                                                                                                           |
+| `body`                                                                                                                                                                                                                                    | [Models::Shared::PostAtsJobsJobIdApplicationsRequestBody](../../models/shared/postatsjobsjobidapplicationsrequestbody.md)                                                                                                                 | :heavy_check_mark:                                                                                                                                                                                                                        | POST /ats/jobs/:job_id/applications Request body                                                                                                                                                                                          |                                                                                                                                                                                                                                           |
 | `integration_id`                                                                                                                                                                                                                          | *T.nilable(::String)*                                                                                                                                                                                                                     | :heavy_minus_sign:                                                                                                                                                                                                                        | ID of the integration you want to interact with.                                                                                                                                                                                          | workday:HWUTwvyx2wLoSUHphiWVrp28                                                                                                                                                                                                          |
 
 ### Response
@@ -1375,12 +1411,14 @@ Top level filters use AND, while individual filters use OR if they accept multip
 
 <!-- UsageSnippet language="ruby" operationID="GetAtsUsers" method="get" path="/ats/users" -->
 ```ruby
-require 'openapi'
+require 'kombo'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
-      api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
     )
 
 res = s.ats.get_users(page_size: 100, include_deleted: false, ignore_unsupported_filters: false)
@@ -1426,12 +1464,14 @@ Top level filters use AND, while individual filters use OR if they accept multip
 
 <!-- UsageSnippet language="ruby" operationID="GetAtsOffers" method="get" path="/ats/offers" -->
 ```ruby
-require 'openapi'
+require 'kombo'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
-      api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
     )
 
 res = s.ats.get_offers(page_size: 100, include_deleted: false, ignore_unsupported_filters: false)
@@ -1478,12 +1518,14 @@ Top level filters use AND, while individual filters use OR if they accept multip
 
 <!-- UsageSnippet language="ruby" operationID="GetAtsRejectionReasons" method="get" path="/ats/rejection-reasons" -->
 ```ruby
-require 'openapi'
+require 'kombo'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
-      api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
     )
 
 res = s.ats.get_rejection_reasons(page_size: 100, include_deleted: false, ignore_unsupported_filters: false)
@@ -1528,12 +1570,14 @@ Top level filters use AND, while individual filters use OR if they accept multip
 
 <!-- UsageSnippet language="ruby" operationID="GetAtsInterviews" method="get" path="/ats/interviews" -->
 ```ruby
-require 'openapi'
+require 'kombo'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
-      api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
     )
 
 res = s.ats.get_interviews(page_size: 100, include_deleted: false, ignore_unsupported_filters: false)
@@ -1595,16 +1639,18 @@ Once imported, Kombo will automatically fetch and update the application's compl
 
 <!-- UsageSnippet language="ruby" operationID="PostAtsImportTrackedApplication" method="post" path="/ats/import-tracked-application" -->
 ```ruby
-require 'openapi'
+require 'kombo'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
-      api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
     )
 
-res = s.ats.import_tracked_application(body: Models::Components::PostAtsImportTrackedApplicationRequestBody.new(
-  successfactors: Models::Components::PostAtsImportTrackedApplicationRequestBodySuccessfactorsApplicationRemoteID.new(
+res = s.ats.import_tracked_application(body: Models::Shared::PostAtsImportTrackedApplicationRequestBody.new(
+  successfactors: Models::Shared::PostAtsImportTrackedApplicationRequestBodySuccessfactorsApplicationRemoteID.new(
     id_type: 'application_remote_id',
     application_remote_id: '1224042',
   ),
@@ -1619,10 +1665,10 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                           | Type                                                                                                                                | Required                                                                                                                            | Description                                                                                                                         | Example                                                                                                                             |
-| ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| `body`                                                                                                                              | [Models::Components::PostAtsImportTrackedApplicationRequestBody](../../models/shared/postatsimporttrackedapplicationrequestbody.md) | :heavy_check_mark:                                                                                                                  | POST /ats/import-tracked-application Request body                                                                                   |                                                                                                                                     |
-| `integration_id`                                                                                                                    | *T.nilable(::String)*                                                                                                               | :heavy_minus_sign:                                                                                                                  | ID of the integration you want to interact with.                                                                                    | workday:HWUTwvyx2wLoSUHphiWVrp28                                                                                                    |
+| Parameter                                                                                                                       | Type                                                                                                                            | Required                                                                                                                        | Description                                                                                                                     | Example                                                                                                                         |
+| ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| `body`                                                                                                                          | [Models::Shared::PostAtsImportTrackedApplicationRequestBody](../../models/shared/postatsimporttrackedapplicationrequestbody.md) | :heavy_check_mark:                                                                                                              | POST /ats/import-tracked-application Request body                                                                               |                                                                                                                                 |
+| `integration_id`                                                                                                                | *T.nilable(::String)*                                                                                                           | :heavy_minus_sign:                                                                                                              | ID of the integration you want to interact with.                                                                                | workday:HWUTwvyx2wLoSUHphiWVrp28                                                                                                |
 
 ### Response
 

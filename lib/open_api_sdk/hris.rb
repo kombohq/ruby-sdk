@@ -144,7 +144,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Components::GetHrisEmployeesPositiveResponse)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::GetHrisEmployeesPositiveResponse)
           response = Models::Operations::GetHrisEmployeesResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -368,7 +368,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Components::GetHrisEmployeesFormPositiveResponse)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::GetHrisEmployeesFormPositiveResponse)
           response = Models::Operations::GetHrisEmployeesFormResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -399,7 +399,7 @@ module OpenApiSDK
     end
 
 
-    sig { params(body: Models::Components::PostHrisEmployeesFormRequestBody, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::PostHrisEmployeesFormResponse) }
+    sig { params(body: Models::Shared::PostHrisEmployeesFormRequestBody, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::PostHrisEmployeesFormResponse) }
     def create_employee_with_form(body:, integration_id: nil, timeout_ms: nil)
       # create_employee_with_form - Create employee with form
       # Create an employee, based on the form schema.
@@ -519,7 +519,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Components::PostHrisEmployeesFormPositiveResponse)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::PostHrisEmployeesFormPositiveResponse)
           response = Models::Operations::PostHrisEmployeesFormResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -550,7 +550,7 @@ module OpenApiSDK
     end
 
 
-    sig { params(body: Models::Components::PostHrisEmployeesEmployeeIdDocumentsRequestBody, employee_id: ::String, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::PostHrisEmployeesEmployeeIdDocumentsResponse) }
+    sig { params(body: Models::Shared::PostHrisEmployeesEmployeeIdDocumentsRequestBody, employee_id: ::String, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::PostHrisEmployeesEmployeeIdDocumentsResponse) }
     def add_employee_document(body:, employee_id:, integration_id: nil, timeout_ms: nil)
       # add_employee_document - Add document to employee
       # Uploads an document file for the specified employee.
@@ -671,7 +671,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Components::PostHrisEmployeesEmployeeIdDocumentsPositiveResponse)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::PostHrisEmployeesEmployeeIdDocumentsPositiveResponse)
           response = Models::Operations::PostHrisEmployeesEmployeeIdDocumentsResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -797,7 +797,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Components::GetHrisEmployeeDocumentCategoriesPositiveResponse)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::GetHrisEmployeeDocumentCategoriesPositiveResponse)
           response = Models::Operations::GetHrisEmployeeDocumentCategoriesResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -950,7 +950,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Components::GetHrisGroupsPositiveResponse)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::GetHrisGroupsPositiveResponse)
           response = Models::Operations::GetHrisGroupsResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -1103,7 +1103,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Components::GetHrisEmploymentsPositiveResponse)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::GetHrisEmploymentsPositiveResponse)
           response = Models::Operations::GetHrisEmploymentsResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -1255,7 +1255,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Components::GetHrisLocationsPositiveResponse)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::GetHrisLocationsPositiveResponse)
           response = Models::Operations::GetHrisLocationsResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -1407,7 +1407,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Components::GetHrisAbsenceTypesPositiveResponse)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::GetHrisAbsenceTypesPositiveResponse)
           response = Models::Operations::GetHrisAbsenceTypesResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -1559,7 +1559,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Components::GetHrisTimeOffBalancesPositiveResponse)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::GetHrisTimeOffBalancesPositiveResponse)
           response = Models::Operations::GetHrisTimeOffBalancesResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -1715,7 +1715,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Components::GetHrisAbsencesPositiveResponse)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::GetHrisAbsencesPositiveResponse)
           response = Models::Operations::GetHrisAbsencesResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -1775,7 +1775,7 @@ module OpenApiSDK
     end
 
 
-    sig { params(body: Models::Components::PostHrisAbsencesRequestBody, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::PostHrisAbsencesResponse) }
+    sig { params(body: Models::Shared::PostHrisAbsencesRequestBody, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::PostHrisAbsencesResponse) }
     def create_absence(body:, integration_id: nil, timeout_ms: nil)
       # create_absence - Create absence
       # Create a new absence.
@@ -1894,7 +1894,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Components::PostHrisAbsencesPositiveResponse)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::PostHrisAbsencesPositiveResponse)
           response = Models::Operations::PostHrisAbsencesResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -1925,7 +1925,7 @@ module OpenApiSDK
     end
 
 
-    sig { params(body: Models::Components::DeleteHrisAbsencesAbsenceIdRequestBody, absence_id: ::String, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::DeleteHrisAbsencesAbsenceIdResponse) }
+    sig { params(body: Models::Shared::DeleteHrisAbsencesAbsenceIdRequestBody, absence_id: ::String, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::DeleteHrisAbsencesAbsenceIdResponse) }
     def delete_absence(body:, absence_id:, integration_id: nil, timeout_ms: nil)
       # delete_absence - Delete absence
       # Delete this absence.
@@ -2041,7 +2041,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Components::DeleteHrisAbsencesAbsenceIdPositiveResponse)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::DeleteHrisAbsencesAbsenceIdPositiveResponse)
           response = Models::Operations::DeleteHrisAbsencesAbsenceIdResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -2168,7 +2168,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Components::GetHrisLegalEntitiesPositiveResponse)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::GetHrisLegalEntitiesPositiveResponse)
           response = Models::Operations::GetHrisLegalEntitiesResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -2331,7 +2331,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Components::GetHrisTimesheetsPositiveResponse)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::GetHrisTimesheetsPositiveResponse)
           response = Models::Operations::GetHrisTimesheetsResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -2493,7 +2493,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Components::GetHrisPerformanceReviewCyclesPositiveResponse)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::GetHrisPerformanceReviewCyclesPositiveResponse)
           response = Models::Operations::GetHrisPerformanceReviewCyclesResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -2653,7 +2653,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Components::GetHrisPerformanceReviewsPositiveResponse)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::GetHrisPerformanceReviewsPositiveResponse)
           response = Models::Operations::GetHrisPerformanceReviewsResponse.new(
             status_code: http_response.status,
             content_type: content_type,

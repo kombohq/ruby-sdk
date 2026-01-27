@@ -19,9 +19,9 @@ module OpenApiSDK
         # Raw HTTP response; suitable for custom response parsing
         field :raw_response, ::Faraday::Response
         # PUT /ats/applications/:application_id/stage Positive response
-        field :put_ats_applications_application_id_stage_positive_response, Crystalline::Nilable.new(Models::Components::PutAtsApplicationsApplicationIdStagePositiveResponse)
+        field :put_ats_applications_application_id_stage_positive_response, Crystalline::Nilable.new(Models::Shared::PutAtsApplicationsApplicationIdStagePositiveResponse)
 
-        sig { params(content_type: ::String, status_code: ::Integer, raw_response: ::Faraday::Response, put_ats_applications_application_id_stage_positive_response: T.nilable(Models::Components::PutAtsApplicationsApplicationIdStagePositiveResponse)).void }
+        sig { params(content_type: ::String, status_code: ::Integer, raw_response: ::Faraday::Response, put_ats_applications_application_id_stage_positive_response: T.nilable(Models::Shared::PutAtsApplicationsApplicationIdStagePositiveResponse)).void }
         def initialize(content_type:, status_code:, raw_response:, put_ats_applications_application_id_stage_positive_response: nil)
           @content_type = content_type
           @status_code = status_code
