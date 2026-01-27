@@ -21,9 +21,9 @@ module OpenApiSDK
         # Raw HTTP response; suitable for custom response parsing
         field :raw_response, ::Faraday::Response
         # GET /hris/employee-document-categories Positive response
-        field :get_hris_employee_document_categories_positive_response, Crystalline::Nilable.new(Models::Components::GetHrisEmployeeDocumentCategoriesPositiveResponse)
+        field :get_hris_employee_document_categories_positive_response, Crystalline::Nilable.new(Models::Shared::GetHrisEmployeeDocumentCategoriesPositiveResponse)
 
-        sig { params(content_type: ::String, status_code: ::Integer, raw_response: ::Faraday::Response, get_hris_employee_document_categories_positive_response: T.nilable(Models::Components::GetHrisEmployeeDocumentCategoriesPositiveResponse)).void }
+        sig { params(content_type: ::String, status_code: ::Integer, raw_response: ::Faraday::Response, get_hris_employee_document_categories_positive_response: T.nilable(Models::Shared::GetHrisEmployeeDocumentCategoriesPositiveResponse)).void }
         def initialize(content_type:, status_code:, raw_response:, get_hris_employee_document_categories_positive_response: nil)
           @content_type = content_type
           @status_code = status_code

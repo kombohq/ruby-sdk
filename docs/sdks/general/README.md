@@ -25,11 +25,13 @@ Check whether your API key is working properly.
 
 <!-- UsageSnippet language="ruby" operationID="GetCheckApiKey" method="get" path="/check-api-key" -->
 ```ruby
-require 'openapi'
+require 'kombo'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Kombo.new(
-      api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
     )
 
 res = s.general.check_api_key()
@@ -61,15 +63,17 @@ Trigger a sync for a specific integration.
 
 <!-- UsageSnippet language="ruby" operationID="PostForceSync" method="post" path="/force-sync" -->
 ```ruby
-require 'openapi'
+require 'kombo'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
-      api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
     )
 
-res = s.general.trigger_sync(body: Models::Components::PostForceSyncRequestBody.new())
+res = s.general.trigger_sync(body: Models::Shared::PostForceSyncRequestBody.new())
 
 unless res.post_force_sync_positive_response.nil?
   # handle response
@@ -79,10 +83,10 @@ end
 
 ### Parameters
 
-| Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     | Example                                                                                         |
-| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| `body`                                                                                          | [Models::Components::PostForceSyncRequestBody](../../models/shared/postforcesyncrequestbody.md) | :heavy_check_mark:                                                                              | POST /force-sync Request body                                                                   |                                                                                                 |
-| `integration_id`                                                                                | *T.nilable(::String)*                                                                           | :heavy_minus_sign:                                                                              | ID of the integration you want to interact with.                                                | workday:HWUTwvyx2wLoSUHphiWVrp28                                                                |
+| Parameter                                                                                   | Type                                                                                        | Required                                                                                    | Description                                                                                 | Example                                                                                     |
+| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| `body`                                                                                      | [Models::Shared::PostForceSyncRequestBody](../../models/shared/postforcesyncrequestbody.md) | :heavy_check_mark:                                                                          | POST /force-sync Request body                                                               |                                                                                             |
+| `integration_id`                                                                            | *T.nilable(::String)*                                                                       | :heavy_minus_sign:                                                                          | ID of the integration you want to interact with.                                            | workday:HWUTwvyx2wLoSUHphiWVrp28                                                            |
 
 ### Response
 
@@ -269,16 +273,18 @@ To get started, please pick the relevant API (some tools provide multiple to due
 
 <!-- UsageSnippet language="ruby" operationID="PostPassthroughToolApi" method="post" path="/passthrough/{tool}/{api}" -->
 ```ruby
-require 'openapi'
+require 'kombo'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
-      api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
     )
 
-res = s.general.send_passthrough_request(tool: 'personio', api: 'personnel', body: Models::Components::PostPassthroughToolApiRequestBody.new(
-  method: Models::Components::Method::GET,
+res = s.general.send_passthrough_request(tool: 'personio', api: 'personnel', body: Models::Shared::PostPassthroughToolApiRequestBody.new(
+  method: Models::Shared::Method::GET,
   path: '/company/employees',
 ))
 
@@ -294,7 +300,7 @@ end
 | ---------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
 | `tool`                                                                                                                                         | *::String*                                                                                                                                     | :heavy_check_mark:                                                                                                                             | The ID of the tool whose passthrough API you want to call (e.g., `personio`).                                                                  |                                                                                                                                                |
 | `api`                                                                                                                                          | *::String*                                                                                                                                     | :heavy_check_mark:                                                                                                                             | The ID of the passthrough API you want to call (some tools provide multiple). Check the endpoint description for a list of all available APIs. |                                                                                                                                                |
-| `body`                                                                                                                                         | [Models::Components::PostPassthroughToolApiRequestBody](../../models/shared/postpassthroughtoolapirequestbody.md)                              | :heavy_check_mark:                                                                                                                             | POST /passthrough/:tool/:api Request body                                                                                                      |                                                                                                                                                |
+| `body`                                                                                                                                         | [Models::Shared::PostPassthroughToolApiRequestBody](../../models/shared/postpassthroughtoolapirequestbody.md)                                  | :heavy_check_mark:                                                                                                                             | POST /passthrough/:tool/:api Request body                                                                                                      |                                                                                                                                                |
 | `integration_id`                                                                                                                               | *T.nilable(::String)*                                                                                                                          | :heavy_minus_sign:                                                                                                                             | ID of the integration you want to interact with.                                                                                               | workday:HWUTwvyx2wLoSUHphiWVrp28                                                                                                               |
 
 ### Response
@@ -317,14 +323,16 @@ Delete the specified integration.
 
 <!-- UsageSnippet language="ruby" operationID="DeleteIntegrationsIntegrationId" method="delete" path="/integrations/{integration_id}" -->
 ```ruby
-require 'openapi'
+require 'kombo'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Kombo.new(
-      api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
     )
 
-res = s.general.delete_integration(integration_id: '<id>', body: Models::Components::DeleteIntegrationsIntegrationIdRequestBody.new())
+res = s.general.delete_integration(integration_id: '<id>', body: Models::Shared::DeleteIntegrationsIntegrationIdRequestBody.new())
 
 unless res.delete_integrations_integration_id_positive_response.nil?
   # handle response
@@ -334,10 +342,10 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                           | Type                                                                                                                                | Required                                                                                                                            | Description                                                                                                                         |
-| ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| `integration_id`                                                                                                                    | *::String*                                                                                                                          | :heavy_check_mark:                                                                                                                  | DELETE /integrations/:integration_id Parameter                                                                                      |
-| `body`                                                                                                                              | [Models::Components::DeleteIntegrationsIntegrationIdRequestBody](../../models/shared/deleteintegrationsintegrationidrequestbody.md) | :heavy_check_mark:                                                                                                                  | DELETE /integrations/:integration_id Request body                                                                                   |
+| Parameter                                                                                                                       | Type                                                                                                                            | Required                                                                                                                        | Description                                                                                                                     |
+| ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| `integration_id`                                                                                                                | *::String*                                                                                                                      | :heavy_check_mark:                                                                                                              | DELETE /integrations/:integration_id Parameter                                                                                  |
+| `body`                                                                                                                          | [Models::Shared::DeleteIntegrationsIntegrationIdRequestBody](../../models/shared/deleteintegrationsintegrationidrequestbody.md) | :heavy_check_mark:                                                                                                              | DELETE /integrations/:integration_id Request body                                                                               |
 
 ### Response
 
@@ -358,11 +366,13 @@ Get the specified integration with everything you need to display it to your cus
 
 <!-- UsageSnippet language="ruby" operationID="GetIntegrationsIntegrationId" method="get" path="/integrations/{integration_id}" -->
 ```ruby
-require 'openapi'
+require 'kombo'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Kombo.new(
-      api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
     )
 
 res = s.general.get_integration_details(integration_id: '<id>')
@@ -402,14 +412,16 @@ You may use this to, for example, pause syncing for customers that are temporari
 
 <!-- UsageSnippet language="ruby" operationID="PutIntegrationsIntegrationIdEnabled" method="put" path="/integrations/{integration_id}/enabled" -->
 ```ruby
-require 'openapi'
+require 'kombo'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Kombo.new(
-      api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
     )
 
-res = s.general.set_integration_enabled(integration_id: '<id>', body: Models::Components::PutIntegrationsIntegrationIdEnabledRequestBody.new(
+res = s.general.set_integration_enabled(integration_id: '<id>', body: Models::Shared::PutIntegrationsIntegrationIdEnabledRequestBody.new(
   value: false,
 ))
 
@@ -421,10 +433,10 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                                   | Type                                                                                                                                        | Required                                                                                                                                    | Description                                                                                                                                 |
-| ------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| `integration_id`                                                                                                                            | *::String*                                                                                                                                  | :heavy_check_mark:                                                                                                                          | PUT /integrations/:integration_id/enabled Parameter                                                                                         |
-| `body`                                                                                                                                      | [Models::Components::PutIntegrationsIntegrationIdEnabledRequestBody](../../models/shared/putintegrationsintegrationidenabledrequestbody.md) | :heavy_check_mark:                                                                                                                          | PUT /integrations/:integration_id/enabled Request body                                                                                      |
+| Parameter                                                                                                                               | Type                                                                                                                                    | Required                                                                                                                                | Description                                                                                                                             |
+| --------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| `integration_id`                                                                                                                        | *::String*                                                                                                                              | :heavy_check_mark:                                                                                                                      | PUT /integrations/:integration_id/enabled Parameter                                                                                     |
+| `body`                                                                                                                                  | [Models::Shared::PutIntegrationsIntegrationIdEnabledRequestBody](../../models/shared/putintegrationsintegrationidenabledrequestbody.md) | :heavy_check_mark:                                                                                                                      | PUT /integrations/:integration_id/enabled Request body                                                                                  |
 
 ### Response
 
@@ -457,14 +469,16 @@ Embed this the same way you would [embed the connect link](/connect/embedded-flo
 
 <!-- UsageSnippet language="ruby" operationID="PostIntegrationsIntegrationIdRelink" method="post" path="/integrations/{integration_id}/relink" -->
 ```ruby
-require 'openapi'
+require 'kombo'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Kombo.new(
-      api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
     )
 
-res = s.general.create_reconnection_link(integration_id: 'personio:93fCvorjZ2jas7ZekX1V1n5d', body: Models::Components::PostIntegrationsIntegrationIdRelinkRequestBody.new(
+res = s.general.create_reconnection_link(integration_id: 'personio:93fCvorjZ2jas7ZekX1V1n5d', body: Models::Shared::PostIntegrationsIntegrationIdRelinkRequestBody.new(
   scope_config_id: '9Pv6aCFwNDEzPNmwjSsY9SQx',
 ))
 
@@ -476,10 +490,10 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                                   | Type                                                                                                                                        | Required                                                                                                                                    | Description                                                                                                                                 |
-| ------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| `integration_id`                                                                                                                            | *::String*                                                                                                                                  | :heavy_check_mark:                                                                                                                          | POST /integrations/:integration_id/relink Parameter                                                                                         |
-| `body`                                                                                                                                      | [Models::Components::PostIntegrationsIntegrationIdRelinkRequestBody](../../models/shared/postintegrationsintegrationidrelinkrequestbody.md) | :heavy_check_mark:                                                                                                                          | POST /integrations/:integration_id/relink Request body                                                                                      |
+| Parameter                                                                                                                               | Type                                                                                                                                    | Required                                                                                                                                | Description                                                                                                                             |
+| --------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| `integration_id`                                                                                                                        | *::String*                                                                                                                              | :heavy_check_mark:                                                                                                                      | POST /integrations/:integration_id/relink Parameter                                                                                     |
+| `body`                                                                                                                                  | [Models::Shared::PostIntegrationsIntegrationIdRelinkRequestBody](../../models/shared/postintegrationsintegrationidrelinkrequestbody.md) | :heavy_check_mark:                                                                                                                      | POST /integrations/:integration_id/relink Request body                                                                                  |
 
 ### Response
 
@@ -501,11 +515,13 @@ Get all fields available on the specified integration.
 
 <!-- UsageSnippet language="ruby" operationID="GetIntegrationsIntegrationIdIntegrationFields" method="get" path="/integrations/{integration_id}/integration-fields" -->
 ```ruby
-require 'openapi'
+require 'kombo'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Kombo.new(
-      api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
     )
 
 res = s.general.get_integration_fields(integration_id: '<id>', page_size: 100)
@@ -543,14 +559,16 @@ When enabled, the integration field will be passed as part of the `integration_f
 
 <!-- UsageSnippet language="ruby" operationID="PatchIntegrationsIntegrationIdIntegrationFieldsIntegrationFieldId" method="patch" path="/integrations/{integration_id}/integration-fields/{integration_field_id}" -->
 ```ruby
-require 'openapi'
+require 'kombo'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Kombo.new(
-      api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
     )
 
-res = s.general.update_integration_field(integration_id: 'integration_id', integration_field_id: 'integration_field_id', body: Models::Components::PatchIntegrationsIntegrationIdIntegrationFieldsIntegrationFieldIdRequestBody.new(
+res = s.general.update_integration_field(integration_id: 'integration_id', integration_field_id: 'integration_field_id', body: Models::Shared::PatchIntegrationsIntegrationIdIntegrationFieldsIntegrationFieldIdRequestBody.new(
   enable_passthrough: true,
 ))
 
@@ -562,11 +580,11 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                                                                                               | Type                                                                                                                                                                                                    | Required                                                                                                                                                                                                | Description                                                                                                                                                                                             |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `integration_id`                                                                                                                                                                                        | *::String*                                                                                                                                                                                              | :heavy_check_mark:                                                                                                                                                                                      | PATCH /integrations/:integration_id/integration-fields/:integration_field_id Parameter                                                                                                                  |
-| `integration_field_id`                                                                                                                                                                                  | *::String*                                                                                                                                                                                              | :heavy_check_mark:                                                                                                                                                                                      | PATCH /integrations/:integration_id/integration-fields/:integration_field_id Parameter                                                                                                                  |
-| `body`                                                                                                                                                                                                  | [Models::Components::PatchIntegrationsIntegrationIdIntegrationFieldsIntegrationFieldIdRequestBody](../../models/shared/patchintegrationsintegrationidintegrationfieldsintegrationfieldidrequestbody.md) | :heavy_check_mark:                                                                                                                                                                                      | PATCH /integrations/:integration_id/integration-fields/:integration_field_id Request body                                                                                                               |
+| Parameter                                                                                                                                                                                           | Type                                                                                                                                                                                                | Required                                                                                                                                                                                            | Description                                                                                                                                                                                         |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `integration_id`                                                                                                                                                                                    | *::String*                                                                                                                                                                                          | :heavy_check_mark:                                                                                                                                                                                  | PATCH /integrations/:integration_id/integration-fields/:integration_field_id Parameter                                                                                                              |
+| `integration_field_id`                                                                                                                                                                              | *::String*                                                                                                                                                                                          | :heavy_check_mark:                                                                                                                                                                                  | PATCH /integrations/:integration_id/integration-fields/:integration_field_id Parameter                                                                                                              |
+| `body`                                                                                                                                                                                              | [Models::Shared::PatchIntegrationsIntegrationIdIntegrationFieldsIntegrationFieldIdRequestBody](../../models/shared/patchintegrationsintegrationidintegrationfieldsintegrationfieldidrequestbody.md) | :heavy_check_mark:                                                                                                                                                                                  | PATCH /integrations/:integration_id/integration-fields/:integration_field_id Request body                                                                                                           |
 
 ### Response
 
@@ -588,11 +606,13 @@ Get all custom fields available on the specified integration.
 
 <!-- UsageSnippet language="ruby" operationID="GetIntegrationsIntegrationIdCustomFields" method="get" path="/integrations/{integration_id}/custom-fields" -->
 ```ruby
-require 'openapi'
+require 'kombo'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Kombo.new(
-      api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
     )
 
 res = s.general.get_custom_fields(integration_id: '<id>', page_size: 100)
@@ -630,14 +650,16 @@ Updates the mapping of a given custom field. If the custom field is already mapp
 
 <!-- UsageSnippet language="ruby" operationID="PutIntegrationsIntegrationIdCustomFieldsCustomFieldId" method="put" path="/integrations/{integration_id}/custom-fields/{custom_field_id}" -->
 ```ruby
-require 'openapi'
+require 'kombo'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Kombo.new(
-      api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
     )
 
-res = s.general.update_custom_field_mapping(integration_id: 'integration_id', custom_field_id: 'custom_field_id', body: Models::Components::PutIntegrationsIntegrationIdCustomFieldsCustomFieldIdRequestBody.new(
+res = s.general.update_custom_field_mapping(integration_id: 'integration_id', custom_field_id: 'custom_field_id', body: Models::Shared::PutIntegrationsIntegrationIdCustomFieldsCustomFieldIdRequestBody.new(
   integration_field_id: 'integration_field_id',
 ))
 
@@ -649,11 +671,11 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                                                                       | Type                                                                                                                                                                            | Required                                                                                                                                                                        | Description                                                                                                                                                                     |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `integration_id`                                                                                                                                                                | *::String*                                                                                                                                                                      | :heavy_check_mark:                                                                                                                                                              | The unique ID of the integration where the custom field mapping should be updated                                                                                               |
-| `custom_field_id`                                                                                                                                                               | *::String*                                                                                                                                                                      | :heavy_check_mark:                                                                                                                                                              | The unique ID of the custom field that should be updated                                                                                                                        |
-| `body`                                                                                                                                                                          | [Models::Components::PutIntegrationsIntegrationIdCustomFieldsCustomFieldIdRequestBody](../../models/shared/putintegrationsintegrationidcustomfieldscustomfieldidrequestbody.md) | :heavy_check_mark:                                                                                                                                                              | PUT /integrations/:integration_id/custom-fields/:custom_field_id Request body                                                                                                   |
+| Parameter                                                                                                                                                                   | Type                                                                                                                                                                        | Required                                                                                                                                                                    | Description                                                                                                                                                                 |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `integration_id`                                                                                                                                                            | *::String*                                                                                                                                                                  | :heavy_check_mark:                                                                                                                                                          | The unique ID of the integration where the custom field mapping should be updated                                                                                           |
+| `custom_field_id`                                                                                                                                                           | *::String*                                                                                                                                                                  | :heavy_check_mark:                                                                                                                                                          | The unique ID of the custom field that should be updated                                                                                                                    |
+| `body`                                                                                                                                                                      | [Models::Shared::PutIntegrationsIntegrationIdCustomFieldsCustomFieldIdRequestBody](../../models/shared/putintegrationsintegrationidcustomfieldscustomfieldidrequestbody.md) | :heavy_check_mark:                                                                                                                                                          | PUT /integrations/:integration_id/custom-fields/:custom_field_id Request body                                                                                               |
 
 ### Response
 
@@ -675,14 +697,16 @@ Get a list of the tools (i.e., integrations) enabled in your environment.
 
 <!-- UsageSnippet language="ruby" operationID="GetToolsCategory" method="get" path="/tools/{category}" -->
 ```ruby
-require 'openapi'
+require 'kombo'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Kombo.new(
-      api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
     )
 
-res = s.general.get_tools(category: Models::Components::GetToolsCategoryParameterCategory::ATS)
+res = s.general.get_tools(category: Models::Shared::GetToolsCategoryParameterCategory::ATS)
 
 unless res.get_tools_category_positive_response.nil?
   # handle response
@@ -692,9 +716,9 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                         | Type                                                                                                              | Required                                                                                                          | Description                                                                                                       |
-| ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| `category`                                                                                                        | [Models::Components::GetToolsCategoryParameterCategory](../../models/shared/gettoolscategoryparametercategory.md) | :heavy_check_mark:                                                                                                | GET /tools/:category Parameter                                                                                    |
+| Parameter                                                                                                     | Type                                                                                                          | Required                                                                                                      | Description                                                                                                   |
+| ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| `category`                                                                                                    | [Models::Shared::GetToolsCategoryParameterCategory](../../models/shared/gettoolscategoryparametercategory.md) | :heavy_check_mark:                                                                                            | GET /tools/:category Parameter                                                                                |
 
 ### Response
 

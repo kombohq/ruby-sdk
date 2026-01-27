@@ -15,11 +15,11 @@ module OpenApiSDK
         # The Kombo ID of the application you want to create the note for.
         field :application_id, ::String, { 'path_param': { 'field_name': 'application_id', 'style': 'simple', 'explode': false } }
         # POST /ats/applications/:application_id/notes Request body
-        field :body, Models::Components::PostAtsApplicationsApplicationIdNotesRequestBody, { 'request': { 'media_type': 'application/json' } }
+        field :body, Models::Shared::PostAtsApplicationsApplicationIdNotesRequestBody, { 'request': { 'media_type': 'application/json' } }
         # ID of the integration you want to interact with.
         field :integration_id, Crystalline::Nilable.new(::String), { 'header': { 'field_name': 'X-Integration-Id', 'style': 'simple', 'explode': false } }
 
-        sig { params(application_id: ::String, body: Models::Components::PostAtsApplicationsApplicationIdNotesRequestBody, integration_id: T.nilable(::String)).void }
+        sig { params(application_id: ::String, body: Models::Shared::PostAtsApplicationsApplicationIdNotesRequestBody, integration_id: T.nilable(::String)).void }
         def initialize(application_id:, body:, integration_id: nil)
           @application_id = application_id
           @body = body

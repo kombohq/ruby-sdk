@@ -15,9 +15,9 @@ module OpenApiSDK
         # POST /integrations/:integration_id/relink Parameter
         field :integration_id, ::String, { 'path_param': { 'field_name': 'integration_id', 'style': 'simple', 'explode': false } }
         # POST /integrations/:integration_id/relink Request body
-        field :body, Models::Components::PostIntegrationsIntegrationIdRelinkRequestBody, { 'request': { 'media_type': 'application/json' } }
+        field :body, Models::Shared::PostIntegrationsIntegrationIdRelinkRequestBody, { 'request': { 'media_type': 'application/json' } }
 
-        sig { params(integration_id: ::String, body: Models::Components::PostIntegrationsIntegrationIdRelinkRequestBody).void }
+        sig { params(integration_id: ::String, body: Models::Shared::PostIntegrationsIntegrationIdRelinkRequestBody).void }
         def initialize(integration_id:, body:)
           @integration_id = integration_id
           @body = body

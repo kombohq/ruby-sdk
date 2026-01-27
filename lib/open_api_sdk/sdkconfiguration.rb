@@ -38,7 +38,7 @@ module OpenApiSDK
     attr_accessor :timeout
 
     
-    sig { returns(T.nilable(T.proc.returns(T.nilable(Models::Components::Security)))) }
+    sig { returns(T.nilable(T.proc.returns(T.nilable(Models::Shared::Security)))) }
     attr_accessor :security_source
 
     
@@ -75,14 +75,14 @@ module OpenApiSDK
         hooks: ::OpenApiSDK::SDKHooks::Hooks,
         retry_config: T.nilable(::OpenApiSDK::Utils::RetryConfig),
         timeout_ms: T.nilable(Integer),
-        api_key: T.nilable(::String),
-        security_source: T.nilable(T.proc.returns(Models::Components::Security)),
+        security: T.nilable(Models::Shared::Security),
+        security_source: T.nilable(T.proc.returns(Models::Shared::Security)),
         server_url: T.nilable(String),
         server: T.nilable(Symbol),
         globals: T.nilable(T::Hash[Symbol, T::Hash[Symbol, T::Hash[Symbol, Object]]])
       ).void
     end
-    def initialize(client, hooks, retry_config, timeout_ms, api_key, security_source, server_url, server, globals)
+    def initialize(client, hooks, retry_config, timeout_ms, security, security_source, server_url, server, globals)
       @client = client
       @hooks = hooks
       @retry_config = retry_config
@@ -92,15 +92,15 @@ module OpenApiSDK
       raise StandardError, "Invalid server \"#{server}\"" if !SERVERS.key?(@server)
       if !security_source.nil?
         @security_source = security_source
-      elsif !api_key.nil?
-        @security_source = -> { Models::Components::Security.new(api_key: api_key) }
+      elsif !security.nil?
+        @security_source = -> { security }
       end
       @globals = globals.nil? ? {} : globals
       @language = 'ruby'
       @openapi_doc_version = '1.0.0'
-      @sdk_version = '0.0.1'
-      @gen_version = '2.799.0'
-      @user_agent = 'speakeasy-sdk/ruby 0.0.1 2.799.0 1.0.0 openapi'
+      @sdk_version = '1.0.0'
+      @gen_version = '2.801.0'
+      @user_agent = 'speakeasy-sdk/ruby 1.0.0 2.801.0 1.0.0 kombo'
     end
 
     sig { returns([String, T::Hash[Symbol, String]]) }

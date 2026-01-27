@@ -23,8 +23,8 @@ module OpenApiSDK
     # @param client [Faraday::Connection, nil] The faraday HTTP client to use for all operations
     # @param retry_config [::OpenApiSDK::Utils::RetryConfig, nil] The retry configuration to use for all operations
     # @param timeout_ms [Integer, nil] Request timeout in milliseconds for all operations
-    # @param security [Models::Components::Security, nil] The security details required for authentication
-    # @param security_source [Proc{|| Models::Components::Security, nil}] A function that returns security details required for authentication
+    # @param security [Models::Shared::Security, nil] The security details required for authentication
+    # @param security_source [Proc{|| Models::Shared::Security, nil}] A function that returns security details required for authentication
     # @param integration_id [String, nil] Configures the integration_id parameter for all supported operations
     # @param server [Symbol, nil] The server identifier to use for all operations
     # @param server_url [String, nil] The server URL to use for all operations
@@ -34,15 +34,15 @@ module OpenApiSDK
         client: T.nilable(Faraday::Connection),
         retry_config: T.nilable(::OpenApiSDK::Utils::RetryConfig),
         timeout_ms: T.nilable(Integer),
-        api_key: T.nilable(::String),
-        security_source: T.nilable(T.proc.returns(Models::Components::Security)),
+        security: T.nilable(Models::Shared::Security),
+        security_source: T.nilable(T.proc.returns(Models::Shared::Security)),
         integration_id: T.nilable(::String),
         server: T.nilable(Symbol),
         server_url: T.nilable(String),
         url_params: T.nilable(T::Hash[Symbol, String])
       ).void
     end
-    def initialize(client: nil, retry_config: nil, timeout_ms: nil, api_key: nil, security_source: nil, integration_id: nil, server: nil, server_url: nil, url_params: nil)
+    def initialize(client: nil, retry_config: nil, timeout_ms: nil, security: nil, security_source: nil, integration_id: nil, server: nil, server_url: nil, url_params: nil)
 
       connection_options = {
         request: {
@@ -52,7 +52,7 @@ module OpenApiSDK
       connection_options[:request][:timeout] = (timeout_ms.to_f / 1000) unless timeout_ms.nil?
 
       client ||= Faraday.new(**connection_options) do |f|
-        f.request :multipart, { flat_encode: true }
+        f.request :multipart, {}
         # f.response :logger, nil, { headers: true, bodies: true, errors: true }
       end
       
@@ -81,7 +81,7 @@ module OpenApiSDK
         hooks,
         retry_config,
         timeout_ms,
-        api_key,
+        security,
         security_source,
         server_url,
         server,

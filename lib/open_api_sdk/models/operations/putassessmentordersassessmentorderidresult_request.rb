@@ -15,11 +15,11 @@ module OpenApiSDK
         # PUT /assessment/orders/:assessment_order_id/result Parameter
         field :assessment_order_id, ::String, { 'path_param': { 'field_name': 'assessment_order_id', 'style': 'simple', 'explode': false } }
         # PUT /assessment/orders/:assessment_order_id/result Request body
-        field :body, Models::Components::PutAssessmentOrdersAssessmentOrderIdResultRequestBody, { 'request': { 'media_type': 'application/json' } }
+        field :body, Models::Shared::PutAssessmentOrdersAssessmentOrderIdResultRequestBody, { 'request': { 'media_type': 'application/json' } }
         # ID of the integration you want to interact with.
         field :integration_id, Crystalline::Nilable.new(::String), { 'header': { 'field_name': 'X-Integration-Id', 'style': 'simple', 'explode': false } }
 
-        sig { params(assessment_order_id: ::String, body: Models::Components::PutAssessmentOrdersAssessmentOrderIdResultRequestBody, integration_id: T.nilable(::String)).void }
+        sig { params(assessment_order_id: ::String, body: Models::Shared::PutAssessmentOrdersAssessmentOrderIdResultRequestBody, integration_id: T.nilable(::String)).void }
         def initialize(assessment_order_id:, body:, integration_id: nil)
           @assessment_order_id = assessment_order_id
           @body = body

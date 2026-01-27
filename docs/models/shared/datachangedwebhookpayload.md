@@ -1,0 +1,10 @@
+# DataChangedWebhookPayload
+
+
+## Fields
+
+| Field                                                                                                 | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
+| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `id`                                                                                                  | *::String*                                                                                            | :heavy_check_mark:                                                                                    | Unique identifier for this webhook event                                                              |
+| `type`                                                                                                | [Models::Shared::DataChangedWebhookPayloadType](../../models/shared/datachangedwebhookpayloadtype.md) | :heavy_check_mark:                                                                                    | Type of the webhook event                                                                             |
+| `data`                                                                                                | [Models::Shared::DataChangedWebhookPayloadData](../../models/shared/datachangedwebhookpayloaddata.md) | :heavy_check_mark:                                                                                    | N/A                                                                                                   |

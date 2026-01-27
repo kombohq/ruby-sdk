@@ -1,0 +1,10 @@
+# SyncFinishedWebhookPayload
+
+
+## Fields
+
+| Field                                                                                                   | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
+| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `id`                                                                                                    | *::String*                                                                                              | :heavy_check_mark:                                                                                      | Unique identifier for this webhook event                                                                |
+| `type`                                                                                                  | [Models::Shared::SyncFinishedWebhookPayloadType](../../models/shared/syncfinishedwebhookpayloadtype.md) | :heavy_check_mark:                                                                                      | Type of the webhook event                                                                               |
+| `data`                                                                                                  | [Models::Shared::SyncFinishedWebhookPayloadData](../../models/shared/syncfinishedwebhookpayloaddata.md) | :heavy_check_mark:                                                                                      | N/A                                                                                                     |

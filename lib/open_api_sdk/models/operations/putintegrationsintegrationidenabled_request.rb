@@ -15,9 +15,9 @@ module OpenApiSDK
         # PUT /integrations/:integration_id/enabled Parameter
         field :integration_id, ::String, { 'path_param': { 'field_name': 'integration_id', 'style': 'simple', 'explode': false } }
         # PUT /integrations/:integration_id/enabled Request body
-        field :body, Models::Components::PutIntegrationsIntegrationIdEnabledRequestBody, { 'request': { 'media_type': 'application/json' } }
+        field :body, Models::Shared::PutIntegrationsIntegrationIdEnabledRequestBody, { 'request': { 'media_type': 'application/json' } }
 
-        sig { params(integration_id: ::String, body: Models::Components::PutIntegrationsIntegrationIdEnabledRequestBody).void }
+        sig { params(integration_id: ::String, body: Models::Shared::PutIntegrationsIntegrationIdEnabledRequestBody).void }
         def initialize(integration_id:, body:)
           @integration_id = integration_id
           @body = body

@@ -17,9 +17,9 @@ module OpenApiSDK
         # The unique ID of the custom field that should be updated
         field :custom_field_id, ::String, { 'path_param': { 'field_name': 'custom_field_id', 'style': 'simple', 'explode': false } }
         # PUT /integrations/:integration_id/custom-fields/:custom_field_id Request body
-        field :body, Models::Components::PutIntegrationsIntegrationIdCustomFieldsCustomFieldIdRequestBody, { 'request': { 'media_type': 'application/json' } }
+        field :body, Models::Shared::PutIntegrationsIntegrationIdCustomFieldsCustomFieldIdRequestBody, { 'request': { 'media_type': 'application/json' } }
 
-        sig { params(integration_id: ::String, custom_field_id: ::String, body: Models::Components::PutIntegrationsIntegrationIdCustomFieldsCustomFieldIdRequestBody).void }
+        sig { params(integration_id: ::String, custom_field_id: ::String, body: Models::Shared::PutIntegrationsIntegrationIdCustomFieldsCustomFieldIdRequestBody).void }
         def initialize(integration_id:, custom_field_id:, body:)
           @integration_id = integration_id
           @custom_field_id = custom_field_id

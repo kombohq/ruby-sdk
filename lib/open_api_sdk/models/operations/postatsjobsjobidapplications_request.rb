@@ -15,11 +15,11 @@ module OpenApiSDK
         # The Kombo ID or Remote ID of the Job this candidate should apply for. If you want to use the ID of the integrated system (remote_id) you need to prefix the id with "remote:". You can use the remote ID if you do not want to sync jobs.
         field :job_id, ::String, { 'path_param': { 'field_name': 'job_id', 'style': 'simple', 'explode': false } }
         # POST /ats/jobs/:job_id/applications Request body
-        field :body, Models::Components::PostAtsJobsJobIdApplicationsRequestBody, { 'request': { 'media_type': 'application/json' } }
+        field :body, Models::Shared::PostAtsJobsJobIdApplicationsRequestBody, { 'request': { 'media_type': 'application/json' } }
         # ID of the integration you want to interact with.
         field :integration_id, Crystalline::Nilable.new(::String), { 'header': { 'field_name': 'X-Integration-Id', 'style': 'simple', 'explode': false } }
 
-        sig { params(job_id: ::String, body: Models::Components::PostAtsJobsJobIdApplicationsRequestBody, integration_id: T.nilable(::String)).void }
+        sig { params(job_id: ::String, body: Models::Shared::PostAtsJobsJobIdApplicationsRequestBody, integration_id: T.nilable(::String)).void }
         def initialize(job_id:, body:, integration_id: nil)
           @job_id = job_id
           @body = body

@@ -34,12 +34,14 @@ Top level filters use AND, while individual filters use OR if they accept multip
 
 <!-- UsageSnippet language="ruby" operationID="GetHrisEmployees" method="get" path="/hris/employees" -->
 ```ruby
-require 'openapi'
+require 'kombo'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
-      api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
     )
 
 res = s.hris.get_employees(page_size: 100, include_deleted: false, ignore_unsupported_filters: false)
@@ -166,12 +168,14 @@ Follow our [create employee guide here](/hris/features/create-employee) to learn
 
 <!-- UsageSnippet language="ruby" operationID="GetHrisEmployeesForm" method="get" path="/hris/employees/form" -->
 ```ruby
-require 'openapi'
+require 'kombo'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
-      api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
     )
 
 res = s.hris.get_employee_form()
@@ -230,15 +234,17 @@ Create an employee, based on the form schema.
 
 <!-- UsageSnippet language="ruby" operationID="PostHrisEmployeesForm" method="post" path="/hris/employees/form" -->
 ```ruby
-require 'openapi'
+require 'kombo'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
-      api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
     )
 
-res = s.hris.create_employee_with_form(body: Models::Components::PostHrisEmployeesFormRequestBody.new(
+res = s.hris.create_employee_with_form(body: Models::Shared::PostHrisEmployeesFormRequestBody.new(
   properties: {
     "firstName": 'John',
     "startDate": '2025-01-01T00:00:00Z',
@@ -261,10 +267,10 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                       | Type                                                                                                            | Required                                                                                                        | Description                                                                                                     | Example                                                                                                         |
-| --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| `body`                                                                                                          | [Models::Components::PostHrisEmployeesFormRequestBody](../../models/shared/posthrisemployeesformrequestbody.md) | :heavy_check_mark:                                                                                              | POST /hris/employees/form Request body                                                                          |                                                                                                                 |
-| `integration_id`                                                                                                | *T.nilable(::String)*                                                                                           | :heavy_minus_sign:                                                                                              | ID of the integration you want to interact with.                                                                | workday:HWUTwvyx2wLoSUHphiWVrp28                                                                                |
+| Parameter                                                                                                   | Type                                                                                                        | Required                                                                                                    | Description                                                                                                 | Example                                                                                                     |
+| ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| `body`                                                                                                      | [Models::Shared::PostHrisEmployeesFormRequestBody](../../models/shared/posthrisemployeesformrequestbody.md) | :heavy_check_mark:                                                                                          | POST /hris/employees/form Request body                                                                      |                                                                                                             |
+| `integration_id`                                                                                            | *T.nilable(::String)*                                                                                       | :heavy_minus_sign:                                                                                          | ID of the integration you want to interact with.                                                            | workday:HWUTwvyx2wLoSUHphiWVrp28                                                                            |
 
 ### Response
 
@@ -302,17 +308,19 @@ Uploads an document file for the specified employee.
 
 <!-- UsageSnippet language="ruby" operationID="PostHrisEmployeesEmployeeIdDocuments" method="post" path="/hris/employees/{employee_id}/documents" -->
 ```ruby
-require 'openapi'
+require 'kombo'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
-      api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
     )
 
-res = s.hris.add_employee_document(employee_id: 'GRKdd9dibYKKCrmGRSMJf3wu', body: Models::Components::PostHrisEmployeesEmployeeIdDocumentsRequestBody.new(
+res = s.hris.add_employee_document(employee_id: 'GRKdd9dibYKKCrmGRSMJf3wu', body: Models::Shared::PostHrisEmployeesEmployeeIdDocumentsRequestBody.new(
   category_id: '3Cjwu7nA7pH5cX5X1NAPmb7M',
-  document: Models::Components::Document.new(
+  document: Models::Shared::Document.new(
     name: 'Frank Doe Employment Contract.txt',
     content_type: 'text/plain',
     data: 'SGkgdGhlcmUsIEtvbWJvIGlzIGN1cnJlbnRseSBoaXJpbmcgZW5naW5lZXJzIHRoYXQgbG92ZSB0byB3b3JrIG9uIGRldmVsb3BlciBwcm9kdWN0cy4=',
@@ -327,11 +335,11 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                                     | Type                                                                                                                                          | Required                                                                                                                                      | Description                                                                                                                                   | Example                                                                                                                                       |
-| --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| `employee_id`                                                                                                                                 | *::String*                                                                                                                                    | :heavy_check_mark:                                                                                                                            | POST /hris/employees/:employee_id/documents Parameter                                                                                         |                                                                                                                                               |
-| `body`                                                                                                                                        | [Models::Components::PostHrisEmployeesEmployeeIdDocumentsRequestBody](../../models/shared/posthrisemployeesemployeeiddocumentsrequestbody.md) | :heavy_check_mark:                                                                                                                            | POST /hris/employees/:employee_id/documents Request body                                                                                      |                                                                                                                                               |
-| `integration_id`                                                                                                                              | *T.nilable(::String)*                                                                                                                         | :heavy_minus_sign:                                                                                                                            | ID of the integration you want to interact with.                                                                                              | workday:HWUTwvyx2wLoSUHphiWVrp28                                                                                                              |
+| Parameter                                                                                                                                 | Type                                                                                                                                      | Required                                                                                                                                  | Description                                                                                                                               | Example                                                                                                                                   |
+| ----------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| `employee_id`                                                                                                                             | *::String*                                                                                                                                | :heavy_check_mark:                                                                                                                        | POST /hris/employees/:employee_id/documents Parameter                                                                                     |                                                                                                                                           |
+| `body`                                                                                                                                    | [Models::Shared::PostHrisEmployeesEmployeeIdDocumentsRequestBody](../../models/shared/posthrisemployeesemployeeiddocumentsrequestbody.md) | :heavy_check_mark:                                                                                                                        | POST /hris/employees/:employee_id/documents Request body                                                                                  |                                                                                                                                           |
+| `integration_id`                                                                                                                          | *T.nilable(::String)*                                                                                                                     | :heavy_minus_sign:                                                                                                                        | ID of the integration you want to interact with.                                                                                          | workday:HWUTwvyx2wLoSUHphiWVrp28                                                                                                          |
 
 ### Response
 
@@ -354,12 +362,14 @@ Top level filters use AND, while individual filters use OR if they accept multip
 
 <!-- UsageSnippet language="ruby" operationID="GetHrisEmployeeDocumentCategories" method="get" path="/hris/employee-document-categories" -->
 ```ruby
-require 'openapi'
+require 'kombo'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
-      api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
     )
 
 res = s.hris.get_employee_document_categories(page_size: 100, include_deleted: false, ignore_unsupported_filters: false)
@@ -404,12 +414,14 @@ Top level filters use AND, while individual filters use OR if they accept multip
 
 <!-- UsageSnippet language="ruby" operationID="GetHrisGroups" method="get" path="/hris/groups" -->
 ```ruby
-require 'openapi'
+require 'kombo'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
-      api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
     )
 
 res = s.hris.get_groups(page_size: 100, include_deleted: false, ignore_unsupported_filters: false)
@@ -456,12 +468,14 @@ Top level filters use AND, while individual filters use OR if they accept multip
 
 <!-- UsageSnippet language="ruby" operationID="GetHrisEmployments" method="get" path="/hris/employments" -->
 ```ruby
-require 'openapi'
+require 'kombo'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
-      api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
     )
 
 res = s.hris.get_employments(page_size: 100, include_deleted: false, ignore_unsupported_filters: false)
@@ -506,12 +520,14 @@ Top level filters use AND, while individual filters use OR if they accept multip
 
 <!-- UsageSnippet language="ruby" operationID="GetHrisLocations" method="get" path="/hris/locations" -->
 ```ruby
-require 'openapi'
+require 'kombo'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
-      api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
     )
 
 res = s.hris.get_locations(page_size: 100, include_deleted: false, ignore_unsupported_filters: false)
@@ -557,12 +573,14 @@ Top level filters use AND, while individual filters use OR if they accept multip
 
 <!-- UsageSnippet language="ruby" operationID="GetHrisAbsenceTypes" method="get" path="/hris/absence-types" -->
 ```ruby
-require 'openapi'
+require 'kombo'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
-      api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
     )
 
 res = s.hris.get_absence_types(page_size: 100, include_deleted: false, ignore_unsupported_filters: false)
@@ -607,12 +625,14 @@ Top level filters use AND, while individual filters use OR if they accept multip
 
 <!-- UsageSnippet language="ruby" operationID="GetHrisTimeOffBalances" method="get" path="/hris/time-off-balances" -->
 ```ruby
-require 'openapi'
+require 'kombo'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
-      api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
     )
 
 res = s.hris.get_time_off_balances(page_size: 100, include_deleted: false, ignore_unsupported_filters: false)
@@ -658,12 +678,14 @@ Top level filters use AND, while individual filters use OR if they accept multip
 
 <!-- UsageSnippet language="ruby" operationID="GetHrisAbsences" method="get" path="/hris/absences" -->
 ```ruby
-require 'openapi'
+require 'kombo'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
-      api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
     )
 
 res = s.hris.get_absences(page_size: 100, include_deleted: false, ignore_unsupported_filters: false)
@@ -732,15 +754,17 @@ Check [this page](/hris/features/creating-absences) for a detailed guide.
 
 <!-- UsageSnippet language="ruby" operationID="PostHrisAbsences" method="post" path="/hris/absences" -->
 ```ruby
-require 'openapi'
+require 'kombo'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
-      api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
     )
 
-res = s.hris.create_absence(body: Models::Components::PostHrisAbsencesRequestBody.new(
+res = s.hris.create_absence(body: Models::Shared::PostHrisAbsencesRequestBody.new(
   employee_id: 'wXJMxwDvPAjrJ4CyqdV9',
   absence_type_id: '3YKtQ7qedsrcCady1jSyAkY1',
   start_date: DateTime.iso8601('2019-09-17T00:00:00Z'),
@@ -758,10 +782,10 @@ end
 
 ### Parameters
 
-| Parameter                                                                                             | Type                                                                                                  | Required                                                                                              | Description                                                                                           | Example                                                                                               |
-| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| `body`                                                                                                | [Models::Components::PostHrisAbsencesRequestBody](../../models/shared/posthrisabsencesrequestbody.md) | :heavy_check_mark:                                                                                    | POST /hris/absences Request body                                                                      |                                                                                                       |
-| `integration_id`                                                                                      | *T.nilable(::String)*                                                                                 | :heavy_minus_sign:                                                                                    | ID of the integration you want to interact with.                                                      | workday:HWUTwvyx2wLoSUHphiWVrp28                                                                      |
+| Parameter                                                                                         | Type                                                                                              | Required                                                                                          | Description                                                                                       | Example                                                                                           |
+| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `body`                                                                                            | [Models::Shared::PostHrisAbsencesRequestBody](../../models/shared/posthrisabsencesrequestbody.md) | :heavy_check_mark:                                                                                | POST /hris/absences Request body                                                                  |                                                                                                   |
+| `integration_id`                                                                                  | *T.nilable(::String)*                                                                             | :heavy_minus_sign:                                                                                | ID of the integration you want to interact with.                                                  | workday:HWUTwvyx2wLoSUHphiWVrp28                                                                  |
 
 ### Response
 
@@ -794,15 +818,17 @@ Delete this absence.
 
 <!-- UsageSnippet language="ruby" operationID="DeleteHrisAbsencesAbsenceId" method="delete" path="/hris/absences/{absence_id}" -->
 ```ruby
-require 'openapi'
+require 'kombo'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
-      api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
     )
 
-res = s.hris.delete_absence(absence_id: 'wXJMxwDvPAjrJ4CyqdV9', body: Models::Components::DeleteHrisAbsencesAbsenceIdRequestBody.new())
+res = s.hris.delete_absence(absence_id: 'wXJMxwDvPAjrJ4CyqdV9', body: Models::Shared::DeleteHrisAbsencesAbsenceIdRequestBody.new())
 
 unless res.delete_hris_absences_absence_id_positive_response.nil?
   # handle response
@@ -812,11 +838,11 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                   | Type                                                                                                                        | Required                                                                                                                    | Description                                                                                                                 | Example                                                                                                                     |
-| --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| `absence_id`                                                                                                                | *::String*                                                                                                                  | :heavy_check_mark:                                                                                                          | The Kombo ID of the absence                                                                                                 |                                                                                                                             |
-| `body`                                                                                                                      | [Models::Components::DeleteHrisAbsencesAbsenceIdRequestBody](../../models/shared/deletehrisabsencesabsenceidrequestbody.md) | :heavy_check_mark:                                                                                                          | DELETE /hris/absences/:absence_id Request body                                                                              |                                                                                                                             |
-| `integration_id`                                                                                                            | *T.nilable(::String)*                                                                                                       | :heavy_minus_sign:                                                                                                          | ID of the integration you want to interact with.                                                                            | workday:HWUTwvyx2wLoSUHphiWVrp28                                                                                            |
+| Parameter                                                                                                               | Type                                                                                                                    | Required                                                                                                                | Description                                                                                                             | Example                                                                                                                 |
+| ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `absence_id`                                                                                                            | *::String*                                                                                                              | :heavy_check_mark:                                                                                                      | The Kombo ID of the absence                                                                                             |                                                                                                                         |
+| `body`                                                                                                                  | [Models::Shared::DeleteHrisAbsencesAbsenceIdRequestBody](../../models/shared/deletehrisabsencesabsenceidrequestbody.md) | :heavy_check_mark:                                                                                                      | DELETE /hris/absences/:absence_id Request body                                                                          |                                                                                                                         |
+| `integration_id`                                                                                                        | *T.nilable(::String)*                                                                                                   | :heavy_minus_sign:                                                                                                      | ID of the integration you want to interact with.                                                                        | workday:HWUTwvyx2wLoSUHphiWVrp28                                                                                        |
 
 ### Response
 
@@ -839,12 +865,14 @@ Top level filters use AND, while individual filters use OR if they accept multip
 
 <!-- UsageSnippet language="ruby" operationID="GetHrisLegalEntities" method="get" path="/hris/legal-entities" -->
 ```ruby
-require 'openapi'
+require 'kombo'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
-      api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
     )
 
 res = s.hris.get_legal_entities(page_size: 100, include_deleted: false, ignore_unsupported_filters: false)
@@ -896,12 +924,14 @@ Top level filters use AND, while individual filters use OR if they accept multip
 
 <!-- UsageSnippet language="ruby" operationID="GetHrisTimesheets" method="get" path="/hris/timesheets" -->
 ```ruby
-require 'openapi'
+require 'kombo'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
-      api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
     )
 
 res = s.hris.get_timesheets(page_size: 100, include_deleted: false, ignore_unsupported_filters: false)
@@ -957,12 +987,14 @@ Top level filters use AND, while individual filters use OR if they accept multip
 
 <!-- UsageSnippet language="ruby" operationID="GetHrisPerformanceReviewCycles" method="get" path="/hris/performance-review-cycles" -->
 ```ruby
-require 'openapi'
+require 'kombo'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
-      api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
     )
 
 res = s.hris.get_performance_review_cycles(page_size: 100, include_deleted: false, ignore_unsupported_filters: false)
@@ -1013,12 +1045,14 @@ Top level filters use AND, while individual filters use OR if they accept multip
 
 <!-- UsageSnippet language="ruby" operationID="GetHrisPerformanceReviews" method="get" path="/hris/performance-reviews" -->
 ```ruby
-require 'openapi'
+require 'kombo'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
-      api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
     )
 
 res = s.hris.get_performance_reviews(page_size: 100, include_deleted: false, ignore_unsupported_filters: false)

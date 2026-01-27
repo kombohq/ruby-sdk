@@ -19,9 +19,9 @@ module OpenApiSDK
         # Raw HTTP response; suitable for custom response parsing
         field :raw_response, ::Faraday::Response
         # GET /connect/integration-by-token/:token Positive response
-        field :get_connect_integration_by_token_token_positive_response, Crystalline::Nilable.new(Models::Components::GetConnectIntegrationByTokenTokenPositiveResponse)
+        field :get_connect_integration_by_token_token_positive_response, Crystalline::Nilable.new(Models::Shared::GetConnectIntegrationByTokenTokenPositiveResponse)
 
-        sig { params(content_type: ::String, status_code: ::Integer, raw_response: ::Faraday::Response, get_connect_integration_by_token_token_positive_response: T.nilable(Models::Components::GetConnectIntegrationByTokenTokenPositiveResponse)).void }
+        sig { params(content_type: ::String, status_code: ::Integer, raw_response: ::Faraday::Response, get_connect_integration_by_token_token_positive_response: T.nilable(Models::Shared::GetConnectIntegrationByTokenTokenPositiveResponse)).void }
         def initialize(content_type:, status_code:, raw_response:, get_connect_integration_by_token_token_positive_response: nil)
           @content_type = content_type
           @status_code = status_code

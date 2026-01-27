@@ -19,9 +19,9 @@ module OpenApiSDK
         # Raw HTTP response; suitable for custom response parsing
         field :raw_response, ::Faraday::Response
         # GET /check-api-key Positive response
-        field :get_check_api_key_positive_response, Crystalline::Nilable.new(Models::Components::GetCheckApiKeyPositiveResponse)
+        field :get_check_api_key_positive_response, Crystalline::Nilable.new(Models::Shared::GetCheckApiKeyPositiveResponse)
 
-        sig { params(content_type: ::String, status_code: ::Integer, raw_response: ::Faraday::Response, get_check_api_key_positive_response: T.nilable(Models::Components::GetCheckApiKeyPositiveResponse)).void }
+        sig { params(content_type: ::String, status_code: ::Integer, raw_response: ::Faraday::Response, get_check_api_key_positive_response: T.nilable(Models::Shared::GetCheckApiKeyPositiveResponse)).void }
         def initialize(content_type:, status_code:, raw_response:, get_check_api_key_positive_response: nil)
           @content_type = content_type
           @status_code = status_code

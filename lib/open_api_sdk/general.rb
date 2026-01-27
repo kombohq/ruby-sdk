@@ -121,7 +121,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Components::GetCheckApiKeyPositiveResponse)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::GetCheckApiKeyPositiveResponse)
           response = Models::Operations::GetCheckApiKeyResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -152,7 +152,7 @@ module OpenApiSDK
     end
 
 
-    sig { params(body: Models::Components::PostForceSyncRequestBody, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::PostForceSyncResponse) }
+    sig { params(body: Models::Shared::PostForceSyncRequestBody, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::PostForceSyncResponse) }
     def trigger_sync(body:, integration_id: nil, timeout_ms: nil)
       # trigger_sync - Trigger sync
       # Trigger a sync for a specific integration.
@@ -251,7 +251,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Components::PostForceSyncPositiveResponse)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::PostForceSyncPositiveResponse)
           response = Models::Operations::PostForceSyncResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -282,7 +282,7 @@ module OpenApiSDK
     end
 
 
-    sig { params(body: Models::Components::PostPassthroughToolApiRequestBody, tool: ::String, api: ::String, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::PostPassthroughToolApiResponse) }
+    sig { params(body: Models::Shared::PostPassthroughToolApiRequestBody, tool: ::String, api: ::String, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::PostPassthroughToolApiResponse) }
     def send_passthrough_request(body:, tool:, api:, integration_id: nil, timeout_ms: nil)
       # send_passthrough_request - Send passthrough request
       # Send a request to the specified integration's native API.
@@ -553,7 +553,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Components::PostPassthroughToolApiPositiveResponse)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::PostPassthroughToolApiPositiveResponse)
           response = Models::Operations::PostPassthroughToolApiResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -584,7 +584,7 @@ module OpenApiSDK
     end
 
 
-    sig { params(body: Models::Components::DeleteIntegrationsIntegrationIdRequestBody, integration_id: ::String, timeout_ms: T.nilable(Integer)).returns(Models::Operations::DeleteIntegrationsIntegrationIdResponse) }
+    sig { params(body: Models::Shared::DeleteIntegrationsIntegrationIdRequestBody, integration_id: ::String, timeout_ms: T.nilable(Integer)).returns(Models::Operations::DeleteIntegrationsIntegrationIdResponse) }
     def delete_integration(body:, integration_id:, timeout_ms: nil)
       # delete_integration - Delete integration
       # Delete the specified integration.
@@ -688,7 +688,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Components::DeleteIntegrationsIntegrationIdPositiveResponse)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::DeleteIntegrationsIntegrationIdPositiveResponse)
           response = Models::Operations::DeleteIntegrationsIntegrationIdResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -809,7 +809,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Components::GetIntegrationsIntegrationIdPositiveResponse)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::GetIntegrationsIntegrationIdPositiveResponse)
           response = Models::Operations::GetIntegrationsIntegrationIdResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -840,7 +840,7 @@ module OpenApiSDK
     end
 
 
-    sig { params(body: Models::Components::PutIntegrationsIntegrationIdEnabledRequestBody, integration_id: ::String, timeout_ms: T.nilable(Integer)).returns(Models::Operations::PutIntegrationsIntegrationIdEnabledResponse) }
+    sig { params(body: Models::Shared::PutIntegrationsIntegrationIdEnabledRequestBody, integration_id: ::String, timeout_ms: T.nilable(Integer)).returns(Models::Operations::PutIntegrationsIntegrationIdEnabledResponse) }
     def set_integration_enabled(body:, integration_id:, timeout_ms: nil)
       # set_integration_enabled - Set integration enabled
       # Enable or disable the specified integration. When disabling, all currently running syncs will be cancelled.
@@ -947,7 +947,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Components::PutIntegrationsIntegrationIdEnabledPositiveResponse)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::PutIntegrationsIntegrationIdEnabledPositiveResponse)
           response = Models::Operations::PutIntegrationsIntegrationIdEnabledResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -978,7 +978,7 @@ module OpenApiSDK
     end
 
 
-    sig { params(body: Models::Components::PostIntegrationsIntegrationIdRelinkRequestBody, integration_id: ::String, timeout_ms: T.nilable(Integer)).returns(Models::Operations::PostIntegrationsIntegrationIdRelinkResponse) }
+    sig { params(body: Models::Shared::PostIntegrationsIntegrationIdRelinkRequestBody, integration_id: ::String, timeout_ms: T.nilable(Integer)).returns(Models::Operations::PostIntegrationsIntegrationIdRelinkResponse) }
     def create_reconnection_link(body:, integration_id:, timeout_ms: nil)
       # create_reconnection_link - Create reconnection link
       # Create a link that will allow the user to reconnect an integration. This is useful if you want to allow your users to update the credentials if the old ones for example expired.
@@ -1093,7 +1093,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Components::PostIntegrationsIntegrationIdRelinkPositiveResponse)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::PostIntegrationsIntegrationIdRelinkPositiveResponse)
           response = Models::Operations::PostIntegrationsIntegrationIdRelinkResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -1219,7 +1219,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Components::GetIntegrationsIntegrationIdIntegrationFieldsPositiveResponse)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::GetIntegrationsIntegrationIdIntegrationFieldsPositiveResponse)
           response = Models::Operations::GetIntegrationsIntegrationIdIntegrationFieldsResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -1270,7 +1270,7 @@ module OpenApiSDK
     end
 
 
-    sig { params(body: Models::Components::PatchIntegrationsIntegrationIdIntegrationFieldsIntegrationFieldIdRequestBody, integration_id: ::String, integration_field_id: ::String, timeout_ms: T.nilable(Integer)).returns(Models::Operations::PatchIntegrationsIntegrationIdIntegrationFieldsIntegrationFieldIdResponse) }
+    sig { params(body: Models::Shared::PatchIntegrationsIntegrationIdIntegrationFieldsIntegrationFieldIdRequestBody, integration_id: ::String, integration_field_id: ::String, timeout_ms: T.nilable(Integer)).returns(Models::Operations::PatchIntegrationsIntegrationIdIntegrationFieldsIntegrationFieldIdResponse) }
     def update_integration_field(body:, integration_id:, integration_field_id:, timeout_ms: nil)
       # update_integration_field - Updates an integration fields passthrough setting
       # When enabled, the integration field will be passed as part of the `integration_fields` array on the specific model endpoint. Providing false will disable the passthrough for the specified field.
@@ -1374,7 +1374,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Components::PatchIntegrationsIntegrationIdIntegrationFieldsIntegrationFieldIdPositiveResponse)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::PatchIntegrationsIntegrationIdIntegrationFieldsIntegrationFieldIdPositiveResponse)
           response = Models::Operations::PatchIntegrationsIntegrationIdIntegrationFieldsIntegrationFieldIdResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -1500,7 +1500,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Components::GetIntegrationsIntegrationIdCustomFieldsPositiveResponse)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::GetIntegrationsIntegrationIdCustomFieldsPositiveResponse)
           response = Models::Operations::GetIntegrationsIntegrationIdCustomFieldsResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -1551,7 +1551,7 @@ module OpenApiSDK
     end
 
 
-    sig { params(body: Models::Components::PutIntegrationsIntegrationIdCustomFieldsCustomFieldIdRequestBody, integration_id: ::String, custom_field_id: ::String, timeout_ms: T.nilable(Integer)).returns(Models::Operations::PutIntegrationsIntegrationIdCustomFieldsCustomFieldIdResponse) }
+    sig { params(body: Models::Shared::PutIntegrationsIntegrationIdCustomFieldsCustomFieldIdRequestBody, integration_id: ::String, custom_field_id: ::String, timeout_ms: T.nilable(Integer)).returns(Models::Operations::PutIntegrationsIntegrationIdCustomFieldsCustomFieldIdResponse) }
     def update_custom_field_mapping(body:, integration_id:, custom_field_id:, timeout_ms: nil)
       # update_custom_field_mapping - Put custom field mappings
       # Updates the mapping of a given custom field. If the custom field is already mapped, it will be updated.
@@ -1655,7 +1655,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Components::PutIntegrationsIntegrationIdCustomFieldsCustomFieldIdPositiveResponse)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::PutIntegrationsIntegrationIdCustomFieldsCustomFieldIdPositiveResponse)
           response = Models::Operations::PutIntegrationsIntegrationIdCustomFieldsCustomFieldIdResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -1686,7 +1686,7 @@ module OpenApiSDK
     end
 
 
-    sig { params(category: Models::Components::GetToolsCategoryParameterCategory, timeout_ms: T.nilable(Integer)).returns(Models::Operations::GetToolsCategoryResponse) }
+    sig { params(category: Models::Shared::GetToolsCategoryParameterCategory, timeout_ms: T.nilable(Integer)).returns(Models::Operations::GetToolsCategoryResponse) }
     def get_tools(category:, timeout_ms: nil)
       # get_tools - Get tools
       # Get a list of the tools (i.e., integrations) enabled in your environment.
@@ -1777,7 +1777,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Components::GetToolsCategoryPositiveResponse)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::GetToolsCategoryPositiveResponse)
           response = Models::Operations::GetToolsCategoryResponse.new(
             status_code: http_response.status,
             content_type: content_type,

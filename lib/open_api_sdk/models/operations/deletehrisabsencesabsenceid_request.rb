@@ -15,11 +15,11 @@ module OpenApiSDK
         # The Kombo ID of the absence
         field :absence_id, ::String, { 'path_param': { 'field_name': 'absence_id', 'style': 'simple', 'explode': false } }
         # DELETE /hris/absences/:absence_id Request body
-        field :body, Models::Components::DeleteHrisAbsencesAbsenceIdRequestBody, { 'request': { 'media_type': 'application/json' } }
+        field :body, Models::Shared::DeleteHrisAbsencesAbsenceIdRequestBody, { 'request': { 'media_type': 'application/json' } }
         # ID of the integration you want to interact with.
         field :integration_id, Crystalline::Nilable.new(::String), { 'header': { 'field_name': 'X-Integration-Id', 'style': 'simple', 'explode': false } }
 
-        sig { params(absence_id: ::String, body: Models::Components::DeleteHrisAbsencesAbsenceIdRequestBody, integration_id: T.nilable(::String)).void }
+        sig { params(absence_id: ::String, body: Models::Shared::DeleteHrisAbsencesAbsenceIdRequestBody, integration_id: T.nilable(::String)).void }
         def initialize(absence_id:, body:, integration_id: nil)
           @absence_id = absence_id
           @body = body

@@ -19,9 +19,9 @@ module OpenApiSDK
         # Raw HTTP response; suitable for custom response parsing
         field :raw_response, ::Faraday::Response
         # POST /integrations/:integration_id/relink Positive response
-        field :post_integrations_integration_id_relink_positive_response, Crystalline::Nilable.new(Models::Components::PostIntegrationsIntegrationIdRelinkPositiveResponse)
+        field :post_integrations_integration_id_relink_positive_response, Crystalline::Nilable.new(Models::Shared::PostIntegrationsIntegrationIdRelinkPositiveResponse)
 
-        sig { params(content_type: ::String, status_code: ::Integer, raw_response: ::Faraday::Response, post_integrations_integration_id_relink_positive_response: T.nilable(Models::Components::PostIntegrationsIntegrationIdRelinkPositiveResponse)).void }
+        sig { params(content_type: ::String, status_code: ::Integer, raw_response: ::Faraday::Response, post_integrations_integration_id_relink_positive_response: T.nilable(Models::Shared::PostIntegrationsIntegrationIdRelinkPositiveResponse)).void }
         def initialize(content_type:, status_code:, raw_response:, post_integrations_integration_id_relink_positive_response: nil)
           @content_type = content_type
           @status_code = status_code

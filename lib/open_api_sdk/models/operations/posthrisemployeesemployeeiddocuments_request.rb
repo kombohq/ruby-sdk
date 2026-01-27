@@ -15,11 +15,11 @@ module OpenApiSDK
         # POST /hris/employees/:employee_id/documents Parameter
         field :employee_id, ::String, { 'path_param': { 'field_name': 'employee_id', 'style': 'simple', 'explode': false } }
         # POST /hris/employees/:employee_id/documents Request body
-        field :body, Models::Components::PostHrisEmployeesEmployeeIdDocumentsRequestBody, { 'request': { 'media_type': 'application/json' } }
+        field :body, Models::Shared::PostHrisEmployeesEmployeeIdDocumentsRequestBody, { 'request': { 'media_type': 'application/json' } }
         # ID of the integration you want to interact with.
         field :integration_id, Crystalline::Nilable.new(::String), { 'header': { 'field_name': 'X-Integration-Id', 'style': 'simple', 'explode': false } }
 
-        sig { params(employee_id: ::String, body: Models::Components::PostHrisEmployeesEmployeeIdDocumentsRequestBody, integration_id: T.nilable(::String)).void }
+        sig { params(employee_id: ::String, body: Models::Shared::PostHrisEmployeesEmployeeIdDocumentsRequestBody, integration_id: T.nilable(::String)).void }
         def initialize(employee_id:, body:, integration_id: nil)
           @employee_id = employee_id
           @body = body

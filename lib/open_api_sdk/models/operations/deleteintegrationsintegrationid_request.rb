@@ -15,9 +15,9 @@ module OpenApiSDK
         # DELETE /integrations/:integration_id Parameter
         field :integration_id, ::String, { 'path_param': { 'field_name': 'integration_id', 'style': 'simple', 'explode': false } }
         # DELETE /integrations/:integration_id Request body
-        field :body, Models::Components::DeleteIntegrationsIntegrationIdRequestBody, { 'request': { 'media_type': 'application/json' } }
+        field :body, Models::Shared::DeleteIntegrationsIntegrationIdRequestBody, { 'request': { 'media_type': 'application/json' } }
 
-        sig { params(integration_id: ::String, body: Models::Components::DeleteIntegrationsIntegrationIdRequestBody).void }
+        sig { params(integration_id: ::String, body: Models::Shared::DeleteIntegrationsIntegrationIdRequestBody).void }
         def initialize(integration_id:, body:)
           @integration_id = integration_id
           @body = body

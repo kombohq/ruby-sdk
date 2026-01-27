@@ -17,11 +17,11 @@ module OpenApiSDK
         # The ID of the passthrough API you want to call (some tools provide multiple). Check the endpoint description for a list of all available APIs.
         field :api, ::String, { 'path_param': { 'field_name': 'api', 'style': 'simple', 'explode': false } }
         # POST /passthrough/:tool/:api Request body
-        field :body, Models::Components::PostPassthroughToolApiRequestBody, { 'request': { 'media_type': 'application/json' } }
+        field :body, Models::Shared::PostPassthroughToolApiRequestBody, { 'request': { 'media_type': 'application/json' } }
         # ID of the integration you want to interact with.
         field :integration_id, Crystalline::Nilable.new(::String), { 'header': { 'field_name': 'X-Integration-Id', 'style': 'simple', 'explode': false } }
 
-        sig { params(tool: ::String, api: ::String, body: Models::Components::PostPassthroughToolApiRequestBody, integration_id: T.nilable(::String)).void }
+        sig { params(tool: ::String, api: ::String, body: Models::Shared::PostPassthroughToolApiRequestBody, integration_id: T.nilable(::String)).void }
         def initialize(tool:, api:, body:, integration_id: nil)
           @tool = tool
           @api = api
