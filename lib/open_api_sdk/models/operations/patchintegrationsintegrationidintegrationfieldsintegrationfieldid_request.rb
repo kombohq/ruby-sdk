@@ -17,9 +17,9 @@ module OpenApiSDK
         # PATCH /integrations/:integration_id/integration-fields/:integration_field_id Parameter
         field :integration_field_id, ::String, { 'path_param': { 'field_name': 'integration_field_id', 'style': 'simple', 'explode': false } }
         # PATCH /integrations/:integration_id/integration-fields/:integration_field_id Request body
-        field :body, Models::Components::PatchIntegrationsIntegrationIdIntegrationFieldsIntegrationFieldIdRequestBody, { 'request': { 'media_type': 'application/json' } }
+        field :body, Models::Shared::PatchIntegrationsIntegrationIdIntegrationFieldsIntegrationFieldIdRequestBody, { 'request': { 'media_type': 'application/json' } }
 
-        sig { params(integration_id: ::String, integration_field_id: ::String, body: Models::Components::PatchIntegrationsIntegrationIdIntegrationFieldsIntegrationFieldIdRequestBody).void }
+        sig { params(integration_id: ::String, integration_field_id: ::String, body: Models::Shared::PatchIntegrationsIntegrationIdIntegrationFieldsIntegrationFieldIdRequestBody).void }
         def initialize(integration_id:, integration_field_id:, body:)
           @integration_id = integration_id
           @integration_field_id = integration_field_id

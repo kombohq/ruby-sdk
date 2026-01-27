@@ -19,9 +19,9 @@ module OpenApiSDK
         # Raw HTTP response; suitable for custom response parsing
         field :raw_response, ::Faraday::Response
         # POST /passthrough/:tool/:api Positive response
-        field :post_passthrough_tool_api_positive_response, Crystalline::Nilable.new(Models::Components::PostPassthroughToolApiPositiveResponse)
+        field :post_passthrough_tool_api_positive_response, Crystalline::Nilable.new(Models::Shared::PostPassthroughToolApiPositiveResponse)
 
-        sig { params(content_type: ::String, status_code: ::Integer, raw_response: ::Faraday::Response, post_passthrough_tool_api_positive_response: T.nilable(Models::Components::PostPassthroughToolApiPositiveResponse)).void }
+        sig { params(content_type: ::String, status_code: ::Integer, raw_response: ::Faraday::Response, post_passthrough_tool_api_positive_response: T.nilable(Models::Shared::PostPassthroughToolApiPositiveResponse)).void }
         def initialize(content_type:, status_code:, raw_response:, post_passthrough_tool_api_positive_response: nil)
           @content_type = content_type
           @status_code = status_code

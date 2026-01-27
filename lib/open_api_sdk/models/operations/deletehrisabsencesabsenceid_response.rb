@@ -19,9 +19,9 @@ module OpenApiSDK
         # Raw HTTP response; suitable for custom response parsing
         field :raw_response, ::Faraday::Response
         # DELETE /hris/absences/:absence_id Positive response
-        field :delete_hris_absences_absence_id_positive_response, Crystalline::Nilable.new(Models::Components::DeleteHrisAbsencesAbsenceIdPositiveResponse)
+        field :delete_hris_absences_absence_id_positive_response, Crystalline::Nilable.new(Models::Shared::DeleteHrisAbsencesAbsenceIdPositiveResponse)
 
-        sig { params(content_type: ::String, status_code: ::Integer, raw_response: ::Faraday::Response, delete_hris_absences_absence_id_positive_response: T.nilable(Models::Components::DeleteHrisAbsencesAbsenceIdPositiveResponse)).void }
+        sig { params(content_type: ::String, status_code: ::Integer, raw_response: ::Faraday::Response, delete_hris_absences_absence_id_positive_response: T.nilable(Models::Shared::DeleteHrisAbsencesAbsenceIdPositiveResponse)).void }
         def initialize(content_type:, status_code:, raw_response:, delete_hris_absences_absence_id_positive_response: nil)
           @content_type = content_type
           @status_code = status_code

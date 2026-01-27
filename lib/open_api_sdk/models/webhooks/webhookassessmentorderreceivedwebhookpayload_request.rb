@@ -15,9 +15,9 @@ module OpenApiSDK
         # HMAC signature for webhook verification. See the webhook documentation for details on how to verify this signature.
         field :x_kombo_signature, ::String, { 'header': { 'field_name': 'X-Kombo-Signature', 'style': 'simple', 'explode': false } }
 
-        field :body, Models::Components::AssessmentOrderReceivedWebhookPayload, { 'request': { 'media_type': 'application/json' } }
+        field :body, Models::Shared::AssessmentOrderReceivedWebhookPayload, { 'request': { 'media_type': 'application/json' } }
 
-        sig { params(x_kombo_signature: ::String, body: Models::Components::AssessmentOrderReceivedWebhookPayload).void }
+        sig { params(x_kombo_signature: ::String, body: Models::Shared::AssessmentOrderReceivedWebhookPayload).void }
         def initialize(x_kombo_signature:, body:)
           @x_kombo_signature = x_kombo_signature
           @body = body

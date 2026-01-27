@@ -13,13 +13,13 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
 
-        field :status, Models::Components::KomboGeneralErrorStatus, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('status'), required: true, 'decoder': Utils.enum_from_string(Models::Components::KomboGeneralErrorStatus, false) } }
+        field :status, Models::Shared::KomboGeneralErrorStatus, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('status'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::KomboGeneralErrorStatus, false) } }
         # Error details with structured code for programmatic handling.
-        field :error, Models::Components::KomboGeneralErrorError, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('error'), required: true } }
+        field :error, Models::Shared::KomboGeneralErrorError, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('error'), required: true } }
         # Raw HTTP response; suitable for custom response parsing
         field :raw_response, Crystalline::Nilable.new(::Faraday::Response), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('-') } }
 
-        sig { params(status: Models::Components::KomboGeneralErrorStatus, error: Models::Components::KomboGeneralErrorError, raw_response: T.nilable(::Faraday::Response)).void }
+        sig { params(status: Models::Shared::KomboGeneralErrorStatus, error: Models::Shared::KomboGeneralErrorError, raw_response: T.nilable(::Faraday::Response)).void }
         def initialize(status:, error:, raw_response: nil)
           @status = status
           @error = error

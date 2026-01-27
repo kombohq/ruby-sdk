@@ -1,0 +1,10 @@
+# PostHrisAbsencesRequestBodyRemoteFields
+
+Additional fields that we will pass through to specific HRIS systems.
+
+
+## Fields
+
+| Field                                                                                                                                      | Type                                                                                                                                       | Required                                                                                                                                   | Description                                                                                                                                |
+| ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| `adpworkforcenow`                                                                                                                          | [T.nilable(Models::Shared::PostHrisAbsencesRequestBodyAdpworkforcenow)](../../models/shared/posthrisabsencesrequestbodyadpworkforcenow.md) | :heavy_minus_sign:                                                                                                                         | Fields specific to ADP Workforce Now.                                                                                                      |

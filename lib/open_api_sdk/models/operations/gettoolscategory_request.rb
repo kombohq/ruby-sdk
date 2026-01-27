@@ -13,9 +13,9 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # GET /tools/:category Parameter
-        field :category, Models::Components::GetToolsCategoryParameterCategory, { 'path_param': { 'field_name': 'category', 'style': 'simple', 'explode': false } }
+        field :category, Models::Shared::GetToolsCategoryParameterCategory, { 'path_param': { 'field_name': 'category', 'style': 'simple', 'explode': false } }
 
-        sig { params(category: Models::Components::GetToolsCategoryParameterCategory).void }
+        sig { params(category: Models::Shared::GetToolsCategoryParameterCategory).void }
         def initialize(category:)
           @category = category
         end

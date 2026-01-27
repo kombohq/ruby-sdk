@@ -33,18 +33,20 @@ Generate a unique link that allows your user to enter the embedded Kombo Connect
 
 <!-- UsageSnippet language="ruby" operationID="PostConnectCreateLink" method="post" path="/connect/create-link" -->
 ```ruby
-require 'openapi'
+require 'kombo'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Kombo.new(
-      api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
     )
 
-req = Models::Components::PostConnectCreateLinkRequestBody.new(
+req = Models::Shared::PostConnectCreateLinkRequestBody.new(
   end_user_email: 'test@example.com',
   end_user_organization_name: 'Test Inc.',
   end_user_origin_id: '123',
-  integration_tool: Models::Components::IntegrationTool::PERSONIO,
+  integration_tool: Models::Shared::IntegrationTool::PERSONIO,
 )
 
 res = s.connect.create_connection_link(request: req)
@@ -57,9 +59,9 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                       | Type                                                                                                            | Required                                                                                                        | Description                                                                                                     |
-| --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                       | [Models::Components::PostConnectCreateLinkRequestBody](../../models/shared/postconnectcreatelinkrequestbody.md) | :heavy_check_mark:                                                                                              | The request object to use for the request.                                                                      |
+| Parameter                                                                                                   | Type                                                                                                        | Required                                                                                                    | Description                                                                                                 |
+| ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                   | [Models::Shared::PostConnectCreateLinkRequestBody](../../models/shared/postconnectcreatelinkrequestbody.md) | :heavy_check_mark:                                                                                          | The request object to use for the request.                                                                  |
 
 ### Response
 
@@ -90,11 +92,13 @@ into your system.
 
 <!-- UsageSnippet language="ruby" operationID="GetConnectIntegrationByTokenToken" method="get" path="/connect/integration-by-token/{token}" -->
 ```ruby
-require 'openapi'
+require 'kombo'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Kombo.new(
-      api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
     )
 
 res = s.connect.get_integration_by_token(token: '<value>')

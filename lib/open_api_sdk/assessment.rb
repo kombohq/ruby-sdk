@@ -126,7 +126,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Components::GetAssessmentPackagesPositiveResponse)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::GetAssessmentPackagesPositiveResponse)
           response = Models::Operations::GetAssessmentPackagesResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -157,7 +157,7 @@ module OpenApiSDK
     end
 
 
-    sig { params(body: Models::Components::PutAssessmentPackagesRequestBody, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::PutAssessmentPackagesResponse) }
+    sig { params(body: Models::Shared::PutAssessmentPackagesRequestBody, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::PutAssessmentPackagesResponse) }
     def set_packages(body:, integration_id: nil, timeout_ms: nil)
       # set_packages - Set packages
       # Set packages
@@ -279,7 +279,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Components::PutAssessmentPackagesPositiveResponse)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::PutAssessmentPackagesPositiveResponse)
           response = Models::Operations::PutAssessmentPackagesResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -398,7 +398,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Components::GetAssessmentOrdersOpenPositiveResponse)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::GetAssessmentOrdersOpenPositiveResponse)
           response = Models::Operations::GetAssessmentOrdersOpenResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -449,7 +449,7 @@ module OpenApiSDK
     end
 
 
-    sig { params(body: Models::Components::PutAssessmentOrdersAssessmentOrderIdResultRequestBody, assessment_order_id: ::String, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::PutAssessmentOrdersAssessmentOrderIdResultResponse) }
+    sig { params(body: Models::Shared::PutAssessmentOrdersAssessmentOrderIdResultRequestBody, assessment_order_id: ::String, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::PutAssessmentOrdersAssessmentOrderIdResultResponse) }
     def update_order_result(body:, assessment_order_id:, integration_id: nil, timeout_ms: nil)
       # update_order_result - Update order result
       # Updates an assessment or a background check order result.
@@ -589,7 +589,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Components::PutAssessmentOrdersAssessmentOrderIdResultPositiveResponse)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::PutAssessmentOrdersAssessmentOrderIdResultPositiveResponse)
           response = Models::Operations::PutAssessmentOrdersAssessmentOrderIdResultResponse.new(
             status_code: http_response.status,
             content_type: content_type,

@@ -19,12 +19,14 @@ This is mainly intended for debugging. As you always need to submit the full lis
 
 <!-- UsageSnippet language="ruby" operationID="GetAssessmentPackages" method="get" path="/assessment/packages" -->
 ```ruby
-require 'openapi'
+require 'kombo'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
-      api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
     )
 
 res = s.assessment.get_packages()
@@ -85,25 +87,27 @@ Packages that have been previously submitted through this endpoint but aren't in
 
 <!-- UsageSnippet language="ruby" operationID="PutAssessmentPackages" method="put" path="/assessment/packages" -->
 ```ruby
-require 'openapi'
+require 'kombo'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
-      api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
     )
 
-res = s.assessment.set_packages(body: Models::Components::PutAssessmentPackagesRequestBody.new(
+res = s.assessment.set_packages(body: Models::Shared::PutAssessmentPackagesRequestBody.new(
   packages: [
-    Models::Components::PutAssessmentPackagesRequestBodyPackage.new(
+    Models::Shared::PutAssessmentPackagesRequestBodyPackage.new(
       id: '1001',
-      type: Models::Components::PutAssessmentPackagesRequestBodyType::SKILLS_TEST,
+      type: Models::Shared::PutAssessmentPackagesRequestBodyType::SKILLS_TEST,
       name: 'TypeScript',
       description: 'TypeScript coding skills assessments',
     ),
-    Models::Components::PutAssessmentPackagesRequestBodyPackage.new(
+    Models::Shared::PutAssessmentPackagesRequestBodyPackage.new(
       id: '1002',
-      type: Models::Components::PutAssessmentPackagesRequestBodyType::VIDEO_INTERVIEW,
+      type: Models::Shared::PutAssessmentPackagesRequestBodyType::VIDEO_INTERVIEW,
       name: 'Video Interview',
       description: 'Video interview to assess communication skills',
     ),
@@ -118,10 +122,10 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                       | Type                                                                                                            | Required                                                                                                        | Description                                                                                                     | Example                                                                                                         |
-| --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| `body`                                                                                                          | [Models::Components::PutAssessmentPackagesRequestBody](../../models/shared/putassessmentpackagesrequestbody.md) | :heavy_check_mark:                                                                                              | PUT /assessment/packages Request body                                                                           |                                                                                                                 |
-| `integration_id`                                                                                                | *T.nilable(::String)*                                                                                           | :heavy_minus_sign:                                                                                              | ID of the integration you want to interact with.                                                                | workday:HWUTwvyx2wLoSUHphiWVrp28                                                                                |
+| Parameter                                                                                                   | Type                                                                                                        | Required                                                                                                    | Description                                                                                                 | Example                                                                                                     |
+| ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| `body`                                                                                                      | [Models::Shared::PutAssessmentPackagesRequestBody](../../models/shared/putassessmentpackagesrequestbody.md) | :heavy_check_mark:                                                                                          | PUT /assessment/packages Request body                                                                       |                                                                                                             |
+| `integration_id`                                                                                            | *T.nilable(::String)*                                                                                       | :heavy_minus_sign:                                                                                          | ID of the integration you want to interact with.                                                            | workday:HWUTwvyx2wLoSUHphiWVrp28                                                                            |
 
 ### Response
 
@@ -142,12 +146,14 @@ Get all open assessment and background check orders of an integration.
 
 <!-- UsageSnippet language="ruby" operationID="GetAssessmentOrdersOpen" method="get" path="/assessment/orders/open" -->
 ```ruby
-require 'openapi'
+require 'kombo'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
-      api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
     )
 
 res = s.assessment.get_open_orders(page_size: 100)
@@ -221,39 +227,41 @@ Updates an assessment or a background check order result.
 
 <!-- UsageSnippet language="ruby" operationID="PutAssessmentOrdersAssessmentOrderIdResult" method="put" path="/assessment/orders/{assessment_order_id}/result" -->
 ```ruby
-require 'openapi'
+require 'kombo'
 
 Models = ::OpenApiSDK::Models
 s = ::OpenApiSDK::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
-      api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
     )
 
-res = s.assessment.update_order_result(assessment_order_id: 'GRKdd9dibYKKCrmGRSMJf3wu', body: Models::Components::PutAssessmentOrdersAssessmentOrderIdResultRequestBody.new(
-  status: Models::Components::PutAssessmentOrdersAssessmentOrderIdResultRequestBodyStatus::COMPLETED,
+res = s.assessment.update_order_result(assessment_order_id: 'GRKdd9dibYKKCrmGRSMJf3wu', body: Models::Shared::PutAssessmentOrdersAssessmentOrderIdResultRequestBody.new(
+  status: Models::Shared::PutAssessmentOrdersAssessmentOrderIdResultRequestBodyStatus::COMPLETED,
   result_url: 'https://example.com',
   completed_at: DateTime.iso8601('2023-04-04T00:00:00Z'),
   score: 90.0,
   max_score: 100.0,
   attributes: [
-    Models::Components::AttributeText.new(
+    Models::Shared::AttributeText.new(
       type: 'TEXT',
       label: 'Role fit',
       value: 'Excellent',
     ),
-    Models::Components::AttributeSubResult.new(
+    Models::Shared::AttributeSubResult.new(
       type: 'SUB_RESULT',
       id: '<YOUR_INTERNAL_ID_OF_THE_TEST>',
       label: 'Personality test',
-      score: Models::Components::Score.new(
+      score: Models::Shared::Score.new(
         value: 97.0,
         max: 100.0,
       ),
-      status: Models::Components::AttributeStatus::COMPLETED,
+      status: Models::Shared::AttributeStatus::COMPLETED,
     ),
   ],
   attachments: [
-    Models::Components::PutAssessmentOrdersAssessmentOrderIdResultRequestBodyAttachment.new(
+    Models::Shared::PutAssessmentOrdersAssessmentOrderIdResultRequestBodyAttachment.new(
       name: 'Assessment Report.pdf',
       content_type: 'application/pdf',
       data: 'SGkgdGhlcmUsIEtvbWJvIGlzIGN1cnJlbnRseSBoaXJpbmcgZW5naW5lZXJzIHRoYXQgbG92ZSB0byB3b3JrIG9uIGRldmVsb3BlciBwcm9kdWN0cy4=',
@@ -269,11 +277,11 @@ end
 
 ### Parameters
 
-| Parameter                                                                                                                                                 | Type                                                                                                                                                      | Required                                                                                                                                                  | Description                                                                                                                                               | Example                                                                                                                                                   |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `assessment_order_id`                                                                                                                                     | *::String*                                                                                                                                                | :heavy_check_mark:                                                                                                                                        | PUT /assessment/orders/:assessment_order_id/result Parameter                                                                                              |                                                                                                                                                           |
-| `body`                                                                                                                                                    | [Models::Components::PutAssessmentOrdersAssessmentOrderIdResultRequestBody](../../models/shared/putassessmentordersassessmentorderidresultrequestbody.md) | :heavy_check_mark:                                                                                                                                        | PUT /assessment/orders/:assessment_order_id/result Request body                                                                                           |                                                                                                                                                           |
-| `integration_id`                                                                                                                                          | *T.nilable(::String)*                                                                                                                                     | :heavy_minus_sign:                                                                                                                                        | ID of the integration you want to interact with.                                                                                                          | workday:HWUTwvyx2wLoSUHphiWVrp28                                                                                                                          |
+| Parameter                                                                                                                                             | Type                                                                                                                                                  | Required                                                                                                                                              | Description                                                                                                                                           | Example                                                                                                                                               |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `assessment_order_id`                                                                                                                                 | *::String*                                                                                                                                            | :heavy_check_mark:                                                                                                                                    | PUT /assessment/orders/:assessment_order_id/result Parameter                                                                                          |                                                                                                                                                       |
+| `body`                                                                                                                                                | [Models::Shared::PutAssessmentOrdersAssessmentOrderIdResultRequestBody](../../models/shared/putassessmentordersassessmentorderidresultrequestbody.md) | :heavy_check_mark:                                                                                                                                    | PUT /assessment/orders/:assessment_order_id/result Request body                                                                                       |                                                                                                                                                       |
+| `integration_id`                                                                                                                                      | *T.nilable(::String)*                                                                                                                                 | :heavy_minus_sign:                                                                                                                                    | ID of the integration you want to interact with.                                                                                                      | workday:HWUTwvyx2wLoSUHphiWVrp28                                                                                                                      |
 
 ### Response
 

@@ -40,31 +40,14 @@ module OpenApiSDK
     end
 
 
-    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), employment_statuses: T.nilable(T::Array[::String]), group_ids: T.nilable(T::Array[::String]), legal_entity_ids: T.nilable(T::Array[::String]), work_location_ids: T.nilable(T::Array[::String]), work_emails: T.nilable(T::Array[::String]), personal_emails: T.nilable(T::Array[::String]), custom_fields: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::GetHrisEmployeesResponse) }
-    def get_employees(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, employment_statuses: nil, group_ids: nil, legal_entity_ids: nil, work_location_ids: nil, work_emails: nil, personal_emails: nil, custom_fields: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::GetHrisEmployeesRequest, timeout_ms: T.nilable(Integer)).returns(Models::Operations::GetHrisEmployeesResponse) }
+    def get_employees(request:, timeout_ms: nil)
       # get_employees - Get employees
       # Retrieve all employees.
       # 
       # <Note>Not interested in most fields? You can use our [our Scopes feature](/scopes) to customize what data points are synced.</Note>
       # 
       # Top level filters use AND, while individual filters use OR if they accept multiple arguments. That means filters will be resolved like this: `(id IN ids) AND (remote_id IN remote_ids)`
-      request = Models::Operations::GetHrisEmployeesRequest.new(
-        integration_id: integration_id,
-        cursor: cursor,
-        page_size: page_size,
-        updated_after: updated_after,
-        include_deleted: include_deleted,
-        ignore_unsupported_filters: ignore_unsupported_filters,
-        ids: ids,
-        remote_ids: remote_ids,
-        employment_statuses: employment_statuses,
-        group_ids: group_ids,
-        legal_entity_ids: legal_entity_ids,
-        work_location_ids: work_location_ids,
-        work_emails: work_emails,
-        personal_emails: personal_emails,
-        custom_fields: custom_fields
-      )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/hris/employees"
@@ -144,7 +127,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Components::GetHrisEmployeesPositiveResponse)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::GetHrisEmployeesPositiveResponse)
           response = Models::Operations::GetHrisEmployeesResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -165,21 +148,23 @@ module OpenApiSDK
             end
 
             sdk.get_employees(
-              integration_id: integration_id,
-              cursor: next_cursor,
-              page_size: page_size,
-              updated_after: updated_after,
-              include_deleted: include_deleted,
-              ignore_unsupported_filters: ignore_unsupported_filters,
-              ids: ids,
-              remote_ids: remote_ids,
-              employment_statuses: employment_statuses,
-              group_ids: group_ids,
-              legal_entity_ids: legal_entity_ids,
-              work_location_ids: work_location_ids,
-              work_emails: work_emails,
-              personal_emails: personal_emails,
-              custom_fields: custom_fields
+              request: Models::Operations::GetHrisEmployeesRequest.new(
+                integration_id: request.integration_id,
+                cursor: next_cursor,
+                page_size: request.page_size,
+                updated_after: request.updated_after,
+                include_deleted: request.include_deleted,
+                ignore_unsupported_filters: request.ignore_unsupported_filters,
+                ids: request.ids,
+                remote_ids: request.remote_ids,
+                employment_statuses: request.employment_statuses,
+                group_ids: request.group_ids,
+                legal_entity_ids: request.legal_entity_ids,
+                work_location_ids: request.work_location_ids,
+                work_emails: request.work_emails,
+                personal_emails: request.personal_emails,
+                custom_fields: request.custom_fields
+              )
             )
           end
 
@@ -368,7 +353,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Components::GetHrisEmployeesFormPositiveResponse)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::GetHrisEmployeesFormPositiveResponse)
           response = Models::Operations::GetHrisEmployeesFormResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -399,7 +384,7 @@ module OpenApiSDK
     end
 
 
-    sig { params(body: Models::Components::PostHrisEmployeesFormRequestBody, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::PostHrisEmployeesFormResponse) }
+    sig { params(body: Models::Shared::PostHrisEmployeesFormRequestBody, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::PostHrisEmployeesFormResponse) }
     def create_employee_with_form(body:, integration_id: nil, timeout_ms: nil)
       # create_employee_with_form - Create employee with form
       # Create an employee, based on the form schema.
@@ -519,7 +504,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Components::PostHrisEmployeesFormPositiveResponse)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::PostHrisEmployeesFormPositiveResponse)
           response = Models::Operations::PostHrisEmployeesFormResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -550,7 +535,7 @@ module OpenApiSDK
     end
 
 
-    sig { params(body: Models::Components::PostHrisEmployeesEmployeeIdDocumentsRequestBody, employee_id: ::String, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::PostHrisEmployeesEmployeeIdDocumentsResponse) }
+    sig { params(body: Models::Shared::PostHrisEmployeesEmployeeIdDocumentsRequestBody, employee_id: ::String, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::PostHrisEmployeesEmployeeIdDocumentsResponse) }
     def add_employee_document(body:, employee_id:, integration_id: nil, timeout_ms: nil)
       # add_employee_document - Add document to employee
       # Uploads an document file for the specified employee.
@@ -671,7 +656,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Components::PostHrisEmployeesEmployeeIdDocumentsPositiveResponse)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::PostHrisEmployeesEmployeeIdDocumentsPositiveResponse)
           response = Models::Operations::PostHrisEmployeesEmployeeIdDocumentsResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -702,22 +687,12 @@ module OpenApiSDK
     end
 
 
-    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), timeout_ms: T.nilable(Integer)).returns(Models::Operations::GetHrisEmployeeDocumentCategoriesResponse) }
-    def get_employee_document_categories(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::GetHrisEmployeeDocumentCategoriesRequest, timeout_ms: T.nilable(Integer)).returns(Models::Operations::GetHrisEmployeeDocumentCategoriesResponse) }
+    def get_employee_document_categories(request:, timeout_ms: nil)
       # get_employee_document_categories - Get employee document categories
       # Get employee document categories.
       # 
       # Top level filters use AND, while individual filters use OR if they accept multiple arguments. That means filters will be resolved like this: `(id IN ids) AND (remote_id IN remote_ids)`
-      request = Models::Operations::GetHrisEmployeeDocumentCategoriesRequest.new(
-        integration_id: integration_id,
-        cursor: cursor,
-        page_size: page_size,
-        updated_after: updated_after,
-        include_deleted: include_deleted,
-        ignore_unsupported_filters: ignore_unsupported_filters,
-        ids: ids,
-        remote_ids: remote_ids
-      )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/hris/employee-document-categories"
@@ -797,7 +772,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Components::GetHrisEmployeeDocumentCategoriesPositiveResponse)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::GetHrisEmployeeDocumentCategoriesPositiveResponse)
           response = Models::Operations::GetHrisEmployeeDocumentCategoriesResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -818,14 +793,16 @@ module OpenApiSDK
             end
 
             sdk.get_employee_document_categories(
-              integration_id: integration_id,
-              cursor: next_cursor,
-              page_size: page_size,
-              updated_after: updated_after,
-              include_deleted: include_deleted,
-              ignore_unsupported_filters: ignore_unsupported_filters,
-              ids: ids,
-              remote_ids: remote_ids
+              request: Models::Operations::GetHrisEmployeeDocumentCategoriesRequest.new(
+                integration_id: request.integration_id,
+                cursor: next_cursor,
+                page_size: request.page_size,
+                updated_after: request.updated_after,
+                include_deleted: request.include_deleted,
+                ignore_unsupported_filters: request.ignore_unsupported_filters,
+                ids: request.ids,
+                remote_ids: request.remote_ids
+              )
             )
           end
 
@@ -853,24 +830,12 @@ module OpenApiSDK
     end
 
 
-    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), types: T.nilable(T::Array[::String]), name_contains: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::GetHrisGroupsResponse) }
-    def get_groups(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, types: nil, name_contains: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::GetHrisGroupsRequest, timeout_ms: T.nilable(Integer)).returns(Models::Operations::GetHrisGroupsResponse) }
+    def get_groups(request:, timeout_ms: nil)
       # get_groups - Get groups
       # Retrieve all "groups" (teams, departments, and cost centers).
       # 
       # Top level filters use AND, while individual filters use OR if they accept multiple arguments. That means filters will be resolved like this: `(id IN ids) AND (remote_id IN remote_ids)`
-      request = Models::Operations::GetHrisGroupsRequest.new(
-        integration_id: integration_id,
-        cursor: cursor,
-        page_size: page_size,
-        updated_after: updated_after,
-        include_deleted: include_deleted,
-        ignore_unsupported_filters: ignore_unsupported_filters,
-        ids: ids,
-        remote_ids: remote_ids,
-        types: types,
-        name_contains: name_contains
-      )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/hris/groups"
@@ -950,7 +915,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Components::GetHrisGroupsPositiveResponse)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::GetHrisGroupsPositiveResponse)
           response = Models::Operations::GetHrisGroupsResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -971,16 +936,18 @@ module OpenApiSDK
             end
 
             sdk.get_groups(
-              integration_id: integration_id,
-              cursor: next_cursor,
-              page_size: page_size,
-              updated_after: updated_after,
-              include_deleted: include_deleted,
-              ignore_unsupported_filters: ignore_unsupported_filters,
-              ids: ids,
-              remote_ids: remote_ids,
-              types: types,
-              name_contains: name_contains
+              request: Models::Operations::GetHrisGroupsRequest.new(
+                integration_id: request.integration_id,
+                cursor: next_cursor,
+                page_size: request.page_size,
+                updated_after: request.updated_after,
+                include_deleted: request.include_deleted,
+                ignore_unsupported_filters: request.ignore_unsupported_filters,
+                ids: request.ids,
+                remote_ids: request.remote_ids,
+                types: request.types,
+                name_contains: request.name_contains
+              )
             )
           end
 
@@ -1008,22 +975,12 @@ module OpenApiSDK
     end
 
 
-    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), timeout_ms: T.nilable(Integer)).returns(Models::Operations::GetHrisEmploymentsResponse) }
-    def get_employments(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::GetHrisEmploymentsRequest, timeout_ms: T.nilable(Integer)).returns(Models::Operations::GetHrisEmploymentsResponse) }
+    def get_employments(request:, timeout_ms: nil)
       # get_employments - Get employments
       # Retrieve all employments.
       # 
       # Top level filters use AND, while individual filters use OR if they accept multiple arguments. That means filters will be resolved like this: `(id IN ids) AND (remote_id IN remote_ids)`
-      request = Models::Operations::GetHrisEmploymentsRequest.new(
-        integration_id: integration_id,
-        cursor: cursor,
-        page_size: page_size,
-        updated_after: updated_after,
-        include_deleted: include_deleted,
-        ignore_unsupported_filters: ignore_unsupported_filters,
-        ids: ids,
-        remote_ids: remote_ids
-      )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/hris/employments"
@@ -1103,7 +1060,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Components::GetHrisEmploymentsPositiveResponse)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::GetHrisEmploymentsPositiveResponse)
           response = Models::Operations::GetHrisEmploymentsResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -1124,14 +1081,16 @@ module OpenApiSDK
             end
 
             sdk.get_employments(
-              integration_id: integration_id,
-              cursor: next_cursor,
-              page_size: page_size,
-              updated_after: updated_after,
-              include_deleted: include_deleted,
-              ignore_unsupported_filters: ignore_unsupported_filters,
-              ids: ids,
-              remote_ids: remote_ids
+              request: Models::Operations::GetHrisEmploymentsRequest.new(
+                integration_id: request.integration_id,
+                cursor: next_cursor,
+                page_size: request.page_size,
+                updated_after: request.updated_after,
+                include_deleted: request.include_deleted,
+                ignore_unsupported_filters: request.ignore_unsupported_filters,
+                ids: request.ids,
+                remote_ids: request.remote_ids
+              )
             )
           end
 
@@ -1159,23 +1118,12 @@ module OpenApiSDK
     end
 
 
-    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), name_contains: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::GetHrisLocationsResponse) }
-    def get_locations(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, name_contains: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::GetHrisLocationsRequest, timeout_ms: T.nilable(Integer)).returns(Models::Operations::GetHrisLocationsResponse) }
+    def get_locations(request:, timeout_ms: nil)
       # get_locations - Get work locations
       # Retrieve all work locations.
       # 
       # Top level filters use AND, while individual filters use OR if they accept multiple arguments. That means filters will be resolved like this: `(id IN ids) AND (remote_id IN remote_ids)`
-      request = Models::Operations::GetHrisLocationsRequest.new(
-        integration_id: integration_id,
-        cursor: cursor,
-        page_size: page_size,
-        updated_after: updated_after,
-        include_deleted: include_deleted,
-        ignore_unsupported_filters: ignore_unsupported_filters,
-        ids: ids,
-        remote_ids: remote_ids,
-        name_contains: name_contains
-      )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/hris/locations"
@@ -1255,7 +1203,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Components::GetHrisLocationsPositiveResponse)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::GetHrisLocationsPositiveResponse)
           response = Models::Operations::GetHrisLocationsResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -1276,15 +1224,17 @@ module OpenApiSDK
             end
 
             sdk.get_locations(
-              integration_id: integration_id,
-              cursor: next_cursor,
-              page_size: page_size,
-              updated_after: updated_after,
-              include_deleted: include_deleted,
-              ignore_unsupported_filters: ignore_unsupported_filters,
-              ids: ids,
-              remote_ids: remote_ids,
-              name_contains: name_contains
+              request: Models::Operations::GetHrisLocationsRequest.new(
+                integration_id: request.integration_id,
+                cursor: next_cursor,
+                page_size: request.page_size,
+                updated_after: request.updated_after,
+                include_deleted: request.include_deleted,
+                ignore_unsupported_filters: request.ignore_unsupported_filters,
+                ids: request.ids,
+                remote_ids: request.remote_ids,
+                name_contains: request.name_contains
+              )
             )
           end
 
@@ -1312,22 +1262,12 @@ module OpenApiSDK
     end
 
 
-    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), timeout_ms: T.nilable(Integer)).returns(Models::Operations::GetHrisAbsenceTypesResponse) }
-    def get_absence_types(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::GetHrisAbsenceTypesRequest, timeout_ms: T.nilable(Integer)).returns(Models::Operations::GetHrisAbsenceTypesResponse) }
+    def get_absence_types(request:, timeout_ms: nil)
       # get_absence_types - Get absence types
       # Retrieve all absence types.
       # 
       # Top level filters use AND, while individual filters use OR if they accept multiple arguments. That means filters will be resolved like this: `(id IN ids) AND (remote_id IN remote_ids)`
-      request = Models::Operations::GetHrisAbsenceTypesRequest.new(
-        integration_id: integration_id,
-        cursor: cursor,
-        page_size: page_size,
-        updated_after: updated_after,
-        include_deleted: include_deleted,
-        ignore_unsupported_filters: ignore_unsupported_filters,
-        ids: ids,
-        remote_ids: remote_ids
-      )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/hris/absence-types"
@@ -1407,7 +1347,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Components::GetHrisAbsenceTypesPositiveResponse)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::GetHrisAbsenceTypesPositiveResponse)
           response = Models::Operations::GetHrisAbsenceTypesResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -1428,14 +1368,16 @@ module OpenApiSDK
             end
 
             sdk.get_absence_types(
-              integration_id: integration_id,
-              cursor: next_cursor,
-              page_size: page_size,
-              updated_after: updated_after,
-              include_deleted: include_deleted,
-              ignore_unsupported_filters: ignore_unsupported_filters,
-              ids: ids,
-              remote_ids: remote_ids
+              request: Models::Operations::GetHrisAbsenceTypesRequest.new(
+                integration_id: request.integration_id,
+                cursor: next_cursor,
+                page_size: request.page_size,
+                updated_after: request.updated_after,
+                include_deleted: request.include_deleted,
+                ignore_unsupported_filters: request.ignore_unsupported_filters,
+                ids: request.ids,
+                remote_ids: request.remote_ids
+              )
             )
           end
 
@@ -1463,23 +1405,12 @@ module OpenApiSDK
     end
 
 
-    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), employee_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::GetHrisTimeOffBalancesResponse) }
-    def get_time_off_balances(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, employee_id: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::GetHrisTimeOffBalancesRequest, timeout_ms: T.nilable(Integer)).returns(Models::Operations::GetHrisTimeOffBalancesResponse) }
+    def get_time_off_balances(request:, timeout_ms: nil)
       # get_time_off_balances - Get time off balances
       # Retrieve all time off balances.
       # 
       # Top level filters use AND, while individual filters use OR if they accept multiple arguments. That means filters will be resolved like this: `(id IN ids) AND (remote_id IN remote_ids)`
-      request = Models::Operations::GetHrisTimeOffBalancesRequest.new(
-        integration_id: integration_id,
-        cursor: cursor,
-        page_size: page_size,
-        updated_after: updated_after,
-        include_deleted: include_deleted,
-        ignore_unsupported_filters: ignore_unsupported_filters,
-        ids: ids,
-        remote_ids: remote_ids,
-        employee_id: employee_id
-      )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/hris/time-off-balances"
@@ -1559,7 +1490,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Components::GetHrisTimeOffBalancesPositiveResponse)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::GetHrisTimeOffBalancesPositiveResponse)
           response = Models::Operations::GetHrisTimeOffBalancesResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -1580,15 +1511,17 @@ module OpenApiSDK
             end
 
             sdk.get_time_off_balances(
-              integration_id: integration_id,
-              cursor: next_cursor,
-              page_size: page_size,
-              updated_after: updated_after,
-              include_deleted: include_deleted,
-              ignore_unsupported_filters: ignore_unsupported_filters,
-              ids: ids,
-              remote_ids: remote_ids,
-              employee_id: employee_id
+              request: Models::Operations::GetHrisTimeOffBalancesRequest.new(
+                integration_id: request.integration_id,
+                cursor: next_cursor,
+                page_size: request.page_size,
+                updated_after: request.updated_after,
+                include_deleted: request.include_deleted,
+                ignore_unsupported_filters: request.ignore_unsupported_filters,
+                ids: request.ids,
+                remote_ids: request.remote_ids,
+                employee_id: request.employee_id
+              )
             )
           end
 
@@ -1616,26 +1549,12 @@ module OpenApiSDK
     end
 
 
-    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), date_from: T.nilable(::DateTime), date_until: T.nilable(::DateTime), type_ids: T.nilable(T::Array[::String]), employee_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::GetHrisAbsencesResponse) }
-    def get_absences(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, date_from: nil, date_until: nil, type_ids: nil, employee_id: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::GetHrisAbsencesRequest, timeout_ms: T.nilable(Integer)).returns(Models::Operations::GetHrisAbsencesResponse) }
+    def get_absences(request:, timeout_ms: nil)
       # get_absences - Get absences
       # Retrieve all absences.
       # 
       # Top level filters use AND, while individual filters use OR if they accept multiple arguments. That means filters will be resolved like this: `(id IN ids) AND (remote_id IN remote_ids)`
-      request = Models::Operations::GetHrisAbsencesRequest.new(
-        integration_id: integration_id,
-        cursor: cursor,
-        page_size: page_size,
-        updated_after: updated_after,
-        include_deleted: include_deleted,
-        ignore_unsupported_filters: ignore_unsupported_filters,
-        ids: ids,
-        remote_ids: remote_ids,
-        date_from: date_from,
-        date_until: date_until,
-        type_ids: type_ids,
-        employee_id: employee_id
-      )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/hris/absences"
@@ -1715,7 +1634,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Components::GetHrisAbsencesPositiveResponse)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::GetHrisAbsencesPositiveResponse)
           response = Models::Operations::GetHrisAbsencesResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -1736,18 +1655,20 @@ module OpenApiSDK
             end
 
             sdk.get_absences(
-              integration_id: integration_id,
-              cursor: next_cursor,
-              page_size: page_size,
-              updated_after: updated_after,
-              include_deleted: include_deleted,
-              ignore_unsupported_filters: ignore_unsupported_filters,
-              ids: ids,
-              remote_ids: remote_ids,
-              date_from: date_from,
-              date_until: date_until,
-              type_ids: type_ids,
-              employee_id: employee_id
+              request: Models::Operations::GetHrisAbsencesRequest.new(
+                integration_id: request.integration_id,
+                cursor: next_cursor,
+                page_size: request.page_size,
+                updated_after: request.updated_after,
+                include_deleted: request.include_deleted,
+                ignore_unsupported_filters: request.ignore_unsupported_filters,
+                ids: request.ids,
+                remote_ids: request.remote_ids,
+                date_from: request.date_from,
+                date_until: request.date_until,
+                type_ids: request.type_ids,
+                employee_id: request.employee_id
+              )
             )
           end
 
@@ -1775,7 +1696,7 @@ module OpenApiSDK
     end
 
 
-    sig { params(body: Models::Components::PostHrisAbsencesRequestBody, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::PostHrisAbsencesResponse) }
+    sig { params(body: Models::Shared::PostHrisAbsencesRequestBody, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::PostHrisAbsencesResponse) }
     def create_absence(body:, integration_id: nil, timeout_ms: nil)
       # create_absence - Create absence
       # Create a new absence.
@@ -1894,7 +1815,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Components::PostHrisAbsencesPositiveResponse)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::PostHrisAbsencesPositiveResponse)
           response = Models::Operations::PostHrisAbsencesResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -1925,7 +1846,7 @@ module OpenApiSDK
     end
 
 
-    sig { params(body: Models::Components::DeleteHrisAbsencesAbsenceIdRequestBody, absence_id: ::String, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::DeleteHrisAbsencesAbsenceIdResponse) }
+    sig { params(body: Models::Shared::DeleteHrisAbsencesAbsenceIdRequestBody, absence_id: ::String, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::DeleteHrisAbsencesAbsenceIdResponse) }
     def delete_absence(body:, absence_id:, integration_id: nil, timeout_ms: nil)
       # delete_absence - Delete absence
       # Delete this absence.
@@ -2041,7 +1962,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Components::DeleteHrisAbsencesAbsenceIdPositiveResponse)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::DeleteHrisAbsencesAbsenceIdPositiveResponse)
           response = Models::Operations::DeleteHrisAbsencesAbsenceIdResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -2072,23 +1993,12 @@ module OpenApiSDK
     end
 
 
-    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), name_contains: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::GetHrisLegalEntitiesResponse) }
-    def get_legal_entities(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, name_contains: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::GetHrisLegalEntitiesRequest, timeout_ms: T.nilable(Integer)).returns(Models::Operations::GetHrisLegalEntitiesResponse) }
+    def get_legal_entities(request:, timeout_ms: nil)
       # get_legal_entities - Get legal entities
       # Retrieve all legal entites.
       # 
       # Top level filters use AND, while individual filters use OR if they accept multiple arguments. That means filters will be resolved like this: `(id IN ids) AND (remote_id IN remote_ids)`
-      request = Models::Operations::GetHrisLegalEntitiesRequest.new(
-        integration_id: integration_id,
-        cursor: cursor,
-        page_size: page_size,
-        updated_after: updated_after,
-        include_deleted: include_deleted,
-        ignore_unsupported_filters: ignore_unsupported_filters,
-        ids: ids,
-        remote_ids: remote_ids,
-        name_contains: name_contains
-      )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/hris/legal-entities"
@@ -2168,7 +2078,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Components::GetHrisLegalEntitiesPositiveResponse)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::GetHrisLegalEntitiesPositiveResponse)
           response = Models::Operations::GetHrisLegalEntitiesResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -2189,15 +2099,17 @@ module OpenApiSDK
             end
 
             sdk.get_legal_entities(
-              integration_id: integration_id,
-              cursor: next_cursor,
-              page_size: page_size,
-              updated_after: updated_after,
-              include_deleted: include_deleted,
-              ignore_unsupported_filters: ignore_unsupported_filters,
-              ids: ids,
-              remote_ids: remote_ids,
-              name_contains: name_contains
+              request: Models::Operations::GetHrisLegalEntitiesRequest.new(
+                integration_id: request.integration_id,
+                cursor: next_cursor,
+                page_size: request.page_size,
+                updated_after: request.updated_after,
+                include_deleted: request.include_deleted,
+                ignore_unsupported_filters: request.ignore_unsupported_filters,
+                ids: request.ids,
+                remote_ids: request.remote_ids,
+                name_contains: request.name_contains
+              )
             )
           end
 
@@ -2225,8 +2137,8 @@ module OpenApiSDK
     end
 
 
-    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), employee_id: T.nilable(::String), started_before: T.nilable(::DateTime), started_after: T.nilable(::DateTime), ended_before: T.nilable(::DateTime), ended_after: T.nilable(::DateTime), timeout_ms: T.nilable(Integer)).returns(Models::Operations::GetHrisTimesheetsResponse) }
-    def get_timesheets(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, employee_id: nil, started_before: nil, started_after: nil, ended_before: nil, ended_after: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::GetHrisTimesheetsRequest, timeout_ms: T.nilable(Integer)).returns(Models::Operations::GetHrisTimesheetsResponse) }
+    def get_timesheets(request:, timeout_ms: nil)
       # get_timesheets - Get timesheets
       # Get timesheets
       # 
@@ -2237,21 +2149,6 @@ module OpenApiSDK
       # For a detailed explanation of the data model, validation rules, time zones, payable hours, approvals, and break patterns, see the [Time & Attendance guide](/hris/features/time-and-attendance).
       # 
       # Top level filters use AND, while individual filters use OR if they accept multiple arguments. That means filters will be resolved like this: `(id IN ids) AND (remote_id IN remote_ids)`
-      request = Models::Operations::GetHrisTimesheetsRequest.new(
-        integration_id: integration_id,
-        cursor: cursor,
-        page_size: page_size,
-        updated_after: updated_after,
-        include_deleted: include_deleted,
-        ignore_unsupported_filters: ignore_unsupported_filters,
-        ids: ids,
-        remote_ids: remote_ids,
-        employee_id: employee_id,
-        started_before: started_before,
-        started_after: started_after,
-        ended_before: ended_before,
-        ended_after: ended_after
-      )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/hris/timesheets"
@@ -2331,7 +2228,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Components::GetHrisTimesheetsPositiveResponse)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::GetHrisTimesheetsPositiveResponse)
           response = Models::Operations::GetHrisTimesheetsResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -2352,19 +2249,21 @@ module OpenApiSDK
             end
 
             sdk.get_timesheets(
-              integration_id: integration_id,
-              cursor: next_cursor,
-              page_size: page_size,
-              updated_after: updated_after,
-              include_deleted: include_deleted,
-              ignore_unsupported_filters: ignore_unsupported_filters,
-              ids: ids,
-              remote_ids: remote_ids,
-              employee_id: employee_id,
-              started_before: started_before,
-              started_after: started_after,
-              ended_before: ended_before,
-              ended_after: ended_after
+              request: Models::Operations::GetHrisTimesheetsRequest.new(
+                integration_id: request.integration_id,
+                cursor: next_cursor,
+                page_size: request.page_size,
+                updated_after: request.updated_after,
+                include_deleted: request.include_deleted,
+                ignore_unsupported_filters: request.ignore_unsupported_filters,
+                ids: request.ids,
+                remote_ids: request.remote_ids,
+                employee_id: request.employee_id,
+                started_before: request.started_before,
+                started_after: request.started_after,
+                ended_before: request.ended_before,
+                ended_after: request.ended_after
+              )
             )
           end
 
@@ -2392,8 +2291,8 @@ module OpenApiSDK
     end
 
 
-    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), timeout_ms: T.nilable(Integer)).returns(Models::Operations::GetHrisPerformanceReviewCyclesResponse) }
-    def get_performance_review_cycles(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::GetHrisPerformanceReviewCyclesRequest, timeout_ms: T.nilable(Integer)).returns(Models::Operations::GetHrisPerformanceReviewCyclesResponse) }
+    def get_performance_review_cycles(request:, timeout_ms: nil)
       # get_performance_review_cycles - Get performance review cycles
       # Get performance review cycles
       # 
@@ -2404,16 +2303,6 @@ module OpenApiSDK
       # 
       # 
       # Top level filters use AND, while individual filters use OR if they accept multiple arguments. That means filters will be resolved like this: `(id IN ids) AND (remote_id IN remote_ids)`
-      request = Models::Operations::GetHrisPerformanceReviewCyclesRequest.new(
-        integration_id: integration_id,
-        cursor: cursor,
-        page_size: page_size,
-        updated_after: updated_after,
-        include_deleted: include_deleted,
-        ignore_unsupported_filters: ignore_unsupported_filters,
-        ids: ids,
-        remote_ids: remote_ids
-      )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/hris/performance-review-cycles"
@@ -2493,7 +2382,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Components::GetHrisPerformanceReviewCyclesPositiveResponse)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::GetHrisPerformanceReviewCyclesPositiveResponse)
           response = Models::Operations::GetHrisPerformanceReviewCyclesResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -2514,14 +2403,16 @@ module OpenApiSDK
             end
 
             sdk.get_performance_review_cycles(
-              integration_id: integration_id,
-              cursor: next_cursor,
-              page_size: page_size,
-              updated_after: updated_after,
-              include_deleted: include_deleted,
-              ignore_unsupported_filters: ignore_unsupported_filters,
-              ids: ids,
-              remote_ids: remote_ids
+              request: Models::Operations::GetHrisPerformanceReviewCyclesRequest.new(
+                integration_id: request.integration_id,
+                cursor: next_cursor,
+                page_size: request.page_size,
+                updated_after: request.updated_after,
+                include_deleted: request.include_deleted,
+                ignore_unsupported_filters: request.ignore_unsupported_filters,
+                ids: request.ids,
+                remote_ids: request.remote_ids
+              )
             )
           end
 
@@ -2549,8 +2440,8 @@ module OpenApiSDK
     end
 
 
-    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), types: T.nilable(T::Array[::String]), review_cycle_ids: T.nilable(T::Array[::String]), reviewee_ids: T.nilable(T::Array[::String]), timeout_ms: T.nilable(Integer)).returns(Models::Operations::GetHrisPerformanceReviewsResponse) }
-    def get_performance_reviews(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, types: nil, review_cycle_ids: nil, reviewee_ids: nil, timeout_ms: nil)
+    sig { params(request: Models::Operations::GetHrisPerformanceReviewsRequest, timeout_ms: T.nilable(Integer)).returns(Models::Operations::GetHrisPerformanceReviewsResponse) }
+    def get_performance_reviews(request:, timeout_ms: nil)
       # get_performance_reviews - Get performance reviews
       # Get performance reviews
       # 
@@ -2561,19 +2452,6 @@ module OpenApiSDK
       # 
       # 
       # Top level filters use AND, while individual filters use OR if they accept multiple arguments. That means filters will be resolved like this: `(id IN ids) AND (remote_id IN remote_ids)`
-      request = Models::Operations::GetHrisPerformanceReviewsRequest.new(
-        integration_id: integration_id,
-        cursor: cursor,
-        page_size: page_size,
-        updated_after: updated_after,
-        include_deleted: include_deleted,
-        ignore_unsupported_filters: ignore_unsupported_filters,
-        ids: ids,
-        remote_ids: remote_ids,
-        types: types,
-        review_cycle_ids: review_cycle_ids,
-        reviewee_ids: reviewee_ids
-      )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/hris/performance-reviews"
@@ -2653,7 +2531,7 @@ module OpenApiSDK
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Components::GetHrisPerformanceReviewsPositiveResponse)
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::GetHrisPerformanceReviewsPositiveResponse)
           response = Models::Operations::GetHrisPerformanceReviewsResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -2674,17 +2552,19 @@ module OpenApiSDK
             end
 
             sdk.get_performance_reviews(
-              integration_id: integration_id,
-              cursor: next_cursor,
-              page_size: page_size,
-              updated_after: updated_after,
-              include_deleted: include_deleted,
-              ignore_unsupported_filters: ignore_unsupported_filters,
-              ids: ids,
-              remote_ids: remote_ids,
-              types: types,
-              review_cycle_ids: review_cycle_ids,
-              reviewee_ids: reviewee_ids
+              request: Models::Operations::GetHrisPerformanceReviewsRequest.new(
+                integration_id: request.integration_id,
+                cursor: next_cursor,
+                page_size: request.page_size,
+                updated_after: request.updated_after,
+                include_deleted: request.include_deleted,
+                ignore_unsupported_filters: request.ignore_unsupported_filters,
+                ids: request.ids,
+                remote_ids: request.remote_ids,
+                types: request.types,
+                review_cycle_ids: request.review_cycle_ids,
+                reviewee_ids: request.reviewee_ids
+              )
             )
           end
 

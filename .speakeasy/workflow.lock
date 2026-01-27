@@ -1,0 +1,42 @@
+speakeasyVersion: 1.698.0
+sources:
+    kombo-prepared-spec:
+        sourceNamespace: kombo-api
+        sourceRevisionDigest: sha256:7b6a0855b38adbb6c0f86b606648a0fe65521c7a04829ee3e6f21c04296ac910
+        sourceBlobDigest: sha256:c27b09cf8a07981a8b52f086170cc8538c296af8b42101b2b0e5952985e50f82
+        tags:
+            - latest
+            - speakeasy-sdk-regen-1769511825
+            - 1.0.0
+targets:
+    kombo-ruby:
+        source: kombo-prepared-spec
+        sourceNamespace: kombo-api
+        sourceRevisionDigest: sha256:7b6a0855b38adbb6c0f86b606648a0fe65521c7a04829ee3e6f21c04296ac910
+        sourceBlobDigest: sha256:c27b09cf8a07981a8b52f086170cc8538c296af8b42101b2b0e5952985e50f82
+        codeSamplesNamespace: kombo-api-python-ruby-code-samples
+        codeSamplesRevisionDigest: sha256:1bb971cec13e0392ad4a5e206c3d45be74e7c5c60b2369647cf4fc7528ab6551
+workflow:
+    workflowVersion: 1.0.0
+    speakeasyVersion: latest
+    sources:
+        kombo-prepared-spec:
+            inputs:
+                - location: https://api.kombo.dev/internal/sdk.openapi.yaml
+                  authHeader: Authorization
+                  authSecret: $openapi_doc_auth_token
+            registry:
+                location: registry.speakeasyapi.dev/kombo-ayg/api/kombo-api
+    targets:
+        kombo-ruby:
+            target: ruby
+            source: kombo-prepared-spec
+            publish:
+                rubygems:
+                    token: $rubygems_auth_token
+            codeSamples:
+                registry:
+                    location: registry.speakeasyapi.dev/kombo-ayg/api/kombo-api-python-ruby-code-samples
+                blocking: false
+            testing:
+                enabled: false

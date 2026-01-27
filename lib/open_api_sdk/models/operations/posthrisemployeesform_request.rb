@@ -13,11 +13,11 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # POST /hris/employees/form Request body
-        field :body, Models::Components::PostHrisEmployeesFormRequestBody, { 'request': { 'media_type': 'application/json' } }
+        field :body, Models::Shared::PostHrisEmployeesFormRequestBody, { 'request': { 'media_type': 'application/json' } }
         # ID of the integration you want to interact with.
         field :integration_id, Crystalline::Nilable.new(::String), { 'header': { 'field_name': 'X-Integration-Id', 'style': 'simple', 'explode': false } }
 
-        sig { params(body: Models::Components::PostHrisEmployeesFormRequestBody, integration_id: T.nilable(::String)).void }
+        sig { params(body: Models::Shared::PostHrisEmployeesFormRequestBody, integration_id: T.nilable(::String)).void }
         def initialize(body:, integration_id: nil)
           @body = body
           @integration_id = integration_id

@@ -17,8 +17,7 @@ targets:
                 token: $rubygems_auth_token
         codeSamples:
             registry:
-                location: registry.speakeasyapi.dev/kombo-ayg/api/kombo-api-python-code-samples
+                location: registry.speakeasyapi.dev/kombo-ayg/api/kombo-api-python-ruby-code-samples
             blocking: false
         testing:
             enabled: false
-          
