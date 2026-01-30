@@ -1288,6 +1288,8 @@ Visit our in-depth guides to learn more about:
     "availability_date": "2021-01-01",
     "location": {
       "city": "New York",
+      "zip_code": "10016",
+      "state": "NY",
       "country": "US"
     }
   },
@@ -1344,6 +1346,8 @@ res = s.ats.create_application(job_id: 'BDpgnpZ148nrGh4mYHNxJBgx', body: Models:
     location: Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyLocation.new(
       city: 'New York',
       country: 'US',
+      state: 'NY',
+      zip_code: '10016',
     ),
     gender: Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyGender::MALE,
     availability_date: DateTime.iso8601('2021-01-01T00:00:00Z'),

@@ -85,6 +85,7 @@ Pre-define a tool this integration link can be used for.
 | `HR4YOU`                          | hr4you                            |
 | `CORNERSTONEONDEMAND`             | cornerstoneondemand               |
 | `ZVOOVERECRUIT`                   | zvooverecruit                     |
+| `ODOO`                            | odoo                              |
 | `COMEET`                          | comeet                            |
 | `COMPLEET`                        | compleet                          |
 | `COMPLEETPITCHER`                 | compleetpitcher                   |

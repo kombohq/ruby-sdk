@@ -90,6 +90,7 @@ module OpenApiSDK
           HR4YOU = new('hr4you')
           CORNERSTONEONDEMAND = new('cornerstoneondemand')
           ZVOOVERECRUIT = new('zvooverecruit')
+          ODOO = new('odoo')
           COMEET = new('comeet')
           COMPLEET = new('compleet')
           COMPLEETPITCHER = new('compleetpitcher')
