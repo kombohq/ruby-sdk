@@ -51,7 +51,7 @@ ruby:
   inferUnionDiscriminators: false
   inputModelSuffix: input
   maxMethodParams: 999
-  module: OpenApiSdk
+  module: Kombo
   multipartArrayFormat: legacy
   outputModelSuffix: output
   packageName: kombo
