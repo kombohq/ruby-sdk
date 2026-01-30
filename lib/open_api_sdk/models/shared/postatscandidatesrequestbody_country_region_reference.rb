@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,7 +13,7 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
 
-        field :country_region_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('Country_Region_ID'), required: true } }
+        field :country_region_id, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('Country_Region_ID'), required: true } }
 
         sig { params(country_region_id: ::String).void }
         def initialize(country_region_id:)

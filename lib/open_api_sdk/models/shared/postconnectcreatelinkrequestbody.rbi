@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::PostConnectCreateLinkRequestBody
+class Kombo::Models::Shared::PostConnectCreateLinkRequestBody
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::PostConnectCreateLinkRequestBody
+class Kombo::Models::Shared::PostConnectCreateLinkRequestBody
   def end_user_email(); end
   def end_user_email=(str_); end
   def end_user_organization_name(); end

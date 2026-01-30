@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyResumeData
+class Kombo::Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyResumeData
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyResumeData
+class Kombo::Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyResumeData
   def education_data(); end
   def education_data=(str_); end
   def skill_data(); end

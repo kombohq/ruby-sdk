@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
       # Information about the end user who created the integration.
@@ -13,11 +13,11 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # The name of the organization that owns the integration.
-        field :organization_name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('organization_name'), required: true } }
+        field :organization_name, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('organization_name'), required: true } }
         # The email address of the user who created the integration.
-        field :creator_email, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('creator_email'), required: true } }
+        field :creator_email, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('creator_email'), required: true } }
         # The unique identifier of the organization in the integrated system.
-        field :origin_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('origin_id'), required: true } }
+        field :origin_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('origin_id'), required: true } }
 
         sig { params(organization_name: ::String, creator_email: T.nilable(::String), origin_id: T.nilable(::String)).void }
         def initialize(organization_name:, creator_email: nil, origin_id: nil)

@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
       # Fields specific to P&I Loga.
@@ -13,7 +13,7 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # Additional candidate fields for P&I Loga that will be mapped to the application form.
-        field :candidate, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyPilogaCandidate), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('candidate') } }
+        field :candidate, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyPilogaCandidate), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('candidate') } }
 
         sig { params(candidate: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyPilogaCandidate)).void }
         def initialize(candidate: nil)

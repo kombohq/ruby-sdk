@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,15 +13,15 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
 
-        field :label, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('label'), required: true } }
+        field :label, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('label'), required: true } }
 
-        field :required, Crystalline::Boolean.new, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('required'), required: true } }
+        field :required, Crystalline::Boolean.new, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('required'), required: true } }
 
-        field :type, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('type'), required: true } }
+        field :type, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('type'), required: true } }
 
-        field :description, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('description') } }
+        field :description, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('description') } }
 
-        field :unified_key, Crystalline::Nilable.new(Models::Shared::Schema1UnifiedKey5), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('unified_key'), 'decoder': Utils.enum_from_string(Models::Shared::Schema1UnifiedKey5, true) } }
+        field :unified_key, Crystalline::Nilable.new(Models::Shared::Schema1UnifiedKey5), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('unified_key'), 'decoder': Utils.enum_from_string(Models::Shared::Schema1UnifiedKey5, true) } }
 
         sig { params(label: ::String, required: T::Boolean, type: ::String, description: T.nilable(::String), unified_key: T.nilable(Models::Shared::Schema1UnifiedKey5)).void }
         def initialize(label:, required:, type:, description: nil, unified_key: nil)

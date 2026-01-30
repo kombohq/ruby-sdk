@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,13 +13,13 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
 
-        field :education_data, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::PostAtsCandidatesRequestBodyEducationDatum)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('Education_Data') } }
+        field :education_data, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::PostAtsCandidatesRequestBodyEducationDatum)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('Education_Data') } }
 
-        field :skill_data, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::PostAtsCandidatesRequestBodySkillDatum)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('Skill_Data') } }
+        field :skill_data, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::PostAtsCandidatesRequestBodySkillDatum)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('Skill_Data') } }
 
-        field :language_data, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::PostAtsCandidatesRequestBodyLanguageDatum)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('Language_Data') } }
+        field :language_data, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::PostAtsCandidatesRequestBodyLanguageDatum)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('Language_Data') } }
 
-        field :experience_data, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::PostAtsCandidatesRequestBodyExperienceDatum)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('Experience_Data') } }
+        field :experience_data, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::PostAtsCandidatesRequestBodyExperienceDatum)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('Experience_Data') } }
 
         sig { params(education_data: T.nilable(T::Array[Models::Shared::PostAtsCandidatesRequestBodyEducationDatum]), skill_data: T.nilable(T::Array[Models::Shared::PostAtsCandidatesRequestBodySkillDatum]), language_data: T.nilable(T::Array[Models::Shared::PostAtsCandidatesRequestBodyLanguageDatum]), experience_data: T.nilable(T::Array[Models::Shared::PostAtsCandidatesRequestBodyExperienceDatum])).void }
         def initialize(education_data: nil, skill_data: nil, language_data: nil, experience_data: nil)

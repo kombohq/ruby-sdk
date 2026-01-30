@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,7 +13,7 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
 
-        field :language_ability_data, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyLanguageAbilityData), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('Language_Ability_Data') } }
+        field :language_ability_data, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyLanguageAbilityData), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('Language_Ability_Data') } }
 
         sig { params(language_ability_data: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyLanguageAbilityData)).void }
         def initialize(language_ability_data: nil)

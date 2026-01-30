@@ -2,10 +2,10 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::GetToolsCategoryParameterCategory
+class Kombo::Models::Shared::GetToolsCategoryParameterCategory
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::GetToolsCategoryParameterCategory
+class Kombo::Models::Shared::GetToolsCategoryParameterCategory
 end

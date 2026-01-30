@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Webhooks::WebhookIntegrationCreatedWebhookPayloadResponse
+class Kombo::Models::Webhooks::WebhookIntegrationCreatedWebhookPayloadResponse
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Webhooks::WebhookIntegrationCreatedWebhookPayloadResponse
+class Kombo::Models::Webhooks::WebhookIntegrationCreatedWebhookPayloadResponse
   def content_type(); end
   def content_type=(str_); end
   def status_code(); end

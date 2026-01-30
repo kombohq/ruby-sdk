@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,7 +13,7 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
 
-        field :tools, Crystalline::Array.new(Models::Shared::GetToolsCategoryPositiveResponseTool), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tools'), required: true } }
+        field :tools, Crystalline::Array.new(Models::Shared::GetToolsCategoryPositiveResponseTool), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('tools'), required: true } }
 
         sig { params(tools: T::Array[Models::Shared::GetToolsCategoryPositiveResponseTool]).void }
         def initialize(tools:)

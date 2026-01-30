@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,11 +13,11 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # Unique identifier for this webhook event
-        field :id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id'), required: true } }
+        field :id, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('id'), required: true } }
         # Type of the webhook event
-        field :type, Models::Shared::IntegrationStateChangedWebhookPayloadType, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('type'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::IntegrationStateChangedWebhookPayloadType, false) } }
+        field :type, Models::Shared::IntegrationStateChangedWebhookPayloadType, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('type'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::IntegrationStateChangedWebhookPayloadType, false) } }
 
-        field :data, Models::Shared::IntegrationStateChangedWebhookPayloadData, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('data'), required: true } }
+        field :data, Models::Shared::IntegrationStateChangedWebhookPayloadData, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('data'), required: true } }
 
         sig { params(id: ::String, type: Models::Shared::IntegrationStateChangedWebhookPayloadType, data: Models::Shared::IntegrationStateChangedWebhookPayloadData).void }
         def initialize(id:, type:, data:)

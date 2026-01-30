@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,32 +13,32 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # The first name of the candidate.
-        field :first_name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('first_name'), required: true } }
+        field :first_name, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('first_name'), required: true } }
         # The last name of the candidate.
-        field :last_name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('last_name'), required: true } }
+        field :last_name, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('last_name'), required: true } }
         # The primary email address this application will be created with.
-        field :email_address, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('email_address'), required: true } }
+        field :email_address, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('email_address'), required: true } }
 
-        field :additional_email_addresses, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::PostAtsCandidatesRequestBodyAdditionalEmailAddress)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('additional_email_addresses') } }
+        field :additional_email_addresses, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::PostAtsCandidatesRequestBodyAdditionalEmailAddress)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('additional_email_addresses') } }
         # The company where the candidate is currently working.
-        field :company, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('company') } }
+        field :company, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('company') } }
         # The current job title of the candidate.
-        field :title, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('title') } }
+        field :title, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('title') } }
         # The phone number of the candidate.
-        field :phone_number, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('phone_number') } }
+        field :phone_number, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('phone_number') } }
 
-        field :additional_phone_numbers, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::PostAtsCandidatesRequestBodyAdditionalPhoneNumber)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('additional_phone_numbers') } }
+        field :additional_phone_numbers, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::PostAtsCandidatesRequestBodyAdditionalPhoneNumber)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('additional_phone_numbers') } }
         # The location of the candidate.
-        field :location, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyLocation), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('location') } }
+        field :location, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyLocation), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('location') } }
         # The gender of the candidate. Must be one of `MALE`, `FEMALE`, or `OTHER`.
-        field :gender, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyGender), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('gender'), 'decoder': Utils.enum_from_string(Models::Shared::PostAtsCandidatesRequestBodyGender, true) } }
+        field :gender, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyGender), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('gender'), 'decoder': Utils.enum_from_string(Models::Shared::PostAtsCandidatesRequestBodyGender, true) } }
         # The date the candidate is available to start working.
         # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
-        field :availability_date, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('availability_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :availability_date, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('availability_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
         # The salary expectations of the applicant. We will automatically convert the amount to a format that is suitable for the ATS you are using. For example, if you are using monthly salary expectations, we will convert the amount to a yearly salary if the ATS expects yearly salary expectations.
-        field :salary_expectations, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodySalaryExpectations), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('salary_expectations') } }
+        field :salary_expectations, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodySalaryExpectations), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('salary_expectations') } }
         # A list of social media links of the candidate. The links must be valid URLs.
-        field :social_links, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::PostAtsCandidatesRequestBodySocialLink)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('social_links') } }
+        field :social_links, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::PostAtsCandidatesRequestBodySocialLink)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('social_links') } }
 
         sig { params(first_name: ::String, last_name: ::String, email_address: ::String, additional_email_addresses: T.nilable(T::Array[Models::Shared::PostAtsCandidatesRequestBodyAdditionalEmailAddress]), company: T.nilable(::String), title: T.nilable(::String), phone_number: T.nilable(::String), additional_phone_numbers: T.nilable(T::Array[Models::Shared::PostAtsCandidatesRequestBodyAdditionalPhoneNumber]), location: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyLocation), gender: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyGender), availability_date: T.nilable(::DateTime), salary_expectations: T.nilable(Models::Shared::PostAtsCandidatesRequestBodySalaryExpectations), social_links: T.nilable(T::Array[Models::Shared::PostAtsCandidatesRequestBodySocialLink])).void }
         def initialize(first_name:, last_name:, email_address:, additional_email_addresses: nil, company: nil, title: nil, phone_number: nil, additional_phone_numbers: nil, location: nil, gender: nil, availability_date: nil, salary_expectations: nil, social_links: nil)

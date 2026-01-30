@@ -2,10 +2,10 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::PostAtsImportTrackedApplicationRequestBodySuccessfactorsUnion
+class Kombo::Models::Shared::PostAtsImportTrackedApplicationRequestBodySuccessfactorsUnion
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::PostAtsImportTrackedApplicationRequestBodySuccessfactorsUnion
+class Kombo::Models::Shared::PostAtsImportTrackedApplicationRequestBodySuccessfactorsUnion
 end

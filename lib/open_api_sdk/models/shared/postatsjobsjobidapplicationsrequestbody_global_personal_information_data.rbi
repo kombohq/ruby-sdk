@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyGlobalPersonalInformationData
+class Kombo::Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyGlobalPersonalInformationData
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyGlobalPersonalInformationData
+class Kombo::Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyGlobalPersonalInformationData
   def date_of_birth(); end
   def date_of_birth=(str_); end
 end

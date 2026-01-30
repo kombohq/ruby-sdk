@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,9 +13,9 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
 
-        field :accepted_mime_types, Crystalline::Array.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('accepted_mime_types'), required: true } }
+        field :accepted_mime_types, Crystalline::Array.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('accepted_mime_types'), required: true } }
 
-        field :max_file_size, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('max_file_size') } }
+        field :max_file_size, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('max_file_size') } }
 
         sig { params(accepted_mime_types: T::Array[::String], max_file_size: T.nilable(::Float)).void }
         def initialize(accepted_mime_types:, max_file_size: nil)

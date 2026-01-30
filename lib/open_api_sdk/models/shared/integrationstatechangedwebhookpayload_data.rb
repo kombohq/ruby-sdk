@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,21 +13,21 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # The name of the integrated tool (e.g., "personio", "greenhouse").
-        field :integration_tool, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('integration_tool'), required: true } }
+        field :integration_tool, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('integration_tool'), required: true } }
         # The unique identifier of the integration.
-        field :integration_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('integration_id'), required: true } }
+        field :integration_id, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('integration_id'), required: true } }
         # The category of the integration (HRIS, ATS, ASSESSMENT, or LMS).
-        field :integration_category, Models::Shared::IntegrationStateChangedWebhookPayloadIntegrationCategory, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('integration_category'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::IntegrationStateChangedWebhookPayloadIntegrationCategory, false) } }
+        field :integration_category, Models::Shared::IntegrationStateChangedWebhookPayloadIntegrationCategory, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('integration_category'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::IntegrationStateChangedWebhookPayloadIntegrationCategory, false) } }
         # Information about the end user who created the integration.
-        field :end_user, Models::Shared::IntegrationStateChangedWebhookPayloadEndUser, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('end_user'), required: true } }
+        field :end_user, Models::Shared::IntegrationStateChangedWebhookPayloadEndUser, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('end_user'), required: true } }
         # The quality assurance status of the integration.
-        field :qa_status, Models::Shared::QaStatus, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('qa_status'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::QaStatus, false) } }
+        field :qa_status, Models::Shared::QaStatus, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('qa_status'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::QaStatus, false) } }
         # The current status of an integration that has filtering, field mapping features or required setup steps.
-        field :setup_status, Models::Shared::IntegrationStateChangedWebhookPayloadSetupStatus, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('setup_status'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::IntegrationStateChangedWebhookPayloadSetupStatus, false) } }
+        field :setup_status, Models::Shared::IntegrationStateChangedWebhookPayloadSetupStatus, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('setup_status'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::IntegrationStateChangedWebhookPayloadSetupStatus, false) } }
         # The current state of the integration.
-        field :state, Models::Shared::State, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('state'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::State, false) } }
+        field :state, Models::Shared::State, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('state'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::State, false) } }
         # ISO 8601 timestamp when the integration state was last updated.
-        field :updated_at, ::DateTime, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('updated_at'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
+        field :updated_at, ::DateTime, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('updated_at'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
 
         sig { params(integration_tool: ::String, integration_id: ::String, integration_category: Models::Shared::IntegrationStateChangedWebhookPayloadIntegrationCategory, end_user: Models::Shared::IntegrationStateChangedWebhookPayloadEndUser, qa_status: Models::Shared::QaStatus, setup_status: Models::Shared::IntegrationStateChangedWebhookPayloadSetupStatus, state: Models::Shared::State, updated_at: ::DateTime).void }
         def initialize(integration_tool:, integration_id:, integration_category:, end_user:, qa_status:, setup_status:, state:, updated_at:)

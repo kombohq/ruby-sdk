@@ -3,7 +3,7 @@
 # typed: true
 # frozen_string_literal: true
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
       autoload :AssessmentOrderReceivedWebhookPayload, 'open_api_sdk/models/shared/assessmentorderreceivedwebhookpayload.rb'

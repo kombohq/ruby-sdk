@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,15 +13,15 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
 
-        field :candidate, Models::Shared::PostAtsCandidatesRequestBodyCandidate, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('candidate'), required: true } }
+        field :candidate, Models::Shared::PostAtsCandidatesRequestBodyCandidate, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('candidate'), required: true } }
         # Currently, every candidate has one application. If you are interested in talent pools, please contact Kombo.
-        field :application, Models::Shared::PostAtsCandidatesRequestBodyApplication, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('application'), required: true } }
+        field :application, Models::Shared::PostAtsCandidatesRequestBodyApplication, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('application'), required: true } }
         # Array of answers to screening questions. Currently, not all question types are supported, and unsupported ones will not be submitted.
         # 
         # The available questions for a job can be retrieved from the get jobs endpoint. The answers will be validated based on the format of the questions. Make sure to follow this schema to avoid errors.
-        field :screening_question_answers, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::PostAtsCandidatesRequestBodyScreeningQuestionAnswer)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('screening_question_answers') } }
+        field :screening_question_answers, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::PostAtsCandidatesRequestBodyScreeningQuestionAnswer)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('screening_question_answers') } }
         # An array of the attachments you would like upload.
-        field :attachments, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::PostAtsCandidatesRequestBodyAttachment)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('attachments') } }
+        field :attachments, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::PostAtsCandidatesRequestBodyAttachment)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('attachments') } }
         # **(⚠️ Deprecated - Use [automatic source writing](/ats/features/application-attribution#automatic-attribution) instead)** Optional source information that will be attached to the candidate. If
         # you're a job board or recruiting service, you can use this to make sure your
         # customers can see which candidates came from you.
@@ -29,15 +29,15 @@ module OpenApiSDK
         # This is deprecated because writing sources requires users to do some setup in most ATSs.
         # 
         # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
-        field :source, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodySource), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('source') } }
+        field :source, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodySource), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('source') } }
         # Credit the recruiter or team member who sourced this candidate.
         # 
         # While the `source` field tracks the channel/platform (e.g., "Awesome Jobboard"), the `sourced_by` field tracks the individual person responsible for finding the candidate.
-        field :sourced_by, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodySourcedBy), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('sourced_by') } }
+        field :sourced_by, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodySourcedBy), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('sourced_by') } }
         # Optional GDPR consent information required in some jurisdictions (like the Czech Republic or Slovakia).
-        field :gdpr_consent, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyGdprConsent), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('gdpr_consent') } }
+        field :gdpr_consent, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyGdprConsent), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('gdpr_consent') } }
         # Additional fields that we will pass through to specific ATS systems.
-        field :remote_fields, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyRemoteFields), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_fields') } }
+        field :remote_fields, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyRemoteFields), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_fields') } }
 
         sig { params(candidate: Models::Shared::PostAtsCandidatesRequestBodyCandidate, application: Models::Shared::PostAtsCandidatesRequestBodyApplication, screening_question_answers: T.nilable(T::Array[Models::Shared::PostAtsCandidatesRequestBodyScreeningQuestionAnswer]), attachments: T.nilable(T::Array[Models::Shared::PostAtsCandidatesRequestBodyAttachment]), source: T.nilable(Models::Shared::PostAtsCandidatesRequestBodySource), sourced_by: T.nilable(Models::Shared::PostAtsCandidatesRequestBodySourcedBy), gdpr_consent: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyGdprConsent), remote_fields: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyRemoteFields)).void }
         def initialize(candidate:, application:, screening_question_answers: nil, attachments: nil, source: nil, sourced_by: nil, gdpr_consent: nil, remote_fields: nil)

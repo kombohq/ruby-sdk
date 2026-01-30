@@ -2,10 +2,10 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::PostForceSyncRequestBodyType
+class Kombo::Models::Shared::PostForceSyncRequestBodyType
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::PostForceSyncRequestBodyType
+class Kombo::Models::Shared::PostForceSyncRequestBodyType
 end

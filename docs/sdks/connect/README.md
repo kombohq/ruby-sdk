@@ -35,8 +35,8 @@ Generate a unique link that allows your user to enter the embedded Kombo Connect
 ```ruby
 require 'kombo'
 
-Models = ::OpenApiSDK::Models
-s = ::OpenApiSDK::Kombo.new(
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
       security: Models::Shared::Security.new(
         api_key: '<YOUR_BEARER_TOKEN_HERE>',
       ),
@@ -94,8 +94,8 @@ into your system.
 ```ruby
 require 'kombo'
 
-Models = ::OpenApiSDK::Models
-s = ::OpenApiSDK::Kombo.new(
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
       security: Models::Shared::Security.new(
         api_key: '<YOUR_BEARER_TOKEN_HERE>',
       ),

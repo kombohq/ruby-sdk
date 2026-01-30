@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,9 +13,9 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # The name of the attribute
-        field :key, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('key'), required: true } }
+        field :key, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('key'), required: true } }
         # The value of the attribute
-        field :value, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('value'), required: true } }
+        field :value, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('value'), required: true } }
 
         sig { params(key: ::String, value: ::String).void }
         def initialize(key:, value:)

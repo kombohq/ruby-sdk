@@ -7,7 +7,7 @@ require 'date'
 require 'base64'
 require 'sorbet-runtime'
 
-module OpenApiSDK
+module Kombo
   module Utils
     extend T::Sig
 

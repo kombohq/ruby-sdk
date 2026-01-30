@@ -51,8 +51,8 @@ gem install kombo
 ```ruby
 require 'kombo'
 
-Models = ::OpenApiSDK::Models
-s = ::OpenApiSDK::Kombo.new(
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
       security: Models::Shared::Security.new(
         api_key: '<YOUR_BEARER_TOKEN_HERE>',
       ),
@@ -82,8 +82,8 @@ You can set the security parameters through the `security` optional parameter wh
 ```ruby
 require 'kombo'
 
-Models = ::OpenApiSDK::Models
-s = ::OpenApiSDK::Kombo.new(
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
       security: Models::Shared::Security.new(
         api_key: '<YOUR_BEARER_TOKEN_HERE>',
       ),
@@ -201,8 +201,8 @@ The following global parameter is available.
 ```ruby
 require 'kombo'
 
-Models = ::OpenApiSDK::Models
-s = ::OpenApiSDK::Kombo.new(
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
       security: Models::Shared::Security.new(
         api_key: '<YOUR_BEARER_TOKEN_HERE>',
@@ -244,8 +244,8 @@ When custom error responses are specified for an operation, the SDK may also thr
 ```ruby
 require 'kombo'
 
-Models = ::OpenApiSDK::Models
-s = ::OpenApiSDK::Kombo.new(
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
       security: Models::Shared::Security.new(
         api_key: '<YOUR_BEARER_TOKEN_HERE>',
       ),
@@ -285,8 +285,8 @@ You can override the default server globally by passing a server name to the `se
 ```ruby
 require 'kombo'
 
-Models = ::OpenApiSDK::Models
-s = ::OpenApiSDK::Kombo.new(
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
       server: "eu",
       security: Models::Shared::Security.new(
         api_key: '<YOUR_BEARER_TOKEN_HERE>',
@@ -307,8 +307,8 @@ The default server can also be overridden globally by passing a URL to the `serv
 ```ruby
 require 'kombo'
 
-Models = ::OpenApiSDK::Models
-s = ::OpenApiSDK::Kombo.new(
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
       server_url: 'https://api.kombo.dev/v1',
       security: Models::Shared::Security.new(
         api_key: '<YOUR_BEARER_TOKEN_HERE>',

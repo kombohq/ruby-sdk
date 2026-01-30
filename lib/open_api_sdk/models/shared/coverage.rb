@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
       # This describes the supported models and actions of this tool.
@@ -13,11 +13,11 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
 
-        field :read_models, Crystalline::Array.new(Models::Shared::GetToolsCategoryPositiveResponseReadModel), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('read_models'), required: true } }
+        field :read_models, Crystalline::Array.new(Models::Shared::GetToolsCategoryPositiveResponseReadModel), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('read_models'), required: true } }
 
-        field :write_actions, Crystalline::Array.new(Models::Shared::GetToolsCategoryPositiveResponseWriteAction), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('write_actions'), required: true } }
+        field :write_actions, Crystalline::Array.new(Models::Shared::GetToolsCategoryPositiveResponseWriteAction), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('write_actions'), required: true } }
 
-        field :features, Crystalline::Array.new(Models::Shared::Feature), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('features'), required: true } }
+        field :features, Crystalline::Array.new(Models::Shared::Feature), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('features'), required: true } }
 
         sig { params(read_models: T::Array[Models::Shared::GetToolsCategoryPositiveResponseReadModel], write_actions: T::Array[Models::Shared::GetToolsCategoryPositiveResponseWriteAction], features: T::Array[Models::Shared::Feature]).void }
         def initialize(read_models:, write_actions:, features:)

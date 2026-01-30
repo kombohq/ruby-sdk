@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,9 +13,9 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # The candidate's middle name
-        field :middle_name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('Middle_Name') } }
+        field :middle_name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('Middle_Name') } }
         # The WID of the social suffix reference for the candidate
-        field :social_suffix_reference, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodySocialSuffixReference), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('Social_Suffix_Reference') } }
+        field :social_suffix_reference, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodySocialSuffixReference), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('Social_Suffix_Reference') } }
 
         sig { params(middle_name: T.nilable(::String), social_suffix_reference: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodySocialSuffixReference)).void }
         def initialize(middle_name: nil, social_suffix_reference: nil)

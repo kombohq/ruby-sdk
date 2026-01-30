@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
       # The WID of the social suffix reference for the candidate
@@ -13,7 +13,7 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
 
-        field :predefined_name_component_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('Predefined_Name_Component_ID'), required: true } }
+        field :predefined_name_component_id, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('Predefined_Name_Component_ID'), required: true } }
 
         sig { params(predefined_name_component_id: ::String).void }
         def initialize(predefined_name_component_id:)

@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
       # PostForceSyncPositiveResponseType - The type of the triggered sync. May differ from request, if the integration does not support delta syncs or if another sync is already running.

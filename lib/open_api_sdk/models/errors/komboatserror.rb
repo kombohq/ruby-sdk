@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Errors
       # The standard error response with the error codes for the ATS use case.
@@ -13,11 +13,11 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
 
-        field :status, Models::Shared::KomboAtsErrorStatus, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('status'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::KomboAtsErrorStatus, false) } }
+        field :status, Models::Shared::KomboAtsErrorStatus, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('status'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::KomboAtsErrorStatus, false) } }
         # Error details with structured code for programmatic handling.
-        field :error, Models::Shared::KomboAtsErrorError, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('error'), required: true } }
+        field :error, Models::Shared::KomboAtsErrorError, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('error'), required: true } }
         # Raw HTTP response; suitable for custom response parsing
-        field :raw_response, Crystalline::Nilable.new(::Faraday::Response), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('-') } }
+        field :raw_response, Crystalline::Nilable.new(::Faraday::Response), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('-') } }
 
         sig { params(status: Models::Shared::KomboAtsErrorStatus, error: Models::Shared::KomboAtsErrorError, raw_response: T.nilable(::Faraday::Response)).void }
         def initialize(status:, error:, raw_response: nil)

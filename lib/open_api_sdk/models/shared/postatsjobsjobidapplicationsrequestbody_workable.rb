@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
       # Workable specific remote fields for ATS actions.
@@ -13,7 +13,7 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # The remote ID of the user that will be displayed in the UI as the one that performed the action.
-        field :on_behalf_of_user_remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('on_behalf_of_user_remote_id') } }
+        field :on_behalf_of_user_remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('on_behalf_of_user_remote_id') } }
 
         sig { params(on_behalf_of_user_remote_id: T.nilable(::String)).void }
         def initialize(on_behalf_of_user_remote_id: nil)

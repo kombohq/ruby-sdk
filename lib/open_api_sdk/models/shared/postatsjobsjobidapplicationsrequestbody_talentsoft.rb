@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
       # Fields specific to TalentSoft.
@@ -13,9 +13,9 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # Fields that we will pass through to TalentSoft's `applicant` object.
-        field :applicant, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('applicant') } }
+        field :applicant, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('applicant') } }
         # Fields that we will pass through to TalentSoft's `application` object.
-        field :application, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('application') } }
+        field :application, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('application') } }
 
         sig { params(applicant: T.nilable(T::Hash[Symbol, ::Object]), application: T.nilable(T::Hash[Symbol, ::Object])).void }
         def initialize(applicant: nil, application: nil)

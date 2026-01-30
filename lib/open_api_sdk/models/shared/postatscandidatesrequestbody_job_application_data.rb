@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,9 +13,9 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
 
-        field :job_applied_to_data, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyJobAppliedToData), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('Job_Applied_To_Data') } }
+        field :job_applied_to_data, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyJobAppliedToData), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('Job_Applied_To_Data') } }
 
-        field :resume_data, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyResumeData), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('Resume_Data') } }
+        field :resume_data, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyResumeData), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('Resume_Data') } }
 
         sig { params(job_applied_to_data: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyJobAppliedToData), resume_data: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyResumeData)).void }
         def initialize(job_applied_to_data: nil, resume_data: nil)

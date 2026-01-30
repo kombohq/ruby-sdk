@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,15 +13,15 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # If we can display a display name for the link, we will use this label.
-        field :label, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('label'), required: true } }
+        field :label, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('label'), required: true } }
         # URL of the link.
-        field :url, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('url'), required: true } }
+        field :url, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('url'), required: true } }
         # Additional details with attributes that will be added to the result. This can be percentages, scores, or any text.
         # 
         # We generally recommend using short attribute keys and a short custom_field_name_prefix to avoid overflowing the ATS UI.
-        field :details, Crystalline::Nilable.new(Models::Shared::PostAtsApplicationsApplicationIdResultLinksRequestBodyDetails), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('details') } }
+        field :details, Crystalline::Nilable.new(Models::Shared::PostAtsApplicationsApplicationIdResultLinksRequestBodyDetails), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('details') } }
         # Additional fields that we will pass through to specific ATS systems.
-        field :remote_fields, Crystalline::Nilable.new(Models::Shared::PostAtsApplicationsApplicationIdResultLinksRequestBodyRemoteFields), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_fields') } }
+        field :remote_fields, Crystalline::Nilable.new(Models::Shared::PostAtsApplicationsApplicationIdResultLinksRequestBodyRemoteFields), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_fields') } }
 
         sig { params(label: ::String, url: ::String, details: T.nilable(Models::Shared::PostAtsApplicationsApplicationIdResultLinksRequestBodyDetails), remote_fields: T.nilable(Models::Shared::PostAtsApplicationsApplicationIdResultLinksRequestBodyRemoteFields)).void }
         def initialize(label:, url:, details: nil, remote_fields: nil)

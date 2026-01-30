@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
       # An object containing the temporary pre-hire information from the remote system. This ID may change or become invalid when the pre-hire becomes a full employee. Only populated when `id` is null.
@@ -13,7 +13,7 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # The temporary ID returned by the remote system when creating a pre-hire.
-        field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_id'), required: true } }
+        field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_id'), required: true } }
 
         sig { params(remote_id: T.nilable(::String)).void }
         def initialize(remote_id: nil)

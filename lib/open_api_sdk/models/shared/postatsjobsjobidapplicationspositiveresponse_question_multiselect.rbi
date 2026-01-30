@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::PostAtsJobsJobIdApplicationsPositiveResponseQuestionMultiSelect
+class Kombo::Models::Shared::PostAtsJobsJobIdApplicationsPositiveResponseQuestionMultiSelect
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::PostAtsJobsJobIdApplicationsPositiveResponseQuestionMultiSelect
+class Kombo::Models::Shared::PostAtsJobsJobIdApplicationsPositiveResponseQuestionMultiSelect
   def title(); end
   def title=(str_); end
   def type(); end

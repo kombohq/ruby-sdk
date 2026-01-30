@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
       # **(⚠️ Deprecated - Use [automatic source writing](/ats/features/application-attribution#automatic-attribution) instead)** Optional source information that will be attached to the candidate. If
@@ -19,11 +19,11 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # Name of the source (e.g., `"Example Job Board"`).
-        field :name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name') } }
+        field :name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('name') } }
 
-        field :unified_key, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('unified_key') } }
+        field :unified_key, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('unified_key') } }
 
-        field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id') } }
+        field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('id') } }
 
         sig { params(name: T.nilable(::String), unified_key: T.nilable(::String), id: T.nilable(::String)).void }
         def initialize(name: nil, unified_key: nil, id: nil)

@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::PostAtsApplicationsApplicationIdNotesRequestBodyRecruitee
+class Kombo::Models::Shared::PostAtsApplicationsApplicationIdNotesRequestBodyRecruitee
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::PostAtsApplicationsApplicationIdNotesRequestBodyRecruitee
+class Kombo::Models::Shared::PostAtsApplicationsApplicationIdNotesRequestBodyRecruitee
   def visibility(); end
   def visibility=(str_); end
   def is_json(); end

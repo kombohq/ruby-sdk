@@ -2,10 +2,10 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::ConnectionFlowFailedWebhookPayloadType
+class Kombo::Models::Shared::ConnectionFlowFailedWebhookPayloadType
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::ConnectionFlowFailedWebhookPayloadType
+class Kombo::Models::Shared::ConnectionFlowFailedWebhookPayloadType
 end

@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
       # The data to submit as part of the request body if the request's `Content-Type` is `multipart/form-data`.
@@ -13,9 +13,9 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # The key of the form data
-        field :name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name'), required: true } }
+        field :name, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('name'), required: true } }
 
-        field :value, Crystalline::Union.new(::String, Models::Shared::Value), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('value'), required: true } }
+        field :value, Crystalline::Union.new(::String, Models::Shared::Value), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('value'), required: true } }
 
         sig { params(name: ::String, value: T.any(::String, Models::Shared::Value)).void }
         def initialize(name:, value:)

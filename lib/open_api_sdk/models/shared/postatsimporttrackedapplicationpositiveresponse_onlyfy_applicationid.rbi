@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::PostAtsImportTrackedApplicationPositiveResponseOnlyfyApplicationID
+class Kombo::Models::Shared::PostAtsImportTrackedApplicationPositiveResponseOnlyfyApplicationID
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::PostAtsImportTrackedApplicationPositiveResponseOnlyfyApplicationID
+class Kombo::Models::Shared::PostAtsImportTrackedApplicationPositiveResponseOnlyfyApplicationID
   def id_type(); end
   def id_type=(str_); end
   def application_id(); end

@@ -11,7 +11,7 @@ require 'janeway'
 require_relative 'sdk_hooks/hooks'
 require_relative 'utils/retries'
 
-module OpenApiSDK
+module Kombo
   extend T::Sig
   class Ats
     extend T::Sig
@@ -187,7 +187,7 @@ module OpenApiSDK
 
           return response
         else
-          raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+          raise ::Kombo::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
         end
       else
         if Utils.match_content_type(content_type, 'application/json')
@@ -202,7 +202,7 @@ module OpenApiSDK
           obj.raw_response = http_response
           raise obj
         else
-          raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+          raise ::Kombo::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
         end
       end
     end
@@ -334,7 +334,7 @@ module OpenApiSDK
 
           return response
         else
-          raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+          raise ::Kombo::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
         end
       else
         if Utils.match_content_type(content_type, 'application/json')
@@ -349,7 +349,7 @@ module OpenApiSDK
           obj.raw_response = http_response
           raise obj
         else
-          raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+          raise ::Kombo::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
         end
       end
     end
@@ -499,7 +499,7 @@ module OpenApiSDK
 
           return response
         else
-          raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+          raise ::Kombo::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
         end
       else
         if Utils.match_content_type(content_type, 'application/json')
@@ -514,7 +514,7 @@ module OpenApiSDK
           obj.raw_response = http_response
           raise obj
         else
-          raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+          raise ::Kombo::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
         end
       end
     end
@@ -650,7 +650,7 @@ module OpenApiSDK
 
           return response
         else
-          raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+          raise ::Kombo::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
         end
       else
         if Utils.match_content_type(content_type, 'application/json')
@@ -665,7 +665,7 @@ module OpenApiSDK
           obj.raw_response = http_response
           raise obj
         else
-          raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+          raise ::Kombo::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
         end
       end
     end
@@ -778,7 +778,7 @@ module OpenApiSDK
 
           return response
         else
-          raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+          raise ::Kombo::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
         end
       else
         if Utils.match_content_type(content_type, 'application/json')
@@ -793,7 +793,7 @@ module OpenApiSDK
           obj.raw_response = http_response
           raise obj
         else
-          raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+          raise ::Kombo::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
         end
       end
     end
@@ -936,7 +936,7 @@ module OpenApiSDK
 
           return response
         else
-          raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+          raise ::Kombo::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
         end
       else
         if Utils.match_content_type(content_type, 'application/json')
@@ -951,7 +951,7 @@ module OpenApiSDK
           obj.raw_response = http_response
           raise obj
         else
-          raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+          raise ::Kombo::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
         end
       end
     end
@@ -1087,7 +1087,7 @@ module OpenApiSDK
 
           return response
         else
-          raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+          raise ::Kombo::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
         end
       else
         if Utils.match_content_type(content_type, 'application/json')
@@ -1102,7 +1102,7 @@ module OpenApiSDK
           obj.raw_response = http_response
           raise obj
         else
-          raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+          raise ::Kombo::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
         end
       end
     end
@@ -1246,7 +1246,7 @@ module OpenApiSDK
 
           return response
         else
-          raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+          raise ::Kombo::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
         end
       else
         if Utils.match_content_type(content_type, 'application/json')
@@ -1261,7 +1261,7 @@ module OpenApiSDK
           obj.raw_response = http_response
           raise obj
         else
-          raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+          raise ::Kombo::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
         end
       end
     end
@@ -1447,7 +1447,7 @@ module OpenApiSDK
 
           return response
         else
-          raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+          raise ::Kombo::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
         end
       else
         if Utils.match_content_type(content_type, 'application/json')
@@ -1462,7 +1462,7 @@ module OpenApiSDK
           obj.raw_response = http_response
           raise obj
         else
-          raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+          raise ::Kombo::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
         end
       end
     end
@@ -1573,7 +1573,7 @@ module OpenApiSDK
 
           return response
         else
-          raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+          raise ::Kombo::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
         end
       else
         if Utils.match_content_type(content_type, 'application/json')
@@ -1588,7 +1588,7 @@ module OpenApiSDK
           obj.raw_response = http_response
           raise obj
         else
-          raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+          raise ::Kombo::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
         end
       end
     end
@@ -1732,7 +1732,7 @@ module OpenApiSDK
 
           return response
         else
-          raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+          raise ::Kombo::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
         end
       else
         if Utils.match_content_type(content_type, 'application/json')
@@ -1747,7 +1747,7 @@ module OpenApiSDK
           obj.raw_response = http_response
           raise obj
         else
-          raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+          raise ::Kombo::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
         end
       end
     end
@@ -1902,7 +1902,7 @@ module OpenApiSDK
 
           return response
         else
-          raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+          raise ::Kombo::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
         end
       else
         if Utils.match_content_type(content_type, 'application/json')
@@ -1917,7 +1917,7 @@ module OpenApiSDK
           obj.raw_response = http_response
           raise obj
         else
-          raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+          raise ::Kombo::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
         end
       end
     end
@@ -2053,7 +2053,7 @@ module OpenApiSDK
 
           return response
         else
-          raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+          raise ::Kombo::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
         end
       else
         if Utils.match_content_type(content_type, 'application/json')
@@ -2068,7 +2068,7 @@ module OpenApiSDK
           obj.raw_response = http_response
           raise obj
         else
-          raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+          raise ::Kombo::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
         end
       end
     end
@@ -2204,7 +2204,7 @@ module OpenApiSDK
 
           return response
         else
-          raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+          raise ::Kombo::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
         end
       else
         if Utils.match_content_type(content_type, 'application/json')
@@ -2219,7 +2219,7 @@ module OpenApiSDK
           obj.raw_response = http_response
           raise obj
         else
-          raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+          raise ::Kombo::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
         end
       end
     end
@@ -2355,7 +2355,7 @@ module OpenApiSDK
 
           return response
         else
-          raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+          raise ::Kombo::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
         end
       else
         if Utils.match_content_type(content_type, 'application/json')
@@ -2370,7 +2370,7 @@ module OpenApiSDK
           obj.raw_response = http_response
           raise obj
         else
-          raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+          raise ::Kombo::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
         end
       end
     end
@@ -2516,7 +2516,7 @@ module OpenApiSDK
 
           return response
         else
-          raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+          raise ::Kombo::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
         end
       else
         if Utils.match_content_type(content_type, 'application/json')
@@ -2531,7 +2531,7 @@ module OpenApiSDK
           obj.raw_response = http_response
           raise obj
         else
-          raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+          raise ::Kombo::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
         end
       end
     end
@@ -2689,7 +2689,7 @@ module OpenApiSDK
 
           return response
         else
-          raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+          raise ::Kombo::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
         end
       else
         if Utils.match_content_type(content_type, 'application/json')
@@ -2704,7 +2704,7 @@ module OpenApiSDK
           obj.raw_response = http_response
           raise obj
         else
-          raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+          raise ::Kombo::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
         end
       end
     end
@@ -2887,7 +2887,7 @@ module OpenApiSDK
 
           return response
         else
-          raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+          raise ::Kombo::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
         end
       else
         if Utils.match_content_type(content_type, 'application/json')
@@ -2902,7 +2902,7 @@ module OpenApiSDK
           obj.raw_response = http_response
           raise obj
         else
-          raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+          raise ::Kombo::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
         end
       end
     end
@@ -3040,7 +3040,7 @@ module OpenApiSDK
 
           return response
         else
-          raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+          raise ::Kombo::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
         end
       else
         if Utils.match_content_type(content_type, 'application/json')
@@ -3055,7 +3055,7 @@ module OpenApiSDK
           obj.raw_response = http_response
           raise obj
         else
-          raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+          raise ::Kombo::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
         end
       end
     end
@@ -3191,7 +3191,7 @@ module OpenApiSDK
 
           return response
         else
-          raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+          raise ::Kombo::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
         end
       else
         if Utils.match_content_type(content_type, 'application/json')
@@ -3206,7 +3206,7 @@ module OpenApiSDK
           obj.raw_response = http_response
           raise obj
         else
-          raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+          raise ::Kombo::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
         end
       end
     end
@@ -3344,7 +3344,7 @@ module OpenApiSDK
 
           return response
         else
-          raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+          raise ::Kombo::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
         end
       else
         if Utils.match_content_type(content_type, 'application/json')
@@ -3359,7 +3359,7 @@ module OpenApiSDK
           obj.raw_response = http_response
           raise obj
         else
-          raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+          raise ::Kombo::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
         end
       end
     end
@@ -3497,7 +3497,7 @@ module OpenApiSDK
 
           return response
         else
-          raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+          raise ::Kombo::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
         end
       else
         if Utils.match_content_type(content_type, 'application/json')
@@ -3512,7 +3512,7 @@ module OpenApiSDK
           obj.raw_response = http_response
           raise obj
         else
-          raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+          raise ::Kombo::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
         end
       end
     end
@@ -3643,7 +3643,7 @@ module OpenApiSDK
 
           return response
         else
-          raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+          raise ::Kombo::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
         end
       else
         if Utils.match_content_type(content_type, 'application/json')
@@ -3658,7 +3658,7 @@ module OpenApiSDK
           obj.raw_response = http_response
           raise obj
         else
-          raise ::OpenApiSDK::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+          raise ::Kombo::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
         end
       end
     end

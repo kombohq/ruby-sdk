@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,9 +13,9 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # Uses the `/v1/application/{id}` endpoint to retrieve the application.
-        field :id_type, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id_type'), required: true } }
+        field :id_type, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('id_type'), required: true } }
 
-        field :application_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('application_id'), required: true } }
+        field :application_id, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('application_id'), required: true } }
 
         sig { params(id_type: ::String, application_id: ::String).void }
         def initialize(id_type:, application_id:)

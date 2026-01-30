@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::PostAtsApplicationsApplicationIdResultLinksRequestBodyRemoteFields
+class Kombo::Models::Shared::PostAtsApplicationsApplicationIdResultLinksRequestBodyRemoteFields
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::PostAtsApplicationsApplicationIdResultLinksRequestBodyRemoteFields
+class Kombo::Models::Shared::PostAtsApplicationsApplicationIdResultLinksRequestBodyRemoteFields
   def icims(); end
   def icims=(str_); end
   def oracle(); end

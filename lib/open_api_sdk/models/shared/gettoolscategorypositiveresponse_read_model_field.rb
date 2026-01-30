@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,14 +13,14 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # Key of the field in the model (e.g. first_name).
-        field :id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id'), required: true } }
+        field :id, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('id'), required: true } }
         # The status of a datapoint of an integrated tool:
         # 
         # - `SUPPORTED`: the tool supports the datapoint and it can be used through Kombo.
         # - `UNSUPPORTED`: the tool does not support the datapoint.
         # - `NOT_IMPLEMENTED`: tool supports the datapoint but it was not integrated by Kombo for a given reason (see coverage grid).
         # - `UNKNOWN`: the datapoint is not integrated yet and Kombo has no information about it's availability in the tool.
-        field :coverage_status, Models::Shared::GetToolsCategoryPositiveResponseReadModelFieldCoverageStatus, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('coverage_status'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::GetToolsCategoryPositiveResponseReadModelFieldCoverageStatus, false) } }
+        field :coverage_status, Models::Shared::GetToolsCategoryPositiveResponseReadModelFieldCoverageStatus, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('coverage_status'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::GetToolsCategoryPositiveResponseReadModelFieldCoverageStatus, false) } }
 
         sig { params(id: ::String, coverage_status: Models::Shared::GetToolsCategoryPositiveResponseReadModelFieldCoverageStatus).void }
         def initialize(id:, coverage_status:)

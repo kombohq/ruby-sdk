@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,9 +13,9 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
 
-        field :candidate, Crystalline::Nilable.new(Models::Shared::GetAtsOffersPositiveResponseCandidate), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('candidate'), required: true } }
+        field :candidate, Crystalline::Nilable.new(Models::Shared::GetAtsOffersPositiveResponseCandidate), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('candidate'), required: true } }
 
-        field :job, Crystalline::Nilable.new(Models::Shared::GetAtsOffersPositiveResponseJob), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('job'), required: true } }
+        field :job, Crystalline::Nilable.new(Models::Shared::GetAtsOffersPositiveResponseJob), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('job'), required: true } }
 
         sig { params(candidate: T.nilable(Models::Shared::GetAtsOffersPositiveResponseCandidate), job: T.nilable(Models::Shared::GetAtsOffersPositiveResponseJob)).void }
         def initialize(candidate: nil, job: nil)

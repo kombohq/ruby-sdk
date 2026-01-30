@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
       # Fields specific to Oracle.
@@ -13,9 +13,9 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # Allows you to override the document category for the url. (Default: MISC)
-        field :override_document_category, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesCandidateIdResultLinksRequestBodyOverrideDocumentCategory), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('override_document_category'), 'decoder': Utils.enum_from_string(Models::Shared::PostAtsCandidatesCandidateIdResultLinksRequestBodyOverrideDocumentCategory, true) } }
+        field :override_document_category, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesCandidateIdResultLinksRequestBodyOverrideDocumentCategory), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('override_document_category'), 'decoder': Utils.enum_from_string(Models::Shared::PostAtsCandidatesCandidateIdResultLinksRequestBodyOverrideDocumentCategory, true) } }
         # If true, the result link will be posted to all current applications for the candidate.
-        field :multi_post_to_all_current_applications, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('multi_post_to_all_current_applications') } }
+        field :multi_post_to_all_current_applications, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('multi_post_to_all_current_applications') } }
 
         sig { params(override_document_category: T.nilable(Models::Shared::PostAtsCandidatesCandidateIdResultLinksRequestBodyOverrideDocumentCategory), multi_post_to_all_current_applications: T.nilable(T::Boolean)).void }
         def initialize(override_document_category: nil, multi_post_to_all_current_applications: nil)

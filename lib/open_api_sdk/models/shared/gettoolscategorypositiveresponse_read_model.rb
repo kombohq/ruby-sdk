@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
       # List of models we can read for this tool.
@@ -13,18 +13,18 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # ID of the model (e.g. hris_employees).
-        field :id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id'), required: true } }
+        field :id, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('id'), required: true } }
         # Label of the model (e.g. Employees).
-        field :label, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('label'), required: true } }
+        field :label, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('label'), required: true } }
         # The status of a datapoint of an integrated tool:
         # 
         # - `SUPPORTED`: the tool supports the datapoint and it can be used through Kombo.
         # - `UNSUPPORTED`: the tool does not support the datapoint.
         # - `NOT_IMPLEMENTED`: tool supports the datapoint but it was not integrated by Kombo for a given reason (see coverage grid).
         # - `UNKNOWN`: the datapoint is not integrated yet and Kombo has no information about it's availability in the tool.
-        field :coverage_status, Models::Shared::GetToolsCategoryPositiveResponseReadModelCoverageStatus, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('coverage_status'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::GetToolsCategoryPositiveResponseReadModelCoverageStatus, false) } }
+        field :coverage_status, Models::Shared::GetToolsCategoryPositiveResponseReadModelCoverageStatus, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('coverage_status'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::GetToolsCategoryPositiveResponseReadModelCoverageStatus, false) } }
 
-        field :fields_, Crystalline::Array.new(Models::Shared::GetToolsCategoryPositiveResponseReadModelField), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('fields'), required: true } }
+        field :fields_, Crystalline::Array.new(Models::Shared::GetToolsCategoryPositiveResponseReadModelField), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('fields'), required: true } }
 
         sig { params(id: ::String, label: ::String, coverage_status: Models::Shared::GetToolsCategoryPositiveResponseReadModelCoverageStatus, fields_: T::Array[Models::Shared::GetToolsCategoryPositiveResponseReadModelField]).void }
         def initialize(id:, label:, coverage_status:, fields_:)

@@ -2,10 +2,10 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::FeatureCoverageStatus
+class Kombo::Models::Shared::FeatureCoverageStatus
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::FeatureCoverageStatus
+class Kombo::Models::Shared::FeatureCoverageStatus
 end

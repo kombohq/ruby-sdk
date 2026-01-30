@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,15 +13,15 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
 
-        field :name_detail_data, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyNameDetailData), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('Name_Detail_Data') } }
+        field :name_detail_data, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyNameDetailData), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('Name_Detail_Data') } }
         # Used to set the candidate's primary language
-        field :language_reference, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyLanguageReference), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('Language_Reference') } }
+        field :language_reference, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyLanguageReference), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('Language_Reference') } }
 
-        field :job_application_data, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyJobApplicationData), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('Job_Application_Data') } }
+        field :job_application_data, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyJobApplicationData), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('Job_Application_Data') } }
 
-        field :contact_data, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyContactData), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('Contact_Data') } }
+        field :contact_data, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyContactData), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('Contact_Data') } }
         # Reference to the Worker (employee) to link the candidate to. Provide either WID or Employee_ID.
-        field :worker_reference, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyWorkerReference), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('Worker_Reference') } }
+        field :worker_reference, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyWorkerReference), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('Worker_Reference') } }
 
         sig { params(name_detail_data: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyNameDetailData), language_reference: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyLanguageReference), job_application_data: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyJobApplicationData), contact_data: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyContactData), worker_reference: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyWorkerReference)).void }
         def initialize(name_detail_data: nil, language_reference: nil, job_application_data: nil, contact_data: nil, worker_reference: nil)

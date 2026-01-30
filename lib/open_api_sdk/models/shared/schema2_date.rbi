@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::Schema2Date
+class Kombo::Models::Shared::Schema2Date
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::Schema2Date
+class Kombo::Models::Shared::Schema2Date
   def label(); end
   def label=(str_); end
   def required(); end

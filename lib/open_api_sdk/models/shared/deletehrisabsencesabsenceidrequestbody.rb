@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,7 +13,7 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # Additional fields that we will pass through to specific HRIS systems.
-        field :remote_fields, Crystalline::Nilable.new(Models::Shared::DeleteHrisAbsencesAbsenceIdRequestBodyRemoteFields), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_fields') } }
+        field :remote_fields, Crystalline::Nilable.new(Models::Shared::DeleteHrisAbsencesAbsenceIdRequestBodyRemoteFields), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_fields') } }
 
         sig { params(remote_fields: T.nilable(Models::Shared::DeleteHrisAbsencesAbsenceIdRequestBodyRemoteFields)).void }
         def initialize(remote_fields: nil)

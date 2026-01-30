@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,9 +13,9 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
 
-        field :language_proficiency_reference, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyLanguageProficiencyReference), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('Language_Proficiency_Reference') } }
+        field :language_proficiency_reference, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyLanguageProficiencyReference), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('Language_Proficiency_Reference') } }
 
-        field :language_ability_type_reference, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyLanguageAbilityTypeReference), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('Language_Ability_Type_Reference') } }
+        field :language_ability_type_reference, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyLanguageAbilityTypeReference), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('Language_Ability_Type_Reference') } }
 
         sig { params(language_proficiency_reference: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyLanguageProficiencyReference), language_ability_type_reference: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyLanguageAbilityTypeReference)).void }
         def initialize(language_proficiency_reference: nil, language_ability_type_reference: nil)

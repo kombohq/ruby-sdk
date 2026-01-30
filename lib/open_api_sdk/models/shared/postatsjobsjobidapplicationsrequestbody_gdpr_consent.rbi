@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyGdprConsent
+class Kombo::Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyGdprConsent
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyGdprConsent
+class Kombo::Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyGdprConsent
   def expires_at(); end
   def expires_at=(str_); end
   def given(); end

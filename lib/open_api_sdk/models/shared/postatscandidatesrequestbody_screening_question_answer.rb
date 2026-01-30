@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,7 +13,7 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # ID of the question returned by the Kombo API. We'll report a warning in the logs if the question can't be found on the job.
-        field :question_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('question_id'), required: true } }
+        field :question_id, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('question_id'), required: true } }
         # Answer to a question. This will be validated based on the question format and throw an error if the answer is invalid. Here is a description of each question type and the required answer format:
         # 
         # `TEXT` - Simply provide a "string" answer.
@@ -29,7 +29,7 @@ module OpenApiSDK
         # `DATE` - Provide the answer as an ISO 8601 date string.
         # 
         # `FILE` - Please select Option 6 in the dropdown above to see the required format.
-        field :answer, Crystalline::Union.new(::String, Crystalline::Boolean.new, ::Float, Crystalline::Array.new(::String), ::DateTime, Models::Shared::PostAtsCandidatesRequestBodyAnswer), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('answer'), required: true } }
+        field :answer, Crystalline::Union.new(::String, Crystalline::Boolean.new, ::Float, Crystalline::Array.new(::String), ::DateTime, Models::Shared::PostAtsCandidatesRequestBodyAnswer), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('answer'), required: true } }
 
         sig { params(question_id: ::String, answer: T.any(::String, T::Boolean, ::Float, T::Array[::String], ::DateTime, Models::Shared::PostAtsCandidatesRequestBodyAnswer)).void }
         def initialize(question_id:, answer:)

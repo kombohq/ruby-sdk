@@ -1,11 +1,11 @@
 # typed: true
 # frozen_string_literal: true
 
-class OpenApiSDK::Models::Errors::APIError
+class Kombo::Models::Errors::APIError
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
-class OpenApiSDK::Models::Errors::APIError
+class Kombo::Models::Errors::APIError
   
   def body(); end
   def body=(body); end

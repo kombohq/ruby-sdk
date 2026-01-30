@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,7 +13,7 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # The ID of the workflow step to assign to the candidate.
-        field :id, ::Integer, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id'), required: true } }
+        field :id, ::Integer, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('id'), required: true } }
 
         sig { params(id: ::Integer).void }
         def initialize(id:)

@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Operations::GetCheckApiKeyResponse
+class Kombo::Models::Operations::GetCheckApiKeyResponse
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Operations::GetCheckApiKeyResponse
+class Kombo::Models::Operations::GetCheckApiKeyResponse
   def content_type(); end
   def content_type=(str_); end
   def status_code(); end

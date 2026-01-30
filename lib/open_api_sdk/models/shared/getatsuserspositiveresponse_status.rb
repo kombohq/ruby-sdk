@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
       # GetAtsUsersPositiveResponseStatus - Whether the user is active or inactive. Consider this field when provisioning users from the ATS.

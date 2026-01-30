@@ -2,10 +2,10 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::PostForceSyncPositiveResponseType
+class Kombo::Models::Shared::PostForceSyncPositiveResponseType
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::PostForceSyncPositiveResponseType
+class Kombo::Models::Shared::PostForceSyncPositiveResponseType
 end

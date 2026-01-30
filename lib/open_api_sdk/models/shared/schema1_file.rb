@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,17 +13,17 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
 
-        field :label, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('label'), required: true } }
+        field :label, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('label'), required: true } }
 
-        field :required, Crystalline::Boolean.new, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('required'), required: true } }
+        field :required, Crystalline::Boolean.new, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('required'), required: true } }
 
-        field :type, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('type'), required: true } }
+        field :type, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('type'), required: true } }
 
-        field :file_restrictions, Models::Shared::Schema1FileRestrictions, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('file_restrictions'), required: true } }
+        field :file_restrictions, Models::Shared::Schema1FileRestrictions, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('file_restrictions'), required: true } }
 
-        field :description, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('description') } }
+        field :description, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('description') } }
 
-        field :unified_key, Crystalline::Nilable.new(Models::Shared::Schema1UnifiedKey8), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('unified_key'), 'decoder': Utils.enum_from_string(Models::Shared::Schema1UnifiedKey8, true) } }
+        field :unified_key, Crystalline::Nilable.new(Models::Shared::Schema1UnifiedKey8), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('unified_key'), 'decoder': Utils.enum_from_string(Models::Shared::Schema1UnifiedKey8, true) } }
 
         sig { params(label: ::String, required: T::Boolean, type: ::String, file_restrictions: Models::Shared::Schema1FileRestrictions, description: T.nilable(::String), unified_key: T.nilable(Models::Shared::Schema1UnifiedKey8)).void }
         def initialize(label:, required:, type:, file_restrictions:, description: nil, unified_key: nil)

@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,20 +13,20 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
 
-        field :erecruiter, Crystalline::Nilable.new(Crystalline::Union.new(Models::Shared::PostAtsImportTrackedApplicationRequestBodyErecruiterApplicationAndJobRemoteIds, Models::Shared::PostAtsImportTrackedApplicationRequestBodyErecruiterApplicationAndCandidateRemoteIds)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('erecruiter') } }
+        field :erecruiter, Crystalline::Nilable.new(Crystalline::Union.new(Models::Shared::PostAtsImportTrackedApplicationRequestBodyErecruiterApplicationAndJobRemoteIds, Models::Shared::PostAtsImportTrackedApplicationRequestBodyErecruiterApplicationAndCandidateRemoteIds)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('erecruiter') } }
 
-        field :successfactors, Crystalline::Nilable.new(Models::Shared::PostAtsImportTrackedApplicationRequestBodySuccessfactorsApplicationRemoteID), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('successfactors') } }
+        field :successfactors, Crystalline::Nilable.new(Models::Shared::PostAtsImportTrackedApplicationRequestBodySuccessfactorsApplicationRemoteID), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('successfactors') } }
 
-        field :recruitee, Crystalline::Nilable.new(Models::Shared::PostAtsImportTrackedApplicationRequestBodyRecruiteePlacementID), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('recruitee') } }
+        field :recruitee, Crystalline::Nilable.new(Models::Shared::PostAtsImportTrackedApplicationRequestBodyRecruiteePlacementID), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('recruitee') } }
 
-        field :greenhouse, Crystalline::Nilable.new(Models::Shared::PostAtsImportTrackedApplicationRequestBodyGreenhouseApplicationID), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('greenhouse') } }
+        field :greenhouse, Crystalline::Nilable.new(Models::Shared::PostAtsImportTrackedApplicationRequestBodyGreenhouseApplicationID), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('greenhouse') } }
 
-        field :onlyfy, Crystalline::Nilable.new(Models::Shared::PostAtsImportTrackedApplicationRequestBodyOnlyfyApplicationID), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('onlyfy') } }
+        field :onlyfy, Crystalline::Nilable.new(Models::Shared::PostAtsImportTrackedApplicationRequestBodyOnlyfyApplicationID), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('onlyfy') } }
 
-        field :smartrecruiters, Crystalline::Nilable.new(Models::Shared::PostAtsImportTrackedApplicationRequestBodySmartrecruitersCandidateAndJobRemoteIds), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('smartrecruiters') } }
+        field :smartrecruiters, Crystalline::Nilable.new(Models::Shared::PostAtsImportTrackedApplicationRequestBodySmartrecruitersCandidateAndJobRemoteIds), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('smartrecruiters') } }
         # YYYY-MM-DDTHH:mm:ss.sssZ
         # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
-        field :tracked_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tracked_at'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
+        field :tracked_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('tracked_at'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
 
         sig { params(erecruiter: T.nilable(T.any(Models::Shared::PostAtsImportTrackedApplicationRequestBodyErecruiterApplicationAndJobRemoteIds, Models::Shared::PostAtsImportTrackedApplicationRequestBodyErecruiterApplicationAndCandidateRemoteIds)), successfactors: T.nilable(Models::Shared::PostAtsImportTrackedApplicationRequestBodySuccessfactorsApplicationRemoteID), recruitee: T.nilable(Models::Shared::PostAtsImportTrackedApplicationRequestBodyRecruiteePlacementID), greenhouse: T.nilable(Models::Shared::PostAtsImportTrackedApplicationRequestBodyGreenhouseApplicationID), onlyfy: T.nilable(Models::Shared::PostAtsImportTrackedApplicationRequestBodyOnlyfyApplicationID), smartrecruiters: T.nilable(Models::Shared::PostAtsImportTrackedApplicationRequestBodySmartrecruitersCandidateAndJobRemoteIds), tracked_at: T.nilable(::DateTime)).void }
         def initialize(erecruiter: nil, successfactors: nil, recruitee: nil, greenhouse: nil, onlyfy: nil, smartrecruiters: nil, tracked_at: nil)

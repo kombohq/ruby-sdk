@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::PostAtsCandidatesPositiveResponseEmailAddress
+class Kombo::Models::Shared::PostAtsCandidatesPositiveResponseEmailAddress
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::PostAtsCandidatesPositiveResponseEmailAddress
+class Kombo::Models::Shared::PostAtsCandidatesPositiveResponseEmailAddress
   def type(); end
   def type=(str_); end
   def email_address(); end

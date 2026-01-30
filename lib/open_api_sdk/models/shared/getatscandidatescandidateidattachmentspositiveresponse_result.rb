@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,27 +13,27 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
 
-        field :id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id'), required: true } }
+        field :id, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('id'), required: true } }
         # The Kombo ID of the candidate this attachment belongs to.
-        field :candidate_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('candidate_id'), required: true } }
+        field :candidate_id, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('candidate_id'), required: true } }
 
-        field :type, Models::Shared::GetAtsCandidatesCandidateIdAttachmentsPositiveResponseType, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('type'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::GetAtsCandidatesCandidateIdAttachmentsPositiveResponseType, false) } }
+        field :type, Models::Shared::GetAtsCandidatesCandidateIdAttachmentsPositiveResponseType, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('type'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::GetAtsCandidatesCandidateIdAttachmentsPositiveResponseType, false) } }
 
-        field :remote_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_id'), required: true } }
+        field :remote_id, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_id'), required: true } }
 
-        field :data_url, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('data_url'), required: true } }
+        field :data_url, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('data_url'), required: true } }
 
-        field :file_name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('file_name'), required: true } }
+        field :file_name, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('file_name'), required: true } }
         # The MIME type of the attachment.
-        field :content_type, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('content_type'), required: true } }
+        field :content_type, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('content_type'), required: true } }
         # The Kombo ID of the application this attachment belongs to. When this is null, the attachment is not specific to any application but the candidate.
-        field :application_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('application_id'), required: true } }
+        field :application_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('application_id'), required: true } }
         # The date when the attachment was created.
         # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
-        field :remote_created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_created_at'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
+        field :remote_created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_created_at'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
         # The date when the attachment was last updated.
         # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
-        field :remote_updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_updated_at'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
+        field :remote_updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_updated_at'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
 
         sig { params(id: ::String, candidate_id: ::String, type: Models::Shared::GetAtsCandidatesCandidateIdAttachmentsPositiveResponseType, remote_id: ::String, data_url: ::String, file_name: ::String, content_type: ::String, application_id: T.nilable(::String), remote_created_at: T.nilable(::DateTime), remote_updated_at: T.nilable(::DateTime)).void }
         def initialize(id:, candidate_id:, type:, remote_id:, data_url:, file_name:, content_type:, application_id: nil, remote_created_at: nil, remote_updated_at: nil)

@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::PostAtsCandidatesCandidateIdAttachmentsRequestBody
+class Kombo::Models::Shared::PostAtsCandidatesCandidateIdAttachmentsRequestBody
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::PostAtsCandidatesCandidateIdAttachmentsRequestBody
+class Kombo::Models::Shared::PostAtsCandidatesCandidateIdAttachmentsRequestBody
   def attachment(); end
   def attachment=(str_); end
   def remote_fields(); end

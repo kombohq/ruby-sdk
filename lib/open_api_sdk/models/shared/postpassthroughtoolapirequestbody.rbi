@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::PostPassthroughToolApiRequestBody
+class Kombo::Models::Shared::PostPassthroughToolApiRequestBody
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::PostPassthroughToolApiRequestBody
+class Kombo::Models::Shared::PostPassthroughToolApiRequestBody
   def method(); end
   def method=(str_); end
   def path(); end

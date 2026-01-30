@@ -2,10 +2,10 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::FieldScopeConfigSetting
+class Kombo::Models::Shared::FieldScopeConfigSetting
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::FieldScopeConfigSetting
+class Kombo::Models::Shared::FieldScopeConfigSetting
 end

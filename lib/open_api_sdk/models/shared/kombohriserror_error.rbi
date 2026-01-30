@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::KomboHrisErrorError
+class Kombo::Models::Shared::KomboHrisErrorError
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::KomboHrisErrorError
+class Kombo::Models::Shared::KomboHrisErrorError
   def message(); end
   def message=(str_); end
   def code(); end

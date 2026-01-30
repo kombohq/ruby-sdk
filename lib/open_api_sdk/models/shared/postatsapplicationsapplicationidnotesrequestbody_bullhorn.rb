@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
       # Bullhorn specific remote fields for the note.
@@ -13,7 +13,7 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # The action (or type) associated with a Note. You can find all available note actions in a Bullhorn instance under System Settings > commentActionList. The default action is `Note`.
-        field :action, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('action') } }
+        field :action, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('action') } }
 
         sig { params(action: T.nilable(::String)).void }
         def initialize(action: nil)

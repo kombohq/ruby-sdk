@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,11 +13,11 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # Uses the `Api/Applications/{applicantId}` endpoint to retrieve the relevant application based on the candidate ID.
-        field :id_type, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id_type'), required: true } }
+        field :id_type, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('id_type'), required: true } }
 
-        field :candidate_remote_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('candidate_remote_id'), required: true } }
+        field :candidate_remote_id, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('candidate_remote_id'), required: true } }
 
-        field :application_remote_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('application_remote_id'), required: true } }
+        field :application_remote_id, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('application_remote_id'), required: true } }
 
         sig { params(id_type: ::String, candidate_remote_id: ::String, application_remote_id: ::String).void }
         def initialize(id_type:, candidate_remote_id:, application_remote_id:)

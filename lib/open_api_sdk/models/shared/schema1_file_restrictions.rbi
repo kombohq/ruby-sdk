@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::Schema1FileRestrictions
+class Kombo::Models::Shared::Schema1FileRestrictions
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::Schema1FileRestrictions
+class Kombo::Models::Shared::Schema1FileRestrictions
   def accepted_mime_types(); end
   def accepted_mime_types=(str_); end
   def max_file_size(); end

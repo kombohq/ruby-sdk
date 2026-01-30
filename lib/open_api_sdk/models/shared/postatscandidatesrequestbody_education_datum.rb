@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,17 +13,17 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
 
-        field :school_name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('School_Name') } }
+        field :school_name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('School_Name') } }
 
-        field :first_year_attended, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('First_Year_Attended') } }
+        field :first_year_attended, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('First_Year_Attended') } }
 
-        field :last_year_attended, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('Last_Year_Attended') } }
+        field :last_year_attended, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('Last_Year_Attended') } }
 
-        field :field_of_study_reference, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyFieldOfStudyReference), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('Field_of_Study_Reference') } }
+        field :field_of_study_reference, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyFieldOfStudyReference), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('Field_of_Study_Reference') } }
 
-        field :degree_reference, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyDegreeReference), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('Degree_Reference') } }
+        field :degree_reference, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyDegreeReference), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('Degree_Reference') } }
 
-        field :grade_average, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('Grade_Average') } }
+        field :grade_average, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('Grade_Average') } }
 
         sig { params(school_name: T.nilable(::String), first_year_attended: T.nilable(::Float), last_year_attended: T.nilable(::Float), field_of_study_reference: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyFieldOfStudyReference), degree_reference: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyDegreeReference), grade_average: T.nilable(::String)).void }
         def initialize(school_name: nil, first_year_attended: nil, last_year_attended: nil, field_of_study_reference: nil, degree_reference: nil, grade_average: nil)

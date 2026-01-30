@@ -2,10 +2,10 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::Schema2UnifiedKey8
+class Kombo::Models::Shared::Schema2UnifiedKey8
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::Schema2UnifiedKey8
+class Kombo::Models::Shared::Schema2UnifiedKey8
 end

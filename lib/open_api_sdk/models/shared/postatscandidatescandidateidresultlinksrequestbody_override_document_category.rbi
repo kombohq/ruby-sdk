@@ -2,10 +2,10 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::PostAtsCandidatesCandidateIdResultLinksRequestBodyOverrideDocumentCategory
+class Kombo::Models::Shared::PostAtsCandidatesCandidateIdResultLinksRequestBodyOverrideDocumentCategory
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::PostAtsCandidatesCandidateIdResultLinksRequestBodyOverrideDocumentCategory
+class Kombo::Models::Shared::PostAtsCandidatesCandidateIdResultLinksRequestBodyOverrideDocumentCategory
 end

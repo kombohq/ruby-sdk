@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::SyncFinishedWebhookPayloadData
+class Kombo::Models::Shared::SyncFinishedWebhookPayloadData
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::SyncFinishedWebhookPayloadData
+class Kombo::Models::Shared::SyncFinishedWebhookPayloadData
   def sync_id(); end
   def sync_id=(str_); end
   def sync_state(); end

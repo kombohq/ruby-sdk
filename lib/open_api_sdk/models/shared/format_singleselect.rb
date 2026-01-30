@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,11 +13,11 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
 
-        field :options, Crystalline::Array.new(Models::Shared::Option1), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('options'), required: true } }
+        field :options, Crystalline::Array.new(Models::Shared::Option1), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('options'), required: true } }
 
-        field :type, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('type'), required: true } }
+        field :type, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('type'), required: true } }
 
-        field :display_type, Crystalline::Nilable.new(Models::Shared::DisplayType3), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('display_type'), 'decoder': Utils.enum_from_string(Models::Shared::DisplayType3, true) } }
+        field :display_type, Crystalline::Nilable.new(Models::Shared::DisplayType3), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('display_type'), 'decoder': Utils.enum_from_string(Models::Shared::DisplayType3, true) } }
 
         sig { params(options: T::Array[Models::Shared::Option1], type: ::String, display_type: T.nilable(Models::Shared::DisplayType3)).void }
         def initialize(options:, type:, display_type: nil)

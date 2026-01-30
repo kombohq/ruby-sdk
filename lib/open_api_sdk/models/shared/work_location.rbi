@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::WorkLocation
+class Kombo::Models::Shared::WorkLocation
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::WorkLocation
+class Kombo::Models::Shared::WorkLocation
   def id(); end
   def id=(str_); end
   def changed_at(); end

@@ -10,7 +10,7 @@ require 'sorbet-runtime'
 require_relative 'sdk_hooks/hooks'
 require_relative 'utils/retries'
 
-module OpenApiSDK
+module Kombo
   extend T::Sig
 
   class Kombo
@@ -21,7 +21,7 @@ module OpenApiSDK
     # Instantiates the SDK, configuring it with the provided parameters.
     #
     # @param client [Faraday::Connection, nil] The faraday HTTP client to use for all operations
-    # @param retry_config [::OpenApiSDK::Utils::RetryConfig, nil] The retry configuration to use for all operations
+    # @param retry_config [::Kombo::Utils::RetryConfig, nil] The retry configuration to use for all operations
     # @param timeout_ms [Integer, nil] Request timeout in milliseconds for all operations
     # @param security [Models::Shared::Security, nil] The security details required for authentication
     # @param security_source [Proc{|| Models::Shared::Security, nil}] A function that returns security details required for authentication
@@ -32,7 +32,7 @@ module OpenApiSDK
     sig do
       params(
         client: T.nilable(Faraday::Connection),
-        retry_config: T.nilable(::OpenApiSDK::Utils::RetryConfig),
+        retry_config: T.nilable(::Kombo::Utils::RetryConfig),
         timeout_ms: T.nilable(Integer),
         security: T.nilable(Models::Shared::Security),
         security_source: T.nilable(T.proc.returns(Models::Shared::Security)),

@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
       # PostHrisAbsencesPositiveResponseUnit - The unit of time for this absence. Can be `HOURS` or `DAYS`.

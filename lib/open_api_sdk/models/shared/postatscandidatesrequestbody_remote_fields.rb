@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
       # Additional fields that we will pass through to specific ATS systems.
@@ -13,49 +13,49 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # Fields specific to SAP SuccessFactors.
-        field :successfactors, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodySuccessfactors), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('successfactors') } }
+        field :successfactors, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodySuccessfactors), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('successfactors') } }
         # Fields specific to Personio.
-        field :personio, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyPersonio), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('personio') } }
+        field :personio, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyPersonio), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('personio') } }
         # Fields specific to TalentSoft.
-        field :talentsoft, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyTalentsoft), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('talentsoft') } }
+        field :talentsoft, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyTalentsoft), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('talentsoft') } }
 
-        field :teamtailor, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyTeamtailor), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('teamtailor') } }
+        field :teamtailor, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyTeamtailor), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('teamtailor') } }
         # Fields specific to Greenhouse.
-        field :greenhouse, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyGreenhouse), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('greenhouse') } }
+        field :greenhouse, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyGreenhouse), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('greenhouse') } }
         # Fields specific to Lever.
-        field :lever, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyLever), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('lever') } }
+        field :lever, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyLever), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('lever') } }
         # Workable specific remote fields for ATS actions.
-        field :workable, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyWorkable), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('workable') } }
+        field :workable, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyWorkable), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('workable') } }
         # Fields specific to Workday. The remote fields schema follows the documentation at https://community.workday.com/sites/default/files/file-hosting/productionapi/Recruiting/v43.0/Put_Candidate.html. Only defined fields are supported, if you need additional field support please reach out to Kombo support.
-        field :workday, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyWorkday), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('workday') } }
+        field :workday, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyWorkday), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('workday') } }
         # Fields specific to Zoho Recruit.
-        field :zohorecruit, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyZohorecruit), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('zohorecruit') } }
+        field :zohorecruit, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyZohorecruit), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('zohorecruit') } }
         # Fields specific to Bullhorn.
-        field :bullhorn, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyBullhorn), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('bullhorn') } }
+        field :bullhorn, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyBullhorn), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('bullhorn') } }
         # Fields specific to SmartRecruiters.
-        field :smartrecruiters, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodySmartrecruiters), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('smartrecruiters') } }
+        field :smartrecruiters, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodySmartrecruiters), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('smartrecruiters') } }
         # Fields specific to Talentadore.
-        field :talentadore, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyTalentadore), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('talentadore') } }
+        field :talentadore, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyTalentadore), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('talentadore') } }
         # Fields specific to GuideCom.
-        field :guidecom, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyGuidecom), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('guidecom') } }
+        field :guidecom, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyGuidecom), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('guidecom') } }
         # Fields specific to d.vinci.
-        field :dvinci, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyDvinci), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('dvinci') } }
+        field :dvinci, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyDvinci), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('dvinci') } }
         # Fields specific to GuideCom.
-        field :hrworks, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyHrworks), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('hrworks') } }
+        field :hrworks, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyHrworks), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('hrworks') } }
         # Fields specific to Jobylon.
-        field :jobylon, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyJobylon), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('jobylon') } }
+        field :jobylon, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyJobylon), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('jobylon') } }
         # Fields specific to Avature.
-        field :avature, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyAvature), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('avature') } }
+        field :avature, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyAvature), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('avature') } }
         # Fields specific to Recruitee.
-        field :recruitee, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyRecruitee), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('recruitee') } }
+        field :recruitee, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyRecruitee), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('recruitee') } }
         # Fields specific to Abacus Umantis.
-        field :umantis, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyUmantis), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('umantis') } }
+        field :umantis, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyUmantis), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('umantis') } }
         # Fields specific to P&I Loga.
-        field :piloga, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyPiloga), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('piloga') } }
+        field :piloga, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyPiloga), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('piloga') } }
         # Fields specific to Pinpoint.
-        field :pinpoint, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyPinpoint), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('pinpoint') } }
+        field :pinpoint, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyPinpoint), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('pinpoint') } }
         # Fields specific to Coveto REST.
-        field :covetorest, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyCovetorest), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('covetorest') } }
+        field :covetorest, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyCovetorest), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('covetorest') } }
 
         sig { params(successfactors: T.nilable(Models::Shared::PostAtsCandidatesRequestBodySuccessfactors), personio: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyPersonio), talentsoft: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyTalentsoft), teamtailor: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyTeamtailor), greenhouse: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyGreenhouse), lever: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyLever), workable: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyWorkable), workday: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyWorkday), zohorecruit: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyZohorecruit), bullhorn: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyBullhorn), smartrecruiters: T.nilable(Models::Shared::PostAtsCandidatesRequestBodySmartrecruiters), talentadore: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyTalentadore), guidecom: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyGuidecom), dvinci: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyDvinci), hrworks: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyHrworks), jobylon: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyJobylon), avature: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyAvature), recruitee: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyRecruitee), umantis: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyUmantis), piloga: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyPiloga), pinpoint: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyPinpoint), covetorest: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyCovetorest)).void }
         def initialize(successfactors: nil, personio: nil, talentsoft: nil, teamtailor: nil, greenhouse: nil, lever: nil, workable: nil, workday: nil, zohorecruit: nil, bullhorn: nil, smartrecruiters: nil, talentadore: nil, guidecom: nil, dvinci: nil, hrworks: nil, jobylon: nil, avature: nil, recruitee: nil, umantis: nil, piloga: nil, pinpoint: nil, covetorest: nil)

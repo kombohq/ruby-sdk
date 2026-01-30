@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,13 +13,13 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # The full URL of the request that we automatically assemble for you based on the specified `api`, the specified `path`, and the integration's auth credentials. You can use this to debug path-related issues (e.g., the API returning 404 errors).
-        field :url, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('url'), required: true } }
+        field :url, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('url'), required: true } }
         # The HTTP status code returned from the remote system.
-        field :status, ::Integer, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('status'), required: true } }
+        field :status, ::Integer, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('status'), required: true } }
         # The HTTP headers returned from the remote system.
-        field :headers, Crystalline::Hash.new(Symbol, Crystalline::Union.new(::String, Crystalline::Array.new(::String))), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('headers'), required: true } }
+        field :headers, Crystalline::Hash.new(Symbol, Crystalline::Union.new(::String, Crystalline::Array.new(::String))), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('headers'), required: true } }
         # The HTTP body returned from the remote system. This will either be an array or object (in the case that JSON was returned) or a string (in any other case).
-        field :data, Crystalline::Nilable.new(::Object), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('data') } }
+        field :data, Crystalline::Nilable.new(::Object), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('data') } }
 
         sig { params(url: ::String, status: ::Integer, headers: T::Hash[Symbol, T.any(::String, T::Array[::String])], data: T.nilable(::Object)).void }
         def initialize(url:, status:, headers:, data: nil)

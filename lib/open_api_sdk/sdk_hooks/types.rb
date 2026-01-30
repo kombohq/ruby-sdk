@@ -5,7 +5,7 @@
 
 require_relative '../sdkconfiguration'
 
-module OpenApiSDK
+module Kombo
   module SDKHooks
     class HookContext
       extend T::Sig

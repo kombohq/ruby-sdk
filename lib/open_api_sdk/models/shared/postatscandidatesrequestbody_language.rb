@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,9 +13,9 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
 
-        field :language_ability, Crystalline::Array.new(Models::Shared::PostAtsCandidatesRequestBodyLanguageAbility), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('Language_Ability'), required: true } }
+        field :language_ability, Crystalline::Array.new(Models::Shared::PostAtsCandidatesRequestBodyLanguageAbility), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('Language_Ability'), required: true } }
 
-        field :native, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('Native') } }
+        field :native, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('Native') } }
 
         sig { params(language_ability: T::Array[Models::Shared::PostAtsCandidatesRequestBodyLanguageAbility], native: T.nilable(T::Boolean)).void }
         def initialize(language_ability:, native: nil)

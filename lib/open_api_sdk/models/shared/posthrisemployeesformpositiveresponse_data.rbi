@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::PostHrisEmployeesFormPositiveResponseData
+class Kombo::Models::Shared::PostHrisEmployeesFormPositiveResponseData
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::PostHrisEmployeesFormPositiveResponseData
+class Kombo::Models::Shared::PostHrisEmployeesFormPositiveResponseData
   def prehire(); end
   def prehire=(str_); end
   def id(); end

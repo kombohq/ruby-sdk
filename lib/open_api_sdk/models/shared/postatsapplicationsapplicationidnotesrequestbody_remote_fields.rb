@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
       # Tool specific remote fields for the note.
@@ -13,15 +13,15 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # Teamtailor specific remote fields for the note.
-        field :teamtailor, Crystalline::Nilable.new(Models::Shared::PostAtsApplicationsApplicationIdNotesRequestBodyTeamtailor), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('teamtailor') } }
+        field :teamtailor, Crystalline::Nilable.new(Models::Shared::PostAtsApplicationsApplicationIdNotesRequestBodyTeamtailor), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('teamtailor') } }
         # Fields specific to Greenhouse.
-        field :greenhouse, Crystalline::Nilable.new(Models::Shared::PostAtsApplicationsApplicationIdNotesRequestBodyGreenhouse), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('greenhouse') } }
+        field :greenhouse, Crystalline::Nilable.new(Models::Shared::PostAtsApplicationsApplicationIdNotesRequestBodyGreenhouse), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('greenhouse') } }
         # Recruitee specific remote fields for the note.
-        field :recruitee, Crystalline::Nilable.new(Models::Shared::PostAtsApplicationsApplicationIdNotesRequestBodyRecruitee), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('recruitee') } }
+        field :recruitee, Crystalline::Nilable.new(Models::Shared::PostAtsApplicationsApplicationIdNotesRequestBodyRecruitee), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('recruitee') } }
         # Bullhorn specific remote fields for the note.
-        field :bullhorn, Crystalline::Nilable.new(Models::Shared::PostAtsApplicationsApplicationIdNotesRequestBodyBullhorn), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('bullhorn') } }
+        field :bullhorn, Crystalline::Nilable.new(Models::Shared::PostAtsApplicationsApplicationIdNotesRequestBodyBullhorn), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('bullhorn') } }
         # Workable specific remote fields for ATS actions.
-        field :workable, Crystalline::Nilable.new(Models::Shared::PostAtsApplicationsApplicationIdNotesRequestBodyWorkable), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('workable') } }
+        field :workable, Crystalline::Nilable.new(Models::Shared::PostAtsApplicationsApplicationIdNotesRequestBodyWorkable), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('workable') } }
 
         sig { params(teamtailor: T.nilable(Models::Shared::PostAtsApplicationsApplicationIdNotesRequestBodyTeamtailor), greenhouse: T.nilable(Models::Shared::PostAtsApplicationsApplicationIdNotesRequestBodyGreenhouse), recruitee: T.nilable(Models::Shared::PostAtsApplicationsApplicationIdNotesRequestBodyRecruitee), bullhorn: T.nilable(Models::Shared::PostAtsApplicationsApplicationIdNotesRequestBodyBullhorn), workable: T.nilable(Models::Shared::PostAtsApplicationsApplicationIdNotesRequestBodyWorkable)).void }
         def initialize(teamtailor: nil, greenhouse: nil, recruitee: nil, bullhorn: nil, workable: nil)

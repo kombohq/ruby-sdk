@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::GetHrisEmployeesFormPositiveResponse
+class Kombo::Models::Shared::GetHrisEmployeesFormPositiveResponse
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::GetHrisEmployeesFormPositiveResponse
+class Kombo::Models::Shared::GetHrisEmployeesFormPositiveResponse
   def status(); end
   def status=(str_); end
   def data(); end

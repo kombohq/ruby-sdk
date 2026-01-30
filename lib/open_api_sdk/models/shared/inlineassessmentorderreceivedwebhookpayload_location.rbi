@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::InlineAssessmentOrderReceivedWebhookPayloadLocation
+class Kombo::Models::Shared::InlineAssessmentOrderReceivedWebhookPayloadLocation
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::InlineAssessmentOrderReceivedWebhookPayloadLocation
+class Kombo::Models::Shared::InlineAssessmentOrderReceivedWebhookPayloadLocation
   def city(); end
   def city=(str_); end
   def country(); end

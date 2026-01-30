@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,11 +13,11 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
 
-        field :organization_name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('organization_name'), required: true } }
+        field :organization_name, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('organization_name'), required: true } }
 
-        field :creator_email, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('creator_email'), required: true } }
+        field :creator_email, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('creator_email'), required: true } }
         # The ID you have passed initially to the connection flow to create this integration.
-        field :origin_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('origin_id'), required: true } }
+        field :origin_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('origin_id'), required: true } }
 
         sig { params(organization_name: ::String, creator_email: T.nilable(::String), origin_id: T.nilable(::String)).void }
         def initialize(organization_name:, creator_email: nil, origin_id: nil)

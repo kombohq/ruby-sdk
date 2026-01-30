@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
       # Error details with structured code for programmatic handling.
@@ -13,13 +13,13 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # A dynamic, detailed description of what went wrong in this specific instance.
-        field :message, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('message'), required: true } }
+        field :message, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('message'), required: true } }
         # Some errors include an error code that can be used to identify their cause. See the [Error Handling Docs](https://docs.kombo.dev/guides/errors) for more information. For your error handling logic please use the error `code` instead of other properties (e.g. message, http status code, ...).
-        field :code, Crystalline::Nilable.new(Models::Shared::KomboGeneralErrorCode), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('code'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::KomboGeneralErrorCode, false) } }
+        field :code, Crystalline::Nilable.new(Models::Shared::KomboGeneralErrorCode), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('code'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::KomboGeneralErrorCode, false) } }
         # A static, human-readable label.
-        field :title, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('title'), required: true } }
+        field :title, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('title'), required: true } }
         # The log page in the Kombo UI lists every interaction with full details. If you need assistance, share that link with our support team.
-        field :log_url, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('log_url'), required: true } }
+        field :log_url, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('log_url'), required: true } }
 
         sig { params(message: ::String, code: T.nilable(Models::Shared::KomboGeneralErrorCode), title: T.nilable(::String), log_url: T.nilable(::String)).void }
         def initialize(message:, code: nil, title: nil, log_url: nil)

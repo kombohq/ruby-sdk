@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::PostAtsImportTrackedApplicationRequestBody
+class Kombo::Models::Shared::PostAtsImportTrackedApplicationRequestBody
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::PostAtsImportTrackedApplicationRequestBody
+class Kombo::Models::Shared::PostAtsImportTrackedApplicationRequestBody
   def erecruiter(); end
   def erecruiter=(str_); end
   def successfactors(); end

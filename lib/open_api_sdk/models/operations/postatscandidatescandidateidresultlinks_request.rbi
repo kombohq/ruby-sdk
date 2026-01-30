@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Operations::PostAtsCandidatesCandidateIdResultLinksRequest
+class Kombo::Models::Operations::PostAtsCandidatesCandidateIdResultLinksRequest
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Operations::PostAtsCandidatesCandidateIdResultLinksRequest
+class Kombo::Models::Operations::PostAtsCandidatesCandidateIdResultLinksRequest
   def candidate_id(); end
   def candidate_id=(str_); end
   def body(); end

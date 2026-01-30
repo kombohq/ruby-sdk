@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
       # Recruitee specific remote fields for the note.
@@ -13,9 +13,9 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # Visibility of the created note.
-        field :visibility, Crystalline::Nilable.new(::Object), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('visibility') } }
+        field :visibility, Crystalline::Nilable.new(::Object), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('visibility') } }
         # Whether the note is in a stringified JSON format. If true, content should contain a valid JSON as per the [Recruitee API documentation](https://docs.recruitee.com/reference/candidatesidnotes) (body_json field). If false we add the note as a plain text.
-        field :is_json, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('is_json') } }
+        field :is_json, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('is_json') } }
 
         sig { params(visibility: T.nilable(::Object), is_json: T.nilable(T::Boolean)).void }
         def initialize(visibility: nil, is_json: nil)

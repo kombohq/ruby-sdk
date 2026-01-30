@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
       # Additional fields that we will pass through to specific ATS systems.
@@ -13,7 +13,7 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
 
-        field :smartrecruiters, Crystalline::Nilable.new(Models::Shared::PutAssessmentOrdersAssessmentOrderIdResultRequestBodySmartrecruiters), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('smartrecruiters') } }
+        field :smartrecruiters, Crystalline::Nilable.new(Models::Shared::PutAssessmentOrdersAssessmentOrderIdResultRequestBodySmartrecruiters), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('smartrecruiters') } }
 
         sig { params(smartrecruiters: T.nilable(Models::Shared::PutAssessmentOrdersAssessmentOrderIdResultRequestBodySmartrecruiters)).void }
         def initialize(smartrecruiters: nil)

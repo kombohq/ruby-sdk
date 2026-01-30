@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Operations::GetHrisTimesheetsResponse
+class Kombo::Models::Operations::GetHrisTimesheetsResponse
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Operations::GetHrisTimesheetsResponse
+class Kombo::Models::Operations::GetHrisTimesheetsResponse
   def content_type(); end
   def content_type=(str_); end
   def status_code(); end

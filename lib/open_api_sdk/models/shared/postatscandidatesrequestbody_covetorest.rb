@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
       # Fields specific to Coveto REST.
@@ -13,7 +13,7 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # Additional candidate fields that will be passed to the Coveto candidate creation.
-        field :candidate, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyCovetorestCandidate), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('candidate') } }
+        field :candidate, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyCovetorestCandidate), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('candidate') } }
 
         sig { params(candidate: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyCovetorestCandidate)).void }
         def initialize(candidate: nil)

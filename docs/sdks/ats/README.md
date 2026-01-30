@@ -47,8 +47,8 @@ Top level filters use AND, while individual filters use OR if they accept multip
 ```ruby
 require 'kombo'
 
-Models = ::OpenApiSDK::Models
-s = ::OpenApiSDK::Kombo.new(
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
       security: Models::Shared::Security.new(
         api_key: '<YOUR_BEARER_TOKEN_HERE>',
@@ -114,8 +114,8 @@ Moves an application to a specified stage. Use job-specific stages from GET /job
 ```ruby
 require 'kombo'
 
-Models = ::OpenApiSDK::Models
-s = ::OpenApiSDK::Kombo.new(
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
       security: Models::Shared::Security.new(
         api_key: '<YOUR_BEARER_TOKEN_HERE>',
@@ -191,8 +191,8 @@ This can, for example, be used to link a candidate back to a test result/assessm
 ```ruby
 require 'kombo'
 
-Models = ::OpenApiSDK::Models
-s = ::OpenApiSDK::Kombo.new(
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
       security: Models::Shared::Security.new(
         api_key: '<YOUR_BEARER_TOKEN_HERE>',
@@ -268,8 +268,8 @@ Add extra information to an application. This can be any extra text information 
 ```ruby
 require 'kombo'
 
-Models = ::OpenApiSDK::Models
-s = ::OpenApiSDK::Kombo.new(
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
       security: Models::Shared::Security.new(
         api_key: '<YOUR_BEARER_TOKEN_HERE>',
@@ -322,8 +322,8 @@ Get attachments from an application. If the ATS stores the attachments on the ca
 ```ruby
 require 'kombo'
 
-Models = ::OpenApiSDK::Models
-s = ::OpenApiSDK::Kombo.new(
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
       security: Models::Shared::Security.new(
         api_key: '<YOUR_BEARER_TOKEN_HERE>',
@@ -389,8 +389,8 @@ Uploads an attachment file for the specified applicant.
 ```ruby
 require 'kombo'
 
-Models = ::OpenApiSDK::Models
-s = ::OpenApiSDK::Kombo.new(
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
       security: Models::Shared::Security.new(
         api_key: '<YOUR_BEARER_TOKEN_HERE>',
@@ -457,8 +457,8 @@ Rejects an application with a provided reason. Optionally, you can provide a fre
 ```ruby
 require 'kombo'
 
-Models = ::OpenApiSDK::Models
-s = ::OpenApiSDK::Kombo.new(
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
       security: Models::Shared::Security.new(
         api_key: '<YOUR_BEARER_TOKEN_HERE>',
@@ -507,8 +507,8 @@ Top level filters use AND, while individual filters use OR if they accept multip
 ```ruby
 require 'kombo'
 
-Models = ::OpenApiSDK::Models
-s = ::OpenApiSDK::Kombo.new(
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
       security: Models::Shared::Security.new(
         api_key: '<YOUR_BEARER_TOKEN_HERE>',
@@ -634,8 +634,8 @@ Create a new candidate and application for the specified job.
 ```ruby
 require 'kombo'
 
-Models = ::OpenApiSDK::Models
-s = ::OpenApiSDK::Kombo.new(
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
       security: Models::Shared::Security.new(
         api_key: '<YOUR_BEARER_TOKEN_HERE>',
@@ -736,8 +736,8 @@ Get attachments from a candidate, including all attachments of all of their appl
 ```ruby
 require 'kombo'
 
-Models = ::OpenApiSDK::Models
-s = ::OpenApiSDK::Kombo.new(
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
       security: Models::Shared::Security.new(
         api_key: '<YOUR_BEARER_TOKEN_HERE>',
@@ -804,8 +804,8 @@ Uploads an attachment file for the specified candidate.
 ```ruby
 require 'kombo'
 
-Models = ::OpenApiSDK::Models
-s = ::OpenApiSDK::Kombo.new(
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
       security: Models::Shared::Security.new(
         api_key: '<YOUR_BEARER_TOKEN_HERE>',
@@ -891,8 +891,8 @@ Add a result link to a candidate.
 ```ruby
 require 'kombo'
 
-Models = ::OpenApiSDK::Models
-s = ::OpenApiSDK::Kombo.new(
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
       security: Models::Shared::Security.new(
         api_key: '<YOUR_BEARER_TOKEN_HERE>',
@@ -968,8 +968,8 @@ Kombo takes care of creating the tag if required, finding out the right ID, and 
 ```ruby
 require 'kombo'
 
-Models = ::OpenApiSDK::Models
-s = ::OpenApiSDK::Kombo.new(
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
       security: Models::Shared::Security.new(
         api_key: '<YOUR_BEARER_TOKEN_HERE>',
@@ -1033,8 +1033,8 @@ This will also succeed if the tag does not exist on the candidate.
 ```ruby
 require 'kombo'
 
-Models = ::OpenApiSDK::Models
-s = ::OpenApiSDK::Kombo.new(
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
       security: Models::Shared::Security.new(
         api_key: '<YOUR_BEARER_TOKEN_HERE>',
@@ -1084,8 +1084,8 @@ Top level filters use AND, while individual filters use OR if they accept multip
 ```ruby
 require 'kombo'
 
-Models = ::OpenApiSDK::Models
-s = ::OpenApiSDK::Kombo.new(
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
       security: Models::Shared::Security.new(
         api_key: '<YOUR_BEARER_TOKEN_HERE>',
@@ -1146,8 +1146,8 @@ Top level filters use AND, while individual filters use OR if they accept multip
 ```ruby
 require 'kombo'
 
-Models = ::OpenApiSDK::Models
-s = ::OpenApiSDK::Kombo.new(
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
       security: Models::Shared::Security.new(
         api_key: '<YOUR_BEARER_TOKEN_HERE>',
@@ -1206,8 +1206,8 @@ Top level filters use AND, while individual filters use OR if they accept multip
 ```ruby
 require 'kombo'
 
-Models = ::OpenApiSDK::Models
-s = ::OpenApiSDK::Kombo.new(
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
       security: Models::Shared::Security.new(
         api_key: '<YOUR_BEARER_TOKEN_HERE>',
@@ -1326,8 +1326,8 @@ Visit our in-depth guides to learn more about:
 ```ruby
 require 'kombo'
 
-Models = ::OpenApiSDK::Models
-s = ::OpenApiSDK::Kombo.new(
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
       security: Models::Shared::Security.new(
         api_key: '<YOUR_BEARER_TOKEN_HERE>',
@@ -1417,8 +1417,8 @@ Top level filters use AND, while individual filters use OR if they accept multip
 ```ruby
 require 'kombo'
 
-Models = ::OpenApiSDK::Models
-s = ::OpenApiSDK::Kombo.new(
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
       security: Models::Shared::Security.new(
         api_key: '<YOUR_BEARER_TOKEN_HERE>',
@@ -1470,8 +1470,8 @@ Top level filters use AND, while individual filters use OR if they accept multip
 ```ruby
 require 'kombo'
 
-Models = ::OpenApiSDK::Models
-s = ::OpenApiSDK::Kombo.new(
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
       security: Models::Shared::Security.new(
         api_key: '<YOUR_BEARER_TOKEN_HERE>',
@@ -1524,8 +1524,8 @@ Top level filters use AND, while individual filters use OR if they accept multip
 ```ruby
 require 'kombo'
 
-Models = ::OpenApiSDK::Models
-s = ::OpenApiSDK::Kombo.new(
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
       security: Models::Shared::Security.new(
         api_key: '<YOUR_BEARER_TOKEN_HERE>',
@@ -1576,8 +1576,8 @@ Top level filters use AND, while individual filters use OR if they accept multip
 ```ruby
 require 'kombo'
 
-Models = ::OpenApiSDK::Models
-s = ::OpenApiSDK::Kombo.new(
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
       security: Models::Shared::Security.new(
         api_key: '<YOUR_BEARER_TOKEN_HERE>',
@@ -1645,8 +1645,8 @@ Once imported, Kombo will automatically fetch and update the application's compl
 ```ruby
 require 'kombo'
 
-Models = ::OpenApiSDK::Models
-s = ::OpenApiSDK::Kombo.new(
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
       security: Models::Shared::Security.new(
         api_key: '<YOUR_BEARER_TOKEN_HERE>',

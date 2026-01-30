@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
       # Fields specific to Workday. The remote fields schema follows the documentation at https://community.workday.com/sites/default/files/file-hosting/productionapi/Recruiting/v43.0/Put_Candidate.html. Only defined fields are supported, if you need additional field support please reach out to Kombo support.
@@ -13,9 +13,9 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
 
-        field :candidate_data, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyCandidateData), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('Candidate_Data') } }
+        field :candidate_data, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyCandidateData), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('Candidate_Data') } }
         # Used to override the automatic source WID.
-        field :override_source_reference_wid, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('Override_Source_Reference_WID') } }
+        field :override_source_reference_wid, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('Override_Source_Reference_WID') } }
 
         sig { params(candidate_data: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyCandidateData), override_source_reference_wid: T.nilable(::String)).void }
         def initialize(candidate_data: nil, override_source_reference_wid: nil)

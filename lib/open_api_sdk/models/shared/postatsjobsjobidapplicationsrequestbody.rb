@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,11 +13,11 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
 
-        field :candidate, Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyCandidate, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('candidate'), required: true } }
+        field :candidate, Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyCandidate, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('candidate'), required: true } }
         # Stage this candidate should be in. If left out, the default stage for this job will be used. You can obtain the possible `stage_id`s from the `get-jobs` endpoint.
-        field :stage_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('stage_id') } }
+        field :stage_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('stage_id') } }
         # Array of the attachments you would like to upload. The first CV in the attachments will be treated as the resume of the candidate when the tool allows previewing a resume.
-        field :attachments, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyAttachment)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('attachments') } }
+        field :attachments, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyAttachment)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('attachments') } }
         # **(⚠️ Deprecated - Use [automatic source writing](/ats/features/application-attribution#automatic-attribution) instead)** Optional source information that will be attached to the candidate. If
         # you're a job board or recruiting service, you can use this to make sure your
         # customers can see which candidates came from you.
@@ -25,19 +25,19 @@ module OpenApiSDK
         # This is deprecated because writing sources requires users to do some setup in most ATSs.
         # 
         # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
-        field :source, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodySource), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('source') } }
+        field :source, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodySource), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('source') } }
         # Credit the recruiter or team member who sourced this candidate.
         # 
         # While the `source` field tracks the channel/platform (e.g., "Awesome Jobboard"), the `sourced_by` field tracks the individual person responsible for finding the candidate.
-        field :sourced_by, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodySourcedBy), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('sourced_by') } }
+        field :sourced_by, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodySourcedBy), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('sourced_by') } }
         # Optional GDPR consent information required in some jurisdictions (like the Czech Republic or Slovakia).
-        field :gdpr_consent, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyGdprConsent), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('gdpr_consent') } }
+        field :gdpr_consent, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyGdprConsent), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('gdpr_consent') } }
         # Additional fields that we will pass through to specific ATS systems.
-        field :remote_fields, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyRemoteFields), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_fields') } }
+        field :remote_fields, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyRemoteFields), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_fields') } }
         # Array of answers to screening questions. Currently, not all question types are supported, and unsupported ones will not be submitted.
         # 
         # The available questions for a job can be retrieved from the get jobs endpoint. The answers will be validated based on the format of the questions. Make sure to follow this schema to avoid errors.
-        field :screening_question_answers, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyScreeningQuestionAnswer)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('screening_question_answers') } }
+        field :screening_question_answers, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyScreeningQuestionAnswer)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('screening_question_answers') } }
 
         sig { params(candidate: Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyCandidate, stage_id: T.nilable(::String), attachments: T.nilable(T::Array[Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyAttachment]), source: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodySource), sourced_by: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodySourcedBy), gdpr_consent: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyGdprConsent), remote_fields: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyRemoteFields), screening_question_answers: T.nilable(T::Array[Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyScreeningQuestionAnswer])).void }
         def initialize(candidate:, stage_id: nil, attachments: nil, source: nil, sourced_by: nil, gdpr_consent: nil, remote_fields: nil, screening_question_answers: nil)

@@ -3,7 +3,7 @@
 # typed: true
 # frozen_string_literal: true
 
-module OpenApiSDK
+module Kombo
   autoload :Kombo, 'open_api_sdk/kombo'
   autoload :General, 'open_api_sdk/general'
   autoload :Hris, 'open_api_sdk/hris'

@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::PostAtsCandidatesCandidateIdResultLinksRequestBodyAttribute
+class Kombo::Models::Shared::PostAtsCandidatesCandidateIdResultLinksRequestBodyAttribute
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::PostAtsCandidatesCandidateIdResultLinksRequestBodyAttribute
+class Kombo::Models::Shared::PostAtsCandidatesCandidateIdResultLinksRequestBodyAttribute
   def key(); end
   def key=(str_); end
   def value(); end

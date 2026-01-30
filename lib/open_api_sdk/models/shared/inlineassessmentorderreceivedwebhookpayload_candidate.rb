@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
       # Information about the candidate taking the assessment.
@@ -13,15 +13,15 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # The candidate's email address.
-        field :email, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('email'), required: true } }
+        field :email, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('email'), required: true } }
         # The candidate's identifier in the integrated system.
-        field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_id') } }
+        field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_id') } }
         # The candidate's first name.
-        field :first_name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('first_name') } }
+        field :first_name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('first_name') } }
         # The candidate's last name.
-        field :last_name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('last_name') } }
+        field :last_name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('last_name') } }
         # The candidate's phone number.
-        field :phone, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('phone') } }
+        field :phone, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('phone') } }
 
         sig { params(email: ::String, remote_id: T.nilable(::String), first_name: T.nilable(::String), last_name: T.nilable(::String), phone: T.nilable(::String)).void }
         def initialize(email:, remote_id: nil, first_name: nil, last_name: nil, phone: nil)

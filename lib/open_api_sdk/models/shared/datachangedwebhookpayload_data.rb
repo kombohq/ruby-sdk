@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,13 +13,13 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # The unique identifier of the integration.
-        field :integration_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('integration_id'), required: true } }
+        field :integration_id, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('integration_id'), required: true } }
         # The name of the integrated tool (e.g., "personio", "greenhouse").
-        field :integration_tool, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('integration_tool'), required: true } }
+        field :integration_tool, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('integration_tool'), required: true } }
         # The category of the integration (HRIS, ATS, ASSESSMENT, or LMS).
-        field :integration_category, Models::Shared::DataChangedWebhookPayloadIntegrationCategory, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('integration_category'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::DataChangedWebhookPayloadIntegrationCategory, false) } }
+        field :integration_category, Models::Shared::DataChangedWebhookPayloadIntegrationCategory, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('integration_category'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::DataChangedWebhookPayloadIntegrationCategory, false) } }
         # List of data models and connections for which one or more records were created, updated, or deleted.
-        field :changed_models, Crystalline::Array.new(Models::Shared::ChangedModel), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('changed_models'), required: true } }
+        field :changed_models, Crystalline::Array.new(Models::Shared::ChangedModel), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('changed_models'), required: true } }
 
         sig { params(integration_id: ::String, integration_tool: ::String, integration_category: Models::Shared::DataChangedWebhookPayloadIntegrationCategory, changed_models: T::Array[Models::Shared::ChangedModel]).void }
         def initialize(integration_id:, integration_tool:, integration_category:, changed_models:)

@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,11 +13,11 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # We only allow 1 concurrent sync to be running or queued.
-        field :already_queued, Crystalline::Boolean.new, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('already_queued'), required: true } }
+        field :already_queued, Crystalline::Boolean.new, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('already_queued'), required: true } }
         # ID of the newly-created or already-queued-or-running sync.
-        field :sync_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('sync_id'), required: true } }
+        field :sync_id, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('sync_id'), required: true } }
         # The type of the triggered sync. May differ from request, if the integration does not support delta syncs or if another sync is already running.
-        field :type, Models::Shared::PostForceSyncPositiveResponseType, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('type'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::PostForceSyncPositiveResponseType, false) } }
+        field :type, Models::Shared::PostForceSyncPositiveResponseType, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('type'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::PostForceSyncPositiveResponseType, false) } }
 
         sig { params(already_queued: T::Boolean, sync_id: ::String, type: Models::Shared::PostForceSyncPositiveResponseType).void }
         def initialize(already_queued:, sync_id:, type:)

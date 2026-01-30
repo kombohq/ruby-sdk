@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
       # PostAtsApplicationsApplicationIdResultLinksRequestBodyOverrideDocumentCategory - Allows you to override the document category for the url. (Default: MISC)

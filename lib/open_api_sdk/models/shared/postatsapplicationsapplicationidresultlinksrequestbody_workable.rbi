@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::PostAtsApplicationsApplicationIdResultLinksRequestBodyWorkable
+class Kombo::Models::Shared::PostAtsApplicationsApplicationIdResultLinksRequestBodyWorkable
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::PostAtsApplicationsApplicationIdResultLinksRequestBodyWorkable
+class Kombo::Models::Shared::PostAtsApplicationsApplicationIdResultLinksRequestBodyWorkable
   def on_behalf_of_user_remote_id(); end
   def on_behalf_of_user_remote_id=(str_); end
 end
