@@ -2,10 +2,10 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::DomesticBankRoutingType
+class Kombo::Models::Shared::DomesticBankRoutingType
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::DomesticBankRoutingType
+class Kombo::Models::Shared::DomesticBankRoutingType
 end

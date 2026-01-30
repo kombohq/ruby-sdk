@@ -2,10 +2,10 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::ContentType
+class Kombo::Models::Shared::ContentType
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::ContentType
+class Kombo::Models::Shared::ContentType
 end

@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::GetIntegrationsIntegrationIdCustomFieldsPositiveResponseResult
+class Kombo::Models::Shared::GetIntegrationsIntegrationIdCustomFieldsPositiveResponseResult
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::GetIntegrationsIntegrationIdCustomFieldsPositiveResponseResult
+class Kombo::Models::Shared::GetIntegrationsIntegrationIdCustomFieldsPositiveResponseResult
   def id(); end
   def id=(str_); end
   def key(); end

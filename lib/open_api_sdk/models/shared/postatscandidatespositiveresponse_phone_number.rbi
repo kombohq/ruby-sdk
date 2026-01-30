@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::PostAtsCandidatesPositiveResponsePhoneNumber
+class Kombo::Models::Shared::PostAtsCandidatesPositiveResponsePhoneNumber
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::PostAtsCandidatesPositiveResponsePhoneNumber
+class Kombo::Models::Shared::PostAtsCandidatesPositiveResponsePhoneNumber
   def phone_number(); end
   def phone_number=(str_); end
   def type(); end

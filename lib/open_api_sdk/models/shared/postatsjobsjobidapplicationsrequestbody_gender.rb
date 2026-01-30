@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
       # PostAtsJobsJobIdApplicationsRequestBodyGender - The gender of the candidate. Must be one of `MALE`, `FEMALE`, or `OTHER`.

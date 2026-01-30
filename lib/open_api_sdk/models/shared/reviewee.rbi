@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::Reviewee
+class Kombo::Models::Shared::Reviewee
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::Reviewee
+class Kombo::Models::Shared::Reviewee
   def id(); end
   def id=(str_); end
   def remote_id(); end

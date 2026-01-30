@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,9 +13,9 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # When we're not able to map a specific question type yet, we will return this type. Every `UNKNOWN` question will also be parsed and unified by us at some point.
-        field :type, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('type'), required: true } }
+        field :type, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('type'), required: true } }
         # We pass the original question data along so you can handle it.
-        field :raw_question, Crystalline::Nilable.new(::Object), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('raw_question') } }
+        field :raw_question, Crystalline::Nilable.new(::Object), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('raw_question') } }
 
         sig { params(type: ::String, raw_question: T.nilable(::Object)).void }
         def initialize(type:, raw_question: nil)

@@ -3,7 +3,7 @@
 # typed: true
 # frozen_string_literal: true
 
-module OpenApiSDK
+module Kombo
   module Models
     module Operations
       autoload :DeleteAtsCandidatesCandidateIdTagsRequest, 'open_api_sdk/models/operations/deleteatscandidatescandidateidtags_request.rb'

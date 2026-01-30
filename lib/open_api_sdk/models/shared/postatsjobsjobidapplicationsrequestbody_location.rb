@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
       # The location of the candidate.
@@ -13,15 +13,15 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # The uppercase two-letter ISO country (e.g., `DE`). For systems that use codes in formats other than `ISO 3166-1 alpha-2`, Kombo transforms the ISO Codes to the appropriate value.
-        field :country, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('country'), required: true } }
+        field :country, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('country'), required: true } }
 
-        field :city, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('city') } }
+        field :city, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('city') } }
 
-        field :state, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('state') } }
+        field :state, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('state') } }
 
-        field :street_1, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('street_1') } }
+        field :street_1, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('street_1') } }
 
-        field :zip_code, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('zip_code') } }
+        field :zip_code, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('zip_code') } }
 
         sig { params(country: ::String, city: T.nilable(::String), state: T.nilable(::String), street_1: T.nilable(::String), zip_code: T.nilable(::String)).void }
         def initialize(country:, city: nil, state: nil, street_1: nil, zip_code: nil)

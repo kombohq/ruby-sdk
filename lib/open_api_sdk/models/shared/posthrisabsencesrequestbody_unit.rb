@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
       # PostHrisAbsencesRequestBodyUnit - The time unit of the `amount` value. Specifying this also requires specifying `amount`.

@@ -27,8 +27,8 @@ Check whether your API key is working properly.
 ```ruby
 require 'kombo'
 
-Models = ::OpenApiSDK::Models
-s = ::OpenApiSDK::Kombo.new(
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
       security: Models::Shared::Security.new(
         api_key: '<YOUR_BEARER_TOKEN_HERE>',
       ),
@@ -65,8 +65,8 @@ Trigger a sync for a specific integration.
 ```ruby
 require 'kombo'
 
-Models = ::OpenApiSDK::Models
-s = ::OpenApiSDK::Kombo.new(
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
       security: Models::Shared::Security.new(
         api_key: '<YOUR_BEARER_TOKEN_HERE>',
@@ -276,8 +276,8 @@ To get started, please pick the relevant API (some tools provide multiple to due
 ```ruby
 require 'kombo'
 
-Models = ::OpenApiSDK::Models
-s = ::OpenApiSDK::Kombo.new(
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
       security: Models::Shared::Security.new(
         api_key: '<YOUR_BEARER_TOKEN_HERE>',
@@ -326,8 +326,8 @@ Delete the specified integration.
 ```ruby
 require 'kombo'
 
-Models = ::OpenApiSDK::Models
-s = ::OpenApiSDK::Kombo.new(
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
       security: Models::Shared::Security.new(
         api_key: '<YOUR_BEARER_TOKEN_HERE>',
       ),
@@ -369,8 +369,8 @@ Get the specified integration with everything you need to display it to your cus
 ```ruby
 require 'kombo'
 
-Models = ::OpenApiSDK::Models
-s = ::OpenApiSDK::Kombo.new(
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
       security: Models::Shared::Security.new(
         api_key: '<YOUR_BEARER_TOKEN_HERE>',
       ),
@@ -415,8 +415,8 @@ You may use this to, for example, pause syncing for customers that are temporari
 ```ruby
 require 'kombo'
 
-Models = ::OpenApiSDK::Models
-s = ::OpenApiSDK::Kombo.new(
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
       security: Models::Shared::Security.new(
         api_key: '<YOUR_BEARER_TOKEN_HERE>',
       ),
@@ -472,8 +472,8 @@ Embed this the same way you would [embed the connect link](/connect/embedded-flo
 ```ruby
 require 'kombo'
 
-Models = ::OpenApiSDK::Models
-s = ::OpenApiSDK::Kombo.new(
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
       security: Models::Shared::Security.new(
         api_key: '<YOUR_BEARER_TOKEN_HERE>',
       ),
@@ -518,8 +518,8 @@ Get all fields available on the specified integration.
 ```ruby
 require 'kombo'
 
-Models = ::OpenApiSDK::Models
-s = ::OpenApiSDK::Kombo.new(
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
       security: Models::Shared::Security.new(
         api_key: '<YOUR_BEARER_TOKEN_HERE>',
       ),
@@ -562,8 +562,8 @@ When enabled, the integration field will be passed as part of the `integration_f
 ```ruby
 require 'kombo'
 
-Models = ::OpenApiSDK::Models
-s = ::OpenApiSDK::Kombo.new(
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
       security: Models::Shared::Security.new(
         api_key: '<YOUR_BEARER_TOKEN_HERE>',
       ),
@@ -609,8 +609,8 @@ Get all custom fields available on the specified integration.
 ```ruby
 require 'kombo'
 
-Models = ::OpenApiSDK::Models
-s = ::OpenApiSDK::Kombo.new(
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
       security: Models::Shared::Security.new(
         api_key: '<YOUR_BEARER_TOKEN_HERE>',
       ),
@@ -653,8 +653,8 @@ Updates the mapping of a given custom field. If the custom field is already mapp
 ```ruby
 require 'kombo'
 
-Models = ::OpenApiSDK::Models
-s = ::OpenApiSDK::Kombo.new(
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
       security: Models::Shared::Security.new(
         api_key: '<YOUR_BEARER_TOKEN_HERE>',
       ),
@@ -700,8 +700,8 @@ Get a list of the tools (i.e., integrations) enabled in your environment.
 ```ruby
 require 'kombo'
 
-Models = ::OpenApiSDK::Models
-s = ::OpenApiSDK::Kombo.new(
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
       security: Models::Shared::Security.new(
         api_key: '<YOUR_BEARER_TOKEN_HERE>',
       ),

@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyLocationData
+class Kombo::Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyLocationData
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyLocationData
+class Kombo::Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyLocationData
   def address_line_1(); end
   def address_line_1=(str_); end
   def address_line_2(); end

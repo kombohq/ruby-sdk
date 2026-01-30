@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
       # Teamtailor specific remote fields for the note.
@@ -13,7 +13,7 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # ID of the user that created the note. Defaults to the first admin user found.
-        field :user_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('user_id') } }
+        field :user_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('user_id') } }
 
         sig { params(user_id: T.nilable(::String)).void }
         def initialize(user_id: nil)

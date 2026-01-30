@@ -2,10 +2,10 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::AssessmentOrderReceivedWebhookPayloadStatus
+class Kombo::Models::Shared::AssessmentOrderReceivedWebhookPayloadStatus
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::AssessmentOrderReceivedWebhookPayloadStatus
+class Kombo::Models::Shared::AssessmentOrderReceivedWebhookPayloadStatus
 end

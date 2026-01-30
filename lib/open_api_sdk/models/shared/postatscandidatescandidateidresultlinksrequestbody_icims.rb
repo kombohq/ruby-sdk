@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
       # Fields specific to iCIMS.
@@ -13,7 +13,7 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # The package ID of the assessment that the result link will be added to.
-        field :assessment_package_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('assessment_package_id') } }
+        field :assessment_package_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('assessment_package_id') } }
 
         sig { params(assessment_package_id: T.nilable(::String)).void }
         def initialize(assessment_package_id: nil)

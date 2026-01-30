@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,21 +13,21 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # The HTTP method (e.g., `GET`) of the request.
-        field :method, Models::Shared::Method, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('method'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::Method, false) } }
+        field :method, Models::Shared::Method, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('method'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::Method, false) } }
         # The path of the endpoint you want to call. We automatically prepend the base URL of the API (all base URLs are documented in the endpoint description).
-        field :path, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('path'), required: true } }
+        field :path, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('path'), required: true } }
         # The headers to send with the request. Note that we automatically supply any authentication-related headers.
-        field :headers, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::String)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('headers') } }
+        field :headers, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::String)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('headers') } }
         # The query parameters to send in addition to the ones in the `path`.
-        field :params, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::String)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('params') } }
+        field :params, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::String)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('params') } }
         # The data to submit as part of the request body. This can either be an array or object (in which case we will forward it as JSON) or a string (in which case we will forward it raw).
-        field :data, Crystalline::Nilable.new(::Object), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('data') } }
+        field :data, Crystalline::Nilable.new(::Object), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('data') } }
         # If set to `true`, the response will be returned as a base64-encoded string. This is useful for binary data (e.g., PDFs).
-        field :response_as_base64, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('response_as_base64') } }
+        field :response_as_base64, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('response_as_base64') } }
 
-        field :multipart_form_data, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::MultipartFormDatum)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('multipart_form_data') } }
+        field :multipart_form_data, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::MultipartFormDatum)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('multipart_form_data') } }
         # Custom options interpreted by the passthrough API adapter you've selected. These options are not documented right now as they're only for very advanced use cases.
-        field :api_options, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::String)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('api_options') } }
+        field :api_options, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::String)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('api_options') } }
 
         sig { params(method: Models::Shared::Method, path: ::String, headers: T.nilable(T::Hash[Symbol, ::String]), params: T.nilable(T::Hash[Symbol, ::String]), data: T.nilable(::Object), response_as_base64: T.nilable(T::Boolean), multipart_form_data: T.nilable(T::Array[Models::Shared::MultipartFormDatum]), api_options: T.nilable(T::Hash[Symbol, ::String])).void }
         def initialize(method:, path:, headers: nil, params: nil, data: nil, response_as_base64: nil, multipart_form_data: nil, api_options: nil)

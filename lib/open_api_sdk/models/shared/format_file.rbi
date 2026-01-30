@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::FormatFile
+class Kombo::Models::Shared::FormatFile
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::FormatFile
+class Kombo::Models::Shared::FormatFile
   def type(); end
   def type=(str_); end
   def accepted_mime_types(); end

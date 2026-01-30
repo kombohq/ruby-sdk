@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::Schema1OptionsReferenced2
+class Kombo::Models::Shared::Schema1OptionsReferenced2
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::Schema1OptionsReferenced2
+class Kombo::Models::Shared::Schema1OptionsReferenced2
   def type(); end
   def type=(str_); end
   def link(); end

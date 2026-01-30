@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
       # Fields specific to SmartRecruiters.
@@ -15,13 +15,13 @@ module OpenApiSDK
         # **(⚠️ Deprecated - Use the `candidate` field instead.)** Fields that we will pass through to the SmartRecruiters's `Candidate` object when created with screening question answers. This API is used: https://developers.smartrecruiters.com/reference/createcandidate-1
         # 
         # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
-        field :candidate_with_questions, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('candidate_with_questions') } }
+        field :candidate_with_questions, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('candidate_with_questions') } }
         # **(⚠️ Deprecated - Use the `candidate` field instead.)** Fields that we will pass through to the SmartRecruiters's `Candidate` object when created with screening question answers. This API is used: https://developers.smartrecruiters.com/reference/candidatesaddtojob-1
         # 
         # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
-        field :candidate_without_questions, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('candidate_without_questions') } }
+        field :candidate_without_questions, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('candidate_without_questions') } }
         # Fields that we will pass through to the SmartRecruiters's `Candidate` object. This API is used: https://developers.smartrecruiters.com/reference/createcandidate-1
-        field :candidate, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('candidate') } }
+        field :candidate, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('candidate') } }
 
         sig { params(candidate_with_questions: T.nilable(T::Hash[Symbol, ::Object]), candidate_without_questions: T.nilable(T::Hash[Symbol, ::Object]), candidate: T.nilable(T::Hash[Symbol, ::Object])).void }
         def initialize(candidate_with_questions: nil, candidate_without_questions: nil, candidate: nil)

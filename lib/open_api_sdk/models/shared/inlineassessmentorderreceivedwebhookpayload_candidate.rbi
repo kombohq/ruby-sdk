@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::InlineAssessmentOrderReceivedWebhookPayloadCandidate
+class Kombo::Models::Shared::InlineAssessmentOrderReceivedWebhookPayloadCandidate
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::InlineAssessmentOrderReceivedWebhookPayloadCandidate
+class Kombo::Models::Shared::InlineAssessmentOrderReceivedWebhookPayloadCandidate
   def email(); end
   def email=(str_); end
   def remote_id(); end

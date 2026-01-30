@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,21 +13,21 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
 
-        field :label, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('label'), required: true } }
+        field :label, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('label'), required: true } }
 
-        field :required, Crystalline::Boolean.new, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('required'), required: true } }
+        field :required, Crystalline::Boolean.new, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('required'), required: true } }
 
-        field :type, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('type'), required: true } }
+        field :type, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('type'), required: true } }
 
-        field :description, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('description') } }
+        field :description, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('description') } }
 
-        field :unified_key, Crystalline::Nilable.new(Models::Shared::Schema2UnifiedKey1), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('unified_key'), 'decoder': Utils.enum_from_string(Models::Shared::Schema2UnifiedKey1, true) } }
+        field :unified_key, Crystalline::Nilable.new(Models::Shared::Schema2UnifiedKey1), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('unified_key'), 'decoder': Utils.enum_from_string(Models::Shared::Schema2UnifiedKey1, true) } }
 
-        field :min_length, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('min_length') } }
+        field :min_length, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('min_length') } }
 
-        field :max_length, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('max_length') } }
+        field :max_length, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('max_length') } }
 
-        field :reg_exp, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('reg_exp') } }
+        field :reg_exp, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('reg_exp') } }
 
         sig { params(label: ::String, required: T::Boolean, type: ::String, description: T.nilable(::String), unified_key: T.nilable(Models::Shared::Schema2UnifiedKey1), min_length: T.nilable(::Float), max_length: T.nilable(::Float), reg_exp: T.nilable(::String)).void }
         def initialize(label:, required:, type:, description: nil, unified_key: nil, min_length: nil, max_length: nil, reg_exp: nil)

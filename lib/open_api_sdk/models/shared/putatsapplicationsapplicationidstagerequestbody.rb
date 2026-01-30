@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,9 +13,9 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # The Kombo ID of the stage to move the application to. This stage must be allowed for the job that the application is connected to. Get available stages from the `stages` property on the job, not from the deprecated application-stages endpoint.
-        field :stage_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('stage_id'), required: true } }
+        field :stage_id, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('stage_id'), required: true } }
         # Additional fields that we will pass through to specific ATS systems.
-        field :remote_fields, Crystalline::Nilable.new(Models::Shared::PutAtsApplicationsApplicationIdStageRequestBodyRemoteFields), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_fields') } }
+        field :remote_fields, Crystalline::Nilable.new(Models::Shared::PutAtsApplicationsApplicationIdStageRequestBodyRemoteFields), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_fields') } }
 
         sig { params(stage_id: ::String, remote_fields: T.nilable(Models::Shared::PutAtsApplicationsApplicationIdStageRequestBodyRemoteFields)).void }
         def initialize(stage_id:, remote_fields: nil)

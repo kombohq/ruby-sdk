@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,17 +13,17 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # The unique ID of the field
-        field :id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id'), required: true } }
+        field :id, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('id'), required: true } }
         # The key of the custom field as it will be used in the custom_field object of the corresponding model
-        field :key, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('key'), required: true } }
+        field :key, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('key'), required: true } }
         # The model the field is associated with
-        field :model, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('model'), required: true } }
+        field :model, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('model'), required: true } }
         # The integration field the custom field is mapped to. Null if not mapped.
-        field :integration_field, Crystalline::Nilable.new(Models::Shared::GetIntegrationsIntegrationIdCustomFieldsPositiveResponseIntegrationField), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('integration_field'), required: true } }
+        field :integration_field, Crystalline::Nilable.new(Models::Shared::GetIntegrationsIntegrationIdCustomFieldsPositiveResponseIntegrationField), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('integration_field'), required: true } }
         # The label of the custom field
-        field :label, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('label'), required: true } }
+        field :label, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('label'), required: true } }
         # The description of the custom field
-        field :description, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('description'), required: true } }
+        field :description, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('description'), required: true } }
 
         sig { params(id: ::String, key: ::String, model: ::String, integration_field: T.nilable(Models::Shared::GetIntegrationsIntegrationIdCustomFieldsPositiveResponseIntegrationField), label: T.nilable(::String), description: T.nilable(::String)).void }
         def initialize(id:, key:, model:, integration_field: nil, label: nil, description: nil)

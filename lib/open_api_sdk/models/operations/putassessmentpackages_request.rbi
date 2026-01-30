@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Operations::PutAssessmentPackagesRequest
+class Kombo::Models::Operations::PutAssessmentPackagesRequest
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Operations::PutAssessmentPackagesRequest
+class Kombo::Models::Operations::PutAssessmentPackagesRequest
   def body(); end
   def body=(str_); end
   def integration_id(); end

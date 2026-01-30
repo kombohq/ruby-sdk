@@ -2,10 +2,10 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::PostConnectCreateLinkRequestBodyIntegrationCategory
+class Kombo::Models::Shared::PostConnectCreateLinkRequestBodyIntegrationCategory
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::PostConnectCreateLinkRequestBodyIntegrationCategory
+class Kombo::Models::Shared::PostConnectCreateLinkRequestBodyIntegrationCategory
 end

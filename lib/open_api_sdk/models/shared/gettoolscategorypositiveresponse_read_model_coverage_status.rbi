@@ -2,10 +2,10 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::GetToolsCategoryPositiveResponseReadModelCoverageStatus
+class Kombo::Models::Shared::GetToolsCategoryPositiveResponseReadModelCoverageStatus
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::GetToolsCategoryPositiveResponseReadModelCoverageStatus
+class Kombo::Models::Shared::GetToolsCategoryPositiveResponseReadModelCoverageStatus
 end

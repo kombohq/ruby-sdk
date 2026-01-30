@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Operations::PutAtsApplicationsApplicationIdStageRequest
+class Kombo::Models::Operations::PutAtsApplicationsApplicationIdStageRequest
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Operations::PutAtsApplicationsApplicationIdStageRequest
+class Kombo::Models::Operations::PutAtsApplicationsApplicationIdStageRequest
   def application_id(); end
   def application_id=(str_); end
   def body(); end

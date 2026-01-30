@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
       # Additional fields that we will pass through to specific ATS systems.
@@ -13,11 +13,11 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # Fields specific to Greenhouse.
-        field :greenhouse, Crystalline::Nilable.new(Models::Shared::PostAtsApplicationsApplicationIdRejectRequestBodyGreenhouse), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('greenhouse') } }
+        field :greenhouse, Crystalline::Nilable.new(Models::Shared::PostAtsApplicationsApplicationIdRejectRequestBodyGreenhouse), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('greenhouse') } }
         # Fields specific to Teamtailor.
-        field :teamtailor, Crystalline::Nilable.new(Models::Shared::PostAtsApplicationsApplicationIdRejectRequestBodyTeamtailor), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('teamtailor') } }
+        field :teamtailor, Crystalline::Nilable.new(Models::Shared::PostAtsApplicationsApplicationIdRejectRequestBodyTeamtailor), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('teamtailor') } }
         # Workable specific remote fields for ATS actions.
-        field :workable, Crystalline::Nilable.new(Models::Shared::PostAtsApplicationsApplicationIdRejectRequestBodyWorkable), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('workable') } }
+        field :workable, Crystalline::Nilable.new(Models::Shared::PostAtsApplicationsApplicationIdRejectRequestBodyWorkable), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('workable') } }
 
         sig { params(greenhouse: T.nilable(Models::Shared::PostAtsApplicationsApplicationIdRejectRequestBodyGreenhouse), teamtailor: T.nilable(Models::Shared::PostAtsApplicationsApplicationIdRejectRequestBodyTeamtailor), workable: T.nilable(Models::Shared::PostAtsApplicationsApplicationIdRejectRequestBodyWorkable)).void }
         def initialize(greenhouse: nil, teamtailor: nil, workable: nil)

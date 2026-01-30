@@ -3,7 +3,7 @@
 # typed: true
 # frozen_string_literal: true
 
-module OpenApiSDK
+module Kombo
   module Models
     module Errors
 
@@ -12,9 +12,9 @@ module OpenApiSDK
         extend T::Sig
 
         
-        field :body, T.nilable(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('body') } }
+        field :body, T.nilable(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('body') } }
         field :raw_response, T.nilable(Faraday::Response), {}
-        field :status_code, T.nilable(::Integer), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('status_code') } }
+        field :status_code, T.nilable(::Integer), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('status_code') } }
 
         
         sig { params(status_code: ::Integer, body: ::String, raw_response: Faraday::Response).void }

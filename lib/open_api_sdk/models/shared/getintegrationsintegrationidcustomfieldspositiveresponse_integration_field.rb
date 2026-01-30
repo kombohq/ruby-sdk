@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
       # The integration field the custom field is mapped to. Null if not mapped.
@@ -13,13 +13,13 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # The integration field's unique ID
-        field :id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id'), required: true } }
+        field :id, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('id'), required: true } }
         # The key of the integration field in the remote system
-        field :key, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('key'), required: true } }
+        field :key, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('key'), required: true } }
         # The type of the integration field. There is a type to avoid collisions between DEFAULT fields and CUSTOM fields with the same key.
-        field :type, Models::Shared::GetIntegrationsIntegrationIdCustomFieldsPositiveResponseType, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('type'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::GetIntegrationsIntegrationIdCustomFieldsPositiveResponseType, false) } }
+        field :type, Models::Shared::GetIntegrationsIntegrationIdCustomFieldsPositiveResponseType, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('type'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::GetIntegrationsIntegrationIdCustomFieldsPositiveResponseType, false) } }
         # The label of the integration field in the remote system
-        field :label, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('label'), required: true } }
+        field :label, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('label'), required: true } }
 
         sig { params(id: ::String, key: ::String, type: Models::Shared::GetIntegrationsIntegrationIdCustomFieldsPositiveResponseType, label: T.nilable(::String)).void }
         def initialize(id:, key:, type:, label: nil)

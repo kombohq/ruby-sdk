@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
       # A member of the hiring team.
@@ -13,15 +13,15 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # The team member's identifier in the integrated system.
-        field :remote_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_id'), required: true } }
+        field :remote_id, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_id'), required: true } }
         # Array of the roles of the user for this specific job. Currently only `RECRUITER` and `HIRING_MANAGER` are mapped into our unified schema.
-        field :hiring_team_roles, Crystalline::Array.new(Models::Shared::InlineAssessmentOrderReceivedWebhookPayloadHiringTeamRole), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('hiring_team_roles'), required: true } }
+        field :hiring_team_roles, Crystalline::Array.new(Models::Shared::InlineAssessmentOrderReceivedWebhookPayloadHiringTeamRole), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('hiring_team_roles'), required: true } }
         # The team member's email address.
-        field :email, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('email'), required: true } }
+        field :email, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('email'), required: true } }
         # The team member's first name.
-        field :first_name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('first_name'), required: true } }
+        field :first_name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('first_name'), required: true } }
         # The team member's last name.
-        field :last_name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('last_name'), required: true } }
+        field :last_name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('last_name'), required: true } }
 
         sig { params(remote_id: ::String, hiring_team_roles: T::Array[Models::Shared::InlineAssessmentOrderReceivedWebhookPayloadHiringTeamRole], email: T.nilable(::String), first_name: T.nilable(::String), last_name: T.nilable(::String)).void }
         def initialize(remote_id:, hiring_team_roles:, email: nil, first_name: nil, last_name: nil)

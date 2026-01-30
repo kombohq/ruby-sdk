@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
       # Fields that we will pass through to Jobylon's create application [endpoint](https://developer.jobylon.com/push-api-and-webhooks#-xL0v)'s request body.
@@ -13,7 +13,7 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # The `message` field of Jobylon's create application endpoint's request body.
-        field :message, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('message') } }
+        field :message, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('message') } }
 
         sig { params(message: T.nilable(::String)).void }
         def initialize(message: nil)

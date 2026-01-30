@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
       # Additional candidate fields that will be passed to the Coveto candidate creation.
@@ -13,7 +13,7 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # The mandant field for the candidate in Coveto.
-        field :mandant, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('mandant') } }
+        field :mandant, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('mandant') } }
 
         sig { params(mandant: T.nilable(::Float)).void }
         def initialize(mandant: nil)

@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::ImportedId
+class Kombo::Models::Shared::ImportedId
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::ImportedId
+class Kombo::Models::Shared::ImportedId
   def erecruiter(); end
   def erecruiter=(str_); end
   def successfactors(); end

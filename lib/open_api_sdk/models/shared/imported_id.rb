@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,17 +13,17 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
 
-        field :erecruiter, Crystalline::Nilable.new(Crystalline::Union.new(Models::Shared::PostAtsImportTrackedApplicationPositiveResponseErecruiterApplicationAndJobRemoteIds, Models::Shared::PostAtsImportTrackedApplicationPositiveResponseErecruiterApplicationAndCandidateRemoteIds)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('erecruiter') } }
+        field :erecruiter, Crystalline::Nilable.new(Crystalline::Union.new(Models::Shared::PostAtsImportTrackedApplicationPositiveResponseErecruiterApplicationAndJobRemoteIds, Models::Shared::PostAtsImportTrackedApplicationPositiveResponseErecruiterApplicationAndCandidateRemoteIds)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('erecruiter') } }
 
-        field :successfactors, Crystalline::Nilable.new(Models::Shared::PostAtsImportTrackedApplicationPositiveResponseSuccessfactorsApplicationRemoteID), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('successfactors') } }
+        field :successfactors, Crystalline::Nilable.new(Models::Shared::PostAtsImportTrackedApplicationPositiveResponseSuccessfactorsApplicationRemoteID), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('successfactors') } }
 
-        field :recruitee, Crystalline::Nilable.new(Models::Shared::PostAtsImportTrackedApplicationPositiveResponseRecruiteePlacementID), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('recruitee') } }
+        field :recruitee, Crystalline::Nilable.new(Models::Shared::PostAtsImportTrackedApplicationPositiveResponseRecruiteePlacementID), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('recruitee') } }
 
-        field :greenhouse, Crystalline::Nilable.new(Models::Shared::PostAtsImportTrackedApplicationPositiveResponseGreenhouseApplicationID), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('greenhouse') } }
+        field :greenhouse, Crystalline::Nilable.new(Models::Shared::PostAtsImportTrackedApplicationPositiveResponseGreenhouseApplicationID), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('greenhouse') } }
 
-        field :onlyfy, Crystalline::Nilable.new(Models::Shared::PostAtsImportTrackedApplicationPositiveResponseOnlyfyApplicationID), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('onlyfy') } }
+        field :onlyfy, Crystalline::Nilable.new(Models::Shared::PostAtsImportTrackedApplicationPositiveResponseOnlyfyApplicationID), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('onlyfy') } }
 
-        field :smartrecruiters, Crystalline::Nilable.new(Models::Shared::PostAtsImportTrackedApplicationPositiveResponseSmartrecruitersCandidateAndJobRemoteIds), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('smartrecruiters') } }
+        field :smartrecruiters, Crystalline::Nilable.new(Models::Shared::PostAtsImportTrackedApplicationPositiveResponseSmartrecruitersCandidateAndJobRemoteIds), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('smartrecruiters') } }
 
         sig { params(erecruiter: T.nilable(T.any(Models::Shared::PostAtsImportTrackedApplicationPositiveResponseErecruiterApplicationAndJobRemoteIds, Models::Shared::PostAtsImportTrackedApplicationPositiveResponseErecruiterApplicationAndCandidateRemoteIds)), successfactors: T.nilable(Models::Shared::PostAtsImportTrackedApplicationPositiveResponseSuccessfactorsApplicationRemoteID), recruitee: T.nilable(Models::Shared::PostAtsImportTrackedApplicationPositiveResponseRecruiteePlacementID), greenhouse: T.nilable(Models::Shared::PostAtsImportTrackedApplicationPositiveResponseGreenhouseApplicationID), onlyfy: T.nilable(Models::Shared::PostAtsImportTrackedApplicationPositiveResponseOnlyfyApplicationID), smartrecruiters: T.nilable(Models::Shared::PostAtsImportTrackedApplicationPositiveResponseSmartrecruitersCandidateAndJobRemoteIds)).void }
         def initialize(erecruiter: nil, successfactors: nil, recruitee: nil, greenhouse: nil, onlyfy: nil, smartrecruiters: nil)

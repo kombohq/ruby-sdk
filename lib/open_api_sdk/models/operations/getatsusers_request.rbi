@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Operations::GetAtsUsersRequest
+class Kombo::Models::Operations::GetAtsUsersRequest
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Operations::GetAtsUsersRequest
+class Kombo::Models::Operations::GetAtsUsersRequest
   def integration_id(); end
   def integration_id=(str_); end
   def cursor(); end

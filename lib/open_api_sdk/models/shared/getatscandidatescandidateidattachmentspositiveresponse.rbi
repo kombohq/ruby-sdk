@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::GetAtsCandidatesCandidateIdAttachmentsPositiveResponse
+class Kombo::Models::Shared::GetAtsCandidatesCandidateIdAttachmentsPositiveResponse
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::GetAtsCandidatesCandidateIdAttachmentsPositiveResponse
+class Kombo::Models::Shared::GetAtsCandidatesCandidateIdAttachmentsPositiveResponse
   def status(); end
   def status=(str_); end
   def data(); end

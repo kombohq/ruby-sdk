@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
       # Additional fields that we will pass through to specific ATS systems.
@@ -13,13 +13,13 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # Fields specific to iCIMS.
-        field :icims, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesCandidateIdResultLinksRequestBodyIcims), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('icims') } }
+        field :icims, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesCandidateIdResultLinksRequestBodyIcims), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('icims') } }
         # Fields specific to Oracle.
-        field :oracle, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesCandidateIdResultLinksRequestBodyOracle), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('oracle') } }
+        field :oracle, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesCandidateIdResultLinksRequestBodyOracle), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('oracle') } }
         # Fields specific to Greenhouse.
-        field :greenhouse, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesCandidateIdResultLinksRequestBodyGreenhouse), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('greenhouse') } }
+        field :greenhouse, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesCandidateIdResultLinksRequestBodyGreenhouse), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('greenhouse') } }
         # Workable specific remote fields for ATS actions.
-        field :workable, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesCandidateIdResultLinksRequestBodyWorkable), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('workable') } }
+        field :workable, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesCandidateIdResultLinksRequestBodyWorkable), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('workable') } }
 
         sig { params(icims: T.nilable(Models::Shared::PostAtsCandidatesCandidateIdResultLinksRequestBodyIcims), oracle: T.nilable(Models::Shared::PostAtsCandidatesCandidateIdResultLinksRequestBodyOracle), greenhouse: T.nilable(Models::Shared::PostAtsCandidatesCandidateIdResultLinksRequestBodyGreenhouse), workable: T.nilable(Models::Shared::PostAtsCandidatesCandidateIdResultLinksRequestBodyWorkable)).void }
         def initialize(icims: nil, oracle: nil, greenhouse: nil, workable: nil)

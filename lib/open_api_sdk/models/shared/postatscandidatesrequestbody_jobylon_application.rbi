@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::PostAtsCandidatesRequestBodyJobylonApplication
+class Kombo::Models::Shared::PostAtsCandidatesRequestBodyJobylonApplication
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::PostAtsCandidatesRequestBodyJobylonApplication
+class Kombo::Models::Shared::PostAtsCandidatesRequestBodyJobylonApplication
   def message(); end
   def message=(str_); end
 end

@@ -3,7 +3,7 @@
 # typed: true
 # frozen_string_literal: true
 
-module OpenApiSDK
+module Kombo
   module Models
     module Errors
       autoload :APIError, 'open_api_sdk/models/errors/apierror.rb'

@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::TimeOffBalance
+class Kombo::Models::Shared::TimeOffBalance
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::TimeOffBalance
+class Kombo::Models::Shared::TimeOffBalance
   def id(); end
   def id=(str_); end
   def employee_id(); end

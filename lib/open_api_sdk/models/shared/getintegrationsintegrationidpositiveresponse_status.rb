@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
       # GetIntegrationsIntegrationIdPositiveResponseStatus - The current status of the integration.

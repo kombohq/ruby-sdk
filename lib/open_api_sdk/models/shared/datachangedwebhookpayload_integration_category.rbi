@@ -2,10 +2,10 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::DataChangedWebhookPayloadIntegrationCategory
+class Kombo::Models::Shared::DataChangedWebhookPayloadIntegrationCategory
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::DataChangedWebhookPayloadIntegrationCategory
+class Kombo::Models::Shared::DataChangedWebhookPayloadIntegrationCategory
 end

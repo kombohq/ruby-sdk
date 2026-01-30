@@ -1,6 +1,6 @@
 # typed: true
 
-class OpenApiSDK::SDKConfiguration
+class Kombo::SDKConfiguration
   extend ::Crystalline::MetadataFields::ClassMethods
 
   def client(); end

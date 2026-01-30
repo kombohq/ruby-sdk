@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,7 +13,7 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
 
-        field :choices, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('choices') } }
+        field :choices, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('choices') } }
 
         sig { params(choices: T.nilable(T::Array[::String])).void }
         def initialize(choices: nil)

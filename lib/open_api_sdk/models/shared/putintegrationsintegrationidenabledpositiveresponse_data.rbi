@@ -2,10 +2,10 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::PutIntegrationsIntegrationIdEnabledPositiveResponseData
+class Kombo::Models::Shared::PutIntegrationsIntegrationIdEnabledPositiveResponseData
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::PutIntegrationsIntegrationIdEnabledPositiveResponseData
+class Kombo::Models::Shared::PutIntegrationsIntegrationIdEnabledPositiveResponseData
 end

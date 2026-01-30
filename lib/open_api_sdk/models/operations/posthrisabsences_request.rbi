@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Operations::PostHrisAbsencesRequest
+class Kombo::Models::Operations::PostHrisAbsencesRequest
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Operations::PostHrisAbsencesRequest
+class Kombo::Models::Operations::PostHrisAbsencesRequest
   def body(); end
   def body=(str_); end
   def integration_id(); end

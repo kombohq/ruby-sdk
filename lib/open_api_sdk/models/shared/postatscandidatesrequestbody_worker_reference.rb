@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
       # Reference to the Worker (employee) to link the candidate to. Provide either WID or Employee_ID.
@@ -13,9 +13,9 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
 
-        field :wid, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('WID') } }
+        field :wid, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('WID') } }
 
-        field :employee_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('Employee_ID') } }
+        field :employee_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('Employee_ID') } }
 
         sig { params(wid: T.nilable(::String), employee_id: T.nilable(::String)).void }
         def initialize(wid: nil, employee_id: nil)

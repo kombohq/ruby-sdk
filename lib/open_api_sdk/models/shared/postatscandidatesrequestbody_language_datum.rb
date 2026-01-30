@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,9 +13,9 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
 
-        field :language_reference, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyLanguageDatumLanguageReference), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('Language_Reference') } }
+        field :language_reference, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyLanguageDatumLanguageReference), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('Language_Reference') } }
 
-        field :language, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyLanguage), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('Language') } }
+        field :language, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyLanguage), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('Language') } }
 
         sig { params(language_reference: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyLanguageDatumLanguageReference), language: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyLanguage)).void }
         def initialize(language_reference: nil, language: nil)

@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,7 +13,7 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # The cover letter text as a string. This will be visible on the main candidate page. Can be provided together with the `cover_letter` attachment, which will end up in a separate `file` section.
-        field :cover_letter_text, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('cover_letter_text') } }
+        field :cover_letter_text, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('cover_letter_text') } }
 
         sig { params(cover_letter_text: T.nilable(::String)).void }
         def initialize(cover_letter_text: nil)

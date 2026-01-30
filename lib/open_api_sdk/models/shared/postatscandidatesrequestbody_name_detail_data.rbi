@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::PostAtsCandidatesRequestBodyNameDetailData
+class Kombo::Models::Shared::PostAtsCandidatesRequestBodyNameDetailData
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::PostAtsCandidatesRequestBodyNameDetailData
+class Kombo::Models::Shared::PostAtsCandidatesRequestBodyNameDetailData
   def middle_name(); end
   def middle_name=(str_); end
   def social_suffix_reference(); end

@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::PostIntegrationsIntegrationIdRelinkRequestBody
+class Kombo::Models::Shared::PostIntegrationsIntegrationIdRelinkRequestBody
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::PostIntegrationsIntegrationIdRelinkRequestBody
+class Kombo::Models::Shared::PostIntegrationsIntegrationIdRelinkRequestBody
   def scope_config_id(); end
   def scope_config_id=(str_); end
   def link_type(); end

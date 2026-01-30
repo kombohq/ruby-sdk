@@ -6,7 +6,7 @@
 require 'faraday/retry'
 require 'sorbet-runtime'
 
-module OpenApiSDK
+module Kombo
   module Utils
     sig { params(clazz: Object, server_url: String, path: String, path_params: Object, gbls: T.nilable(T::Hash[Symbol, T::Hash[Symbol, T::Hash[Symbol, Object]]])).returns(String) }
     def self.generate_url(clazz, server_url, path, path_params, gbls = nil)

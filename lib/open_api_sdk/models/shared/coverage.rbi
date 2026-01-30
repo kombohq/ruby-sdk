@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::Coverage
+class Kombo::Models::Shared::Coverage
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::Coverage
+class Kombo::Models::Shared::Coverage
   def read_models(); end
   def read_models=(str_); end
   def write_actions(); end

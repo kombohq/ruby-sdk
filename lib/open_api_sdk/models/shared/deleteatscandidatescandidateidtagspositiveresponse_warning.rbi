@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::DeleteAtsCandidatesCandidateIdTagsPositiveResponseWarning
+class Kombo::Models::Shared::DeleteAtsCandidatesCandidateIdTagsPositiveResponseWarning
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::DeleteAtsCandidatesCandidateIdTagsPositiveResponseWarning
+class Kombo::Models::Shared::DeleteAtsCandidatesCandidateIdTagsPositiveResponseWarning
   def message(); end
   def message=(str_); end
 end

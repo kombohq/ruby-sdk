@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::PostAtsJobsJobIdApplicationsRequestBodySocialSuffixReference
+class Kombo::Models::Shared::PostAtsJobsJobIdApplicationsRequestBodySocialSuffixReference
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::PostAtsJobsJobIdApplicationsRequestBodySocialSuffixReference
+class Kombo::Models::Shared::PostAtsJobsJobIdApplicationsRequestBodySocialSuffixReference
   def predefined_name_component_id(); end
   def predefined_name_component_id=(str_); end
 end

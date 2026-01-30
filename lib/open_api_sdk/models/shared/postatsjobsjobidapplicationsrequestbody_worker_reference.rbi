@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyWorkerReference
+class Kombo::Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyWorkerReference
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyWorkerReference
+class Kombo::Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyWorkerReference
   def wid(); end
   def wid=(str_); end
   def employee_id(); end

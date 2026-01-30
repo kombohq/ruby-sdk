@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,7 +13,7 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # The name of the tag you would like to add. We will automatically find the matching ID of the tag in the system.
-        field :name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name'), required: true } }
+        field :name, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('name'), required: true } }
 
         sig { params(name: ::String).void }
         def initialize(name:)

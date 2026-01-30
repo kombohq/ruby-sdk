@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
       # Credit the recruiter or team member who sourced this candidate.
@@ -15,7 +15,7 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # The Kombo ID or Remote ID of the User. Use the Kombo ID directly, or prefix the remote ID with "remote:" to reference the user by their ID in the remote system.
-        field :user_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('user_id'), required: true } }
+        field :user_id, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('user_id'), required: true } }
 
         sig { params(user_id: ::String).void }
         def initialize(user_id:)

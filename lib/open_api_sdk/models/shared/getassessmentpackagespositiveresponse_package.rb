@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,16 +13,16 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
 
-        field :id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id'), required: true } }
+        field :id, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('id'), required: true } }
 
-        field :name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name'), required: true } }
+        field :name, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('name'), required: true } }
 
-        field :description, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('description'), required: true } }
+        field :description, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('description'), required: true } }
         # YYYY-MM-DDTHH:mm:ss.sssZ
         # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
-        field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('updated_at'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
+        field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('updated_at'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
 
-        field :type, Crystalline::Nilable.new(Models::Shared::GetAssessmentPackagesPositiveResponseType), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('type'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::GetAssessmentPackagesPositiveResponseType, false) } }
+        field :type, Crystalline::Nilable.new(Models::Shared::GetAssessmentPackagesPositiveResponseType), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('type'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::GetAssessmentPackagesPositiveResponseType, false) } }
 
         sig { params(id: ::String, name: ::String, description: ::String, updated_at: T.nilable(::DateTime), type: T.nilable(Models::Shared::GetAssessmentPackagesPositiveResponseType)).void }
         def initialize(id:, name:, description:, updated_at: nil, type: nil)

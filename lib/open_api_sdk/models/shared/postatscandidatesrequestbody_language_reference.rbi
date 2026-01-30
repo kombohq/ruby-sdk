@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::PostAtsCandidatesRequestBodyLanguageReference
+class Kombo::Models::Shared::PostAtsCandidatesRequestBodyLanguageReference
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::PostAtsCandidatesRequestBodyLanguageReference
+class Kombo::Models::Shared::PostAtsCandidatesRequestBodyLanguageReference
   def wid(); end
   def wid=(str_); end
 end

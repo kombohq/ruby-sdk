@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,7 +13,7 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
 
-        field :date, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('date'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
+        field :date, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('date'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
 
         sig { params(date: T.nilable(::DateTime)).void }
         def initialize(date: nil)

@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::PutAssessmentOrdersAssessmentOrderIdResultRequestBody
+class Kombo::Models::Shared::PutAssessmentOrdersAssessmentOrderIdResultRequestBody
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::PutAssessmentOrdersAssessmentOrderIdResultRequestBody
+class Kombo::Models::Shared::PutAssessmentOrdersAssessmentOrderIdResultRequestBody
   def status(); end
   def status=(str_); end
   def result_url(); end

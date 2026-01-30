@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
       # Fields specific to ADP Workforce Now.
@@ -13,7 +13,7 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # [Required] The employment ID of the employee that the absence will be deleted from.
-        field :employment_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('employment_id') } }
+        field :employment_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('employment_id') } }
 
         sig { params(employment_id: T.nilable(::String)).void }
         def initialize(employment_id: nil)

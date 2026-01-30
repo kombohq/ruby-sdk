@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
       # Currently, every candidate has one application. If you are interested in talent pools, please contact Kombo.
@@ -13,9 +13,9 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # The Kombo ID or Remote ID of the Job this candidate should apply to. If you want to use the ID of the integrated system (remote_id) you need to prefix the ID with "remote:". You can use the remote ID if you do not want to sync jobs.
-        field :job_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('job_id'), required: true } }
+        field :job_id, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('job_id'), required: true } }
         # Stage this candidate should be in. If left out, the default stage for this job will be used.
-        field :stage_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('stage_id') } }
+        field :stage_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('stage_id') } }
 
         sig { params(job_id: ::String, stage_id: T.nilable(::String)).void }
         def initialize(job_id:, stage_id: nil)

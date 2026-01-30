@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::GetAtsCandidatesPositiveResponseSocialMedia
+class Kombo::Models::Shared::GetAtsCandidatesPositiveResponseSocialMedia
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::GetAtsCandidatesPositiveResponseSocialMedia
+class Kombo::Models::Shared::GetAtsCandidatesPositiveResponseSocialMedia
   def link(); end
   def link=(str_); end
   def type(); end

@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,7 +13,7 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
 
-        field :step, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyStep), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('step') } }
+        field :step, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyStep), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('step') } }
 
         sig { params(step: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyStep)).void }
         def initialize(step: nil)

@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::KomboGeneralErrorError
+class Kombo::Models::Shared::KomboGeneralErrorError
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::KomboGeneralErrorError
+class Kombo::Models::Shared::KomboGeneralErrorError
   def message(); end
   def message=(str_); end
   def code(); end

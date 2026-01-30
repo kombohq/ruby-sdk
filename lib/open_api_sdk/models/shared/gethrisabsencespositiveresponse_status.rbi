@@ -2,10 +2,10 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::GetHrisAbsencesPositiveResponseStatus
+class Kombo::Models::Shared::GetHrisAbsencesPositiveResponseStatus
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::GetHrisAbsencesPositiveResponseStatus
+class Kombo::Models::Shared::GetHrisAbsencesPositiveResponseStatus
 end

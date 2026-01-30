@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::FormatSingleSelect
+class Kombo::Models::Shared::FormatSingleSelect
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::FormatSingleSelect
+class Kombo::Models::Shared::FormatSingleSelect
   def options(); end
   def options=(str_); end
   def type(); end

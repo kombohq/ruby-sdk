@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
       # Oracle specific remote fields for the attachment.
@@ -13,9 +13,9 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # Allows you to override the document category for the attachment.
-        field :override_document_category, Crystalline::Nilable.new(Models::Shared::PostAtsApplicationsApplicationIdAttachmentsRequestBodyOverrideDocumentCategory), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('override_document_category'), 'decoder': Utils.enum_from_string(Models::Shared::PostAtsApplicationsApplicationIdAttachmentsRequestBodyOverrideDocumentCategory, true) } }
+        field :override_document_category, Crystalline::Nilable.new(Models::Shared::PostAtsApplicationsApplicationIdAttachmentsRequestBodyOverrideDocumentCategory), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('override_document_category'), 'decoder': Utils.enum_from_string(Models::Shared::PostAtsApplicationsApplicationIdAttachmentsRequestBodyOverrideDocumentCategory, true) } }
         # If true, the attachment will be posted to all current applications for the candidate.
-        field :multi_post_to_all_current_applications, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('multi_post_to_all_current_applications') } }
+        field :multi_post_to_all_current_applications, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('multi_post_to_all_current_applications') } }
 
         sig { params(override_document_category: T.nilable(Models::Shared::PostAtsApplicationsApplicationIdAttachmentsRequestBodyOverrideDocumentCategory), multi_post_to_all_current_applications: T.nilable(T::Boolean)).void }
         def initialize(override_document_category: nil, multi_post_to_all_current_applications: nil)

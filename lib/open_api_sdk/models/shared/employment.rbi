@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::Employment
+class Kombo::Models::Shared::Employment
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::Employment
+class Kombo::Models::Shared::Employment
   def id(); end
   def id=(str_); end
   def employee_id(); end

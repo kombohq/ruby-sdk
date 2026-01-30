@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,17 +13,17 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # The internationally unique IBAN identifying this account. If we detect a valid IBAN from the account number and this field would otherwise be empty, we will automatically populate this field.
-        field :iban, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('iban') } }
+        field :iban, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('iban') } }
         # The internationally unique BIC/SWIFT code identifying the bank behind this account. If we detect a valid BIC from the domestic bank routing number and this field would otherwise be empty, we will automatically populate this field.
-        field :bic, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('bic') } }
+        field :bic, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('bic') } }
         # The bank-specific account number. Some companies use the account number field to put the IBAN here.
-        field :account_number, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('account_number') } }
+        field :account_number, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('account_number') } }
         # The name of the holder of this account.
-        field :holder_name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('holder_name') } }
+        field :holder_name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('holder_name') } }
         # The name of the bank behind this account.
-        field :bank_name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('bank_name') } }
+        field :bank_name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('bank_name') } }
 
-        field :domestic_bank_routing, Crystalline::Nilable.new(Models::Shared::DomesticBankRouting), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('domestic_bank_routing') } }
+        field :domestic_bank_routing, Crystalline::Nilable.new(Models::Shared::DomesticBankRouting), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('domestic_bank_routing') } }
 
         sig { params(iban: T.nilable(::String), bic: T.nilable(::String), account_number: T.nilable(::String), holder_name: T.nilable(::String), bank_name: T.nilable(::String), domestic_bank_routing: T.nilable(Models::Shared::DomesticBankRouting)).void }
         def initialize(iban: nil, bic: nil, account_number: nil, holder_name: nil, bank_name: nil, domestic_bank_routing: nil)

@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
       # Fields specific to Abacus Umantis.
@@ -13,7 +13,7 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # Fields that we will pass through to Abacus Umantis's "Create a person" endpoint's `attributes` when creating a candidate.
-        field :person, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('person') } }
+        field :person, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('person') } }
 
         sig { params(person: T.nilable(T::Hash[Symbol, ::Object])).void }
         def initialize(person: nil)

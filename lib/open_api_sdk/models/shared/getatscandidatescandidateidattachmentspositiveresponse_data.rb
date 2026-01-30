@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,7 +13,7 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
 
-        field :results, Crystalline::Array.new(Models::Shared::GetAtsCandidatesCandidateIdAttachmentsPositiveResponseResult), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('results'), required: true } }
+        field :results, Crystalline::Array.new(Models::Shared::GetAtsCandidatesCandidateIdAttachmentsPositiveResponseResult), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('results'), required: true } }
 
         sig { params(results: T::Array[Models::Shared::GetAtsCandidatesCandidateIdAttachmentsPositiveResponseResult]).void }
         def initialize(results:)

@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::GetConnectIntegrationByTokenTokenPositiveResponseData
+class Kombo::Models::Shared::GetConnectIntegrationByTokenTokenPositiveResponseData
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::GetConnectIntegrationByTokenTokenPositiveResponseData
+class Kombo::Models::Shared::GetConnectIntegrationByTokenTokenPositiveResponseData
   def tool(); end
   def tool=(str_); end
   def id(); end

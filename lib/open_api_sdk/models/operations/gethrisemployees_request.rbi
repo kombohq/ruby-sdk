@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Operations::GetHrisEmployeesRequest
+class Kombo::Models::Operations::GetHrisEmployeesRequest
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Operations::GetHrisEmployeesRequest
+class Kombo::Models::Operations::GetHrisEmployeesRequest
   def integration_id(); end
   def integration_id=(str_); end
   def cursor(); end

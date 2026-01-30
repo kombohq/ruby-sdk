@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,15 +13,15 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # The ID of the connected tool in Kombo (e.g. `factorial`).
-        field :id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id'), required: true } }
+        field :id, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('id'), required: true } }
 
-        field :label, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('label'), required: true } }
+        field :label, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('label'), required: true } }
         # URL to an SVG logo of the connected tool. The logo usually contains the tool name.
-        field :logo_url, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('logo_url'), required: true } }
+        field :logo_url, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('logo_url'), required: true } }
         # URL to a square SVG icon of the connected tool.
-        field :icon_url, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('icon_url'), required: true } }
+        field :icon_url, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('icon_url'), required: true } }
         # Internal label that can help you debug specific variants of the integration. Only show the `label` to your users.
-        field :internal_label, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('internal_label'), required: true } }
+        field :internal_label, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('internal_label'), required: true } }
 
         sig { params(id: ::String, label: ::String, logo_url: ::String, icon_url: ::String, internal_label: T.nilable(::String)).void }
         def initialize(id:, label:, logo_url:, icon_url:, internal_label: nil)

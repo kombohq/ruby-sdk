@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::DeleteHrisAbsencesAbsenceIdPositiveResponse
+class Kombo::Models::Shared::DeleteHrisAbsencesAbsenceIdPositiveResponse
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::DeleteHrisAbsencesAbsenceIdPositiveResponse
+class Kombo::Models::Shared::DeleteHrisAbsencesAbsenceIdPositiveResponse
   def status(); end
   def status=(str_); end
   def data(); end

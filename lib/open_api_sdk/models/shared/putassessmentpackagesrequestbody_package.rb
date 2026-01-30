@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,13 +13,13 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # A unique identifier for the assessment package.
-        field :id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id'), required: true } }
+        field :id, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('id'), required: true } }
 
-        field :type, Models::Shared::PutAssessmentPackagesRequestBodyType, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('type'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::PutAssessmentPackagesRequestBodyType, false) } }
+        field :type, Models::Shared::PutAssessmentPackagesRequestBodyType, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('type'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::PutAssessmentPackagesRequestBodyType, false) } }
         # The name of the assessment package.
-        field :name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name'), required: true } }
+        field :name, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('name'), required: true } }
         # Description about the package. Some ATSs will display this in their UI.
-        field :description, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('description'), required: true } }
+        field :description, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('description'), required: true } }
 
         sig { params(id: ::String, type: Models::Shared::PutAssessmentPackagesRequestBodyType, name: ::String, description: ::String).void }
         def initialize(id:, type:, name:, description:)

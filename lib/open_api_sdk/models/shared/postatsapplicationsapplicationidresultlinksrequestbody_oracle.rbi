@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::PostAtsApplicationsApplicationIdResultLinksRequestBodyOracle
+class Kombo::Models::Shared::PostAtsApplicationsApplicationIdResultLinksRequestBodyOracle
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::PostAtsApplicationsApplicationIdResultLinksRequestBodyOracle
+class Kombo::Models::Shared::PostAtsApplicationsApplicationIdResultLinksRequestBodyOracle
   def override_document_category(); end
   def override_document_category=(str_); end
   def multi_post_to_all_current_applications(); end

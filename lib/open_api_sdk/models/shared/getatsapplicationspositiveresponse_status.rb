@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
       # GetAtsApplicationsPositiveResponseStatus - The offer’s current status. The usual flow of statuses is as follows:

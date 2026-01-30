@@ -2,10 +2,10 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::GetAssessmentPackagesPositiveResponseType
+class Kombo::Models::Shared::GetAssessmentPackagesPositiveResponseType
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::GetAssessmentPackagesPositiveResponseType
+class Kombo::Models::Shared::GetAssessmentPackagesPositiveResponseType
 end

@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::Option1
+class Kombo::Models::Shared::Option1
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::Option1
+class Kombo::Models::Shared::Option1
   def id(); end
   def id=(str_); end
   def name(); end

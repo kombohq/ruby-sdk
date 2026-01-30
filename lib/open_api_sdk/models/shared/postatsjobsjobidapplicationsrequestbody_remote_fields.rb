@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
       # Additional fields that we will pass through to specific ATS systems.
@@ -13,49 +13,49 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # Fields specific to SAP SuccessFactors.
-        field :successfactors, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodySuccessfactors), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('successfactors') } }
+        field :successfactors, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodySuccessfactors), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('successfactors') } }
         # Fields specific to Personio.
-        field :personio, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyPersonio), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('personio') } }
+        field :personio, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyPersonio), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('personio') } }
         # Fields specific to TalentSoft.
-        field :talentsoft, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyTalentsoft), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('talentsoft') } }
+        field :talentsoft, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyTalentsoft), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('talentsoft') } }
 
-        field :teamtailor, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyTeamtailor), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('teamtailor') } }
+        field :teamtailor, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyTeamtailor), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('teamtailor') } }
         # Fields specific to Greenhouse.
-        field :greenhouse, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyGreenhouse), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('greenhouse') } }
+        field :greenhouse, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyGreenhouse), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('greenhouse') } }
         # Fields specific to Lever.
-        field :lever, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyLever), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('lever') } }
+        field :lever, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyLever), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('lever') } }
         # Workable specific remote fields for ATS actions.
-        field :workable, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyWorkable), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('workable') } }
+        field :workable, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyWorkable), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('workable') } }
         # Fields specific to Workday. The remote fields schema follows the documentation at https://community.workday.com/sites/default/files/file-hosting/productionapi/Recruiting/v43.0/Put_Candidate.html. Only defined fields are supported, if you need additional field support please reach out to Kombo support.
-        field :workday, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyWorkday), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('workday') } }
+        field :workday, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyWorkday), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('workday') } }
         # Fields specific to Zoho Recruit.
-        field :zohorecruit, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyZohorecruit), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('zohorecruit') } }
+        field :zohorecruit, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyZohorecruit), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('zohorecruit') } }
         # Fields specific to Bullhorn.
-        field :bullhorn, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyBullhorn), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('bullhorn') } }
+        field :bullhorn, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyBullhorn), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('bullhorn') } }
         # Fields specific to SmartRecruiters.
-        field :smartrecruiters, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodySmartrecruiters), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('smartrecruiters') } }
+        field :smartrecruiters, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodySmartrecruiters), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('smartrecruiters') } }
         # Fields specific to Talentadore.
-        field :talentadore, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyTalentadore), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('talentadore') } }
+        field :talentadore, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyTalentadore), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('talentadore') } }
         # Fields specific to GuideCom.
-        field :guidecom, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyGuidecom), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('guidecom') } }
+        field :guidecom, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyGuidecom), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('guidecom') } }
         # Fields specific to d.vinci.
-        field :dvinci, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyDvinci), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('dvinci') } }
+        field :dvinci, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyDvinci), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('dvinci') } }
         # Fields specific to GuideCom.
-        field :hrworks, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyHrworks), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('hrworks') } }
+        field :hrworks, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyHrworks), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('hrworks') } }
         # Fields specific to Jobylon.
-        field :jobylon, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyJobylon), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('jobylon') } }
+        field :jobylon, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyJobylon), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('jobylon') } }
         # Fields specific to Avature.
-        field :avature, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyAvature), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('avature') } }
+        field :avature, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyAvature), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('avature') } }
         # Fields specific to Recruitee.
-        field :recruitee, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyRecruitee), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('recruitee') } }
+        field :recruitee, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyRecruitee), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('recruitee') } }
         # Fields specific to Abacus Umantis.
-        field :umantis, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyUmantis), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('umantis') } }
+        field :umantis, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyUmantis), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('umantis') } }
         # Fields specific to P&I Loga.
-        field :piloga, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyPiloga), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('piloga') } }
+        field :piloga, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyPiloga), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('piloga') } }
         # Fields specific to Pinpoint.
-        field :pinpoint, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyPinpoint), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('pinpoint') } }
+        field :pinpoint, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyPinpoint), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('pinpoint') } }
         # Fields specific to Coveto REST.
-        field :covetorest, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyCovetorest), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('covetorest') } }
+        field :covetorest, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyCovetorest), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('covetorest') } }
 
         sig { params(successfactors: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodySuccessfactors), personio: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyPersonio), talentsoft: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyTalentsoft), teamtailor: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyTeamtailor), greenhouse: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyGreenhouse), lever: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyLever), workable: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyWorkable), workday: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyWorkday), zohorecruit: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyZohorecruit), bullhorn: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyBullhorn), smartrecruiters: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodySmartrecruiters), talentadore: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyTalentadore), guidecom: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyGuidecom), dvinci: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyDvinci), hrworks: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyHrworks), jobylon: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyJobylon), avature: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyAvature), recruitee: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyRecruitee), umantis: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyUmantis), piloga: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyPiloga), pinpoint: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyPinpoint), covetorest: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyCovetorest)).void }
         def initialize(successfactors: nil, personio: nil, talentsoft: nil, teamtailor: nil, greenhouse: nil, lever: nil, workable: nil, workday: nil, zohorecruit: nil, bullhorn: nil, smartrecruiters: nil, talentadore: nil, guidecom: nil, dvinci: nil, hrworks: nil, jobylon: nil, avature: nil, recruitee: nil, umantis: nil, piloga: nil, pinpoint: nil, covetorest: nil)

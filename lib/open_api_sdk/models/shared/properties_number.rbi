@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::PropertiesNumber
+class Kombo::Models::Shared::PropertiesNumber
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::PropertiesNumber
+class Kombo::Models::Shared::PropertiesNumber
   def label(); end
   def label=(str_); end
   def required(); end

@@ -2,10 +2,10 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::PutAssessmentOrdersAssessmentOrderIdResultRequestBodyStatus
+class Kombo::Models::Shared::PutAssessmentOrdersAssessmentOrderIdResultRequestBodyStatus
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::PutAssessmentOrdersAssessmentOrderIdResultRequestBodyStatus
+class Kombo::Models::Shared::PutAssessmentOrdersAssessmentOrderIdResultRequestBodyStatus
 end

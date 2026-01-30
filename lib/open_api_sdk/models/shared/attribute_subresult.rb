@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,15 +13,15 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
 
-        field :type, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('type'), required: true } }
+        field :type, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('type'), required: true } }
 
-        field :id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id'), required: true } }
+        field :id, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('id'), required: true } }
 
-        field :label, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('label'), required: true } }
+        field :label, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('label'), required: true } }
 
-        field :score, Models::Shared::Score, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('score'), required: true } }
+        field :score, Models::Shared::Score, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('score'), required: true } }
 
-        field :status, Models::Shared::AttributeStatus, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('status'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::AttributeStatus, false) } }
+        field :status, Models::Shared::AttributeStatus, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('status'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::AttributeStatus, false) } }
 
         sig { params(type: ::String, id: ::String, label: ::String, score: Models::Shared::Score, status: Models::Shared::AttributeStatus).void }
         def initialize(type:, id:, label:, score:, status:)

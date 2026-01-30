@@ -6,7 +6,7 @@
 require_relative './types'
 require_relative './registration'
 
-module OpenApiSDK
+module Kombo
   module SDKHooks
     class Hooks
       extend T::Sig

@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::GetAtsJobsPositiveResponseLocation
+class Kombo::Models::Shared::GetAtsJobsPositiveResponseLocation
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::GetAtsJobsPositiveResponseLocation
+class Kombo::Models::Shared::GetAtsJobsPositiveResponseLocation
   def city(); end
   def city=(str_); end
   def country(); end

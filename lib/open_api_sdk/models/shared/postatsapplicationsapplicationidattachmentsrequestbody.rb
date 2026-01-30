@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,9 +13,9 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
 
-        field :attachment, Models::Shared::PostAtsApplicationsApplicationIdAttachmentsRequestBodyAttachment, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('attachment'), required: true } }
+        field :attachment, Models::Shared::PostAtsApplicationsApplicationIdAttachmentsRequestBodyAttachment, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('attachment'), required: true } }
 
-        field :remote_fields, Crystalline::Nilable.new(Models::Shared::PostAtsApplicationsApplicationIdAttachmentsRequestBodyRemoteFields), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_fields') } }
+        field :remote_fields, Crystalline::Nilable.new(Models::Shared::PostAtsApplicationsApplicationIdAttachmentsRequestBodyRemoteFields), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_fields') } }
 
         sig { params(attachment: Models::Shared::PostAtsApplicationsApplicationIdAttachmentsRequestBodyAttachment, remote_fields: T.nilable(Models::Shared::PostAtsApplicationsApplicationIdAttachmentsRequestBodyRemoteFields)).void }
         def initialize(attachment:, remote_fields: nil)
