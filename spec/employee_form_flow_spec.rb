@@ -151,7 +151,7 @@ RSpec.describe 'Employee Form Flow' do
     )
 
     # Make the API call with realistic employee properties
-    body = OpenApiSDK::Models::Shared::PostHrisEmployeesFormRequestBody.new(
+    body = Kombo::Models::Shared::PostHrisEmployeesFormRequestBody.new(
       properties: {
         firstName: 'John',
         lastName: 'Doe',

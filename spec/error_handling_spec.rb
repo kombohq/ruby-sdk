@@ -42,10 +42,10 @@ RSpec.describe 'Error Handling' do
       expect do
         jobs = ctx.kombo.ats.get_jobs
         jobs.each { |_page| break }
-      end.to raise_error(OpenApiSDK::Models::Errors::KomboAtsError) do |error|
+      end.to raise_error(Kombo::Models::Errors::KomboAtsError) do |error|
         expect(error.error.message).to include('You have exceeded the rate limit. Please try again later.')
-        expect(error.status).to eq(OpenApiSDK::Models::Shared::KomboAtsErrorStatus::ERROR)
-        expect(error.error.code).to eq(OpenApiSDK::Models::Shared::KomboAtsErrorCode::PLATFORM_RATE_LIMIT_EXCEEDED)
+        expect(error.status).to eq(Kombo::Models::Shared::KomboAtsErrorStatus::ERROR)
+        expect(error.error.code).to eq(Kombo::Models::Shared::KomboAtsErrorCode::PLATFORM_RATE_LIMIT_EXCEEDED)
         expect(error.error.title).to eq('Rate limit exceeded')
         expect(error.error.message).to eq('You have exceeded the rate limit. Please try again later.')
         expect(error.error.log_url).to eq('https://app.kombo.dev/logs/abc123')
@@ -72,21 +72,21 @@ RSpec.describe 'Error Handling' do
         }
       )
 
-      candidate = OpenApiSDK::Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyCandidate.new(
+      candidate = Kombo::Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyCandidate.new(
         first_name: 'John',
         last_name: 'Doe',
         email_address: 'john.doe@example.com'
       )
-      body = OpenApiSDK::Models::Shared::PostAtsJobsJobIdApplicationsRequestBody.new(
+      body = Kombo::Models::Shared::PostAtsJobsJobIdApplicationsRequestBody.new(
         candidate: candidate
       )
 
       expect do
         ctx.kombo.ats.create_application(job_id: 'test-job-id', body: body)
-      end.to raise_error(OpenApiSDK::Models::Errors::KomboAtsError) do |error|
+      end.to raise_error(Kombo::Models::Errors::KomboAtsError) do |error|
         expect(error.error.message).to include('Cannot create application for a closed job. The job must be in an open state.')
-        expect(error.status).to eq(OpenApiSDK::Models::Shared::KomboAtsErrorStatus::ERROR)
-        expect(error.error.code).to eq(OpenApiSDK::Models::Shared::KomboAtsErrorCode::ATS_JOB_CLOSED)
+        expect(error.status).to eq(Kombo::Models::Shared::KomboAtsErrorStatus::ERROR)
+        expect(error.error.code).to eq(Kombo::Models::Shared::KomboAtsErrorCode::ATS_JOB_CLOSED)
         expect(error.error.title).to eq('Job is closed')
         expect(error.error.message).to eq('Cannot create application for a closed job. The job must be in an open state.')
         expect(error.error.log_url).to eq('https://app.kombo.dev/logs/ghi789')
@@ -118,10 +118,10 @@ RSpec.describe 'Error Handling' do
       expect do
         employees = ctx.kombo.hris.get_employees
         employees.each { |_page| break }
-      end.to raise_error(OpenApiSDK::Models::Errors::KomboHrisError) do |error|
+      end.to raise_error(Kombo::Models::Errors::KomboHrisError) do |error|
         expect(error.error.message).to include('The integration is missing required permissions to access this resource.')
-        expect(error.status).to eq(OpenApiSDK::Models::Shared::KomboHrisErrorStatus::ERROR)
-        expect(error.error.code).to eq(OpenApiSDK::Models::Shared::KomboHrisErrorCode::INTEGRATION_PERMISSION_MISSING)
+        expect(error.status).to eq(Kombo::Models::Shared::KomboHrisErrorStatus::ERROR)
+        expect(error.error.code).to eq(Kombo::Models::Shared::KomboHrisErrorCode::INTEGRATION_PERMISSION_MISSING)
         expect(error.error.title).to eq('Permission missing')
         expect(error.error.message).to eq('The integration is missing required permissions to access this resource.')
         expect(error.error.log_url).to eq('https://app.kombo.dev/logs/hris-def456')
@@ -153,10 +153,10 @@ RSpec.describe 'Error Handling' do
       expect do
         orders = ctx.kombo.assessment.get_open_orders
         orders.each { |_page| break }
-      end.to raise_error(OpenApiSDK::Models::Errors::KomboAtsError) do |error|
+      end.to raise_error(Kombo::Models::Errors::KomboAtsError) do |error|
         expect(error.error.message).to include('The provided input is invalid or malformed.')
-        expect(error.status).to eq(OpenApiSDK::Models::Shared::KomboAtsErrorStatus::ERROR)
-        expect(error.error.code).to eq(OpenApiSDK::Models::Shared::KomboAtsErrorCode::PLATFORM_INPUT_INVALID)
+        expect(error.status).to eq(Kombo::Models::Shared::KomboAtsErrorStatus::ERROR)
+        expect(error.error.code).to eq(Kombo::Models::Shared::KomboAtsErrorCode::PLATFORM_INPUT_INVALID)
         expect(error.error.title).to eq('Input invalid')
         expect(error.error.message).to eq('The provided input is invalid or malformed.')
         expect(error.error.log_url).to eq('https://app.kombo.dev/logs/assessment-xyz')
@@ -187,10 +187,10 @@ RSpec.describe 'Error Handling' do
 
       expect do
         ctx.kombo.general.check_api_key
-      end.to raise_error(OpenApiSDK::Models::Errors::KomboGeneralError) do |error|
+      end.to raise_error(Kombo::Models::Errors::KomboGeneralError) do |error|
         expect(error.error.message).to include('The provided API key is invalid or expired.')
-        expect(error.status).to eq(OpenApiSDK::Models::Shared::KomboGeneralErrorStatus::ERROR)
-        expect(error.error.code).to eq(OpenApiSDK::Models::Shared::KomboGeneralErrorCode::PLATFORM_AUTHENTICATION_INVALID)
+        expect(error.status).to eq(Kombo::Models::Shared::KomboGeneralErrorStatus::ERROR)
+        expect(error.error.code).to eq(Kombo::Models::Shared::KomboGeneralErrorCode::PLATFORM_AUTHENTICATION_INVALID)
         expect(error.error.title).to eq('Authentication invalid')
         expect(error.error.message).to eq('The provided API key is invalid or expired.')
         expect(error.error.log_url).to eq('https://app.kombo.dev/logs/general-auth-123')
@@ -216,7 +216,7 @@ RSpec.describe 'Error Handling' do
         expect do
           jobs = ctx.kombo.ats.get_jobs
           jobs.each { |_page| break }
-        end.to raise_error(OpenApiSDK::Models::Errors::APIError) do |error|
+        end.to raise_error(Kombo::Models::Errors::APIError) do |error|
           expect(error.status_code).to eq(500)
           expect(error.body).to include('500 Internal Server Error')
         end
@@ -240,7 +240,7 @@ RSpec.describe 'Error Handling' do
         expect do
           employees = ctx.kombo.hris.get_employees
           employees.each { |_page| break }
-        end.to raise_error(OpenApiSDK::Models::Errors::APIError) do |error|
+        end.to raise_error(Kombo::Models::Errors::APIError) do |error|
           expect(error.status_code).to eq(502)
           expect(error.body).to include('502 Bad Gateway')
         end
@@ -270,18 +270,18 @@ RSpec.describe 'Error Handling' do
           }
         )
 
-        candidate = OpenApiSDK::Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyCandidate.new(
+        candidate = Kombo::Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyCandidate.new(
           first_name: 'John',
           last_name: 'Doe',
           email_address: 'john.doe@example.com'
         )
-        body = OpenApiSDK::Models::Shared::PostAtsJobsJobIdApplicationsRequestBody.new(
+        body = Kombo::Models::Shared::PostAtsJobsJobIdApplicationsRequestBody.new(
           candidate: candidate
         )
 
         expect do
           ctx.kombo.ats.create_application(job_id: 'test-job-id', body: body)
-        end.to raise_error(OpenApiSDK::Models::Errors::APIError) do |error|
+        end.to raise_error(Kombo::Models::Errors::APIError) do |error|
           expect(error.status_code).to eq(503)
           expect(error.body).to include('503 Service Temporarily Unavailable')
         end
@@ -302,7 +302,7 @@ RSpec.describe 'Error Handling' do
 
         expect do
           ctx.kombo.general.check_api_key
-        end.to raise_error(OpenApiSDK::Models::Errors::APIError) do |error|
+        end.to raise_error(Kombo::Models::Errors::APIError) do |error|
           expect(error.status_code).to eq(500)
         end
       end
@@ -326,7 +326,7 @@ RSpec.describe 'Error Handling' do
         expect do
           applications = ctx.kombo.ats.get_applications
           applications.each { |_page| break }
-        end.to raise_error(OpenApiSDK::Models::Errors::APIError) do |error|
+        end.to raise_error(Kombo::Models::Errors::APIError) do |error|
           expect(error.status_code).to eq(500)
           expect(error.body).to include('Server error occurred')
         end

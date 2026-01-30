@@ -17,8 +17,8 @@ module TestSupport
       @stub_counter = 0
       @stubs = []
 
-      security = OpenApiSDK::Models::Shared::Security.new(api_key: api_key)
-      @kombo = OpenApiSDK::Kombo.new(
+      security = Kombo::Models::Shared::Security.new(api_key: api_key)
+      @kombo = Kombo::Kombo.new(
         security: security,
         integration_id: integration_id == :undefined ? nil : integration_id
       )
