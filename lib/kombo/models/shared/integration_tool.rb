@@ -149,6 +149,7 @@ module Kombo
           YOUSERVE = new('youserve')
           HANSALOG = new('hansalog')
           LATTICE = new('lattice')
+          LATTICETALENT = new('latticetalent')
           HOORAYHR = new('hoorayhr')
           TRINET = new('trinet')
           NAMELY = new('namely')
