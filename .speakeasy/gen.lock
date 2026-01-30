@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: a945ea15-b620-47b9-9868-c165c173bf88
 management:
-  docChecksum: 4dd4b1c335e886d2807326fcc96234c1
+  docChecksum: 2dda2c2034839a50e5ade42ed79cdf9a
   docVersion: 1.0.0
-  speakeasyVersion: 1.698.0
-  generationVersion: 2.801.0
-  releaseVersion: 1.0.0
-  configChecksum: 2b2f01014c2ade00a49dfd3c3a97903b
+  speakeasyVersion: 1.700.2
+  generationVersion: 2.801.2
+  releaseVersion: 1.0.1
+  configChecksum: 2d7cce034dd8021bbc1156ee9d1dcb1e
   repoURL: https://github.com/kombohq/ruby-sdk.git
   installationURL: https://github.com/kombohq/ruby-sdk
   published: true
 persistentEdits:
-  generation_id: 3b34e71a-09ae-409b-80d4-037e23b54d8e
-  pristine_commit_hash: d0b82774502cc009c55e098a7490663e2fbb2bb8
-  pristine_tree_hash: 1a6ab3270a80b5b5e3ab767326956f3572f4f384
+  generation_id: d9d3715e-af53-43c0-b624-27bef9d2e4ef
+  pristine_commit_hash: 50d16c262fbe6e901890e258868e58ca1d00c9f4
+  pristine_tree_hash: f4ec39856349a2b4e126fbd6eab80f973f2028df
 features:
   ruby:
     constsAndDefaults: 0.1.1
@@ -48,8 +48,8 @@ trackedFiles:
     pristine_git_object: b0ea40558f3ca80dcf7d30b159d34a1e5ab33440
   Gemfile.lock:
     id: 21fb5836b499
-    last_write_checksum: sha1:ad2395c418f9357136b7e6e958ca832f2c42638e
-    pristine_git_object: d295655548dd4a463b62a9b96185df4985065e0d
+    last_write_checksum: sha1:7d59449411f4f98ff4d685733eca2893cd38a06f
+    pristine_git_object: 00187f35abf86f0900e254f325fb0f04007d2679
   Rakefile:
     id: 44b7fa1ba503
     last_write_checksum: sha1:bb15946e7c34d00098a6ee8fef994bbd57960092
@@ -1860,8 +1860,8 @@ trackedFiles:
     pristine_git_object: 1b44fd372a1b5113087190b3328e0e11317349f3
   docs/models/shared/integrationtool.md:
     id: ccbce9847167
-    last_write_checksum: sha1:f64ed82b256ea310cbcb38f84f56233ec89e1f6d
-    pristine_git_object: fb9587040fcdf9a5270f040b0293b89eff99d0bd
+    last_write_checksum: sha1:eda1fc2826b42ef4efcf16f87bcd4ccca0545a78
+    pristine_git_object: 8e6d1126bfd77d2e6198d164bc19789596db1725
   docs/models/shared/interview.md:
     id: d8d282f154af
     last_write_checksum: sha1:8a02e7bc37075650da6db4da83362416f77a08ac
@@ -3952,16 +3952,16 @@ trackedFiles:
     pristine_git_object: 00f51eeb2ab1efc8e1e290bc565cfcfddfdc07be
   docs/sdks/ats/README.md:
     id: 24fafa267f6c
-    last_write_checksum: sha1:b866e74d2e9def3c74dff40c742aacf4866e6117
-    pristine_git_object: 0efb3c7cbf34ef7eca6cbe23f48b5fd39421a6c4
+    last_write_checksum: sha1:e132e2ce8ae48e39f60a10f3e20ec179c5fd4e1e
+    pristine_git_object: 3f872a4e3d1184debf915e707e1a1924fe026a9d
   docs/sdks/connect/README.md:
     id: 074a4658c86b
     last_write_checksum: sha1:22a67dce3c67dd4f86a6272183b1d516fe2adfd0
     pristine_git_object: 3ec83f0b4c96723b0346ec0bf85ca827ce1d8b57
   docs/sdks/general/README.md:
     id: ce0ada6fa2e1
-    last_write_checksum: sha1:e43a1247e1e57641f073a21d2c1123d3b1b6c790
-    pristine_git_object: c31b21aec43ee5d6b1d4690b32d79b9c691dfdf4
+    last_write_checksum: sha1:34775a89d29baf3b43fa1320700a8358c73db9fb
+    pristine_git_object: a8721cb7aca7b0609233e90194fe72a200cd5e4d
   docs/sdks/hris/README.md:
     id: 0baa868a038c
     last_write_checksum: sha1:e97a66a4f03d9d9b79f77630a4f000bef7a6eb52
@@ -3972,8 +3972,8 @@ trackedFiles:
     pristine_git_object: 237a19c94ed3feee821ecd5611703991f84d91fa
   kombo.gemspec:
     id: 476dd5dc2d31
-    last_write_checksum: sha1:5ab20f70dc39eeb645c5a0dcd7680bb384988934
-    pristine_git_object: 8ddaf9621381b3249c4aa43c953794e43bd64479
+    last_write_checksum: sha1:108e5adc52cb64dc8ad7a970f8c29cedd977be10
+    pristine_git_object: 5c320a54eb7152e2570254c979904dae069e7983
   lib/crystalline.rb:
     id: eca767cf937a
     last_write_checksum: sha1:b6ec0a2833f58ba9a6f07c9637fdca05e59006d3
@@ -4004,16 +4004,16 @@ trackedFiles:
     pristine_git_object: ef1765a9876754cd60e67abb79dcb3568262e5cc
   lib/open_api_sdk/ats.rb:
     id: 6abfcb641ae1
-    last_write_checksum: sha1:c9195798db159ad363915e186ece1ec81a029b33
-    pristine_git_object: eb20b590f0a183f3db7877aca5314cdc61149689
+    last_write_checksum: sha1:3dad61407047648464cddcc1d61f02c57c68f479
+    pristine_git_object: 6a8b0b0d4687afad8019a756eb05d3d4e61657eb
   lib/open_api_sdk/connect.rb:
     id: eaa9d158979f
     last_write_checksum: sha1:dbd0760856a4f962b61a7986aa3ab7606f86fa33
     pristine_git_object: 7efce3b0453aa93449d22667027d67c6bbe9bfc7
   lib/open_api_sdk/general.rb:
     id: af2bd55b2cd4
-    last_write_checksum: sha1:06d9a65a9c51b1367ec70fda4f9a89280181ae9f
-    pristine_git_object: bc533a9214774fa633c5e6001dc12b74c0eacc55
+    last_write_checksum: sha1:915a85d39c68e6a151605e26ab04ff015cd4dfb7
+    pristine_git_object: 71e9032483e0315ea7940deede3b1a49cde0ffad
   lib/open_api_sdk/hris.rb:
     id: d512475c5534
     last_write_checksum: sha1:2a6d93db183171f1ecaf7374f29f963a0d061205
@@ -7520,8 +7520,8 @@ trackedFiles:
     pristine_git_object: 50c0eb0958d05e448833f012b6d7246b7855bc22
   lib/open_api_sdk/models/shared/integration_tool.rb:
     id: d33bae6aeb4a
-    last_write_checksum: sha1:c9d085e97aecd3631f5022049d05446aee459824
-    pristine_git_object: 4f4f30511ba0671fe681c81a529e41fc5483f28c
+    last_write_checksum: sha1:7fff4f02218b60e0b82b1175ca7340f95661349f
+    pristine_git_object: 6f05bd2a58db946f84b3d47d3bc4e41171d01725
   lib/open_api_sdk/models/shared/integration_tool.rbi:
     id: c1d2cace5d0e
     last_write_checksum: sha1:da96c6c473dab4558c54a8e168824fbf3df5a93e
@@ -11832,8 +11832,8 @@ trackedFiles:
     pristine_git_object: 4fce7e216368e7b49f005b6fefd09db483840c15
   lib/open_api_sdk/sdkconfiguration.rb:
     id: f4510466a9d9
-    last_write_checksum: sha1:b00ac350800652c8218454813e5795ac1b80039c
-    pristine_git_object: 1f788adce17ae4da105365c93fd689dde19fbe24
+    last_write_checksum: sha1:3d5487e8c8604dc776aa28169c448a5d99de621f
+    pristine_git_object: a73153e1aa6028cfbe5a6b910f965f177dd26fda
   lib/open_api_sdk/sdkconfiguration.rbi:
     id: c1e574df15f1
     last_write_checksum: sha1:ccd39625ec652ae6811781ae76e42a163b1e338d
@@ -13813,7 +13813,7 @@ examples:
         header:
           X-Integration-Id: "workday:HWUTwvyx2wLoSUHphiWVrp28"
       requestBody:
-        application/json: {"stage_id": "8x3YKRDcuRnwShdh96ShBNn1", "candidate": {"first_name": "Frank", "last_name": "Doe", "email_address": "frank.doe@example.com", "company": "Acme Inc.", "title": "Head of Integrations", "phone_number": "+1-541-754-3010", "location": {"city": "New York", "country": "US"}, "gender": "MALE", "availability_date": "2021-01-01T00:00:00Z", "salary_expectations": {"period": "YEAR", "amount": 100000}}, "attachments": [{"name": "Frank Doe CV.txt", "content_type": "text/plain", "data": "SGkgdGhlcmUsIEtvbWJvIGlzIGN1cnJlbnRseSBoaXJpbmcgZW5naW5lZXJzIHRoYXQgbG92ZSB0byB3b3JrIG9uIGRldmVsb3BlciBwcm9kdWN0cy4=", "type": "CV"}], "screening_question_answers": [{"question_id": "3phFBNXRweGnDmsU9o2vdPuQ", "answer": "Yes"}, {"question_id": "EYJjhMQT3LtVKXnTbnRT8s6U", "answer": ["GUzE666zfyjeoCJX6A8n7wh6", "5WPHzzKAv8cx97KtHRUV96U8", "7yZfKGzWigXxxRTygqAfHvyE"]}]}
+        application/json: {"stage_id": "8x3YKRDcuRnwShdh96ShBNn1", "candidate": {"first_name": "Frank", "last_name": "Doe", "email_address": "frank.doe@example.com", "company": "Acme Inc.", "title": "Head of Integrations", "phone_number": "+1-541-754-3010", "location": {"city": "New York", "country": "US", "state": "NY", "zip_code": "10016"}, "gender": "MALE", "availability_date": "2021-01-01T00:00:00Z", "salary_expectations": {"period": "YEAR", "amount": 100000}}, "attachments": [{"name": "Frank Doe CV.txt", "content_type": "text/plain", "data": "SGkgdGhlcmUsIEtvbWJvIGlzIGN1cnJlbnRseSBoaXJpbmcgZW5naW5lZXJzIHRoYXQgbG92ZSB0byB3b3JrIG9uIGRldmVsb3BlciBwcm9kdWN0cy4=", "type": "CV"}], "screening_question_answers": [{"question_id": "3phFBNXRweGnDmsU9o2vdPuQ", "answer": "Yes"}, {"question_id": "EYJjhMQT3LtVKXnTbnRT8s6U", "answer": ["GUzE666zfyjeoCJX6A8n7wh6", "5WPHzzKAv8cx97KtHRUV96U8", "7yZfKGzWigXxxRTygqAfHvyE"]}]}
       responses:
         "200":
           application/json: {"status": "success", "data": {"id": "H77fDF8uvEzGNPRubiz5DvQ7", "remote_id": "32", "outcome": "PENDING", "rejection_reason_name": null, "rejected_at": null, "current_stage_id": "5J7L4b48wBfffYwek9Az9pkM", "job_id": "H5daSm8e85Dmvmne3wLeCPhX", "candidate_id": "26vafvWSRmbhNcxJYqjCzuJg", "screening_question_answers": [], "custom_fields": {}, "remote_url": "https://example.com/applications/32", "changed_at": "2022-08-07T14:01:29.196Z", "remote_deleted_at": null, "remote_created_at": "2022-04-02T00:00:00Z", "remote_updated_at": "2022-04-04T00:00:00Z", "current_stage": {"id": "5J7L4b48wBfffYwek9Az9pkM", "name": "Interview", "remote_id": "5", "index": 2}, "job": {"id": "H5daSm8e85Dmvmne3wLeCPhX", "name": "Head of Integrations", "remote_id": "1"}, "candidate": {"id": "26vafvWSRmbhNcxJYqjCzuJg", "remote_id": "32", "first_name": "John", "last_name": "Doe", "company": "Acme, Inc.", "title": "Head of Marketing", "confidential": false, "source": "Employee Referral", "phone_numbers": [{"phone_number": "+1-541-754-3010", "type": "HOME"}], "email_addresses": [{"email_address": "john.doe@example.com", "type": "PRIVATE"}], "social_media": [{"link": "https://www.youtube.com/watch?v=dQw4w9WgXcQ", "type": "YOUTUBE", "username": null}], "location": {"city": "Berlin", "country": "DE", "raw": "Berlin, Germany", "state": "Berlin", "street_1": "Lohmühlenstraße 65", "street_2": null, "zip_code": "12435"}, "custom_fields": {}, "remote_url": "https://example.com/candidates/32", "remote_created_at": "2022-04-02T00:00:00Z", "remote_updated_at": "2022-04-04T00:00:00Z", "changed_at": "2022-04-04T00:00:00Z", "remote_deleted_at": null, "tags": [{"id": "7DHDky9zk4qnWkycuuQjFXNh", "name": "Fast Learner", "remote_id": "1"}]}}, "warnings": [{"message": "This is an example warning!"}]}
@@ -14272,3 +14272,4 @@ examples:
         default:
           application/json: {"status": "error", "error": {"code": null, "title": null, "message": "The message is always in the response.", "log_url": null}}
 examplesVersion: 1.0.2
+releaseNotes: "## Ruby SDK Changes:\n* `kombo.connect.create_connection_link()`: \n  *  `request.integration_tool.enum(odoo)` **Added**\n"

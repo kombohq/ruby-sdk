@@ -29,7 +29,7 @@ generation:
     generateNewTests: true
     skipResponseBodyAssertions: false
 ruby:
-  version: 1.0.0
+  version: 1.0.1
   additionalDependencies:
     development:
       irb: ""
@@ -63,7 +63,7 @@ ruby:
   inferUnionDiscriminators: false
   inputModelSuffix: input
   maxMethodParams: 999
-  module: OpenApiSdk
+  module: Kombo
   multipartArrayFormat: legacy
   outputModelSuffix: output
   packageName: kombo
