@@ -190,6 +190,7 @@ To get started, please pick the relevant API (some tools provide multiple to due
 |Jobylon|`jobylon/push`|The [Jobylon Push API](https://developer.jobylon.com/push-api-and-webhooks/). We automatically authenticate all requests and use `https://\{subdomain\}.jobylon.com/p1` as the base URL.|
 |JOIN|`join/v2`|Join's [V2 API](https://docs.join.com/reference/getting-started). We automatically authenticate all requests and use `https://api.join.com/v2` as the base URL.|
 |Kenjo|`kenjo/api`|Kenjo's [API](https://kenjo.readme.io/reference/generate-the-api-key). We automatically authenticate all requests using the API key and use `https://api.kenjo.io/` as the base URL.|
+|Lattice Talent|`latticetalent/talent`|Lattice's [Talent API](https://developers.lattice.com/reference/introduction). We automatically authenticate all requests using API key credentials with `https://api.latticehq.com` as the base URL.|
 |Lattice|`lattice/passthrough`|Lattice's [API](https://developers.lattice.com/v2/docs/base-url-1). We automatically authenticate all requests using OAuth credentials with `https://api.latticehq.com` as the base URL.|
 |Lattice|`lattice/talent`|Lattice's [Talent API](https://developers.lattice.com/docs/introduction-1). We automatically authenticate all requests using OAuth credentials with `https://api.latticehq.com` as the base URL.|
 |Laura|`laura/api`|We automatically authenticate all requests and use `https://\{subdomain\}.rekrytointi.com/api/v1.2` as the base URL.|

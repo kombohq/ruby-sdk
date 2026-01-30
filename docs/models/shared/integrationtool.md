@@ -144,6 +144,7 @@ Pre-define a tool this integration link can be used for.
 | `YOUSERVE`                        | youserve                          |
 | `HANSALOG`                        | hansalog                          |
 | `LATTICE`                         | lattice                           |
+| `LATTICETALENT`                   | latticetalent                     |
 | `HOORAYHR`                        | hoorayhr                          |
 | `TRINET`                          | trinet                            |
 | `NAMELY`                          | namely                            |
