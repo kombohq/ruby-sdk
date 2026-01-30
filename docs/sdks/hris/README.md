@@ -36,8 +36,8 @@ Top level filters use AND, while individual filters use OR if they accept multip
 ```ruby
 require 'kombo'
 
-Models = ::OpenApiSDK::Models
-s = ::OpenApiSDK::Kombo.new(
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
       security: Models::Shared::Security.new(
         api_key: '<YOUR_BEARER_TOKEN_HERE>',
@@ -170,8 +170,8 @@ Follow our [create employee guide here](/hris/features/create-employee) to learn
 ```ruby
 require 'kombo'
 
-Models = ::OpenApiSDK::Models
-s = ::OpenApiSDK::Kombo.new(
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
       security: Models::Shared::Security.new(
         api_key: '<YOUR_BEARER_TOKEN_HERE>',
@@ -236,8 +236,8 @@ Create an employee, based on the form schema.
 ```ruby
 require 'kombo'
 
-Models = ::OpenApiSDK::Models
-s = ::OpenApiSDK::Kombo.new(
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
       security: Models::Shared::Security.new(
         api_key: '<YOUR_BEARER_TOKEN_HERE>',
@@ -310,8 +310,8 @@ Uploads an document file for the specified employee.
 ```ruby
 require 'kombo'
 
-Models = ::OpenApiSDK::Models
-s = ::OpenApiSDK::Kombo.new(
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
       security: Models::Shared::Security.new(
         api_key: '<YOUR_BEARER_TOKEN_HERE>',
@@ -364,8 +364,8 @@ Top level filters use AND, while individual filters use OR if they accept multip
 ```ruby
 require 'kombo'
 
-Models = ::OpenApiSDK::Models
-s = ::OpenApiSDK::Kombo.new(
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
       security: Models::Shared::Security.new(
         api_key: '<YOUR_BEARER_TOKEN_HERE>',
@@ -416,8 +416,8 @@ Top level filters use AND, while individual filters use OR if they accept multip
 ```ruby
 require 'kombo'
 
-Models = ::OpenApiSDK::Models
-s = ::OpenApiSDK::Kombo.new(
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
       security: Models::Shared::Security.new(
         api_key: '<YOUR_BEARER_TOKEN_HERE>',
@@ -470,8 +470,8 @@ Top level filters use AND, while individual filters use OR if they accept multip
 ```ruby
 require 'kombo'
 
-Models = ::OpenApiSDK::Models
-s = ::OpenApiSDK::Kombo.new(
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
       security: Models::Shared::Security.new(
         api_key: '<YOUR_BEARER_TOKEN_HERE>',
@@ -522,8 +522,8 @@ Top level filters use AND, while individual filters use OR if they accept multip
 ```ruby
 require 'kombo'
 
-Models = ::OpenApiSDK::Models
-s = ::OpenApiSDK::Kombo.new(
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
       security: Models::Shared::Security.new(
         api_key: '<YOUR_BEARER_TOKEN_HERE>',
@@ -575,8 +575,8 @@ Top level filters use AND, while individual filters use OR if they accept multip
 ```ruby
 require 'kombo'
 
-Models = ::OpenApiSDK::Models
-s = ::OpenApiSDK::Kombo.new(
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
       security: Models::Shared::Security.new(
         api_key: '<YOUR_BEARER_TOKEN_HERE>',
@@ -627,8 +627,8 @@ Top level filters use AND, while individual filters use OR if they accept multip
 ```ruby
 require 'kombo'
 
-Models = ::OpenApiSDK::Models
-s = ::OpenApiSDK::Kombo.new(
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
       security: Models::Shared::Security.new(
         api_key: '<YOUR_BEARER_TOKEN_HERE>',
@@ -680,8 +680,8 @@ Top level filters use AND, while individual filters use OR if they accept multip
 ```ruby
 require 'kombo'
 
-Models = ::OpenApiSDK::Models
-s = ::OpenApiSDK::Kombo.new(
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
       security: Models::Shared::Security.new(
         api_key: '<YOUR_BEARER_TOKEN_HERE>',
@@ -756,8 +756,8 @@ Check [this page](/hris/features/creating-absences) for a detailed guide.
 ```ruby
 require 'kombo'
 
-Models = ::OpenApiSDK::Models
-s = ::OpenApiSDK::Kombo.new(
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
       security: Models::Shared::Security.new(
         api_key: '<YOUR_BEARER_TOKEN_HERE>',
@@ -820,8 +820,8 @@ Delete this absence.
 ```ruby
 require 'kombo'
 
-Models = ::OpenApiSDK::Models
-s = ::OpenApiSDK::Kombo.new(
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
       security: Models::Shared::Security.new(
         api_key: '<YOUR_BEARER_TOKEN_HERE>',
@@ -867,8 +867,8 @@ Top level filters use AND, while individual filters use OR if they accept multip
 ```ruby
 require 'kombo'
 
-Models = ::OpenApiSDK::Models
-s = ::OpenApiSDK::Kombo.new(
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
       security: Models::Shared::Security.new(
         api_key: '<YOUR_BEARER_TOKEN_HERE>',
@@ -926,8 +926,8 @@ Top level filters use AND, while individual filters use OR if they accept multip
 ```ruby
 require 'kombo'
 
-Models = ::OpenApiSDK::Models
-s = ::OpenApiSDK::Kombo.new(
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
       security: Models::Shared::Security.new(
         api_key: '<YOUR_BEARER_TOKEN_HERE>',
@@ -989,8 +989,8 @@ Top level filters use AND, while individual filters use OR if they accept multip
 ```ruby
 require 'kombo'
 
-Models = ::OpenApiSDK::Models
-s = ::OpenApiSDK::Kombo.new(
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
       security: Models::Shared::Security.new(
         api_key: '<YOUR_BEARER_TOKEN_HERE>',
@@ -1047,8 +1047,8 @@ Top level filters use AND, while individual filters use OR if they accept multip
 ```ruby
 require 'kombo'
 
-Models = ::OpenApiSDK::Models
-s = ::OpenApiSDK::Kombo.new(
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
       security: Models::Shared::Security.new(
         api_key: '<YOUR_BEARER_TOKEN_HERE>',

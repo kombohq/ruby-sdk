@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::InlineAssessmentOrderReceivedWebhookPayloadData
+class Kombo::Models::Shared::InlineAssessmentOrderReceivedWebhookPayloadData
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::InlineAssessmentOrderReceivedWebhookPayloadData
+class Kombo::Models::Shared::InlineAssessmentOrderReceivedWebhookPayloadData
   def id(); end
   def id=(str_); end
   def package_id(); end

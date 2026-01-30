@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
       # Additional fields that we will pass through to specific ATS systems.
@@ -13,9 +13,9 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # Fields specific to Greenhouse.
-        field :greenhouse, Crystalline::Nilable.new(Models::Shared::DeleteAtsCandidatesCandidateIdTagsRequestBodyGreenhouse), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('greenhouse') } }
+        field :greenhouse, Crystalline::Nilable.new(Models::Shared::DeleteAtsCandidatesCandidateIdTagsRequestBodyGreenhouse), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('greenhouse') } }
         # Workable specific remote fields for ATS actions.
-        field :workable, Crystalline::Nilable.new(Models::Shared::DeleteAtsCandidatesCandidateIdTagsRequestBodyWorkable), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('workable') } }
+        field :workable, Crystalline::Nilable.new(Models::Shared::DeleteAtsCandidatesCandidateIdTagsRequestBodyWorkable), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('workable') } }
 
         sig { params(greenhouse: T.nilable(Models::Shared::DeleteAtsCandidatesCandidateIdTagsRequestBodyGreenhouse), workable: T.nilable(Models::Shared::DeleteAtsCandidatesCandidateIdTagsRequestBodyWorkable)).void }
         def initialize(greenhouse: nil, workable: nil)

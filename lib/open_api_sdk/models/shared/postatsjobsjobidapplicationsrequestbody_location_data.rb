@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,15 +13,15 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
 
-        field :address_line_1, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('Address_Line_1') } }
+        field :address_line_1, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('Address_Line_1') } }
 
-        field :address_line_2, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('Address_Line_2') } }
+        field :address_line_2, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('Address_Line_2') } }
 
-        field :region_subdivision_1, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('Region_Subdivision_1') } }
+        field :region_subdivision_1, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('Region_Subdivision_1') } }
 
-        field :country_region_reference, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyCountryRegionReference), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('Country_Region_Reference') } }
+        field :country_region_reference, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyCountryRegionReference), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('Country_Region_Reference') } }
 
-        field :country_city_reference, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyCountryCityReference), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('Country_City_Reference') } }
+        field :country_city_reference, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyCountryCityReference), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('Country_City_Reference') } }
 
         sig { params(address_line_1: T.nilable(::String), address_line_2: T.nilable(::String), region_subdivision_1: T.nilable(::String), country_region_reference: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyCountryRegionReference), country_city_reference: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyCountryCityReference)).void }
         def initialize(address_line_1: nil, address_line_2: nil, region_subdivision_1: nil, country_region_reference: nil, country_city_reference: nil)

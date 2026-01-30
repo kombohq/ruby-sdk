@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
       # Additional details with attributes that will be added to the result. This can be percentages, scores, or any text.
@@ -15,9 +15,9 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # That will be added to the attribute labels if they are used for custom fields. If you specify `Acme:` as the prefix, the custom field will be named `Acme: Score`. Putting in the name of your company/product is a good idea.
-        field :custom_field_name_prefix, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('custom_field_name_prefix'), required: true } }
+        field :custom_field_name_prefix, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('custom_field_name_prefix'), required: true } }
 
-        field :attributes, Crystalline::Array.new(Models::Shared::PostAtsCandidatesCandidateIdResultLinksRequestBodyAttribute), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('attributes'), required: true } }
+        field :attributes, Crystalline::Array.new(Models::Shared::PostAtsCandidatesCandidateIdResultLinksRequestBodyAttribute), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('attributes'), required: true } }
 
         sig { params(custom_field_name_prefix: ::String, attributes: T::Array[Models::Shared::PostAtsCandidatesCandidateIdResultLinksRequestBodyAttribute]).void }
         def initialize(custom_field_name_prefix:, attributes:)

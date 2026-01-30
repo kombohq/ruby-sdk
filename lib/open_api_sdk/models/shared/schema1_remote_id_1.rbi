@@ -2,10 +2,10 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::Schema1RemoteId1
+class Kombo::Models::Shared::Schema1RemoteId1
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::Schema1RemoteId1
+class Kombo::Models::Shared::Schema1RemoteId1
 end

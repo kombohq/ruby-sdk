@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Operations::PostPassthroughToolApiRequest
+class Kombo::Models::Operations::PostPassthroughToolApiRequest
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Operations::PostPassthroughToolApiRequest
+class Kombo::Models::Operations::PostPassthroughToolApiRequest
   def tool(); end
   def tool=(str_); end
   def api(); end

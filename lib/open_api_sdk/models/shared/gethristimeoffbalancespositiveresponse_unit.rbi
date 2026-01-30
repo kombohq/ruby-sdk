@@ -2,10 +2,10 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::GetHrisTimeOffBalancesPositiveResponseUnit
+class Kombo::Models::Shared::GetHrisTimeOffBalancesPositiveResponseUnit
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::GetHrisTimeOffBalancesPositiveResponseUnit
+class Kombo::Models::Shared::GetHrisTimeOffBalancesPositiveResponseUnit
 end

@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,11 +13,11 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
 
-        field :type, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('type'), required: true } }
+        field :type, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('type'), required: true } }
         # The options of the summary rating. Ordered from bad to good.
-        field :ordered_options, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('ordered_options'), required: true } }
+        field :ordered_options, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('ordered_options'), required: true } }
         # The text value of the summary rating.
-        field :value, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('value'), required: true } }
+        field :value, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('value'), required: true } }
 
         sig { params(type: ::String, ordered_options: T.nilable(T::Array[::String]), value: T.nilable(::String)).void }
         def initialize(type:, ordered_options: nil, value: nil)

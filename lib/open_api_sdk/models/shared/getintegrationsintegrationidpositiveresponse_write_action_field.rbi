@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::GetIntegrationsIntegrationIdPositiveResponseWriteActionField
+class Kombo::Models::Shared::GetIntegrationsIntegrationIdPositiveResponseWriteActionField
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::GetIntegrationsIntegrationIdPositiveResponseWriteActionField
+class Kombo::Models::Shared::GetIntegrationsIntegrationIdPositiveResponseWriteActionField
   def id(); end
   def id=(str_); end
   def is_available(); end

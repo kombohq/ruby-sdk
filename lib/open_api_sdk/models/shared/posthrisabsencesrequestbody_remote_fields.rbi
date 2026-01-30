@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::PostHrisAbsencesRequestBodyRemoteFields
+class Kombo::Models::Shared::PostHrisAbsencesRequestBodyRemoteFields
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::PostHrisAbsencesRequestBodyRemoteFields
+class Kombo::Models::Shared::PostHrisAbsencesRequestBodyRemoteFields
   def adpworkforcenow(); end
   def adpworkforcenow=(str_); end
 end

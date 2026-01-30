@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::PostAtsCandidatesRequestBodyTalentsoft
+class Kombo::Models::Shared::PostAtsCandidatesRequestBodyTalentsoft
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::PostAtsCandidatesRequestBodyTalentsoft
+class Kombo::Models::Shared::PostAtsCandidatesRequestBodyTalentsoft
   def applicant(); end
   def applicant=(str_); end
   def application(); end

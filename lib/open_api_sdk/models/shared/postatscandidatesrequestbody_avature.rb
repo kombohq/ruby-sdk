@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
       # Fields specific to Avature.
@@ -13,7 +13,7 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
 
-        field :workflow, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyWorkflow), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('workflow') } }
+        field :workflow, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyWorkflow), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('workflow') } }
 
         sig { params(workflow: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyWorkflow)).void }
         def initialize(workflow: nil)

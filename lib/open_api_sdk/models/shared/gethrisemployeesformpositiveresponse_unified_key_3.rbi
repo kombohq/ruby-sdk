@@ -2,10 +2,10 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::GetHrisEmployeesFormPositiveResponseUnifiedKey3
+class Kombo::Models::Shared::GetHrisEmployeesFormPositiveResponseUnifiedKey3
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::GetHrisEmployeesFormPositiveResponseUnifiedKey3
+class Kombo::Models::Shared::GetHrisEmployeesFormPositiveResponseUnifiedKey3
 end

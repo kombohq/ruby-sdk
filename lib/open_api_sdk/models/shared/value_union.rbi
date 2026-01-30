@@ -2,10 +2,10 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::ValueUnion
+class Kombo::Models::Shared::ValueUnion
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::ValueUnion
+class Kombo::Models::Shared::ValueUnion
 end

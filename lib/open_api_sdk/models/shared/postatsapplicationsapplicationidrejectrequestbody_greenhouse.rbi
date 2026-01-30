@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::PostAtsApplicationsApplicationIdRejectRequestBodyGreenhouse
+class Kombo::Models::Shared::PostAtsApplicationsApplicationIdRejectRequestBodyGreenhouse
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::PostAtsApplicationsApplicationIdRejectRequestBodyGreenhouse
+class Kombo::Models::Shared::PostAtsApplicationsApplicationIdRejectRequestBodyGreenhouse
   def post_headers(); end
   def post_headers=(str_); end
 end

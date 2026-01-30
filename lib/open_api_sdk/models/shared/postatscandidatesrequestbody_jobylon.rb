@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
       # Fields specific to Jobylon.
@@ -13,7 +13,7 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # Fields that we will pass through to Jobylon's create application [endpoint](https://developer.jobylon.com/push-api-and-webhooks#-xL0v)'s request body.
-        field :application, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyJobylonApplication), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('application') } }
+        field :application, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyJobylonApplication), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('application') } }
 
         sig { params(application: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyJobylonApplication)).void }
         def initialize(application: nil)

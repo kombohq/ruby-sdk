@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
       # Fields specific to SAP SuccessFactors.
@@ -13,13 +13,13 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # Fields that we will pass through to SuccessFactor's `Candidate` object.
-        field :candidate, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('Candidate') } }
+        field :candidate, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('Candidate') } }
         # Fields that we will pass through to SuccessFactor's `JobApplication` object.
-        field :job_application, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('JobApplication') } }
+        field :job_application, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('JobApplication') } }
         # If set to true, we will copy custom attachments from the JobApplication to the Candidate.
-        field :copy_job_application_attachments, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('copyJobApplicationAttachments') } }
+        field :copy_job_application_attachments, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('copyJobApplicationAttachments') } }
         # When the candidate already exists, whether to update the Candidate with the remote fields found under the Candidate entity.
-        field :update_existing_candidate, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('update_existing_candidate') } }
+        field :update_existing_candidate, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('update_existing_candidate') } }
 
         sig { params(candidate: T.nilable(T::Hash[Symbol, ::Object]), job_application: T.nilable(T::Hash[Symbol, ::Object]), copy_job_application_attachments: T.nilable(T::Boolean), update_existing_candidate: T.nilable(T::Boolean)).void }
         def initialize(candidate: nil, job_application: nil, copy_job_application_attachments: nil, update_existing_candidate: nil)

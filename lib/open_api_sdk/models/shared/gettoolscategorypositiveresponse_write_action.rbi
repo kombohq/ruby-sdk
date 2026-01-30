@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::GetToolsCategoryPositiveResponseWriteAction
+class Kombo::Models::Shared::GetToolsCategoryPositiveResponseWriteAction
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::GetToolsCategoryPositiveResponseWriteAction
+class Kombo::Models::Shared::GetToolsCategoryPositiveResponseWriteAction
   def id(); end
   def id=(str_); end
   def label(); end

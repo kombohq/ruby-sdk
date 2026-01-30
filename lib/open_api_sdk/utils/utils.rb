@@ -9,7 +9,7 @@ require 'base64'
 require 'stringio'
 require 'sorbet-runtime'
 
-module OpenApiSDK
+module Kombo
   module Utils
     include Kernel
     extend T::Sig

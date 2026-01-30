@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,23 +13,23 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
 
-        field :id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id'), required: true } }
+        field :id, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('id'), required: true } }
 
-        field :label, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('label'), required: true } }
+        field :label, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('label'), required: true } }
 
-        field :assets, Models::Shared::Assets, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('assets'), required: true } }
+        field :assets, Models::Shared::Assets, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('assets'), required: true } }
         # This describes the supported models and actions of this tool.
-        field :coverage, Models::Shared::Coverage, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('coverage'), required: true } }
+        field :coverage, Models::Shared::Coverage, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('coverage'), required: true } }
         # Internal label that can help you debug specific variants of the integration. Only show the `label` to your users.
-        field :internal_label, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('internal_label'), required: true } }
+        field :internal_label, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('internal_label'), required: true } }
         # Markdown formatted text that describes details about the paid API. `null` if the tool is not paid.
-        field :paid_api_details_markdown, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('paid_api_details_markdown'), required: true } }
+        field :paid_api_details_markdown, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('paid_api_details_markdown'), required: true } }
         # Markdown formatted text that describes details about the fast track process. `null` if the fast track process is not available.
-        field :fast_track_details_markdown, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('fast_track_details_markdown'), required: true } }
+        field :fast_track_details_markdown, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('fast_track_details_markdown'), required: true } }
         # Markdown formatted text that describes partnership requirements. `null` if the tool does not require a partnership.
-        field :partner_only_details_markdown, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('partner_only_details_markdown'), required: true } }
+        field :partner_only_details_markdown, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('partner_only_details_markdown'), required: true } }
         # URL to the connection guide for this tool. `null` if no connection guide is available.
-        field :connection_guide_url, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('connection_guide_url'), required: true } }
+        field :connection_guide_url, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('connection_guide_url'), required: true } }
 
         sig { params(id: ::String, label: ::String, assets: Models::Shared::Assets, coverage: Models::Shared::Coverage, internal_label: T.nilable(::String), paid_api_details_markdown: T.nilable(::String), fast_track_details_markdown: T.nilable(::String), partner_only_details_markdown: T.nilable(::String), connection_guide_url: T.nilable(::String)).void }
         def initialize(id:, label:, assets:, coverage:, internal_label: nil, paid_api_details_markdown: nil, fast_track_details_markdown: nil, partner_only_details_markdown: nil, connection_guide_url: nil)

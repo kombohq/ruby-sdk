@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,15 +13,15 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # The unique identifier of the assessment order.
-        field :id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id'), required: true } }
+        field :id, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('id'), required: true } }
         # The identifier of the assessment package.
-        field :package_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('package_id'), required: true } }
+        field :package_id, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('package_id'), required: true } }
         # Information about the candidate taking the assessment.
-        field :candidate, Models::Shared::GetAssessmentOrdersOpenPositiveResponseCandidate, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('candidate'), required: true } }
+        field :candidate, Models::Shared::GetAssessmentOrdersOpenPositiveResponseCandidate, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('candidate'), required: true } }
         # Information about the job application.
-        field :application, Models::Shared::GetAssessmentOrdersOpenPositiveResponseApplication, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('application'), required: true } }
+        field :application, Models::Shared::GetAssessmentOrdersOpenPositiveResponseApplication, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('application'), required: true } }
         # Information about the job posting.
-        field :job, Models::Shared::GetAssessmentOrdersOpenPositiveResponseJob, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('job'), required: true } }
+        field :job, Models::Shared::GetAssessmentOrdersOpenPositiveResponseJob, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('job'), required: true } }
 
         sig { params(id: ::String, package_id: ::String, candidate: Models::Shared::GetAssessmentOrdersOpenPositiveResponseCandidate, application: Models::Shared::GetAssessmentOrdersOpenPositiveResponseApplication, job: Models::Shared::GetAssessmentOrdersOpenPositiveResponseJob).void }
         def initialize(id:, package_id:, candidate:, application:, job:)

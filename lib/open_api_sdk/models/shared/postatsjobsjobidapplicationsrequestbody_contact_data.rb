@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,7 +13,7 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
 
-        field :location_data, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyLocationData), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('Location_Data') } }
+        field :location_data, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyLocationData), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('Location_Data') } }
 
         sig { params(location_data: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyLocationData)).void }
         def initialize(location_data: nil)

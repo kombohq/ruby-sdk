@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,9 +13,9 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
 
-        field :tag, Models::Shared::DeleteAtsCandidatesCandidateIdTagsRequestBodyTag, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tag'), required: true } }
+        field :tag, Models::Shared::DeleteAtsCandidatesCandidateIdTagsRequestBodyTag, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('tag'), required: true } }
         # Additional fields that we will pass through to specific ATS systems.
-        field :remote_fields, Crystalline::Nilable.new(Models::Shared::DeleteAtsCandidatesCandidateIdTagsRequestBodyRemoteFields), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_fields') } }
+        field :remote_fields, Crystalline::Nilable.new(Models::Shared::DeleteAtsCandidatesCandidateIdTagsRequestBodyRemoteFields), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_fields') } }
 
         sig { params(tag: Models::Shared::DeleteAtsCandidatesCandidateIdTagsRequestBodyTag, remote_fields: T.nilable(Models::Shared::DeleteAtsCandidatesCandidateIdTagsRequestBodyRemoteFields)).void }
         def initialize(tag:, remote_fields: nil)

@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::SummaryRatingNumeric
+class Kombo::Models::Shared::SummaryRatingNumeric
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::SummaryRatingNumeric
+class Kombo::Models::Shared::SummaryRatingNumeric
   def type(); end
   def type=(str_); end
   def min(); end

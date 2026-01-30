@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
       # The salary expectations of the applicant. We will automatically convert the amount to a format that is suitable for the ATS you are using. For example, if you are using monthly salary expectations, we will convert the amount to a yearly salary if the ATS expects yearly salary expectations.
@@ -13,9 +13,9 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # The period of the salary expectations. Must be one of `MONTH` or `YEAR`.
-        field :period, Models::Shared::PostAtsCandidatesRequestBodyPeriod, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('period'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::PostAtsCandidatesRequestBodyPeriod, false) } }
+        field :period, Models::Shared::PostAtsCandidatesRequestBodyPeriod, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('period'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::PostAtsCandidatesRequestBodyPeriod, false) } }
         # The amount of the salary expectations.
-        field :amount, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('amount'), required: true } }
+        field :amount, ::Float, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('amount'), required: true } }
 
         sig { params(period: Models::Shared::PostAtsCandidatesRequestBodyPeriod, amount: ::Float).void }
         def initialize(period:, amount:)

@@ -10,7 +10,7 @@ require 'sorbet-runtime'
 require_relative 'sdk_hooks/hooks'
 require_relative 'utils/retries'
 
-module OpenApiSDK
+module Kombo
   extend T::Sig
 
   SERVER_EU = :eu # Kombo EU Region
@@ -28,10 +28,10 @@ module OpenApiSDK
     sig { returns(T.nilable(Faraday::Connection)) }
     attr_accessor :client
 
-    sig { returns(::OpenApiSDK::SDKHooks::Hooks) }
+    sig { returns(::Kombo::SDKHooks::Hooks) }
     attr_accessor :hooks
 
-    sig { returns(T.nilable(::OpenApiSDK::Utils::RetryConfig)) }
+    sig { returns(T.nilable(::Kombo::Utils::RetryConfig)) }
     attr_accessor :retry_config
 
     sig { returns(T.nilable(Float)) }
@@ -72,8 +72,8 @@ module OpenApiSDK
     sig do
       params(
         client: T.nilable(Faraday::Connection),
-        hooks: ::OpenApiSDK::SDKHooks::Hooks,
-        retry_config: T.nilable(::OpenApiSDK::Utils::RetryConfig),
+        hooks: ::Kombo::SDKHooks::Hooks,
+        retry_config: T.nilable(::Kombo::Utils::RetryConfig),
         timeout_ms: T.nilable(Integer),
         security: T.nilable(Models::Shared::Security),
         security_source: T.nilable(T.proc.returns(Models::Shared::Security)),

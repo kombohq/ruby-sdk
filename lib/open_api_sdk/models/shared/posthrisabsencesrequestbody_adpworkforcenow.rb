@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
       # Fields specific to ADP Workforce Now.
@@ -13,9 +13,9 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # [Required] The employment ID of the employee that the absence will be added to.
-        field :employment_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('employment_id') } }
+        field :employment_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('employment_id') } }
         # Whether the absence is paid or not.
-        field :paid_leave, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('paid_leave') } }
+        field :paid_leave, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('paid_leave') } }
 
         sig { params(employment_id: T.nilable(::String), paid_leave: T.nilable(T::Boolean)).void }
         def initialize(employment_id: nil, paid_leave: nil)

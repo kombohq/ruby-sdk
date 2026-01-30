@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
       # Additional fields that we will pass through to specific ATS systems.
@@ -13,11 +13,11 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # Oracle specific remote fields for the attachment.
-        field :oracle, Crystalline::Nilable.new(Models::Shared::PostAtsApplicationsApplicationIdAttachmentsRequestBodyOracle), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('oracle') } }
+        field :oracle, Crystalline::Nilable.new(Models::Shared::PostAtsApplicationsApplicationIdAttachmentsRequestBodyOracle), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('oracle') } }
         # Fields specific to Greenhouse.
-        field :greenhouse, Crystalline::Nilable.new(Models::Shared::PostAtsApplicationsApplicationIdAttachmentsRequestBodyGreenhouse), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('greenhouse') } }
+        field :greenhouse, Crystalline::Nilable.new(Models::Shared::PostAtsApplicationsApplicationIdAttachmentsRequestBodyGreenhouse), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('greenhouse') } }
         # Workable specific remote fields for ATS actions.
-        field :workable, Crystalline::Nilable.new(Models::Shared::PostAtsApplicationsApplicationIdAttachmentsRequestBodyWorkable), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('workable') } }
+        field :workable, Crystalline::Nilable.new(Models::Shared::PostAtsApplicationsApplicationIdAttachmentsRequestBodyWorkable), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('workable') } }
 
         sig { params(oracle: T.nilable(Models::Shared::PostAtsApplicationsApplicationIdAttachmentsRequestBodyOracle), greenhouse: T.nilable(Models::Shared::PostAtsApplicationsApplicationIdAttachmentsRequestBodyGreenhouse), workable: T.nilable(Models::Shared::PostAtsApplicationsApplicationIdAttachmentsRequestBodyWorkable)).void }
         def initialize(oracle: nil, greenhouse: nil, workable: nil)

@@ -2,10 +2,10 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::GetIntegrationsIntegrationIdCustomFieldsPositiveResponseType
+class Kombo::Models::Shared::GetIntegrationsIntegrationIdCustomFieldsPositiveResponseType
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::GetIntegrationsIntegrationIdCustomFieldsPositiveResponseType
+class Kombo::Models::Shared::GetIntegrationsIntegrationIdCustomFieldsPositiveResponseType
 end

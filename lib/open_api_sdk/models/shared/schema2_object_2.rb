@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,17 +13,17 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
 
-        field :label, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('label'), required: true } }
+        field :label, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('label'), required: true } }
 
-        field :required, Crystalline::Boolean.new, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('required'), required: true } }
+        field :required, Crystalline::Boolean.new, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('required'), required: true } }
 
-        field :type, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('type'), required: true } }
+        field :type, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('type'), required: true } }
 
-        field :properties, Crystalline::Hash.new(Symbol, Crystalline::Union.new(Models::Shared::Schema1Text, Models::Shared::Schema1Number, Models::Shared::Schema1Date, Models::Shared::Schema1SingleSelect, Models::Shared::Schema1MultiSelect, Models::Shared::Schema1Checkbox, Models::Shared::Schema1Object, Models::Shared::Schema1Array2, Models::Shared::Schema1File)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('properties'), required: true } }
+        field :properties, Crystalline::Hash.new(Symbol, Crystalline::Union.new(Models::Shared::Schema1Text, Models::Shared::Schema1Number, Models::Shared::Schema1Date, Models::Shared::Schema1SingleSelect, Models::Shared::Schema1MultiSelect, Models::Shared::Schema1Checkbox, Models::Shared::Schema1Object, Models::Shared::Schema1Array2, Models::Shared::Schema1File)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('properties'), required: true } }
 
-        field :description, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('description') } }
+        field :description, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('description') } }
 
-        field :unified_key, Crystalline::Nilable.new(Models::Shared::Schema2UnifiedKey6), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('unified_key'), 'decoder': Utils.enum_from_string(Models::Shared::Schema2UnifiedKey6, true) } }
+        field :unified_key, Crystalline::Nilable.new(Models::Shared::Schema2UnifiedKey6), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('unified_key'), 'decoder': Utils.enum_from_string(Models::Shared::Schema2UnifiedKey6, true) } }
 
         sig { params(label: ::String, required: T::Boolean, type: ::String, properties: T::Hash[Symbol, T.any(Models::Shared::Schema1Text, Models::Shared::Schema1Number, Models::Shared::Schema1Date, Models::Shared::Schema1SingleSelect, Models::Shared::Schema1MultiSelect, Models::Shared::Schema1Checkbox, Models::Shared::Schema1Object, Models::Shared::Schema1Array2, Models::Shared::Schema1File)], description: T.nilable(::String), unified_key: T.nilable(Models::Shared::Schema2UnifiedKey6)).void }
         def initialize(label:, required:, type:, properties:, description: nil, unified_key: nil)

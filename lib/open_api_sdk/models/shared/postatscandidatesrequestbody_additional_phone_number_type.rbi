@@ -2,10 +2,10 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::PostAtsCandidatesRequestBodyAdditionalPhoneNumberType
+class Kombo::Models::Shared::PostAtsCandidatesRequestBodyAdditionalPhoneNumberType
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::PostAtsCandidatesRequestBodyAdditionalPhoneNumberType
+class Kombo::Models::Shared::PostAtsCandidatesRequestBodyAdditionalPhoneNumberType
 end

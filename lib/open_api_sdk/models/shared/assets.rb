@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,11 +13,11 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
 
-        field :logo_url, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('logo_url'), required: true } }
+        field :logo_url, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('logo_url'), required: true } }
 
-        field :icon_url, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('icon_url'), required: true } }
+        field :icon_url, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('icon_url'), required: true } }
 
-        field :icon_black_url, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('icon_black_url'), required: true } }
+        field :icon_black_url, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('icon_black_url'), required: true } }
 
         sig { params(logo_url: ::String, icon_url: ::String, icon_black_url: ::String).void }
         def initialize(logo_url:, icon_url:, icon_black_url:)

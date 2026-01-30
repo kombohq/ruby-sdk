@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::BankAccount
+class Kombo::Models::Shared::BankAccount
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::BankAccount
+class Kombo::Models::Shared::BankAccount
   def iban(); end
   def iban=(str_); end
   def bic(); end

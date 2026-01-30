@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
       # GetHrisTimeOffBalancesPositiveResponseBalanceUnit - The time-unit of the balance.

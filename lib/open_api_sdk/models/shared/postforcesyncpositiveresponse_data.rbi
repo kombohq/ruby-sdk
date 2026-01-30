@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::PostForceSyncPositiveResponseData
+class Kombo::Models::Shared::PostForceSyncPositiveResponseData
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::PostForceSyncPositiveResponseData
+class Kombo::Models::Shared::PostForceSyncPositiveResponseData
   def already_queued(); end
   def already_queued=(str_); end
   def sync_id(); end

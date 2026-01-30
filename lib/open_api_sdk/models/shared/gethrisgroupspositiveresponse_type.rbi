@@ -2,10 +2,10 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::GetHrisGroupsPositiveResponseType
+class Kombo::Models::Shared::GetHrisGroupsPositiveResponseType
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::GetHrisGroupsPositiveResponseType
+class Kombo::Models::Shared::GetHrisGroupsPositiveResponseType
 end

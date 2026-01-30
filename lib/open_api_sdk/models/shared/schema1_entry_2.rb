@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,13 +13,13 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
 
-        field :id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id'), required: true } }
+        field :id, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('id'), required: true } }
 
-        field :label, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('label'), required: true } }
+        field :label, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('label'), required: true } }
 
-        field :remote_id, Crystalline::Union.new(::String, ::Float), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_id'), required: true } }
+        field :remote_id, Crystalline::Union.new(::String, ::Float), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_id'), required: true } }
 
-        field :unified_value, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('unified_value') } }
+        field :unified_value, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('unified_value') } }
 
         sig { params(id: ::String, label: ::String, remote_id: T.any(::String, ::Float), unified_value: T.nilable(::String)).void }
         def initialize(id:, label:, remote_id:, unified_value: nil)

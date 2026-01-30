@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::PostAtsCandidatesRequestBodyLocationData
+class Kombo::Models::Shared::PostAtsCandidatesRequestBodyLocationData
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::PostAtsCandidatesRequestBodyLocationData
+class Kombo::Models::Shared::PostAtsCandidatesRequestBodyLocationData
   def address_line_1(); end
   def address_line_1=(str_); end
   def address_line_2(); end

@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::PostAtsApplicationsApplicationIdResultLinksRequestBodyDetails
+class Kombo::Models::Shared::PostAtsApplicationsApplicationIdResultLinksRequestBodyDetails
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::PostAtsApplicationsApplicationIdResultLinksRequestBodyDetails
+class Kombo::Models::Shared::PostAtsApplicationsApplicationIdResultLinksRequestBodyDetails
   def custom_field_name_prefix(); end
   def custom_field_name_prefix=(str_); end
   def attributes(); end

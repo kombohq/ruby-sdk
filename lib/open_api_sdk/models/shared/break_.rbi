@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::Break
+class Kombo::Models::Shared::Break
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::Break
+class Kombo::Models::Shared::Break
   def ended_at(); end
   def ended_at=(str_); end
   def paid(); end

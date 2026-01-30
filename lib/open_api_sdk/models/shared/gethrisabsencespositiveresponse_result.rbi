@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::GetHrisAbsencesPositiveResponseResult
+class Kombo::Models::Shared::GetHrisAbsencesPositiveResponseResult
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::GetHrisAbsencesPositiveResponseResult
+class Kombo::Models::Shared::GetHrisAbsencesPositiveResponseResult
   def id(); end
   def id=(str_); end
   def employee_id(); end

@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,7 +13,7 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # The integration field's unique ID which the custom field should be mapped to. Null to remove a mapping.
-        field :integration_field_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('integration_field_id'), required: true } }
+        field :integration_field_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('integration_field_id'), required: true } }
 
         sig { params(integration_field_id: T.nilable(::String)).void }
         def initialize(integration_field_id: nil)

@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::PostAtsCandidatesCandidateIdResultLinksRequestBody
+class Kombo::Models::Shared::PostAtsCandidatesCandidateIdResultLinksRequestBody
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::PostAtsCandidatesCandidateIdResultLinksRequestBody
+class Kombo::Models::Shared::PostAtsCandidatesCandidateIdResultLinksRequestBody
   def label(); end
   def label=(str_); end
   def url(); end

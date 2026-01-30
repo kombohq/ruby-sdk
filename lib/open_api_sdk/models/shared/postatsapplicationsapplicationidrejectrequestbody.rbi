@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::PostAtsApplicationsApplicationIdRejectRequestBody
+class Kombo::Models::Shared::PostAtsApplicationsApplicationIdRejectRequestBody
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::PostAtsApplicationsApplicationIdRejectRequestBody
+class Kombo::Models::Shared::PostAtsApplicationsApplicationIdRejectRequestBody
   def rejection_reason_id(); end
   def rejection_reason_id=(str_); end
   def note(); end

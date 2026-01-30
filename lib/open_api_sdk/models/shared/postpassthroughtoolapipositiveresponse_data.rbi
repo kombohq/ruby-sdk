@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::PostPassthroughToolApiPositiveResponseData
+class Kombo::Models::Shared::PostPassthroughToolApiPositiveResponseData
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::PostPassthroughToolApiPositiveResponseData
+class Kombo::Models::Shared::PostPassthroughToolApiPositiveResponseData
   def url(); end
   def url=(str_); end
   def status(); end

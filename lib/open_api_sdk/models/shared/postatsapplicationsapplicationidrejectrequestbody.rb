@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,11 +13,11 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # The Kombo ID of the rejection reason.
-        field :rejection_reason_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('rejection_reason_id'), required: true } }
+        field :rejection_reason_id, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('rejection_reason_id'), required: true } }
         # A optional free text rejection note. Passed through if possible.
-        field :note, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('note') } }
+        field :note, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('note') } }
         # Additional fields that we will pass through to specific ATS systems.
-        field :remote_fields, Crystalline::Nilable.new(Models::Shared::PostAtsApplicationsApplicationIdRejectRequestBodyRemoteFields), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_fields') } }
+        field :remote_fields, Crystalline::Nilable.new(Models::Shared::PostAtsApplicationsApplicationIdRejectRequestBodyRemoteFields), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_fields') } }
 
         sig { params(rejection_reason_id: ::String, note: T.nilable(::String), remote_fields: T.nilable(Models::Shared::PostAtsApplicationsApplicationIdRejectRequestBodyRemoteFields)).void }
         def initialize(rejection_reason_id:, note: nil, remote_fields: nil)

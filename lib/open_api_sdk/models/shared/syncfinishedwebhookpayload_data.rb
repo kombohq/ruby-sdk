@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,25 +13,25 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # The unique identifier of the sync operation.
-        field :sync_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('sync_id'), required: true } }
+        field :sync_id, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('sync_id'), required: true } }
         # The final state of the sync operation (e.g., `SUCCEEDED`, `FAILED`).
-        field :sync_state, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('sync_state'), required: true } }
+        field :sync_state, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('sync_state'), required: true } }
         # ISO 8601 timestamp when the sync operation started.
-        field :sync_started_at, ::DateTime, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('sync_started_at'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
+        field :sync_started_at, ::DateTime, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('sync_started_at'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
         # ISO 8601 timestamp when the sync operation completed.
-        field :sync_ended_at, ::DateTime, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('sync_ended_at'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
+        field :sync_ended_at, ::DateTime, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('sync_ended_at'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
         # Duration of the sync operation in seconds.
-        field :sync_duration_seconds, ::Integer, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('sync_duration_seconds'), required: true } }
+        field :sync_duration_seconds, ::Integer, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('sync_duration_seconds'), required: true } }
         # The unique identifier of the integration.
-        field :integration_id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('integration_id'), required: true } }
+        field :integration_id, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('integration_id'), required: true } }
         # The name of the integrated tool (e.g., "personio", "greenhouse").
-        field :integration_tool, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('integration_tool'), required: true } }
+        field :integration_tool, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('integration_tool'), required: true } }
         # The category of the integration (HRIS, ATS, ASSESSMENT, or LMS).
-        field :integration_category, Models::Shared::SyncFinishedWebhookPayloadIntegrationCategory, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('integration_category'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::SyncFinishedWebhookPayloadIntegrationCategory, false) } }
+        field :integration_category, Models::Shared::SyncFinishedWebhookPayloadIntegrationCategory, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('integration_category'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::SyncFinishedWebhookPayloadIntegrationCategory, false) } }
         # Information about the end user who created the integration.
-        field :end_user, Models::Shared::SyncFinishedWebhookPayloadEndUser, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('end_user'), required: true } }
+        field :end_user, Models::Shared::SyncFinishedWebhookPayloadEndUser, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('end_user'), required: true } }
         # URL to view detailed logs for the operation.
-        field :log_url, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('log_url'), required: true } }
+        field :log_url, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('log_url'), required: true } }
 
         sig { params(sync_id: ::String, sync_state: ::String, sync_started_at: ::DateTime, sync_ended_at: ::DateTime, sync_duration_seconds: ::Integer, integration_id: ::String, integration_tool: ::String, integration_category: Models::Shared::SyncFinishedWebhookPayloadIntegrationCategory, end_user: Models::Shared::SyncFinishedWebhookPayloadEndUser, log_url: ::String).void }
         def initialize(sync_id:, sync_state:, sync_started_at:, sync_ended_at:, sync_duration_seconds:, integration_id:, integration_tool:, integration_category:, end_user:, log_url:)

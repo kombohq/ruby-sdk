@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,9 +13,9 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
 
-        field :results, Crystalline::Array.new(Models::Shared::GetHrisAbsenceTypesPositiveResponseResult), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('results'), required: true } }
+        field :results, Crystalline::Array.new(Models::Shared::GetHrisAbsenceTypesPositiveResponseResult), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('results'), required: true } }
         # Cursor string that can be passed to the `cursor` query parameter to get the next page. If this is `null`, then there are no more pages.
-        field :next_, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('next'), required: true } }
+        field :next_, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('next'), required: true } }
 
         sig { params(results: T::Array[Models::Shared::GetHrisAbsenceTypesPositiveResponseResult], next_: T.nilable(::String)).void }
         def initialize(results:, next_: nil)

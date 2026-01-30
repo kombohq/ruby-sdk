@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Operations::PostAtsApplicationsApplicationIdRejectRequest
+class Kombo::Models::Operations::PostAtsApplicationsApplicationIdRejectRequest
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Operations::PostAtsApplicationsApplicationIdRejectRequest
+class Kombo::Models::Operations::PostAtsApplicationsApplicationIdRejectRequest
   def application_id(); end
   def application_id=(str_); end
   def body(); end

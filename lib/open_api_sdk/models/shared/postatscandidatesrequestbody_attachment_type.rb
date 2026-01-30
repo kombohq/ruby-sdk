@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
       # PostAtsCandidatesRequestBodyAttachmentType - Type of the attachment in the ATS. This may affect where the uploaded file will be shown in your customer's system.

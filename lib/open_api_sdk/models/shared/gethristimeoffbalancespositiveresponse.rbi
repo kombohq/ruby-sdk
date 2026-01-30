@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::GetHrisTimeOffBalancesPositiveResponse
+class Kombo::Models::Shared::GetHrisTimeOffBalancesPositiveResponse
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::GetHrisTimeOffBalancesPositiveResponse
+class Kombo::Models::Shared::GetHrisTimeOffBalancesPositiveResponse
   def status(); end
   def status=(str_); end
   def data(); end

@@ -2,10 +2,10 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::Ethnicity
+class Kombo::Models::Shared::Ethnicity
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::Ethnicity
+class Kombo::Models::Shared::Ethnicity
 end

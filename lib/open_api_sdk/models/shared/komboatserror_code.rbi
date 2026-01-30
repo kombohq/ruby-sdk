@@ -2,10 +2,10 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::KomboAtsErrorCode
+class Kombo::Models::Shared::KomboAtsErrorCode
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::KomboAtsErrorCode
+class Kombo::Models::Shared::KomboAtsErrorCode
 end

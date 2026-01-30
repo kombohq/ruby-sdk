@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,20 +13,20 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # Key of the field in the API (e.g. first_name).
-        field :id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id'), required: true } }
+        field :id, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('id'), required: true } }
         # Whether the datapoint is available and enabled and not opted out of.
-        field :is_available, Crystalline::Boolean.new, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('is_available'), required: true } }
+        field :is_available, Crystalline::Boolean.new, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('is_available'), required: true } }
         # The status of a datapoint of an integrated tool:
         # 
         # - `SUPPORTED`: the tool supports the datapoint and it can be used through Kombo.
         # - `UNSUPPORTED`: the tool does not support the datapoint.
         # - `NOT_IMPLEMENTED`: tool supports the datapoint but it was not integrated by Kombo for a given reason (see coverage grid).
         # - `UNKNOWN`: the datapoint is not integrated yet and Kombo has no information about it's availability in the tool.
-        field :coverage_status, Models::Shared::GetIntegrationsIntegrationIdPositiveResponseReadModelFieldCoverageStatus, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('coverage_status'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::GetIntegrationsIntegrationIdPositiveResponseReadModelFieldCoverageStatus, false) } }
+        field :coverage_status, Models::Shared::GetIntegrationsIntegrationIdPositiveResponseReadModelFieldCoverageStatus, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('coverage_status'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::GetIntegrationsIntegrationIdPositiveResponseReadModelFieldCoverageStatus, false) } }
         # The setting of the datapoint in the scope config that you configured in the Kombo dashboard.
-        field :scope_config_setting, Models::Shared::FieldScopeConfigSetting, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('scope_config_setting'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::FieldScopeConfigSetting, false) } }
+        field :scope_config_setting, Models::Shared::FieldScopeConfigSetting, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('scope_config_setting'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::FieldScopeConfigSetting, false) } }
         # Whether the datapoint is opted out by your customer in the connection flow.
-        field :opted_out_by_customer, Crystalline::Boolean.new, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('opted_out_by_customer'), required: true } }
+        field :opted_out_by_customer, Crystalline::Boolean.new, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('opted_out_by_customer'), required: true } }
 
         sig { params(id: ::String, is_available: T::Boolean, coverage_status: Models::Shared::GetIntegrationsIntegrationIdPositiveResponseReadModelFieldCoverageStatus, scope_config_setting: Models::Shared::FieldScopeConfigSetting, opted_out_by_customer: T::Boolean).void }
         def initialize(id:, is_available:, coverage_status:, scope_config_setting:, opted_out_by_customer:)

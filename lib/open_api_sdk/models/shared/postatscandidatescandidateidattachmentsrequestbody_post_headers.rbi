@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::PostAtsCandidatesCandidateIdAttachmentsRequestBodyPostHeaders
+class Kombo::Models::Shared::PostAtsCandidatesCandidateIdAttachmentsRequestBodyPostHeaders
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::PostAtsCandidatesCandidateIdAttachmentsRequestBodyPostHeaders
+class Kombo::Models::Shared::PostAtsCandidatesCandidateIdAttachmentsRequestBodyPostHeaders
   def on_behalf_of(); end
   def on_behalf_of=(str_); end
 end

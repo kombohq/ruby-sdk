@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,11 +13,11 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
 
-        field :status, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('status'), required: true } }
+        field :status, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('status'), required: true } }
 
-        field :data, Models::Shared::PostAtsApplicationsApplicationIdNotesPositiveResponseData, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('data'), required: true } }
+        field :data, Models::Shared::PostAtsApplicationsApplicationIdNotesPositiveResponseData, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('data'), required: true } }
         # These are the interaction warnings that are shown in the dashboard. They are meant to provide debug information to you. We recommend logging them to the console.
-        field :warnings, Crystalline::Array.new(Models::Shared::PostAtsApplicationsApplicationIdNotesPositiveResponseWarning), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('warnings'), required: true } }
+        field :warnings, Crystalline::Array.new(Models::Shared::PostAtsApplicationsApplicationIdNotesPositiveResponseWarning), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('warnings'), required: true } }
 
         sig { params(status: ::String, data: Models::Shared::PostAtsApplicationsApplicationIdNotesPositiveResponseData, warnings: T::Array[Models::Shared::PostAtsApplicationsApplicationIdNotesPositiveResponseWarning]).void }
         def initialize(status:, data:, warnings:)

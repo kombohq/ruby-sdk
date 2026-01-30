@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
       # Additional fields that we will pass through to specific HRIS systems.
@@ -13,7 +13,7 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # Fields specific to ADP Workforce Now.
-        field :adpworkforcenow, Crystalline::Nilable.new(Models::Shared::DeleteHrisAbsencesAbsenceIdRequestBodyAdpworkforcenow), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('adpworkforcenow') } }
+        field :adpworkforcenow, Crystalline::Nilable.new(Models::Shared::DeleteHrisAbsencesAbsenceIdRequestBodyAdpworkforcenow), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('adpworkforcenow') } }
 
         sig { params(adpworkforcenow: T.nilable(Models::Shared::DeleteHrisAbsencesAbsenceIdRequestBodyAdpworkforcenow)).void }
         def initialize(adpworkforcenow: nil)

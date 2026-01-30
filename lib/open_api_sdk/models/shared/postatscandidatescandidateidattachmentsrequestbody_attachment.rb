@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,25 +13,25 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # File name of the file you want to upload. We recommend providing something human-readable with a valid file extension (like `Resume.pdf`), as this might be shown in your customer's system.
-        field :name, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name'), required: true } }
+        field :name, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('name'), required: true } }
         # Type of the attachment in the ATS. This may affect where the uploaded file will be shown in your customer's system.
-        field :type, Models::Shared::PostAtsCandidatesCandidateIdAttachmentsRequestBodyType, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('type'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::PostAtsCandidatesCandidateIdAttachmentsRequestBodyType, false) } }
+        field :type, Models::Shared::PostAtsCandidatesCandidateIdAttachmentsRequestBodyType, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('type'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::PostAtsCandidatesCandidateIdAttachmentsRequestBodyType, false) } }
         # Content/MIME type of the file (e.g., `application/pdf`).
         # 
         # If you provide `data`, this is required. If you provide `data_url`, this is optional and we'll attempt to use the `Content-Type` header of the response.
         # 
         # **Note:** Please validate that the content type you provide is actually meaningful (and not something generic like [`application/octet-stream`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/MIME_types#applicationoctet-stream)). Especially when using object storage (like AWS S3), it's easy to accidentally discard the content types of user-provided files, so make sure to explicitly persist them when processing uploads from your users (see guides for [AWS](https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingMetadata.html#SysMetadata), [Google Cloud](https://cloud.google.com/storage/docs/metadata#content-type), and [Azure](https://learn.microsoft.com/en-us/rest/api/storageservices/put-blob#request-headers-all-blob-types)).
-        field :content_type, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('content_type') } }
+        field :content_type, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('content_type') } }
         # URL to the file you want to upload that can be accessed without authentication headers. We will download the content immediately when receiving the request, so the URL can be short-lived.
         # 
         # If you're using an object storage provider (like AWS S3), we strongly recommend providing a signed URL for secure access (see guides for [AWS](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ShareObjectPreSignedURL.html), [Google Cloud](https://cloud.google.com/storage/docs/access-control/signed-urls), and [Azure](https://learn.microsoft.com/en-us/azure/storage/common/storage-sas-overview)).
         # 
         # **Note:** You must provide either this or `data_url`. We recommend `data_url` over `data` for most cases.
-        field :data_url, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('data_url') } }
+        field :data_url, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('data_url') } }
         # Base64-encoded contents of the file you want to upload.
         # 
         # **Note:** You must provide either this or `data_url`. We recommend `data_url` over `data` for most cases.
-        field :data, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('data') } }
+        field :data, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('data') } }
 
         sig { params(name: ::String, type: Models::Shared::PostAtsCandidatesCandidateIdAttachmentsRequestBodyType, content_type: T.nilable(::String), data_url: T.nilable(::String), data: T.nilable(::String)).void }
         def initialize(name:, type:, content_type: nil, data_url: nil, data: nil)

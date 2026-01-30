@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,7 +13,7 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
 
-        field :properties, Crystalline::Hash.new(Symbol, Crystalline::Union.new(Models::Shared::PropertiesText, Models::Shared::PropertiesNumber, Models::Shared::PropertiesDate, Models::Shared::PropertiesSingleSelect, Models::Shared::PropertiesMultiSelect, Models::Shared::PropertiesCheckbox, Models::Shared::PropertiesObject, Models::Shared::PropertiesArray, Models::Shared::PropertiesFile)), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('properties'), required: true } }
+        field :properties, Crystalline::Hash.new(Symbol, Crystalline::Union.new(Models::Shared::PropertiesText, Models::Shared::PropertiesNumber, Models::Shared::PropertiesDate, Models::Shared::PropertiesSingleSelect, Models::Shared::PropertiesMultiSelect, Models::Shared::PropertiesCheckbox, Models::Shared::PropertiesObject, Models::Shared::PropertiesArray, Models::Shared::PropertiesFile)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('properties'), required: true } }
 
         sig { params(properties: T::Hash[Symbol, T.any(Models::Shared::PropertiesText, Models::Shared::PropertiesNumber, Models::Shared::PropertiesDate, Models::Shared::PropertiesSingleSelect, Models::Shared::PropertiesMultiSelect, Models::Shared::PropertiesCheckbox, Models::Shared::PropertiesObject, Models::Shared::PropertiesArray, Models::Shared::PropertiesFile)]).void }
         def initialize(properties:)

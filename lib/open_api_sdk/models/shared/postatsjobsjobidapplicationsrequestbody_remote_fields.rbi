@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyRemoteFields
+class Kombo::Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyRemoteFields
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyRemoteFields
+class Kombo::Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyRemoteFields
   def successfactors(); end
   def successfactors=(str_); end
   def personio(); end

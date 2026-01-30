@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::PostAtsCandidatesCandidateIdAttachmentsRequestBodyRemoteFields
+class Kombo::Models::Shared::PostAtsCandidatesCandidateIdAttachmentsRequestBodyRemoteFields
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::PostAtsCandidatesCandidateIdAttachmentsRequestBodyRemoteFields
+class Kombo::Models::Shared::PostAtsCandidatesCandidateIdAttachmentsRequestBodyRemoteFields
   def greenhouse(); end
   def greenhouse=(str_); end
   def workable(); end

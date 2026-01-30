@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,7 +13,7 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
 
-        field :properties, Crystalline::Hash.new(Symbol, Crystalline::Union.new(::String, ::Float, Crystalline::Boolean.new, Crystalline::Hash.new(Symbol, Crystalline::Hash.new(Symbol, Object)), Crystalline::Array.new(Crystalline::Hash.new(Symbol, Object)))), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('properties'), required: true } }
+        field :properties, Crystalline::Hash.new(Symbol, Crystalline::Union.new(::String, ::Float, Crystalline::Boolean.new, Crystalline::Hash.new(Symbol, Crystalline::Hash.new(Symbol, Object)), Crystalline::Array.new(Crystalline::Hash.new(Symbol, Object)))), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('properties'), required: true } }
 
         sig { params(properties: T::Hash[Symbol, T.any(::String, ::Float, T::Boolean, T::Hash[Symbol, T::Hash[Symbol, Object]], T::Array[T::Hash[Symbol, Object]])]).void }
         def initialize(properties:)

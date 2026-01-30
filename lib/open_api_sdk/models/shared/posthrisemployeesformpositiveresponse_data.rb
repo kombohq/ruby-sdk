@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,11 +13,11 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # An object containing the temporary pre-hire information from the remote system. This ID may change or become invalid when the pre-hire becomes a full employee. Only populated when `id` is null.
-        field :prehire, Models::Shared::Prehire, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('prehire'), required: true } }
+        field :prehire, Models::Shared::Prehire, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('prehire'), required: true } }
         # The Kombo id of the created employee. If null, we only created a pre-hire which shows up in the next sync after a successful onboarding.
-        field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id'), required: true } }
+        field :id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('id'), required: true } }
         # The raw ID of the created employee in the remote system. This is only populated when `id` is set (i.e., when a full employee was created). For pre-hires, use the `prehire` object instead.
-        field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_id'), required: true } }
+        field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_id'), required: true } }
 
         sig { params(prehire: Models::Shared::Prehire, id: T.nilable(::String), remote_id: T.nilable(::String)).void }
         def initialize(prehire:, id: nil, remote_id: nil)

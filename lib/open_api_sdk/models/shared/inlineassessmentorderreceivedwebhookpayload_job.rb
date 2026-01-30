@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
       # Information about the job posting.
@@ -13,13 +13,13 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # The hiring team allows you to provision users into your system who can access the job and its applications.
-        field :hiring_team, Crystalline::Array.new(Models::Shared::InlineAssessmentOrderReceivedWebhookPayloadHiringTeam), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('hiring_team'), required: true } }
+        field :hiring_team, Crystalline::Array.new(Models::Shared::InlineAssessmentOrderReceivedWebhookPayloadHiringTeam), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('hiring_team'), required: true } }
         # The job's identifier in the integrated system.
-        field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_id') } }
+        field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_id') } }
         # The job title.
-        field :name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name') } }
+        field :name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('name') } }
         # The job location information.
-        field :location, Crystalline::Nilable.new(Models::Shared::InlineAssessmentOrderReceivedWebhookPayloadLocation), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('location') } }
+        field :location, Crystalline::Nilable.new(Models::Shared::InlineAssessmentOrderReceivedWebhookPayloadLocation), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('location') } }
 
         sig { params(hiring_team: T::Array[Models::Shared::InlineAssessmentOrderReceivedWebhookPayloadHiringTeam], remote_id: T.nilable(::String), name: T.nilable(::String), location: T.nilable(Models::Shared::InlineAssessmentOrderReceivedWebhookPayloadLocation)).void }
         def initialize(hiring_team:, remote_id: nil, name: nil, location: nil)

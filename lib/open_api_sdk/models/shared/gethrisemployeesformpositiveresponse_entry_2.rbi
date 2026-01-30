@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::GetHrisEmployeesFormPositiveResponseEntry2
+class Kombo::Models::Shared::GetHrisEmployeesFormPositiveResponseEntry2
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::GetHrisEmployeesFormPositiveResponseEntry2
+class Kombo::Models::Shared::GetHrisEmployeesFormPositiveResponseEntry2
   def id(); end
   def id=(str_); end
   def label(); end

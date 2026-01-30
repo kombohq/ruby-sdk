@@ -2,10 +2,10 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::PostAtsApplicationsApplicationIdAttachmentsRequestBodyType
+class Kombo::Models::Shared::PostAtsApplicationsApplicationIdAttachmentsRequestBodyType
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::PostAtsApplicationsApplicationIdAttachmentsRequestBodyType
+class Kombo::Models::Shared::PostAtsApplicationsApplicationIdAttachmentsRequestBodyType
 end

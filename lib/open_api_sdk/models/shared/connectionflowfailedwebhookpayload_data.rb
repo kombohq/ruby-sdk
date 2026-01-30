@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,13 +13,13 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # The name of the integrated tool (e.g., "personio", "greenhouse").
-        field :integration_tool, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('integration_tool'), required: true } }
+        field :integration_tool, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('integration_tool'), required: true } }
         # The category of the integration (HRIS, ATS, ASSESSMENT, or LMS).
-        field :integration_category, Models::Shared::ConnectionFlowFailedWebhookPayloadIntegrationCategory, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('integration_category'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::ConnectionFlowFailedWebhookPayloadIntegrationCategory, false) } }
+        field :integration_category, Models::Shared::ConnectionFlowFailedWebhookPayloadIntegrationCategory, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('integration_category'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::ConnectionFlowFailedWebhookPayloadIntegrationCategory, false) } }
         # Information about the end user who created the integration.
-        field :end_user, Models::Shared::ConnectionFlowFailedWebhookPayloadEndUser, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('end_user'), required: true } }
+        field :end_user, Models::Shared::ConnectionFlowFailedWebhookPayloadEndUser, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('end_user'), required: true } }
         # URL to view detailed logs for the operation.
-        field :log_url, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('log_url'), required: true } }
+        field :log_url, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('log_url'), required: true } }
 
         sig { params(integration_tool: ::String, integration_category: Models::Shared::ConnectionFlowFailedWebhookPayloadIntegrationCategory, end_user: Models::Shared::ConnectionFlowFailedWebhookPayloadEndUser, log_url: ::String).void }
         def initialize(integration_tool:, integration_category:, end_user:, log_url:)

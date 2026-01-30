@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,9 +13,9 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
 
-        field :type, Models::Shared::PostAtsCandidatesRequestBodyAdditionalEmailAddressType, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('type'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::PostAtsCandidatesRequestBodyAdditionalEmailAddressType, false) } }
+        field :type, Models::Shared::PostAtsCandidatesRequestBodyAdditionalEmailAddressType, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('type'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::PostAtsCandidatesRequestBodyAdditionalEmailAddressType, false) } }
 
-        field :email_address, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('email_address'), required: true } }
+        field :email_address, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('email_address'), required: true } }
 
         sig { params(type: Models::Shared::PostAtsCandidatesRequestBodyAdditionalEmailAddressType, email_address: ::String).void }
         def initialize(type:, email_address:)

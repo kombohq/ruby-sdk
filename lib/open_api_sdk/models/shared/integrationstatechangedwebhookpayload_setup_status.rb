@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
       # IntegrationStateChangedWebhookPayloadSetupStatus - The current status of an integration that has filtering, field mapping features or required setup steps.

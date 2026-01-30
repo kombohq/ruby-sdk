@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
       # Headers we will pass with `POST` requests to Greenhouse.
@@ -13,7 +13,7 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # ID of the the user that will show up as having performed the action in Greenhouse. We already pass a value by default, but you can use this to override it.
-        field :on_behalf_of, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('On-Behalf-Of') } }
+        field :on_behalf_of, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('On-Behalf-Of') } }
 
         sig { params(on_behalf_of: T.nilable(::String)).void }
         def initialize(on_behalf_of: nil)

@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::PostAtsApplicationsApplicationIdAttachmentsRequestBodyAttachment
+class Kombo::Models::Shared::PostAtsApplicationsApplicationIdAttachmentsRequestBodyAttachment
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::PostAtsApplicationsApplicationIdAttachmentsRequestBodyAttachment
+class Kombo::Models::Shared::PostAtsApplicationsApplicationIdAttachmentsRequestBodyAttachment
   def name(); end
   def name=(str_); end
   def type(); end

@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
       # DisplayType1 - If unavailable, we recommend displaying a single-line input.

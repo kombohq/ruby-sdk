@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,15 +13,15 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # The unique identifier of the deleted integration.
-        field :id, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('id'), required: true } }
+        field :id, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('id'), required: true } }
         # The name of the integrated tool.
-        field :tool, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('tool'), required: true } }
+        field :tool, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('tool'), required: true } }
         # The category of the integration.
-        field :category, Models::Shared::IntegrationDeletedWebhookPayloadCategory, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('category'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::IntegrationDeletedWebhookPayloadCategory, false) } }
+        field :category, Models::Shared::IntegrationDeletedWebhookPayloadCategory, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('category'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::IntegrationDeletedWebhookPayloadCategory, false) } }
         # Information about the end user who created the integration.
-        field :end_user, Models::Shared::IntegrationDeletedWebhookPayloadEndUser, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('end_user'), required: true } }
+        field :end_user, Models::Shared::IntegrationDeletedWebhookPayloadEndUser, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('end_user'), required: true } }
         # ISO 8601 timestamp when the integration was deleted.
-        field :deleted_at, ::DateTime, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('deleted_at'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
+        field :deleted_at, ::DateTime, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('deleted_at'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
 
         sig { params(id: ::String, tool: ::String, category: Models::Shared::IntegrationDeletedWebhookPayloadCategory, end_user: Models::Shared::IntegrationDeletedWebhookPayloadEndUser, deleted_at: ::DateTime).void }
         def initialize(id:, tool:, category:, end_user:, deleted_at:)

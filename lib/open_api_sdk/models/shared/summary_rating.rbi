@@ -2,10 +2,10 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::SummaryRating
+class Kombo::Models::Shared::SummaryRating
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::SummaryRating
+class Kombo::Models::Shared::SummaryRating
 end

@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::GetHrisPerformanceReviewCyclesPositiveResponse
+class Kombo::Models::Shared::GetHrisPerformanceReviewCyclesPositiveResponse
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::GetHrisPerformanceReviewCyclesPositiveResponse
+class Kombo::Models::Shared::GetHrisPerformanceReviewCyclesPositiveResponse
   def status(); end
   def status=(str_); end
   def data(); end

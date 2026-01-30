@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
       # GetToolsCategoryPositiveResponseReadModelCoverageStatus - The status of a datapoint of an integrated tool:

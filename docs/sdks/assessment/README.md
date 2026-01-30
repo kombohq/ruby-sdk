@@ -21,8 +21,8 @@ This is mainly intended for debugging. As you always need to submit the full lis
 ```ruby
 require 'kombo'
 
-Models = ::OpenApiSDK::Models
-s = ::OpenApiSDK::Kombo.new(
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
       security: Models::Shared::Security.new(
         api_key: '<YOUR_BEARER_TOKEN_HERE>',
@@ -89,8 +89,8 @@ Packages that have been previously submitted through this endpoint but aren't in
 ```ruby
 require 'kombo'
 
-Models = ::OpenApiSDK::Models
-s = ::OpenApiSDK::Kombo.new(
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
       security: Models::Shared::Security.new(
         api_key: '<YOUR_BEARER_TOKEN_HERE>',
@@ -148,8 +148,8 @@ Get all open assessment and background check orders of an integration.
 ```ruby
 require 'kombo'
 
-Models = ::OpenApiSDK::Models
-s = ::OpenApiSDK::Kombo.new(
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
       security: Models::Shared::Security.new(
         api_key: '<YOUR_BEARER_TOKEN_HERE>',
@@ -229,8 +229,8 @@ Updates an assessment or a background check order result.
 ```ruby
 require 'kombo'
 
-Models = ::OpenApiSDK::Models
-s = ::OpenApiSDK::Kombo.new(
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
       integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
       security: Models::Shared::Security.new(
         api_key: '<YOUR_BEARER_TOKEN_HERE>',

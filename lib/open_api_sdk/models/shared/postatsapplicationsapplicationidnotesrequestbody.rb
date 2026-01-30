@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,11 +13,11 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # UTF-8 content of the note.
-        field :content, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('content'), required: true } }
+        field :content, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('content'), required: true } }
         # Content type of the note. Currently only `PLAIN_TEXT` is supported.
-        field :content_type, Models::Shared::ContentType, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('content_type'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::ContentType, false) } }
+        field :content_type, Models::Shared::ContentType, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('content_type'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::ContentType, false) } }
         # Tool specific remote fields for the note.
-        field :remote_fields, Crystalline::Nilable.new(Models::Shared::PostAtsApplicationsApplicationIdNotesRequestBodyRemoteFields), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('remote_fields') } }
+        field :remote_fields, Crystalline::Nilable.new(Models::Shared::PostAtsApplicationsApplicationIdNotesRequestBodyRemoteFields), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_fields') } }
 
         sig { params(content: ::String, content_type: Models::Shared::ContentType, remote_fields: T.nilable(Models::Shared::PostAtsApplicationsApplicationIdNotesRequestBodyRemoteFields)).void }
         def initialize(content:, content_type:, remote_fields: nil)

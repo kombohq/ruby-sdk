@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
       # ContentType - Content type of the note. Currently only `PLAIN_TEXT` is supported.

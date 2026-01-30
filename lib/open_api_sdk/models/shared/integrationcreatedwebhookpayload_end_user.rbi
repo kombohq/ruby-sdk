@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::IntegrationCreatedWebhookPayloadEndUser
+class Kombo::Models::Shared::IntegrationCreatedWebhookPayloadEndUser
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::IntegrationCreatedWebhookPayloadEndUser
+class Kombo::Models::Shared::IntegrationCreatedWebhookPayloadEndUser
   def organization_name(); end
   def organization_name=(str_); end
   def creator_email(); end

@@ -2,10 +2,10 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::JobPostingStatus
+class Kombo::Models::Shared::JobPostingStatus
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::JobPostingStatus
+class Kombo::Models::Shared::JobPostingStatus
 end

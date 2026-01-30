@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::PostAtsApplicationsApplicationIdNotesRequestBodyRemoteFields
+class Kombo::Models::Shared::PostAtsApplicationsApplicationIdNotesRequestBodyRemoteFields
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::PostAtsApplicationsApplicationIdNotesRequestBodyRemoteFields
+class Kombo::Models::Shared::PostAtsApplicationsApplicationIdNotesRequestBodyRemoteFields
   def teamtailor(); end
   def teamtailor=(str_); end
   def greenhouse(); end

@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::PostAtsApplicationsApplicationIdAttachmentsRequestBodyRemoteFields
+class Kombo::Models::Shared::PostAtsApplicationsApplicationIdAttachmentsRequestBodyRemoteFields
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::PostAtsApplicationsApplicationIdAttachmentsRequestBodyRemoteFields
+class Kombo::Models::Shared::PostAtsApplicationsApplicationIdAttachmentsRequestBodyRemoteFields
   def oracle(); end
   def oracle=(str_); end
   def greenhouse(); end

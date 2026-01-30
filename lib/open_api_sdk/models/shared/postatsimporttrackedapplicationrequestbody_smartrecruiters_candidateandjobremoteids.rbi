@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::PostAtsImportTrackedApplicationRequestBodySmartrecruitersCandidateAndJobRemoteIds
+class Kombo::Models::Shared::PostAtsImportTrackedApplicationRequestBodySmartrecruitersCandidateAndJobRemoteIds
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::PostAtsImportTrackedApplicationRequestBodySmartrecruitersCandidateAndJobRemoteIds
+class Kombo::Models::Shared::PostAtsImportTrackedApplicationRequestBodySmartrecruitersCandidateAndJobRemoteIds
   def id_type(); end
   def id_type=(str_); end
   def candidate_remote_id(); end

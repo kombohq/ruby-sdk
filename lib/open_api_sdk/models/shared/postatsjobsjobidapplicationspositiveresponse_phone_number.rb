@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,9 +13,9 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
 
-        field :phone_number, ::String, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('phone_number'), required: true } }
+        field :phone_number, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('phone_number'), required: true } }
         # Kombo exposes type information through this field. If we don't get any information from the tool, we will set this to `null`.
-        field :type, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('type') } }
+        field :type, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('type') } }
 
         sig { params(phone_number: ::String, type: T.nilable(::String)).void }
         def initialize(phone_number:, type: nil)

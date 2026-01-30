@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::PropertiesSingleSelect
+class Kombo::Models::Shared::PropertiesSingleSelect
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::PropertiesSingleSelect
+class Kombo::Models::Shared::PropertiesSingleSelect
   def label(); end
   def label=(str_); end
   def required(); end

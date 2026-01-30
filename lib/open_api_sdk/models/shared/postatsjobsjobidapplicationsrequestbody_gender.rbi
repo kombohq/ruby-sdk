@@ -2,10 +2,10 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyGender
+class Kombo::Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyGender
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyGender
+class Kombo::Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyGender
 end

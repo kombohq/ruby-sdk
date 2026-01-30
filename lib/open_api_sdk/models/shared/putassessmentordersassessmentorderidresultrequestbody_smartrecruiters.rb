@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,7 +13,7 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # Value that we will pass through to SmartRecruiters' `scoreLabel` field.
-        field :score_label, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('scoreLabel') } }
+        field :score_label, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('scoreLabel') } }
 
         sig { params(score_label: T.nilable(::String)).void }
         def initialize(score_label: nil)

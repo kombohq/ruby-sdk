@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,7 +13,7 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
 
-        field :global_personal_information_data, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyGlobalPersonalInformationData), { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('Global_Personal_Information_Data') } }
+        field :global_personal_information_data, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyGlobalPersonalInformationData), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('Global_Personal_Information_Data') } }
 
         sig { params(global_personal_information_data: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyGlobalPersonalInformationData)).void }
         def initialize(global_personal_information_data: nil)

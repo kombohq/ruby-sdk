@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::WorkLocationAddress
+class Kombo::Models::Shared::WorkLocationAddress
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::WorkLocationAddress
+class Kombo::Models::Shared::WorkLocationAddress
   def city(); end
   def city=(str_); end
   def country(); end

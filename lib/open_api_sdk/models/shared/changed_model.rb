@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
       # A model or connection that has changed in the integration.
@@ -13,7 +13,7 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
         # The name of the Kombo model or connection that changed.
-        field :name, Models::Shared::Name, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('name'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::Name, false) } }
+        field :name, Models::Shared::Name, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('name'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::Name, false) } }
 
         sig { params(name: Models::Shared::Name).void }
         def initialize(name:)

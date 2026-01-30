@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,9 +13,9 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
 
-        field :value, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('value'), required: true } }
+        field :value, ::Float, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('value'), required: true } }
 
-        field :max, ::Float, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('max'), required: true } }
+        field :max, ::Float, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('max'), required: true } }
 
         sig { params(value: ::Float, max: ::Float).void }
         def initialize(value:, max:)

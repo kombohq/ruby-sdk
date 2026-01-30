@@ -4,7 +4,7 @@
 # frozen_string_literal: true
 
 
-module OpenApiSDK
+module Kombo
   module Models
     module Shared
 
@@ -13,9 +13,9 @@ module OpenApiSDK
         include Crystalline::MetadataFields
 
 
-        field :answer, Models::Shared::PostAtsJobsJobIdApplicationsPositiveResponseAnswer6, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('answer'), required: true } }
+        field :answer, Models::Shared::PostAtsJobsJobIdApplicationsPositiveResponseAnswer6, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('answer'), required: true } }
 
-        field :question, Models::Shared::PostAtsJobsJobIdApplicationsPositiveResponseQuestionDate, { 'format_json': { 'letter_case': ::OpenApiSDK::Utils.field_name('question'), required: true } }
+        field :question, Models::Shared::PostAtsJobsJobIdApplicationsPositiveResponseQuestionDate, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('question'), required: true } }
 
         sig { params(answer: Models::Shared::PostAtsJobsJobIdApplicationsPositiveResponseAnswer6, question: Models::Shared::PostAtsJobsJobIdApplicationsPositiveResponseQuestionDate).void }
         def initialize(answer:, question:)

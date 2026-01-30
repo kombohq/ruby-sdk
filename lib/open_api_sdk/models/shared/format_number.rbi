@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class OpenApiSDK::Models::Shared::FormatNumber
+class Kombo::Models::Shared::FormatNumber
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class OpenApiSDK::Models::Shared::FormatNumber
+class Kombo::Models::Shared::FormatNumber
   def type(); end
   def type=(str_); end
   def max(); end
