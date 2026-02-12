@@ -22,20 +22,30 @@ Developer-friendly & type-safe Ruby SDK for the [Kombo Unified API](https://docs
 <!-- Start Table of Contents [toc] -->
 ## Table of Contents
 <!-- $toc-max-depth=2 -->
-* [kombo](#kombo)
-  * [SDK Installation](#sdk-installation)
-  * [SDK Example Usage](#sdk-example-usage)
-  * [Region Selection](#region-selection)
-  * [Available Resources and Operations](#available-resources-and-operations)
-  * [Pagination](#pagination)
-  * [Error Handling](#error-handling)
-  * [Retries](#retries)
-  * [Standalone functions](#standalone-functions)
-  * [Custom HTTP Client](#custom-http-client)
-  * [Debugging](#debugging)
-  * [Requirements](#requirements)
-* [Development](#development)
-  * [Contributions](#contributions)
+- [kombo](#kombo)
+  - [Table of Contents](#table-of-contents)
+  - [SDK Installation](#sdk-installation)
+  - [SDK Example Usage](#sdk-example-usage)
+    - [Specifying an integration ID](#specifying-an-integration-id)
+  - [Region Selection](#region-selection)
+      - [Example](#example)
+  - [Available Resources and Operations](#available-resources-and-operations)
+    - [Assessment](#assessment)
+    - [Ats](#ats)
+    - [Connect](#connect)
+    - [General](#general)
+    - [Hris](#hris)
+  - [Pagination](#pagination)
+  - [Error Handling](#error-handling)
+    - [Example](#example-1)
+    - [Error Classes](#error-classes)
+  - [Retries](#retries)
+  - [Custom HTTP Client](#custom-http-client)
+  - [Debugging](#debugging)
+  - [Requirements](#requirements)
+- [Development](#development)
+  - [Contributions](#contributions)
+    - [SDK Created by Speakeasy](#sdk-created-by-speakeasy)
 
 <!-- End Table of Contents [toc] -->
 
@@ -192,6 +202,7 @@ s = ::Kombo::Kombo.new(
 </details>
 <!-- End Available Resources and Operations [operations] -->
 
+<!-- Start Pagination [pagination] -->
 ## Pagination
 
 Some of the endpoints in this SDK support pagination. You make your SDK calls as usual, but the returned response object also supports iteration so you can consume all pages in a loop.
@@ -214,7 +225,7 @@ result.each do |page|
   puts page
 end
 ```
-<!-- No Pagination [pagination] -->
+<!-- End Pagination [pagination] -->
 
 <!-- Start Error Handling [errors] -->
 ## Error Handling
@@ -277,6 +288,7 @@ end
 \* Check [the method documentation](#available-resources-and-operations) to see which errors apply to each operation.
 <!-- End Error Handling [errors] -->
 
+<!-- Start Retries [retries] -->
 ## Retries
 
 Some of the endpoints in this SDK support retries. If you use the SDK without any configuration, it will fall back to the default retry strategy provided by the API. However, the default retry strategy can be overridden at SDK initialization.
@@ -309,27 +321,25 @@ unless res.get_check_api_key_positive_response.nil?
   # handle response
 end
 ```
-<!-- No Retries [retries] -->
+<!-- End Retries [retries] -->
 
-## Standalone functions
-
-Standalone functions are a TypeScript SDK feature. The Ruby SDK uses a single client instance; see [SDK Example Usage](#sdk-example-usage).
-<!-- No Standalone functions [standalone-funcs] -->
-
+<!-- Start Custom HTTP Client [http-client] -->
 ## Custom HTTP Client
 
 The Ruby SDK uses [Faraday](https://lostisland.github.io/faraday/) for HTTP. You can pass a custom connection when initializing the client if you need to customize behavior.
-<!-- No Custom HTTP Client [http-client] -->
+<!-- End Custom HTTP Client [http-client] -->
 
+<!-- Start Debugging [debug] -->
 ## Debugging
 
 You can enable debug logging by configuring your logger and passing it to the SDK client when supported. Be careful not to log secrets (e.g. API keys) in production.
-<!-- No Debugging [debug] -->
+<!-- End Debugging [debug] -->
 
+<!-- Start Requirements [requirements] -->
 ## Requirements
 
 This SDK supports Ruby 3.0 and above.
-<!-- No Requirements [requirements] -->
+<!-- End Requirements [requirements] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 
