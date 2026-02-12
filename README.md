@@ -2,14 +2,22 @@
 
 Developer-friendly & type-safe Ruby SDK for the [Kombo Unified API](https://docs.kombo.dev/introduction).
 
-[![Built by Speakeasy](https://img.shields.io/badge/Built_by-SPEAKEASY-374151?style=for-the-badge&labelColor=f3f4f6)](https://www.speakeasy.com/?utm_source=kombo&utm_campaign=ruby)
-[![License: MIT](https://img.shields.io/badge/LICENSE_//_MIT-3b5bdb?style=for-the-badge&labelColor=eff6ff)](https://opensource.org/licenses/MIT)
+<div align="left">
+  <a href="https://www.speakeasy.com/?utm_source=kombo&utm_campaign=ruby">
+    <img src="https://custom-icon-badges.demolab.com/badge/-built%20with%20speakeasy-212015?style=flat-square&logoColor=FBE331&logo=speakeasy&labelColor=545454" />
+  </a>
+  <a href="https://rubygems.org/gems/kombo">
+    <img src="https://img.shields.io/gem/v/kombo?style=flat-square" />
+  </a>
+  <a href="https://opensource.org/licenses/MIT">
+    <img src="https://img.shields.io/badge/license-MIT-blue?style=flat-square" />
+  </a>
+</div>
 
 <br />
 
 > [!NOTE]
 > The Kombo Ruby SDK is **currently in beta**. The core API structure, methods, and input/output objects are considered stable. We may still make minor adjustments, but all changes will be clearly documented in the changelog. We **do not foresee** any blockers for production use.
-
 
 <!-- Start Table of Contents [toc] -->
 ## Table of Contents
@@ -18,26 +26,24 @@ Developer-friendly & type-safe Ruby SDK for the [Kombo Unified API](https://docs
   - [Table of Contents](#table-of-contents)
   - [SDK Installation](#sdk-installation)
   - [SDK Example Usage](#sdk-example-usage)
-    - [Example](#example)
-  - [Authentication](#authentication)
-    - [Per-Client Security Schemes](#per-client-security-schemes)
+    - [Specifying an integration ID](#specifying-an-integration-id)
+  - [Region Selection](#region-selection)
+      - [Example](#example)
   - [Available Resources and Operations](#available-resources-and-operations)
     - [Assessment](#assessment)
     - [Ats](#ats)
     - [Connect](#connect)
     - [General](#general)
     - [Hris](#hris)
-  - [Global Parameters](#global-parameters)
-    - [Available Globals](#available-globals)
-    - [Example](#example-1)
+  - [Pagination](#pagination)
   - [Error Handling](#error-handling)
-    - [Example](#example-2)
-  - [Server Selection](#server-selection)
-    - [Select Server by Name](#select-server-by-name)
-      - [Example](#example-3)
-    - [Override Server URL Per-Client](#override-server-url-per-client)
+    - [Example](#example-1)
+  - [Retries](#retries)
+  - [Standalone functions](#standalone-functions)
+  - [Custom HTTP Client](#custom-http-client)
+  - [Debugging](#debugging)
+  - [Requirements](#requirements)
 - [Development](#development)
-  - [Maturity](#maturity)
   - [Contributions](#contributions)
     - [SDK Created by Speakeasy](#sdk-created-by-speakeasy)
 
@@ -55,54 +61,66 @@ gem install kombo
 
 ## SDK Example Usage
 
-### Example
-
 ```ruby
 require 'kombo'
 
 Models = ::Kombo::Models
 s = ::Kombo::Kombo.new(
-      security: Models::Shared::Security.new(
-        api_key: '<YOUR_BEARER_TOKEN_HERE>',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    api_key: '<YOUR_BEARER_TOKEN_HERE>',
+  ),
+)
 
 res = s.general.check_api_key()
 
 unless res.get_check_api_key_positive_response.nil?
   # handle response
 end
-
 ```
 
-## Authentication
+### Specifying an integration ID
 
-### Per-Client Security Schemes
+The majority of Kombo API endpoints are for interacting with a single "integration" (i.e., a single connection to one of your customers' systems). For these endpoints, specify the `integration_id` when initializing the SDK:
 
-This SDK supports the following security scheme globally:
-
-| Name      | Type | Scheme      |
-| --------- | ---- | ----------- |
-| `api_key` | http | HTTP Bearer |
-
-You can set the security parameters through the `security` optional parameter when initializing the SDK client instance. For example:
 ```ruby
 require 'kombo'
 
 Models = ::Kombo::Models
 s = ::Kombo::Kombo.new(
-      security: Models::Shared::Security.new(
-        api_key: '<YOUR_BEARER_TOKEN_HERE>',
-      ),
-    )
+  integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
+  security: Models::Shared::Security.new(
+    api_key: '<YOUR_BEARER_TOKEN_HERE>',
+  ),
+)
 
-res = s.general.check_api_key()
+res = s.hris.get_employees()
 
-unless res.get_check_api_key_positive_response.nil?
+unless res.get_employees_positive_response.nil?
   # handle response
 end
-
 ```
+
+## Region Selection
+
+The Kombo platform is available in two regions: Europe and United States.
+
+By default, the SDK uses the EU region. If you use the US region (hosted at `api.us.kombo.dev`), set the `server` option when initializing the SDK:
+
+#### Example
+
+```ruby
+require 'kombo'
+
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
+  server: :us,
+  security: Models::Shared::Security.new(
+    api_key: '<YOUR_BEARER_TOKEN_HERE>',
+  ),
+)
+```
+
+You can also override the server URL with the `server_url` option when initializing the client.
 
 <!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
@@ -186,62 +204,24 @@ end
 </details>
 <!-- End Available Resources and Operations [operations] -->
 
-## Global Parameters
+## Pagination
 
-A parameter is configured globally. This parameter may be set on the SDK client instance itself during initialization. When configured as an option during SDK initialization, This global value will be used as the default on the operations that use it. When such operations are called, there is a place in each to override the global value, if needed.
-
-For example, you can set `integration_id` to `'workday:HWUTwvyx2wLoSUHphiWVrp28'` at SDK initialization and then you do not have to pass the same value on calls to operations like `delete_integration`. But if you want to do so you may, which will locally override the global setting. See the example code below for a demonstration.
-
-
-### Available Globals
-
-The following global parameter is available.
-
-| Name           | Type     | Description                                      |
-| -------------- | -------- | ------------------------------------------------ |
-| integration_id | ::String | ID of the integration you want to interact with. |
-
-### Example
-
-```ruby
-require 'kombo'
-
-Models = ::Kombo::Models
-s = ::Kombo::Kombo.new(
-      integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
-      security: Models::Shared::Security.new(
-        api_key: '<YOUR_BEARER_TOKEN_HERE>',
-      ),
-    )
-
-res = s.general.delete_integration(integration_id: '<id>', body: Models::Shared::DeleteIntegrationsIntegrationIdRequestBody.new())
-
-unless res.delete_integrations_integration_id_positive_response.nil?
-  # handle response
-end
-
-```
+Some endpoints in this SDK support pagination. See the documentation for individual methods (e.g. `get_integration_fields`) for usage.
+<!-- No Pagination [pagination] -->
 
 <!-- Start Error Handling [errors] -->
 ## Error Handling
 
-Handling errors in this SDK should largely match your expectations. All operations return a response object or raise an error.
+All operations return a response object or raise an error. By default, an API error raises `Errors::APIError`, which has:
 
-By default an API error will raise a `Errors::APIError`, which has the following properties:
+| Property       | Type                 | Description           |
+|----------------|----------------------|-----------------------|
+| `message`      | *string*             | The error message     |
+| `status_code`  | *int*                | The HTTP status code  |
+| `raw_response` | *Faraday::Response*  | The raw HTTP response |
+| `body`         | *string*             | The response content  |
 
-| Property       | Type                                    | Description           |
-|----------------|-----------------------------------------|-----------------------|
-| `message`     | *string*                                 | The error message     |
-| `status_code`  | *int*                                   | The HTTP status code  |
-| `raw_response` | *Faraday::Response*                     | The raw HTTP response |
-| `body`        | *string*                                 | The response content  |
-
-When custom error responses are specified for an operation, the SDK may also throw their associated exception. You can refer to respective *Errors* tables in SDK docs for more details on possible exception types for each operation. For example, the `check_api_key` method throws the following exceptions:
-
-| Error Type                        | Status Code | Content Type     |
-| --------------------------------- | ----------- | ---------------- |
-| Models::Errors::KomboGeneralError | default     | application/json |
-| Errors::APIError                  | 4XX, 5XX    | \*/\*            |
+When custom error responses are specified for an operation, the SDK may raise the corresponding exception (e.g. `Models::Errors::KomboGeneralError`). See the *Errors* tables in the SDK docs for each operation.
 
 ### Example
 
@@ -250,17 +230,16 @@ require 'kombo'
 
 Models = ::Kombo::Models
 s = ::Kombo::Kombo.new(
-      security: Models::Shared::Security.new(
-        api_key: '<YOUR_BEARER_TOKEN_HERE>',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    api_key: '<YOUR_BEARER_TOKEN_HERE>',
+  ),
+)
 
 begin
-    res = s.general.check_api_key()
-
-    unless res.get_check_api_key_positive_response.nil?
-      # handle response
-    end
+  res = s.general.check_api_key()
+  unless res.get_check_api_key_positive_response.nil?
+    # handle response
+  end
 rescue Models::Errors::KomboGeneralError => e
   # handle e.container data
   raise e
@@ -268,78 +247,42 @@ rescue Errors::APIError => e
   # handle default exception
   raise e
 end
-
 ```
 <!-- End Error Handling [errors] -->
 
-## Server Selection
+## Retries
 
-### Select Server by Name
+Some endpoints support retries. When available, the default retry strategy can be overridden per operation or at SDK initialization. See the method documentation for details.
+<!-- No Retries [retries] -->
 
-You can override the default server globally by passing a server name to the `server (Symbol)` optional parameter when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the names associated with the available servers:
+## Standalone functions
 
-| Name | Server                        | Description     |
-| ---- | ----------------------------- | --------------- |
-| `eu` | `https://api.kombo.dev/v1`    | Kombo EU Region |
-| `us` | `https://api.us.kombo.dev/v1` | Kombo US Region |
+Standalone functions are a TypeScript SDK feature. The Ruby SDK uses a single client instance; see [SDK Example Usage](#sdk-example-usage).
+<!-- No Standalone functions [standalone-funcs] -->
 
-#### Example
+## Custom HTTP Client
 
-```ruby
-require 'kombo'
+The Ruby SDK uses [Faraday](https://lostisland.github.io/faraday/) for HTTP. You can pass a custom connection when initializing the client if you need to customize behavior.
+<!-- No Custom HTTP Client [http-client] -->
 
-Models = ::Kombo::Models
-s = ::Kombo::Kombo.new(
-      server: "eu",
-      security: Models::Shared::Security.new(
-        api_key: '<YOUR_BEARER_TOKEN_HERE>',
-      ),
-    )
+## Debugging
 
-res = s.general.check_api_key()
+You can enable debug logging by configuring your logger and passing it to the SDK client when supported. Be careful not to log secrets (e.g. API keys) in production.
+<!-- No Debugging [debug] -->
 
-unless res.get_check_api_key_positive_response.nil?
-  # handle response
-end
+## Requirements
 
-```
-
-### Override Server URL Per-Client
-
-The default server can also be overridden globally by passing a URL to the `server_url (String)` optional parameter when initializing the SDK client instance. For example:
-```ruby
-require 'kombo'
-
-Models = ::Kombo::Models
-s = ::Kombo::Kombo.new(
-      server_url: 'https://api.kombo.dev/v1',
-      security: Models::Shared::Security.new(
-        api_key: '<YOUR_BEARER_TOKEN_HERE>',
-      ),
-    )
-
-res = s.general.check_api_key()
-
-unless res.get_check_api_key_positive_response.nil?
-  # handle response
-end
-
-```
+This SDK supports Ruby 3.0 and above.
+<!-- No Requirements [requirements] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 
 # Development
 
-## Maturity
-
-This SDK is in beta, and there may be breaking changes between versions without a major version update. Therefore, we recommend pinning usage
-to a specific package version. This way, you can install the same version each time without breaking changes unless you are intentionally
-looking for the latest version.
-
 ## Contributions
 
-While we value open-source contributions to this SDK, this library is generated programmatically. Any manual changes added to internal files will be overwritten on the next generation. 
-We look forward to hearing your feedback. Feel free to open a PR or an issue with a proof of concept and we'll do our best to include it in a future release. 
+While we value open-source contributions to this SDK, this library is generated programmatically. Any manual changes added to internal files will be overwritten on the next generation.
+We look forward to hearing your feedback. Feel free to open a PR or an issue with a proof of concept and we'll do our best to include it in a future release.
 
 ### SDK Created by [Speakeasy](https://www.speakeasy.com/?utm_source=kombo&utm_campaign=ruby)
 
