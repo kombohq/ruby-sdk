@@ -22,30 +22,18 @@ Developer-friendly & type-safe Ruby SDK for the [Kombo Unified API](https://docs
 <!-- Start Table of Contents [toc] -->
 ## Table of Contents
 <!-- $toc-max-depth=2 -->
-- [kombo](#kombo)
-  - [Table of Contents](#table-of-contents)
-  - [SDK Installation](#sdk-installation)
-  - [SDK Example Usage](#sdk-example-usage)
-    - [Specifying an integration ID](#specifying-an-integration-id)
-  - [Region Selection](#region-selection)
-      - [Example](#example)
-  - [Available Resources and Operations](#available-resources-and-operations)
-    - [Assessment](#assessment)
-    - [Ats](#ats)
-    - [Connect](#connect)
-    - [General](#general)
-    - [Hris](#hris)
-  - [Pagination](#pagination)
-  - [Error Handling](#error-handling)
-    - [Example](#example-1)
-    - [Error Classes](#error-classes)
-  - [Retries](#retries)
-  - [Custom HTTP Client](#custom-http-client)
-  - [Debugging](#debugging)
-  - [Requirements](#requirements)
-- [Development](#development)
-  - [Contributions](#contributions)
-    - [SDK Created by Speakeasy](#sdk-created-by-speakeasy)
+* [kombo](#kombo)
+  * [SDK Installation](#sdk-installation)
+  * [SDK Example Usage](#sdk-example-usage)
+  * [Region Selection](#region-selection)
+  * [Available Resources and Operations](#available-resources-and-operations)
+  * [Pagination](#pagination)
+  * [Error Handling](#error-handling)
+  * [Custom HTTP Client](#custom-http-client)
+  * [Debugging](#debugging)
+  * [Requirements](#requirements)
+* [Development](#development)
+  * [Contributions](#contributions)
 
 <!-- End Table of Contents [toc] -->
 
@@ -230,16 +218,23 @@ end
 <!-- Start Error Handling [errors] -->
 ## Error Handling
 
-`Models::Errors::APIError` is the base class for HTTP error responses. It has the following properties:
+Handling errors in this SDK should largely match your expectations. All operations return a response object or raise an error.
 
-| Property       | Type                 | Description           |
-|----------------|----------------------|-----------------------|
-| `message`      | *string*             | The error message     |
-| `status_code`  | *int*                | The HTTP status code  |
-| `raw_response` | *Faraday::Response*  | The raw HTTP response |
-| `body`         | *string*             | The response content  |
+By default an API error will raise a `Errors::APIError`, which has the following properties:
 
-When custom error responses are specified for an operation, the SDK may raise the corresponding exception with structured data. See the *Errors* tables in the SDK docs for each operation.
+| Property       | Type                                    | Description           |
+|----------------|-----------------------------------------|-----------------------|
+| `message`     | *string*                                 | The error message     |
+| `status_code`  | *int*                                   | The HTTP status code  |
+| `raw_response` | *Faraday::Response*                     | The raw HTTP response |
+| `body`        | *string*                                 | The response content  |
+
+When custom error responses are specified for an operation, the SDK may also throw their associated exception. You can refer to respective *Errors* tables in SDK docs for more details on possible exception types for each operation. For example, the `check_api_key` method throws the following exceptions:
+
+| Error Type                        | Status Code | Content Type     |
+| --------------------------------- | ----------- | ---------------- |
+| Models::Errors::KomboGeneralError | default     | application/json |
+| Errors::APIError                  | 4XX, 5XX    | \*/\*            |
 
 ### Example
 
@@ -248,80 +243,27 @@ require 'kombo'
 
 Models = ::Kombo::Models
 s = ::Kombo::Kombo.new(
-  security: Models::Shared::Security.new(
-    api_key: '<YOUR_BEARER_TOKEN_HERE>',
-  ),
-)
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
+    )
 
 begin
-  res = s.general.check_api_key()
-  unless res.get_check_api_key_positive_response.nil?
-    # handle response
-  end
+    res = s.general.check_api_key()
+
+    unless res.get_check_api_key_positive_response.nil?
+      # handle response
+    end
 rescue Models::Errors::KomboGeneralError => e
   # handle e.container data
   raise e
-rescue Models::Errors::APIError => e
+rescue Errors::APIError => e
   # handle default exception
   raise e
 end
+
 ```
-
-### Error Classes
-
-**Primary error:**
-
-* `Models::Errors::APIError`: The base class for HTTP error responses.
-
-<details><summary>Less common errors (3)</summary>
-
-<br />
-
-**Inherit from or used alongside `Models::Errors::APIError`:**
-
-* `Models::Errors::KomboAtsError`: The standard error response with the error codes for the ATS use case.
-* `Models::Errors::KomboHrisError`: The standard error response with the error codes for the HRIS use case.
-* `Models::Errors::KomboGeneralError`: The standard error response with the platform error codes.
-
-</details>
-
-\* Check [the method documentation](#available-resources-and-operations) to see which errors apply to each operation.
 <!-- End Error Handling [errors] -->
-
-<!-- Start Retries [retries] -->
-## Retries
-
-Some of the endpoints in this SDK support retries. If you use the SDK without any configuration, it will fall back to the default retry strategy provided by the API. However, the default retry strategy can be overridden at SDK initialization.
-
-To override the default retry strategy for all operations that support retries, provide a `retry_config` when initializing the SDK:
-
-```ruby
-require 'kombo'
-
-Models = ::Kombo::Models
-s = ::Kombo::Kombo.new(
-  retry_config: Kombo::Utils::RetryConfig.new(
-    strategy: 'backoff',
-    backoff: Kombo::Utils::BackoffStrategy.new(
-      initial_interval: 1,
-      max_interval: 50,
-      exponent: 1.1,
-      max_elapsed_time: 100,
-    ),
-    retry_connection_errors: false,
-  ),
-  security: Models::Shared::Security.new(
-    api_key: '<YOUR_BEARER_TOKEN_HERE>',
-  ),
-)
-
-res = s.general.check_api_key()
-
-unless res.get_check_api_key_positive_response.nil?
-  # handle response
-end
-```
-<!-- End Retries [retries] -->
 
 <!-- Start Custom HTTP Client [http-client] -->
 ## Custom HTTP Client
