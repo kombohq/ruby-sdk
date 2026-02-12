@@ -1,35 +1,45 @@
-# openapi
+# kombo
 
-Developer-friendly & type-safe Ruby SDK specifically catered to leverage *openapi* API.
+Developer-friendly & type-safe Ruby SDK for the [Kombo Unified API](https://docs.kombo.dev/introduction).
 
-[![Built by Speakeasy](https://img.shields.io/badge/Built_by-SPEAKEASY-374151?style=for-the-badge&labelColor=f3f4f6)](https://www.speakeasy.com/?utm_source=openapi&utm_campaign=ruby)
+[![Built by Speakeasy](https://img.shields.io/badge/Built_by-SPEAKEASY-374151?style=for-the-badge&labelColor=f3f4f6)](https://www.speakeasy.com/?utm_source=kombo&utm_campaign=ruby)
 [![License: MIT](https://img.shields.io/badge/LICENSE_//_MIT-3b5bdb?style=for-the-badge&labelColor=eff6ff)](https://opensource.org/licenses/MIT)
 
+<br />
 
-<br /><br />
-> [!IMPORTANT]
-> This SDK is not yet ready for production use. To complete setup please follow the steps outlined in your [workspace](https://app.speakeasy.com/org/kombo-ayg/api). Delete this section before > publishing to a package manager.
+> [!NOTE]
+> The Kombo Ruby SDK is **currently in beta**. The core API structure, methods, and input/output objects are considered stable. We may still make minor adjustments, but all changes will be clearly documented in the changelog. We **do not foresee** any blockers for production use.
 
-<!-- Start Summary [summary] -->
-## Summary
-
-
-<!-- End Summary [summary] -->
 
 <!-- Start Table of Contents [toc] -->
 ## Table of Contents
 <!-- $toc-max-depth=2 -->
-* [openapi](#openapi)
-  * [SDK Installation](#sdk-installation)
-  * [SDK Example Usage](#sdk-example-usage)
-  * [Authentication](#authentication)
-  * [Available Resources and Operations](#available-resources-and-operations)
-  * [Global Parameters](#global-parameters)
-  * [Error Handling](#error-handling)
-  * [Server Selection](#server-selection)
-* [Development](#development)
-  * [Maturity](#maturity)
-  * [Contributions](#contributions)
+- [kombo](#kombo)
+  - [Table of Contents](#table-of-contents)
+  - [SDK Installation](#sdk-installation)
+  - [SDK Example Usage](#sdk-example-usage)
+    - [Example](#example)
+  - [Authentication](#authentication)
+    - [Per-Client Security Schemes](#per-client-security-schemes)
+  - [Available Resources and Operations](#available-resources-and-operations)
+    - [Assessment](#assessment)
+    - [Ats](#ats)
+    - [Connect](#connect)
+    - [General](#general)
+    - [Hris](#hris)
+  - [Global Parameters](#global-parameters)
+    - [Available Globals](#available-globals)
+    - [Example](#example-1)
+  - [Error Handling](#error-handling)
+    - [Example](#example-2)
+  - [Server Selection](#server-selection)
+    - [Select Server by Name](#select-server-by-name)
+      - [Example](#example-3)
+    - [Override Server URL Per-Client](#override-server-url-per-client)
+- [Development](#development)
+  - [Maturity](#maturity)
+  - [Contributions](#contributions)
+    - [SDK Created by Speakeasy](#sdk-created-by-speakeasy)
 
 <!-- End Table of Contents [toc] -->
 
@@ -43,7 +53,6 @@ gem install kombo
 ```
 <!-- End SDK Installation [installation] -->
 
-<!-- Start SDK Example Usage [usage] -->
 ## SDK Example Usage
 
 ### Example
@@ -65,9 +74,7 @@ unless res.get_check_api_key_positive_response.nil?
 end
 
 ```
-<!-- End SDK Example Usage [usage] -->
 
-<!-- Start Authentication [security] -->
 ## Authentication
 
 ### Per-Client Security Schemes
@@ -96,7 +103,6 @@ unless res.get_check_api_key_positive_response.nil?
 end
 
 ```
-<!-- End Authentication [security] -->
 
 <!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
@@ -180,7 +186,6 @@ end
 </details>
 <!-- End Available Resources and Operations [operations] -->
 
-<!-- Start Global Parameters [global-parameters] -->
 ## Global Parameters
 
 A parameter is configured globally. This parameter may be set on the SDK client instance itself during initialization. When configured as an option during SDK initialization, This global value will be used as the default on the operations that use it. When such operations are called, there is a place in each to override the global value, if needed.
@@ -216,7 +221,6 @@ unless res.delete_integrations_integration_id_positive_response.nil?
 end
 
 ```
-<!-- End Global Parameters [global-parameters] -->
 
 <!-- Start Error Handling [errors] -->
 ## Error Handling
@@ -268,7 +272,6 @@ end
 ```
 <!-- End Error Handling [errors] -->
 
-<!-- Start Server Selection [server] -->
 ## Server Selection
 
 ### Select Server by Name
@@ -322,7 +325,6 @@ unless res.get_check_api_key_positive_response.nil?
 end
 
 ```
-<!-- End Server Selection [server] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 
@@ -339,4 +341,10 @@ looking for the latest version.
 While we value open-source contributions to this SDK, this library is generated programmatically. Any manual changes added to internal files will be overwritten on the next generation. 
 We look forward to hearing your feedback. Feel free to open a PR or an issue with a proof of concept and we'll do our best to include it in a future release. 
 
-### SDK Created by [Speakeasy](https://www.speakeasy.com/?utm_source=openapi&utm_campaign=ruby)
+### SDK Created by [Speakeasy](https://www.speakeasy.com/?utm_source=kombo&utm_campaign=ruby)
+
+<!-- No Summary [summary] -->
+<!-- No SDK Example Usage [usage] -->
+<!-- No Authentication [security] -->
+<!-- No Global Parameters [global-parameters] -->
+<!-- No Server Selection [server] -->
