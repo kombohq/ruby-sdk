@@ -1,34 +1,38 @@
-# openapi
+# kombo
 
-Developer-friendly & type-safe Ruby SDK specifically catered to leverage *openapi* API.
+Developer-friendly & type-safe Ruby SDK for the [Kombo Unified API](https://docs.kombo.dev/introduction).
 
-[![Built by Speakeasy](https://img.shields.io/badge/Built_by-SPEAKEASY-374151?style=for-the-badge&labelColor=f3f4f6)](https://www.speakeasy.com/?utm_source=openapi&utm_campaign=ruby)
-[![License: MIT](https://img.shields.io/badge/LICENSE_//_MIT-3b5bdb?style=for-the-badge&labelColor=eff6ff)](https://opensource.org/licenses/MIT)
+<div align="left">
+  <a href="https://www.speakeasy.com/?utm_source=kombo&utm_campaign=ruby">
+    <img src="https://custom-icon-badges.demolab.com/badge/-built%20with%20speakeasy-212015?style=flat-square&logoColor=FBE331&logo=speakeasy&labelColor=545454" />
+  </a>
+  <a href="https://rubygems.org/gems/kombo">
+    <img src="https://img.shields.io/gem/v/kombo?style=flat-square" />
+  </a>
+  <a href="https://opensource.org/licenses/MIT">
+    <img src="https://img.shields.io/badge/license-MIT-blue?style=flat-square" />
+  </a>
+</div>
 
+<br />
 
-<br /><br />
-> [!IMPORTANT]
-> This SDK is not yet ready for production use. To complete setup please follow the steps outlined in your [workspace](https://app.speakeasy.com/org/kombo-ayg/api). Delete this section before > publishing to a package manager.
-
-<!-- Start Summary [summary] -->
-## Summary
-
-
-<!-- End Summary [summary] -->
+> [!NOTE]
+> The Kombo Ruby SDK is **currently in beta**. The core API structure, methods, and input/output objects are considered stable. We may still make minor adjustments, but all changes will be clearly documented in the changelog. We **do not foresee** any blockers for production use.
 
 <!-- Start Table of Contents [toc] -->
 ## Table of Contents
 <!-- $toc-max-depth=2 -->
-* [openapi](#openapi)
+* [kombo](#kombo)
   * [SDK Installation](#sdk-installation)
   * [SDK Example Usage](#sdk-example-usage)
-  * [Authentication](#authentication)
+  * [Region Selection](#region-selection)
   * [Available Resources and Operations](#available-resources-and-operations)
-  * [Global Parameters](#global-parameters)
+  * [Pagination](#pagination)
   * [Error Handling](#error-handling)
-  * [Server Selection](#server-selection)
+  * [Custom HTTP Client](#custom-http-client)
+  * [Debugging](#debugging)
+  * [Requirements](#requirements)
 * [Development](#development)
-  * [Maturity](#maturity)
   * [Contributions](#contributions)
 
 <!-- End Table of Contents [toc] -->
@@ -43,60 +47,66 @@ gem install kombo
 ```
 <!-- End SDK Installation [installation] -->
 
-<!-- Start SDK Example Usage [usage] -->
 ## SDK Example Usage
 
-### Example
-
 ```ruby
 require 'kombo'
 
 Models = ::Kombo::Models
 s = ::Kombo::Kombo.new(
-      security: Models::Shared::Security.new(
-        api_key: '<YOUR_BEARER_TOKEN_HERE>',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    api_key: '<YOUR_BEARER_TOKEN_HERE>',
+  ),
+)
 
 res = s.general.check_api_key()
 
 unless res.get_check_api_key_positive_response.nil?
   # handle response
 end
-
 ```
-<!-- End SDK Example Usage [usage] -->
 
-<!-- Start Authentication [security] -->
-## Authentication
+### Specifying an integration ID
 
-### Per-Client Security Schemes
+The majority of Kombo API endpoints are for interacting with a single "integration" (i.e., a single connection to one of your customers' systems). For these endpoints, specify the `integration_id` when initializing the SDK:
 
-This SDK supports the following security scheme globally:
-
-| Name      | Type | Scheme      |
-| --------- | ---- | ----------- |
-| `api_key` | http | HTTP Bearer |
-
-You can set the security parameters through the `security` optional parameter when initializing the SDK client instance. For example:
 ```ruby
 require 'kombo'
 
 Models = ::Kombo::Models
 s = ::Kombo::Kombo.new(
-      security: Models::Shared::Security.new(
-        api_key: '<YOUR_BEARER_TOKEN_HERE>',
-      ),
-    )
+  integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
+  security: Models::Shared::Security.new(
+    api_key: '<YOUR_BEARER_TOKEN_HERE>',
+  ),
+)
 
-res = s.general.check_api_key()
+res = s.hris.get_employees()
 
-unless res.get_check_api_key_positive_response.nil?
+unless res.get_employees_positive_response.nil?
   # handle response
 end
-
 ```
-<!-- End Authentication [security] -->
+
+## Region Selection
+
+The Kombo platform is available in two regions: Europe and United States.
+
+By default, the SDK uses the EU region. If you use the US region (hosted at `api.us.kombo.dev`), set the `server` option when initializing the SDK:
+
+#### Example
+
+```ruby
+require 'kombo'
+
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
+  server: :us,
+  security: Models::Shared::Security.new(
+    api_key: '<YOUR_BEARER_TOKEN_HERE>',
+  ),
+)
+```
 
 <!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
@@ -180,43 +190,30 @@ end
 </details>
 <!-- End Available Resources and Operations [operations] -->
 
-<!-- Start Global Parameters [global-parameters] -->
-## Global Parameters
+<!-- Start Pagination [pagination] -->
+## Pagination
 
-A parameter is configured globally. This parameter may be set on the SDK client instance itself during initialization. When configured as an option during SDK initialization, This global value will be used as the default on the operations that use it. When such operations are called, there is a place in each to override the global value, if needed.
+Some of the endpoints in this SDK support pagination. You make your SDK calls as usual, but the returned response object also supports iteration so you can consume all pages in a loop.
 
-For example, you can set `integration_id` to `'workday:HWUTwvyx2wLoSUHphiWVrp28'` at SDK initialization and then you do not have to pass the same value on calls to operations like `delete_integration`. But if you want to do so you may, which will locally override the global setting. See the example code below for a demonstration.
-
-
-### Available Globals
-
-The following global parameter is available.
-
-| Name           | Type     | Description                                      |
-| -------------- | -------- | ------------------------------------------------ |
-| integration_id | ::String | ID of the integration you want to interact with. |
-
-### Example
+Here's an example using `get_integration_fields`:
 
 ```ruby
 require 'kombo'
 
 Models = ::Kombo::Models
 s = ::Kombo::Kombo.new(
-      integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
-      security: Models::Shared::Security.new(
-        api_key: '<YOUR_BEARER_TOKEN_HERE>',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    api_key: '<YOUR_BEARER_TOKEN_HERE>',
+  ),
+)
 
-res = s.general.delete_integration(integration_id: '<id>', body: Models::Shared::DeleteIntegrationsIntegrationIdRequestBody.new())
+result = s.general.get_integration_fields(integration_id: '<id>')
 
-unless res.delete_integrations_integration_id_positive_response.nil?
-  # handle response
+result.each do |page|
+  puts page
 end
-
 ```
-<!-- End Global Parameters [global-parameters] -->
+<!-- End Pagination [pagination] -->
 
 <!-- Start Error Handling [errors] -->
 ## Error Handling
@@ -268,75 +265,37 @@ end
 ```
 <!-- End Error Handling [errors] -->
 
-<!-- Start Server Selection [server] -->
-## Server Selection
+<!-- Start Custom HTTP Client [http-client] -->
+## Custom HTTP Client
 
-### Select Server by Name
+The Ruby SDK uses [Faraday](https://lostisland.github.io/faraday/) for HTTP. You can pass a custom connection when initializing the client if you need to customize behavior.
+<!-- End Custom HTTP Client [http-client] -->
 
-You can override the default server globally by passing a server name to the `server (Symbol)` optional parameter when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the names associated with the available servers:
+<!-- Start Debugging [debug] -->
+## Debugging
 
-| Name | Server                        | Description     |
-| ---- | ----------------------------- | --------------- |
-| `eu` | `https://api.kombo.dev/v1`    | Kombo EU Region |
-| `us` | `https://api.us.kombo.dev/v1` | Kombo US Region |
+You can enable debug logging by configuring your logger and passing it to the SDK client when supported. Be careful not to log secrets (e.g. API keys) in production.
+<!-- End Debugging [debug] -->
 
-#### Example
+<!-- Start Requirements [requirements] -->
+## Requirements
 
-```ruby
-require 'kombo'
-
-Models = ::Kombo::Models
-s = ::Kombo::Kombo.new(
-      server: "eu",
-      security: Models::Shared::Security.new(
-        api_key: '<YOUR_BEARER_TOKEN_HERE>',
-      ),
-    )
-
-res = s.general.check_api_key()
-
-unless res.get_check_api_key_positive_response.nil?
-  # handle response
-end
-
-```
-
-### Override Server URL Per-Client
-
-The default server can also be overridden globally by passing a URL to the `server_url (String)` optional parameter when initializing the SDK client instance. For example:
-```ruby
-require 'kombo'
-
-Models = ::Kombo::Models
-s = ::Kombo::Kombo.new(
-      server_url: 'https://api.kombo.dev/v1',
-      security: Models::Shared::Security.new(
-        api_key: '<YOUR_BEARER_TOKEN_HERE>',
-      ),
-    )
-
-res = s.general.check_api_key()
-
-unless res.get_check_api_key_positive_response.nil?
-  # handle response
-end
-
-```
-<!-- End Server Selection [server] -->
+This SDK supports Ruby 3.0 and above.
+<!-- End Requirements [requirements] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 
 # Development
 
-## Maturity
-
-This SDK is in beta, and there may be breaking changes between versions without a major version update. Therefore, we recommend pinning usage
-to a specific package version. This way, you can install the same version each time without breaking changes unless you are intentionally
-looking for the latest version.
-
 ## Contributions
 
-While we value open-source contributions to this SDK, this library is generated programmatically. Any manual changes added to internal files will be overwritten on the next generation. 
-We look forward to hearing your feedback. Feel free to open a PR or an issue with a proof of concept and we'll do our best to include it in a future release. 
+While we value open-source contributions to this SDK, this library is generated programmatically. Any manual changes added to internal files will be overwritten on the next generation.
+We look forward to hearing your feedback. Feel free to open a PR or an issue with a proof of concept and we'll do our best to include it in a future release.
 
-### SDK Created by [Speakeasy](https://www.speakeasy.com/?utm_source=openapi&utm_campaign=ruby)
+### SDK Created by [Speakeasy](https://www.speakeasy.com/?utm_source=kombo&utm_campaign=ruby)
+
+<!-- No Summary [summary] -->
+<!-- No SDK Example Usage [usage] -->
+<!-- No Authentication [security] -->
+<!-- No Global Parameters [global-parameters] -->
+<!-- No Server Selection [server] -->
