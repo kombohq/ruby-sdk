@@ -14,7 +14,6 @@ module TestSupport
       @captured_requests = []
       @api_key = api_key
       @integration_id = integration_id
-      @stub_counter = 0
       @stubs = []
 
       security = Kombo::Models::Shared::Security.new(api_key: api_key)
@@ -118,7 +117,6 @@ module TestSupport
 
     def clear
       @captured_requests.clear
-      @stub_counter = 0
       @stubs.clear
       WebMock.reset!
       # Re-register the callback after reset
