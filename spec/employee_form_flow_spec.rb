@@ -3,20 +3,8 @@
 require 'spec_helper'
 require 'support/test_context'
 
-RSpec.describe 'Employee Form Flow' do
+TestSupport.describe_sdk_suite 'Employee Form Flow' do
   include TestSupport
-
-  before(:all) do
-    WebMock.disable_net_connect!(allow_localhost: true)
-  end
-
-  after(:each) do
-    WebMock.reset!
-  end
-
-  after(:all) do
-    WebMock.allow_net_connect!
-  end
 
   it 'should get employee form and return form response' do
     ctx = TestSupport::TestContext.new

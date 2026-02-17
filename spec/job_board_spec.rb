@@ -3,20 +3,8 @@
 require 'spec_helper'
 require 'support/test_context'
 
-RSpec.describe 'Kombo ATS Jobs API' do
+TestSupport.describe_sdk_suite 'Kombo ATS Jobs API' do
   include TestSupport
-
-  before(:all) do
-    WebMock.disable_net_connect!(allow_localhost: true)
-  end
-
-  after(:each) do
-    WebMock.reset!
-  end
-
-  after(:all) do
-    WebMock.allow_net_connect!
-  end
 
   it 'should make correct HTTP request for getJobs' do
     ctx = TestSupport::TestContext.new

@@ -3,20 +3,8 @@
 require 'spec_helper'
 require 'support/test_context'
 
-RSpec.describe 'Basic SDK Behavior' do
+TestSupport.describe_sdk_suite 'Basic SDK Behavior' do
   include TestSupport
-
-  before(:all) do
-    WebMock.disable_net_connect!(allow_localhost: true)
-  end
-
-  after(:each) do
-    WebMock.reset!
-  end
-
-  after(:all) do
-    WebMock.allow_net_connect!
-  end
 
   it 'should include API key in Authorization header' do
     ctx = TestSupport::TestContext.new(api_key: 'my-custom-api-key')

@@ -3,20 +3,8 @@
 require 'spec_helper'
 require 'support/test_context'
 
-RSpec.describe 'Error Handling' do
+TestSupport.describe_sdk_suite 'Error Handling' do
   include TestSupport
-
-  before(:all) do
-    WebMock.disable_net_connect!(allow_localhost: true)
-  end
-
-  after(:each) do
-    WebMock.reset!
-  end
-
-  after(:all) do
-    WebMock.allow_net_connect!
-  end
 
   describe 'ATS endpoints' do
     it 'returns KomboAtsError for platform rate limit errors' do
