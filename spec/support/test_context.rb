@@ -68,7 +68,7 @@ module TestSupport
       WebMock.after_request(&@callback)
     end
 
-    def mock_endpoint(method:, path:, response:, delay_response_ms: nil)
+    def mock_endpoint(method:, path:, response:)
       status_code = response[:status_code] || 200
       body = response[:body]
       headers = response[:headers] || {}
