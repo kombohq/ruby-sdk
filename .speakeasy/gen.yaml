@@ -23,13 +23,14 @@ generation:
   schemas:
     allOfMergeStrategy: shallowMerge
   requestBodyFieldName: body
+  versioningStrategy: automatic
   persistentEdits: {}
   tests:
     generateTests: false
     generateNewTests: true
     skipResponseBodyAssertions: false
 ruby:
-  version: 1.0.2
+  version: 1.1.0
   additionalDependencies:
     development: {}
     runtime: {}
@@ -40,6 +41,8 @@ ruby:
   defaultErrorName: APIError
   description: The official Ruby SDK for the Kombo Unified API
   flattenGlobalSecurity: false
+  forwardCompatibleEnumsByDefault: false
+  forwardCompatibleUnionsByDefault: "false"
   imports:
     option: openapi
     paths:
@@ -56,3 +59,4 @@ ruby:
   outputModelSuffix: output
   packageName: kombo
   typingStrategy: sorbet
+  unionStrategy: left-to-right

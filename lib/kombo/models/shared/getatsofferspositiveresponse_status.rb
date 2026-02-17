@@ -20,8 +20,6 @@ module Kombo
       # - `ABANDONED`: The offer has expired or is no longer valid and should not be considered.
       # 
       class GetAtsOffersPositiveResponseStatus < T::Enum
-
-
         enums do
           ACCEPTED = new('ACCEPTED')
           DECLINED = new('DECLINED')

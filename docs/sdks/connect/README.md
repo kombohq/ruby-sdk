@@ -29,9 +29,59 @@ Generate a unique link that allows your user to enter the embedded Kombo Connect
 }
 ```
 
-### Example Usage
+### Example Usage: Error Response
 
-<!-- UsageSnippet language="ruby" operationID="PostConnectCreateLink" method="post" path="/connect/create-link" -->
+<!-- UsageSnippet language="ruby" operationID="PostConnectCreateLink" method="post" path="/connect/create-link" example="Error Response" -->
+```ruby
+require 'kombo'
+
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
+    )
+
+req = Models::Shared::PostConnectCreateLinkRequestBody.new(
+  end_user_email: 'Abraham55@gmail.com',
+  end_user_organization_name: '<value>',
+)
+
+res = s.connect.create_connection_link(request: req)
+
+unless res.post_connect_create_link_positive_response.nil?
+  # handle response
+end
+
+```
+### Example Usage: Minimal Error Response
+
+<!-- UsageSnippet language="ruby" operationID="PostConnectCreateLink" method="post" path="/connect/create-link" example="Minimal Error Response" -->
+```ruby
+require 'kombo'
+
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
+    )
+
+req = Models::Shared::PostConnectCreateLinkRequestBody.new(
+  end_user_email: 'Abraham55@gmail.com',
+  end_user_organization_name: '<value>',
+)
+
+res = s.connect.create_connection_link(request: req)
+
+unless res.post_connect_create_link_positive_response.nil?
+  # handle response
+end
+
+```
+### Example Usage: example1
+
+<!-- UsageSnippet language="ruby" operationID="PostConnectCreateLink" method="post" path="/connect/create-link" example="example1" -->
 ```ruby
 require 'kombo'
 
@@ -90,7 +140,7 @@ into your system.
 
 ### Example Usage
 
-<!-- UsageSnippet language="ruby" operationID="GetConnectIntegrationByTokenToken" method="get" path="/connect/integration-by-token/{token}" -->
+<!-- UsageSnippet language="ruby" operationID="GetConnectIntegrationByTokenToken" method="get" path="/connect/integration-by-token/{token}" example="example1" -->
 ```ruby
 require 'kombo'
 

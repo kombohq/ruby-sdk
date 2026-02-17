@@ -22,6 +22,8 @@ class Kombo::Models::Shared::GetAtsInterviewsPositiveResponseResult
   def starting_at=(str_); end
   def ending_at(); end
   def ending_at=(str_); end
+  def video_conferencing_url(); end
+  def video_conferencing_url=(str_); end
   def application_id(); end
   def application_id=(str_); end
   def stage_id(); end

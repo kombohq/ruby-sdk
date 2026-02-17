@@ -11,8 +11,6 @@ module Kombo
       # 
       # This defaults to `EMBEDDED`, which is our recommended method of implementing the connection flow for a seamless user experience.
       class PostConnectCreateLinkRequestBodyLinkType < T::Enum
-
-
         enums do
           EMBEDDED = new('EMBEDDED')
           MAGIC_LINK = new('MAGIC_LINK')

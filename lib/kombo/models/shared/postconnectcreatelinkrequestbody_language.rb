@@ -9,8 +9,6 @@ module Kombo
     module Shared
       # PostConnectCreateLinkRequestBodyLanguage - Language of the connection flow UI.
       class PostConnectCreateLinkRequestBodyLanguage < T::Enum
-
-
         enums do
           EN = new('en')
           DE = new('de')

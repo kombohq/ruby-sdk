@@ -9,8 +9,6 @@ module Kombo
     module Shared
       # DataChangedWebhookPayloadIntegrationCategory - The category of the integration (HRIS, ATS, ASSESSMENT, or LMS).
       class DataChangedWebhookPayloadIntegrationCategory < T::Enum
-
-
         enums do
           HRIS = new('HRIS')
           ATS = new('ATS')

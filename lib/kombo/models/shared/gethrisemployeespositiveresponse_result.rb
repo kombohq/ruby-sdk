@@ -81,11 +81,11 @@ module Kombo
         # The employee’s personal email address. If the email address is invalid, we will set this to `null`.
         field :personal_email, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('personal_email') } }
         # The employee’s gender.
-        field :gender, Crystalline::Nilable.new(Models::Shared::GetHrisEmployeesPositiveResponseGender), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('gender'), 'decoder': Utils.enum_from_string(Models::Shared::GetHrisEmployeesPositiveResponseGender, true) } }
+        field :gender, Crystalline::Nilable.new(Models::Shared::GetHrisEmployeesPositiveResponseGender), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('gender'), 'decoder': Utils.open_enum_from_string(Models::Shared::GetHrisEmployeesPositiveResponseGender, true) } }
         # The employee’s ethnicity. In rare cases where we can’t find a clear mapping, the original string is passed through.
-        field :ethnicity, Crystalline::Nilable.new(Models::Shared::Ethnicity), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('ethnicity'), 'decoder': Utils.enum_from_string(Models::Shared::Ethnicity, true) } }
+        field :ethnicity, Crystalline::Nilable.new(Models::Shared::Ethnicity), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('ethnicity'), 'decoder': Utils.open_enum_from_string(Models::Shared::Ethnicity, true) } }
         # The employee’s current marital status. In rare cases where we can’t find a clear mapping, the original string is passed through.
-        field :marital_status, Crystalline::Nilable.new(Models::Shared::MaritalStatus), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('marital_status'), 'decoder': Utils.enum_from_string(Models::Shared::MaritalStatus, true) } }
+        field :marital_status, Crystalline::Nilable.new(Models::Shared::MaritalStatus), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('marital_status'), 'decoder': Utils.open_enum_from_string(Models::Shared::MaritalStatus, true) } }
         # The employee’s current employment status:
         # 
         # - `ACTIVE`: the employee is **actively employed**
@@ -94,7 +94,7 @@ module Kombo
         # - `LEAVE`: the employee is still employed but **currently on leave** (note that not all HR systems support this status — use our absences API for detailed information)
         # 
         #  In rare cases where we can’t find a clear mapping, the original string is passed through.
-        field :employment_status, Crystalline::Nilable.new(Models::Shared::EmploymentStatus), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('employment_status'), 'decoder': Utils.enum_from_string(Models::Shared::EmploymentStatus, true) } }
+        field :employment_status, Crystalline::Nilable.new(Models::Shared::EmploymentStatus), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('employment_status'), 'decoder': Utils.open_enum_from_string(Models::Shared::EmploymentStatus, true) } }
         # The employee’s current employment type:
         # 
         # - `FULL_TIME`: the employee is actively employed
@@ -107,7 +107,7 @@ module Kombo
         # - `TRAINING`: the employee is working in a training program
         # 
         #  In rare cases where we can’t find a clear mapping, the original string is passed through.
-        field :employment_type, Crystalline::Nilable.new(Models::Shared::GetHrisEmployeesPositiveResponseEmploymentType), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('employment_type'), 'decoder': Utils.enum_from_string(Models::Shared::GetHrisEmployeesPositiveResponseEmploymentType, true) } }
+        field :employment_type, Crystalline::Nilable.new(Models::Shared::GetHrisEmployeesPositiveResponseEmploymentType), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('employment_type'), 'decoder': Utils.open_enum_from_string(Models::Shared::GetHrisEmployeesPositiveResponseEmploymentType, true) } }
         # The employee’s home address.
         field :home_address, Crystalline::Nilable.new(Models::Shared::HomeAddress), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('home_address') } }
         # The employee’s bank accounts.

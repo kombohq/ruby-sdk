@@ -9,8 +9,6 @@ module Kombo
     module Shared
       # GetHrisTimeOffBalancesPositiveResponseUnit - The time-unit of the absence.
       class GetHrisTimeOffBalancesPositiveResponseUnit < T::Enum
-
-
         enums do
           HOURS = new('HOURS')
           DAYS = new('DAYS')

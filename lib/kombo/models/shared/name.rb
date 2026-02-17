@@ -9,8 +9,6 @@ module Kombo
     module Shared
       # Name - The name of the Kombo model or connection that changed.
       class Name < T::Enum
-
-
         enums do
           HRIS_LEGAL_ENTITIES = new('hris_legal_entities')
           HRIS_LOCATIONS = new('hris_locations')
@@ -37,10 +35,10 @@ module Kombo
           ATS_REJECTION_REASONS = new('ats_rejection_reasons')
           LMS_USERS = new('lms_users')
           LMS_COURSE_PROVIDERS = new('lms_course_providers')
-          LMS_COURSES = new('lms_courses')
-          LMS_COURSE_PROGRESSIONS = new('lms_course_progressions')
-          LMS_COURSE_REVISIONS = new('lms_course_revisions')
           LMS_SKILLS = new('lms_skills')
+          LMS_COURSES = new('lms_courses')
+          LMS_COURSE_REVISIONS = new('lms_course_revisions')
+          LMS_COURSE_PROGRESSIONS = new('lms_course_progressions')
           HRIS_JOIN_EMPLOYEES_TEAMS = new('hris_join_employees_teams')
           ATS_JOIN_CANDIDATES_TAGS = new('ats_join_candidates_tags')
           ATS_JOIN_JOBS_APPLICATION_STAGES = new('ats_join_jobs_application_stages')

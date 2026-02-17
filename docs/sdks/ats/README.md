@@ -43,7 +43,7 @@ Top level filters use AND, while individual filters use OR if they accept multip
 
 ### Example Usage
 
-<!-- UsageSnippet language="ruby" operationID="GetAtsApplications" method="get" path="/ats/applications" -->
+<!-- UsageSnippet language="ruby" operationID="GetAtsApplications" method="get" path="/ats/applications" example="example1" -->
 ```ruby
 require 'kombo'
 
@@ -108,9 +108,55 @@ Moves an application to a specified stage. Use job-specific stages from GET /job
 }
 ```
 
-### Example Usage
+### Example Usage: Error Response
 
-<!-- UsageSnippet language="ruby" operationID="PutAtsApplicationsApplicationIdStage" method="put" path="/ats/applications/{application_id}/stage" -->
+<!-- UsageSnippet language="ruby" operationID="PutAtsApplicationsApplicationIdStage" method="put" path="/ats/applications/{application_id}/stage" example="Error Response" -->
+```ruby
+require 'kombo'
+
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
+      integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
+    )
+
+res = s.ats.move_application_to_stage(application_id: '<id>', body: Models::Shared::PutAtsApplicationsApplicationIdStageRequestBody.new(
+  stage_id: '<id>',
+))
+
+unless res.put_ats_applications_application_id_stage_positive_response.nil?
+  # handle response
+end
+
+```
+### Example Usage: Minimal Error Response
+
+<!-- UsageSnippet language="ruby" operationID="PutAtsApplicationsApplicationIdStage" method="put" path="/ats/applications/{application_id}/stage" example="Minimal Error Response" -->
+```ruby
+require 'kombo'
+
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
+      integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
+    )
+
+res = s.ats.move_application_to_stage(application_id: '<id>', body: Models::Shared::PutAtsApplicationsApplicationIdStageRequestBody.new(
+  stage_id: '<id>',
+))
+
+unless res.put_ats_applications_application_id_stage_positive_response.nil?
+  # handle response
+end
+
+```
+### Example Usage: example1
+
+<!-- UsageSnippet language="ruby" operationID="PutAtsApplicationsApplicationIdStage" method="put" path="/ats/applications/{application_id}/stage" example="example1" -->
 ```ruby
 require 'kombo'
 
@@ -185,9 +231,57 @@ This can, for example, be used to link a candidate back to a test result/assessm
 }
 ```
 
-### Example Usage
+### Example Usage: Error Response
 
-<!-- UsageSnippet language="ruby" operationID="PostAtsApplicationsApplicationIdResultLinks" method="post" path="/ats/applications/{application_id}/result-links" -->
+<!-- UsageSnippet language="ruby" operationID="PostAtsApplicationsApplicationIdResultLinks" method="post" path="/ats/applications/{application_id}/result-links" example="Error Response" -->
+```ruby
+require 'kombo'
+
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
+      integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
+    )
+
+res = s.ats.add_application_result_link(application_id: '<id>', body: Models::Shared::PostAtsApplicationsApplicationIdResultLinksRequestBody.new(
+  label: '<value>',
+  url: 'https://dapper-grandson.com/',
+))
+
+unless res.post_ats_applications_application_id_result_links_positive_response.nil?
+  # handle response
+end
+
+```
+### Example Usage: Minimal Error Response
+
+<!-- UsageSnippet language="ruby" operationID="PostAtsApplicationsApplicationIdResultLinks" method="post" path="/ats/applications/{application_id}/result-links" example="Minimal Error Response" -->
+```ruby
+require 'kombo'
+
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
+      integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
+    )
+
+res = s.ats.add_application_result_link(application_id: '<id>', body: Models::Shared::PostAtsApplicationsApplicationIdResultLinksRequestBody.new(
+  label: '<value>',
+  url: 'https://dapper-grandson.com/',
+))
+
+unless res.post_ats_applications_application_id_result_links_positive_response.nil?
+  # handle response
+end
+
+```
+### Example Usage: example1
+
+<!-- UsageSnippet language="ruby" operationID="PostAtsApplicationsApplicationIdResultLinks" method="post" path="/ats/applications/{application_id}/result-links" example="example1" -->
 ```ruby
 require 'kombo'
 
@@ -262,9 +356,57 @@ Add extra information to an application. This can be any extra text information 
 }
 ```
 
-### Example Usage
+### Example Usage: Error Response
 
-<!-- UsageSnippet language="ruby" operationID="PostAtsApplicationsApplicationIdNotes" method="post" path="/ats/applications/{application_id}/notes" -->
+<!-- UsageSnippet language="ruby" operationID="PostAtsApplicationsApplicationIdNotes" method="post" path="/ats/applications/{application_id}/notes" example="Error Response" -->
+```ruby
+require 'kombo'
+
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
+      integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
+    )
+
+res = s.ats.add_application_note(application_id: '<id>', body: Models::Shared::PostAtsApplicationsApplicationIdNotesRequestBody.new(
+  content: '<value>',
+  content_type: Models::Shared::ContentType::PLAIN_TEXT,
+))
+
+unless res.post_ats_applications_application_id_notes_positive_response.nil?
+  # handle response
+end
+
+```
+### Example Usage: Minimal Error Response
+
+<!-- UsageSnippet language="ruby" operationID="PostAtsApplicationsApplicationIdNotes" method="post" path="/ats/applications/{application_id}/notes" example="Minimal Error Response" -->
+```ruby
+require 'kombo'
+
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
+      integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
+    )
+
+res = s.ats.add_application_note(application_id: '<id>', body: Models::Shared::PostAtsApplicationsApplicationIdNotesRequestBody.new(
+  content: '<value>',
+  content_type: Models::Shared::ContentType::PLAIN_TEXT,
+))
+
+unless res.post_ats_applications_application_id_notes_positive_response.nil?
+  # handle response
+end
+
+```
+### Example Usage: example1
+
+<!-- UsageSnippet language="ruby" operationID="PostAtsApplicationsApplicationIdNotes" method="post" path="/ats/applications/{application_id}/notes" example="example1" -->
 ```ruby
 require 'kombo'
 
@@ -318,7 +460,7 @@ Get attachments from an application. If the ATS stores the attachments on the ca
 
 ### Example Usage
 
-<!-- UsageSnippet language="ruby" operationID="GetAtsApplicationsApplicationIdAttachments" method="get" path="/ats/applications/{application_id}/attachments" -->
+<!-- UsageSnippet language="ruby" operationID="GetAtsApplicationsApplicationIdAttachments" method="get" path="/ats/applications/{application_id}/attachments" example="example1" -->
 ```ruby
 require 'kombo'
 
@@ -383,9 +525,61 @@ Uploads an attachment file for the specified applicant.
 }
 ```
 
-### Example Usage
+### Example Usage: Error Response
 
-<!-- UsageSnippet language="ruby" operationID="PostAtsApplicationsApplicationIdAttachments" method="post" path="/ats/applications/{application_id}/attachments" -->
+<!-- UsageSnippet language="ruby" operationID="PostAtsApplicationsApplicationIdAttachments" method="post" path="/ats/applications/{application_id}/attachments" example="Error Response" -->
+```ruby
+require 'kombo'
+
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
+      integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
+    )
+
+res = s.ats.add_application_attachment(application_id: '<id>', body: Models::Shared::PostAtsApplicationsApplicationIdAttachmentsRequestBody.new(
+  attachment: Models::Shared::PostAtsApplicationsApplicationIdAttachmentsRequestBodyAttachment.new(
+    name: '<value>',
+    type: Models::Shared::PostAtsApplicationsApplicationIdAttachmentsRequestBodyType::CV,
+  ),
+))
+
+unless res.post_ats_applications_application_id_attachments_positive_response.nil?
+  # handle response
+end
+
+```
+### Example Usage: Minimal Error Response
+
+<!-- UsageSnippet language="ruby" operationID="PostAtsApplicationsApplicationIdAttachments" method="post" path="/ats/applications/{application_id}/attachments" example="Minimal Error Response" -->
+```ruby
+require 'kombo'
+
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
+      integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
+    )
+
+res = s.ats.add_application_attachment(application_id: '<id>', body: Models::Shared::PostAtsApplicationsApplicationIdAttachmentsRequestBody.new(
+  attachment: Models::Shared::PostAtsApplicationsApplicationIdAttachmentsRequestBodyAttachment.new(
+    name: '<value>',
+    type: Models::Shared::PostAtsApplicationsApplicationIdAttachmentsRequestBodyType::CV,
+  ),
+))
+
+unless res.post_ats_applications_application_id_attachments_positive_response.nil?
+  # handle response
+end
+
+```
+### Example Usage: example1
+
+<!-- UsageSnippet language="ruby" operationID="PostAtsApplicationsApplicationIdAttachments" method="post" path="/ats/applications/{application_id}/attachments" example="example1" -->
 ```ruby
 require 'kombo'
 
@@ -451,9 +645,55 @@ Rejects an application with a provided reason. Optionally, you can provide a fre
 }
 ```
 
-### Example Usage
+### Example Usage: Error Response
 
-<!-- UsageSnippet language="ruby" operationID="PostAtsApplicationsApplicationIdReject" method="post" path="/ats/applications/{application_id}/reject" -->
+<!-- UsageSnippet language="ruby" operationID="PostAtsApplicationsApplicationIdReject" method="post" path="/ats/applications/{application_id}/reject" example="Error Response" -->
+```ruby
+require 'kombo'
+
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
+      integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
+    )
+
+res = s.ats.reject_application(application_id: '<id>', body: Models::Shared::PostAtsApplicationsApplicationIdRejectRequestBody.new(
+  rejection_reason_id: '<id>',
+))
+
+unless res.post_ats_applications_application_id_reject_positive_response.nil?
+  # handle response
+end
+
+```
+### Example Usage: Minimal Error Response
+
+<!-- UsageSnippet language="ruby" operationID="PostAtsApplicationsApplicationIdReject" method="post" path="/ats/applications/{application_id}/reject" example="Minimal Error Response" -->
+```ruby
+require 'kombo'
+
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
+      integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
+    )
+
+res = s.ats.reject_application(application_id: '<id>', body: Models::Shared::PostAtsApplicationsApplicationIdRejectRequestBody.new(
+  rejection_reason_id: '<id>',
+))
+
+unless res.post_ats_applications_application_id_reject_positive_response.nil?
+  # handle response
+end
+
+```
+### Example Usage: example1
+
+<!-- UsageSnippet language="ruby" operationID="PostAtsApplicationsApplicationIdReject" method="post" path="/ats/applications/{application_id}/reject" example="example1" -->
 ```ruby
 require 'kombo'
 
@@ -503,7 +743,7 @@ Top level filters use AND, while individual filters use OR if they accept multip
 
 ### Example Usage
 
-<!-- UsageSnippet language="ruby" operationID="GetAtsCandidates" method="get" path="/ats/candidates" -->
+<!-- UsageSnippet language="ruby" operationID="GetAtsCandidates" method="get" path="/ats/candidates" example="example1" -->
 ```ruby
 require 'kombo'
 
@@ -628,9 +868,81 @@ Create a new candidate and application for the specified job.
 }
 ```
 
-### Example Usage
+### Example Usage: Error Response
 
-<!-- UsageSnippet language="ruby" operationID="PostAtsCandidates" method="post" path="/ats/candidates" -->
+<!-- UsageSnippet language="ruby" operationID="PostAtsCandidates" method="post" path="/ats/candidates" example="Error Response" -->
+```ruby
+require 'kombo'
+
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
+      integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
+    )
+
+res = s.ats.create_candidate(body: Models::Shared::PostAtsCandidatesRequestBody.new(
+  candidate: Models::Shared::PostAtsCandidatesRequestBodyCandidate.new(
+    first_name: 'Crystal',
+    last_name: 'Prohaska',
+    email_address: 'Adelia.Littel99@yahoo.com',
+  ),
+  application: Models::Shared::PostAtsCandidatesRequestBodyApplication.new(
+    job_id: '<id>',
+  ),
+  screening_question_answers: [
+    Models::Shared::PostAtsCandidatesRequestBodyScreeningQuestionAnswer.new(
+      question_id: 'D8yPrjXXvA2XeBksTmrVvKSn',
+      answer: 'Yes',
+    ),
+  ],
+))
+
+unless res.post_ats_candidates_positive_response.nil?
+  # handle response
+end
+
+```
+### Example Usage: Minimal Error Response
+
+<!-- UsageSnippet language="ruby" operationID="PostAtsCandidates" method="post" path="/ats/candidates" example="Minimal Error Response" -->
+```ruby
+require 'kombo'
+
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
+      integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
+    )
+
+res = s.ats.create_candidate(body: Models::Shared::PostAtsCandidatesRequestBody.new(
+  candidate: Models::Shared::PostAtsCandidatesRequestBodyCandidate.new(
+    first_name: 'Crystal',
+    last_name: 'Prohaska',
+    email_address: 'Adelia.Littel99@yahoo.com',
+  ),
+  application: Models::Shared::PostAtsCandidatesRequestBodyApplication.new(
+    job_id: '<id>',
+  ),
+  screening_question_answers: [
+    Models::Shared::PostAtsCandidatesRequestBodyScreeningQuestionAnswer.new(
+      question_id: 'D8yPrjXXvA2XeBksTmrVvKSn',
+      answer: 'Yes',
+    ),
+  ],
+))
+
+unless res.post_ats_candidates_positive_response.nil?
+  # handle response
+end
+
+```
+### Example Usage: example1
+
+<!-- UsageSnippet language="ruby" operationID="PostAtsCandidates" method="post" path="/ats/candidates" example="example1" -->
 ```ruby
 require 'kombo'
 
@@ -732,7 +1044,7 @@ Get attachments from a candidate, including all attachments of all of their appl
 
 ### Example Usage
 
-<!-- UsageSnippet language="ruby" operationID="GetAtsCandidatesCandidateIdAttachments" method="get" path="/ats/candidates/{candidate_id}/attachments" -->
+<!-- UsageSnippet language="ruby" operationID="GetAtsCandidatesCandidateIdAttachments" method="get" path="/ats/candidates/{candidate_id}/attachments" example="example1" -->
 ```ruby
 require 'kombo'
 
@@ -798,9 +1110,61 @@ Uploads an attachment file for the specified candidate.
 }
 ```
 
-### Example Usage
+### Example Usage: Error Response
 
-<!-- UsageSnippet language="ruby" operationID="PostAtsCandidatesCandidateIdAttachments" method="post" path="/ats/candidates/{candidate_id}/attachments" -->
+<!-- UsageSnippet language="ruby" operationID="PostAtsCandidatesCandidateIdAttachments" method="post" path="/ats/candidates/{candidate_id}/attachments" example="Error Response" -->
+```ruby
+require 'kombo'
+
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
+      integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
+    )
+
+res = s.ats.add_candidate_attachment(candidate_id: '<id>', body: Models::Shared::PostAtsCandidatesCandidateIdAttachmentsRequestBody.new(
+  attachment: Models::Shared::PostAtsCandidatesCandidateIdAttachmentsRequestBodyAttachment.new(
+    name: '<value>',
+    type: Models::Shared::PostAtsCandidatesCandidateIdAttachmentsRequestBodyType::COVER_LETTER,
+  ),
+))
+
+unless res.post_ats_candidates_candidate_id_attachments_positive_response.nil?
+  # handle response
+end
+
+```
+### Example Usage: Minimal Error Response
+
+<!-- UsageSnippet language="ruby" operationID="PostAtsCandidatesCandidateIdAttachments" method="post" path="/ats/candidates/{candidate_id}/attachments" example="Minimal Error Response" -->
+```ruby
+require 'kombo'
+
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
+      integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
+    )
+
+res = s.ats.add_candidate_attachment(candidate_id: '<id>', body: Models::Shared::PostAtsCandidatesCandidateIdAttachmentsRequestBody.new(
+  attachment: Models::Shared::PostAtsCandidatesCandidateIdAttachmentsRequestBodyAttachment.new(
+    name: '<value>',
+    type: Models::Shared::PostAtsCandidatesCandidateIdAttachmentsRequestBodyType::COVER_LETTER,
+  ),
+))
+
+unless res.post_ats_candidates_candidate_id_attachments_positive_response.nil?
+  # handle response
+end
+
+```
+### Example Usage: example1
+
+<!-- UsageSnippet language="ruby" operationID="PostAtsCandidatesCandidateIdAttachments" method="post" path="/ats/candidates/{candidate_id}/attachments" example="example1" -->
 ```ruby
 require 'kombo'
 
@@ -885,9 +1249,57 @@ Add a result link to a candidate.
 }
 ```
 
-### Example Usage
+### Example Usage: Error Response
 
-<!-- UsageSnippet language="ruby" operationID="PostAtsCandidatesCandidateIdResultLinks" method="post" path="/ats/candidates/{candidate_id}/result-links" -->
+<!-- UsageSnippet language="ruby" operationID="PostAtsCandidatesCandidateIdResultLinks" method="post" path="/ats/candidates/{candidate_id}/result-links" example="Error Response" -->
+```ruby
+require 'kombo'
+
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
+      integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
+    )
+
+res = s.ats.add_candidate_result_link(candidate_id: '<id>', body: Models::Shared::PostAtsCandidatesCandidateIdResultLinksRequestBody.new(
+  label: '<value>',
+  url: 'https://thrifty-cellar.net',
+))
+
+unless res.post_ats_candidates_candidate_id_result_links_positive_response.nil?
+  # handle response
+end
+
+```
+### Example Usage: Minimal Error Response
+
+<!-- UsageSnippet language="ruby" operationID="PostAtsCandidatesCandidateIdResultLinks" method="post" path="/ats/candidates/{candidate_id}/result-links" example="Minimal Error Response" -->
+```ruby
+require 'kombo'
+
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
+      integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
+    )
+
+res = s.ats.add_candidate_result_link(candidate_id: '<id>', body: Models::Shared::PostAtsCandidatesCandidateIdResultLinksRequestBody.new(
+  label: '<value>',
+  url: 'https://thrifty-cellar.net',
+))
+
+unless res.post_ats_candidates_candidate_id_result_links_positive_response.nil?
+  # handle response
+end
+
+```
+### Example Usage: example1
+
+<!-- UsageSnippet language="ruby" operationID="PostAtsCandidatesCandidateIdResultLinks" method="post" path="/ats/candidates/{candidate_id}/result-links" example="example1" -->
 ```ruby
 require 'kombo'
 
@@ -962,9 +1374,59 @@ Kombo takes care of creating the tag if required, finding out the right ID, and 
 }
 ```
 
-### Example Usage
+### Example Usage: Error Response
 
-<!-- UsageSnippet language="ruby" operationID="PostAtsCandidatesCandidateIdTags" method="post" path="/ats/candidates/{candidate_id}/tags" -->
+<!-- UsageSnippet language="ruby" operationID="PostAtsCandidatesCandidateIdTags" method="post" path="/ats/candidates/{candidate_id}/tags" example="Error Response" -->
+```ruby
+require 'kombo'
+
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
+      integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
+    )
+
+res = s.ats.add_candidate_tag(candidate_id: '<id>', body: Models::Shared::PostAtsCandidatesCandidateIdTagsRequestBody.new(
+  tag: Models::Shared::PostAtsCandidatesCandidateIdTagsRequestBodyTag.new(
+    name: '<value>',
+  ),
+))
+
+unless res.post_ats_candidates_candidate_id_tags_positive_response.nil?
+  # handle response
+end
+
+```
+### Example Usage: Minimal Error Response
+
+<!-- UsageSnippet language="ruby" operationID="PostAtsCandidatesCandidateIdTags" method="post" path="/ats/candidates/{candidate_id}/tags" example="Minimal Error Response" -->
+```ruby
+require 'kombo'
+
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
+      integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
+    )
+
+res = s.ats.add_candidate_tag(candidate_id: '<id>', body: Models::Shared::PostAtsCandidatesCandidateIdTagsRequestBody.new(
+  tag: Models::Shared::PostAtsCandidatesCandidateIdTagsRequestBodyTag.new(
+    name: '<value>',
+  ),
+))
+
+unless res.post_ats_candidates_candidate_id_tags_positive_response.nil?
+  # handle response
+end
+
+```
+### Example Usage: example1
+
+<!-- UsageSnippet language="ruby" operationID="PostAtsCandidatesCandidateIdTags" method="post" path="/ats/candidates/{candidate_id}/tags" example="example1" -->
 ```ruby
 require 'kombo'
 
@@ -1027,9 +1489,59 @@ This will also succeed if the tag does not exist on the candidate.
 }
 ```
 
-### Example Usage
+### Example Usage: Error Response
 
-<!-- UsageSnippet language="ruby" operationID="DeleteAtsCandidatesCandidateIdTags" method="delete" path="/ats/candidates/{candidate_id}/tags" -->
+<!-- UsageSnippet language="ruby" operationID="DeleteAtsCandidatesCandidateIdTags" method="delete" path="/ats/candidates/{candidate_id}/tags" example="Error Response" -->
+```ruby
+require 'kombo'
+
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
+      integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
+    )
+
+res = s.ats.remove_candidate_tag(candidate_id: '<id>', body: Models::Shared::DeleteAtsCandidatesCandidateIdTagsRequestBody.new(
+  tag: Models::Shared::DeleteAtsCandidatesCandidateIdTagsRequestBodyTag.new(
+    name: '<value>',
+  ),
+))
+
+unless res.delete_ats_candidates_candidate_id_tags_positive_response.nil?
+  # handle response
+end
+
+```
+### Example Usage: Minimal Error Response
+
+<!-- UsageSnippet language="ruby" operationID="DeleteAtsCandidatesCandidateIdTags" method="delete" path="/ats/candidates/{candidate_id}/tags" example="Minimal Error Response" -->
+```ruby
+require 'kombo'
+
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
+      integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
+    )
+
+res = s.ats.remove_candidate_tag(candidate_id: '<id>', body: Models::Shared::DeleteAtsCandidatesCandidateIdTagsRequestBody.new(
+  tag: Models::Shared::DeleteAtsCandidatesCandidateIdTagsRequestBodyTag.new(
+    name: '<value>',
+  ),
+))
+
+unless res.delete_ats_candidates_candidate_id_tags_positive_response.nil?
+  # handle response
+end
+
+```
+### Example Usage: example1
+
+<!-- UsageSnippet language="ruby" operationID="DeleteAtsCandidatesCandidateIdTags" method="delete" path="/ats/candidates/{candidate_id}/tags" example="example1" -->
 ```ruby
 require 'kombo'
 
@@ -1080,7 +1592,7 @@ Top level filters use AND, while individual filters use OR if they accept multip
 
 ### Example Usage
 
-<!-- UsageSnippet language="ruby" operationID="GetAtsTags" method="get" path="/ats/tags" -->
+<!-- UsageSnippet language="ruby" operationID="GetAtsTags" method="get" path="/ats/tags" example="example1" -->
 ```ruby
 require 'kombo'
 
@@ -1142,7 +1654,7 @@ Top level filters use AND, while individual filters use OR if they accept multip
 
 ### Example Usage
 
-<!-- UsageSnippet language="ruby" operationID="GetAtsApplicationStages" method="get" path="/ats/application-stages" -->
+<!-- UsageSnippet language="ruby" operationID="GetAtsApplicationStages" method="get" path="/ats/application-stages" example="example1" -->
 ```ruby
 require 'kombo'
 
@@ -1202,7 +1714,7 @@ Top level filters use AND, while individual filters use OR if they accept multip
 
 ### Example Usage
 
-<!-- UsageSnippet language="ruby" operationID="GetAtsJobs" method="get" path="/ats/jobs" -->
+<!-- UsageSnippet language="ruby" operationID="GetAtsJobs" method="get" path="/ats/jobs" example="example1" -->
 ```ruby
 require 'kombo'
 
@@ -1320,9 +1832,75 @@ Visit our in-depth guides to learn more about:
 }
 ```
 
-### Example Usage
+### Example Usage: Error Response
 
-<!-- UsageSnippet language="ruby" operationID="PostAtsJobsJobIdApplications" method="post" path="/ats/jobs/{job_id}/applications" -->
+<!-- UsageSnippet language="ruby" operationID="PostAtsJobsJobIdApplications" method="post" path="/ats/jobs/{job_id}/applications" example="Error Response" -->
+```ruby
+require 'kombo'
+
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
+      integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
+    )
+
+res = s.ats.create_application(job_id: '<id>', body: Models::Shared::PostAtsJobsJobIdApplicationsRequestBody.new(
+  candidate: Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyCandidate.new(
+    first_name: 'Jayda',
+    last_name: 'Rogahn',
+    email_address: 'Rowena74@hotmail.com',
+  ),
+  screening_question_answers: [
+    Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyScreeningQuestionAnswer.new(
+      question_id: 'D8yPrjXXvA2XeBksTmrVvKSn',
+      answer: 'Yes',
+    ),
+  ],
+))
+
+unless res.post_ats_jobs_job_id_applications_positive_response.nil?
+  # handle response
+end
+
+```
+### Example Usage: Minimal Error Response
+
+<!-- UsageSnippet language="ruby" operationID="PostAtsJobsJobIdApplications" method="post" path="/ats/jobs/{job_id}/applications" example="Minimal Error Response" -->
+```ruby
+require 'kombo'
+
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
+      integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
+    )
+
+res = s.ats.create_application(job_id: '<id>', body: Models::Shared::PostAtsJobsJobIdApplicationsRequestBody.new(
+  candidate: Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyCandidate.new(
+    first_name: 'Jayda',
+    last_name: 'Rogahn',
+    email_address: 'Rowena74@hotmail.com',
+  ),
+  screening_question_answers: [
+    Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyScreeningQuestionAnswer.new(
+      question_id: 'D8yPrjXXvA2XeBksTmrVvKSn',
+      answer: 'Yes',
+    ),
+  ],
+))
+
+unless res.post_ats_jobs_job_id_applications_positive_response.nil?
+  # handle response
+end
+
+```
+### Example Usage: example1
+
+<!-- UsageSnippet language="ruby" operationID="PostAtsJobsJobIdApplications" method="post" path="/ats/jobs/{job_id}/applications" example="example1" -->
 ```ruby
 require 'kombo'
 
@@ -1413,7 +1991,7 @@ Top level filters use AND, while individual filters use OR if they accept multip
 
 ### Example Usage
 
-<!-- UsageSnippet language="ruby" operationID="GetAtsUsers" method="get" path="/ats/users" -->
+<!-- UsageSnippet language="ruby" operationID="GetAtsUsers" method="get" path="/ats/users" example="example1" -->
 ```ruby
 require 'kombo'
 
@@ -1466,7 +2044,7 @@ Top level filters use AND, while individual filters use OR if they accept multip
 
 ### Example Usage
 
-<!-- UsageSnippet language="ruby" operationID="GetAtsOffers" method="get" path="/ats/offers" -->
+<!-- UsageSnippet language="ruby" operationID="GetAtsOffers" method="get" path="/ats/offers" example="example1" -->
 ```ruby
 require 'kombo'
 
@@ -1520,7 +2098,7 @@ Top level filters use AND, while individual filters use OR if they accept multip
 
 ### Example Usage
 
-<!-- UsageSnippet language="ruby" operationID="GetAtsRejectionReasons" method="get" path="/ats/rejection-reasons" -->
+<!-- UsageSnippet language="ruby" operationID="GetAtsRejectionReasons" method="get" path="/ats/rejection-reasons" example="example1" -->
 ```ruby
 require 'kombo'
 
@@ -1572,7 +2150,7 @@ Top level filters use AND, while individual filters use OR if they accept multip
 
 ### Example Usage
 
-<!-- UsageSnippet language="ruby" operationID="GetAtsInterviews" method="get" path="/ats/interviews" -->
+<!-- UsageSnippet language="ruby" operationID="GetAtsInterviews" method="get" path="/ats/interviews" example="example1" -->
 ```ruby
 require 'kombo'
 
@@ -1639,9 +2217,55 @@ Once imported, Kombo will automatically fetch and update the application's compl
 }
 ```
 
-### Example Usage
+### Example Usage: Error Response
 
-<!-- UsageSnippet language="ruby" operationID="PostAtsImportTrackedApplication" method="post" path="/ats/import-tracked-application" -->
+<!-- UsageSnippet language="ruby" operationID="PostAtsImportTrackedApplication" method="post" path="/ats/import-tracked-application" example="Error Response" -->
+```ruby
+require 'kombo'
+
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
+      integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
+    )
+
+res = s.ats.import_tracked_application(body: Models::Shared::PostAtsImportTrackedApplicationRequestBody.new(
+  tracked_at: DateTime.iso8601('2025-07-27T05:49:24.648Z'),
+))
+
+unless res.post_ats_import_tracked_application_positive_response.nil?
+  # handle response
+end
+
+```
+### Example Usage: Minimal Error Response
+
+<!-- UsageSnippet language="ruby" operationID="PostAtsImportTrackedApplication" method="post" path="/ats/import-tracked-application" example="Minimal Error Response" -->
+```ruby
+require 'kombo'
+
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
+      integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
+    )
+
+res = s.ats.import_tracked_application(body: Models::Shared::PostAtsImportTrackedApplicationRequestBody.new(
+  tracked_at: DateTime.iso8601('2025-07-27T05:49:24.648Z'),
+))
+
+unless res.post_ats_import_tracked_application_positive_response.nil?
+  # handle response
+end
+
+```
+### Example Usage: example1
+
+<!-- UsageSnippet language="ruby" operationID="PostAtsImportTrackedApplication" method="post" path="/ats/import-tracked-application" example="example1" -->
 ```ruby
 require 'kombo'
 

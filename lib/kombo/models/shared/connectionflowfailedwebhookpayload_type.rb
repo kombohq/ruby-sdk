@@ -9,8 +9,6 @@ module Kombo
     module Shared
       # ConnectionFlowFailedWebhookPayloadType - Type of the webhook event
       class ConnectionFlowFailedWebhookPayloadType < T::Enum
-
-
         enums do
           CONNECTION_FLOW_FAILED = new('connection-flow-failed')
         end

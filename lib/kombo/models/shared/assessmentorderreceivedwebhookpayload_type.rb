@@ -9,8 +9,6 @@ module Kombo
     module Shared
       # AssessmentOrderReceivedWebhookPayloadType - Type of the webhook event
       class AssessmentOrderReceivedWebhookPayloadType < T::Enum
-
-
         enums do
           ASSESSMENT_ORDER_RECEIVED = new('assessment:order-received')
         end

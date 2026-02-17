@@ -32,7 +32,7 @@ Top level filters use AND, while individual filters use OR if they accept multip
 
 ### Example Usage
 
-<!-- UsageSnippet language="ruby" operationID="GetHrisEmployees" method="get" path="/hris/employees" -->
+<!-- UsageSnippet language="ruby" operationID="GetHrisEmployees" method="get" path="/hris/employees" example="example1" -->
 ```ruby
 require 'kombo'
 
@@ -166,7 +166,7 @@ Follow our [create employee guide here](/hris/features/create-employee) to learn
 
 ### Example Usage
 
-<!-- UsageSnippet language="ruby" operationID="GetHrisEmployeesForm" method="get" path="/hris/employees/form" -->
+<!-- UsageSnippet language="ruby" operationID="GetHrisEmployeesForm" method="get" path="/hris/employees/form" example="example1" -->
 ```ruby
 require 'kombo'
 
@@ -230,9 +230,59 @@ Create an employee, based on the form schema.
 }
 ```
 
-### Example Usage
+### Example Usage: Error Response
 
-<!-- UsageSnippet language="ruby" operationID="PostHrisEmployeesForm" method="post" path="/hris/employees/form" -->
+<!-- UsageSnippet language="ruby" operationID="PostHrisEmployeesForm" method="post" path="/hris/employees/form" example="Error Response" -->
+```ruby
+require 'kombo'
+
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
+      integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
+    )
+
+res = s.hris.create_employee_with_form(body: Models::Shared::PostHrisEmployeesFormRequestBody.new(
+  properties: {
+    "key": 3_571.27,
+  },
+))
+
+unless res.post_hris_employees_form_positive_response.nil?
+  # handle response
+end
+
+```
+### Example Usage: Minimal Error Response
+
+<!-- UsageSnippet language="ruby" operationID="PostHrisEmployeesForm" method="post" path="/hris/employees/form" example="Minimal Error Response" -->
+```ruby
+require 'kombo'
+
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
+      integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
+    )
+
+res = s.hris.create_employee_with_form(body: Models::Shared::PostHrisEmployeesFormRequestBody.new(
+  properties: {
+    "key": 3_571.27,
+  },
+))
+
+unless res.post_hris_employees_form_positive_response.nil?
+  # handle response
+end
+
+```
+### Example Usage: example1
+
+<!-- UsageSnippet language="ruby" operationID="PostHrisEmployeesForm" method="post" path="/hris/employees/form" example="example1" -->
 ```ruby
 require 'kombo'
 
@@ -304,9 +354,61 @@ Uploads an document file for the specified employee.
 }
 ```
 
-### Example Usage
+### Example Usage: Error Response
 
-<!-- UsageSnippet language="ruby" operationID="PostHrisEmployeesEmployeeIdDocuments" method="post" path="/hris/employees/{employee_id}/documents" -->
+<!-- UsageSnippet language="ruby" operationID="PostHrisEmployeesEmployeeIdDocuments" method="post" path="/hris/employees/{employee_id}/documents" example="Error Response" -->
+```ruby
+require 'kombo'
+
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
+      integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
+    )
+
+res = s.hris.add_employee_document(employee_id: '<id>', body: Models::Shared::PostHrisEmployeesEmployeeIdDocumentsRequestBody.new(
+  category_id: '<id>',
+  document: Models::Shared::Document.new(
+    name: '<value>',
+  ),
+))
+
+unless res.post_hris_employees_employee_id_documents_positive_response.nil?
+  # handle response
+end
+
+```
+### Example Usage: Minimal Error Response
+
+<!-- UsageSnippet language="ruby" operationID="PostHrisEmployeesEmployeeIdDocuments" method="post" path="/hris/employees/{employee_id}/documents" example="Minimal Error Response" -->
+```ruby
+require 'kombo'
+
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
+      integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
+    )
+
+res = s.hris.add_employee_document(employee_id: '<id>', body: Models::Shared::PostHrisEmployeesEmployeeIdDocumentsRequestBody.new(
+  category_id: '<id>',
+  document: Models::Shared::Document.new(
+    name: '<value>',
+  ),
+))
+
+unless res.post_hris_employees_employee_id_documents_positive_response.nil?
+  # handle response
+end
+
+```
+### Example Usage: example1
+
+<!-- UsageSnippet language="ruby" operationID="PostHrisEmployeesEmployeeIdDocuments" method="post" path="/hris/employees/{employee_id}/documents" example="example1" -->
 ```ruby
 require 'kombo'
 
@@ -360,7 +462,7 @@ Top level filters use AND, while individual filters use OR if they accept multip
 
 ### Example Usage
 
-<!-- UsageSnippet language="ruby" operationID="GetHrisEmployeeDocumentCategories" method="get" path="/hris/employee-document-categories" -->
+<!-- UsageSnippet language="ruby" operationID="GetHrisEmployeeDocumentCategories" method="get" path="/hris/employee-document-categories" example="example1" -->
 ```ruby
 require 'kombo'
 
@@ -412,7 +514,7 @@ Top level filters use AND, while individual filters use OR if they accept multip
 
 ### Example Usage
 
-<!-- UsageSnippet language="ruby" operationID="GetHrisGroups" method="get" path="/hris/groups" -->
+<!-- UsageSnippet language="ruby" operationID="GetHrisGroups" method="get" path="/hris/groups" example="example1" -->
 ```ruby
 require 'kombo'
 
@@ -466,7 +568,7 @@ Top level filters use AND, while individual filters use OR if they accept multip
 
 ### Example Usage
 
-<!-- UsageSnippet language="ruby" operationID="GetHrisEmployments" method="get" path="/hris/employments" -->
+<!-- UsageSnippet language="ruby" operationID="GetHrisEmployments" method="get" path="/hris/employments" example="example1" -->
 ```ruby
 require 'kombo'
 
@@ -518,7 +620,7 @@ Top level filters use AND, while individual filters use OR if they accept multip
 
 ### Example Usage
 
-<!-- UsageSnippet language="ruby" operationID="GetHrisLocations" method="get" path="/hris/locations" -->
+<!-- UsageSnippet language="ruby" operationID="GetHrisLocations" method="get" path="/hris/locations" example="example1" -->
 ```ruby
 require 'kombo'
 
@@ -571,7 +673,7 @@ Top level filters use AND, while individual filters use OR if they accept multip
 
 ### Example Usage
 
-<!-- UsageSnippet language="ruby" operationID="GetHrisAbsenceTypes" method="get" path="/hris/absence-types" -->
+<!-- UsageSnippet language="ruby" operationID="GetHrisAbsenceTypes" method="get" path="/hris/absence-types" example="example1" -->
 ```ruby
 require 'kombo'
 
@@ -623,7 +725,7 @@ Top level filters use AND, while individual filters use OR if they accept multip
 
 ### Example Usage
 
-<!-- UsageSnippet language="ruby" operationID="GetHrisTimeOffBalances" method="get" path="/hris/time-off-balances" -->
+<!-- UsageSnippet language="ruby" operationID="GetHrisTimeOffBalances" method="get" path="/hris/time-off-balances" example="example1" -->
 ```ruby
 require 'kombo'
 
@@ -676,7 +778,7 @@ Top level filters use AND, while individual filters use OR if they accept multip
 
 ### Example Usage
 
-<!-- UsageSnippet language="ruby" operationID="GetHrisAbsences" method="get" path="/hris/absences" -->
+<!-- UsageSnippet language="ruby" operationID="GetHrisAbsences" method="get" path="/hris/absences" example="example1" -->
 ```ruby
 require 'kombo'
 
@@ -750,9 +852,63 @@ Check [this page](/hris/features/creating-absences) for a detailed guide.
 }
 ```
 
-### Example Usage
+### Example Usage: Error Response
 
-<!-- UsageSnippet language="ruby" operationID="PostHrisAbsences" method="post" path="/hris/absences" -->
+<!-- UsageSnippet language="ruby" operationID="PostHrisAbsences" method="post" path="/hris/absences" example="Error Response" -->
+```ruby
+require 'kombo'
+
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
+      integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
+    )
+
+res = s.hris.create_absence(body: Models::Shared::PostHrisAbsencesRequestBody.new(
+  employee_id: '<id>',
+  absence_type_id: '<id>',
+  start_date: DateTime.iso8601('2024-09-08T17:57:22.170Z'),
+  end_date: DateTime.iso8601('2025-03-21T09:03:29.368Z'),
+  employee_note: '<value>',
+))
+
+unless res.post_hris_absences_positive_response.nil?
+  # handle response
+end
+
+```
+### Example Usage: Minimal Error Response
+
+<!-- UsageSnippet language="ruby" operationID="PostHrisAbsences" method="post" path="/hris/absences" example="Minimal Error Response" -->
+```ruby
+require 'kombo'
+
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
+      integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
+    )
+
+res = s.hris.create_absence(body: Models::Shared::PostHrisAbsencesRequestBody.new(
+  employee_id: '<id>',
+  absence_type_id: '<id>',
+  start_date: DateTime.iso8601('2024-09-08T17:57:22.170Z'),
+  end_date: DateTime.iso8601('2025-03-21T09:03:29.368Z'),
+  employee_note: '<value>',
+))
+
+unless res.post_hris_absences_positive_response.nil?
+  # handle response
+end
+
+```
+### Example Usage: example1
+
+<!-- UsageSnippet language="ruby" operationID="PostHrisAbsences" method="post" path="/hris/absences" example="example1" -->
 ```ruby
 require 'kombo'
 
@@ -814,9 +970,51 @@ Delete this absence.
 }
 ```
 
-### Example Usage
+### Example Usage: Error Response
 
-<!-- UsageSnippet language="ruby" operationID="DeleteHrisAbsencesAbsenceId" method="delete" path="/hris/absences/{absence_id}" -->
+<!-- UsageSnippet language="ruby" operationID="DeleteHrisAbsencesAbsenceId" method="delete" path="/hris/absences/{absence_id}" example="Error Response" -->
+```ruby
+require 'kombo'
+
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
+      integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
+    )
+
+res = s.hris.delete_absence(absence_id: '<id>', body: Models::Shared::DeleteHrisAbsencesAbsenceIdRequestBody.new())
+
+unless res.delete_hris_absences_absence_id_positive_response.nil?
+  # handle response
+end
+
+```
+### Example Usage: Minimal Error Response
+
+<!-- UsageSnippet language="ruby" operationID="DeleteHrisAbsencesAbsenceId" method="delete" path="/hris/absences/{absence_id}" example="Minimal Error Response" -->
+```ruby
+require 'kombo'
+
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
+      integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
+    )
+
+res = s.hris.delete_absence(absence_id: '<id>', body: Models::Shared::DeleteHrisAbsencesAbsenceIdRequestBody.new())
+
+unless res.delete_hris_absences_absence_id_positive_response.nil?
+  # handle response
+end
+
+```
+### Example Usage: example1
+
+<!-- UsageSnippet language="ruby" operationID="DeleteHrisAbsencesAbsenceId" method="delete" path="/hris/absences/{absence_id}" example="example1" -->
 ```ruby
 require 'kombo'
 
@@ -863,7 +1061,7 @@ Top level filters use AND, while individual filters use OR if they accept multip
 
 ### Example Usage
 
-<!-- UsageSnippet language="ruby" operationID="GetHrisLegalEntities" method="get" path="/hris/legal-entities" -->
+<!-- UsageSnippet language="ruby" operationID="GetHrisLegalEntities" method="get" path="/hris/legal-entities" example="example1" -->
 ```ruby
 require 'kombo'
 
@@ -922,7 +1120,7 @@ Top level filters use AND, while individual filters use OR if they accept multip
 
 ### Example Usage
 
-<!-- UsageSnippet language="ruby" operationID="GetHrisTimesheets" method="get" path="/hris/timesheets" -->
+<!-- UsageSnippet language="ruby" operationID="GetHrisTimesheets" method="get" path="/hris/timesheets" example="example1" -->
 ```ruby
 require 'kombo'
 
@@ -985,7 +1183,7 @@ Top level filters use AND, while individual filters use OR if they accept multip
 
 ### Example Usage
 
-<!-- UsageSnippet language="ruby" operationID="GetHrisPerformanceReviewCycles" method="get" path="/hris/performance-review-cycles" -->
+<!-- UsageSnippet language="ruby" operationID="GetHrisPerformanceReviewCycles" method="get" path="/hris/performance-review-cycles" example="example1" -->
 ```ruby
 require 'kombo'
 
@@ -1043,7 +1241,7 @@ Top level filters use AND, while individual filters use OR if they accept multip
 
 ### Example Usage
 
-<!-- UsageSnippet language="ruby" operationID="GetHrisPerformanceReviews" method="get" path="/hris/performance-reviews" -->
+<!-- UsageSnippet language="ruby" operationID="GetHrisPerformanceReviews" method="get" path="/hris/performance-reviews" example="example1" -->
 ```ruby
 require 'kombo'
 

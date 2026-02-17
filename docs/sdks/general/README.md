@@ -23,7 +23,7 @@ Check whether your API key is working properly.
 
 ### Example Usage
 
-<!-- UsageSnippet language="ruby" operationID="GetCheckApiKey" method="get" path="/check-api-key" -->
+<!-- UsageSnippet language="ruby" operationID="GetCheckApiKey" method="get" path="/check-api-key" example="example1" -->
 ```ruby
 require 'kombo'
 
@@ -59,9 +59,51 @@ Trigger a sync for a specific integration.
 
 <Warning>Please note that it is **not** necessary nor recommended to call this endpoint periodically on your side. Kombo already performs periodic syncs for you and you should only trigger syncs yourself in special cases (like when a user clicks on a "Sync" button in your app).</Warning>
 
-### Example Usage
+### Example Usage: Error Response
 
-<!-- UsageSnippet language="ruby" operationID="PostForceSync" method="post" path="/force-sync" -->
+<!-- UsageSnippet language="ruby" operationID="PostForceSync" method="post" path="/force-sync" example="Error Response" -->
+```ruby
+require 'kombo'
+
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
+      integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
+    )
+
+res = s.general.trigger_sync(body: Models::Shared::PostForceSyncRequestBody.new())
+
+unless res.post_force_sync_positive_response.nil?
+  # handle response
+end
+
+```
+### Example Usage: Minimal Error Response
+
+<!-- UsageSnippet language="ruby" operationID="PostForceSync" method="post" path="/force-sync" example="Minimal Error Response" -->
+```ruby
+require 'kombo'
+
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
+      integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
+    )
+
+res = s.general.trigger_sync(body: Models::Shared::PostForceSyncRequestBody.new())
+
+unless res.post_force_sync_positive_response.nil?
+  # handle response
+end
+
+```
+### Example Usage: example1
+
+<!-- UsageSnippet language="ruby" operationID="PostForceSync" method="post" path="/force-sync" example="example1" -->
 ```ruby
 require 'kombo'
 
@@ -130,6 +172,7 @@ To get started, please pick the relevant API (some tools provide multiple to due
 |BoondManager|`boondmanager/api`|BoondManager [REST API](https://ui.boondmanager.com/administrator/developer/apisandbox). We automatically authenticate all requests and use `https://ui.boondmanager.com/api` as the base URL.|
 |Breezy HR|`breezyhr/v3`|[BreezyHR's v3 API](https://developer.breezy.hr/reference/overview). We automatically authenticate all requests and use "https://api.breezy.hr/v3/" as the base URL.|
 |Bullhorn|`bullhorn/default`|[Bullhorn's API](https://bullhorn.github.io/rest-api-docs/index.html). We automatically use the right `https://rest.bullhornstaffing.com/rest-services/\{corpToken\}` base URL.|
+|Carerix|`carerix/api`|Carerix [REST API](https://docs.carerix.io/rest/introduction). We automatically authenticate all requests and use `https://api.carerix.com` as the base URL. Please note that Carerix uses XML for request and response bodies.|
 |CEGID TalentSoft Customer|`talentsoftcustomer/v1`|Cegid Talentsoft Recruiting FrontOffice API: [API Documentation](https://developers.cegid.com/api-details#api=cegid-talentsoft-recruiting-frontoffice) We automatically authenticate all requests and use `https://\{customer_subdomain\}.talent-soft.com/api/v1` as the base URL.|
 |CEGID TalentSoft FrontOffice|`talentsoft/v2`|Cegid Talentsoft Recruiting FrontOffice [API](https://developers.cegid.com/api-details). We automatically authenticate all requests using the provided credentials and use `https://\{domain\}/api/v2` as the base URL.|
 |Ceipal|`ceipal/v1`|We use `https://api.ceipal.com/v1` as the base URL. Find the official docs [here](https://developer.ceipal.com/ceipal-ats-version-one/ceipal-ats-v1-api-reference).|
@@ -186,6 +229,7 @@ To get started, please pick the relevant API (some tools provide multiple to due
 |JazzHR|`jazzhr/v1`|[JazzHR's v1 API](https://www.resumatorapi.com/v1/#!`).We automatically authenticate all requests and use "https://api.resumatorapi.com/v1/" as the base URL.|
 |JobDiva|`jobdiva/api`|We automatically authenticate all requests and use `https://api.jobdiva.com` as the base URL.|
 |Jobvite|`jobvite/api`|We automatically authenticate all requests and use 'https://api.jobvite.com/api/v2' as the base URL.|
+|Jobvite|`jobvite/v2`|We use `https://api.jobvite.com/api/v2` as the base URL. Find the official docs [here](https://help.jobvite.com/hc/en-us/articles/8870636608925-Jobvite-API).|
 |Jobylon|`jobylon/feed`|The [Jobylon Feed API](https://developer.jobylon.com/feed-api/). We automatically authenticate all requests and use `https://\{subdomain\}.jobylon.com/feeds/\{job_hash\}` as the base URL.|
 |Jobylon|`jobylon/push`|The [Jobylon Push API](https://developer.jobylon.com/push-api-and-webhooks/). We automatically authenticate all requests and use `https://\{subdomain\}.jobylon.com/p1` as the base URL.|
 |JOIN|`join/v2`|Join's [V2 API](https://docs.join.com/reference/getting-started). We automatically authenticate all requests and use `https://api.join.com/v2` as the base URL.|
@@ -197,6 +241,8 @@ To get started, please pick the relevant API (some tools provide multiple to due
 |Leapsome|`leapsome/scim`|Leapsome [SCIM API](https://api.leapsome.com/scim/v1/api-docs/). We automatically authenticate all requests using the credentials supplied by the customer and use `https://api.leapsome.com/scim/v1` as the base URL.|
 |Leapsome|`leapsome/v1`|Leapsome [API](https://api.leapsome.com/v1/api-docs/). We automatically authenticate all requests using the credentials supplied by the customer and use `https://api.leapsome.com/v1` as the base URL.|
 |Lever|`lever/v1`|[Lever's v1 API](https://hire.lever.co/developer/documentation). We automatically authenticate all requests using the partner credentials which have been configured in the Lever tool settings (this uses Kombo's partner credentials by default).|
+|LinkedIn Learning|`linkedinlearning/v2`|LinkedIn Learning [API v2](https://learn.microsoft.com/en-us/linkedin/learning/). We automatically handle authentication and use `https://api.linkedin.com` as the base URL.|
+|Loxo|`loxo/v1`|[Loxo's API](https://loxo.readme.io/reference/loxo-api). We automatically authenticate all requests and use 'https://app.loxo.co/api/\{agency_slug\}' as base URL.|
 |Lucca|`lucca/api`|[Luccas's API](https://developers.lucca.fr/api-reference/legacy/introduction). We automatically authenticate all requests and use 'https://\{account\}.\{ilucca|ilucca-demo\}.\{region\}/' as the base URL.|
 |Manatal|`manatal/career-page`|Manatal's Career Page API. We use `https://api.manatal.com/open/v3/career-page/\{client_slug\}` as the base URL.|
 |Manatal|`manatal/open-api-v3`|[Manatal's Open API v3](https://developers.manatal.com/reference/getting-started). We automatically authenticate all requests and use `https://api.manatal.com/open/v3` as the base URL.|
@@ -247,6 +293,7 @@ To get started, please pick the relevant API (some tools provide multiple to due
 |Softgarden|`softgarden/apply-api`|[Softgarden's Apply API](https://dev.softgarden.de/apply-api/). We automatically authenticate all requests and use 'https://jobdb.softgarden.de/jobdb/public' as base URL.|
 |Softgarden|`softgarden/frontend-v3`|[Softgarden's Frontend API v3](https://dev.softgarden.de/frontend-v3/. We automatically authenticate all requests and use 'https://api.softgarden.io/api/rest' as base URL.|
 |Spark Hire Recruit|`comeet/api`|[Spark Hire Recruit's API.](https://developers.comeet.com/reference/recruiting-api-overview)We automatically authenticate all requests and use `https://api.comeet.com` as the base URL.|
+|Spott|`spott/protected`|The [Spott API](https://docs.gospott.com). We automatically authenticate all requests and use `https://api.gospott.com` as the base URL.|
 |Sympa|`sympa/api`|Sympa's [API](https://documenter.getpostman.com/view/33639379/2sA3kXG1vX#intro). We automatically authenticate all requests and use `https://api.sympahr.net/api/` as the base URL.|
 |Taleez|`taleez/0`|[Taleez's API](https://api.taleez.com/swagger-ui/index.html). We automatically authenticate all requests and use `https://api.taleez.com/0` as the base URL.|
 |Talention|`talention/v1`|Talention's API. We automatically authenticate all requests and use `https://\{api_domain\}/tms/\{account_id\}/external/api/1.0` as the base URL. Documentation is provided privately by Talention. Contact Kombo support for assistance with specific endpoints.|
@@ -254,6 +301,7 @@ To get started, please pick the relevant API (some tools provide multiple to due
 |Teamtailor Job Boards|`teamtailorjobboards/direct-apply`|Teamtailor's [Job Board Direct Apply API](https://partner.teamtailor.com/job_boards/direct_apply/#direct-apply). We automatically authenticate all requests and use `https://5qbn6o9x4h.execute-api.eu-west-1.amazonaws.com/production` as the base URL. All requests are automatically signed with HMAC-SHA256 signature.|
 |Teamtailor|`teamtailor/v1`|We use `https://api.teamtailor.com/v1` as the base URL. Find the official docs [here](https://docs.teamtailor.com/).|
 |TRAFFIT|`traffit/v2`|Traffit's [v2 API](https://api.traffit.com). We authenticate all requests with the Traffit API key and use the base URL `https://yourdomain.traffit.com/api/integration/v2`.|
+|Udemy Business|`udemy/learning`|Udemy Business REST API. We automatically handle authentication and use `https://\{account_name\}.udemy.com/api-2.0/organizations/\{account_id\}/` as the base URL.|
 |UKG Pro|`ukgpro/default`|[UKG Pro's HRIS API](https://developer.ukg.com/hcm/reference/get_personnel-v1-person-details). We automatically authenticate all requests and use  `https://\{hostname\}` as the base URL.|
 |UKG Pro|`ukgpro/recruting`|[UKG Pro's Recruiting API](https://developer.ukg.com/hcm/reference/retrieveapplications). We automatically authenticate all requests and use  `https://\{hostname\}/talent/recruiting/v2/\{tenantalias\}/api` as the base URL.|
 |UKG Ready|`ukgready/api`|UKG Ready [API](https://secure.saashr.com/ta/docs/rest/public/). We automatically authenticate all requests using the provided credentials and use `https://\{api_domain\}` as the base URL.|
@@ -271,9 +319,57 @@ To get started, please pick the relevant API (some tools provide multiple to due
 
 <Note>Please note that the passthrough API endpoints are only meant for edge cases. That's why we only expose them for new integrations after understanding a concrete customer use case. If you have such a use case in mind, please reach out to Kombo.</Note>
 
-### Example Usage
+### Example Usage: Error Response
 
-<!-- UsageSnippet language="ruby" operationID="PostPassthroughToolApi" method="post" path="/passthrough/{tool}/{api}" -->
+<!-- UsageSnippet language="ruby" operationID="PostPassthroughToolApi" method="post" path="/passthrough/{tool}/{api}" example="Error Response" -->
+```ruby
+require 'kombo'
+
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
+      integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
+    )
+
+res = s.general.send_passthrough_request(tool: '<value>', api: '<value>', body: Models::Shared::PostPassthroughToolApiRequestBody.new(
+  method: Models::Shared::Method::DELETE,
+  path: '/private/var',
+))
+
+unless res.post_passthrough_tool_api_positive_response.nil?
+  # handle response
+end
+
+```
+### Example Usage: Minimal Error Response
+
+<!-- UsageSnippet language="ruby" operationID="PostPassthroughToolApi" method="post" path="/passthrough/{tool}/{api}" example="Minimal Error Response" -->
+```ruby
+require 'kombo'
+
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
+      integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
+    )
+
+res = s.general.send_passthrough_request(tool: '<value>', api: '<value>', body: Models::Shared::PostPassthroughToolApiRequestBody.new(
+  method: Models::Shared::Method::DELETE,
+  path: '/private/var',
+))
+
+unless res.post_passthrough_tool_api_positive_response.nil?
+  # handle response
+end
+
+```
+### Example Usage: example1
+
+<!-- UsageSnippet language="ruby" operationID="PostPassthroughToolApi" method="post" path="/passthrough/{tool}/{api}" example="example1" -->
 ```ruby
 require 'kombo'
 
@@ -321,9 +417,29 @@ end
 Delete the specified integration.
 **⚠️ This can not be undone!**
 
-### Example Usage
+### Example Usage: Error Response
 
-<!-- UsageSnippet language="ruby" operationID="DeleteIntegrationsIntegrationId" method="delete" path="/integrations/{integration_id}" -->
+<!-- UsageSnippet language="ruby" operationID="DeleteIntegrationsIntegrationId" method="delete" path="/integrations/{integration_id}" example="Error Response" -->
+```ruby
+require 'kombo'
+
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
+    )
+
+res = s.general.delete_integration(integration_id: '<id>', body: Models::Shared::DeleteIntegrationsIntegrationIdRequestBody.new())
+
+unless res.delete_integrations_integration_id_positive_response.nil?
+  # handle response
+end
+
+```
+### Example Usage: Minimal Error Response
+
+<!-- UsageSnippet language="ruby" operationID="DeleteIntegrationsIntegrationId" method="delete" path="/integrations/{integration_id}" example="Minimal Error Response" -->
 ```ruby
 require 'kombo'
 
@@ -366,7 +482,7 @@ Get the specified integration with everything you need to display it to your cus
 
 ### Example Usage
 
-<!-- UsageSnippet language="ruby" operationID="GetIntegrationsIntegrationId" method="get" path="/integrations/{integration_id}" -->
+<!-- UsageSnippet language="ruby" operationID="GetIntegrationsIntegrationId" method="get" path="/integrations/{integration_id}" example="example1" -->
 ```ruby
 require 'kombo'
 
@@ -410,9 +526,31 @@ All authentication credentials and configuration are preserved. Syncs can be res
 
 You may use this to, for example, pause syncing for customers that are temporarily not using the integration.
 
-### Example Usage
+### Example Usage: Error Response
 
-<!-- UsageSnippet language="ruby" operationID="PutIntegrationsIntegrationIdEnabled" method="put" path="/integrations/{integration_id}/enabled" -->
+<!-- UsageSnippet language="ruby" operationID="PutIntegrationsIntegrationIdEnabled" method="put" path="/integrations/{integration_id}/enabled" example="Error Response" -->
+```ruby
+require 'kombo'
+
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
+    )
+
+res = s.general.set_integration_enabled(integration_id: '<id>', body: Models::Shared::PutIntegrationsIntegrationIdEnabledRequestBody.new(
+  value: false,
+))
+
+unless res.put_integrations_integration_id_enabled_positive_response.nil?
+  # handle response
+end
+
+```
+### Example Usage: Minimal Error Response
+
+<!-- UsageSnippet language="ruby" operationID="PutIntegrationsIntegrationIdEnabled" method="put" path="/integrations/{integration_id}/enabled" example="Minimal Error Response" -->
 ```ruby
 require 'kombo'
 
@@ -467,9 +605,49 @@ Embed this the same way you would [embed the connect link](/connect/embedded-flo
 }
 ```
 
-### Example Usage
+### Example Usage: Error Response
 
-<!-- UsageSnippet language="ruby" operationID="PostIntegrationsIntegrationIdRelink" method="post" path="/integrations/{integration_id}/relink" -->
+<!-- UsageSnippet language="ruby" operationID="PostIntegrationsIntegrationIdRelink" method="post" path="/integrations/{integration_id}/relink" example="Error Response" -->
+```ruby
+require 'kombo'
+
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
+    )
+
+res = s.general.create_reconnection_link(integration_id: '<id>', body: Models::Shared::PostIntegrationsIntegrationIdRelinkRequestBody.new())
+
+unless res.post_integrations_integration_id_relink_positive_response.nil?
+  # handle response
+end
+
+```
+### Example Usage: Minimal Error Response
+
+<!-- UsageSnippet language="ruby" operationID="PostIntegrationsIntegrationIdRelink" method="post" path="/integrations/{integration_id}/relink" example="Minimal Error Response" -->
+```ruby
+require 'kombo'
+
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
+    )
+
+res = s.general.create_reconnection_link(integration_id: '<id>', body: Models::Shared::PostIntegrationsIntegrationIdRelinkRequestBody.new())
+
+unless res.post_integrations_integration_id_relink_positive_response.nil?
+  # handle response
+end
+
+```
+### Example Usage: example1
+
+<!-- UsageSnippet language="ruby" operationID="PostIntegrationsIntegrationIdRelink" method="post" path="/integrations/{integration_id}/relink" example="example1" -->
 ```ruby
 require 'kombo'
 
@@ -515,7 +693,7 @@ Get all fields available on the specified integration.
 
 ### Example Usage
 
-<!-- UsageSnippet language="ruby" operationID="GetIntegrationsIntegrationIdIntegrationFields" method="get" path="/integrations/{integration_id}/integration-fields" -->
+<!-- UsageSnippet language="ruby" operationID="GetIntegrationsIntegrationIdIntegrationFields" method="get" path="/integrations/{integration_id}/integration-fields" example="example1" -->
 ```ruby
 require 'kombo'
 
@@ -557,9 +735,53 @@ end
 
 When enabled, the integration field will be passed as part of the `integration_fields` array on the specific model endpoint. Providing false will disable the passthrough for the specified field.
 
-### Example Usage
+### Example Usage: Error Response
 
-<!-- UsageSnippet language="ruby" operationID="PatchIntegrationsIntegrationIdIntegrationFieldsIntegrationFieldId" method="patch" path="/integrations/{integration_id}/integration-fields/{integration_field_id}" -->
+<!-- UsageSnippet language="ruby" operationID="PatchIntegrationsIntegrationIdIntegrationFieldsIntegrationFieldId" method="patch" path="/integrations/{integration_id}/integration-fields/{integration_field_id}" example="Error Response" -->
+```ruby
+require 'kombo'
+
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
+    )
+
+res = s.general.update_integration_field(integration_id: '<id>', integration_field_id: '<id>', body: Models::Shared::PatchIntegrationsIntegrationIdIntegrationFieldsIntegrationFieldIdRequestBody.new(
+  enable_passthrough: nil,
+))
+
+unless res.patch_integrations_integration_id_integration_fields_integration_field_id_positive_response.nil?
+  # handle response
+end
+
+```
+### Example Usage: Minimal Error Response
+
+<!-- UsageSnippet language="ruby" operationID="PatchIntegrationsIntegrationIdIntegrationFieldsIntegrationFieldId" method="patch" path="/integrations/{integration_id}/integration-fields/{integration_field_id}" example="Minimal Error Response" -->
+```ruby
+require 'kombo'
+
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
+    )
+
+res = s.general.update_integration_field(integration_id: '<id>', integration_field_id: '<id>', body: Models::Shared::PatchIntegrationsIntegrationIdIntegrationFieldsIntegrationFieldIdRequestBody.new(
+  enable_passthrough: nil,
+))
+
+unless res.patch_integrations_integration_id_integration_fields_integration_field_id_positive_response.nil?
+  # handle response
+end
+
+```
+### Example Usage: example1
+
+<!-- UsageSnippet language="ruby" operationID="PatchIntegrationsIntegrationIdIntegrationFieldsIntegrationFieldId" method="patch" path="/integrations/{integration_id}/integration-fields/{integration_field_id}" example="example1" -->
 ```ruby
 require 'kombo'
 
@@ -606,7 +828,7 @@ Get all custom fields available on the specified integration.
 
 ### Example Usage
 
-<!-- UsageSnippet language="ruby" operationID="GetIntegrationsIntegrationIdCustomFields" method="get" path="/integrations/{integration_id}/custom-fields" -->
+<!-- UsageSnippet language="ruby" operationID="GetIntegrationsIntegrationIdCustomFields" method="get" path="/integrations/{integration_id}/custom-fields" example="example1" -->
 ```ruby
 require 'kombo'
 
@@ -648,9 +870,53 @@ end
 
 Updates the mapping of a given custom field. If the custom field is already mapped, it will be updated.
 
-### Example Usage
+### Example Usage: Error Response
 
-<!-- UsageSnippet language="ruby" operationID="PutIntegrationsIntegrationIdCustomFieldsCustomFieldId" method="put" path="/integrations/{integration_id}/custom-fields/{custom_field_id}" -->
+<!-- UsageSnippet language="ruby" operationID="PutIntegrationsIntegrationIdCustomFieldsCustomFieldId" method="put" path="/integrations/{integration_id}/custom-fields/{custom_field_id}" example="Error Response" -->
+```ruby
+require 'kombo'
+
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
+    )
+
+res = s.general.update_custom_field_mapping(integration_id: '<id>', custom_field_id: '<id>', body: Models::Shared::PutIntegrationsIntegrationIdCustomFieldsCustomFieldIdRequestBody.new(
+  integration_field_id: '<id>',
+))
+
+unless res.put_integrations_integration_id_custom_fields_custom_field_id_positive_response.nil?
+  # handle response
+end
+
+```
+### Example Usage: Minimal Error Response
+
+<!-- UsageSnippet language="ruby" operationID="PutIntegrationsIntegrationIdCustomFieldsCustomFieldId" method="put" path="/integrations/{integration_id}/custom-fields/{custom_field_id}" example="Minimal Error Response" -->
+```ruby
+require 'kombo'
+
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
+      security: Models::Shared::Security.new(
+        api_key: '<YOUR_BEARER_TOKEN_HERE>',
+      ),
+    )
+
+res = s.general.update_custom_field_mapping(integration_id: '<id>', custom_field_id: '<id>', body: Models::Shared::PutIntegrationsIntegrationIdCustomFieldsCustomFieldIdRequestBody.new(
+  integration_field_id: '<id>',
+))
+
+unless res.put_integrations_integration_id_custom_fields_custom_field_id_positive_response.nil?
+  # handle response
+end
+
+```
+### Example Usage: example1
+
+<!-- UsageSnippet language="ruby" operationID="PutIntegrationsIntegrationIdCustomFieldsCustomFieldId" method="put" path="/integrations/{integration_id}/custom-fields/{custom_field_id}" example="example1" -->
 ```ruby
 require 'kombo'
 
@@ -697,7 +963,7 @@ Get a list of the tools (i.e., integrations) enabled in your environment.
 
 ### Example Usage
 
-<!-- UsageSnippet language="ruby" operationID="GetToolsCategory" method="get" path="/tools/{category}" -->
+<!-- UsageSnippet language="ruby" operationID="GetToolsCategory" method="get" path="/tools/{category}" example="example1" -->
 ```ruby
 require 'kombo'
 

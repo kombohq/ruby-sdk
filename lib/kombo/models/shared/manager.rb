@@ -37,7 +37,7 @@ module Kombo
         # - `LEAVE`: the employee is still employed but **currently on leave** (note that not all HR systems support this status — use our absences API for detailed information)
         # 
         #  In rare cases where we can’t find a clear mapping, the original string is passed through.
-        field :employment_status, Crystalline::Nilable.new(Models::Shared::ManagerEmploymentStatus), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('employment_status'), 'decoder': Utils.enum_from_string(Models::Shared::ManagerEmploymentStatus, true) } }
+        field :employment_status, Crystalline::Nilable.new(Models::Shared::ManagerEmploymentStatus), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('employment_status'), 'decoder': Utils.open_enum_from_string(Models::Shared::ManagerEmploymentStatus, true) } }
 
         sig { params(id: ::String, remote_id: ::String, first_name: T.nilable(::String), last_name: T.nilable(::String), display_full_name: T.nilable(::String), employee_number: T.nilable(::String), termination_date: T.nilable(::DateTime), work_email: T.nilable(::String), employment_status: T.nilable(Models::Shared::ManagerEmploymentStatus)).void }
         def initialize(id:, remote_id:, first_name: nil, last_name: nil, display_full_name: nil, employee_number: nil, termination_date: nil, work_email: nil, employment_status: nil)

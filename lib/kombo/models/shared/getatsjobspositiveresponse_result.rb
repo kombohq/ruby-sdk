@@ -81,13 +81,13 @@ module Kombo
         # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
         field :remote_deleted_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_deleted_at'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
         # The type of employment contract. In rare cases where can't find a clear mapping, the original string is passed through.
-        field :employment_type, Crystalline::Nilable.new(Models::Shared::GetAtsJobsPositiveResponseEmploymentType), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('employment_type'), 'decoder': Utils.enum_from_string(Models::Shared::GetAtsJobsPositiveResponseEmploymentType, true) } }
+        field :employment_type, Crystalline::Nilable.new(Models::Shared::GetAtsJobsPositiveResponseEmploymentType), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('employment_type'), 'decoder': Utils.open_enum_from_string(Models::Shared::GetAtsJobsPositiveResponseEmploymentType, true) } }
         # The job's current status.
         # 
         # *Note: For any checks (e.g., "can we publish this job?"), always evaluate both `status` and `visibility`. For example, a job can be `status=OPEN` with `visibility=INTERNAL`, meaning only existing employees can apply.*
         # 
         #  In rare cases where we can’t find a clear mapping, the original string is passed through.
-        field :status, Crystalline::Nilable.new(Models::Shared::GetAtsJobsPositiveResponseStatus), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('status'), 'decoder': Utils.enum_from_string(Models::Shared::GetAtsJobsPositiveResponseStatus, true) } }
+        field :status, Crystalline::Nilable.new(Models::Shared::GetAtsJobsPositiveResponseStatus), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('status'), 'decoder': Utils.open_enum_from_string(Models::Shared::GetAtsJobsPositiveResponseStatus, true) } }
         # Describes the visibility of the job:
         # 
         # - `PUBLIC`: visible to everyone, published on a job board
@@ -98,11 +98,11 @@ module Kombo
         # *Note: For any checks (e.g., "can we publish this job?"), always evaluate both `status` and `visibility`.*
         # 
         #  In rare cases where we can’t find a clear mapping, the original string is passed through.
-        field :visibility, Crystalline::Nilable.new(Models::Shared::Visibility), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('visibility'), 'decoder': Utils.enum_from_string(Models::Shared::Visibility, true) } }
+        field :visibility, Crystalline::Nilable.new(Models::Shared::Visibility), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('visibility'), 'decoder': Utils.open_enum_from_string(Models::Shared::Visibility, true) } }
         # Defines if the job supports remote work and if so, to what extent.
-        field :remote_work_status, Crystalline::Nilable.new(Models::Shared::RemoteWorkStatus), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_work_status'), 'decoder': Utils.enum_from_string(Models::Shared::RemoteWorkStatus, true) } }
+        field :remote_work_status, Crystalline::Nilable.new(Models::Shared::RemoteWorkStatus), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_work_status'), 'decoder': Utils.open_enum_from_string(Models::Shared::RemoteWorkStatus, true) } }
         # The period of time over which the salary amount is paid (not equal to the pay frequency). In rare cases where we can’t find a clear mapping, the original string is passed through.
-        field :salary_period, Crystalline::Nilable.new(Models::Shared::SalaryPeriod), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('salary_period'), 'decoder': Utils.enum_from_string(Models::Shared::SalaryPeriod, true) } }
+        field :salary_period, Crystalline::Nilable.new(Models::Shared::SalaryPeriod), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('salary_period'), 'decoder': Utils.open_enum_from_string(Models::Shared::SalaryPeriod, true) } }
         # The location of the listed job.
         field :location, Crystalline::Nilable.new(Models::Shared::GetAtsJobsPositiveResponseLocation), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('location') } }
 

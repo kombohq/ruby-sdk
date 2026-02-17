@@ -38,11 +38,11 @@ module Kombo
         # The time interval which the `pay_rate` is describing.
         # 
         # A `pay_rate` value of `12000` with a `pay_period` of `YEAR` would indicate that the employee receives 12000 over the course of a year. In rare cases where we can’t find a clear mapping, the original string is passed through.
-        field :pay_period, Crystalline::Nilable.new(Models::Shared::GetHrisEmploymentsPositiveResponsePayPeriod), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('pay_period'), 'decoder': Utils.enum_from_string(Models::Shared::GetHrisEmploymentsPositiveResponsePayPeriod, true) } }
+        field :pay_period, Crystalline::Nilable.new(Models::Shared::GetHrisEmploymentsPositiveResponsePayPeriod), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('pay_period'), 'decoder': Utils.open_enum_from_string(Models::Shared::GetHrisEmploymentsPositiveResponsePayPeriod, true) } }
         # The time interval at which the employee receives payment.
         # 
         # A `pay_rate` of `12000`, with a `pay_period` of `YEAR`, and a `pay_frequency` of `MONTHLY` would indicate that the employee is paid 1000 every month. In rare cases where we can’t find a clear mapping, the original string is passed through.
-        field :pay_frequency, Crystalline::Nilable.new(Models::Shared::GetHrisEmploymentsPositiveResponsePayFrequency), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('pay_frequency'), 'decoder': Utils.enum_from_string(Models::Shared::GetHrisEmploymentsPositiveResponsePayFrequency, true) } }
+        field :pay_frequency, Crystalline::Nilable.new(Models::Shared::GetHrisEmploymentsPositiveResponsePayFrequency), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('pay_frequency'), 'decoder': Utils.open_enum_from_string(Models::Shared::GetHrisEmploymentsPositiveResponsePayFrequency, true) } }
         # The employee’s current employment type:
         # 
         # - `FULL_TIME`: the employee is actively employed
@@ -55,7 +55,7 @@ module Kombo
         # - `TRAINING`: the employee is working in a training program
         # 
         #  In rare cases where we can’t find a clear mapping, the original string is passed through.
-        field :employment_type, Crystalline::Nilable.new(Models::Shared::GetHrisEmploymentsPositiveResponseEmploymentType), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('employment_type'), 'decoder': Utils.enum_from_string(Models::Shared::GetHrisEmploymentsPositiveResponseEmploymentType, true) } }
+        field :employment_type, Crystalline::Nilable.new(Models::Shared::GetHrisEmploymentsPositiveResponseEmploymentType), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('employment_type'), 'decoder': Utils.open_enum_from_string(Models::Shared::GetHrisEmploymentsPositiveResponseEmploymentType, true) } }
 
         sig { params(id: ::String, employee_id: ::String, changed_at: ::DateTime, remote_id: T.nilable(::String), job_title: T.nilable(::String), pay_rate: T.nilable(::Float), pay_currency: T.nilable(::String), effective_date: T.nilable(::DateTime), remote_deleted_at: T.nilable(::DateTime), custom_fields: T.nilable(T::Hash[Symbol, ::Object]), pay_period: T.nilable(Models::Shared::GetHrisEmploymentsPositiveResponsePayPeriod), pay_frequency: T.nilable(Models::Shared::GetHrisEmploymentsPositiveResponsePayFrequency), employment_type: T.nilable(Models::Shared::GetHrisEmploymentsPositiveResponseEmploymentType)).void }
         def initialize(id:, employee_id:, changed_at:, remote_id: nil, job_title: nil, pay_rate: nil, pay_currency: nil, effective_date: nil, remote_deleted_at: nil, custom_fields: nil, pay_period: nil, pay_frequency: nil, employment_type: nil)

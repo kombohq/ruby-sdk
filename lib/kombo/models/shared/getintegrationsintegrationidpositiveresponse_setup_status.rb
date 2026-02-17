@@ -13,8 +13,6 @@ module Kombo
       # - `FINAL_SYNC_PENDING`: Setup is complete, and the final sync is running. Data will be available after this sync is done.
       # - `COMPLETED`: Setup is fully finished, and the integration is ready to use.
       class GetIntegrationsIntegrationIdPositiveResponseSetupStatus < T::Enum
-
-
         enums do
           INCOMPLETE = new('INCOMPLETE')
           FINAL_SYNC_PENDING = new('FINAL_SYNC_PENDING')

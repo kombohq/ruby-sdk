@@ -9,8 +9,6 @@ module Kombo
     module Shared
       # DisplayType1 - If unavailable, we recommend displaying a single-line input.
       class DisplayType1 < T::Enum
-
-
         enums do
           SINGLE_LINE = new('SINGLE_LINE')
           MULTI_LINE = new('MULTI_LINE')

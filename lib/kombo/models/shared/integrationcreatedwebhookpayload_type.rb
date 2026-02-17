@@ -9,8 +9,6 @@ module Kombo
     module Shared
       # IntegrationCreatedWebhookPayloadType - Type of the webhook event
       class IntegrationCreatedWebhookPayloadType < T::Enum
-
-
         enums do
           INTEGRATION_CREATED = new('integration-created')
         end
