@@ -81,24 +81,20 @@ module TestSupport
       # For GET requests, match the base path with any query parameters
       # WebMock matches stubs in order, so multiple stubs for the same path
       # will be matched sequentially. Use times(1) to ensure each stub only matches once.
-      if method == 'GET'
+      url_pattern = if method == 'GET'
         # Use regex to match path with any query params
-        stub = WebMock.stub_request(method.downcase.to_sym, /^https:\/\/api\.kombo\.dev#{Regexp.escape(path)}(\?.*)?$/)
-          .to_return(
-            status: status_code,
-            body: body.to_json,
-            headers: headers
-          )
-          .times(1)
+        /^https:\/\/api\.kombo\.dev#{Regexp.escape(path)}(\?.*)?$/
       else
-        stub = WebMock.stub_request(method.downcase.to_sym, "https://api.kombo.dev#{path}")
+        "https://api.kombo.dev#{path}"
+      end
+
+      stub = WebMock.stub_request(method.downcase.to_sym, url_pattern)
           .to_return(
             status: status_code,
             body: body.to_json,
             headers: headers
           )
           .times(1)
-      end
 
       @stubs << stub
     end
