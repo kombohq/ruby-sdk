@@ -17,12 +17,12 @@ module Kombo
         # Label of the model (e.g. Employees).
         field :label, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('label'), required: true } }
         # The status of a datapoint of an integrated tool:
-        # 
+        #
         # - `SUPPORTED`: the tool supports the datapoint and it can be used through Kombo.
         # - `UNSUPPORTED`: the tool does not support the datapoint.
         # - `NOT_IMPLEMENTED`: tool supports the datapoint but it was not integrated by Kombo for a given reason (see coverage grid).
         # - `UNKNOWN`: the datapoint is not integrated yet and Kombo has no information about it's availability in the tool.
-        field :coverage_status, Models::Shared::GetToolsCategoryPositiveResponseReadModelCoverageStatus, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('coverage_status'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::GetToolsCategoryPositiveResponseReadModelCoverageStatus, false) } }
+        field :coverage_status, Models::Shared::GetToolsCategoryPositiveResponseReadModelCoverageStatus, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('coverage_status'), required: true, 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::GetToolsCategoryPositiveResponseReadModelCoverageStatus, false) } }
 
         field :fields_, Crystalline::Array.new(Models::Shared::GetToolsCategoryPositiveResponseReadModelField), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('fields'), required: true } }
 

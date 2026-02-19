@@ -21,9 +21,9 @@ module Kombo
         # If the tool you want to connect offers different environments, you can specify which one you want to connect to here. If you don't specify this, we'll assume you want to use the production environment. Note that this can only be used if you've also specified a tool through `integration_tool`.
         field :remote_environment, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_environment') } }
         # Category of the integration you want your customer to create.
-        field :integration_category, Crystalline::Nilable.new(Models::Shared::PostConnectCreateLinkRequestBodyIntegrationCategory), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('integration_category'), 'decoder': Utils.enum_from_string(Models::Shared::PostConnectCreateLinkRequestBodyIntegrationCategory, true) } }
+        field :integration_category, Crystalline::Nilable.new(Models::Shared::PostConnectCreateLinkRequestBodyIntegrationCategory), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('integration_category'), 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::PostConnectCreateLinkRequestBodyIntegrationCategory, true) } }
         # Pre-define a tool this integration link can be used for.
-        field :integration_tool, Crystalline::Nilable.new(Models::Shared::IntegrationTool), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('integration_tool'), 'decoder': Utils.enum_from_string(Models::Shared::IntegrationTool, true) } }
+        field :integration_tool, Crystalline::Nilable.new(Models::Shared::IntegrationTool), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('integration_tool'), 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::IntegrationTool, true) } }
         # Specify a scope config that should be used for this integration. This is an advanced feature, only use it if you know what you're doing!
         field :scope_config_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('scope_config_id') } }
         # Enable the [filtering feature](https://docs.kombo.dev/other/filtering) for the integration. HRIS only.
@@ -31,11 +31,11 @@ module Kombo
         # Enable the [field mapping feature](https://docs.kombo.dev/hris/features/setup-flow/introduction#field-mapping) for this integration.
         field :enable_field_mapping, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('enable_field_mapping') } }
         # The type of link you want to create. `EMBEDDED` is for the [embedded flow](../guides/connect/embedded-flow) using the Kombo Connect SDK (these links are valid for 1 hour) and `MAGIC_LINK` is for [magic links](../guides/connect/magic-links) which you send out manually to customers (there are valid for 1 year).
-        # 
+        #
         # This defaults to `EMBEDDED`, which is our recommended method of implementing the connection flow for a seamless user experience.
-        field :link_type, Crystalline::Nilable.new(Models::Shared::PostConnectCreateLinkRequestBodyLinkType), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('link_type'), 'decoder': Utils.enum_from_string(Models::Shared::PostConnectCreateLinkRequestBodyLinkType, true) } }
+        field :link_type, Crystalline::Nilable.new(Models::Shared::PostConnectCreateLinkRequestBodyLinkType), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('link_type'), 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::PostConnectCreateLinkRequestBodyLinkType, true) } }
         # Language of the connection flow UI.
-        field :language, Crystalline::Nilable.new(Models::Shared::PostConnectCreateLinkRequestBodyLanguage), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('language'), 'decoder': Utils.enum_from_string(Models::Shared::PostConnectCreateLinkRequestBodyLanguage, true) } }
+        field :language, Crystalline::Nilable.new(Models::Shared::PostConnectCreateLinkRequestBodyLanguage), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('language'), 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::PostConnectCreateLinkRequestBodyLanguage, true) } }
 
         sig { params(end_user_email: ::String, end_user_organization_name: ::String, end_user_origin_id: T.nilable(::String), remote_environment: T.nilable(::String), integration_category: T.nilable(Models::Shared::PostConnectCreateLinkRequestBodyIntegrationCategory), integration_tool: T.nilable(Models::Shared::IntegrationTool), scope_config_id: T.nilable(::String), enable_filtering: T.nilable(T::Boolean), enable_field_mapping: T.nilable(T::Boolean), link_type: T.nilable(Models::Shared::PostConnectCreateLinkRequestBodyLinkType), language: T.nilable(Models::Shared::PostConnectCreateLinkRequestBodyLanguage)).void }
         def initialize(end_user_email:, end_user_organization_name:, end_user_origin_id: nil, remote_environment: nil, integration_category: Models::Shared::PostConnectCreateLinkRequestBodyIntegrationCategory::HRIS, integration_tool: nil, scope_config_id: nil, enable_filtering: false, enable_field_mapping: false, link_type: Models::Shared::PostConnectCreateLinkRequestBodyLinkType::EMBEDDED, language: Models::Shared::PostConnectCreateLinkRequestBodyLanguage::EN)

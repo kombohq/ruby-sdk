@@ -12,25 +12,25 @@ module Kombo
         extend T::Sig
         include Crystalline::MetadataFields
 
-        # When we're not able to map a specific question type yet, we will return this type. Every `UNKNOWN` question will also be parsed and unified by us at some point.
-        field :type, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('type'), required: true } }
         # We pass the original question data along so you can handle it.
         field :raw_question, Crystalline::Nilable.new(::Object), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('raw_question') } }
+        # When we're not able to map a specific question type yet, we will return this type. Every `UNKNOWN` question will also be parsed and unified by us at some point.
+        field :type, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('type'), required: true } }
 
-        sig { params(type: ::String, raw_question: T.nilable(::Object)).void }
-        def initialize(type:, raw_question: nil)
+        sig { params(raw_question: T.nilable(::Object), type: ::String).void }
+        def initialize(raw_question: nil, type: 'UNKNOWN')
+          @raw_question = raw_question
           unless type == 'UNKNOWN'
             raise ArgumentError, 'Invalid value for type'
           end
           @type = 'UNKNOWN'
-          @raw_question = raw_question
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
-          return false unless @type == other.type
           return false unless @raw_question == other.raw_question
+          return false unless @type == other.type
           true
         end
       end

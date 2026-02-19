@@ -17,26 +17,26 @@ module Kombo
 
         field :tool, Models::Shared::GetIntegrationsIntegrationIdPositiveResponseTool, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('tool'), required: true } }
 
-        field :category, Models::Shared::GetIntegrationsIntegrationIdPositiveResponseCategory, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('category'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::GetIntegrationsIntegrationIdPositiveResponseCategory, false) } }
+        field :category, Models::Shared::GetIntegrationsIntegrationIdPositiveResponseCategory, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('category'), required: true, 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::GetIntegrationsIntegrationIdPositiveResponseCategory, false) } }
         # The current status of the integration.
-        # 
+        #
         # - `ACTIVE`: The integration is syncing data as expected.
         # - `INVALID`: The integration has stopped syncing data because of invalid credentials. To fix this, reach out to your customer to [reconnect the integration](../guides/integration-states#credentials-invalid).
         # - `INACTIVE`: The integration has stopped syncing as it's been manually set to inactive. You can [enable it again](../guides/integration-states#inactive) in the integration's page.
-        field :status, Models::Shared::GetIntegrationsIntegrationIdPositiveResponseStatus, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('status'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::GetIntegrationsIntegrationIdPositiveResponseStatus, false) } }
+        field :status, Models::Shared::GetIntegrationsIntegrationIdPositiveResponseStatus, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('status'), required: true, 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::GetIntegrationsIntegrationIdPositiveResponseStatus, false) } }
         # The setup_status is used in conjunction with the filtering and field mapping features. If these are enabled in the connection flow, the integration will start in an "INCOMPLETE" state and move to "COMPLETE" once all steps are finished.
-        # 
+        #
         # - `INCOMPLETE`: Setup is still in progress. Some steps aren’t finished, so no data is available yet. Syncs only run as needed for setup.
         # - `FINAL_SYNC_PENDING`: Setup is complete, and the final sync is running. Data will be available after this sync is done.
         # - `COMPLETED`: Setup is fully finished, and the integration is ready to use.
-        field :setup_status, Models::Shared::GetIntegrationsIntegrationIdPositiveResponseSetupStatus, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('setup_status'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::GetIntegrationsIntegrationIdPositiveResponseSetupStatus, false) } }
+        field :setup_status, Models::Shared::GetIntegrationsIntegrationIdPositiveResponseSetupStatus, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('setup_status'), required: true, 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::GetIntegrationsIntegrationIdPositiveResponseSetupStatus, false) } }
 
         field :end_user, Models::Shared::GetIntegrationsIntegrationIdPositiveResponseEndUser, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('end_user'), required: true } }
 
         field :scope_config, Models::Shared::ScopeConfig, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('scope_config'), required: true } }
         # YYYY-MM-DDTHH:mm:ss.sssZ
         # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
-        field :created_at, ::DateTime, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('created_at'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
+        field :created_at, ::DateTime, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('created_at'), required: true, 'decoder': ::Kombo::Utils.datetime_from_iso_format(false) } }
 
         field :beta, Crystalline::Boolean.new, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('beta'), required: true } }
 
@@ -45,7 +45,7 @@ module Kombo
         field :write_actions, Crystalline::Array.new(Models::Shared::GetIntegrationsIntegrationIdPositiveResponseWriteAction), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('write_actions'), required: true } }
         # The date when the integration configuration (e.g. filters, scope config) was changed, invalidating the synced data. It is cleared after a successful sync. If this field is `null` the data you fetch is valid to the state of the last sync or webhook event received. Otherwise it will be set to `null` with the next successful sync.
         # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
-        field :data_expired_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('data_expired_at'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
+        field :data_expired_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('data_expired_at'), required: true, 'decoder': ::Kombo::Utils.datetime_from_iso_format(false) } }
 
         sig { params(id: ::String, tool: Models::Shared::GetIntegrationsIntegrationIdPositiveResponseTool, category: Models::Shared::GetIntegrationsIntegrationIdPositiveResponseCategory, status: Models::Shared::GetIntegrationsIntegrationIdPositiveResponseStatus, setup_status: Models::Shared::GetIntegrationsIntegrationIdPositiveResponseSetupStatus, end_user: Models::Shared::GetIntegrationsIntegrationIdPositiveResponseEndUser, scope_config: Models::Shared::ScopeConfig, created_at: ::DateTime, beta: T::Boolean, read_models: T::Array[Models::Shared::GetIntegrationsIntegrationIdPositiveResponseReadModel], write_actions: T::Array[Models::Shared::GetIntegrationsIntegrationIdPositiveResponseWriteAction], data_expired_at: T.nilable(::DateTime)).void }
         def initialize(id:, tool:, category:, status:, setup_status:, end_user:, scope_config:, created_at:, beta:, read_models:, write_actions:, data_expired_at: nil)

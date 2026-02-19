@@ -26,18 +26,18 @@ module Kombo
         field :employee_number, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('employee_number'), required: true } }
         # The date when the employment ends. Can be in the past or future.
         # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
-        field :termination_date, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('termination_date'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
+        field :termination_date, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('termination_date'), required: true, 'decoder': ::Kombo::Utils.datetime_from_iso_format(false) } }
         # The employee’s work email address. If the email address is invalid, we will set this to `null`.
         field :work_email, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('work_email') } }
         # The employee’s current employment status:
-        # 
+        #
         # - `ACTIVE`: the employee is **actively employed**
         # - `PENDING`: the employee is **not actively employed yet** (but they signed their contract or are part of an onboarding process)
         # - `INACTIVE`: the employee is **not actively employed** anymore
         # - `LEAVE`: the employee is still employed but **currently on leave** (note that not all HR systems support this status — use our absences API for detailed information)
-        # 
+        #
         #  In rare cases where we can’t find a clear mapping, the original string is passed through.
-        field :employment_status, Crystalline::Nilable.new(Models::Shared::ManagerEmploymentStatus), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('employment_status'), 'decoder': Utils.enum_from_string(Models::Shared::ManagerEmploymentStatus, true) } }
+        field :employment_status, Crystalline::Nilable.new(Models::Shared::ManagerEmploymentStatus), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('employment_status'), 'decoder': ::Kombo::Utils.open_enum_from_string(Models::Shared::ManagerEmploymentStatus, true) } }
 
         sig { params(id: ::String, remote_id: ::String, first_name: T.nilable(::String), last_name: T.nilable(::String), display_full_name: T.nilable(::String), employee_number: T.nilable(::String), termination_date: T.nilable(::DateTime), work_email: T.nilable(::String), employment_status: T.nilable(Models::Shared::ManagerEmploymentStatus)).void }
         def initialize(id:, remote_id:, first_name: nil, last_name: nil, display_full_name: nil, employee_number: nil, termination_date: nil, work_email: nil, employment_status: nil)

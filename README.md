@@ -243,13 +243,13 @@ require 'kombo'
 
 Models = ::Kombo::Models
 s = ::Kombo::Kombo.new(
-      security: Models::Shared::Security.new(
-        api_key: '<YOUR_BEARER_TOKEN_HERE>',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    api_key: '<YOUR_BEARER_TOKEN_HERE>'
+  )
+)
 
 begin
-    res = s.general.check_api_key()
+    res = s.general.check_api_key
 
     unless res.get_check_api_key_positive_response.nil?
       # handle response

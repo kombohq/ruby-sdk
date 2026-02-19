@@ -18,7 +18,7 @@ module Kombo
         field :employee_id, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('employee_id'), required: true } }
         # The timestamp when this specific record was last modified. This field only updates when properties directly on this record change, NOT when related or nested models change. For filtering that considers nested data changes, use the `updated_after` parameter which will return records when either the record itself OR its related models have been updated.
         # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
-        field :changed_at, ::DateTime, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('changed_at'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
+        field :changed_at, ::DateTime, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('changed_at'), required: true, 'decoder': ::Kombo::Utils.datetime_from_iso_format(false) } }
         # The raw ID of the object in the remote system. We don't recommend using this as a primary key on your side as it might sometimes be compromised of multiple identifiers if a system doesn't provide a clear primary key.
         field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_id'), required: true } }
         # The date this absence starts in the `yyyy-MM-dd` format.
@@ -36,18 +36,18 @@ module Kombo
         # The amount of time this absence takes.
         field :amount, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('amount'), required: true } }
         # The unit of time for this absence. Can be `HOURS` or `DAYS`.
-        field :unit, Crystalline::Nilable.new(Models::Shared::GetHrisAbsencesPositiveResponseUnit), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('unit'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::GetHrisAbsencesPositiveResponseUnit, false) } }
+        field :unit, Crystalline::Nilable.new(Models::Shared::GetHrisAbsencesPositiveResponseUnit), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('unit'), required: true, 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::GetHrisAbsencesPositiveResponseUnit, false) } }
         # A note the employee has added to this absence.
         field :employee_note, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('employee_note'), required: true } }
         # The Kombo absence type ID of this absence.
         field :type_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('type_id'), required: true } }
         # The date and time the object was deleted in the remote system. Objects are automatically marked as deleted when Kombo can't retrieve them from the remote system anymore. Kombo will also anonymize entries 14 days after they disappear.
         # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
-        field :remote_deleted_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_deleted_at'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
+        field :remote_deleted_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_deleted_at'), required: true, 'decoder': ::Kombo::Utils.datetime_from_iso_format(false) } }
 
         field :type, Crystalline::Nilable.new(Models::Shared::GetHrisAbsencesPositiveResponseType), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('type'), required: true } }
         # The absence’s current status. In rare cases where we can’t find a clear mapping, the original string is passed through.
-        field :status, Crystalline::Nilable.new(Models::Shared::GetHrisAbsencesPositiveResponseStatus), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('status'), 'decoder': Utils.enum_from_string(Models::Shared::GetHrisAbsencesPositiveResponseStatus, true) } }
+        field :status, Crystalline::Nilable.new(Models::Shared::GetHrisAbsencesPositiveResponseStatus), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('status'), 'decoder': ::Kombo::Utils.open_enum_from_string(Models::Shared::GetHrisAbsencesPositiveResponseStatus, true) } }
 
         sig { params(id: ::String, employee_id: ::String, changed_at: ::DateTime, remote_id: T.nilable(::String), start_date: T.nilable(::Object), end_date: T.nilable(::Object), start_half_day: T.nilable(T::Boolean), end_half_day: T.nilable(T::Boolean), start_time: T.nilable(::Object), end_time: T.nilable(::Object), amount: T.nilable(::Float), unit: T.nilable(Models::Shared::GetHrisAbsencesPositiveResponseUnit), employee_note: T.nilable(::String), type_id: T.nilable(::String), remote_deleted_at: T.nilable(::DateTime), type: T.nilable(Models::Shared::GetHrisAbsencesPositiveResponseType), status: T.nilable(Models::Shared::GetHrisAbsencesPositiveResponseStatus)).void }
         def initialize(id:, employee_id:, changed_at:, remote_id: nil, start_date: nil, end_date: nil, start_half_day: nil, end_half_day: nil, start_time: nil, end_time: nil, amount: nil, unit: nil, employee_note: nil, type_id: nil, remote_deleted_at: nil, type: nil, status: nil)

@@ -9,8 +9,6 @@ module Kombo
     module Shared
       # PostAtsCandidatesRequestBodyGender - The gender of the candidate. Must be one of `MALE`, `FEMALE`, or `OTHER`.
       class PostAtsCandidatesRequestBodyGender < T::Enum
-
-
         enums do
           MALE = new('MALE')
           FEMALE = new('FEMALE')

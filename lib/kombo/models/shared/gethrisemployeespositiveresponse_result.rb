@@ -18,7 +18,7 @@ module Kombo
         field :remote_id, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_id'), required: true } }
         # The timestamp when this specific record was last modified. This field only updates when properties directly on this record change, NOT when related or nested models change. For filtering that considers nested data changes, use the `updated_after` parameter which will return records when either the record itself OR its related models have been updated.
         # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
-        field :changed_at, ::DateTime, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('changed_at'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
+        field :changed_at, ::DateTime, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('changed_at'), required: true, 'decoder': ::Kombo::Utils.datetime_from_iso_format(false) } }
 
         field :employments, Crystalline::Array.new(Models::Shared::Employment), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('employments'), required: true } }
 
@@ -55,19 +55,19 @@ module Kombo
         field :manager_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('manager_id'), required: true } }
         # The employee’s date of birth.
         # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
-        field :date_of_birth, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('date_of_birth'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
+        field :date_of_birth, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('date_of_birth'), required: true, 'decoder': ::Kombo::Utils.datetime_from_iso_format(false) } }
         # The date the employee started working for the organization.
         # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
-        field :start_date, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('start_date'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
+        field :start_date, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('start_date'), required: true, 'decoder': ::Kombo::Utils.datetime_from_iso_format(false) } }
         # The date when the employment ends. Can be in the past or future.
         # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
-        field :termination_date, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('termination_date'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
+        field :termination_date, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('termination_date'), required: true, 'decoder': ::Kombo::Utils.datetime_from_iso_format(false) } }
         # The date and time the object was created in the remote system.
         # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
-        field :remote_created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_created_at'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
+        field :remote_created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_created_at'), required: true, 'decoder': ::Kombo::Utils.datetime_from_iso_format(false) } }
         # The date and time the object was deleted in the remote system. Objects are automatically marked as deleted when Kombo can't retrieve them from the remote system anymore. Kombo will also anonymize entries 14 days after they disappear.
         # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
-        field :remote_deleted_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_deleted_at'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
+        field :remote_deleted_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_deleted_at'), required: true, 'decoder': ::Kombo::Utils.datetime_from_iso_format(false) } }
         # A key-value store of fields not covered by the schema. [Read more](/custom-fields)
         field :custom_fields, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('custom_fields'), required: true } }
 
@@ -81,22 +81,22 @@ module Kombo
         # The employee’s personal email address. If the email address is invalid, we will set this to `null`.
         field :personal_email, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('personal_email') } }
         # The employee’s gender.
-        field :gender, Crystalline::Nilable.new(Models::Shared::GetHrisEmployeesPositiveResponseGender), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('gender'), 'decoder': Utils.enum_from_string(Models::Shared::GetHrisEmployeesPositiveResponseGender, true) } }
+        field :gender, Crystalline::Nilable.new(Models::Shared::GetHrisEmployeesPositiveResponseGender), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('gender'), 'decoder': ::Kombo::Utils.open_enum_from_string(Models::Shared::GetHrisEmployeesPositiveResponseGender, true) } }
         # The employee’s ethnicity. In rare cases where we can’t find a clear mapping, the original string is passed through.
-        field :ethnicity, Crystalline::Nilable.new(Models::Shared::Ethnicity), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('ethnicity'), 'decoder': Utils.enum_from_string(Models::Shared::Ethnicity, true) } }
+        field :ethnicity, Crystalline::Nilable.new(Models::Shared::Ethnicity), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('ethnicity'), 'decoder': ::Kombo::Utils.open_enum_from_string(Models::Shared::Ethnicity, true) } }
         # The employee’s current marital status. In rare cases where we can’t find a clear mapping, the original string is passed through.
-        field :marital_status, Crystalline::Nilable.new(Models::Shared::MaritalStatus), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('marital_status'), 'decoder': Utils.enum_from_string(Models::Shared::MaritalStatus, true) } }
+        field :marital_status, Crystalline::Nilable.new(Models::Shared::MaritalStatus), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('marital_status'), 'decoder': ::Kombo::Utils.open_enum_from_string(Models::Shared::MaritalStatus, true) } }
         # The employee’s current employment status:
-        # 
+        #
         # - `ACTIVE`: the employee is **actively employed**
         # - `PENDING`: the employee is **not actively employed yet** (but they signed their contract or are part of an onboarding process)
         # - `INACTIVE`: the employee is **not actively employed** anymore
         # - `LEAVE`: the employee is still employed but **currently on leave** (note that not all HR systems support this status — use our absences API for detailed information)
-        # 
+        #
         #  In rare cases where we can’t find a clear mapping, the original string is passed through.
-        field :employment_status, Crystalline::Nilable.new(Models::Shared::EmploymentStatus), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('employment_status'), 'decoder': Utils.enum_from_string(Models::Shared::EmploymentStatus, true) } }
+        field :employment_status, Crystalline::Nilable.new(Models::Shared::EmploymentStatus), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('employment_status'), 'decoder': ::Kombo::Utils.open_enum_from_string(Models::Shared::EmploymentStatus, true) } }
         # The employee’s current employment type:
-        # 
+        #
         # - `FULL_TIME`: the employee is actively employed
         # - `PART_TIME`: the employee is working only part of the usual working hours
         # - `CONTRACT`: the employee is working temporarily under a contract
@@ -105,9 +105,9 @@ module Kombo
         # - `WORKING_STUDENT`: the employee is working as a working student
         # - `APPRENTICESHIP`: the employee is working in an apprenticeship
         # - `TRAINING`: the employee is working in a training program
-        # 
+        #
         #  In rare cases where we can’t find a clear mapping, the original string is passed through.
-        field :employment_type, Crystalline::Nilable.new(Models::Shared::GetHrisEmployeesPositiveResponseEmploymentType), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('employment_type'), 'decoder': Utils.enum_from_string(Models::Shared::GetHrisEmployeesPositiveResponseEmploymentType, true) } }
+        field :employment_type, Crystalline::Nilable.new(Models::Shared::GetHrisEmployeesPositiveResponseEmploymentType), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('employment_type'), 'decoder': ::Kombo::Utils.open_enum_from_string(Models::Shared::GetHrisEmployeesPositiveResponseEmploymentType, true) } }
         # The employee’s home address.
         field :home_address, Crystalline::Nilable.new(Models::Shared::HomeAddress), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('home_address') } }
         # The employee’s bank accounts.

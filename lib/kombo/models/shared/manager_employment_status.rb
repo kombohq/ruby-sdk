@@ -8,15 +8,15 @@ module Kombo
   module Models
     module Shared
 
-      class ManagerEmploymentStatus < T::Enum
-
-
+      class ManagerEmploymentStatus
+        include ::Crystalline::Enum
         enums do
           ACTIVE = new('ACTIVE')
           PENDING = new('PENDING')
           INACTIVE = new('INACTIVE')
           LEAVE = new('LEAVE')
         end
+        open!
       end
     end
   end

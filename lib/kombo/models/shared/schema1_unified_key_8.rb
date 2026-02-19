@@ -9,8 +9,6 @@ module Kombo
     module Shared
 
       class Schema1UnifiedKey8 < T::Enum
-
-
         enums do
           FIRST_NAME = new('first_name')
           LAST_NAME = new('last_name')

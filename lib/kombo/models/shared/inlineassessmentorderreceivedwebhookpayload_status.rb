@@ -9,8 +9,6 @@ module Kombo
     module Shared
       # InlineAssessmentOrderReceivedWebhookPayloadStatus - The current status of the assessment order.
       class InlineAssessmentOrderReceivedWebhookPayloadStatus < T::Enum
-
-
         enums do
           OPEN = new('OPEN')
           COMPLETED = new('COMPLETED')

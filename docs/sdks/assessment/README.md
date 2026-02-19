@@ -17,19 +17,18 @@ This is mainly intended for debugging. As you always need to submit the full lis
 
 ### Example Usage
 
-<!-- UsageSnippet language="ruby" operationID="GetAssessmentPackages" method="get" path="/assessment/packages" -->
+<!-- UsageSnippet language="ruby" operationID="GetAssessmentPackages" method="get" path="/assessment/packages" example="example1" -->
 ```ruby
 require 'kombo'
 
 Models = ::Kombo::Models
 s = ::Kombo::Kombo.new(
-      integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
-      security: Models::Shared::Security.new(
-        api_key: '<YOUR_BEARER_TOKEN_HERE>',
-      ),
-    )
-
-res = s.assessment.get_packages()
+  integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
+  security: Models::Shared::Security.new(
+    api_key: '<YOUR_BEARER_TOKEN_HERE>'
+  )
+)
+res = s.assessment.get_packages
 
 unless res.get_assessment_packages_positive_response.nil?
   # handle response
@@ -83,35 +82,78 @@ Packages that have been previously submitted through this endpoint but aren't in
 }
 ```
 
-### Example Usage
+### Example Usage: Error Response
 
-<!-- UsageSnippet language="ruby" operationID="PutAssessmentPackages" method="put" path="/assessment/packages" -->
+<!-- UsageSnippet language="ruby" operationID="PutAssessmentPackages" method="put" path="/assessment/packages" example="Error Response" -->
 ```ruby
 require 'kombo'
 
 Models = ::Kombo::Models
 s = ::Kombo::Kombo.new(
-      integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
-      security: Models::Shared::Security.new(
-        api_key: '<YOUR_BEARER_TOKEN_HERE>',
-      ),
-    )
+  integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
+  security: Models::Shared::Security.new(
+    api_key: '<YOUR_BEARER_TOKEN_HERE>'
+  )
+)
+res = s.assessment.set_packages(body: Models::Shared::PutAssessmentPackagesRequestBody.new(
+  packages: []
+))
 
+unless res.put_assessment_packages_positive_response.nil?
+  # handle response
+end
+
+```
+### Example Usage: Minimal Error Response
+
+<!-- UsageSnippet language="ruby" operationID="PutAssessmentPackages" method="put" path="/assessment/packages" example="Minimal Error Response" -->
+```ruby
+require 'kombo'
+
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
+  integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
+  security: Models::Shared::Security.new(
+    api_key: '<YOUR_BEARER_TOKEN_HERE>'
+  )
+)
+res = s.assessment.set_packages(body: Models::Shared::PutAssessmentPackagesRequestBody.new(
+  packages: []
+))
+
+unless res.put_assessment_packages_positive_response.nil?
+  # handle response
+end
+
+```
+### Example Usage: example1
+
+<!-- UsageSnippet language="ruby" operationID="PutAssessmentPackages" method="put" path="/assessment/packages" example="example1" -->
+```ruby
+require 'kombo'
+
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
+  integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
+  security: Models::Shared::Security.new(
+    api_key: '<YOUR_BEARER_TOKEN_HERE>'
+  )
+)
 res = s.assessment.set_packages(body: Models::Shared::PutAssessmentPackagesRequestBody.new(
   packages: [
     Models::Shared::PutAssessmentPackagesRequestBodyPackage.new(
       id: '1001',
       type: Models::Shared::PutAssessmentPackagesRequestBodyType::SKILLS_TEST,
       name: 'TypeScript',
-      description: 'TypeScript coding skills assessments',
+      description: 'TypeScript coding skills assessments'
     ),
     Models::Shared::PutAssessmentPackagesRequestBodyPackage.new(
       id: '1002',
       type: Models::Shared::PutAssessmentPackagesRequestBodyType::VIDEO_INTERVIEW,
       name: 'Video Interview',
-      description: 'Video interview to assess communication skills',
+      description: 'Video interview to assess communication skills'
     ),
-  ],
+  ]
 ))
 
 unless res.put_assessment_packages_positive_response.nil?
@@ -150,12 +192,11 @@ require 'kombo'
 
 Models = ::Kombo::Models
 s = ::Kombo::Kombo.new(
-      integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
-      security: Models::Shared::Security.new(
-        api_key: '<YOUR_BEARER_TOKEN_HERE>',
-      ),
-    )
-
+  integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
+  security: Models::Shared::Security.new(
+    api_key: '<YOUR_BEARER_TOKEN_HERE>'
+  )
+)
 res = s.assessment.get_open_orders(page_size: 100)
 
 unless res.get_assessment_orders_open_positive_response.nil?
@@ -223,20 +264,65 @@ Updates an assessment or a background check order result.
 }
 ```
 
-### Example Usage
+### Example Usage: Error Response
 
-<!-- UsageSnippet language="ruby" operationID="PutAssessmentOrdersAssessmentOrderIdResult" method="put" path="/assessment/orders/{assessment_order_id}/result" -->
+<!-- UsageSnippet language="ruby" operationID="PutAssessmentOrdersAssessmentOrderIdResult" method="put" path="/assessment/orders/{assessment_order_id}/result" example="Error Response" -->
 ```ruby
 require 'kombo'
 
 Models = ::Kombo::Models
 s = ::Kombo::Kombo.new(
-      integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
-      security: Models::Shared::Security.new(
-        api_key: '<YOUR_BEARER_TOKEN_HERE>',
-      ),
-    )
+  integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
+  security: Models::Shared::Security.new(
+    api_key: '<YOUR_BEARER_TOKEN_HERE>'
+  )
+)
+res = s.assessment.update_order_result(assessment_order_id: '<id>', body: Models::Shared::PutAssessmentOrdersAssessmentOrderIdResultRequestBody.new(
+  status: Models::Shared::PutAssessmentOrdersAssessmentOrderIdResultRequestBodyStatus::CANCELLED,
+  result_url: 'https://sour-best-seller.net'
+))
 
+unless res.put_assessment_orders_assessment_order_id_result_positive_response.nil?
+  # handle response
+end
+
+```
+### Example Usage: Minimal Error Response
+
+<!-- UsageSnippet language="ruby" operationID="PutAssessmentOrdersAssessmentOrderIdResult" method="put" path="/assessment/orders/{assessment_order_id}/result" example="Minimal Error Response" -->
+```ruby
+require 'kombo'
+
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
+  integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
+  security: Models::Shared::Security.new(
+    api_key: '<YOUR_BEARER_TOKEN_HERE>'
+  )
+)
+res = s.assessment.update_order_result(assessment_order_id: '<id>', body: Models::Shared::PutAssessmentOrdersAssessmentOrderIdResultRequestBody.new(
+  status: Models::Shared::PutAssessmentOrdersAssessmentOrderIdResultRequestBodyStatus::CANCELLED,
+  result_url: 'https://sour-best-seller.net'
+))
+
+unless res.put_assessment_orders_assessment_order_id_result_positive_response.nil?
+  # handle response
+end
+
+```
+### Example Usage: example1
+
+<!-- UsageSnippet language="ruby" operationID="PutAssessmentOrdersAssessmentOrderIdResult" method="put" path="/assessment/orders/{assessment_order_id}/result" example="example1" -->
+```ruby
+require 'kombo'
+
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
+  integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
+  security: Models::Shared::Security.new(
+    api_key: '<YOUR_BEARER_TOKEN_HERE>'
+  )
+)
 res = s.assessment.update_order_result(assessment_order_id: 'GRKdd9dibYKKCrmGRSMJf3wu', body: Models::Shared::PutAssessmentOrdersAssessmentOrderIdResultRequestBody.new(
   status: Models::Shared::PutAssessmentOrdersAssessmentOrderIdResultRequestBodyStatus::COMPLETED,
   result_url: 'https://example.com',
@@ -247,7 +333,7 @@ res = s.assessment.update_order_result(assessment_order_id: 'GRKdd9dibYKKCrmGRSM
     Models::Shared::AttributeText.new(
       type: 'TEXT',
       label: 'Role fit',
-      value: 'Excellent',
+      value: 'Excellent'
     ),
     Models::Shared::AttributeSubResult.new(
       type: 'SUB_RESULT',
@@ -255,18 +341,18 @@ res = s.assessment.update_order_result(assessment_order_id: 'GRKdd9dibYKKCrmGRSM
       label: 'Personality test',
       score: Models::Shared::Score.new(
         value: 97.0,
-        max: 100.0,
+        max: 100.0
       ),
-      status: Models::Shared::AttributeStatus::COMPLETED,
+      status: Models::Shared::AttributeStatus::COMPLETED
     ),
   ],
   attachments: [
     Models::Shared::PutAssessmentOrdersAssessmentOrderIdResultRequestBodyAttachment.new(
       name: 'Assessment Report.pdf',
       content_type: 'application/pdf',
-      data: 'SGkgdGhlcmUsIEtvbWJvIGlzIGN1cnJlbnRseSBoaXJpbmcgZW5naW5lZXJzIHRoYXQgbG92ZSB0byB3b3JrIG9uIGRldmVsb3BlciBwcm9kdWN0cy4=',
+      data: 'SGkgdGhlcmUsIEtvbWJvIGlzIGN1cnJlbnRseSBoaXJpbmcgZW5naW5lZXJzIHRoYXQgbG92ZSB0byB3b3JrIG9uIGRldmVsb3BlciBwcm9kdWN0cy4='
     ),
-  ],
+  ]
 ))
 
 unless res.put_assessment_orders_assessment_order_id_result_positive_response.nil?

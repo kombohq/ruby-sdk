@@ -9,8 +9,6 @@ module Kombo
     module Shared
       # IntegrationStateChangedWebhookPayloadType - Type of the webhook event
       class IntegrationStateChangedWebhookPayloadType < T::Enum
-
-
         enums do
           INTEGRATION_STATE_CHANGED = new('integration-state-changed')
         end

@@ -9,8 +9,6 @@ module Kombo
     module Shared
       # ContentType - Content type of the note. Currently only `PLAIN_TEXT` is supported.
       class ContentType < T::Enum
-
-
         enums do
           PLAIN_TEXT = new('PLAIN_TEXT')
         end

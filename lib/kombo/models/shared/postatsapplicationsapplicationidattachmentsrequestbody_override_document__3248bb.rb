@@ -9,8 +9,6 @@ module Kombo
     module Shared
       # PostAtsApplicationsApplicationIdAttachmentsRequestBodyOverrideDocumentCategory - Allows you to override the document category for the attachment.
       class PostAtsApplicationsApplicationIdAttachmentsRequestBodyOverrideDocumentCategory < T::Enum
-
-
         enums do
           IRC_CANDIDATE_RESUME = new('IRC_CANDIDATE_RESUME')
           IRC_CANDIDATE_COVERLETTER = new('IRC_CANDIDATE_COVERLETTER')

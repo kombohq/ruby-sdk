@@ -8,8 +8,6 @@ end
 
 
 class Kombo::Models::Shared::AttributeSubResult
-  def type(); end
-  def type=(str_); end
   def id(); end
   def id=(str_); end
   def label(); end
@@ -18,4 +16,6 @@ class Kombo::Models::Shared::AttributeSubResult
   def score=(str_); end
   def status(); end
   def status=(str_); end
+  def type(); end
+  def type=(str_); end
 end

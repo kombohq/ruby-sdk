@@ -15,7 +15,7 @@ module Kombo
         # Unique identifier for this webhook event
         field :id, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('id'), required: true } }
         # Type of the webhook event
-        field :type, Models::Shared::ConnectionFlowFailedWebhookPayloadType, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('type'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::ConnectionFlowFailedWebhookPayloadType, false) } }
+        field :type, Models::Shared::ConnectionFlowFailedWebhookPayloadType, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('type'), required: true, 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::ConnectionFlowFailedWebhookPayloadType, false) } }
 
         field :data, Models::Shared::ConnectionFlowFailedWebhookPayloadData, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('data'), required: true } }
 

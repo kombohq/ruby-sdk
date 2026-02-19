@@ -8,8 +8,8 @@ end
 
 
 class Kombo::Models::Shared::PostAtsImportTrackedApplicationRequestBodyRecruiteePlacementID
-  def id_type(); end
-  def id_type=(str_); end
   def placement_id(); end
   def placement_id=(str_); end
+  def id_type(); end
+  def id_type=(str_); end
 end

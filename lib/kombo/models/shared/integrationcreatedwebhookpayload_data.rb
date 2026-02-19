@@ -17,7 +17,7 @@ module Kombo
         # The name of the integrated tool.
         field :tool, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('tool'), required: true } }
         # The category of the integration.
-        field :category, Models::Shared::IntegrationCreatedWebhookPayloadCategory, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('category'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::IntegrationCreatedWebhookPayloadCategory, false) } }
+        field :category, Models::Shared::IntegrationCreatedWebhookPayloadCategory, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('category'), required: true, 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::IntegrationCreatedWebhookPayloadCategory, false) } }
         # Information about the end user who created the integration.
         field :end_user, Models::Shared::IntegrationCreatedWebhookPayloadEndUser, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('end_user'), required: true } }
 

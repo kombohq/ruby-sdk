@@ -8,15 +8,15 @@ module Kombo
   module Models
     module Shared
 
-      class GetHrisEmployeesPositiveResponseGender < T::Enum
-
-
+      class GetHrisEmployeesPositiveResponseGender
+        include ::Crystalline::Enum
         enums do
           MALE = new('MALE')
           FEMALE = new('FEMALE')
           NON_BINARY = new('NON_BINARY')
           NOT_SPECIFIED = new('NOT_SPECIFIED')
         end
+        open!
       end
     end
   end

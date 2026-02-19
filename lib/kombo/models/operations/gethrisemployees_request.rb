@@ -17,9 +17,9 @@ module Kombo
         # An optional cursor string used for pagination. This can be retrieved from the `next` property of the previous page response.
         field :cursor, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'cursor', 'style': 'form', 'explode': true } }
         # Filter the entries based on the modification date in format `YYYY-MM-DDTHH:mm:ss.sssZ`. Returns records where either the record itself **OR** its nested data has been updated since this timestamp, even if the record's own `changed_at` field remains unchanged.
-        # 
+        #
         # If you want to track entry deletion, also set the `include_deleted=true` query parameter, because otherwise, deleted entries will be hidden.
-        # 
+        #
         # For more details, see [Understanding changed_at vs updated_after Behavior](https://docs.kombo.dev/ats/getting-started/fetching-data#understanding-changed_at-vs-updated_after-behavior).
         field :updated_after, Crystalline::Nilable.new(::DateTime), { 'query_param': { 'field_name': 'updated_after', 'style': 'form', 'explode': true } }
         # Filter by a comma-separated list of IDs such as `222k7eCGyUdgt2JWZDNnkDs3,B5DVmypWENfU6eMe6gYDyJG3`.
@@ -32,7 +32,7 @@ module Kombo
         # * `INACTIVE`: a full-time employee is no longer employed, or, for a contract worker when their contract runs out 
         # * `LEAVE`: the employee is still employed but **currently on leave** (note that not all HR systems support this status — use our absences API for detailed information) 
         #  
-        # 
+        #
         # Leave this blank to get results matching all values.
         field :employment_statuses, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'query_param': { 'field_name': 'employment_statuses', 'style': 'form', 'explode': false } }
         # Filter by a comma-separated list of group IDs. We will only return employees that are members of _any_ of the groups.

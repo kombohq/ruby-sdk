@@ -21,9 +21,9 @@ module Kombo
         # The job posting’s description in HTML format.
         field :description_html, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('description_html'), required: true } }
         # The job posting’s current status.
-        field :status, Crystalline::Nilable.new(Models::Shared::JobPostingStatus), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('status'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::JobPostingStatus, false) } }
+        field :status, Crystalline::Nilable.new(Models::Shared::JobPostingStatus), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('status'), required: true, 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::JobPostingStatus, false) } }
 
-        field :visibility, Crystalline::Nilable.new(Models::Shared::JobPostingVisibility), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('visibility'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::JobPostingVisibility, false) } }
+        field :visibility, Crystalline::Nilable.new(Models::Shared::JobPostingVisibility), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('visibility'), required: true, 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::JobPostingVisibility, false) } }
         # The public URL to the job posting on the ATS platform.
         field :url, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('url'), required: true } }
 

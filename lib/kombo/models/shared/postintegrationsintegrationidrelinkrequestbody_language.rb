@@ -9,8 +9,6 @@ module Kombo
     module Shared
       # PostIntegrationsIntegrationIdRelinkRequestBodyLanguage - Language of the connection flow UI.
       class PostIntegrationsIntegrationIdRelinkRequestBodyLanguage < T::Enum
-
-
         enums do
           EN = new('en')
           DE = new('de')

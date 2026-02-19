@@ -21,10 +21,10 @@ module Kombo
 
         field :description, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('description') } }
 
-        field :unified_key, Crystalline::Nilable.new(Models::Shared::GetHrisEmployeesFormPositiveResponseUnifiedKey3), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('unified_key'), 'decoder': Utils.enum_from_string(Models::Shared::GetHrisEmployeesFormPositiveResponseUnifiedKey3, true) } }
+        field :unified_key, Crystalline::Nilable.new(Models::Shared::GetHrisEmployeesFormPositiveResponseUnifiedKey3), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('unified_key'), 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::GetHrisEmployeesFormPositiveResponseUnifiedKey3, true) } }
 
         sig { params(label: ::String, required: T::Boolean, type: ::String, description: T.nilable(::String), unified_key: T.nilable(Models::Shared::GetHrisEmployeesFormPositiveResponseUnifiedKey3)).void }
-        def initialize(label:, required:, type:, description: nil, unified_key: nil)
+        def initialize(label:, required:, type: 'date', description: nil, unified_key: nil)
           @label = label
           @required = required
           unless type == 'date'

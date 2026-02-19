@@ -15,12 +15,12 @@ module Kombo
 
         field :type, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('type'), required: true } }
         # If unavailable, we recommend displaying a single-line input.
-        field :display_type, Crystalline::Nilable.new(Models::Shared::DisplayType1), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('display_type'), 'decoder': Utils.enum_from_string(Models::Shared::DisplayType1, true) } }
+        field :display_type, Crystalline::Nilable.new(Models::Shared::DisplayType1), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('display_type'), 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::DisplayType1, true) } }
 
         field :max_length, Crystalline::Nilable.new(::Integer), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('max_length') } }
 
         sig { params(type: ::String, display_type: T.nilable(Models::Shared::DisplayType1), max_length: T.nilable(::Integer)).void }
-        def initialize(type:, display_type: nil, max_length: nil)
+        def initialize(type: 'TEXT', display_type: nil, max_length: nil)
           unless type == 'TEXT'
             raise ArgumentError, 'Invalid value for type'
           end

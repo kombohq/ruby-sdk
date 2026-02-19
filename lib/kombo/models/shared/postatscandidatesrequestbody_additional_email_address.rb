@@ -13,7 +13,7 @@ module Kombo
         include Crystalline::MetadataFields
 
 
-        field :type, Models::Shared::PostAtsCandidatesRequestBodyAdditionalEmailAddressType, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('type'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::PostAtsCandidatesRequestBodyAdditionalEmailAddressType, false) } }
+        field :type, Models::Shared::PostAtsCandidatesRequestBodyAdditionalEmailAddressType, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('type'), required: true, 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::PostAtsCandidatesRequestBodyAdditionalEmailAddressType, false) } }
 
         field :email_address, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('email_address'), required: true } }
 

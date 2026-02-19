@@ -9,8 +9,6 @@ module Kombo
     module Shared
       # IntegrationTool - Pre-define a tool this integration link can be used for.
       class IntegrationTool < T::Enum
-
-
         enums do
           WORKDAY = new('workday')
           SUCCESSFACTORS = new('successfactors')
@@ -111,6 +109,8 @@ module Kombo
           TALENTADORE = new('talentadore')
           SANDBOX = new('sandbox')
           GUIDECOM = new('guidecom')
+          SPOTT = new('spott')
+          LOXO = new('loxo')
           WORKDAYCUSTOMREPORT = new('workdaycustomreport')
           WORKDAYCUSTOMREPORTSFTP = new('workdaycustomreportsftp')
           PAYFITCUSTOMER = new('payfitcustomer')
@@ -188,6 +188,8 @@ module Kombo
           SFTP = new('sftp')
           SFTPFETCH = new('sftpfetch')
           THREE_HUNDRED_AND_SIXTYLEARNING = new('360learning')
+          UDEMY = new('udemy')
+          LINKEDINLEARNING = new('linkedinlearning')
         end
       end
     end

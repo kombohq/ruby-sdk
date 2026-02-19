@@ -10,10 +10,10 @@ module Kombo
       # **(⚠️ Deprecated - Use [automatic source writing](/ats/features/application-attribution#automatic-attribution) instead)** Optional source information that will be attached to the candidate. If
       # you're a job board or recruiting service, you can use this to make sure your
       # customers can see which candidates came from you.
-      # 
+      #
       # This is deprecated because writing sources requires users to do some setup in most ATSs.
-      # 
-      # @deprecated  class: This will be removed in a future release, please migrate away from it as soon as possible.
+      #
+      # @deprecated class: This will be removed in a future release, please migrate away from it as soon as possible.
       class PostAtsCandidatesRequestBodySource
         extend T::Sig
         include Crystalline::MetadataFields

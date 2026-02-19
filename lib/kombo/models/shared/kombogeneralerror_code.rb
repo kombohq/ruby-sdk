@@ -9,8 +9,6 @@ module Kombo
     module Shared
       # KomboGeneralErrorCode - Some errors include an error code that can be used to identify their cause. See the [Error Handling Docs](https://docs.kombo.dev/guides/errors) for more information. For your error handling logic please use the error `code` instead of other properties (e.g. message, http status code, ...).
       class KomboGeneralErrorCode < T::Enum
-
-
         enums do
           PLATFORM_RATE_LIMIT_EXCEEDED = new('PLATFORM.RATE_LIMIT_EXCEEDED')
           PLATFORM_INTEGRATION_NOT_FOUND = new('PLATFORM.INTEGRATION_NOT_FOUND')
@@ -18,6 +16,7 @@ module Kombo
           PLATFORM_UNKNOWN_ERROR = new('PLATFORM.UNKNOWN_ERROR')
           PLATFORM_IP_NOT_WHITELISTED = new('PLATFORM.IP_NOT_WHITELISTED')
           PLATFORM_AUTHENTICATION_INVALID = new('PLATFORM.AUTHENTICATION_INVALID')
+          PLATFORM_TASK_TIMED_OUT = new('PLATFORM.TASK_TIMED_OUT')
         end
       end
     end

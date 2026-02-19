@@ -19,14 +19,14 @@ module Kombo
         # Whether the datapoint is available and enabled and not opted out of.
         field :is_available, Crystalline::Boolean.new, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('is_available'), required: true } }
         # The status of a datapoint of an integrated tool:
-        # 
+        #
         # - `SUPPORTED`: the tool supports the datapoint and it can be used through Kombo.
         # - `UNSUPPORTED`: the tool does not support the datapoint.
         # - `NOT_IMPLEMENTED`: tool supports the datapoint but it was not integrated by Kombo for a given reason (see coverage grid).
         # - `UNKNOWN`: the datapoint is not integrated yet and Kombo has no information about it's availability in the tool.
-        field :coverage_status, Models::Shared::GetIntegrationsIntegrationIdPositiveResponseWriteActionCoverageStatus, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('coverage_status'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::GetIntegrationsIntegrationIdPositiveResponseWriteActionCoverageStatus, false) } }
+        field :coverage_status, Models::Shared::GetIntegrationsIntegrationIdPositiveResponseWriteActionCoverageStatus, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('coverage_status'), required: true, 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::GetIntegrationsIntegrationIdPositiveResponseWriteActionCoverageStatus, false) } }
         # The setting of the datapoint in the scope config that you configured in the Kombo dashboard.
-        field :scope_config_setting, Models::Shared::WriteActionScopeConfigSetting, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('scope_config_setting'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::WriteActionScopeConfigSetting, false) } }
+        field :scope_config_setting, Models::Shared::WriteActionScopeConfigSetting, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('scope_config_setting'), required: true, 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::WriteActionScopeConfigSetting, false) } }
         # Whether the datapoint is opted out by your customer in the connection flow.
         field :opted_out_by_customer, Crystalline::Boolean.new, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('opted_out_by_customer'), required: true } }
         # Field support status for the action. Please note that action fields can't be configured in the scope config or opted out by your customer.

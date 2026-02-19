@@ -20,7 +20,7 @@ module Kombo
         field :value, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('value'), required: true } }
 
         sig { params(type: ::String, ordered_options: T.nilable(T::Array[::String]), value: T.nilable(::String)).void }
-        def initialize(type:, ordered_options: nil, value: nil)
+        def initialize(type: 'SINGLE_SELECT', ordered_options: nil, value: nil)
           unless type == 'SINGLE_SELECT'
             raise ArgumentError, 'Invalid value for type'
           end

@@ -9,8 +9,6 @@ module Kombo
     module Shared
       # PostForceSyncRequestBodyType - The type of the triggered sync.
       class PostForceSyncRequestBodyType < T::Enum
-
-
         enums do
           FULL = new('FULL')
           DELTA = new('DELTA')

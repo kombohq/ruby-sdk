@@ -13,24 +13,24 @@ module Kombo
         include Crystalline::MetadataFields
 
 
-        field :type, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('type'), required: true } }
-
         field :link, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('link'), required: true } }
 
-        sig { params(type: ::String, link: ::String).void }
-        def initialize(type:, link:)
+        field :type, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('type'), required: true } }
+
+        sig { params(link: ::String, type: ::String).void }
+        def initialize(link:, type: 'referenced')
+          @link = link
           unless type == 'referenced'
             raise ArgumentError, 'Invalid value for type'
           end
           @type = 'referenced'
-          @link = link
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
-          return false unless @type == other.type
           return false unless @link == other.link
+          return false unless @type == other.type
           true
         end
       end

@@ -13,28 +13,28 @@ module Kombo
         include Crystalline::MetadataFields
 
 
-        field :status, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('status'), required: true } }
-
         field :data, Models::Shared::PostAtsJobsJobIdApplicationsPositiveResponseData, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('data'), required: true } }
         # These are the interaction warnings that are shown in the dashboard. They are meant to provide debug information to you. We recommend logging them to the console.
         field :warnings, Crystalline::Array.new(Models::Shared::PostAtsJobsJobIdApplicationsPositiveResponseWarning), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('warnings'), required: true } }
 
-        sig { params(status: ::String, data: Models::Shared::PostAtsJobsJobIdApplicationsPositiveResponseData, warnings: T::Array[Models::Shared::PostAtsJobsJobIdApplicationsPositiveResponseWarning]).void }
-        def initialize(status:, data:, warnings:)
+        field :status, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('status'), required: true } }
+
+        sig { params(data: Models::Shared::PostAtsJobsJobIdApplicationsPositiveResponseData, warnings: T::Array[Models::Shared::PostAtsJobsJobIdApplicationsPositiveResponseWarning], status: ::String).void }
+        def initialize(data:, warnings:, status: 'success')
+          @data = data
+          @warnings = warnings
           unless status == 'success'
             raise ArgumentError, 'Invalid value for status'
           end
           @status = 'success'
-          @data = data
-          @warnings = warnings
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
-          return false unless @status == other.status
           return false unless @data == other.data
           return false unless @warnings == other.warnings
+          return false unless @status == other.status
           true
         end
       end

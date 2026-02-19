@@ -44,14 +44,14 @@ module Kombo
     def get_applications(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, outcomes: nil, job_ids: nil, job_remote_ids: nil, current_stage_ids: nil, remote_created_after: nil, timeout_ms: nil)
       # get_applications - Get applications
       # Retrieve all applications.
-      # 
+      #
       # Visit our in-depth guides to learn more about:
-      # 
+      #
       # - 💡 [Being aware of which applications are tracked](/ats/features/implementation-guide/tracking-created-applications#be-aware-of-which-applications-are-tracked)
       # - 🚦 [Hiring signals](/ats/features/implementation-guide/tracking-created-applications#hiring-signals)
       # - 📈 [Application stage changes](/ats/features/implementation-guide/tracking-created-applications#application-stage-changes)
       # - ❓ [ATS-specific limitations](/ats/features/implementation-guide/tracking-created-applications#ats-specific-limitations)
-      # 
+      #
       # Top level filters use AND, while individual filters use OR if they accept multiple arguments. That means filters will be resolved like this: `(id IN ids) AND (remote_id IN remote_ids)`
       request = Models::Operations::GetAtsApplicationsRequest.new(
         integration_id: integration_id,
@@ -212,13 +212,13 @@ module Kombo
     def move_application_to_stage(body:, application_id:, integration_id: nil, timeout_ms: nil)
       # move_application_to_stage - Move application to stage
       # Moves an application to a specified stage. Use job-specific stages from GET /jobs, not the deprecated /application-stages endpoint.
-      # 
+      #
       # <Note>
       #   This endpoint requires the permission **Set application stage** to be enabled in [your scope config](/scopes).
       # </Note>
-      # 
+      #
       # ### Example Request Body
-      # 
+      #
       # ```json
       # {
       #   "stage_id": "3PJ8PZhZZa1eEdd2DtPNtVup"
@@ -244,7 +244,7 @@ module Kombo
       headers['content-type'] = req_content_type
       raise StandardError, 'request body is required' if data.nil? && form.nil?
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -359,15 +359,15 @@ module Kombo
     def add_application_result_link(body:, application_id:, integration_id: nil, timeout_ms: nil)
       # add_application_result_link - Add result link to application
       # Add a result link to an application.
-      # 
+      #
       # This can, for example, be used to link a candidate back to a test result/assessment in your application. As not all ATS tools have a "result link" feature, we sometimes repurpose other fields to expose it.
-      # 
+      #
       # <Note>
       #   This endpoint requires the permission **Add result links** to be enabled in [your scope config](/scopes).
       # </Note>
-      # 
+      #
       # ### Example Request Body
-      # 
+      #
       # ```json
       # {
       #   "application_id": "8Xi6iZrwusZqJmDGXs49GBmJ",
@@ -409,7 +409,7 @@ module Kombo
       headers['content-type'] = req_content_type
       raise StandardError, 'request body is required' if data.nil? && form.nil?
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -524,15 +524,15 @@ module Kombo
     def add_application_note(body:, application_id:, integration_id: nil, timeout_ms: nil)
       # add_application_note - Add note to application
       # Add a note to an application.
-      # 
+      #
       # Add extra information to an application. This can be any extra text information you want to add to an application.
-      # 
+      #
       # <Note>
       #   This endpoint requires the permission **Add notes** to be enabled in [your scope config](/scopes).
       # </Note>
-      # 
+      #
       # ### Example Request Body
-      # 
+      #
       # ```json
       # {
       #   "content": "A new message from the candidate is available in YourChat!",
@@ -560,7 +560,7 @@ module Kombo
       headers['content-type'] = req_content_type
       raise StandardError, 'request body is required' if data.nil? && form.nil?
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -675,9 +675,9 @@ module Kombo
     def get_application_attachments(application_id:, integration_id: nil, timeout_ms: nil)
       # get_application_attachments - Get application attachments
       # Get attachments from a candidate or application.
-      # 
+      #
       # Get attachments from an application. If the ATS stores the attachments on the candidate, it will get the attachments from the corresponding candidate instead.
-      # 
+      #
       # <Note>
       #   This endpoint requires the permission **Read document attachments** to be enabled in [your scope config](/scopes).
       # </Note>
@@ -803,17 +803,17 @@ module Kombo
     def add_application_attachment(body:, application_id:, integration_id: nil, timeout_ms: nil)
       # add_application_attachment - Add attachment to application
       # Uploads an attachment file for the specified applicant.
-      # 
+      #
       # <Warning>
       #   If adding an attachment to an application is not supported by the integration, the attachment will be [added to the candidate](/ats/v1/post-candidates-candidate-id-attachments) instead. 
       # </Warning>
-      # 
+      #
       # <Note>
       #   This endpoint requires the permission **Add attachments** to be enabled in [your scope config](/scopes).
       # </Note>
-      # 
+      #
       # ### Example Request Body
-      # 
+      #
       # ```json
       # {
       #   "application_id": "GRKdd9dibYKKCrmGRSMJf3wu",
@@ -846,7 +846,7 @@ module Kombo
       headers['content-type'] = req_content_type
       raise StandardError, 'request body is required' if data.nil? && form.nil?
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -961,15 +961,15 @@ module Kombo
     def reject_application(body:, application_id:, integration_id: nil, timeout_ms: nil)
       # reject_application - Reject application
       # Rejects an application with a provided reason.
-      # 
+      #
       # Rejects an application with a provided reason. Optionally, you can provide a free text note. You can get the list of rejection reasons with our [Get rejection reasons endpoint](/ats/v1/get-rejection-reasons).
-      # 
+      #
       # <Note>
       #   This endpoint requires the permission **Reject applications** to be enabled in [your scope config](/scopes).
       # </Note>
-      # 
+      #
       # ### Example Request Body
-      # 
+      #
       # ```json
       # {
       #   "rejection_reason_id": "3PJ8PZhZZa1eEdd2DtPNtVup",
@@ -997,7 +997,7 @@ module Kombo
       headers['content-type'] = req_content_type
       raise StandardError, 'request body is required' if data.nil? && form.nil?
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -1112,7 +1112,7 @@ module Kombo
     def get_candidates(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, email: nil, job_ids: nil, first_name: nil, last_name: nil, timeout_ms: nil)
       # get_candidates - Get candidates
       # Retrieve all candidates.
-      # 
+      #
       # Top level filters use AND, while individual filters use OR if they accept multiple arguments. That means filters will be resolved like this: `(id IN ids) AND (remote_id IN remote_ids)`
       request = Models::Operations::GetAtsCandidatesRequest.new(
         integration_id: integration_id,
@@ -1271,21 +1271,21 @@ module Kombo
     def create_candidate(body:, integration_id: nil, timeout_ms: nil)
       # create_candidate - Create candidate
       # Create a new candidate and application for the specified job.
-      # 
+      #
       # <Warning>
       #       **We recommend using the [Create application](/ats/v1/post-jobs-job-id-applications) endpoint instead.**
-      # 
+      #
       #       We realized that in practice it was always more about creating _applications_ instead of _candidates_, so we created a new, more aptly named one that you should use instead: [Create application](/ats/v1/post-jobs-job-id-applications)
-      # 
+      #
       #       Using it also has the benefit that we return the newly created applicant at the root level, so you can easily store its ID.
       #     </Warning>
-      # 
+      #
       # <Note>
       #   This endpoint requires the permission **Create applications and candidates** to be enabled in [your scope config](/scopes).
       # </Note>
-      # 
+      #
       # ### Example Request Body
-      # 
+      #
       # ```json
       # {
       #   "candidate": {
@@ -1357,7 +1357,7 @@ module Kombo
       headers['content-type'] = req_content_type
       raise StandardError, 'request body is required' if data.nil? && form.nil?
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -1472,7 +1472,7 @@ module Kombo
     def get_candidate_attachments(candidate_id:, integration_id: nil, timeout_ms: nil)
       # get_candidate_attachments - Get candidate attachments
       # Get attachments from a candidate, including all attachments of all of their applications.
-      # 
+      #
       # <Note>
       #   This endpoint requires the permission **Read document attachments** to be enabled in [your scope config](/scopes).
       # </Note>
@@ -1598,19 +1598,19 @@ module Kombo
     def add_candidate_attachment(body:, candidate_id:, integration_id: nil, timeout_ms: nil)
       # add_candidate_attachment - Add attachment to candidate
       # Uploads an attachment file for the specified candidate.
-      # 
+      #
       # <Warning>
       #   **We recommend using the [add attachment to application](/ats/v1/post-applications-application-id-attachments) endpoint instead.**
-      # 
+      #
       #   We realized that in practice it was always more about adding attachments to _applications_ instead of _candidates_, so we created a new, more aptly named one that you should use instead: [add attachment to application](/ats/v1/post-applications-application-id-attachments)
       #   </Warning>
-      # 
+      #
       # <Note>
       #   This endpoint requires the permission **Add attachments** to be enabled in [your scope config](/scopes).
       # </Note>
-      # 
+      #
       # ### Example Request Body
-      # 
+      #
       # ```json
       # {
       #   "candidate_id": "GRKdd9dibYKKCrmGRSMJf3wu",
@@ -1642,7 +1642,7 @@ module Kombo
       headers['content-type'] = req_content_type
       raise StandardError, 'request body is required' if data.nil? && form.nil?
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -1757,21 +1757,21 @@ module Kombo
     def add_candidate_result_link(body:, candidate_id:, integration_id: nil, timeout_ms: nil)
       # add_candidate_result_link - Add result link to candidate
       # Add a result link to a candidate.
-      # 
+      #
       # <Warning>
       #   **We recommend to use [add result link to application](/ats/v1/post-applications-application-id-result-links) instead.**
-      # 
+      #
       #   This can, for example, be used to link a candidate back to a test result/assessment in your application. As not all ATS tools have a "result link" feature, we sometimes repurpose other fields to expose it.
-      # 
+      #
       #   </Warning>
       #   
-      # 
+      #
       # <Note>
       #   This endpoint requires the permission **Add result links** to be enabled in [your scope config](/scopes).
       # </Note>
-      # 
+      #
       # ### Example Request Body
-      # 
+      #
       # ```json
       # {
       #   "label": "Assessment Result",
@@ -1812,7 +1812,7 @@ module Kombo
       headers['content-type'] = req_content_type
       raise StandardError, 'request body is required' if data.nil? && form.nil?
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -1927,15 +1927,15 @@ module Kombo
     def add_candidate_tag(body:, candidate_id:, integration_id: nil, timeout_ms: nil)
       # add_candidate_tag - Add tag to candidate
       # Add a tag to a candidate.
-      # 
+      #
       # Kombo takes care of creating the tag if required, finding out the right ID, and appending it to the list of tags.
-      # 
+      #
       # <Note>
       #   This endpoint requires the permission **Manage tags** to be enabled in [your scope config](/scopes).
       # </Note>
-      # 
+      #
       # ### Example Request Body
-      # 
+      #
       # ```json
       # {
       #   "tag": {
@@ -1963,7 +1963,7 @@ module Kombo
       headers['content-type'] = req_content_type
       raise StandardError, 'request body is required' if data.nil? && form.nil?
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -2078,15 +2078,15 @@ module Kombo
     def remove_candidate_tag(body:, candidate_id:, integration_id: nil, timeout_ms: nil)
       # remove_candidate_tag - Remove tag from candidate
       # Remove a tag from a candidate based on its name.
-      # 
+      #
       # This will also succeed if the tag does not exist on the candidate.
-      # 
+      #
       # <Note>
       #   This endpoint requires the permission **Manage tags** to be enabled in [your scope config](/scopes).
       # </Note>
-      # 
+      #
       # ### Example Request Body
-      # 
+      #
       # ```json
       # {
       #   "tag": {
@@ -2114,7 +2114,7 @@ module Kombo
       headers['content-type'] = req_content_type
       raise StandardError, 'request body is required' if data.nil? && form.nil?
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -2229,7 +2229,7 @@ module Kombo
     def get_tags(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, timeout_ms: nil)
       # get_tags - Get tags
       # Retrieve all tags.
-      # 
+      #
       # Top level filters use AND, while individual filters use OR if they accept multiple arguments. That means filters will be resolved like this: `(id IN ids) AND (remote_id IN remote_ids)`
       request = Models::Operations::GetAtsTagsRequest.new(
         integration_id: integration_id,
@@ -2380,17 +2380,17 @@ module Kombo
     def get_application_stages(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, timeout_ms: nil)
       # get_application_stages - Get application stages
       # Get all application stages available in the ATS.
-      # 
+      #
       # <Warning>
       #   **This endpoint is deprecated!**
-      # 
+      #
       #   Get all application stages available in the ATS. This is deprecated because most ATS systems have separate sets of stages for each job. We'd recommend using the `stages` property from the [GET Jobs endpoint](/ats/v1/get-jobs) instead.
-      # 
+      #
       # **Important**: Using global stages can cause "Stage not found" errors when moving applications, especially with systems like Workable that have job-specific stages.
-      # 
+      #
       # [Moving Applications Guide](/ats/implementation-guide/moving-and-rejecting-candidates).
       # </Warning>
-      # 
+      #
       # Top level filters use AND, while individual filters use OR if they accept multiple arguments. That means filters will be resolved like this: `(id IN ids) AND (remote_id IN remote_ids)`
       request = Models::Operations::GetAtsApplicationStagesRequest.new(
         integration_id: integration_id,
@@ -2541,15 +2541,15 @@ module Kombo
     def get_jobs(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, job_codes: nil, post_url: nil, statuses: nil, employment_types: nil, visibilities: nil, remote_created_after: nil, name_contains: nil, timeout_ms: nil)
       # get_jobs - Get jobs
       # Retrieve all jobs.
-      # 
+      #
       # Visit our in-depth guides to learn more about:
-      # 
+      #
       # - 🔄 [Getting updates of the data](/ats/features/implementation-guide/reading-jobs#getting-updates-of-the-data)
       # - ❗ [Handling failing syncs](/ats/features/implementation-guide/reading-jobs#handling-failing-syncs)
       # - 🔍 [Letting your customer choose which jobs to expose](/ats/features/implementation-guide/reading-jobs#let-your-customer-choose-which-jobs-to-expose-to-you)
       # - 🔗 [Matching jobs in your database to ATS jobs](/ats/features/implementation-guide/reading-jobs#match-jobs-in-your-database-to-ats-jobs)
       # - 🗑️ [Reacting to deleted/closed jobs](/ats/features/implementation-guide/reading-jobs#reacting-to-deleted-closed-jobs)
-      # 
+      #
       # Top level filters use AND, while individual filters use OR if they accept multiple arguments. That means filters will be resolved like this: `(id IN ids) AND (remote_id IN remote_ids)`
       request = Models::Operations::GetAtsJobsRequest.new(
         integration_id: integration_id,
@@ -2714,21 +2714,21 @@ module Kombo
     def create_application(body:, job_id:, integration_id: nil, timeout_ms: nil)
       # create_application - Create application
       # Create a new application and candidate for the specified job.
-      # 
+      #
       # Visit our in-depth guides to learn more about:
-      # 
+      #
       # - 🌐 [Setting the source of the application](/ats/features/implementation-guide/creating-applications#set-the-source-of-the-application) 
       # - 📎 [Uploading attachments with the application](/ats/features/implementation-guide/creating-applications#upload-attachments-with-the-application) 
       # - ♻️ [Retry behaviour](/ats/features/implementation-guide/creating-applications#retry-behaviour) 
       # - ✏️ [Writing answers to screening questions](/ats/features/implementation-guide/creating-applications#write-answers-to-screening-questions) 
       # - ⚠️ [Handling ATS-specific limitations](/ats/features/implementation-guide/creating-applications#handle-ats-specific-limitations)
-      # 
+      #
       # <Note>
       #   This endpoint requires the permission **Create applications and candidates** to be enabled in [your scope config](/scopes).
       # </Note>
-      # 
+      #
       # ### Example Request Body
-      # 
+      #
       # ```json
       # {
       #   "candidate": {
@@ -2797,7 +2797,7 @@ module Kombo
       headers['content-type'] = req_content_type
       raise StandardError, 'request body is required' if data.nil? && form.nil?
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -2912,7 +2912,7 @@ module Kombo
     def get_users(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, emails: nil, timeout_ms: nil)
       # get_users - Get users
       # Retrieve all users.
-      # 
+      #
       # Top level filters use AND, while individual filters use OR if they accept multiple arguments. That means filters will be resolved like this: `(id IN ids) AND (remote_id IN remote_ids)`
       request = Models::Operations::GetAtsUsersRequest.new(
         integration_id: integration_id,
@@ -3065,7 +3065,7 @@ module Kombo
     def get_offers(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, timeout_ms: nil)
       # get_offers - Get offers
       # Retrieve all offers.
-      # 
+      #
       # Top level filters use AND, while individual filters use OR if they accept multiple arguments. That means filters will be resolved like this: `(id IN ids) AND (remote_id IN remote_ids)`
       request = Models::Operations::GetAtsOffersRequest.new(
         integration_id: integration_id,
@@ -3216,9 +3216,9 @@ module Kombo
     def get_rejection_reasons(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, timeout_ms: nil)
       # get_rejection_reasons - Get rejection reasons
       # Retrieve all rejection reasons.
-      # 
+      #
       # Get all rejection reasons available in the system. The Kombo ID is required in the associated [reject application action](/ats/v1/post-applications-application-id-reject).
-      # 
+      #
       # Top level filters use AND, while individual filters use OR if they accept multiple arguments. That means filters will be resolved like this: `(id IN ids) AND (remote_id IN remote_ids)`
       request = Models::Operations::GetAtsRejectionReasonsRequest.new(
         integration_id: integration_id,
@@ -3369,7 +3369,7 @@ module Kombo
     def get_interviews(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, job_ids: nil, timeout_ms: nil)
       # get_interviews - Get interviews
       # Retrieve all interviews.
-      # 
+      #
       # Top level filters use AND, while individual filters use OR if they accept multiple arguments. That means filters will be resolved like this: `(id IN ids) AND (remote_id IN remote_ids)`
       request = Models::Operations::GetAtsInterviewsRequest.new(
         integration_id: integration_id,
@@ -3522,15 +3522,15 @@ module Kombo
     def import_tracked_application(body:, integration_id: nil, timeout_ms: nil)
       # import_tracked_application - Import tracked application
       # Import tracked application
-      # 
+      #
       # Retroactively import existing applications into Kombo's tracking system. This is particularly useful if you have enabled the 'sync only created applications' setting and want to start tracking applications that were created before using Kombo.
-      # 
+      #
       # To import an application, you'll need to provide specific identifiers based on the ATS. The available `id_type` values are defined by Kombo based on the tool's API capabilities. Please reach out to Kombo support if you require further types to be supported.
-      # 
+      #
       # Once imported, Kombo will automatically fetch and update the application's complete data during the next sync.
-      # 
+      #
       # ### Example Request Body
-      # 
+      #
       # ```json
       # {
       #   "tracked_at": "2024-04-12T14:33:47.000Z",
@@ -3553,7 +3553,7 @@ module Kombo
       headers['content-type'] = req_content_type
       raise StandardError, 'request body is required' if data.nil? && form.nil?
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
