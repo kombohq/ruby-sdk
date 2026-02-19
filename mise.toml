@@ -8,7 +8,3 @@ run = 'OPENAPI_DOC_AUTH_TOKEN="$(doppler secrets get SDK_SPEC_ENDPOINT_TOKEN --p
 [tasks."test"]
 description = "Run the test suite"
 run = "bundle exec rake spec"
-
-[tasks."test:watch"]
-description = "Run the test suite in watch mode"
-run = "bundle exec rspec --watch"
