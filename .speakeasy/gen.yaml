@@ -14,6 +14,7 @@ generation:
     securityFeb2025: true
     sharedErrorComponentsApr2025: true
     sharedNestedComponentsJan2026: false
+    nameOverrideFeb2026: false
   auth:
     oAuth2ClientCredentialsEnabled: true
     oAuth2PasswordEnabled: true
@@ -28,22 +29,23 @@ generation:
     generateTests: false
     generateNewTests: true
     skipResponseBodyAssertions: false
+  versioningStrategy: automatic
 ruby:
-  version: 1.0.2
+  version: 1.0.3
   additionalDependencies:
     development:
       irb: ""
-      minitest: ">= 5.27.0"
-      minitest-focus: "~> 1.4.1"
+      minitest: '>= 5.27.0'
+      minitest-focus: ~> 1.4.1
       rake: ""
-      rspec: "~> 3.13"
-      rubocop: "~> 1.73.2"
-      rubocop-minitest: "~> 0.37.1"
-      rubocop-rspec: "~> 3.0"
-      sorbet: "~> 0.6.12872"
-      tapioca: "~> 0.17.10"
-      tsort: "~> 0.2.0"
-      webmock: "~> 3.23"
+      rspec: ~> 3.13
+      rubocop: ~> 1.73.2
+      rubocop-minitest: ~> 0.37.1
+      rubocop-rspec: ~> 3.0
+      sorbet: ~> 0.6.12872
+      tapioca: ~> 0.17.10
+      tsort: ~> 0.2.0
+      webmock: ~> 3.23
     runtime: {}
   author: Kombo Technologies GmbH
   baseErrorName: KomboError
@@ -51,7 +53,10 @@ ruby:
   constFieldsAlwaysOptional: false
   defaultErrorName: APIError
   description: The official Ruby SDK for the Kombo Unified API
+  enableFormatting: false
   flattenGlobalSecurity: false
+  forwardCompatibleEnumsByDefault: false
+  forwardCompatibleUnionsByDefault: "false"
   imports:
     option: openapi
     paths:
@@ -68,3 +73,4 @@ ruby:
   outputModelSuffix: output
   packageName: kombo
   typingStrategy: sorbet
+  unionStrategy: left-to-right
