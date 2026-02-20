@@ -18,7 +18,7 @@ module Kombo
         field :remote_id, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_id'), required: true } }
         # The timestamp when this specific record was last modified. This field only updates when properties directly on this record change, NOT when related or nested models change. For filtering that considers nested data changes, use the `updated_after` parameter which will return records when either the record itself OR its related models have been updated.
         # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
-        field :changed_at, ::DateTime, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('changed_at'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
+        field :changed_at, ::DateTime, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('changed_at'), required: true, 'decoder': ::Kombo::Utils.datetime_from_iso_format(false) } }
         # Application stages a candidate can be in for this particular job. 
         field :stages, Crystalline::Array.new(Models::Shared::Stage), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('stages'), required: true } }
 
@@ -34,8 +34,8 @@ module Kombo
         # Description of the job. This field is usually returned as HTML.
         field :description, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('description'), required: true } }
         # **(⚠️ Deprecated)** It makes more sense to store the visibility of a job in an enum. Therefore, we introduced the `visibility` enum on jobs.
-        # 
-        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :confidential, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('confidential'), required: true } }
         # The number of hours per week an employee is expected to work.
         field :weekly_hours, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('weekly_hours'), required: true } }
@@ -61,48 +61,48 @@ module Kombo
         field :remote_url, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_url'), required: true } }
         # YYYY-MM-DDTHH:mm:ss.sssZ
         # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
-        field :opened_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('opened_at'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
+        field :opened_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('opened_at'), required: true, 'decoder': ::Kombo::Utils.datetime_from_iso_format(false) } }
         # The date the job closed or is scheduled to close. A future value typically indicates the job remains open for applications until that date.
-        # 
+        #
         # Please use the `status` and `visibility` fields to determine if a job can be published.
         # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
-        field :closed_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('closed_at'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
+        field :closed_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('closed_at'), required: true, 'decoder': ::Kombo::Utils.datetime_from_iso_format(false) } }
         # The date and time the object was created in the remote system.
         # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
-        field :remote_created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_created_at'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
+        field :remote_created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_created_at'), required: true, 'decoder': ::Kombo::Utils.datetime_from_iso_format(false) } }
         # A timestamp retrieved from the remote system, describing when the resource was last updated.
         # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
-        field :remote_updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_updated_at'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
+        field :remote_updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_updated_at'), required: true, 'decoder': ::Kombo::Utils.datetime_from_iso_format(false) } }
         # **(⚠️ Deprecated)** The user ID of the contact person for this job. We strongly recommend using the new `hiring_team` property instead as it provides more complete and accurate information about the ATS users connected to a job.
-        # 
-        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :contact_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('contact_id'), required: true } }
         # The date and time the object was deleted in the remote system. Objects are automatically marked as deleted when Kombo can't retrieve them from the remote system anymore. Kombo will also anonymize entries 14 days after they disappear.
         # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
-        field :remote_deleted_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_deleted_at'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
+        field :remote_deleted_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_deleted_at'), required: true, 'decoder': ::Kombo::Utils.datetime_from_iso_format(false) } }
         # The type of employment contract. In rare cases where can't find a clear mapping, the original string is passed through.
-        field :employment_type, Crystalline::Nilable.new(Models::Shared::GetAtsJobsPositiveResponseEmploymentType), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('employment_type'), 'decoder': Utils.enum_from_string(Models::Shared::GetAtsJobsPositiveResponseEmploymentType, true) } }
+        field :employment_type, Crystalline::Nilable.new(Models::Shared::GetAtsJobsPositiveResponseEmploymentType), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('employment_type'), 'decoder': ::Kombo::Utils.open_enum_from_string(Models::Shared::GetAtsJobsPositiveResponseEmploymentType, true) } }
         # The job's current status.
-        # 
+        #
         # *Note: For any checks (e.g., "can we publish this job?"), always evaluate both `status` and `visibility`. For example, a job can be `status=OPEN` with `visibility=INTERNAL`, meaning only existing employees can apply.*
-        # 
+        #
         #  In rare cases where we can’t find a clear mapping, the original string is passed through.
-        field :status, Crystalline::Nilable.new(Models::Shared::GetAtsJobsPositiveResponseStatus), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('status'), 'decoder': Utils.enum_from_string(Models::Shared::GetAtsJobsPositiveResponseStatus, true) } }
+        field :status, Crystalline::Nilable.new(Models::Shared::GetAtsJobsPositiveResponseStatus), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('status'), 'decoder': ::Kombo::Utils.open_enum_from_string(Models::Shared::GetAtsJobsPositiveResponseStatus, true) } }
         # Describes the visibility of the job:
-        # 
+        #
         # - `PUBLIC`: visible to everyone, published on a job board
         # - `INTERNAL`: only visible to employees of the company itself
         # - `UNLISTED`: anyone can apply but only if they have the link to it
         # - `CONFIDENTIAL`: nobody can apply and it's only visible in the ATS to people who were invited to it
-        # 
+        #
         # *Note: For any checks (e.g., "can we publish this job?"), always evaluate both `status` and `visibility`.*
-        # 
+        #
         #  In rare cases where we can’t find a clear mapping, the original string is passed through.
-        field :visibility, Crystalline::Nilable.new(Models::Shared::Visibility), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('visibility'), 'decoder': Utils.enum_from_string(Models::Shared::Visibility, true) } }
+        field :visibility, Crystalline::Nilable.new(Models::Shared::Visibility), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('visibility'), 'decoder': ::Kombo::Utils.open_enum_from_string(Models::Shared::Visibility, true) } }
         # Defines if the job supports remote work and if so, to what extent.
-        field :remote_work_status, Crystalline::Nilable.new(Models::Shared::RemoteWorkStatus), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_work_status'), 'decoder': Utils.enum_from_string(Models::Shared::RemoteWorkStatus, true) } }
+        field :remote_work_status, Crystalline::Nilable.new(Models::Shared::RemoteWorkStatus), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_work_status'), 'decoder': ::Kombo::Utils.open_enum_from_string(Models::Shared::RemoteWorkStatus, true) } }
         # The period of time over which the salary amount is paid (not equal to the pay frequency). In rare cases where we can’t find a clear mapping, the original string is passed through.
-        field :salary_period, Crystalline::Nilable.new(Models::Shared::SalaryPeriod), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('salary_period'), 'decoder': Utils.enum_from_string(Models::Shared::SalaryPeriod, true) } }
+        field :salary_period, Crystalline::Nilable.new(Models::Shared::SalaryPeriod), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('salary_period'), 'decoder': ::Kombo::Utils.open_enum_from_string(Models::Shared::SalaryPeriod, true) } }
         # The location of the listed job.
         field :location, Crystalline::Nilable.new(Models::Shared::GetAtsJobsPositiveResponseLocation), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('location') } }
 

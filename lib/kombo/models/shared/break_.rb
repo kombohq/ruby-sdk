@@ -13,11 +13,11 @@ module Kombo
         include Crystalline::MetadataFields
 
         # End time of the break.
-        field :ended_at, ::DateTime, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('ended_at'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
+        field :ended_at, ::DateTime, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('ended_at'), required: true, 'decoder': ::Kombo::Utils.datetime_from_iso_format(false) } }
         # Whether the break is paid or unpaid.
         field :paid, Crystalline::Boolean.new, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('paid'), required: true } }
         # Start time of the break.
-        field :started_at, ::DateTime, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('started_at'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
+        field :started_at, ::DateTime, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('started_at'), required: true, 'decoder': ::Kombo::Utils.datetime_from_iso_format(false) } }
 
         sig { params(ended_at: ::DateTime, paid: T::Boolean, started_at: ::DateTime).void }
         def initialize(ended_at:, paid:, started_at:)

@@ -18,15 +18,15 @@ module Kombo
         field :employee_id, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('employee_id'), required: true } }
         # The timestamp when this specific record was last modified. This field only updates when properties directly on this record change, NOT when related or nested models change. For filtering that considers nested data changes, use the `updated_after` parameter which will return records when either the record itself OR its related models have been updated.
         # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
-        field :changed_at, ::DateTime, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('changed_at'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
+        field :changed_at, ::DateTime, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('changed_at'), required: true, 'decoder': ::Kombo::Utils.datetime_from_iso_format(false) } }
         # The raw ID of the object in the remote system. We don't recommend using this as a primary key on your side as it might sometimes be compromised of multiple identifiers if a system doesn't provide a clear primary key.
         field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_id'), required: true } }
         # Start time of the shift, converted into UTC time zone.
         # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
-        field :started_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('started_at'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
+        field :started_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('started_at'), required: true, 'decoder': ::Kombo::Utils.datetime_from_iso_format(false) } }
         # End time of the shift, converted into UTC time zone.
         # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
-        field :ended_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('ended_at'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
+        field :ended_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('ended_at'), required: true, 'decoder': ::Kombo::Utils.datetime_from_iso_format(false) } }
         # The ISO 8601 numeric UTC offset of the timesheet location in the format ±HH:MM (e.g., "+02:00", "-05:30"). If null, the original offset information was not available. You can use this to display the right timezone for the timesheet in the UI.
         field :timezone, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('timezone'), required: true } }
         # Payable hours including grace periods - only if available in the HRIS. Won't be calculated through Kombo.
@@ -37,14 +37,14 @@ module Kombo
         field :approval_status, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('approval_status'), required: true } }
         # The time when the shift was approved.
         # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
-        field :approved_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('approved_at'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
+        field :approved_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('approved_at'), required: true, 'decoder': ::Kombo::Utils.datetime_from_iso_format(false) } }
         # Comment on the shift.
         field :comment, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('comment'), required: true } }
         # A key-value store of fields not covered by the schema. [Read more](/custom-fields)
         field :custom_fields, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('custom_fields'), required: true } }
         # The date and time the object was deleted in the remote system. Objects are automatically marked as deleted when Kombo can't retrieve them from the remote system anymore. Kombo will also anonymize entries 14 days after they disappear.
         # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
-        field :remote_deleted_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_deleted_at'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
+        field :remote_deleted_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_deleted_at'), required: true, 'decoder': ::Kombo::Utils.datetime_from_iso_format(false) } }
         # Concrete times of the breaks.
         field :breaks, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::Break)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('breaks') } }
 

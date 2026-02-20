@@ -17,9 +17,9 @@ module Kombo
 
         field :required, Crystalline::Boolean.new, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('required'), required: true } }
 
-        field :type, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('type'), required: true } }
-
         field :options, Crystalline::Union.new(Models::Shared::Schema1OptionsInline2, Models::Shared::Schema1OptionsReferenced2), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('options'), required: true } }
+
+        field :type, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('type'), required: true } }
 
         field :description, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('description') } }
 
@@ -29,15 +29,15 @@ module Kombo
 
         field :max_items, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('max_items') } }
 
-        sig { params(label: ::String, required: T::Boolean, type: ::String, options: T.any(Models::Shared::Schema1OptionsInline2, Models::Shared::Schema1OptionsReferenced2), description: T.nilable(::String), unified_key: T.nilable(::String), min_items: T.nilable(::Float), max_items: T.nilable(::Float)).void }
-        def initialize(label:, required:, type:, options:, description: nil, unified_key: nil, min_items: nil, max_items: nil)
+        sig { params(label: ::String, required: T::Boolean, options: T.any(Models::Shared::Schema1OptionsInline2, Models::Shared::Schema1OptionsReferenced2), type: ::String, description: T.nilable(::String), unified_key: T.nilable(::String), min_items: T.nilable(::Float), max_items: T.nilable(::Float)).void }
+        def initialize(label:, required:, options:, type: 'multi_select', description: nil, unified_key: nil, min_items: nil, max_items: nil)
           @label = label
           @required = required
+          @options = options
           unless type == 'multi_select'
             raise ArgumentError, 'Invalid value for type'
           end
           @type = 'multi_select'
-          @options = options
           @description = description
           @unified_key = unified_key
           @min_items = min_items
@@ -49,8 +49,8 @@ module Kombo
           return false unless other.is_a? self.class
           return false unless @label == other.label
           return false unless @required == other.required
-          return false unless @type == other.type
           return false unless @options == other.options
+          return false unless @type == other.type
           return false unless @description == other.description
           return false unless @unified_key == other.unified_key
           return false unless @min_items == other.min_items

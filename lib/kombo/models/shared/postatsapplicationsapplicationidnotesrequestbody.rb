@@ -15,7 +15,7 @@ module Kombo
         # UTF-8 content of the note.
         field :content, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('content'), required: true } }
         # Content type of the note. Currently only `PLAIN_TEXT` is supported.
-        field :content_type, Models::Shared::ContentType, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('content_type'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::ContentType, false) } }
+        field :content_type, Models::Shared::ContentType, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('content_type'), required: true, 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::ContentType, false) } }
         # Tool specific remote fields for the note.
         field :remote_fields, Crystalline::Nilable.new(Models::Shared::PostAtsApplicationsApplicationIdNotesRequestBodyRemoteFields), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_fields') } }
 

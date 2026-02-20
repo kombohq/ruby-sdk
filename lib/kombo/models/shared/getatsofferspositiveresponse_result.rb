@@ -16,38 +16,38 @@ module Kombo
         field :id, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('id'), required: true } }
         # The timestamp when this specific record was last modified. This field only updates when properties directly on this record change, NOT when related or nested models change. For filtering that considers nested data changes, use the `updated_after` parameter which will return records when either the record itself OR its related models have been updated.
         # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
-        field :changed_at, ::DateTime, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('changed_at'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
+        field :changed_at, ::DateTime, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('changed_at'), required: true, 'decoder': ::Kombo::Utils.datetime_from_iso_format(false) } }
         # The raw ID of the object in the remote system. We don't recommend using this as a primary key on your side as it might sometimes be compromised of multiple identifiers if a system doesn't provide a clear primary key.
         field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_id'), required: true } }
         # The offer’s current status. The usual flow of statuses is as follows:
         # `DRAFT` -> `APPROVED` -> `SENT` -> `ACCEPTED` or `DECLINED`.
-        # 
+        #
         # Please note that not all systems will expose all statuses. For example, most systems do not include the `APPROVED` status
-        # 
+        #
         # - `ACCEPTED`: The offer was accepted by the candidate.
         # - `DECLINED`: The offer was declined by the candidate.
         # - `SENT`: The offer was sent to the candidate.
         # - `APPROVED`: The draft was approved.
         # - `DRAFT`: The offer is a draft and has not yet been sent to the candidate.
         # - `ABANDONED`: The offer has expired or is no longer valid and should not be considered.
-        # 
-        field :status, Crystalline::Nilable.new(Models::Shared::GetAtsOffersPositiveResponseStatus), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('status'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::GetAtsOffersPositiveResponseStatus, false) } }
+        #
+        field :status, Crystalline::Nilable.new(Models::Shared::GetAtsOffersPositiveResponseStatus), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('status'), required: true, 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::GetAtsOffersPositiveResponseStatus, false) } }
         # The date when the employment described by the offer starts. Can be in the past or future.
         # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
-        field :employment_start_date, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('employment_start_date'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
+        field :employment_start_date, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('employment_start_date'), required: true, 'decoder': ::Kombo::Utils.datetime_from_iso_format(false) } }
         # The Kombo ID of the application this interview belongs to. The ID can be used to retrieve the application from the `get applications` endpoint.
         field :application_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('application_id'), required: true } }
         # A key-value store of fields not covered by the schema. [Read more](/custom-fields)
         field :custom_fields, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('custom_fields'), required: true } }
         # The date and time the object was deleted in the remote system. Objects are automatically marked as deleted when Kombo can't retrieve them from the remote system anymore. Kombo will also anonymize entries 14 days after they disappear.
         # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
-        field :remote_deleted_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_deleted_at'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
+        field :remote_deleted_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_deleted_at'), required: true, 'decoder': ::Kombo::Utils.datetime_from_iso_format(false) } }
         # The date and time the object was created in the remote system.
         # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
-        field :remote_created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_created_at'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
+        field :remote_created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_created_at'), required: true, 'decoder': ::Kombo::Utils.datetime_from_iso_format(false) } }
         # A timestamp retrieved from the remote system, describing when the resource was last updated.
         # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
-        field :remote_updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_updated_at'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
+        field :remote_updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_updated_at'), required: true, 'decoder': ::Kombo::Utils.datetime_from_iso_format(false) } }
 
         field :application, Crystalline::Nilable.new(Models::Shared::GetAtsOffersPositiveResponseApplication), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('application'), required: true } }
 

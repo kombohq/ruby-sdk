@@ -18,14 +18,14 @@ module Kombo
         field :absence_type_id, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('absence_type_id'), required: true } }
         # The date that the absence starts. This is a plain date (i.e., `yyyy-MM-dd`), with all time information discarded.
         # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
-        field :start_date, ::DateTime, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('start_date'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
+        field :start_date, ::DateTime, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('start_date'), required: true, 'decoder': ::Kombo::Utils.datetime_from_iso_format(false) } }
         # When the absence ends.The date that the absence ends. This is a plain date (i.e., `yyyy-MM-dd`), with all time information discarded.
         # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
-        field :end_date, ::DateTime, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('end_date'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
+        field :end_date, ::DateTime, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('end_date'), required: true, 'decoder': ::Kombo::Utils.datetime_from_iso_format(false) } }
         # The amount of time of the absence. Specifying this also requires specifying `unit`. This is supported by very few tools.
         field :amount, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('amount') } }
         # The time unit of the `amount` value. Specifying this also requires specifying `amount`.
-        field :unit, Crystalline::Nilable.new(Models::Shared::PostHrisAbsencesRequestBodyUnit), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('unit'), 'decoder': Utils.enum_from_string(Models::Shared::PostHrisAbsencesRequestBodyUnit, true) } }
+        field :unit, Crystalline::Nilable.new(Models::Shared::PostHrisAbsencesRequestBodyUnit), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('unit'), 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::PostHrisAbsencesRequestBodyUnit, true) } }
         # A note describing the reason for this absence.
         field :employee_note, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('employee_note'), required: true } }
         # The time of when the absence begins. Follows the format `HH:mm` or `HH:mm:ss` (e.g., `14:45:15`). If `start_time` is specified, `end_time` has to be specified as well.
@@ -35,7 +35,7 @@ module Kombo
         # Additional fields that we will pass through to specific HRIS systems.
         field :remote_fields, Crystalline::Nilable.new(Models::Shared::PostHrisAbsencesRequestBodyRemoteFields), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_fields') } }
         # The state that the absence should be created in. Some tools may approve absences automatically if they were created for an absence type that does not require approval.
-        field :status, Crystalline::Nilable.new(Models::Shared::PostHrisAbsencesRequestBodyStatus), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('status'), 'decoder': Utils.enum_from_string(Models::Shared::PostHrisAbsencesRequestBodyStatus, true) } }
+        field :status, Crystalline::Nilable.new(Models::Shared::PostHrisAbsencesRequestBodyStatus), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('status'), 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::PostHrisAbsencesRequestBodyStatus, true) } }
         # `true` if the absence should start in the middle of the day.
         field :start_half_day, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('start_half_day') } }
         # `true` if the absence should end in the middle of the day.

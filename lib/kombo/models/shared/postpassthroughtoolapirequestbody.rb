@@ -13,7 +13,7 @@ module Kombo
         include Crystalline::MetadataFields
 
         # The HTTP method (e.g., `GET`) of the request.
-        field :method, Models::Shared::Method, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('method'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::Method, false) } }
+        field :method, Models::Shared::Method, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('method'), required: true, 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::Method, false) } }
         # The path of the endpoint you want to call. We automatically prepend the base URL of the API (all base URLs are documented in the endpoint description).
         field :path, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('path'), required: true } }
         # The headers to send with the request. Note that we automatically supply any authentication-related headers.

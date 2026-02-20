@@ -12,25 +12,25 @@ module Kombo
         extend T::Sig
         include Crystalline::MetadataFields
 
+
+        field :placement_id, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('placement_id'), required: true } }
         # Uses the `/candidates` endpoint to retrieve all candidates, to find the relevant application based on the placement ID.
         field :id_type, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('id_type'), required: true } }
 
-        field :placement_id, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('placement_id'), required: true } }
-
-        sig { params(id_type: ::String, placement_id: ::String).void }
-        def initialize(id_type:, placement_id:)
+        sig { params(placement_id: ::String, id_type: ::String).void }
+        def initialize(placement_id:, id_type: 'placement_id')
+          @placement_id = placement_id
           unless id_type == 'placement_id'
             raise ArgumentError, 'Invalid value for id_type'
           end
           @id_type = 'placement_id'
-          @placement_id = placement_id
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
-          return false unless @id_type == other.id_type
           return false unless @placement_id == other.placement_id
+          return false unless @id_type == other.id_type
           true
         end
       end

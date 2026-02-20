@@ -13,7 +13,7 @@ module Kombo
         include Crystalline::MetadataFields
 
 
-        field :status, Models::Shared::KomboGeneralErrorStatus, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('status'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::KomboGeneralErrorStatus, false) } }
+        field :status, Models::Shared::KomboGeneralErrorStatus, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('status'), required: true, 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::KomboGeneralErrorStatus, false) } }
         # Error details with structured code for programmatic handling.
         field :error, Models::Shared::KomboGeneralErrorError, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('error'), required: true } }
         # Raw HTTP response; suitable for custom response parsing

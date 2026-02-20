@@ -9,8 +9,6 @@ module Kombo
     module Shared
       # State - The current state of the integration.
       class State < T::Enum
-
-
         enums do
           ACTIVE = new('ACTIVE')
           INVALID = new('INVALID')

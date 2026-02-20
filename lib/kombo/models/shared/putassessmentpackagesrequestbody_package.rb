@@ -15,7 +15,7 @@ module Kombo
         # A unique identifier for the assessment package.
         field :id, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('id'), required: true } }
 
-        field :type, Models::Shared::PutAssessmentPackagesRequestBodyType, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('type'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::PutAssessmentPackagesRequestBodyType, false) } }
+        field :type, Models::Shared::PutAssessmentPackagesRequestBodyType, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('type'), required: true, 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::PutAssessmentPackagesRequestBodyType, false) } }
         # The name of the assessment package.
         field :name, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('name'), required: true } }
         # Description about the package. Some ATSs will display this in their UI.

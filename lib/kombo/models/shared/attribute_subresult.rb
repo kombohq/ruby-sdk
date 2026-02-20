@@ -13,36 +13,36 @@ module Kombo
         include Crystalline::MetadataFields
 
 
-        field :type, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('type'), required: true } }
-
         field :id, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('id'), required: true } }
 
         field :label, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('label'), required: true } }
 
         field :score, Models::Shared::Score, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('score'), required: true } }
 
-        field :status, Models::Shared::AttributeStatus, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('status'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::AttributeStatus, false) } }
+        field :status, Models::Shared::AttributeStatus, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('status'), required: true, 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::AttributeStatus, false) } }
 
-        sig { params(type: ::String, id: ::String, label: ::String, score: Models::Shared::Score, status: Models::Shared::AttributeStatus).void }
-        def initialize(type:, id:, label:, score:, status:)
-          unless type == 'SUB_RESULT'
-            raise ArgumentError, 'Invalid value for type'
-          end
-          @type = 'SUB_RESULT'
+        field :type, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('type'), required: true } }
+
+        sig { params(id: ::String, label: ::String, score: Models::Shared::Score, status: Models::Shared::AttributeStatus, type: ::String).void }
+        def initialize(id:, label:, score:, status:, type: 'SUB_RESULT')
           @id = id
           @label = label
           @score = score
           @status = status
+          unless type == 'SUB_RESULT'
+            raise ArgumentError, 'Invalid value for type'
+          end
+          @type = 'SUB_RESULT'
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
-          return false unless @type == other.type
           return false unless @id == other.id
           return false unless @label == other.label
           return false unless @score == other.score
           return false unless @status == other.status
+          return false unless @type == other.type
           true
         end
       end

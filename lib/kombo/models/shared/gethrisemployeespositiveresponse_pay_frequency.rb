@@ -8,9 +8,8 @@ module Kombo
   module Models
     module Shared
 
-      class GetHrisEmployeesPositiveResponsePayFrequency < T::Enum
-
-
+      class GetHrisEmployeesPositiveResponsePayFrequency
+        include ::Crystalline::Enum
         enums do
           DAILY = new('DAILY')
           WEEKLY = new('WEEKLY')
@@ -22,6 +21,7 @@ module Kombo
           ANNUALLY = new('ANNUALLY')
           PRO_RATA = new('PRO_RATA')
         end
+        open!
       end
     end
   end

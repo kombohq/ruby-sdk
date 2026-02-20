@@ -9,8 +9,6 @@ module Kombo
     module Shared
       # PostAtsJobsJobIdApplicationsRequestBodyAttachmentType - Type of the attachment in the ATS. This may affect where the uploaded file will be shown in your customer's system.
       class PostAtsJobsJobIdApplicationsRequestBodyAttachmentType < T::Enum
-
-
         enums do
           CV = new('CV')
           COVER_LETTER = new('COVER_LETTER')

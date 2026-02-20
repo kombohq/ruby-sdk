@@ -14,27 +14,27 @@ module Kombo
 
 
         field :title, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('title'), required: true } }
+
+        field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_id'), required: true } }
         # When we're not able to map a specific question type yet, we will return this type. Every `UNKNOWN` question will also be parsed and unified by us at some point.
         field :type, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('type'), required: true } }
 
-        field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_id'), required: true } }
-
-        sig { params(title: ::String, type: ::String, remote_id: T.nilable(::String)).void }
-        def initialize(title:, type:, remote_id: nil)
+        sig { params(title: ::String, remote_id: T.nilable(::String), type: ::String).void }
+        def initialize(title:, remote_id: nil, type: 'UNKNOWN')
           @title = title
+          @remote_id = remote_id
           unless type == 'UNKNOWN'
             raise ArgumentError, 'Invalid value for type'
           end
           @type = 'UNKNOWN'
-          @remote_id = remote_id
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @title == other.title
-          return false unless @type == other.type
           return false unless @remote_id == other.remote_id
+          return false unless @type == other.type
           true
         end
       end

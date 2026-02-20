@@ -44,7 +44,7 @@ module Kombo
     def get_packages(integration_id: nil, timeout_ms: nil)
       # get_packages - Get packages
       # Get all available assessment and background check packages for an integration.
-      # 
+      #
       # This is mainly intended for debugging. As you always need to submit the full list of available packages when using ["set packages"](/assessment/v1/put-packages), there shouldn't ever be a need to call this endpoint in production.
       request = Models::Operations::GetAssessmentPackagesRequest.new(
         integration_id: integration_id
@@ -161,13 +161,13 @@ module Kombo
     def set_packages(body:, integration_id: nil, timeout_ms: nil)
       # set_packages - Set packages
       # Set packages
-      # 
+      #
       # Replaces the list of available assessment and or background check packages.
-      # 
+      #
       # Packages that have been previously submitted through this endpoint but aren't included again will be marked as deleted.
-      # 
+      #
       # ### Example Request Body
-      # 
+      #
       # ```json
       # {
       #   "packages": [
@@ -199,7 +199,7 @@ module Kombo
       headers['content-type'] = req_content_type
       raise StandardError, 'request body is required' if data.nil? && form.nil?
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -453,9 +453,9 @@ module Kombo
     def update_order_result(body:, assessment_order_id:, integration_id: nil, timeout_ms: nil)
       # update_order_result - Update order result
       # Updates an assessment or a background check order result.
-      # 
+      #
       # ### Example Request Body
-      # 
+      #
       # ```json
       # {
       #   "status": "COMPLETED",
@@ -509,7 +509,7 @@ module Kombo
       headers['content-type'] = req_content_type
       raise StandardError, 'request body is required' if data.nil? && form.nil?
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))

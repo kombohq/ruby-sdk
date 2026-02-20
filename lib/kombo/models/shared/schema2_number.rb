@@ -21,14 +21,14 @@ module Kombo
 
         field :description, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('description') } }
 
-        field :unified_key, Crystalline::Nilable.new(Models::Shared::Schema2UnifiedKey2), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('unified_key'), 'decoder': Utils.enum_from_string(Models::Shared::Schema2UnifiedKey2, true) } }
+        field :unified_key, Crystalline::Nilable.new(Models::Shared::Schema2UnifiedKey2), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('unified_key'), 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::Schema2UnifiedKey2, true) } }
 
         field :min, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('min') } }
 
         field :max, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('max') } }
 
         sig { params(label: ::String, required: T::Boolean, type: ::String, description: T.nilable(::String), unified_key: T.nilable(Models::Shared::Schema2UnifiedKey2), min: T.nilable(::Float), max: T.nilable(::Float)).void }
-        def initialize(label:, required:, type:, description: nil, unified_key: nil, min: nil, max: nil)
+        def initialize(label:, required:, type: 'number', description: nil, unified_key: nil, min: nil, max: nil)
           @label = label
           @required = required
           unless type == 'number'

@@ -9,8 +9,6 @@ module Kombo
     module Shared
 
       class JobPostingVisibility < T::Enum
-
-
         enums do
           PUBLIC = new('PUBLIC')
           INTERNAL = new('INTERNAL')

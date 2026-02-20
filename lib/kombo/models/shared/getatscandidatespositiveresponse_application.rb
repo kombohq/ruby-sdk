@@ -16,25 +16,25 @@ module Kombo
         field :id, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('id'), required: true } }
         # The timestamp when this specific record was last modified. This field only updates when properties directly on this record change, NOT when related or nested models change. For filtering that considers nested data changes, use the `updated_after` parameter which will return records when either the record itself OR its related models have been updated.
         # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
-        field :changed_at, ::DateTime, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('changed_at'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
+        field :changed_at, ::DateTime, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('changed_at'), required: true, 'decoder': ::Kombo::Utils.datetime_from_iso_format(false) } }
         # The raw ID of the object in the remote system. We don't recommend using this as a primary key on your side as it might sometimes be compromised of multiple identifiers if a system doesn't provide a clear primary key.
         field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_id'), required: true } }
         # Parsed status of the application. If Kombo identifies that the application was accepted and the candidate hired, it will be `HIRED`. If the application was rejected or the candidate declined, it will be `DECLINED`. If the application is still in process, it will be `PENDING`.
         # Kombo will always try to deliver this information as reliably as possible.
-        field :outcome, Crystalline::Nilable.new(Models::Shared::GetAtsCandidatesPositiveResponseOutcome), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('outcome'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::GetAtsCandidatesPositiveResponseOutcome, false) } }
+        field :outcome, Crystalline::Nilable.new(Models::Shared::GetAtsCandidatesPositiveResponseOutcome), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('outcome'), required: true, 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::GetAtsCandidatesPositiveResponseOutcome, false) } }
         # Reason for the rejection of the candidate.
         field :rejection_reason_name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('rejection_reason_name'), required: true } }
         # The time that the application was rejected.
         # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
-        field :rejected_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('rejected_at'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
+        field :rejected_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('rejected_at'), required: true, 'decoder': ::Kombo::Utils.datetime_from_iso_format(false) } }
         # URL to the application in the source ATS system. When embedding this in your system, please consider that not for all ATS a dedicated application URL is available, so you might need to fall back to the candidate URL.
         field :remote_url, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_url'), required: true } }
         # The date and time the object was created in the remote system.
         # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
-        field :remote_created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_created_at'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
+        field :remote_created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_created_at'), required: true, 'decoder': ::Kombo::Utils.datetime_from_iso_format(false) } }
         # A timestamp retrieved from the remote system, describing when the resource was last updated.
         # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
-        field :remote_updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_updated_at'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
+        field :remote_updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_updated_at'), required: true, 'decoder': ::Kombo::Utils.datetime_from_iso_format(false) } }
 
         field :current_stage, Crystalline::Nilable.new(Models::Shared::GetAtsCandidatesPositiveResponseCurrentStage), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('current_stage'), required: true } }
 

@@ -17,23 +17,23 @@ module Kombo
 
         field :required, Crystalline::Boolean.new, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('required'), required: true } }
 
-        field :type, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('type'), required: true } }
-
         field :file_restrictions, Models::Shared::Schema1FileRestrictions, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('file_restrictions'), required: true } }
+
+        field :type, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('type'), required: true } }
 
         field :description, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('description') } }
 
-        field :unified_key, Crystalline::Nilable.new(Models::Shared::Schema1UnifiedKey8), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('unified_key'), 'decoder': Utils.enum_from_string(Models::Shared::Schema1UnifiedKey8, true) } }
+        field :unified_key, Crystalline::Nilable.new(Models::Shared::Schema1UnifiedKey8), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('unified_key'), 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::Schema1UnifiedKey8, true) } }
 
-        sig { params(label: ::String, required: T::Boolean, type: ::String, file_restrictions: Models::Shared::Schema1FileRestrictions, description: T.nilable(::String), unified_key: T.nilable(Models::Shared::Schema1UnifiedKey8)).void }
-        def initialize(label:, required:, type:, file_restrictions:, description: nil, unified_key: nil)
+        sig { params(label: ::String, required: T::Boolean, file_restrictions: Models::Shared::Schema1FileRestrictions, type: ::String, description: T.nilable(::String), unified_key: T.nilable(Models::Shared::Schema1UnifiedKey8)).void }
+        def initialize(label:, required:, file_restrictions:, type: 'file', description: nil, unified_key: nil)
           @label = label
           @required = required
+          @file_restrictions = file_restrictions
           unless type == 'file'
             raise ArgumentError, 'Invalid value for type'
           end
           @type = 'file'
-          @file_restrictions = file_restrictions
           @description = description
           @unified_key = unified_key
         end
@@ -43,8 +43,8 @@ module Kombo
           return false unless other.is_a? self.class
           return false unless @label == other.label
           return false unless @required == other.required
-          return false unless @type == other.type
           return false unless @file_restrictions == other.file_restrictions
+          return false unless @type == other.type
           return false unless @description == other.description
           return false unless @unified_key == other.unified_key
           true

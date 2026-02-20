@@ -13,22 +13,22 @@ module Kombo
         include Crystalline::MetadataFields
 
         # Status of the assessment.
-        # 
+        #
         # **Please note the `status` can only be updated to a different value if its current value is `OPEN`.**
-        field :status, Models::Shared::PutAssessmentOrdersAssessmentOrderIdResultRequestBodyStatus, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('status'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::PutAssessmentOrdersAssessmentOrderIdResultRequestBodyStatus, false) } }
+        field :status, Models::Shared::PutAssessmentOrdersAssessmentOrderIdResultRequestBodyStatus, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('status'), required: true, 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::PutAssessmentOrdersAssessmentOrderIdResultRequestBodyStatus, false) } }
 
         field :result_url, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('result_url'), required: true } }
         # YYYY-MM-DDTHH:mm:ss.sssZ
-        # 
+        #
         # **Please make sure this value is provided when the `status` is of the type `COMPLETED` or `CANCELLED`.**
         # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
-        field :completed_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('completed_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :completed_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('completed_at'), 'decoder': ::Kombo::Utils.datetime_from_iso_format(true) } }
 
         field :score, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('score') } }
 
         field :max_score, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('max_score') } }
         # An array of additional attributes that you would like to submit as a part of the assessment result.
-        # 
+        #
         # - If an ATS only supports writing text attributes, we will transform non `TEXT` attributes into formatted plain text values.
         field :attributes, Crystalline::Nilable.new(Crystalline::Array.new(Crystalline::Union.new(Models::Shared::AttributeText, Models::Shared::AttributeSubResult))), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('attributes') } }
         # An array of attachments containing the assessment result.

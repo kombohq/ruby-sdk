@@ -17,7 +17,7 @@ module Kombo
         # The identifier of the assessment package.
         field :package_id, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('package_id'), required: true } }
         # The current status of the assessment order.
-        field :status, Models::Shared::InlineAssessmentOrderReceivedWebhookPayloadStatus, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('status'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::InlineAssessmentOrderReceivedWebhookPayloadStatus, false) } }
+        field :status, Models::Shared::InlineAssessmentOrderReceivedWebhookPayloadStatus, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('status'), required: true, 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::InlineAssessmentOrderReceivedWebhookPayloadStatus, false) } }
         # The unique identifier of the integration.
         field :integration_id, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('integration_id'), required: true } }
         # Information about the candidate taking the assessment.

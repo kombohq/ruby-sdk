@@ -13,7 +13,7 @@ module Kombo
         include Crystalline::MetadataFields
 
         # The period of the salary expectations. Must be one of `MONTH` or `YEAR`.
-        field :period, Models::Shared::PostAtsCandidatesRequestBodyPeriod, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('period'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::PostAtsCandidatesRequestBodyPeriod, false) } }
+        field :period, Models::Shared::PostAtsCandidatesRequestBodyPeriod, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('period'), required: true, 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::PostAtsCandidatesRequestBodyPeriod, false) } }
         # The amount of the salary expectations.
         field :amount, ::Float, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('amount'), required: true } }
 

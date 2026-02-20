@@ -17,23 +17,23 @@ module Kombo
 
         field :required, Crystalline::Boolean.new, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('required'), required: true } }
 
-        field :type, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('type'), required: true } }
-
         field :options, Crystalline::Union.new(Models::Shared::Schema1OptionsInline1, Models::Shared::Schema1OptionsReferenced1), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('options'), required: true } }
+
+        field :type, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('type'), required: true } }
 
         field :description, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('description') } }
 
-        field :unified_key, Crystalline::Nilable.new(Models::Shared::Schema1UnifiedKey4), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('unified_key'), 'decoder': Utils.enum_from_string(Models::Shared::Schema1UnifiedKey4, true) } }
+        field :unified_key, Crystalline::Nilable.new(Models::Shared::Schema1UnifiedKey4), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('unified_key'), 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::Schema1UnifiedKey4, true) } }
 
-        sig { params(label: ::String, required: T::Boolean, type: ::String, options: T.any(Models::Shared::Schema1OptionsInline1, Models::Shared::Schema1OptionsReferenced1), description: T.nilable(::String), unified_key: T.nilable(Models::Shared::Schema1UnifiedKey4)).void }
-        def initialize(label:, required:, type:, options:, description: nil, unified_key: nil)
+        sig { params(label: ::String, required: T::Boolean, options: T.any(Models::Shared::Schema1OptionsInline1, Models::Shared::Schema1OptionsReferenced1), type: ::String, description: T.nilable(::String), unified_key: T.nilable(Models::Shared::Schema1UnifiedKey4)).void }
+        def initialize(label:, required:, options:, type: 'single_select', description: nil, unified_key: nil)
           @label = label
           @required = required
+          @options = options
           unless type == 'single_select'
             raise ArgumentError, 'Invalid value for type'
           end
           @type = 'single_select'
-          @options = options
           @description = description
           @unified_key = unified_key
         end
@@ -43,8 +43,8 @@ module Kombo
           return false unless other.is_a? self.class
           return false unless @label == other.label
           return false unless @required == other.required
-          return false unless @type == other.type
           return false unless @options == other.options
+          return false unless @type == other.type
           return false unless @description == other.description
           return false unless @unified_key == other.unified_key
           true

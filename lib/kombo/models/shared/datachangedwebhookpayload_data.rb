@@ -17,7 +17,7 @@ module Kombo
         # The name of the integrated tool (e.g., "personio", "greenhouse").
         field :integration_tool, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('integration_tool'), required: true } }
         # The category of the integration (HRIS, ATS, ASSESSMENT, or LMS).
-        field :integration_category, Models::Shared::DataChangedWebhookPayloadIntegrationCategory, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('integration_category'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::DataChangedWebhookPayloadIntegrationCategory, false) } }
+        field :integration_category, Models::Shared::DataChangedWebhookPayloadIntegrationCategory, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('integration_category'), required: true, 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::DataChangedWebhookPayloadIntegrationCategory, false) } }
         # List of data models and connections for which one or more records were created, updated, or deleted.
         field :changed_models, Crystalline::Array.new(Models::Shared::ChangedModel), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('changed_models'), required: true } }
 

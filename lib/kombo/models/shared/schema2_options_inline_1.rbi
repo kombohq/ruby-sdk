@@ -8,8 +8,8 @@ end
 
 
 class Kombo::Models::Shared::Schema2OptionsInline1
-  def type(); end
-  def type=(str_); end
   def entries(); end
   def entries=(str_); end
+  def type(); end
+  def type=(str_); end
 end

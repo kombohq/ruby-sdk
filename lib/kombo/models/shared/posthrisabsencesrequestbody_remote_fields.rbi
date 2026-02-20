@@ -8,6 +8,8 @@ end
 
 
 class Kombo::Models::Shared::PostHrisAbsencesRequestBodyRemoteFields
+  def a3innuvanomina(); end
+  def a3innuvanomina=(str_); end
   def adpworkforcenow(); end
   def adpworkforcenow=(str_); end
 end

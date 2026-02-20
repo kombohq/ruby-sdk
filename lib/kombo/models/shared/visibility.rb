@@ -8,15 +8,15 @@ module Kombo
   module Models
     module Shared
 
-      class Visibility < T::Enum
-
-
+      class Visibility
+        include ::Crystalline::Enum
         enums do
           PUBLIC = new('PUBLIC')
           INTERNAL = new('INTERNAL')
           UNLISTED = new('UNLISTED')
           CONFIDENTIAL = new('CONFIDENTIAL')
         end
+        open!
       end
     end
   end

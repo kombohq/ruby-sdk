@@ -13,12 +13,12 @@ module Kombo
         include Crystalline::MetadataFields
 
         # **(⚠️ Deprecated - Use the `candidate` field instead.)** Fields that we will pass through to the SmartRecruiters's `Candidate` object when created with screening question answers. This API is used: https://developers.smartrecruiters.com/reference/createcandidate-1
-        # 
-        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :candidate_with_questions, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('candidate_with_questions') } }
         # **(⚠️ Deprecated - Use the `candidate` field instead.)** Fields that we will pass through to the SmartRecruiters's `Candidate` object when created with screening question answers. This API is used: https://developers.smartrecruiters.com/reference/candidatesaddtojob-1
-        # 
-        # @deprecated  true: This will be removed in a future release, please migrate away from it as soon as possible.
+        #
+        # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :candidate_without_questions, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('candidate_without_questions') } }
         # Fields that we will pass through to the SmartRecruiters's `Candidate` object. This API is used: https://developers.smartrecruiters.com/reference/createcandidate-1
         field :candidate, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('candidate') } }

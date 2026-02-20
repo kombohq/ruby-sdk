@@ -17,9 +17,9 @@ module Kombo
         # The final state of the sync operation (e.g., `SUCCEEDED`, `FAILED`).
         field :sync_state, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('sync_state'), required: true } }
         # ISO 8601 timestamp when the sync operation started.
-        field :sync_started_at, ::DateTime, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('sync_started_at'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
+        field :sync_started_at, ::DateTime, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('sync_started_at'), required: true, 'decoder': ::Kombo::Utils.datetime_from_iso_format(false) } }
         # ISO 8601 timestamp when the sync operation completed.
-        field :sync_ended_at, ::DateTime, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('sync_ended_at'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
+        field :sync_ended_at, ::DateTime, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('sync_ended_at'), required: true, 'decoder': ::Kombo::Utils.datetime_from_iso_format(false) } }
         # Duration of the sync operation in seconds.
         field :sync_duration_seconds, ::Integer, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('sync_duration_seconds'), required: true } }
         # The unique identifier of the integration.
@@ -27,7 +27,7 @@ module Kombo
         # The name of the integrated tool (e.g., "personio", "greenhouse").
         field :integration_tool, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('integration_tool'), required: true } }
         # The category of the integration (HRIS, ATS, ASSESSMENT, or LMS).
-        field :integration_category, Models::Shared::SyncFinishedWebhookPayloadIntegrationCategory, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('integration_category'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::SyncFinishedWebhookPayloadIntegrationCategory, false) } }
+        field :integration_category, Models::Shared::SyncFinishedWebhookPayloadIntegrationCategory, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('integration_category'), required: true, 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::SyncFinishedWebhookPayloadIntegrationCategory, false) } }
         # Information about the end user who created the integration.
         field :end_user, Models::Shared::SyncFinishedWebhookPayloadEndUser, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('end_user'), required: true } }
         # URL to view detailed logs for the operation.

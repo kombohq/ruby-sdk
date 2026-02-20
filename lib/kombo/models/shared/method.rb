@@ -9,8 +9,6 @@ module Kombo
     module Shared
       # Method - The HTTP method (e.g., `GET`) of the request.
       class Method < T::Enum
-
-
         enums do
           GET = new('GET')
           POST = new('POST')

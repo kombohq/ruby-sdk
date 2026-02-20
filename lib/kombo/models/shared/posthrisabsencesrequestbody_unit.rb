@@ -9,8 +9,6 @@ module Kombo
     module Shared
       # PostHrisAbsencesRequestBodyUnit - The time unit of the `amount` value. Specifying this also requires specifying `amount`.
       class PostHrisAbsencesRequestBodyUnit < T::Enum
-
-
         enums do
           HOURS = new('HOURS')
           DAYS = new('DAYS')

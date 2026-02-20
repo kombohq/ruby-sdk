@@ -9,8 +9,6 @@ module Kombo
     module Shared
 
       class GetToolsCategoryParameterCategory < T::Enum
-
-
         enums do
           HRIS = new('hris')
           ATS = new('ats')

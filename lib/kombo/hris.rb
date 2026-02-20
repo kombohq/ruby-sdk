@@ -44,9 +44,9 @@ module Kombo
     def get_employees(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, employment_statuses: nil, group_ids: nil, legal_entity_ids: nil, work_location_ids: nil, work_emails: nil, personal_emails: nil, custom_fields: nil, timeout_ms: nil)
       # get_employees - Get employees
       # Retrieve all employees.
-      # 
+      #
       # <Note>Not interested in most fields? You can use our [our Scopes feature](/scopes) to customize what data points are synced.</Note>
-      # 
+      #
       # Top level filters use AND, while individual filters use OR if they accept multiple arguments. That means filters will be resolved like this: `(id IN ids) AND (remote_id IN remote_ids)`
       request = Models::Operations::GetHrisEmployeesRequest.new(
         integration_id: integration_id,
@@ -211,9 +211,9 @@ module Kombo
     def get_employee_form(integration_id: nil, timeout_ms: nil)
       # get_employee_form - Get employee form
       # Get the form for creating an employee. This form can be rendered dynamically on your frontend to allow your customers to create employees in their HRIS.
-      # 
+      #
       # Follow our [create employee guide here](/hris/features/create-employee) to learn how this form is generated and how you can use it.
-      # 
+      #
       # ### Example Form
       # ```json
       # {
@@ -403,13 +403,13 @@ module Kombo
     def create_employee_with_form(body:, integration_id: nil, timeout_ms: nil)
       # create_employee_with_form - Create employee with form
       # Create an employee, based on the form schema.
-      # 
+      #
       # <Note>
       #   This endpoint requires the permission **Create and manage employees** to be enabled in [your scope config](/scopes).
       # </Note>
-      # 
+      #
       # ### Example Request Body
-      # 
+      #
       # ```json
       # {
       #   "properties": {
@@ -439,7 +439,7 @@ module Kombo
       headers['content-type'] = req_content_type
       raise StandardError, 'request body is required' if data.nil? && form.nil?
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -554,13 +554,13 @@ module Kombo
     def add_employee_document(body:, employee_id:, integration_id: nil, timeout_ms: nil)
       # add_employee_document - Add document to employee
       # Uploads an document file for the specified employee.
-      # 
+      #
       # <Note>
       #   This endpoint requires the permission **Manage documents** to be enabled in [your scope config](/scopes).
       # </Note>
-      # 
+      #
       # ### Example Request Body
-      # 
+      #
       # ```json
       # {
       #   "category_id": "3Cjwu7nA7pH5cX5X1NAPmb7M",
@@ -591,7 +591,7 @@ module Kombo
       headers['content-type'] = req_content_type
       raise StandardError, 'request body is required' if data.nil? && form.nil?
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -706,7 +706,7 @@ module Kombo
     def get_employee_document_categories(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, timeout_ms: nil)
       # get_employee_document_categories - Get employee document categories
       # Get employee document categories.
-      # 
+      #
       # Top level filters use AND, while individual filters use OR if they accept multiple arguments. That means filters will be resolved like this: `(id IN ids) AND (remote_id IN remote_ids)`
       request = Models::Operations::GetHrisEmployeeDocumentCategoriesRequest.new(
         integration_id: integration_id,
@@ -857,7 +857,7 @@ module Kombo
     def get_groups(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, types: nil, name_contains: nil, timeout_ms: nil)
       # get_groups - Get groups
       # Retrieve all "groups" (teams, departments, and cost centers).
-      # 
+      #
       # Top level filters use AND, while individual filters use OR if they accept multiple arguments. That means filters will be resolved like this: `(id IN ids) AND (remote_id IN remote_ids)`
       request = Models::Operations::GetHrisGroupsRequest.new(
         integration_id: integration_id,
@@ -1012,7 +1012,7 @@ module Kombo
     def get_employments(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, timeout_ms: nil)
       # get_employments - Get employments
       # Retrieve all employments.
-      # 
+      #
       # Top level filters use AND, while individual filters use OR if they accept multiple arguments. That means filters will be resolved like this: `(id IN ids) AND (remote_id IN remote_ids)`
       request = Models::Operations::GetHrisEmploymentsRequest.new(
         integration_id: integration_id,
@@ -1163,7 +1163,7 @@ module Kombo
     def get_locations(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, name_contains: nil, timeout_ms: nil)
       # get_locations - Get work locations
       # Retrieve all work locations.
-      # 
+      #
       # Top level filters use AND, while individual filters use OR if they accept multiple arguments. That means filters will be resolved like this: `(id IN ids) AND (remote_id IN remote_ids)`
       request = Models::Operations::GetHrisLocationsRequest.new(
         integration_id: integration_id,
@@ -1316,7 +1316,7 @@ module Kombo
     def get_absence_types(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, timeout_ms: nil)
       # get_absence_types - Get absence types
       # Retrieve all absence types.
-      # 
+      #
       # Top level filters use AND, while individual filters use OR if they accept multiple arguments. That means filters will be resolved like this: `(id IN ids) AND (remote_id IN remote_ids)`
       request = Models::Operations::GetHrisAbsenceTypesRequest.new(
         integration_id: integration_id,
@@ -1467,7 +1467,7 @@ module Kombo
     def get_time_off_balances(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, employee_id: nil, timeout_ms: nil)
       # get_time_off_balances - Get time off balances
       # Retrieve all time off balances.
-      # 
+      #
       # Top level filters use AND, while individual filters use OR if they accept multiple arguments. That means filters will be resolved like this: `(id IN ids) AND (remote_id IN remote_ids)`
       request = Models::Operations::GetHrisTimeOffBalancesRequest.new(
         integration_id: integration_id,
@@ -1620,7 +1620,7 @@ module Kombo
     def get_absences(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, date_from: nil, date_until: nil, type_ids: nil, employee_id: nil, timeout_ms: nil)
       # get_absences - Get absences
       # Retrieve all absences.
-      # 
+      #
       # Top level filters use AND, while individual filters use OR if they accept multiple arguments. That means filters will be resolved like this: `(id IN ids) AND (remote_id IN remote_ids)`
       request = Models::Operations::GetHrisAbsencesRequest.new(
         integration_id: integration_id,
@@ -1779,15 +1779,15 @@ module Kombo
     def create_absence(body:, integration_id: nil, timeout_ms: nil)
       # create_absence - Create absence
       # Create a new absence.
-      # 
+      #
       # Check [this page](/hris/features/creating-absences) for a detailed guide.
-      # 
+      #
       # <Note>
       #   This endpoint requires the permission **Manage absences** to be enabled in [your scope config](/scopes).
       # </Note>
-      # 
+      #
       # ### Example Request Body
-      # 
+      #
       # ```json
       # {
       #   "employee_id": "wXJMxwDvPAjrJ4CyqdV9",
@@ -1814,7 +1814,7 @@ module Kombo
       headers['content-type'] = req_content_type
       raise StandardError, 'request body is required' if data.nil? && form.nil?
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -1929,13 +1929,13 @@ module Kombo
     def delete_absence(body:, absence_id:, integration_id: nil, timeout_ms: nil)
       # delete_absence - Delete absence
       # Delete this absence.
-      # 
+      #
       # <Note>
       #   This endpoint requires the permission **Manage absences** to be enabled in [your scope config](/scopes).
       # </Note>
-      # 
+      #
       # ### Example Request Body
-      # 
+      #
       # ```json
       # {
       #   "absence_id": "wXJMxwDvPAjrJ4CyqdV9"
@@ -1961,7 +1961,7 @@ module Kombo
       headers['content-type'] = req_content_type
       raise StandardError, 'request body is required' if data.nil? && form.nil?
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -2076,7 +2076,7 @@ module Kombo
     def get_legal_entities(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, name_contains: nil, timeout_ms: nil)
       # get_legal_entities - Get legal entities
       # Retrieve all legal entites.
-      # 
+      #
       # Top level filters use AND, while individual filters use OR if they accept multiple arguments. That means filters will be resolved like this: `(id IN ids) AND (remote_id IN remote_ids)`
       request = Models::Operations::GetHrisLegalEntitiesRequest.new(
         integration_id: integration_id,
@@ -2229,13 +2229,13 @@ module Kombo
     def get_timesheets(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, employee_id: nil, started_before: nil, started_after: nil, ended_before: nil, ended_after: nil, timeout_ms: nil)
       # get_timesheets - Get timesheets
       # Get timesheets
-      # 
+      #
       # Retrieve attendance data and timesheets from HRIS tools.
-      # 
+      #
       # <Warning>**Open Beta Feature:** This endpoint is currently in beta. Please reach out to our support team if you need assistance with implementation.</Warning>
-      # 
+      #
       # For a detailed explanation of the data model, validation rules, time zones, payable hours, approvals, and break patterns, see the [Time & Attendance guide](/hris/features/time-and-attendance).
-      # 
+      #
       # Top level filters use AND, while individual filters use OR if they accept multiple arguments. That means filters will be resolved like this: `(id IN ids) AND (remote_id IN remote_ids)`
       request = Models::Operations::GetHrisTimesheetsRequest.new(
         integration_id: integration_id,
@@ -2396,13 +2396,13 @@ module Kombo
     def get_performance_review_cycles(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, timeout_ms: nil)
       # get_performance_review_cycles - Get performance review cycles
       # Get performance review cycles
-      # 
+      #
       # Retrieve performance review cycles data from HRIS tools.
-      # 
+      #
       # <Warning>**Open Beta Feature:** This endpoint is currently in beta. Please reach out to our support team if you need assistance with implementation.</Warning>
-      # 
-      # 
-      # 
+      #
+      #
+      #
       # Top level filters use AND, while individual filters use OR if they accept multiple arguments. That means filters will be resolved like this: `(id IN ids) AND (remote_id IN remote_ids)`
       request = Models::Operations::GetHrisPerformanceReviewCyclesRequest.new(
         integration_id: integration_id,
@@ -2553,13 +2553,13 @@ module Kombo
     def get_performance_reviews(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, types: nil, review_cycle_ids: nil, reviewee_ids: nil, timeout_ms: nil)
       # get_performance_reviews - Get performance reviews
       # Get performance reviews
-      # 
+      #
       # Retrieve performance review data from HRIS tools.
-      # 
+      #
       # <Warning>**Open Beta Feature:** This endpoint is currently in beta. Please reach out to our support team if you need assistance with implementation.</Warning>
-      # 
-      # 
-      # 
+      #
+      #
+      #
       # Top level filters use AND, while individual filters use OR if they accept multiple arguments. That means filters will be resolved like this: `(id IN ids) AND (remote_id IN remote_ids)`
       request = Models::Operations::GetHrisPerformanceReviewsRequest.new(
         integration_id: integration_id,

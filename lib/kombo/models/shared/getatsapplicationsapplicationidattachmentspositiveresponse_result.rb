@@ -13,7 +13,7 @@ module Kombo
         include Crystalline::MetadataFields
 
 
-        field :type, Models::Shared::GetAtsApplicationsApplicationIdAttachmentsPositiveResponseType, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('type'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::GetAtsApplicationsApplicationIdAttachmentsPositiveResponseType, false) } }
+        field :type, Models::Shared::GetAtsApplicationsApplicationIdAttachmentsPositiveResponseType, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('type'), required: true, 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::GetAtsApplicationsApplicationIdAttachmentsPositiveResponseType, false) } }
 
         field :id, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('id'), required: true } }
 
@@ -26,10 +26,10 @@ module Kombo
         field :content_type, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('content_type'), required: true } }
         # The date when the attachment was created.
         # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
-        field :remote_created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_created_at'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
+        field :remote_created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_created_at'), required: true, 'decoder': ::Kombo::Utils.datetime_from_iso_format(false) } }
         # The date when the attachment was last updated.
         # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
-        field :remote_updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_updated_at'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
+        field :remote_updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_updated_at'), required: true, 'decoder': ::Kombo::Utils.datetime_from_iso_format(false) } }
 
         sig { params(type: Models::Shared::GetAtsApplicationsApplicationIdAttachmentsPositiveResponseType, id: ::String, remote_id: ::String, data_url: ::String, file_name: ::String, content_type: ::String, remote_created_at: T.nilable(::DateTime), remote_updated_at: T.nilable(::DateTime)).void }
         def initialize(type:, id:, remote_id:, data_url:, file_name:, content_type:, remote_created_at: nil, remote_updated_at: nil)

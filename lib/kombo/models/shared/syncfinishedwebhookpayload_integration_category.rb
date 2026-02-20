@@ -9,8 +9,6 @@ module Kombo
     module Shared
       # SyncFinishedWebhookPayloadIntegrationCategory - The category of the integration (HRIS, ATS, ASSESSMENT, or LMS).
       class SyncFinishedWebhookPayloadIntegrationCategory < T::Enum
-
-
         enums do
           HRIS = new('HRIS')
           ATS = new('ATS')

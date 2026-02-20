@@ -9,8 +9,6 @@ module Kombo
     module Shared
       # GroupType - Type of the group.
       class GroupType < T::Enum
-
-
         enums do
           DEPARTMENT = new('DEPARTMENT')
           TEAM = new('TEAM')

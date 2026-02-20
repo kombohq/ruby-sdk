@@ -9,8 +9,6 @@ module Kombo
     module Shared
       # GetAtsUsersPositiveResponseStatus - Whether the user is active or inactive. Consider this field when provisioning users from the ATS.
       class GetAtsUsersPositiveResponseStatus < T::Enum
-
-
         enums do
           ACTIVE = new('ACTIVE')
           INACTIVE = new('INACTIVE')

@@ -9,8 +9,6 @@ module Kombo
     module Shared
       # GetHrisAbsenceTypesPositiveResponseUnit - The time-unit of the absence.
       class GetHrisAbsenceTypesPositiveResponseUnit < T::Enum
-
-
         enums do
           HOURS = new('HOURS')
           DAYS = new('DAYS')

@@ -18,7 +18,7 @@ module Kombo
         field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_id'), required: true } }
         # Parsed status of the application. If Kombo identifies that the application was accepted and the candidate hired, it will be `HIRED`. If the application was rejected or the candidate declined, it will be `DECLINED`. If the application is still in process, it will be `PENDING`.
         # Kombo will always try to deliver this information as reliably as possible.
-        field :outcome, Crystalline::Nilable.new(Models::Shared::GetAtsInterviewsPositiveResponseOutcome), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('outcome'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::GetAtsInterviewsPositiveResponseOutcome, false) } }
+        field :outcome, Crystalline::Nilable.new(Models::Shared::GetAtsInterviewsPositiveResponseOutcome), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('outcome'), required: true, 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::GetAtsInterviewsPositiveResponseOutcome, false) } }
         # Reason for the rejection of the candidate.
         field :rejection_reason_name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('rejection_reason_name'), required: true } }
 

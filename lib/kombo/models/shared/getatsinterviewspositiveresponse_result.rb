@@ -16,7 +16,7 @@ module Kombo
         field :id, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('id'), required: true } }
         # The timestamp when this specific record was last modified. This field only updates when properties directly on this record change, NOT when related or nested models change. For filtering that considers nested data changes, use the `updated_after` parameter which will return records when either the record itself OR its related models have been updated.
         # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
-        field :changed_at, ::DateTime, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('changed_at'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
+        field :changed_at, ::DateTime, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('changed_at'), required: true, 'decoder': ::Kombo::Utils.datetime_from_iso_format(false) } }
 
         field :users, Crystalline::Array.new(Models::Shared::User), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('users'), required: true } }
         # The raw ID of the object in the remote system. We don't recommend using this as a primary key on your side as it might sometimes be compromised of multiple identifiers if a system doesn't provide a clear primary key.
@@ -25,10 +25,12 @@ module Kombo
         field :title, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('title'), required: true } }
         # The start time of the interview.
         # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
-        field :starting_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('starting_at'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
+        field :starting_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('starting_at'), required: true, 'decoder': ::Kombo::Utils.datetime_from_iso_format(false) } }
         # The end time of the interview.
         # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
-        field :ending_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('ending_at'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
+        field :ending_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('ending_at'), required: true, 'decoder': ::Kombo::Utils.datetime_from_iso_format(false) } }
+        # The URL of the video conferencing platform used for the interview.
+        field :video_conferencing_url, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('video_conferencing_url'), required: true } }
         # The Kombo ID of the application this interview belongs to. The ID can be used to retrieve the application from the `get applications` endpoint.
         field :application_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('application_id'), required: true } }
         # If a system specifies to which stage this interview belongs to, this field will be the Kombo ID of the application stage. The ID can be used to retrieve the stage from the `get application stages` endpoint.
@@ -37,20 +39,20 @@ module Kombo
         field :canceled, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('canceled'), required: true } }
         # The date and time the object was created in the remote system.
         # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
-        field :remote_created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_created_at'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
+        field :remote_created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_created_at'), required: true, 'decoder': ::Kombo::Utils.datetime_from_iso_format(false) } }
         # A timestamp retrieved from the remote system, describing when the resource was last updated.
         # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
-        field :remote_updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_updated_at'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
+        field :remote_updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_updated_at'), required: true, 'decoder': ::Kombo::Utils.datetime_from_iso_format(false) } }
         # The date and time the object was deleted in the remote system. Objects are automatically marked as deleted when Kombo can't retrieve them from the remote system anymore. Kombo will also anonymize entries 14 days after they disappear.
         # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
-        field :remote_deleted_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_deleted_at'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
+        field :remote_deleted_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_deleted_at'), required: true, 'decoder': ::Kombo::Utils.datetime_from_iso_format(false) } }
 
         field :application, Crystalline::Nilable.new(Models::Shared::GetAtsInterviewsPositiveResponseApplication), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('application'), required: true } }
         # Location of the interview.
         field :location, Crystalline::Nilable.new(Models::Shared::GetAtsInterviewsPositiveResponseLocation), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('location') } }
 
-        sig { params(id: ::String, changed_at: ::DateTime, users: T::Array[Models::Shared::User], remote_id: T.nilable(::String), title: T.nilable(::String), starting_at: T.nilable(::DateTime), ending_at: T.nilable(::DateTime), application_id: T.nilable(::String), stage_id: T.nilable(::String), canceled: T.nilable(T::Boolean), remote_created_at: T.nilable(::DateTime), remote_updated_at: T.nilable(::DateTime), remote_deleted_at: T.nilable(::DateTime), application: T.nilable(Models::Shared::GetAtsInterviewsPositiveResponseApplication), location: T.nilable(Models::Shared::GetAtsInterviewsPositiveResponseLocation)).void }
-        def initialize(id:, changed_at:, users:, remote_id: nil, title: nil, starting_at: nil, ending_at: nil, application_id: nil, stage_id: nil, canceled: nil, remote_created_at: nil, remote_updated_at: nil, remote_deleted_at: nil, application: nil, location: nil)
+        sig { params(id: ::String, changed_at: ::DateTime, users: T::Array[Models::Shared::User], remote_id: T.nilable(::String), title: T.nilable(::String), starting_at: T.nilable(::DateTime), ending_at: T.nilable(::DateTime), video_conferencing_url: T.nilable(::String), application_id: T.nilable(::String), stage_id: T.nilable(::String), canceled: T.nilable(T::Boolean), remote_created_at: T.nilable(::DateTime), remote_updated_at: T.nilable(::DateTime), remote_deleted_at: T.nilable(::DateTime), application: T.nilable(Models::Shared::GetAtsInterviewsPositiveResponseApplication), location: T.nilable(Models::Shared::GetAtsInterviewsPositiveResponseLocation)).void }
+        def initialize(id:, changed_at:, users:, remote_id: nil, title: nil, starting_at: nil, ending_at: nil, video_conferencing_url: nil, application_id: nil, stage_id: nil, canceled: nil, remote_created_at: nil, remote_updated_at: nil, remote_deleted_at: nil, application: nil, location: nil)
           @id = id
           @changed_at = changed_at
           @users = users
@@ -58,6 +60,7 @@ module Kombo
           @title = title
           @starting_at = starting_at
           @ending_at = ending_at
+          @video_conferencing_url = video_conferencing_url
           @application_id = application_id
           @stage_id = stage_id
           @canceled = canceled
@@ -78,6 +81,7 @@ module Kombo
           return false unless @title == other.title
           return false unless @starting_at == other.starting_at
           return false unless @ending_at == other.ending_at
+          return false unless @video_conferencing_url == other.video_conferencing_url
           return false unless @application_id == other.application_id
           return false unless @stage_id == other.stage_id
           return false unless @canceled == other.canceled

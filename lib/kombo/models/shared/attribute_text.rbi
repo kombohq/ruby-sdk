@@ -8,10 +8,10 @@ end
 
 
 class Kombo::Models::Shared::AttributeText
-  def type(); end
-  def type=(str_); end
   def label(); end
   def label=(str_); end
   def value(); end
   def value=(str_); end
+  def type(); end
+  def type=(str_); end
 end

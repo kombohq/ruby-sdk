@@ -13,7 +13,7 @@ module Kombo
         include Crystalline::MetadataFields
 
 
-        field :type, Models::Shared::PostAtsCandidatesRequestBodyAdditionalPhoneNumberType, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('type'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::PostAtsCandidatesRequestBodyAdditionalPhoneNumberType, false) } }
+        field :type, Models::Shared::PostAtsCandidatesRequestBodyAdditionalPhoneNumberType, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('type'), required: true, 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::PostAtsCandidatesRequestBodyAdditionalPhoneNumberType, false) } }
 
         field :phone_number, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('phone_number'), required: true } }
 
