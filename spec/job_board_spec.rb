@@ -31,8 +31,7 @@ TestSupport.describe_sdk_suite 'Kombo ATS Jobs API' do
     request = ctx.get_last_request
     # The path should include the base path
     expect(request.path).to include('/v1/ats/jobs')
-    # Note: Default query parameters may or may not be included in the URL
+    # NOTE: Default query parameters may or may not be included in the URL
     # depending on how the query parameter serialization handles default values
   end
 end
-

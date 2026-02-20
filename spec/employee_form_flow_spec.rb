@@ -163,7 +163,7 @@ TestSupport.describe_sdk_suite 'Employee Form Flow' do
 
     # Verify request body is correctly serialized
     request = ctx.get_last_request
-    expect(request.method).to eq('POST')
+    expect(request.http_method).to eq('POST')
     expect(request.body).to be_a(Hash)
     expect(request.body['properties']).to be_truthy
     expect(request.body['properties']['firstName']).to eq('John')
@@ -174,4 +174,3 @@ TestSupport.describe_sdk_suite 'Employee Form Flow' do
     expect(request.body['properties']['workLocation']['site']).to eq('FXrER44xubBqA9DLgZ3PFNNx')
   end
 end
-
