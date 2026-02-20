@@ -106,6 +106,8 @@ Pre-define a tool this integration link can be used for.
 | `TALENTADORE`                     | talentadore                       |
 | `SANDBOX`                         | sandbox                           |
 | `GUIDECOM`                        | guidecom                          |
+| `SPOTT`                           | spott                             |
+| `LOXO`                            | loxo                              |
 | `WORKDAYCUSTOMREPORT`             | workdaycustomreport               |
 | `WORKDAYCUSTOMREPORTSFTP`         | workdaycustomreportsftp           |
 | `PAYFITCUSTOMER`                  | payfitcustomer                    |
@@ -183,3 +185,5 @@ Pre-define a tool this integration link can be used for.
 | `SFTP`                            | sftp                              |
 | `SFTPFETCH`                       | sftpfetch                         |
 | `THREE_HUNDRED_AND_SIXTYLEARNING` | 360learning                       |
+| `UDEMY`                           | udemy                             |
+| `LINKEDINLEARNING`                | linkedinlearning                  |

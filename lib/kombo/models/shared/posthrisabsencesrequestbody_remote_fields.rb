@@ -12,17 +12,21 @@ module Kombo
         extend T::Sig
         include Crystalline::MetadataFields
 
+        # Fields specific to A3 Innuva Nómina.
+        field :a3innuvanomina, Crystalline::Nilable.new(Models::Shared::A3innuvanomina), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('a3innuvanomina') } }
         # Fields specific to ADP Workforce Now.
         field :adpworkforcenow, Crystalline::Nilable.new(Models::Shared::PostHrisAbsencesRequestBodyAdpworkforcenow), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('adpworkforcenow') } }
 
-        sig { params(adpworkforcenow: T.nilable(Models::Shared::PostHrisAbsencesRequestBodyAdpworkforcenow)).void }
-        def initialize(adpworkforcenow: nil)
+        sig { params(a3innuvanomina: T.nilable(Models::Shared::A3innuvanomina), adpworkforcenow: T.nilable(Models::Shared::PostHrisAbsencesRequestBodyAdpworkforcenow)).void }
+        def initialize(a3innuvanomina: nil, adpworkforcenow: nil)
+          @a3innuvanomina = a3innuvanomina
           @adpworkforcenow = adpworkforcenow
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
+          return false unless @a3innuvanomina == other.a3innuvanomina
           return false unless @adpworkforcenow == other.adpworkforcenow
           true
         end
