@@ -31,9 +31,12 @@ Gem::Specification.new do |s|
   s.add_development_dependency('minitest', '>= 5.27.0')
   s.add_development_dependency('minitest-focus', '~> 1.4.1')
   s.add_development_dependency('rake')
+  s.add_development_dependency('rspec', '~> 3.13')
   s.add_development_dependency('rubocop', '~> 1.73.2')
   s.add_development_dependency('rubocop-minitest', '~> 0.37.1')
+  s.add_development_dependency('rubocop-rspec', '~> 3.0')
   s.add_development_dependency('sorbet', '~> 0.6.12872')
   s.add_development_dependency('tapioca', '~> 0.17.10')
   s.add_development_dependency('tsort', '~> 0.2.0')
+  s.add_development_dependency('webmock', '~> 3.23')
 end
