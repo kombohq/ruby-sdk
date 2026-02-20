@@ -5,7 +5,7 @@ require 'json'
 require 'kombo'
 
 module TestSupport
-  CapturedRequest = Struct.new(:method, :path, :headers, :body, keyword_init: true)
+  CapturedRequest = Struct.new(:http_method, :path, :headers, :body, keyword_init: true)
 
   class TestContext
     attr_reader :kombo
@@ -50,14 +50,14 @@ module TestSupport
           uri_str = uri.to_s
           path_start = uri_str.index(uri.path)
           if path_start
-            full_path = uri_str[path_start..-1]
+            full_path = uri_str[path_start..]
             # Remove fragment if present
             full_path = full_path.split('#').first
           end
         end
 
         captured = CapturedRequest.new(
-          method: request_signature.method.to_s.upcase,
+          http_method: request_signature.method.to_s.upcase,
           path: full_path,
           headers: headers_hash,
           body: body
@@ -83,18 +83,18 @@ module TestSupport
       # will be matched sequentially. Use times(1) to ensure each stub only matches once.
       url_pattern = if method == 'GET'
         # Use regex to match path with any query params
-        /^https:\/\/api\.kombo\.dev#{Regexp.escape(path)}(\?.*)?$/
+        %r{^https://api\.kombo\.dev#{Regexp.escape(path)}(\?.*)?$}
       else
         "https://api.kombo.dev#{path}"
       end
 
       stub = WebMock.stub_request(method.downcase.to_sym, url_pattern)
-          .to_return(
-            status: status_code,
-            body: body.to_json,
-            headers: headers
-          )
-          .times(1)
+                    .to_return(
+                      status: status_code,
+                      body: body.to_json,
+                      headers: headers
+                    )
+                    .times(1)
 
       @stubs << stub
     end
@@ -138,4 +138,3 @@ module TestSupport
     end
   end
 end
-

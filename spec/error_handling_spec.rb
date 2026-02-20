@@ -27,17 +27,19 @@ TestSupport.describe_sdk_suite 'Error Handling' do
         }
       )
 
+      error = nil
       expect do
-        jobs = ctx.kombo.ats.get_jobs
-        jobs.each { |_page| break }
-      end.to raise_error(Kombo::Models::Errors::KomboAtsError) do |error|
-        expect(error.error.message).to include('You have exceeded the rate limit. Please try again later.')
-        expect(error.status).to eq(Kombo::Models::Shared::KomboAtsErrorStatus::ERROR)
-        expect(error.error.code).to eq(Kombo::Models::Shared::KomboAtsErrorCode::PLATFORM_RATE_LIMIT_EXCEEDED)
-        expect(error.error.title).to eq('Rate limit exceeded')
-        expect(error.error.message).to eq('You have exceeded the rate limit. Please try again later.')
-        expect(error.error.log_url).to eq('https://app.kombo.dev/logs/abc123')
-      end
+        ctx.kombo.ats.get_jobs
+      rescue Kombo::Models::Errors::KomboAtsError => e
+        error = e
+        raise
+      end.to raise_error(Kombo::Models::Errors::KomboAtsError)
+      expect(error.error.message).to include('You have exceeded the rate limit. Please try again later.')
+      expect(error.status).to eq(Kombo::Models::Shared::KomboAtsErrorStatus::ERROR)
+      expect(error.error.code).to eq(Kombo::Models::Shared::KomboAtsErrorCode::PLATFORM_RATE_LIMIT_EXCEEDED)
+      expect(error.error.title).to eq('Rate limit exceeded')
+      expect(error.error.message).to eq('You have exceeded the rate limit. Please try again later.')
+      expect(error.error.log_url).to eq('https://app.kombo.dev/logs/abc123')
     end
 
     it 'returns KomboAtsError for ATS-specific job closed errors' do
@@ -69,16 +71,19 @@ TestSupport.describe_sdk_suite 'Error Handling' do
         candidate: candidate
       )
 
+      error = nil
       expect do
         ctx.kombo.ats.create_application(job_id: 'test-job-id', body: body)
-      end.to raise_error(Kombo::Models::Errors::KomboAtsError) do |error|
-        expect(error.error.message).to include('Cannot create application for a closed job. The job must be in an open state.')
-        expect(error.status).to eq(Kombo::Models::Shared::KomboAtsErrorStatus::ERROR)
-        expect(error.error.code).to eq(Kombo::Models::Shared::KomboAtsErrorCode::ATS_JOB_CLOSED)
-        expect(error.error.title).to eq('Job is closed')
-        expect(error.error.message).to eq('Cannot create application for a closed job. The job must be in an open state.')
-        expect(error.error.log_url).to eq('https://app.kombo.dev/logs/ghi789')
-      end
+      rescue Kombo::Models::Errors::KomboAtsError => e
+        error = e
+        raise
+      end.to raise_error(Kombo::Models::Errors::KomboAtsError)
+      expect(error.error.message).to include('Cannot create application for a closed job. The job must be in an open state.')
+      expect(error.status).to eq(Kombo::Models::Shared::KomboAtsErrorStatus::ERROR)
+      expect(error.error.code).to eq(Kombo::Models::Shared::KomboAtsErrorCode::ATS_JOB_CLOSED)
+      expect(error.error.title).to eq('Job is closed')
+      expect(error.error.message).to eq('Cannot create application for a closed job. The job must be in an open state.')
+      expect(error.error.log_url).to eq('https://app.kombo.dev/logs/ghi789')
     end
   end
 
@@ -103,17 +108,19 @@ TestSupport.describe_sdk_suite 'Error Handling' do
         }
       )
 
+      error = nil
       expect do
-        employees = ctx.kombo.hris.get_employees
-        employees.each { |_page| break }
-      end.to raise_error(Kombo::Models::Errors::KomboHrisError) do |error|
-        expect(error.error.message).to include('The integration is missing required permissions to access this resource.')
-        expect(error.status).to eq(Kombo::Models::Shared::KomboHrisErrorStatus::ERROR)
-        expect(error.error.code).to eq(Kombo::Models::Shared::KomboHrisErrorCode::INTEGRATION_PERMISSION_MISSING)
-        expect(error.error.title).to eq('Permission missing')
-        expect(error.error.message).to eq('The integration is missing required permissions to access this resource.')
-        expect(error.error.log_url).to eq('https://app.kombo.dev/logs/hris-def456')
-      end
+        ctx.kombo.hris.get_employees
+      rescue Kombo::Models::Errors::KomboHrisError => e
+        error = e
+        raise
+      end.to raise_error(Kombo::Models::Errors::KomboHrisError)
+      expect(error.error.message).to include('The integration is missing required permissions to access this resource.')
+      expect(error.status).to eq(Kombo::Models::Shared::KomboHrisErrorStatus::ERROR)
+      expect(error.error.code).to eq(Kombo::Models::Shared::KomboHrisErrorCode::INTEGRATION_PERMISSION_MISSING)
+      expect(error.error.title).to eq('Permission missing')
+      expect(error.error.message).to eq('The integration is missing required permissions to access this resource.')
+      expect(error.error.log_url).to eq('https://app.kombo.dev/logs/hris-def456')
     end
   end
 
@@ -138,17 +145,19 @@ TestSupport.describe_sdk_suite 'Error Handling' do
         }
       )
 
+      error = nil
       expect do
-        orders = ctx.kombo.assessment.get_open_orders
-        orders.each { |_page| break }
-      end.to raise_error(Kombo::Models::Errors::KomboAtsError) do |error|
-        expect(error.error.message).to include('The provided input is invalid or malformed.')
-        expect(error.status).to eq(Kombo::Models::Shared::KomboAtsErrorStatus::ERROR)
-        expect(error.error.code).to eq(Kombo::Models::Shared::KomboAtsErrorCode::PLATFORM_INPUT_INVALID)
-        expect(error.error.title).to eq('Input invalid')
-        expect(error.error.message).to eq('The provided input is invalid or malformed.')
-        expect(error.error.log_url).to eq('https://app.kombo.dev/logs/assessment-xyz')
-      end
+        ctx.kombo.assessment.get_open_orders
+      rescue Kombo::Models::Errors::KomboAtsError => e
+        error = e
+        raise
+      end.to raise_error(Kombo::Models::Errors::KomboAtsError)
+      expect(error.error.message).to include('The provided input is invalid or malformed.')
+      expect(error.status).to eq(Kombo::Models::Shared::KomboAtsErrorStatus::ERROR)
+      expect(error.error.code).to eq(Kombo::Models::Shared::KomboAtsErrorCode::PLATFORM_INPUT_INVALID)
+      expect(error.error.title).to eq('Input invalid')
+      expect(error.error.message).to eq('The provided input is invalid or malformed.')
+      expect(error.error.log_url).to eq('https://app.kombo.dev/logs/assessment-xyz')
     end
   end
 
@@ -173,16 +182,19 @@ TestSupport.describe_sdk_suite 'Error Handling' do
         }
       )
 
+      error = nil
       expect do
         ctx.kombo.general.check_api_key
-      end.to raise_error(Kombo::Models::Errors::KomboGeneralError) do |error|
-        expect(error.error.message).to include('The provided API key is invalid or expired.')
-        expect(error.status).to eq(Kombo::Models::Shared::KomboGeneralErrorStatus::ERROR)
-        expect(error.error.code).to eq(Kombo::Models::Shared::KomboGeneralErrorCode::PLATFORM_AUTHENTICATION_INVALID)
-        expect(error.error.title).to eq('Authentication invalid')
-        expect(error.error.message).to eq('The provided API key is invalid or expired.')
-        expect(error.error.log_url).to eq('https://app.kombo.dev/logs/general-auth-123')
-      end
+      rescue Kombo::Models::Errors::KomboGeneralError => e
+        error = e
+        raise
+      end.to raise_error(Kombo::Models::Errors::KomboGeneralError)
+      expect(error.error.message).to include('The provided API key is invalid or expired.')
+      expect(error.status).to eq(Kombo::Models::Shared::KomboGeneralErrorStatus::ERROR)
+      expect(error.error.code).to eq(Kombo::Models::Shared::KomboGeneralErrorCode::PLATFORM_AUTHENTICATION_INVALID)
+      expect(error.error.title).to eq('Authentication invalid')
+      expect(error.error.message).to eq('The provided API key is invalid or expired.')
+      expect(error.error.log_url).to eq('https://app.kombo.dev/logs/general-auth-123')
     end
   end
 
@@ -201,13 +213,15 @@ TestSupport.describe_sdk_suite 'Error Handling' do
           }
         )
 
+        error = nil
         expect do
-          jobs = ctx.kombo.ats.get_jobs
-          jobs.each { |_page| break }
-        end.to raise_error(Kombo::Models::Errors::APIError) do |error|
-          expect(error.status_code).to eq(500)
-          expect(error.body).to include('500 Internal Server Error')
-        end
+          ctx.kombo.ats.get_jobs
+        rescue Kombo::Models::Errors::APIError => e
+          error = e
+          raise
+        end.to raise_error(Kombo::Models::Errors::APIError)
+        expect(error.status_code).to eq(500)
+        expect(error.body).to include('500 Internal Server Error')
       end
 
       it 'handles plain text 502 bad gateway error' do
@@ -225,13 +239,15 @@ TestSupport.describe_sdk_suite 'Error Handling' do
           }
         )
 
+        error = nil
         expect do
-          employees = ctx.kombo.hris.get_employees
-          employees.each { |_page| break }
-        end.to raise_error(Kombo::Models::Errors::APIError) do |error|
-          expect(error.status_code).to eq(502)
-          expect(error.body).to include('502 Bad Gateway')
-        end
+          ctx.kombo.hris.get_employees
+        rescue Kombo::Models::Errors::APIError => e
+          error = e
+          raise
+        end.to raise_error(Kombo::Models::Errors::APIError)
+        expect(error.status_code).to eq(502)
+        expect(error.body).to include('502 Bad Gateway')
       end
 
       it 'handles HTML error page from nginx' do
@@ -267,12 +283,15 @@ TestSupport.describe_sdk_suite 'Error Handling' do
           candidate: candidate
         )
 
+        error = nil
         expect do
           ctx.kombo.ats.create_application(job_id: 'test-job-id', body: body)
-        end.to raise_error(Kombo::Models::Errors::APIError) do |error|
-          expect(error.status_code).to eq(503)
-          expect(error.body).to include('503 Service Temporarily Unavailable')
-        end
+        rescue Kombo::Models::Errors::APIError => e
+          error = e
+          raise
+        end.to raise_error(Kombo::Models::Errors::APIError)
+        expect(error.status_code).to eq(503)
+        expect(error.body).to include('503 Service Temporarily Unavailable')
       end
 
       it 'handles empty response body with error status code' do
@@ -288,11 +307,14 @@ TestSupport.describe_sdk_suite 'Error Handling' do
           }
         )
 
+        error = nil
         expect do
           ctx.kombo.general.check_api_key
-        end.to raise_error(Kombo::Models::Errors::APIError) do |error|
-          expect(error.status_code).to eq(500)
-        end
+        rescue Kombo::Models::Errors::APIError => e
+          error = e
+          raise
+        end.to raise_error(Kombo::Models::Errors::APIError)
+        expect(error.status_code).to eq(500)
       end
 
       it 'handles unexpected Content-Type header' do
@@ -311,15 +333,16 @@ TestSupport.describe_sdk_suite 'Error Handling' do
           }
         )
 
+        error = nil
         expect do
-          applications = ctx.kombo.ats.get_applications
-          applications.each { |_page| break }
-        end.to raise_error(Kombo::Models::Errors::APIError) do |error|
-          expect(error.status_code).to eq(500)
-          expect(error.body).to include('Server error occurred')
-        end
+          ctx.kombo.ats.get_applications
+        rescue Kombo::Models::Errors::APIError => e
+          error = e
+          raise
+        end.to raise_error(Kombo::Models::Errors::APIError)
+        expect(error.status_code).to eq(500)
+        expect(error.body).to include('Server error occurred')
       end
     end
   end
 end
-

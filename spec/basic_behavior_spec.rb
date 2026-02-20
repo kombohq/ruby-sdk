@@ -20,8 +20,7 @@ TestSupport.describe_sdk_suite 'Basic SDK Behavior' do
       }
     )
 
-    jobs = ctx.kombo.ats.get_jobs
-    jobs.each { |_page| break }
+    ctx.kombo.ats.get_jobs
 
     request = ctx.get_last_request
     expect(request.headers['Authorization']).to eq('Bearer my-custom-api-key')
@@ -44,8 +43,7 @@ TestSupport.describe_sdk_suite 'Basic SDK Behavior' do
       }
     )
 
-    jobs = ctx.kombo.ats.get_jobs
-    jobs.each { |_page| break }
+    ctx.kombo.ats.get_jobs
 
     request = ctx.get_last_request
     expect(request.headers['X-Integration-Id']).to eq('my-integration-123')
@@ -68,8 +66,7 @@ TestSupport.describe_sdk_suite 'Basic SDK Behavior' do
       }
     )
 
-    jobs = ctx.kombo.ats.get_jobs
-    jobs.each { |_page| break }
+    ctx.kombo.ats.get_jobs
 
     request = ctx.get_last_request
     # When integration ID is undefined, the header is not set
@@ -125,8 +122,7 @@ TestSupport.describe_sdk_suite 'Basic SDK Behavior' do
     )
 
     # Test with boolean true
-    jobs_with_deleted = ctx.kombo.ats.get_jobs(include_deleted: true)
-    jobs_with_deleted.each { |_page| break }
+    ctx.kombo.ats.get_jobs(include_deleted: true)
 
     request_with_deleted = ctx.get_last_request
     expect(request_with_deleted.path).to include('include_deleted=true')
@@ -145,8 +141,7 @@ TestSupport.describe_sdk_suite 'Basic SDK Behavior' do
     )
 
     # Test with boolean false
-    jobs_without_deleted = ctx.kombo.ats.get_jobs(include_deleted: false)
-    jobs_without_deleted.each { |_page| break }
+    ctx.kombo.ats.get_jobs(include_deleted: false)
 
     request_without_deleted = ctx.get_last_request
     expect(request_without_deleted.path).to include('include_deleted=false')
@@ -530,4 +525,3 @@ TestSupport.describe_sdk_suite 'Basic SDK Behavior' do
     end
   end
 end
-
