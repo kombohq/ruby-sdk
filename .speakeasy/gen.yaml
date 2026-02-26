@@ -31,7 +31,7 @@ generation:
     skipResponseBodyAssertions: false
   versioningStrategy: automatic
 ruby:
-  version: 1.0.3
+  version: 1.0.4
   additionalDependencies:
     development:
       irb: ""
