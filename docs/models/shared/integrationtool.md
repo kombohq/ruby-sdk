@@ -72,6 +72,7 @@ Pre-define a tool this integration link can be used for.
 | `PARADOX`                         | paradox                           |
 | `HEYRECRUIT`                      | heyrecruit                        |
 | `RECRUHR`                         | recruhr                           |
+| `RECRUITCRM`                      | recruitcrm                        |
 | `JAZZHR`                          | jazzhr                            |
 | `BITE`                            | bite                              |
 | `HOMERUN`                         | homerun                           |
@@ -101,6 +102,7 @@ Pre-define a tool this integration link can be used for.
 | `BREEZYHR`                        | breezyhr                          |
 | `FLATCHR`                         | flatchr                           |
 | `DAYFORCE`                        | dayforce                          |
+| `DIGITALRECRUITERS`               | digitalrecruiters                 |
 | `APPLICANTSTACK`                  | applicantstack                    |
 | `REACHMEE`                        | reachmee                          |
 | `TALENTADORE`                     | talentadore                       |
@@ -149,6 +151,7 @@ Pre-define a tool this integration link can be used for.
 | `LATTICETALENT`                   | latticetalent                     |
 | `HOORAYHR`                        | hoorayhr                          |
 | `TRINET`                          | trinet                            |
+| `TRINETPEO`                       | trinetpeo                         |
 | `NAMELY`                          | namely                            |
 | `PAYCOM`                          | paycom                            |
 | `INSPERITY`                       | insperity                         |
@@ -185,5 +188,6 @@ Pre-define a tool this integration link can be used for.
 | `SFTP`                            | sftp                              |
 | `SFTPFETCH`                       | sftpfetch                         |
 | `THREE_HUNDRED_AND_SIXTYLEARNING` | 360learning                       |
+| `TALENTLMS`                       | talentlms                         |
 | `UDEMY`                           | udemy                             |
 | `LINKEDINLEARNING`                | linkedinlearning                  |

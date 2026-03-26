@@ -44,6 +44,8 @@ class Kombo::Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyRemoteFields
   def avature=(str_); end
   def recruitee(); end
   def recruitee=(str_); end
+  def rexx(); end
+  def rexx=(str_); end
   def umantis(); end
   def umantis=(str_); end
   def piloga(); end

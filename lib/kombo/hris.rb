@@ -2399,10 +2399,6 @@ module Kombo
       # 
       # Retrieve performance review cycles data from HRIS tools.
       # 
-      # <Warning>**Open Beta Feature:** This endpoint is currently in beta. Please reach out to our support team if you need assistance with implementation.</Warning>
-      # 
-      # 
-      # 
       # Top level filters use AND, while individual filters use OR if they accept multiple arguments. That means filters will be resolved like this: `(id IN ids) AND (remote_id IN remote_ids)`
       request = Models::Operations::GetHrisPerformanceReviewCyclesRequest.new(
         integration_id: integration_id,
@@ -2556,10 +2552,6 @@ module Kombo
       # 
       # Retrieve performance review data from HRIS tools.
       # 
-      # <Warning>**Open Beta Feature:** This endpoint is currently in beta. Please reach out to our support team if you need assistance with implementation.</Warning>
-      # 
-      # 
-      # 
       # Top level filters use AND, while individual filters use OR if they accept multiple arguments. That means filters will be resolved like this: `(id IN ids) AND (remote_id IN remote_ids)`
       request = Models::Operations::GetHrisPerformanceReviewsRequest.new(
         integration_id: integration_id,
@@ -2685,6 +2677,171 @@ module Kombo
               types: types,
               review_cycle_ids: review_cycle_ids,
               reviewee_ids: reviewee_ids
+            )
+          end
+
+
+          return response
+        else
+          raise ::Kombo::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+        end
+      else
+        if Utils.match_content_type(content_type, 'application/json')
+          http_response = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: http_response
+          )
+          response_data = http_response.env.response_body
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::KomboHrisError)
+          obj.raw_response = http_response
+          raise obj
+        else
+          raise ::Kombo::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+        end
+      end
+    end
+
+
+    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), model_types: T.nilable(T::Array[::String]), statuses: T.nilable(T::Array[::String]), timeout_ms: T.nilable(Integer)).returns(Models::Operations::GetHrisStaffingEntitiesResponse) }
+    def get_staffing_entities(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, model_types: nil, statuses: nil, timeout_ms: nil)
+      # get_staffing_entities - Get staffing entities
+      # Retrieve all staffing entities.
+      # 
+      # Retrieve all staffing entities (positions, requisitions, and jobs) from the HRIS system.
+      # 
+      # Many enterprise HRIS platforms distinguish between **positions**, **requisitions**, and **jobs** — three related but different concepts used to manage headcount and hiring. Not every HRIS uses all three, and naming varies across systems, but here is a general overview:
+      # 
+      # - **Position**: A slot in the organizational structure that represents a role to be filled (or already filled) by one or more employees. Positions typically carry metadata like department, location, cost center, and reporting line. Think of it as "a chair at a desk" — it exists whether someone is sitting in it or not.
+      # - **Requisition**: A formal request to fill a position. When a manager wants to hire for an open position, they usually create a requisition that goes through an approval workflow. Requisitions are time-bound and tied to a specific hiring need. In Kombo's data model, a requisition's `parent_id` points to the position it was opened for.
+      # - **Job**: Some systems use "job" as a more generic or lightweight alternative to a requisition. Jobs often represent an ongoing, unlimited hiring need (e.g., a company that is always hiring for "Software Engineer") rather than a one-off backfill. This is reflected in the `OPEN_UNLIMITED` status.
+      # 
+      # You can use the `model_types` filter to retrieve only the type(s) relevant to your use case. Each record's `model_type` field tells you which of the three concepts it represents.
+      # 
+      # Top level filters use AND, while individual filters use OR if they accept multiple arguments. That means filters will be resolved like this: `(id IN ids) AND (remote_id IN remote_ids)`
+      request = Models::Operations::GetHrisStaffingEntitiesRequest.new(
+        integration_id: integration_id,
+        cursor: cursor,
+        page_size: page_size,
+        updated_after: updated_after,
+        include_deleted: include_deleted,
+        ignore_unsupported_filters: ignore_unsupported_filters,
+        ids: ids,
+        remote_ids: remote_ids,
+        model_types: model_types,
+        statuses: statuses
+      )
+      url, params = @sdk_configuration.get_server_details
+      base_url = Utils.template_url(url, params)
+      url = "#{base_url}/hris/staffing-entities"
+      headers = Utils.get_headers(request, @sdk_configuration.globals)
+      headers = T.cast(headers, T::Hash[String, String])
+      query_params = Utils.get_query_params(Models::Operations::GetHrisStaffingEntitiesRequest, request, nil, @sdk_configuration.globals)
+      headers['Accept'] = 'application/json'
+      headers['user-agent'] = @sdk_configuration.user_agent
+
+      security = @sdk_configuration.security_source&.call
+
+      timeout = (timeout_ms.to_f / 1000) unless timeout_ms.nil?
+      timeout ||= @sdk_configuration.timeout
+      
+
+      connection = @sdk_configuration.client
+
+      hook_ctx = SDKHooks::HookContext.new(
+        config: @sdk_configuration,
+        base_url: base_url,
+        oauth2_scopes: nil,
+        operation_id: 'GetHrisStaffingEntities',
+        security_source: @sdk_configuration.security_source
+      )
+
+      error = T.let(nil, T.nilable(StandardError))
+      http_response = T.let(nil, T.nilable(Faraday::Response))
+      
+      
+      begin
+        http_response = T.must(connection).get(url) do |req|
+          req.headers.merge!(headers)
+          req.options.timeout = timeout unless timeout.nil?
+          req.params = query_params
+          Utils.configure_request_security(req, security)
+
+          @sdk_configuration.hooks.before_request(
+            hook_ctx: SDKHooks::BeforeRequestHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            request: req
+          )
+        end
+      rescue StandardError => e
+        error = e
+      ensure
+        if http_response.nil? || Utils.error_status?(http_response.status)
+          http_response = @sdk_configuration.hooks.after_error(
+            error: error,
+            hook_ctx: SDKHooks::AfterErrorHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: http_response
+          )
+        else
+          http_response = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: http_response
+          )
+        end
+        
+        if http_response.nil?
+          raise error if !error.nil?
+          raise 'no response'
+        end
+      end
+      
+      content_type = http_response.headers.fetch('Content-Type', 'application/octet-stream')
+      if Utils.match_status_code(http_response.status, ['200'])
+        if Utils.match_content_type(content_type, 'application/json')
+          http_response = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: http_response
+          )
+          response_data = http_response.env.response_body
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::GetHrisStaffingEntitiesPositiveResponse)
+          response = Models::Operations::GetHrisStaffingEntitiesResponse.new(
+            status_code: http_response.status,
+            content_type: content_type,
+            raw_response: http_response,
+            get_hris_staffing_entities_positive_response: T.unsafe(obj)
+          )
+          sdk = self
+
+          response.next_page = proc do 
+            next_cursor = Janeway.enum_for('$.data.next', JSON.parse(response_data)).search
+            if next_cursor.nil?
+              next nil
+            else
+              next_cursor = next_cursor[0]
+              if next_cursor.nil?
+                next nil
+              end
+            end
+
+            sdk.get_staffing_entities(
+              integration_id: integration_id,
+              cursor: next_cursor,
+              page_size: page_size,
+              updated_after: updated_after,
+              include_deleted: include_deleted,
+              ignore_unsupported_filters: ignore_unsupported_filters,
+              ids: ids,
+              remote_ids: remote_ids,
+              model_types: model_types,
+              statuses: statuses
             )
           end
 

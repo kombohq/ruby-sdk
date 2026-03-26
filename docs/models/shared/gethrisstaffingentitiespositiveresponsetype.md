@@ -1,4 +1,4 @@
-# GroupType
+# GetHrisStaffingEntitiesPositiveResponseType
 
 Type of the group.
 

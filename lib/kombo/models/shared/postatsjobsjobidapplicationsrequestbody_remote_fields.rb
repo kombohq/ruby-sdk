@@ -48,6 +48,8 @@ module Kombo
         field :avature, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyAvature), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('avature') } }
         # Fields specific to Recruitee.
         field :recruitee, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyRecruitee), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('recruitee') } }
+        # Fields specific to Rexx.
+        field :rexx, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyRexx), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('rexx') } }
         # Fields specific to Abacus Umantis.
         field :umantis, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyUmantis), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('umantis') } }
         # Fields specific to P&I Loga.
@@ -57,8 +59,8 @@ module Kombo
         # Fields specific to Coveto REST.
         field :covetorest, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyCovetorest), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('covetorest') } }
 
-        sig { params(successfactors: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodySuccessfactors), personio: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyPersonio), talentsoft: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyTalentsoft), teamtailor: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyTeamtailor), greenhouse: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyGreenhouse), lever: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyLever), workable: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyWorkable), workday: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyWorkday), zohorecruit: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyZohorecruit), bullhorn: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyBullhorn), smartrecruiters: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodySmartrecruiters), talentadore: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyTalentadore), guidecom: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyGuidecom), dvinci: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyDvinci), hrworks: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyHrworks), jobylon: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyJobylon), avature: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyAvature), recruitee: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyRecruitee), umantis: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyUmantis), piloga: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyPiloga), pinpoint: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyPinpoint), covetorest: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyCovetorest)).void }
-        def initialize(successfactors: nil, personio: nil, talentsoft: nil, teamtailor: nil, greenhouse: nil, lever: nil, workable: nil, workday: nil, zohorecruit: nil, bullhorn: nil, smartrecruiters: nil, talentadore: nil, guidecom: nil, dvinci: nil, hrworks: nil, jobylon: nil, avature: nil, recruitee: nil, umantis: nil, piloga: nil, pinpoint: nil, covetorest: nil)
+        sig { params(successfactors: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodySuccessfactors), personio: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyPersonio), talentsoft: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyTalentsoft), teamtailor: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyTeamtailor), greenhouse: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyGreenhouse), lever: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyLever), workable: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyWorkable), workday: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyWorkday), zohorecruit: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyZohorecruit), bullhorn: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyBullhorn), smartrecruiters: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodySmartrecruiters), talentadore: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyTalentadore), guidecom: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyGuidecom), dvinci: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyDvinci), hrworks: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyHrworks), jobylon: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyJobylon), avature: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyAvature), recruitee: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyRecruitee), rexx: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyRexx), umantis: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyUmantis), piloga: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyPiloga), pinpoint: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyPinpoint), covetorest: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyCovetorest)).void }
+        def initialize(successfactors: nil, personio: nil, talentsoft: nil, teamtailor: nil, greenhouse: nil, lever: nil, workable: nil, workday: nil, zohorecruit: nil, bullhorn: nil, smartrecruiters: nil, talentadore: nil, guidecom: nil, dvinci: nil, hrworks: nil, jobylon: nil, avature: nil, recruitee: nil, rexx: nil, umantis: nil, piloga: nil, pinpoint: nil, covetorest: nil)
           @successfactors = successfactors
           @personio = personio
           @talentsoft = talentsoft
@@ -77,6 +79,7 @@ module Kombo
           @jobylon = jobylon
           @avature = avature
           @recruitee = recruitee
+          @rexx = rexx
           @umantis = umantis
           @piloga = piloga
           @pinpoint = pinpoint
@@ -104,6 +107,7 @@ module Kombo
           return false unless @jobylon == other.jobylon
           return false unless @avature == other.avature
           return false unless @recruitee == other.recruitee
+          return false unless @rexx == other.rexx
           return false unless @umantis == other.umantis
           return false unless @piloga == other.piloga
           return false unless @pinpoint == other.pinpoint

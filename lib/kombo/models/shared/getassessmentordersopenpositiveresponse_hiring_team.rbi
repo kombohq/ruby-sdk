@@ -8,10 +8,10 @@ end
 
 
 class Kombo::Models::Shared::GetAssessmentOrdersOpenPositiveResponseHiringTeam
-  def remote_id(); end
-  def remote_id=(str_); end
   def hiring_team_roles(); end
   def hiring_team_roles=(str_); end
+  def remote_id(); end
+  def remote_id=(str_); end
   def email(); end
   def email=(str_); end
   def first_name(); end

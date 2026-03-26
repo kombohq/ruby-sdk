@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class Kombo::Models::Shared::LegalEntity
+class Kombo::Models::Shared::GetHrisEmployeesPositiveResponseLegalEntity
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class Kombo::Models::Shared::LegalEntity
+class Kombo::Models::Shared::GetHrisEmployeesPositiveResponseLegalEntity
   def id(); end
   def id=(str_); end
   def remote_id(); end

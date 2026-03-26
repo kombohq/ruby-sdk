@@ -12,6 +12,8 @@ class Kombo::Models::Shared::GetAtsJobsPositiveResponseHiringTeam
   def id=(str_); end
   def hiring_team_roles(); end
   def hiring_team_roles=(str_); end
+  def job_roles(); end
+  def job_roles=(str_); end
   def remote_id(); end
   def remote_id=(str_); end
   def first_name(); end

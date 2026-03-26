@@ -12,13 +12,16 @@ module Kombo
         extend T::Sig
         include Crystalline::MetadataFields
 
+        # Fields specific to Workday.
+        field :workday, Crystalline::Nilable.new(Models::Shared::PutAtsApplicationsApplicationIdStageRequestBodyWorkday), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('workday') } }
         # Fields specific to Greenhouse.
         field :greenhouse, Crystalline::Nilable.new(Models::Shared::PutAtsApplicationsApplicationIdStageRequestBodyGreenhouse), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('greenhouse') } }
         # Workable specific remote fields for ATS actions.
         field :workable, Crystalline::Nilable.new(Models::Shared::PutAtsApplicationsApplicationIdStageRequestBodyWorkable), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('workable') } }
 
-        sig { params(greenhouse: T.nilable(Models::Shared::PutAtsApplicationsApplicationIdStageRequestBodyGreenhouse), workable: T.nilable(Models::Shared::PutAtsApplicationsApplicationIdStageRequestBodyWorkable)).void }
-        def initialize(greenhouse: nil, workable: nil)
+        sig { params(workday: T.nilable(Models::Shared::PutAtsApplicationsApplicationIdStageRequestBodyWorkday), greenhouse: T.nilable(Models::Shared::PutAtsApplicationsApplicationIdStageRequestBodyGreenhouse), workable: T.nilable(Models::Shared::PutAtsApplicationsApplicationIdStageRequestBodyWorkable)).void }
+        def initialize(workday: nil, greenhouse: nil, workable: nil)
+          @workday = workday
           @greenhouse = greenhouse
           @workable = workable
         end
@@ -26,6 +29,7 @@ module Kombo
         sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
+          return false unless @workday == other.workday
           return false unless @greenhouse == other.greenhouse
           return false unless @workable == other.workable
           true

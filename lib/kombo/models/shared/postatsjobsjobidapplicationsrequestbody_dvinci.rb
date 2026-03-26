@@ -14,16 +14,20 @@ module Kombo
 
         # Fields that we will pass through to d.vinci's application object. This API is used: https://static.dvinci-easy.com/files/d.vinci%20application-apply-api.html#jobs__id__applyApi_post
         field :application, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('application') } }
+        # Fields that we will pass through to d.vinci's candidate/application payload as top-level fields (e.g., dateOfBirth).
+        field :candidate, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('candidate') } }
 
-        sig { params(application: T.nilable(T::Hash[Symbol, ::Object])).void }
-        def initialize(application: nil)
+        sig { params(application: T.nilable(T::Hash[Symbol, ::Object]), candidate: T.nilable(T::Hash[Symbol, ::Object])).void }
+        def initialize(application: nil, candidate: nil)
           @application = application
+          @candidate = candidate
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @application == other.application
+          return false unless @candidate == other.candidate
           true
         end
       end

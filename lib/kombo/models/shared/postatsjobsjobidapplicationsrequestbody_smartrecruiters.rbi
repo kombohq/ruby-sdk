@@ -14,4 +14,6 @@ class Kombo::Models::Shared::PostAtsJobsJobIdApplicationsRequestBodySmartrecruit
   def candidate_without_questions=(str_); end
   def candidate(); end
   def candidate=(str_); end
+  def consent_decisions(); end
+  def consent_decisions=(str_); end
 end

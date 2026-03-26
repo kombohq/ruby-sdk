@@ -12,10 +12,10 @@ module Kombo
         extend T::Sig
         include Crystalline::MetadataFields
 
-        # The team member's identifier in the integrated system.
-        field :remote_id, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_id'), required: true } }
         # Array of the roles of the user for this specific job. Currently only `RECRUITER` and `HIRING_MANAGER` are mapped into our unified schema.
         field :hiring_team_roles, Crystalline::Array.new(Models::Shared::InlineAssessmentOrderReceivedWebhookPayloadHiringTeamRole), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('hiring_team_roles'), required: true } }
+        # The team member's identifier in the integrated system.
+        field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_id'), required: true } }
         # The team member's email address.
         field :email, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('email'), required: true } }
         # The team member's first name.
@@ -23,10 +23,10 @@ module Kombo
         # The team member's last name.
         field :last_name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('last_name'), required: true } }
 
-        sig { params(remote_id: ::String, hiring_team_roles: T::Array[Models::Shared::InlineAssessmentOrderReceivedWebhookPayloadHiringTeamRole], email: T.nilable(::String), first_name: T.nilable(::String), last_name: T.nilable(::String)).void }
-        def initialize(remote_id:, hiring_team_roles:, email: nil, first_name: nil, last_name: nil)
-          @remote_id = remote_id
+        sig { params(hiring_team_roles: T::Array[Models::Shared::InlineAssessmentOrderReceivedWebhookPayloadHiringTeamRole], remote_id: T.nilable(::String), email: T.nilable(::String), first_name: T.nilable(::String), last_name: T.nilable(::String)).void }
+        def initialize(hiring_team_roles:, remote_id: nil, email: nil, first_name: nil, last_name: nil)
           @hiring_team_roles = hiring_team_roles
+          @remote_id = remote_id
           @email = email
           @first_name = first_name
           @last_name = last_name
@@ -35,8 +35,8 @@ module Kombo
         sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
-          return false unless @remote_id == other.remote_id
           return false unless @hiring_team_roles == other.hiring_team_roles
+          return false unless @remote_id == other.remote_id
           return false unless @email == other.email
           return false unless @first_name == other.first_name
           return false unless @last_name == other.last_name
