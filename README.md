@@ -142,6 +142,7 @@ s = ::Kombo::Kombo.new(
 * [get_jobs](docs/sdks/ats/README.md#get_jobs) - Get jobs
 * [create_application](docs/sdks/ats/README.md#create_application) - Create application
 * [get_users](docs/sdks/ats/README.md#get_users) - Get users
+* [get_roles](docs/sdks/ats/README.md#get_roles) - Get roles
 * [get_offers](docs/sdks/ats/README.md#get_offers) - Get offers
 * [get_rejection_reasons](docs/sdks/ats/README.md#get_rejection_reasons) - Get rejection reasons
 * [get_interviews](docs/sdks/ats/README.md#get_interviews) - Get interviews
@@ -186,6 +187,7 @@ s = ::Kombo::Kombo.new(
 * [get_timesheets](docs/sdks/hris/README.md#get_timesheets) - Get timesheets
 * [get_performance_review_cycles](docs/sdks/hris/README.md#get_performance_review_cycles) - Get performance review cycles
 * [get_performance_reviews](docs/sdks/hris/README.md#get_performance_reviews) - Get performance reviews
+* [get_staffing_entities](docs/sdks/hris/README.md#get_staffing_entities) - Get staffing entities
 
 </details>
 <!-- End Available Resources and Operations [operations] -->

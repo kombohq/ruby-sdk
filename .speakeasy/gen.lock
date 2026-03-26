@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: a945ea15-b620-47b9-9868-c165c173bf88
 management:
-  docChecksum: 1a5ccdbcfe223bcdfb2e76cc1c64228f
+  docChecksum: 25967155257ec846118046d80f46f2c6
   docVersion: 1.0.0
   speakeasyVersion: 1.700.2
   generationVersion: 2.801.2
-  releaseVersion: 1.0.4
-  configChecksum: a2ec9b798c6c09fa8517ddb6f2353608
+  releaseVersion: 1.0.5
+  configChecksum: 6646c496d1f63192be2db3e3d48c0e14
   repoURL: https://github.com/kombohq/ruby-sdk.git
   installationURL: https://github.com/kombohq/ruby-sdk
   published: true
 persistentEdits:
-  generation_id: 85633cd8-3064-4218-873f-efe34cab5487
-  pristine_commit_hash: de1822ef45469e59598196bc17359b071cba642a
-  pristine_tree_hash: 8a5cabd1d95ad0d32ac51b19148fdfd9baaed3d7
+  generation_id: 8b1bfbf8-c1b9-4597-a63d-5cdfc2c2598a
+  pristine_commit_hash: da8ba7e32b3a64790f9adbb80079d1a9660c60be
+  pristine_tree_hash: d2a95afaae827a7f59969114e977475ac37490d3
 features:
   ruby:
     constsAndDefaults: 0.1.1
@@ -48,8 +48,8 @@ trackedFiles:
     pristine_git_object: b0ea40558f3ca80dcf7d30b159d34a1e5ab33440
   Gemfile.lock:
     id: 21fb5836b499
-    last_write_checksum: sha1:c790ffa0c13687c11df31ebebb8f54ba4620ee9e
-    pristine_git_object: 7a3b95bb8a2eb56583d8db73eec872c0b958d80d
+    last_write_checksum: sha1:ab0d71abdc5082c00fa7d3f5e523bccf05477dc0
+    pristine_git_object: 6d3f6c43c157c6814de2a68350f6daab5907c51c
   Rakefile:
     id: 44b7fa1ba503
     last_write_checksum: sha1:bb15946e7c34d00098a6ee8fef994bbd57960092
@@ -120,16 +120,16 @@ trackedFiles:
     pristine_git_object: 6df2309e1c3f45320269c36446c80ac368b77285
   docs/models/operations/getatsapplicationsrequest.md:
     id: b1609ebcb91d
-    last_write_checksum: sha1:1ea1dc75b42c8de81ad0123e29aba16b7f64d249
-    pristine_git_object: ffaa978e92343ab4bb2ff54c52e79f3caa49bc3c
+    last_write_checksum: sha1:7beb03d5aaf67a1a710ba4cc73b979da506ac10e
+    pristine_git_object: edcd57354e73d3ba0e496e769bf49d7120637249
   docs/models/operations/getatsapplicationsresponse.md:
     id: 9ec04a7afe66
     last_write_checksum: sha1:377e87b8b5602e6e31a2fbc211cdb57f68b9ecab
     pristine_git_object: 041d307a69d677c43792e61d03b59d93f42d84b8
   docs/models/operations/getatsapplicationstagesrequest.md:
     id: 37c98d66fd66
-    last_write_checksum: sha1:853b1360b18a500722dff9a2e4d4093f9acdbc3f
-    pristine_git_object: 8b60dc649e8f4fb38689cdc0883a271e9d9c9b7a
+    last_write_checksum: sha1:10273b3c5998a086e1ad1863b2d5a91fd7ca937e
+    pristine_git_object: 516e3c79f694b4554f024243adbee094fb242740
   docs/models/operations/getatsapplicationstagesresponse.md:
     id: 12cba39574e0
     last_write_checksum: sha1:4c039dcf7c7003472a8f803409fe75273147110d
@@ -144,56 +144,64 @@ trackedFiles:
     pristine_git_object: 2d7d0b78789db83b542c331d05746505468c4c49
   docs/models/operations/getatscandidatesrequest.md:
     id: 2f9c30d2f917
-    last_write_checksum: sha1:0cc2e5f2d7ed09f78866a284dec55badc9f33d67
-    pristine_git_object: a3a11e2620504c6aca387d294550ff53a6b79021
+    last_write_checksum: sha1:008c045364930c693e7962e24aaa894bdf2a6c36
+    pristine_git_object: 9fbe15a6f7d8a4d63d18d4b6feefba25455bdb7e
   docs/models/operations/getatscandidatesresponse.md:
     id: b7b2aa54e364
     last_write_checksum: sha1:5c2079ffa32700dfa7d3235045a5e91ccd23666d
     pristine_git_object: 04077c91da1eb83f5959756c2a2bf167414c4fa6
   docs/models/operations/getatsinterviewsrequest.md:
     id: fb579bc14253
-    last_write_checksum: sha1:2fd83c60a96eb967b52293e28c66692e3678d2fb
-    pristine_git_object: 7d219914087cf4b998b0d09601442d7b3dd1e6f3
+    last_write_checksum: sha1:d2ffce963a57de3edb5b646e38b89f71c7766e2b
+    pristine_git_object: d9bb609b8c6aecea69303ccdb1bce9b885ab59d7
   docs/models/operations/getatsinterviewsresponse.md:
     id: 537490d27e9d
     last_write_checksum: sha1:aa193dacccc71a0ec5f9fbdce8f9056ac1397d41
     pristine_git_object: 71296f71d06f375e0616fc10c59887ee2553fd8e
   docs/models/operations/getatsjobsrequest.md:
     id: 912e4c5aefa4
-    last_write_checksum: sha1:0d72a941fc9fe51f3b017b0dcb9e9bc5c6a83701
-    pristine_git_object: 6697f821cd576bfc24bc4fd048d7438827aa2959
+    last_write_checksum: sha1:898054b16baed86f86b2468174f1dc761ab5d34f
+    pristine_git_object: c7d3ff89f478b6258497e2e4b984e082254ced50
   docs/models/operations/getatsjobsresponse.md:
     id: 6f621740851c
     last_write_checksum: sha1:717603e3d461afc3b045a82e79d60cfe60d99198
     pristine_git_object: 3bc0671bd5b344d3e6b0da70337e886200e69aeb
   docs/models/operations/getatsoffersrequest.md:
     id: 6b43bae3be30
-    last_write_checksum: sha1:d61b3544559e97a8621ffe3612d437b429ffc9cc
-    pristine_git_object: 709c9847fb77d446dcc1d27a76ff262af0777cc5
+    last_write_checksum: sha1:9d7535554dc47d1d60f46a503827229af45bac91
+    pristine_git_object: ee321f9bf06858b231f2f1af17680d9683e2dee3
   docs/models/operations/getatsoffersresponse.md:
     id: 6d1e720418d5
     last_write_checksum: sha1:0358e222d981fcf90ca724e3e8c9001c27d13b9a
     pristine_git_object: 4630d7447929fc8750f838e45201667c98a3e88a
   docs/models/operations/getatsrejectionreasonsrequest.md:
     id: d8c830041f8a
-    last_write_checksum: sha1:7e842a85f147bb01e260c0e6ea7138d37625d409
-    pristine_git_object: 2483a0d456a1a4e4076318dc202ef5f90fed2a2f
+    last_write_checksum: sha1:fe55d25ea5f161e33c794d0b5aa0058e659e89cc
+    pristine_git_object: f54c4857023b2f53b4e48172d041f651e611f079
   docs/models/operations/getatsrejectionreasonsresponse.md:
     id: f17bfac7904b
     last_write_checksum: sha1:5cb1e1a5b0fc4df1c36e2bd27d21cf5fe06e1b6a
     pristine_git_object: 434df4895eb0c0a25f721ae38d45f3d4ab5a0260
+  docs/models/operations/getatsrolesrequest.md:
+    id: c9b363532bdb
+    last_write_checksum: sha1:714d175e4f7a9d40aead2ba8851340c815aafd37
+    pristine_git_object: 4f13573cca48f8f580197ba9a4290cd112387467
+  docs/models/operations/getatsrolesresponse.md:
+    id: 6e975a192d41
+    last_write_checksum: sha1:4b319187dfb577ab3a239ce6f52ad0f7192e437e
+    pristine_git_object: 141d0ae56d770962f51f1cf784e51ab70f0cbc61
   docs/models/operations/getatstagsrequest.md:
     id: e4f0fac4a2d3
-    last_write_checksum: sha1:97451de09ce8061cec5ca43ac113b96dbc12c086
-    pristine_git_object: b38b09847641cadf37c261feb98da1cb892d7370
+    last_write_checksum: sha1:83dc4b5514be6d5fbad420576bd39c6a5f0a3956
+    pristine_git_object: dc1b3ee49ca143bbdc25f7f79b35cbd8e43b723a
   docs/models/operations/getatstagsresponse.md:
     id: 11759e7edbbe
     last_write_checksum: sha1:425902cb09f081b68d8cc3b67ee5a97ce197c37d
     pristine_git_object: d2e9e3171b98b1afe4461ffdbe215e692e3a7bdb
   docs/models/operations/getatsusersrequest.md:
     id: ded784d73bb6
-    last_write_checksum: sha1:cf314fbe78f240878f69301107800af8f85aa339
-    pristine_git_object: 2d834d348a8d38df82725a540efbc547a3fb0198
+    last_write_checksum: sha1:d9cdcdbc33383841cf0dfa208cdea6c8cee0fff3
+    pristine_git_object: 91f98fb70fa4e4907bccb4166b1745fe72cc9b62
   docs/models/operations/getatsusersresponse.md:
     id: 18c62348bfc1
     last_write_checksum: sha1:5424e8bb6e406116c9f578114c69a5e732b359d3
@@ -212,24 +220,24 @@ trackedFiles:
     pristine_git_object: d79900f04da96f8db66462868928f37327118c87
   docs/models/operations/gethrisabsencesrequest.md:
     id: f08dd8d95a65
-    last_write_checksum: sha1:7f7415513d274fd13bb1a12b2c953250b7a3e3ad
-    pristine_git_object: 5888a93a90ecf7ef37bd0cf1a39c41190df11b49
+    last_write_checksum: sha1:c1f64b5d14bf9a29f0819b4b640271cad75afbb7
+    pristine_git_object: 4b223c277e958b541f1a28c0b3437fc8fee3313e
   docs/models/operations/gethrisabsencesresponse.md:
     id: 5bea132ace7a
     last_write_checksum: sha1:f8f0cfac797b812f21c118c53eb063a2f3892428
     pristine_git_object: fa8e4ed95d3b0e4e476f3927feb541651671baa4
   docs/models/operations/gethrisabsencetypesrequest.md:
     id: ba9e80ee6424
-    last_write_checksum: sha1:585fb30fcb644589efa5eead182223a56c2d566e
-    pristine_git_object: b6a1dc403bfa5041561699a50d53246f70bc58af
+    last_write_checksum: sha1:d2c5e43e29992f5d48a5bc1429c50248dc5d029f
+    pristine_git_object: 81eefbb1162a994ca0446fa1bb20f89be2685a4c
   docs/models/operations/gethrisabsencetypesresponse.md:
     id: 844c48aace1b
     last_write_checksum: sha1:b32202248ff322b57d9c313de04703677be804e9
     pristine_git_object: b4a6a1318304ae4356d03786c332fa92a4b3fc5b
   docs/models/operations/gethrisemployeedocumentcategoriesrequest.md:
     id: d1d53e740e11
-    last_write_checksum: sha1:fad2f9f6613746fda57e721b2d8e723f2e6cb35f
-    pristine_git_object: 9d41c3c3096258956412810542739f06c1bcc9e0
+    last_write_checksum: sha1:38a8fcf061b0d2b41f0900f1efd5d9f9d7401b9a
+    pristine_git_object: 07facf402fe4dff4405ed41e3762b6e954ef6eea
   docs/models/operations/gethrisemployeedocumentcategoriesresponse.md:
     id: 52cfb3461ffb
     last_write_checksum: sha1:70c978a2f1cb984518277df705e6e88240b3af7a
@@ -244,72 +252,80 @@ trackedFiles:
     pristine_git_object: 99e0f215348b27f46c93b7a185bb86a611b6627a
   docs/models/operations/gethrisemployeesrequest.md:
     id: 17c6468c9e20
-    last_write_checksum: sha1:4ad34b523bebe354b72d0e24f993c8f1409e827a
-    pristine_git_object: f74dd88542e23d18c5b27cd24a8fb9588e61ac02
+    last_write_checksum: sha1:5920bfa88fa80ead658891a6b3e37248de4ea484
+    pristine_git_object: 400ec7f4dfdcfbbe99668df9b745636d0960129b
   docs/models/operations/gethrisemployeesresponse.md:
     id: 6556a0997c38
     last_write_checksum: sha1:438146537f6ea962c29c7ac710faf8d8e3ac6cb7
     pristine_git_object: a6eef82ae8d84b0d9a5355f84710c97774f7910f
   docs/models/operations/gethrisemploymentsrequest.md:
     id: 9fcd9abe6ddb
-    last_write_checksum: sha1:3a5c6ef1bf7865ad8b400ac3e53c08192a633cda
-    pristine_git_object: b03cbff282d057d7fe32b17a6578dc8c2a8f0cc6
+    last_write_checksum: sha1:4d3236a94d1eab9d6b338707e639d79c0e25488a
+    pristine_git_object: 88815ef41ecd03740e177f32cac6bed2812d973f
   docs/models/operations/gethrisemploymentsresponse.md:
     id: f18dee0f0942
     last_write_checksum: sha1:bc99e9e7b397491a72a9e0fc432062dddbe3650c
     pristine_git_object: 68fb8f6f8d3edc3838d3a4c0327dadcd180222d6
   docs/models/operations/gethrisgroupsrequest.md:
     id: c1c5cfea6750
-    last_write_checksum: sha1:12b3c803d629526262ead5ade3dbde9c45b033dd
-    pristine_git_object: 5654e746a6a607a245c915350ce6047f24af1772
+    last_write_checksum: sha1:2b4f219f35d64b80c2b50c4e96add87a58722c14
+    pristine_git_object: 7db0a9ab1e90a1c275c48b05295e6192e1e441f7
   docs/models/operations/gethrisgroupsresponse.md:
     id: ea2910981a2c
     last_write_checksum: sha1:d827d71f13116939e90c010822ccd9cb623302ac
     pristine_git_object: 4b7cd889efba5a7f19b418b8b393999540aec8ec
   docs/models/operations/gethrislegalentitiesrequest.md:
     id: c93f4d78690d
-    last_write_checksum: sha1:5c79b577b9bf614a37bb17d1d66bec930a043cbe
-    pristine_git_object: 1075182cbd5d3dc7ac4d69dbbb488916867d8e81
+    last_write_checksum: sha1:e069487ead41ccc517648a553aefe82480db75a6
+    pristine_git_object: cf3b0d1dd57d146674fc8b8d6cc5bd4c18f4ab80
   docs/models/operations/gethrislegalentitiesresponse.md:
     id: 44042a31cf92
     last_write_checksum: sha1:ff4480c65c40df879442606718f4cd5185f56154
     pristine_git_object: b4acc53fa283bbfc5abbbd802463ceae887c5671
   docs/models/operations/gethrislocationsrequest.md:
     id: 1d3be94e074c
-    last_write_checksum: sha1:ddb13714045ec00bf292ea01cec212c47bee37f9
-    pristine_git_object: 69aca620c06c8b785a1ac438595fef3365c27c40
+    last_write_checksum: sha1:b4c0b8422f896fd5d7b2b8ce10fac51c1b1db6bd
+    pristine_git_object: ac9e2421fc4e627e660cc326f1469935d2204a13
   docs/models/operations/gethrislocationsresponse.md:
     id: 57e2a3261a81
     last_write_checksum: sha1:161b0c52c2ffe20b74bc05c00116c9d4b6339c5b
     pristine_git_object: 4b0b2cb5434db255a021616a68a5effa9f1b1272
   docs/models/operations/gethrisperformancereviewcyclesrequest.md:
     id: 245aea5c4294
-    last_write_checksum: sha1:ef5e368535009a3fc24dcf333670b772bd7aa945
-    pristine_git_object: 85693bbadcefed61b73acd36f275ff204f92df6f
+    last_write_checksum: sha1:7f50462e160fbbfc1d2cfca52222144c03d27651
+    pristine_git_object: c7dcbe3c43ec0996b5db1fb7feb1cf4643038905
   docs/models/operations/gethrisperformancereviewcyclesresponse.md:
     id: b37f9fec1230
     last_write_checksum: sha1:dc404a0a3e47cdc900f8af243cd6f3c382825522
     pristine_git_object: 0cff2403acc6f98ecaf7fb6542512c68bb24fead
   docs/models/operations/gethrisperformancereviewsrequest.md:
     id: 0597292a68d8
-    last_write_checksum: sha1:6205e0c5fbac887640ce03353d58dabb3ccfb069
-    pristine_git_object: 71a0cb330b18add4ca558bdee1a5c387d3ce9633
+    last_write_checksum: sha1:485b3f523a124e5c05ba46607a3b13308b6c9f73
+    pristine_git_object: 2bd614fb6518577283ff65eea1ac37fa13aeaddc
   docs/models/operations/gethrisperformancereviewsresponse.md:
     id: 579cfc01abd5
     last_write_checksum: sha1:31c022c9645c8a55bd9a9c95727d1c65a3f7ff8e
     pristine_git_object: e3cbf78b0df8f54e4c4cfe80f9a7b86fcf3ad30a
+  docs/models/operations/gethrisstaffingentitiesrequest.md:
+    id: b93001447b5d
+    last_write_checksum: sha1:5379e503dc3ee46e531820103782ae22d2506602
+    pristine_git_object: e6fc865511efc026650d32e31f1505bd68910533
+  docs/models/operations/gethrisstaffingentitiesresponse.md:
+    id: 711a576fceb3
+    last_write_checksum: sha1:372eabbaf8dc17630434109e711effc0a0f534ee
+    pristine_git_object: 74f2ccee9d33b337fc00582fca8b86b287d2b4f6
   docs/models/operations/gethristimeoffbalancesrequest.md:
     id: be7af01b4013
-    last_write_checksum: sha1:eb5fbcfbd24973f59c2ea499bd78e9a88932b27c
-    pristine_git_object: 427058da7062f5898cbb5f40b3b611f1dac8c664
+    last_write_checksum: sha1:f08c48337c1fd9591cb036b84c4a5c00385606dd
+    pristine_git_object: 2d9b06bf24c7d886c8f247256333ca66b8cc38d4
   docs/models/operations/gethristimeoffbalancesresponse.md:
     id: 9a5d4af658d5
     last_write_checksum: sha1:6e91bf75a74e8feb9da4f7bfe9eb8c50d5973caf
     pristine_git_object: 9c363601604ccfdd7b9f1871673f686a0457b719
   docs/models/operations/gethristimesheetsrequest.md:
     id: 752d9b4167ef
-    last_write_checksum: sha1:6feac63f2d93e4972efa7262fc24186044962e9d
-    pristine_git_object: 987adbba901a161cdfd4e763a4ff8d5e4b75a3a3
+    last_write_checksum: sha1:3f54de91dfa53049b27250a596fb695f71278cdc
+    pristine_git_object: e7d055a69e3580381a007aad15d0e147ef7a4433
   docs/models/operations/gethristimesheetsresponse.md:
     id: 26f751321ec4
     last_write_checksum: sha1:675c4328f877c17d03144a7d90a3fe7b3cb00106
@@ -548,12 +564,12 @@ trackedFiles:
     pristine_git_object: 038597500d415dfe2688c3115e5860a64648d938
   docs/models/shared/assessmentorderreceivedwebhookpayloadhiringteam.md:
     id: caa3eb1957e3
-    last_write_checksum: sha1:11b2402e3e0604dbb43c135aa6718cd9d4aeb301
-    pristine_git_object: 022789d5f80c20d94ce81c9d71b8ad218cd6edc8
+    last_write_checksum: sha1:8d035fce7b91288c7ade7bb280ae02dc294a5d12
+    pristine_git_object: 96035d2e028fe59265f0fd4f0b439094330fb2c1
   docs/models/shared/assessmentorderreceivedwebhookpayloadhiringteamrole.md:
     id: fa85954d1474
-    last_write_checksum: sha1:d76779299b8ec572f1c42f4b9d88cdb786267636
-    pristine_git_object: 836f1251eb6431e70ffda0f91dc8f9395fca8f29
+    last_write_checksum: sha1:77e4714ceef0c773ffe8c4581388626a3d675790
+    pristine_git_object: 47dd45b7eff67dab71dec905b99f3ff57cac83f7
   docs/models/shared/assessmentorderreceivedwebhookpayloadjob.md:
     id: 32610655acd2
     last_write_checksum: sha1:9901c4a1111cb94a223c11ce3d261f3a77ad4876
@@ -840,12 +856,12 @@ trackedFiles:
     pristine_git_object: 8d9745df6a5c2107c2ccd61d29f8c4563b884474
   docs/models/shared/getassessmentordersopenpositiveresponsehiringteam.md:
     id: e3eaf97f0c34
-    last_write_checksum: sha1:42a9e09252224e5eb2643f457884acc6466eb98a
-    pristine_git_object: df416e821fbedee1049836bc60e81aa181cf92bb
+    last_write_checksum: sha1:b5feeb399621d9009304e3de765457c9eef28969
+    pristine_git_object: 6b0d7f45b40d05b4540f305a91d8138877896cae
   docs/models/shared/getassessmentordersopenpositiveresponsehiringteamrole.md:
     id: f0e3e40c98f9
-    last_write_checksum: sha1:a5dde3691fc03955af14c721b0b6a80a8d97e651
-    pristine_git_object: 8864c3549e9dda68bf1a10cabf0c2881c88b9b1f
+    last_write_checksum: sha1:8883297b9acec390535537c61eda57215c92ad7e
+    pristine_git_object: ea4605b95cb2d4af551f827518099ab2f7216729
   docs/models/shared/getassessmentordersopenpositiveresponsejob.md:
     id: 13e9b2d3079f
     last_write_checksum: sha1:2501d57145ca3bb5c33ffb6f01ae148539c9782e
@@ -1152,8 +1168,8 @@ trackedFiles:
     pristine_git_object: e6cd02c7b421ceda9814980a8c20c8720be9eeb3
   docs/models/shared/getatsjobspositiveresponse.md:
     id: 9f6633e45c6d
-    last_write_checksum: sha1:9f23235891175e1a0b86c8a608652b711430ef45
-    pristine_git_object: a70d37a7373c5c69f28c08bd9e69acdb797289ef
+    last_write_checksum: sha1:6b582cdd8c956610952edbc04651aa4107be6926
+    pristine_git_object: 57ba3a8da119db7fecf815c7c281c2b43b8db563
   docs/models/shared/getatsjobspositiveresponsecategory.md:
     id: 7297942794a6
     last_write_checksum: sha1:abe401cc1943ce198d4b0037445bc9c306e66ba1
@@ -1168,12 +1184,12 @@ trackedFiles:
     pristine_git_object: 51dfca002bd25775f9fb6bc041b4d3aedccd64f0
   docs/models/shared/getatsjobspositiveresponsehiringteam.md:
     id: 80529d8bcd62
-    last_write_checksum: sha1:992a6464430628ccf60d71d8597ce55c0f600387
-    pristine_git_object: 2ddf0fc5d01cd921e6593a8192fdaac55cb14e95
+    last_write_checksum: sha1:9535060bd75d0b5d67fc2b42417f48533691c526
+    pristine_git_object: 81b717bd5d227624d5e03a9e10489e72f2b96125
   docs/models/shared/getatsjobspositiveresponsehiringteamrole.md:
     id: ba925c3a7423
-    last_write_checksum: sha1:a8dcc282f369bee90735a21bea943057d69a1d46
-    pristine_git_object: f7dfce3467dc6daa46758fc84a3efac210053d14
+    last_write_checksum: sha1:2a7d3f81d2ed9d6e92f714ce4876a47e03b049df
+    pristine_git_object: f089ec91ca337305bf3544cd8a64877b2992c6d0
   docs/models/shared/getatsjobspositiveresponselocation.md:
     id: 2962d47e12c8
     last_write_checksum: sha1:44e975c6055a118c68fa1563bd04a15fe079cf1f
@@ -1182,10 +1198,18 @@ trackedFiles:
     id: 68ba27f1798a
     last_write_checksum: sha1:a14abd7e22469cbe26cc5dd12a5a5c825362653f
     pristine_git_object: 1d3f4c49d00993609deffa5a64e0802fbc833542
+  docs/models/shared/getatsjobspositiveresponsescope.md:
+    id: ef186bddc63c
+    last_write_checksum: sha1:2d9b573628398778ffc996a22594dcd814104dbf
+    pristine_git_object: 980dc5e522a096a884837a139402fdb20acc5c68
   docs/models/shared/getatsjobspositiveresponsestatus.md:
     id: ef09a4c9bb3c
     last_write_checksum: sha1:6ddb92a07f43ce9642996cc00d07b4d2a0ab3526
     pristine_git_object: 4cdc6694491c763adf6ad6088e996c8197c6cd00
+  docs/models/shared/getatsjobspositiveresponseunifiedtype.md:
+    id: 38a13286eb4e
+    last_write_checksum: sha1:4a24af0a07d5bf52074d9a0ef42acb8fa18d30a5
+    pristine_git_object: e9d4b49fe131cb35ac982efcbce4100fd622dbc6
   docs/models/shared/getatsofferspositiveresponse.md:
     id: 6406956aacb3
     last_write_checksum: sha1:414f2dc2ec44f051054a92f18f0902f22a170e22
@@ -1230,6 +1254,26 @@ trackedFiles:
     id: 5e11355738d3
     last_write_checksum: sha1:be2fbaa23f8d7a9653c17fc885d50b216abb385f
     pristine_git_object: 6d4740bca30747da108842be61cbeff741fc48e7
+  docs/models/shared/getatsrolespositiveresponse.md:
+    id: 2554d86f91e2
+    last_write_checksum: sha1:d8389ecf6e764b66fa788b3722d1b9d32315659e
+    pristine_git_object: d67293ea53b1e9e5afb83456beb87b350e1f1351
+  docs/models/shared/getatsrolespositiveresponsedata.md:
+    id: 0d2e90db7576
+    last_write_checksum: sha1:20ee4e146eb4402c317e928c0666cb76f151b24a
+    pristine_git_object: 202e403fde2e4d4e299be7f0eb37db47a51adf7f
+  docs/models/shared/getatsrolespositiveresponseresult.md:
+    id: 6d882b5b8b6a
+    last_write_checksum: sha1:e07e9edab5e6646e8edd3ade5c651c89dd79f9ce
+    pristine_git_object: f133b3c3a937d09249d8261d90ab8425de89e0ab
+  docs/models/shared/getatsrolespositiveresponsescope.md:
+    id: c2ca4766e112
+    last_write_checksum: sha1:8503ed98129c2811b2625f48a1591d6c25c78c17
+    pristine_git_object: 3c2c1ec01de13e1d29114725512b9d0f0e1acdc0
+  docs/models/shared/getatsrolespositiveresponseunifiedtype.md:
+    id: b17d5fcf19b6
+    last_write_checksum: sha1:805fb65a7f9109311cac224ea3dba38b579ab3c8
+    pristine_git_object: 087c9972329d5f01d48b475c80202e28728836fc
   docs/models/shared/getatstagspositiveresponse.md:
     id: 26bfef32cc25
     last_write_checksum: sha1:6f029e6cd7ec1c1ae3231cef71b89f3f58bc504a
@@ -1244,20 +1288,28 @@ trackedFiles:
     pristine_git_object: 1e54d0d83aab19b8e1e432ce9157dd1ecc288a03
   docs/models/shared/getatsuserspositiveresponse.md:
     id: e19859f0b307
-    last_write_checksum: sha1:806e1f9dfc96a6e2b0518428213387a2d635c501
-    pristine_git_object: 20a2f3717601bc5555602be639933a537f8a4e05
+    last_write_checksum: sha1:382cf47ac3016efca043e18aa1b6df7efccdf249
+    pristine_git_object: b0b4f257e6e220bdf6e710633d9a39734215a7e2
   docs/models/shared/getatsuserspositiveresponsedata.md:
     id: 9f5bdd9e42dd
     last_write_checksum: sha1:f79b2e91bad668165442eba90e742f31deb859f7
     pristine_git_object: 5c0b81ba99060926f7da1f9700f77cdec6783adc
   docs/models/shared/getatsuserspositiveresponseresult.md:
     id: 70175595b979
-    last_write_checksum: sha1:2828ddb27b7caf9bfd74012ed05ad0aa04e9efb9
-    pristine_git_object: 9bdcba1f85f769a1c2077b5f37b385d1b002d499
+    last_write_checksum: sha1:23171de481c67c4a5da158567e0b4a58f5f8d3fc
+    pristine_git_object: cc356828ddb983390bb19e714d33a7d21df78c54
+  docs/models/shared/getatsuserspositiveresponsescope.md:
+    id: 9b2b2fe1aae4
+    last_write_checksum: sha1:57fbc4250395ed66dd01b9245d6ec80751a0e18d
+    pristine_git_object: 3183f2869e18c246b781c81239b0fae530d7fe7b
   docs/models/shared/getatsuserspositiveresponsestatus.md:
     id: 34e689dc1764
     last_write_checksum: sha1:89da85c3be92adbf68b23c1670ccd095c2eda2ba
     pristine_git_object: 595625e1f9e7065af7d7843222fd3d7485011e14
+  docs/models/shared/getatsuserspositiveresponseunifiedtype.md:
+    id: 3026bf993341
+    last_write_checksum: sha1:982aaff7d163f404705ff199b870009caabbe86f
+    pristine_git_object: b31f1dea0d7d7fa12cda76ebb58679293320859f
   docs/models/shared/getcheckapikeypositiveresponse.md:
     id: 8276bafddc1d
     last_write_checksum: sha1:d375f0c0b0471bab0400b94a3d8ae594a2f3ccb1
@@ -1442,6 +1494,18 @@ trackedFiles:
     id: 497359572ef8
     last_write_checksum: sha1:0c5caee11b89d9b15a89767b23435299643f85a3
     pristine_git_object: 3c390ea51aad6f8b162d23821560ea0fbf8d0517
+  docs/models/shared/gethrisemployeespositiveresponsegroup.md:
+    id: 5c4d1167ef9e
+    last_write_checksum: sha1:98dd9a119de99e137f3c78efb173c9dbaa071c40
+    pristine_git_object: 7389a51b511f81664be5d5b4dc920c46b7f4f05a
+  docs/models/shared/gethrisemployeespositiveresponsegrouptype.md:
+    id: 19fee0103808
+    last_write_checksum: sha1:39685ec4941c99af108d1757b163f0fc0a1a7cb3
+    pristine_git_object: 67b10801577f39e5fea8d244b0bfd19f3fe388be
+  docs/models/shared/gethrisemployeespositiveresponselegalentity.md:
+    id: ce7dc46549cc
+    last_write_checksum: sha1:21525d0ac71e99a73ba275c1294a8bc95f60d405
+    pristine_git_object: 0e1708384b58cfaf629df7e10c9d5327cc0161c0
   docs/models/shared/gethrisemployeespositiveresponsepayfrequency.md:
     id: 1de218e532f9
     last_write_checksum: sha1:73788beab77dca4f79d136200c8e64987e51bb60
@@ -1452,8 +1516,8 @@ trackedFiles:
     pristine_git_object: 25ed2c5e929ccabc3173358b5066ddac9f41bdd1
   docs/models/shared/gethrisemployeespositiveresponseresult.md:
     id: ec54b7a965fb
-    last_write_checksum: sha1:6e441321a0978e178ffb44c0fd1f648ac01a751c
-    pristine_git_object: 2abb6f92f6b4a4f65ee37ae285151a96aad72cb1
+    last_write_checksum: sha1:f22aa0775d29b9bad7af4afc5d5ea0a8522468c5
+    pristine_git_object: 2b5e8154283ad35cd8c5cf2fdd1f0c18ef53b1a7
   docs/models/shared/gethrisemployeespositiveresponseusedunit.md:
     id: 280f790e3c59
     last_write_checksum: sha1:387b69616fdc5cae54a9cdb7d915f53ecf9cb374
@@ -1558,6 +1622,46 @@ trackedFiles:
     id: c1ccd149e1cb
     last_write_checksum: sha1:33ce953a7190e3f5631d46965d7418c449a5ab5b
     pristine_git_object: 407613a23d95d21e56c4c91844488641fb3162be
+  docs/models/shared/gethrisstaffingentitiespositiveresponse.md:
+    id: ce95ba24f0d6
+    last_write_checksum: sha1:8fdc62da65a1ca2c4f01f5c8676188571382bb4b
+    pristine_git_object: c955775dbb479aea3b067fcc70e7f532f2650eb0
+  docs/models/shared/gethrisstaffingentitiespositiveresponsedata.md:
+    id: 9342af13b56a
+    last_write_checksum: sha1:6b20e45fb15e7573b074b21e0eb8336bb0e0a697
+    pristine_git_object: 184952ca4eaa68a65aab91c323ab2da939827275
+  docs/models/shared/gethrisstaffingentitiespositiveresponseemploymenttype.md:
+    id: d06df1a79005
+    last_write_checksum: sha1:ce14e44d35625e6009c0fe945c8497f83a44f634
+    pristine_git_object: 75e2012a6f3173e502adb8a72ce37989116d07b9
+  docs/models/shared/gethrisstaffingentitiespositiveresponsegroup.md:
+    id: 12c06f34eeef
+    last_write_checksum: sha1:f7331c10587c29f2dcf9b13a313aec24950bf16c
+    pristine_git_object: 43eacc5056e25d061faf98365b6f2ea1c2c69387
+  docs/models/shared/gethrisstaffingentitiespositiveresponselegalentity.md:
+    id: 527dd99fe52b
+    last_write_checksum: sha1:dfacd66676ca0f053598eb190b545692c02b0701
+    pristine_git_object: f5511001f34cd05bf2eea3e8cbe738c9a5b5031f
+  docs/models/shared/gethrisstaffingentitiespositiveresponselocation.md:
+    id: c2d7a6b64fb6
+    last_write_checksum: sha1:4a8bab9d7f1a67753841f16b205ad89b4496b7ee
+    pristine_git_object: 4521a6c6b719346f82ecfdf5dade494525676c18
+  docs/models/shared/gethrisstaffingentitiespositiveresponseresult.md:
+    id: dda0854ecf99
+    last_write_checksum: sha1:bbe659325b39a6e3e23086d91aaa87a32ace8a4f
+    pristine_git_object: 51923e08942be3766b7b463adb7662e7f2a5a74e
+  docs/models/shared/gethrisstaffingentitiespositiveresponsestatus.md:
+    id: c1efca206293
+    last_write_checksum: sha1:2af0378685c7d9c9160830e7b857dae6616837e5
+    pristine_git_object: d473008a247e7d948f4371288d3b7cbc7cfb7659
+  docs/models/shared/gethrisstaffingentitiespositiveresponsetype.md:
+    id: cd3e5937b8e1
+    last_write_checksum: sha1:e6a86f51b3c40957b237b8b41f7a0c494c9aa194
+    pristine_git_object: 1c8b8f57552c59240d1a4d8b2c7db589908e37af
+  docs/models/shared/gethrisstaffingentitiespositiveresponseunifiedtype.md:
+    id: e93ade3ec16a
+    last_write_checksum: sha1:3b4e3aef8a779ec4f7278e5425f53f901cf7d0c8
+    pristine_git_object: 23f61ae3e2de4d749132bf7302df73342a2e3109
   docs/models/shared/gethristimeoffbalancespositiveresponse.md:
     id: 3ce5116c08ba
     last_write_checksum: sha1:097e85228a4440719af6de0f08277dfbb61478b7
@@ -1742,14 +1846,6 @@ trackedFiles:
     id: ac0aa7ceeccc
     last_write_checksum: sha1:47e11ce3bfebdee08c93f9b075973180cd0da9d9
     pristine_git_object: a9b125a854ad3e0242fea2a8c165f105703bf42c
-  docs/models/shared/group.md:
-    id: b69ff569c6bd
-    last_write_checksum: sha1:e3c8f43d14d916560ace08de5b4d925efca20319
-    pristine_git_object: 24d11fbea08bc839e29b464e813212213aa9c11c
-  docs/models/shared/grouptype.md:
-    id: c8de2a484d1a
-    last_write_checksum: sha1:a78fc9d9b8b70553adc483b9f799bc40b1f5ca3d
-    pristine_git_object: 31713ad0c91842315905a2df4aa324c141095877
   docs/models/shared/headers.md:
     id: 2f0c167805a1
     last_write_checksum: sha1:416e0522c0c7f11f9eb56b34c373965b2fca12a1
@@ -1780,12 +1876,12 @@ trackedFiles:
     pristine_git_object: 9daa1f2376f12e2d35a2038595bc06ab7c137af0
   docs/models/shared/inlineassessmentorderreceivedwebhookpayloadhiringteam.md:
     id: 2d2d9959a33c
-    last_write_checksum: sha1:f12d8f7b3a3268f97a76062b94c62f1b5dd8340c
-    pristine_git_object: 705e29979e8eb75aa135d3e777d3f1c0073ec642
+    last_write_checksum: sha1:7f3c626d7e8599ce2e0bb16d3617b8bc3d0c6274
+    pristine_git_object: 5831ff9588c0e099279f962f9df6d5909500bdd2
   docs/models/shared/inlineassessmentorderreceivedwebhookpayloadhiringteamrole.md:
     id: bea9ab10de93
-    last_write_checksum: sha1:70aa73651851477a97675eb4e7f1e587126adb7d
-    pristine_git_object: 34fbbfc534e4ed3db7bd9cc0b7d535427f645583
+    last_write_checksum: sha1:733a06f0d55b0c276c1975422002403427773d44
+    pristine_git_object: 113004b86110d139790b1dfaffeba671e969d9d0
   docs/models/shared/inlineassessmentorderreceivedwebhookpayloadjob.md:
     id: 5bae8d85f5ed
     last_write_checksum: sha1:98691e949e831f4ede5483ae35e43b5ca328d5c5
@@ -1868,8 +1964,8 @@ trackedFiles:
     pristine_git_object: 1b44fd372a1b5113087190b3328e0e11317349f3
   docs/models/shared/integrationtool.md:
     id: ccbce9847167
-    last_write_checksum: sha1:e7b696320b3262425eb3101c4a7c234cdedcc89f
-    pristine_git_object: 1634174e5bdc90eb935990674e8d416f71c156f5
+    last_write_checksum: sha1:be5efb71d220c02756b49cdb90ba87fd506c7d0d
+    pristine_git_object: 114c8da4f8d16f4ad1f90b08d1b00e99de56f92f
   docs/models/shared/interview.md:
     id: d8d282f154af
     last_write_checksum: sha1:8a02e7bc37075650da6db4da83362416f77a08ac
@@ -1886,10 +1982,14 @@ trackedFiles:
     id: 2b39c7a72543
     last_write_checksum: sha1:68ba4afa90116babe8003e38272d5a078b558c3a
     pristine_git_object: cf12765b651dc1f77fb6359737a16e0f5c86026b
+  docs/models/shared/jobrole.md:
+    id: ca487aea9882
+    last_write_checksum: sha1:370cb8456a43d239f0774b5a99ba673d3a0ca6c8
+    pristine_git_object: ea00a4fb2ffba5bf894fcfd356b9ed0211aa6f63
   docs/models/shared/komboatserrorcode.md:
     id: cc92342a1a7f
-    last_write_checksum: sha1:6f2674725a151a1b38e411a26fd9845f642c0442
-    pristine_git_object: 486560be093774ee0539cda05eb916037ecc1574
+    last_write_checksum: sha1:6de8e40b238a97a2f5ec822656395157535b814d
+    pristine_git_object: 270ee51507ccf20dc12ef491e93bf956ddab3656
   docs/models/shared/komboatserrorerror.md:
     id: e0c9aafa5bf6
     last_write_checksum: sha1:34e307a09198d2102986ac27d3a91eb3468a7bfa
@@ -1900,8 +2000,8 @@ trackedFiles:
     pristine_git_object: 98a936d339d031f87fb72193a87bb2b9ad28445b
   docs/models/shared/kombogeneralerrorcode.md:
     id: d0ed6889e710
-    last_write_checksum: sha1:b8929bce98c045c87be33a2b9ef9336a5bd30183
-    pristine_git_object: 3e4cb5b65e1e9786e066104cffe35e493c0d9e09
+    last_write_checksum: sha1:65a9c726af9a1549843d892cfab6933feef4d35b
+    pristine_git_object: b55877422543559019e3776abacdce2089127b4e
   docs/models/shared/kombogeneralerrorerror.md:
     id: eadb30ec36e2
     last_write_checksum: sha1:df3aae1f3d0f7f8a719751b80d5ffb78e8183bbb
@@ -1912,8 +2012,8 @@ trackedFiles:
     pristine_git_object: 3151c2ebe7a5d8770c5446a435a0ffd2376ee3d6
   docs/models/shared/kombohriserrorcode.md:
     id: e5b47985b8b0
-    last_write_checksum: sha1:bab9d9ec470070c712864316e836ec3afa964b0e
-    pristine_git_object: bb834f011a97b8927324fff4b38f4e5fb0d11865
+    last_write_checksum: sha1:80eaa81db1ce517dbb160a8653ea75ee68fac4b5
+    pristine_git_object: a6f7956574d7b03c9c7c61fde0f7e72143729ecd
   docs/models/shared/kombohriserrorerror.md:
     id: 8226282442d8
     last_write_checksum: sha1:9a7b30a0f67f2b371b856f3401e92bac3528d21e
@@ -1922,10 +2022,6 @@ trackedFiles:
     id: f4631dc589d6
     last_write_checksum: sha1:7e0db22d47921761d9af7e67c3c78d9b4e7409e0
     pristine_git_object: 5dcc2e8af856e10611dda5db823570c229b2b441
-  docs/models/shared/legalentity.md:
-    id: 25aeb57b977d
-    last_write_checksum: sha1:3267d805e88bddfa091ac5f4a3c36bfec58cb1f4
-    pristine_git_object: a2ffd92214518f270bf43d1710736ae2af73ee9d
   docs/models/shared/legalentityaddress.md:
     id: 9a2fcf27f59b
     last_write_checksum: sha1:86d395bbbaa9db89c0630f728e5f4bcecb6ffd81
@@ -1946,14 +2042,18 @@ trackedFiles:
     id: c61466e7081f
     last_write_checksum: sha1:b7e9f56371254820a3659658c540464a748ada39
     pristine_git_object: 2ef55c95c2a0d38a1b7a57c1593e16e08fc71c74
+  docs/models/shared/modeltype.md:
+    id: 0a13f456e1c2
+    last_write_checksum: sha1:bd471d3ddb709e7b56e38c1302fc1f0cd5ba5b56
+    pristine_git_object: 327684d5d547a4a4ce9e36d924decad4eac5e82d
   docs/models/shared/multipartformdatum.md:
     id: e5b3f030ca52
     last_write_checksum: sha1:cbc73d838ccc697a048309d2e0ad58b9b25e5fdf
     pristine_git_object: 58d1e21a9c1429370493b8f4bb3c25d87fe9b26c
   docs/models/shared/name.md:
     id: bfbb7874446d
-    last_write_checksum: sha1:56c696f1e5e12da08d4739e2925eaf8cdfbd246f
-    pristine_git_object: 1142aa48cc7b27ced697b97c41b64f3920f17f68
+    last_write_checksum: sha1:d2a62a000ee7adcfb612d1994835d541584687d0
+    pristine_git_object: 1eb6cc3f73835009b380b04aa1a133b2454e4a22
   docs/models/shared/offer.md:
     id: 87c20251f010
     last_write_checksum: sha1:793e13347bea041a687932404e3d71647aaf70b6
@@ -2054,6 +2154,10 @@ trackedFiles:
     id: 4dd11dd9a5e9
     last_write_checksum: sha1:a1ca4a5b4133051c69557a0370abd3b48776f79d
     pristine_git_object: ede246f2cf329e4fb77afac2093fe1ff55137c14
+  docs/models/shared/postatsapplicationsapplicationidnotesrequestbodylever.md:
+    id: "941400654459"
+    last_write_checksum: sha1:a086ceccb66cfd94a67070afedf1c4da385e40b2
+    pristine_git_object: 90d638bb2a235deeeb84cd94b30fa01b84e16506
   docs/models/shared/postatsapplicationsapplicationidnotesrequestbodypostheaders.md:
     id: fb93da95e454
     last_write_checksum: sha1:f4adcf3fbd9a5d790ce1d46fb0ef3be6f53110bf
@@ -2064,8 +2168,8 @@ trackedFiles:
     pristine_git_object: 1b3359d5d65fed1e1577aff2d28cc47415bca51b
   docs/models/shared/postatsapplicationsapplicationidnotesrequestbodyremotefields.md:
     id: bd1550e01184
-    last_write_checksum: sha1:72a7f567363b59fb329e222fa59f79acf20a747a
-    pristine_git_object: 79be3c3dc4d65830a3e23e20ae27a544ee7d9120
+    last_write_checksum: sha1:e53dc0db7c72f95cfc50bc0deafa8e09e61a61dd
+    pristine_git_object: 0d529f1e01770f13b49577dafaf6ea5d19ec899c
   docs/models/shared/postatsapplicationsapplicationidnotesrequestbodyteamtailor.md:
     id: 66d59640f6aa
     last_write_checksum: sha1:255280998eff9787f0cbacadc755938598d824db
@@ -2394,6 +2498,10 @@ trackedFiles:
     id: 6f6b5ea32a61
     last_write_checksum: sha1:6bfd14b7092cc2aa0501b7f7f124ef513833d099
     pristine_git_object: cc04ba8bfb09b9e9e6a84ba1f1ad90d4c25b84c0
+  docs/models/shared/postatscandidatesrequestbodyconsentdecisions.md:
+    id: 9ac9a21a5cee
+    last_write_checksum: sha1:0699a58d11ad33757d1e8ddecdec910904dcd784
+    pristine_git_object: 1878046f73e310cebc2299014ceb4ac8105e9d0a
   docs/models/shared/postatscandidatesrequestbodycontactdata.md:
     id: e1ccbf6963d1
     last_write_checksum: sha1:250189a2452432b2b76d680697124d9074264e97
@@ -2420,8 +2528,8 @@ trackedFiles:
     pristine_git_object: aa90b4a599839f31729cade04c5753ba8a41943b
   docs/models/shared/postatscandidatesrequestbodydvinci.md:
     id: ea4e91d8eb88
-    last_write_checksum: sha1:3c160aa45330528c17a1b4485842395ff4bceaa2
-    pristine_git_object: ee5df0608fae8652eea74d3ae78a17ad98abfe99
+    last_write_checksum: sha1:1614ab89fb82437311fe3b4627baaf9f4ec507ab
+    pristine_git_object: 35f5358a4d965faea6a41020c7a0890e960ae377
   docs/models/shared/postatscandidatesrequestbodyeducationdatum.md:
     id: b6937c33f652
     last_write_checksum: sha1:d1e972f4fcd86b1fab19c07202f6231450b48841
@@ -2556,12 +2664,16 @@ trackedFiles:
     pristine_git_object: 59329b72af162a7e1314195b8659b14279c97db3
   docs/models/shared/postatscandidatesrequestbodyremotefields.md:
     id: 1c3e3aeb6a10
-    last_write_checksum: sha1:20d70597c84134b0254465896463528cc6030ebe
-    pristine_git_object: 5b639b7061df2251a844cb895125242344e2705b
+    last_write_checksum: sha1:5db4b9b34e2c1a063f323c5de6da543a2088e42d
+    pristine_git_object: a05600d9895d72bcca64d37da4bde954a75edef7
   docs/models/shared/postatscandidatesrequestbodyresumedata.md:
     id: be7178ead687
     last_write_checksum: sha1:7c7b80cca135eb2cb72c37839a5233568f206e18
     pristine_git_object: 34150caf4cc90a14e9a137044e1f31c1ec0d7ecf
+  docs/models/shared/postatscandidatesrequestbodyrexx.md:
+    id: f68bba1e9778
+    last_write_checksum: sha1:694f048ffa8224232bf2f28d1d262c3f8c78bea0
+    pristine_git_object: a90df7d9e9de4f8aaed9d3b4b21ed216b9fe3bba
   docs/models/shared/postatscandidatesrequestbodysalaryexpectations.md:
     id: b0afbcd8bc8c
     last_write_checksum: sha1:2400ccb116a5c2e750860fc3653bf794b7c15bc7
@@ -2576,8 +2688,8 @@ trackedFiles:
     pristine_git_object: d4502799167c22895c00968a31115544dffcd3f8
   docs/models/shared/postatscandidatesrequestbodysmartrecruiters.md:
     id: d7cb21b24eb9
-    last_write_checksum: sha1:80cddce6149dce6944ea3126f2c9bb12a99c5b85
-    pristine_git_object: ef19ad131ce55ac27cf35b110586dce0017457bb
+    last_write_checksum: sha1:6603a13fa559f4b9158debc2d78c8de692668da0
+    pristine_git_object: 9bbcc3f7a5d565fa50adebae8ac9a543f4279152
   docs/models/shared/postatscandidatesrequestbodysociallink.md:
     id: be126ba9c9ed
     last_write_checksum: sha1:b3f7c9650dae4b29ca9518f7924cd3367a99ec81
@@ -2950,6 +3062,10 @@ trackedFiles:
     id: 025c0a58bf69
     last_write_checksum: sha1:2794e4e7bee3c34521c07c97066533df1cf959a4
     pristine_git_object: 1504399134424a3b7db851c9dc592a8a8cb050c0
+  docs/models/shared/postatsjobsjobidapplicationsrequestbodyconsentdecisions.md:
+    id: b845523e53d4
+    last_write_checksum: sha1:c03093b0655015c335c474546a3455251cc9bb54
+    pristine_git_object: f3146b463b84b99dde4830b61f7abeb725fe8cb8
   docs/models/shared/postatsjobsjobidapplicationsrequestbodycontactdata.md:
     id: 60b34ac7692e
     last_write_checksum: sha1:4536c5532f1b5e758a3650c4f85c62b9ec22ad46
@@ -2976,8 +3092,8 @@ trackedFiles:
     pristine_git_object: 1950a27f6a4f9d35310ac50c4303e762067c3337
   docs/models/shared/postatsjobsjobidapplicationsrequestbodydvinci.md:
     id: 8fc8cea2aa76
-    last_write_checksum: sha1:3630a969ce2807586c747121d668dd45b623b750
-    pristine_git_object: a31618fb86a38c65191b295b050727bf784c9d17
+    last_write_checksum: sha1:b8edf03c6f0cd41153f4613bbb243f383faf674a
+    pristine_git_object: ac3896b81ecc455b78c8d5668d7f18a155d6aa56
   docs/models/shared/postatsjobsjobidapplicationsrequestbodyeducationdatum.md:
     id: de0f3faabc45
     last_write_checksum: sha1:b12696075349729e204e437ac020c63d43c90c8a
@@ -3112,12 +3228,16 @@ trackedFiles:
     pristine_git_object: a608347fd4f42b722748eaccb962fa89f045ba77
   docs/models/shared/postatsjobsjobidapplicationsrequestbodyremotefields.md:
     id: bc0b4c50ab21
-    last_write_checksum: sha1:411e0a0a8b88ba47636d691691151f19cb79d039
-    pristine_git_object: 34e9b4e73b229b5f46b636c9d9c1bf327a167cb0
+    last_write_checksum: sha1:75e3a3ee421a1a3ddf243acd595b7dc144cbd4ee
+    pristine_git_object: b364d3ccfbc25fc93123ab370b981d1feb46dd39
   docs/models/shared/postatsjobsjobidapplicationsrequestbodyresumedata.md:
     id: 8422c059d51c
     last_write_checksum: sha1:232861dfc7f146724e8dde6bada3ba759d2a3e7c
     pristine_git_object: 83084c2d9d583df5afc5110105c85bba25e89ca2
+  docs/models/shared/postatsjobsjobidapplicationsrequestbodyrexx.md:
+    id: a19fe1f2eac5
+    last_write_checksum: sha1:527ae6ea4ea497fde4ef96f5b261b149d3f836f6
+    pristine_git_object: e38d2b8682f695cb0688ead322c90aa3d7fd1bb2
   docs/models/shared/postatsjobsjobidapplicationsrequestbodysalaryexpectations.md:
     id: 00c54975e212
     last_write_checksum: sha1:36e14498feb317c7f84eaec21f6b80167b2417e9
@@ -3132,8 +3252,8 @@ trackedFiles:
     pristine_git_object: ca293e90002623b0674d14fbf9e5816ee0c1996a
   docs/models/shared/postatsjobsjobidapplicationsrequestbodysmartrecruiters.md:
     id: dce5e0bf6eb7
-    last_write_checksum: sha1:d1928fc386bb7a2024ea2431ce11541af6249563
-    pristine_git_object: 6fbdc1b8fd301c5dd299dff2c8145952afb4a449
+    last_write_checksum: sha1:0cb710bab06186645b79fb1bf43ec7da67e7e4a6
+    pristine_git_object: 6e6d8408f3078d2b7c5f9ed72ffc59f97f653284
   docs/models/shared/postatsjobsjobidapplicationsrequestbodysociallink.md:
     id: 19471b533f73
     last_write_checksum: sha1:f7e8e0e3f5540acb3c657a098eb909d97a3c9b29
@@ -3414,10 +3534,14 @@ trackedFiles:
     id: 6e5b0f4bedfc
     last_write_checksum: sha1:acc9b8d94ee35173f2cf1d745a3613afe89903b2
     pristine_git_object: fe96a9e0a67ae9a18f24cc860fe0606f39362177
+  docs/models/shared/putassessmentordersassessmentorderidresultrequestbodyrecruitee.md:
+    id: 4e34fa13fef0
+    last_write_checksum: sha1:b04c3b1419bef4f89917dbc3dd6516d6c0b0baa8
+    pristine_git_object: 32606269ef803999e594226576f88d5f56e703f7
   docs/models/shared/putassessmentordersassessmentorderidresultrequestbodyremotefields.md:
     id: a08fd47ac153
-    last_write_checksum: sha1:729fc81f2fa5d808488bf601254a3c632b3c86cf
-    pristine_git_object: b8dcc22dd4bc28036012279540ec05795b70ab54
+    last_write_checksum: sha1:b2a687a6931b072d2d545b44093d225c1adca871
+    pristine_git_object: 6dde9a58350a495be1af87784a00373c0be5c221
   docs/models/shared/putassessmentordersassessmentorderidresultrequestbodysmartrecruiters.md:
     id: 2757fe99961e
     last_write_checksum: sha1:d291dae1bc296733ac0821a42348f4c775236a27
@@ -3476,12 +3600,16 @@ trackedFiles:
     pristine_git_object: a3a9ac151537771ea9114135968211daa14a3fc9
   docs/models/shared/putatsapplicationsapplicationidstagerequestbodyremotefields.md:
     id: 34109765b153
-    last_write_checksum: sha1:0efee64c954e61b3adc9267c2061a801669d4bd5
-    pristine_git_object: 0b06dcb02363f70401942b35d90c1524755cb763
+    last_write_checksum: sha1:e97d50b85abf404f94a29aded3872eda473d40a0
+    pristine_git_object: f41cbde57512ecd2250ef4f29d217e419fe66696
   docs/models/shared/putatsapplicationsapplicationidstagerequestbodyworkable.md:
     id: a9ad4f98fe31
     last_write_checksum: sha1:2d029b0c495ec5c756232a9d08cb034ab9521470
     pristine_git_object: 249172fc689fd5f2c6d3c3d9cd470e6dd12e34cd
+  docs/models/shared/putatsapplicationsapplicationidstagerequestbodyworkday.md:
+    id: 4f07f7830f28
+    last_write_checksum: sha1:36457b967430fd33afa9b7555bddb62c8db70d00
+    pristine_git_object: c085f159f7b9803c81ae4540fb9f2418f229ba2a
   docs/models/shared/putintegrationsintegrationidcustomfieldscustomfieldidpositiveresponse.md:
     id: c672269ac289
     last_write_checksum: sha1:87a5e5fb1406af855d63d39280ff50bd28b1e5df
@@ -3826,6 +3954,10 @@ trackedFiles:
     id: 7ae71c52f1f0
     last_write_checksum: sha1:b9b095c1c07eee86cfb14523789b33d988840c88
     pristine_git_object: 2b35fd037399a8765e60aee0356b311d2c56896f
+  docs/models/shared/steptype.md:
+    id: 3d7440745b77
+    last_write_checksum: sha1:b7c5ad42223c0ff5d2fd2ae1dc8f871f722f7a9a
+    pristine_git_object: 1b2f2e2503d4d554c21f29a83e518ddcd3e18d9c
   docs/models/shared/summaryrating.md:
     id: 005bc8ecbd39
     last_write_checksum: sha1:871213cc9c19e20664fb1775c31c699b80bea112
@@ -3858,6 +3990,10 @@ trackedFiles:
     id: ece8d04ad25c
     last_write_checksum: sha1:21db734a1f37f676e0fae42deed1188d0248660f
     pristine_git_object: cc8bb792a6e99af4ca22c49e53d2bc295aae9d7d
+  docs/models/shared/systemrole.md:
+    id: 1828c6ac7e9b
+    last_write_checksum: sha1:2a72050a1990eafe449a0db60ea66f718d571351
+    pristine_git_object: 5effdbb36562a3d749af01862e9f912ac85582c7
   docs/models/shared/timeoffbalance.md:
     id: fb758831e1f7
     last_write_checksum: sha1:d54c8f57c9e88691bf4041d1fbb520d5c4c7b67b
@@ -3960,28 +4096,28 @@ trackedFiles:
     pristine_git_object: 7a6693ecc0ba77b522118da871787decadaec89a
   docs/sdks/ats/README.md:
     id: 24fafa267f6c
-    last_write_checksum: sha1:f469eedd8b41315aa092a2236415f0214f843c83
-    pristine_git_object: 8dd86c259aaddb6ddc37f9036a9852cae893acff
+    last_write_checksum: sha1:39b155e3ce2a36b17fadfcb3b6e31cc775c584bf
+    pristine_git_object: 5f0c6ea33c28c253d28774c1d3aa50028a6fc177
   docs/sdks/connect/README.md:
     id: 074a4658c86b
     last_write_checksum: sha1:063179f4d920ff19db9c7654eebbb4ea708d9fb3
     pristine_git_object: fe85124ef65d5d4cc291875df2918323cc450776
   docs/sdks/general/README.md:
     id: ce0ada6fa2e1
-    last_write_checksum: sha1:15feeab79ee0c3f5de07d1a1c10a6ca9e0d7562c
-    pristine_git_object: fb64161aee08ae33d6b3ece8bbfab5c7f1e2ca5d
+    last_write_checksum: sha1:9fbf486e5b54d1258cc36dcc4d50b96800131666
+    pristine_git_object: 36f8cb6e30fcc4538a144c901991156e071cdb76
   docs/sdks/hris/README.md:
     id: 0baa868a038c
-    last_write_checksum: sha1:acfe5afcadc9ed4db6bd3440eb752f88818f95d3
-    pristine_git_object: 2804b5a1ea847f70c09809552345abe3cd7b826c
+    last_write_checksum: sha1:f351986e1926c888422666ae7c7ef89e47a01133
+    pristine_git_object: 38071ae0353609084953638fc23a9860c3a9a7fc
   extra.rbi:
     id: e2fdbbd314d3
     last_write_checksum: sha1:b4d764c7b4eb0b56246a260e2a6644523dc78b04
     pristine_git_object: 237a19c94ed3feee821ecd5611703991f84d91fa
   kombo.gemspec:
     id: 476dd5dc2d31
-    last_write_checksum: sha1:d34812589dc0cf8f14226549b8c33879c48abe61
-    pristine_git_object: 929f925c7883bcd3d1da5378b25cbb120bc7ba1c
+    last_write_checksum: sha1:b82543a22540e6edb9e1a7b133118d0e63f2a85d
+    pristine_git_object: 236dc58445823559d87e10d8891ae8f745f4b016
   lib/crystalline.rb:
     id: eca767cf937a
     last_write_checksum: sha1:b6ec0a2833f58ba9a6f07c9637fdca05e59006d3
@@ -4012,20 +4148,20 @@ trackedFiles:
     pristine_git_object: b7c0db1bdeefab0be5439a35decfa3f3f3d603de
   lib/kombo/ats.rb:
     id: de47f540d26c
-    last_write_checksum: sha1:8dce9da03bc7c63c778a1b0a595956802aa17346
-    pristine_git_object: 2c058b0737fe22ad88721f26ece7ec6f647211fa
+    last_write_checksum: sha1:68fd55d96067724ff62f8dce00b07042be338c5c
+    pristine_git_object: 6d5333be0f52c6b994a4eeba82b33f7d518fc2dc
   lib/kombo/connect.rb:
     id: 915f4913d259
     last_write_checksum: sha1:d5fcd199b9425a138bca66d7bedcf760d609e9db
     pristine_git_object: da6a94f73a3dfc084ec6129c87056d1ab1604b1c
   lib/kombo/general.rb:
     id: b25b5d515a10
-    last_write_checksum: sha1:62ba4988e0acd83ea519b3888b0fcb7b35b030c2
-    pristine_git_object: c838e49a1ca6063b7afba08e084f2c438866d41f
+    last_write_checksum: sha1:a705df251240cba629a9225bd9ebee48f04f2869
+    pristine_git_object: ef404870047f55969de6297d50ee669d2a692fe5
   lib/kombo/hris.rb:
     id: 13c3ecc1e9af
-    last_write_checksum: sha1:15c9984296accd962e01f4b2b607f70ebb54b759
-    pristine_git_object: 77c06b1116879ac4c3bb1d2094398fed0711ce10
+    last_write_checksum: sha1:5b9f81cfa1808df3ec805ddf75d98ec625de30bd
+    pristine_git_object: aef82c00d0d569f41078ef5cff865e644e88decc
   lib/kombo/kombo.rb:
     id: 96579e61b366
     last_write_checksum: sha1:d3045ebe53d3c391ed79aeee59eac0bd4bdf8756
@@ -4072,8 +4208,8 @@ trackedFiles:
     pristine_git_object: abfa62ec08db3ce4ace8d32a11eca9491677814d
   lib/kombo/models/operations.rb:
     id: 0dabe81114b0
-    last_write_checksum: sha1:c181244ed34381af8bf431e3a4d0f07e8883d421
-    pristine_git_object: 9a04952a63a93a5940a812c71fe6a77f007e1096
+    last_write_checksum: sha1:7f63c80c4c3982e30ce1098e756feda51efff4c3
+    pristine_git_object: 2fef69e56a123bb616797eb3e2cc05c30d8571fe
   lib/kombo/models/operations/deleteatscandidatescandidateidtags_request.rb:
     id: ae79d39fb2e8
     last_write_checksum: sha1:ea4eef09846b81f0b867e27126e2a58309fdcf30
@@ -4156,8 +4292,8 @@ trackedFiles:
     pristine_git_object: 9fd1dafb64f49e7dc37d60677078a1ce3ce3a7a3
   lib/kombo/models/operations/getatsapplications_request.rb:
     id: 48abe3c3cda5
-    last_write_checksum: sha1:673e65b25945e44df514f93f8e1a8cbbf6b4853c
-    pristine_git_object: d17271d6508d1e75241b6effea7cabe7ee47f9be
+    last_write_checksum: sha1:e884453d8de11b2437fdffa6240f86f9abb9daad
+    pristine_git_object: 31781bb312fd612576c16f443e0bfefc01bf94c0
   lib/kombo/models/operations/getatsapplications_request.rbi:
     id: 459bae711699
     last_write_checksum: sha1:23e66206464c815b1c3fb0259b3a205d9e32e1b5
@@ -4188,8 +4324,8 @@ trackedFiles:
     pristine_git_object: 6f36697aeb89440d4ffb3f432c4558bbed4e2e90
   lib/kombo/models/operations/getatsapplicationstages_request.rb:
     id: 4ee6d8d54680
-    last_write_checksum: sha1:f25fedc34a24233852dbc7dc8fd50447b96ddf8c
-    pristine_git_object: 7012dac7ffb651593a81dbe80315af2b3f93f92b
+    last_write_checksum: sha1:002e2afe1099a822a6e1a9adfd7d738c2bfb18f8
+    pristine_git_object: 79a287bb8069d7538e8f8f6c5e2451d5a8cf69e5
   lib/kombo/models/operations/getatsapplicationstages_request.rbi:
     id: c8a4593f7297
     last_write_checksum: sha1:9cbe7d0fa519ee56d055ca119361778bcd6c9036
@@ -4204,8 +4340,8 @@ trackedFiles:
     pristine_git_object: 43b0d1d96865e5071013700bd16875dd52910a90
   lib/kombo/models/operations/getatscandidates_request.rb:
     id: 2dfe31d22e08
-    last_write_checksum: sha1:490f93d27340c4c4aaca9b61aafd5eafd426f4f6
-    pristine_git_object: bc1d0b517b9103a74f46e48017a7755313c20236
+    last_write_checksum: sha1:6ce63baaa9f4f0e49b0ce1d949030a8bcbf3f81c
+    pristine_git_object: d8b67b71ff658c07902dbd4b091a185ff3bb3f13
   lib/kombo/models/operations/getatscandidates_request.rbi:
     id: ca86fb7e3f60
     last_write_checksum: sha1:983765ab056ee2579851df169e3cc18b00d2140b
@@ -4236,8 +4372,8 @@ trackedFiles:
     pristine_git_object: 1f701480c3c793be46a9f5d6fb9f7780a3f82dd4
   lib/kombo/models/operations/getatsinterviews_request.rb:
     id: 1f93c0a38e7e
-    last_write_checksum: sha1:d29f9d3357bb2202126ed0599b85aba1799d4fa9
-    pristine_git_object: 04fdd0ae2113500247af6e78a070290deb559639
+    last_write_checksum: sha1:d6b36a19c013190e9777292a424826435156b563
+    pristine_git_object: 6afba5113c3e7099da98debcec1297ca08a98802
   lib/kombo/models/operations/getatsinterviews_request.rbi:
     id: f1191d95b99c
     last_write_checksum: sha1:77eb31dc7471b629502ab9000fd59ee2155303a8
@@ -4252,8 +4388,8 @@ trackedFiles:
     pristine_git_object: 637996c479ebc55d60c5158edcc95c9e81d49a22
   lib/kombo/models/operations/getatsjobs_request.rb:
     id: 4fd73303be56
-    last_write_checksum: sha1:06f662a2589ee9024bc0489f8e5c1f1bd33d3809
-    pristine_git_object: ef7742bc411344ca58b508feea5814843ea3c107
+    last_write_checksum: sha1:2e2ebff8ed6a7ecc3804d8aade8678a716aeb5f1
+    pristine_git_object: 8b4618ed97bab75feea6f79c284919c08b2487b0
   lib/kombo/models/operations/getatsjobs_request.rbi:
     id: c5e2e09a484d
     last_write_checksum: sha1:43ddb4b0be63073308a4ebf3d36dd7b3b868e0d7
@@ -4268,8 +4404,8 @@ trackedFiles:
     pristine_git_object: b7cb23620dc8620c631d19c4844e6fcffc1a3cb9
   lib/kombo/models/operations/getatsoffers_request.rb:
     id: 802568a36380
-    last_write_checksum: sha1:7410e7d4687aa20607a0dca1ee778caac810cd0a
-    pristine_git_object: 8d9654d548619299b379eb342a53857c79db155c
+    last_write_checksum: sha1:92d39d1f1a3d7a95b52716f85bb25c1e5cffe803
+    pristine_git_object: 871eaf79f6c446b5fd4fd879b57733f97d163dfd
   lib/kombo/models/operations/getatsoffers_request.rbi:
     id: 476ac4ffe27c
     last_write_checksum: sha1:2d1058b8c35b771548e546c5caba3a7f2a741474
@@ -4284,8 +4420,8 @@ trackedFiles:
     pristine_git_object: d705ad337b3ee6a26e8346ef043324ed0f04a8ed
   lib/kombo/models/operations/getatsrejectionreasons_request.rb:
     id: 71aea3ee8ba5
-    last_write_checksum: sha1:a14edc00c785f12e44f56a5f26cff11c26281063
-    pristine_git_object: dbee1dae482b22537798e73684fd25f2d19e7565
+    last_write_checksum: sha1:7ed45622809e16336b0312c31756088600701ab0
+    pristine_git_object: 5abe6fb2af833ed74c1db133f2a02b15b48cba1e
   lib/kombo/models/operations/getatsrejectionreasons_request.rbi:
     id: 9679c367a028
     last_write_checksum: sha1:f06ad8aafaa1cf56eb830b56fbad729b059cbe02
@@ -4298,10 +4434,26 @@ trackedFiles:
     id: 89dfd5a734e0
     last_write_checksum: sha1:1a4245fd8b03b62e499d7db2f2c60703ab6f1dda
     pristine_git_object: efb31591e9ad054508c809d5adc2d93931203e6d
+  lib/kombo/models/operations/getatsroles_request.rb:
+    id: b1dbc30709b9
+    last_write_checksum: sha1:511a574824ee74a85c9728e19196cb264970f595
+    pristine_git_object: 798cca705d95857aa41f21626b7c5be4db3aac96
+  lib/kombo/models/operations/getatsroles_request.rbi:
+    id: cb6c767e3abe
+    last_write_checksum: sha1:ac06f7e7fd26941c4533305ebcbf3d83ea14c21c
+    pristine_git_object: 6a94c3fa2f6a226a8fe8c921236c5f7f63059be4
+  lib/kombo/models/operations/getatsroles_response.rb:
+    id: bac55940b94f
+    last_write_checksum: sha1:919531089687829366017f47c92c5a67a884d924
+    pristine_git_object: af05abc30849f8d91db9c1ff0a84c3d462ed5b2b
+  lib/kombo/models/operations/getatsroles_response.rbi:
+    id: 5345626244b1
+    last_write_checksum: sha1:9103cd404dc37d43ef0603fb80d00082410cc775
+    pristine_git_object: e19bbbf6e817b927a03cfe15394d7d39d9d9b212
   lib/kombo/models/operations/getatstags_request.rb:
     id: c83cda69169a
-    last_write_checksum: sha1:deb35b3e90afca6c794c1db429f8529382f7c4d8
-    pristine_git_object: 2d4dfe570bf1823aeac379689db0e6549aa4c9c7
+    last_write_checksum: sha1:93a39c42fa958e26a6e08a5f82237ddaa57e72d3
+    pristine_git_object: a4952674c2426c71de06c391529b8e0ee908f5a5
   lib/kombo/models/operations/getatstags_request.rbi:
     id: 384e0b247377
     last_write_checksum: sha1:e8d9606cbc8f0d129761cd1c36373a2ce5089a95
@@ -4316,8 +4468,8 @@ trackedFiles:
     pristine_git_object: 0174c1e3fb942a510204e1c9777839abc26da97f
   lib/kombo/models/operations/getatsusers_request.rb:
     id: 91aef601db5e
-    last_write_checksum: sha1:1cb047c51694170c6bf6261c2279ae2d518fdba1
-    pristine_git_object: fff4d3d2f92cd500d9e0b1230dac0d571d423de7
+    last_write_checksum: sha1:8b5cf1509911dba0b9b17042a261db5b1700d30c
+    pristine_git_object: 97be3bd58440d431952161e2a600e5d3ee8a5e6e
   lib/kombo/models/operations/getatsusers_request.rbi:
     id: 0d9efad4e44b
     last_write_checksum: sha1:7db9ea3ed21d3ed6fe439a59b073b025a9037eff
@@ -4356,8 +4508,8 @@ trackedFiles:
     pristine_git_object: e0467f6e29d158d6acf57571d4316652a86edc86
   lib/kombo/models/operations/gethrisabsences_request.rb:
     id: 0079509b55ac
-    last_write_checksum: sha1:dc70a978c01e5598ec644656dbd230392e00036b
-    pristine_git_object: acccbe5321607456e2af96d68e7967f3e8af9019
+    last_write_checksum: sha1:def14917ba7fcfd9c231e5852c5f65aa358dca22
+    pristine_git_object: ed85307399fa76af9e8783bfe0744af921cefee4
   lib/kombo/models/operations/gethrisabsences_request.rbi:
     id: f375e8a9c61c
     last_write_checksum: sha1:c8b1d6bc1319ce96f2decc1af6b6ad0c0c75e59f
@@ -4372,8 +4524,8 @@ trackedFiles:
     pristine_git_object: f8ddbd01c03dc6189486bcb7b5a3df55225c4c28
   lib/kombo/models/operations/gethrisabsencetypes_request.rb:
     id: d6a29f264b6b
-    last_write_checksum: sha1:bbf5a0c76182756c73143a299acbbec8df4f8af2
-    pristine_git_object: 659fbee6e93d7c17ad955f89efacec683fd7288a
+    last_write_checksum: sha1:6acaf32b8820ef92f05c15cfccd16c6b43a97fa4
+    pristine_git_object: ff979612822d776d0135d626d1d2030aafd214aa
   lib/kombo/models/operations/gethrisabsencetypes_request.rbi:
     id: 9edfe9e9ab4c
     last_write_checksum: sha1:00846f304176ff287a198ddc0a4add0b355c20cd
@@ -4388,8 +4540,8 @@ trackedFiles:
     pristine_git_object: 4d5ec04485fe2660a3d6dec0c949f678ab440286
   lib/kombo/models/operations/gethrisemployeedocumentcategories_request.rb:
     id: cc847a2d5396
-    last_write_checksum: sha1:d3008115c3c5b41a2e2a8723d9ddc56cc1053752
-    pristine_git_object: 514f9e9ca6b1481d34133665eac5c4df98386005
+    last_write_checksum: sha1:388f9c3675022f466d8679e4351930b9f3dbb2af
+    pristine_git_object: 608229e6c2cf0a24fca511e4d679eba03b6325d0
   lib/kombo/models/operations/gethrisemployeedocumentcategories_request.rbi:
     id: 22ee9a231153
     last_write_checksum: sha1:5958a976d613780a111dc18076833f642e1b50da
@@ -4404,8 +4556,8 @@ trackedFiles:
     pristine_git_object: 12935057200d6f729eea84afe03071beac911d74
   lib/kombo/models/operations/gethrisemployees_request.rb:
     id: b0a11d705233
-    last_write_checksum: sha1:d855fd990b8d6197c4d749f5713a634bfe4ac03f
-    pristine_git_object: 47d1a397c69a91edb0d36e7c4e21f9683b615556
+    last_write_checksum: sha1:680348960d203a3123338feed64f6746b0a98f0a
+    pristine_git_object: 18e8977e9bccaa46256a26358777f0071f84c8e5
   lib/kombo/models/operations/gethrisemployees_request.rbi:
     id: a2039820cf62
     last_write_checksum: sha1:69d94fd15860caf4004c2caa5fb2c50758302da0
@@ -4436,8 +4588,8 @@ trackedFiles:
     pristine_git_object: 5f2029a68161c4bf4c2bb2233d67a11cec017b33
   lib/kombo/models/operations/gethrisemployments_request.rb:
     id: eec05bda76f0
-    last_write_checksum: sha1:9fba61fcb8c1012c9b36001904cb7d64fe4203b1
-    pristine_git_object: 9d262341736f4eee8c13ba0024421345534f28db
+    last_write_checksum: sha1:aef1e46fb203dfcaed3fd28ab50ffaa14faf9e3e
+    pristine_git_object: 446bb9d4012339cc3db7ee2b791acb3038830f6a
   lib/kombo/models/operations/gethrisemployments_request.rbi:
     id: da15e3b51201
     last_write_checksum: sha1:739aad1bfb33433e6a38e21564ea6a1819a2d554
@@ -4452,8 +4604,8 @@ trackedFiles:
     pristine_git_object: 53a65c105b9af0bc775651bab12d1dd6c3569edd
   lib/kombo/models/operations/gethrisgroups_request.rb:
     id: 659ad120683b
-    last_write_checksum: sha1:0b641ed8a7d79da0699d90e5c0cafbf5f69f018d
-    pristine_git_object: 7f53933346b47b7ea7fa3b0291da270069c9b09c
+    last_write_checksum: sha1:84ee61e6241d5b14c31fce4e6e9e9f723b026f50
+    pristine_git_object: 61110650476cac181e6e2fd31d6fba79685ac78d
   lib/kombo/models/operations/gethrisgroups_request.rbi:
     id: 2e58ab652d0c
     last_write_checksum: sha1:7f3840b627eda40cc4d9be478ed20babc4268ccc
@@ -4468,8 +4620,8 @@ trackedFiles:
     pristine_git_object: 0239397ca7c084401cbe3f8cf5894994d2a88854
   lib/kombo/models/operations/gethrislegalentities_request.rb:
     id: 03af71b62974
-    last_write_checksum: sha1:883cbded5fa220ed26cc04f82be34e5f6df8b9c4
-    pristine_git_object: 89e44f25b76e472dea0545542e78e35ed036573e
+    last_write_checksum: sha1:7d30fde4997e9d3435a6749986819d6d43e7bf3c
+    pristine_git_object: bf53b654027d9aa502e67e60e57f025e740cfc43
   lib/kombo/models/operations/gethrislegalentities_request.rbi:
     id: 97109dd484d4
     last_write_checksum: sha1:1e92de89f4f54b2d461e8b4efb06f85a287a20b7
@@ -4484,8 +4636,8 @@ trackedFiles:
     pristine_git_object: 4ade88b9fe0a254e6c8ca5228c490a21fc59eaaf
   lib/kombo/models/operations/gethrislocations_request.rb:
     id: b78a606fb5a6
-    last_write_checksum: sha1:a19569a55af7370c4ff2a753ba26037876500d24
-    pristine_git_object: 6323a3faa674a7c494ebf0dda96d0427c1bb0d4c
+    last_write_checksum: sha1:259dfabc75fffa2b7647e736b18035bfd772d037
+    pristine_git_object: a570f5892fc82414bc586efe60947e99089699cb
   lib/kombo/models/operations/gethrislocations_request.rbi:
     id: bca4f6c889ce
     last_write_checksum: sha1:208bd7c13379baad766c6b1eb4ad4178a5a104e4
@@ -4500,8 +4652,8 @@ trackedFiles:
     pristine_git_object: 4dc17d6b530587b2978b48b11058679ed3e7e41f
   lib/kombo/models/operations/gethrisperformancereviewcycles_request.rb:
     id: 400897ebd57d
-    last_write_checksum: sha1:6f519f2a46f26564651ef1f415ba1cd2b2aab446
-    pristine_git_object: e41e138ce594f8c266b36cbb7002bf29c9f4ff97
+    last_write_checksum: sha1:30b8b4be0d18f88ea796c0a36cad8292dd7b7aeb
+    pristine_git_object: f1805192426e05ddb6a311f3a0b22d4c67294193
   lib/kombo/models/operations/gethrisperformancereviewcycles_request.rbi:
     id: 3c5871508bd1
     last_write_checksum: sha1:46955c2b28b51d132c3d0b2eac7458650e7d10ea
@@ -4516,8 +4668,8 @@ trackedFiles:
     pristine_git_object: fc76c78a0e97714ed9761cd9537443be73907914
   lib/kombo/models/operations/gethrisperformancereviews_request.rb:
     id: dd64eb2c2709
-    last_write_checksum: sha1:5b7a00a05bc4b20e25a8584715d446b9616b7245
-    pristine_git_object: 6614fac33683483f5c489c0345a305c27f64921e
+    last_write_checksum: sha1:a1bc436ca06a92b003d87385ab5c68163d0ecc3f
+    pristine_git_object: e9e2d4192cc76117a9e69c4ba9cfc9a23f39d10a
   lib/kombo/models/operations/gethrisperformancereviews_request.rbi:
     id: ff77c547fae1
     last_write_checksum: sha1:23320726a322ddd747fdaff96e8381921ee77ef0
@@ -4530,10 +4682,26 @@ trackedFiles:
     id: 9863c8290ac4
     last_write_checksum: sha1:2e32553c5218df68962a17999b8ff8e0f1f6a563
     pristine_git_object: b565f0ceb41c33ae148e97f6abe4822874e7a359
+  lib/kombo/models/operations/gethrisstaffingentities_request.rb:
+    id: 5c31c72e50be
+    last_write_checksum: sha1:a70664250169d4b8b2f39bb9dd8493fa48f4c6ff
+    pristine_git_object: 4e602dbc79b9a0988cf3aaf19ce18fcdf1c9877c
+  lib/kombo/models/operations/gethrisstaffingentities_request.rbi:
+    id: 14394461ed51
+    last_write_checksum: sha1:81cfaf2032bdd79d2956d9c7fc818657ec67820d
+    pristine_git_object: 52ac1283231a5772753e59079d51600f4af7f213
+  lib/kombo/models/operations/gethrisstaffingentities_response.rb:
+    id: 954423817c64
+    last_write_checksum: sha1:14a2089222b06e2727f9b5ce42b4b137143e460c
+    pristine_git_object: ad64ac1d0aa3657f767e367b440683307b6c5547
+  lib/kombo/models/operations/gethrisstaffingentities_response.rbi:
+    id: c8302c37be65
+    last_write_checksum: sha1:a08a1582c06672c39c079a5af08510196a32d5b0
+    pristine_git_object: c8add8543bda4196c7f10925c1446c235998c4f6
   lib/kombo/models/operations/gethristimeoffbalances_request.rb:
     id: 557d54e6b786
-    last_write_checksum: sha1:c7f365c73c77b90b6bb65ddd25d25b649bc0044f
-    pristine_git_object: 0aceaa4a706ea7647e910c4178673dee47dd0288
+    last_write_checksum: sha1:2f7f5f65ea2df11f7b437f402cef682bfab60c3a
+    pristine_git_object: ddf6b080da290392af06df05e4d2121bd958b057
   lib/kombo/models/operations/gethristimeoffbalances_request.rbi:
     id: d38b6ff47ae6
     last_write_checksum: sha1:69e4d70b263d4da4ff10cad2c9cfe27263b9222d
@@ -4548,8 +4716,8 @@ trackedFiles:
     pristine_git_object: 03b084e4cbcb81ba898ea33ec773e94a4a7fdab7
   lib/kombo/models/operations/gethristimesheets_request.rb:
     id: 2ad32210cbc2
-    last_write_checksum: sha1:8cd918b56962ba4fdb1a27368ed9bd55b06f28fc
-    pristine_git_object: 4126438b18260c83d71f7f531a90f08110ec54f4
+    last_write_checksum: sha1:6d2ea207b345b3cdb9b5debc5adc3b2a407ade66
+    pristine_git_object: 4b242892c6ee857421ee6c4a0303b8040c13d517
   lib/kombo/models/operations/gethristimesheets_request.rbi:
     id: 7df136bf503f
     last_write_checksum: sha1:2193b272c5d309bc8cd961b36acd38616b7b0d8f
@@ -4988,8 +5156,8 @@ trackedFiles:
     pristine_git_object: 5c2b698f35005fd6c12acccbf44cf5e358940129
   lib/kombo/models/shared.rb:
     id: 243803bd4275
-    last_write_checksum: sha1:7194aed39fb2e7a31ee653e399d750e3d4b49a01
-    pristine_git_object: df369c447e33a66d16d108ce80f0361bf89d26f2
+    last_write_checksum: sha1:84097631f783c7910e7374f5f37e698be300c30e
+    pristine_git_object: 5f42d20a67c592d909af6589d38c20b8361b03a0
   lib/kombo/models/shared/a3innuvanomina.rb:
     id: 9fd5b4269e9a
     last_write_checksum: sha1:07e4f292950b316a10cd82ade7c7052ab059183f
@@ -5032,16 +5200,16 @@ trackedFiles:
     pristine_git_object: d04539c1c1e2d7c32df984c4758407c072f54a5d
   lib/kombo/models/shared/assessmentorderreceivedwebhookpayload_hiring_team.rb:
     id: 38fdc2a2ac53
-    last_write_checksum: sha1:e28f6aa2c6075b0c3ef304602024d4bad2e0b458
-    pristine_git_object: fa59c54e83b88de70f758f69b16a8045187d48cd
+    last_write_checksum: sha1:ff5898b300a2fe1b392b494b350ae92282e0890d
+    pristine_git_object: ec27ed637dfcdbc5ab6444370bc09b409240d31e
   lib/kombo/models/shared/assessmentorderreceivedwebhookpayload_hiring_team.rbi:
     id: 3371998986a5
-    last_write_checksum: sha1:94ed45ff6955c63d7a1d470f15153da2c0f263cf
-    pristine_git_object: e32c579b8985ba637b6e440dc39e8e4da6c639ee
+    last_write_checksum: sha1:e2687e6c88e21df0f0c1052ea0ed9bb71704b534
+    pristine_git_object: 3d5391baf381c018cf78b4d22a0dd3c478afee4b
   lib/kombo/models/shared/assessmentorderreceivedwebhookpayload_hiring_team_role.rb:
     id: 21552b9e74c9
-    last_write_checksum: sha1:bbf1c0a0505d2ecd64380407a963ab186bef07e8
-    pristine_git_object: 221ecef77e39a58b0d822039fd1aa4602695d452
+    last_write_checksum: sha1:ae41712ce85790310a4ebbc982f5bcbff92916eb
+    pristine_git_object: 1e3ed2b2c68db6c2d516d6af6b19ab3d46c54822
   lib/kombo/models/shared/assessmentorderreceivedwebhookpayload_hiring_team_role.rbi:
     id: 0ec9b3248e84
     last_write_checksum: sha1:8c551fe50286a3adecf5a3a704bd88563e7b1eca
@@ -5616,16 +5784,16 @@ trackedFiles:
     pristine_git_object: dfea93fb01fa17a55be94655861e11ae830cb69a
   lib/kombo/models/shared/getassessmentordersopenpositiveresponse_hiring_team.rb:
     id: 9ebbc8e37272
-    last_write_checksum: sha1:d7ccd825b5ecfc9fd7455c46b1aa8221e2427aac
-    pristine_git_object: 411ac2e385ff331a76c50b4f67eb2814a3575cd1
+    last_write_checksum: sha1:5511cafc54df2e3fedff22de35e2b5b18a5a4989
+    pristine_git_object: d2dfe38b10cc213c1f044ec72d0b4484758488b2
   lib/kombo/models/shared/getassessmentordersopenpositiveresponse_hiring_team.rbi:
     id: 8af49cfac28b
-    last_write_checksum: sha1:339f353ef8762e79457471c96461f34a2d4ded36
-    pristine_git_object: d545246fc1a67ae63459e00142f4f764851b56b8
+    last_write_checksum: sha1:e00ac55ad5ef6703a4bc2d519be38ceda03fcc75
+    pristine_git_object: c5b9647063af136403453e6c577342cf553b58ea
   lib/kombo/models/shared/getassessmentordersopenpositiveresponse_hiring_team_role.rb:
     id: a5711929a175
-    last_write_checksum: sha1:c025ecf14f8f58e2e8035946e3bdc4b93b0b7758
-    pristine_git_object: bfb127787b0115bf380011ffa6ad59cc18cf96b9
+    last_write_checksum: sha1:af13e41c958748516c87be8098345acaba4f9cd8
+    pristine_git_object: e0208b34f4241aa4f835268743ff7a1a5371aa73
   lib/kombo/models/shared/getassessmentordersopenpositiveresponse_hiring_team_role.rbi:
     id: 90dbb7bcfdd7
     last_write_checksum: sha1:d9e76923567d9381f02ee387abac93c1e49a395c
@@ -6272,16 +6440,16 @@ trackedFiles:
     pristine_git_object: 7adc18439960525f133730dae6dc51743c16c296
   lib/kombo/models/shared/getatsjobspositiveresponse_hiring_team.rb:
     id: 9ff00773fe7a
-    last_write_checksum: sha1:2c0407a257581231a5f9506f5d39bcc4c91789e9
-    pristine_git_object: c6d49c5d07f926747cc2b4627aac9b23c7f4529b
+    last_write_checksum: sha1:fc0dada04722f2c1f51e1f6b6237230009655518
+    pristine_git_object: 2e7ccc8863abc74fc553549249cf531fe22b6ff8
   lib/kombo/models/shared/getatsjobspositiveresponse_hiring_team.rbi:
     id: b95043f41c29
-    last_write_checksum: sha1:d970941494bf4d6a20cb1050f8bee9aad695d11f
-    pristine_git_object: 99d8983c0cd8d6e14c2fc2aaecdafefbe9ae5adc
+    last_write_checksum: sha1:5293de6d7caf45bf31af1d27d73048243237a09a
+    pristine_git_object: 840277cef4fd811f5d5d713980b977c8bbf70317
   lib/kombo/models/shared/getatsjobspositiveresponse_hiring_team_role.rb:
     id: 99a5ac78e77b
-    last_write_checksum: sha1:afec80c2670f9cc80c09755a698ce808ddb62945
-    pristine_git_object: e2c6341118dba67117012f93b8901fa953b702b7
+    last_write_checksum: sha1:04865ea42c7bce6b1f1446d59fd52922c092afc0
+    pristine_git_object: 9a5a2d96df2bb5bf0fc4ba7e0bd0304c5c5fe79d
   lib/kombo/models/shared/getatsjobspositiveresponse_hiring_team_role.rbi:
     id: 18735060420a
     last_write_checksum: sha1:5fff35f6a6a5e9fe9305f74053aacac2345af075
@@ -6302,6 +6470,14 @@ trackedFiles:
     id: 0f08d1f90874
     last_write_checksum: sha1:75d769eae42dea0b9175d4aa318d02be1aa33ea8
     pristine_git_object: 3a3ef08db30ff0d3d041167a9ecde76bfe56903c
+  lib/kombo/models/shared/getatsjobspositiveresponse_scope.rb:
+    id: 583bbf3618df
+    last_write_checksum: sha1:ee0d28da804f5555f1d8695f5e1ea01e5914b086
+    pristine_git_object: 8a23015780bd227c0b109f1a4d4cff74bed1d776
+  lib/kombo/models/shared/getatsjobspositiveresponse_scope.rbi:
+    id: 5b4e6dcbfe7d
+    last_write_checksum: sha1:5ac6bc9d69238e2d8d972ce4161fc9b64e4e1553
+    pristine_git_object: 4fe2c80217a32cd8502578b170e77b311c4464d4
   lib/kombo/models/shared/getatsjobspositiveresponse_status.rb:
     id: 4f42007ca035
     last_write_checksum: sha1:5d9295aa07f6b0ec21802095a8e9cae5f465e696
@@ -6310,6 +6486,14 @@ trackedFiles:
     id: 499a8fb26ee2
     last_write_checksum: sha1:a43207851599086bcd7b46110e0a4411fd51d135
     pristine_git_object: 69f43c81fea09824a1d0ac5b5ee3b84e600b3d1d
+  lib/kombo/models/shared/getatsjobspositiveresponse_unified_type.rb:
+    id: 4618e8c181ec
+    last_write_checksum: sha1:5ce312a67c53163b05f9ce37754a33528c2412c3
+    pristine_git_object: 25d78caac04828538468a4fda1874c087cc5c4d9
+  lib/kombo/models/shared/getatsjobspositiveresponse_unified_type.rbi:
+    id: f9f9a197fc37
+    last_write_checksum: sha1:49bd750b991f94b3c36bd8b8d21951acec69f189
+    pristine_git_object: ae4da4ac236720cd9f429042e8696d45cbf7ab17
   lib/kombo/models/shared/getatsofferspositiveresponse.rb:
     id: 001e43ade0d8
     last_write_checksum: sha1:6a65dd19d1f806965dc39748dc3db4fa661a7382
@@ -6398,6 +6582,46 @@ trackedFiles:
     id: 95b02d482d37
     last_write_checksum: sha1:6ab223dc2f2605fe5eeb37bc20853aa574656fab
     pristine_git_object: 795b054089f30353944209d705753b46a4de5fff
+  lib/kombo/models/shared/getatsrolespositiveresponse.rb:
+    id: c6bb9499ab40
+    last_write_checksum: sha1:a6be143db02e2954c8a7964b7080abba6292349f
+    pristine_git_object: 35c79a474372f65f7fd8e019ab03f79bf428f230
+  lib/kombo/models/shared/getatsrolespositiveresponse.rbi:
+    id: 519575f9b2b7
+    last_write_checksum: sha1:291ab4f99e8c1743acbaedeb155d2677f6b5cbd7
+    pristine_git_object: 51b272eb480fd454f149fe96573a5fee7edfdb67
+  lib/kombo/models/shared/getatsrolespositiveresponse_data.rb:
+    id: dfe4f818ef5e
+    last_write_checksum: sha1:8fa028acbaa1b9007d62ac7266c30d2410ef7a8d
+    pristine_git_object: 0ea618cf3d9a2f2465439d2aa85f45d3f272e185
+  lib/kombo/models/shared/getatsrolespositiveresponse_data.rbi:
+    id: 2f2db5f0bc7f
+    last_write_checksum: sha1:d4a485825688b44ac4381fb523f655564804926e
+    pristine_git_object: 12f05f2f4227841c2b03cf03f1872650bfcd61ca
+  lib/kombo/models/shared/getatsrolespositiveresponse_result.rb:
+    id: 63283aff74db
+    last_write_checksum: sha1:76b38858a1e5ea87b5e125b7d1283ca4de875980
+    pristine_git_object: a57dbb0578e6fd1f8d8cef538c89ab624f68f7b8
+  lib/kombo/models/shared/getatsrolespositiveresponse_result.rbi:
+    id: 9f94acce19bb
+    last_write_checksum: sha1:6b7dff0546da1f5e6728c047940de98840bec1c8
+    pristine_git_object: f3c429eb6422292f17c99865360429ecc6d9b934
+  lib/kombo/models/shared/getatsrolespositiveresponse_scope.rb:
+    id: a466bf596deb
+    last_write_checksum: sha1:907c7a13e047783987821c81bfa3ac74f7d3a911
+    pristine_git_object: 1e5f13e9445e937176a762ae902af028a4884aff
+  lib/kombo/models/shared/getatsrolespositiveresponse_scope.rbi:
+    id: 674df2c7b407
+    last_write_checksum: sha1:2f130d52023e95faa5863719e7072015effd4b88
+    pristine_git_object: 73bafb9ebfa7ec20069f7ce1aba241c006507857
+  lib/kombo/models/shared/getatsrolespositiveresponse_unified_type.rb:
+    id: 48b3932f7c40
+    last_write_checksum: sha1:4df0c3e20857e2fb39d736d3c52116f43d8b857f
+    pristine_git_object: c328aca2aed76394a5f12a66c9d0334dfa718e09
+  lib/kombo/models/shared/getatsrolespositiveresponse_unified_type.rbi:
+    id: 911237f7ade3
+    last_write_checksum: sha1:3440a0f15e54b997c7f06773ff3878199a25219a
+    pristine_git_object: e27bebfba42040f8ac0808a45ec2997e5cd1330b
   lib/kombo/models/shared/getatstagspositiveresponse.rb:
     id: 6ca4077b1bb4
     last_write_checksum: sha1:f7b16a8bde69a3f6ffa4dd9794ef9da736459159
@@ -6440,12 +6664,20 @@ trackedFiles:
     pristine_git_object: fe7250d5b52c719659994613b4fc85d3895687c7
   lib/kombo/models/shared/getatsuserspositiveresponse_result.rb:
     id: e8220425c22e
-    last_write_checksum: sha1:32590b0edff8b64774d9a51523f8fc8500c7cfda
-    pristine_git_object: 0c53b73b0029f11367e16ebf094d90274c0e6afa
+    last_write_checksum: sha1:aad7a80ad201d5c0d3259b580190a5743c02362c
+    pristine_git_object: 19234493d6f3c7cee4d68a02224824a0e7c3e797
   lib/kombo/models/shared/getatsuserspositiveresponse_result.rbi:
     id: 555c1ab81d79
-    last_write_checksum: sha1:9f7e5ffc76e7bec59edc031581a6580f7a5c3af2
-    pristine_git_object: 0e9dd88f395621079b4b60af9fa6aa7555fedc3e
+    last_write_checksum: sha1:b9175044591d251fc5038fc975df2a228c084040
+    pristine_git_object: 2182d8d14b51f3f73b0802902130a53294c7f5c9
+  lib/kombo/models/shared/getatsuserspositiveresponse_scope.rb:
+    id: 59344e30a8dd
+    last_write_checksum: sha1:3e4c5947a50321188008fac03660f80e406b289b
+    pristine_git_object: 616de85fbb9298a6f082e2c0ef415487b10ef259
+  lib/kombo/models/shared/getatsuserspositiveresponse_scope.rbi:
+    id: aa8fce159efc
+    last_write_checksum: sha1:9d8d990b35c618ac82fc5115c610ff7d6ce8972d
+    pristine_git_object: 42dd90ad9cbe240afbe08d274eb787a22239cb61
   lib/kombo/models/shared/getatsuserspositiveresponse_status.rb:
     id: 42b1725be9d3
     last_write_checksum: sha1:56598551f2c8bd43e07e7dfb582213256f005616
@@ -6454,6 +6686,14 @@ trackedFiles:
     id: ec3a5ed7fec3
     last_write_checksum: sha1:98866e34b992be369ab6fc7c4bd1a0e8a84317a1
     pristine_git_object: 0e069004823d93977df6d603e4ad26ab3b7a49a1
+  lib/kombo/models/shared/getatsuserspositiveresponse_unified_type.rb:
+    id: 775b6083f706
+    last_write_checksum: sha1:d42cbd518c705bc1ac6998a85ebd2b530a77ad1a
+    pristine_git_object: 46a709e5f0a5d30705ec6755af5a415f20d07d6d
+  lib/kombo/models/shared/getatsuserspositiveresponse_unified_type.rbi:
+    id: 702cbbf6e4e6
+    last_write_checksum: sha1:4d86e21a1a2a28d4b99772fea71638bf29ba0e50
+    pristine_git_object: f257b606b370b8deae830f7e814fb39e862192d2
   lib/kombo/models/shared/getcheckapikeypositiveresponse.rb:
     id: 4af30a0fa18d
     last_write_checksum: sha1:45a6010315e269357764ce5a81e13fb29c8c4583
@@ -6822,6 +7062,30 @@ trackedFiles:
     id: be89a334a129
     last_write_checksum: sha1:a51eee0cdedfd5be14b557c0761c1922beac43b3
     pristine_git_object: a2159c77b45e239c3fa5c8e680b587daf88d5720
+  lib/kombo/models/shared/gethrisemployeespositiveresponse_group.rb:
+    id: 3ce5f6afcf2e
+    last_write_checksum: sha1:0535380eb518c4794176f84aa89cb494674139b0
+    pristine_git_object: b526689e1be7ed45fdc7d20c99ff3c68b1feb2f9
+  lib/kombo/models/shared/gethrisemployeespositiveresponse_group.rbi:
+    id: 091d3a8d8237
+    last_write_checksum: sha1:f9fb3bfda12d7962c72c5b07596e7d3a41c3dbfc
+    pristine_git_object: e3d855b7db732ab425ff655de4c1d3e1d1883201
+  lib/kombo/models/shared/gethrisemployeespositiveresponse_group_type.rb:
+    id: b797c6b2175e
+    last_write_checksum: sha1:6782f70f5b7dc2b9950530cfd584c1f120731e80
+    pristine_git_object: c1b83fa62847ce501994d6bad8a7bd2cdaec639a
+  lib/kombo/models/shared/gethrisemployeespositiveresponse_group_type.rbi:
+    id: 37d630797711
+    last_write_checksum: sha1:688dcf5193b3e8e9f8b19e5571be26fff1aae4bb
+    pristine_git_object: 6340f994f43f9690faefb79c4fc339d13c5970a2
+  lib/kombo/models/shared/gethrisemployeespositiveresponse_legal_entity.rb:
+    id: fbe96d77b0ce
+    last_write_checksum: sha1:d665c6d9cb8770ea239baec979fd606ca3660eaf
+    pristine_git_object: 47658dd0c5a17ad31e6fe1bb7af38226c639ba81
+  lib/kombo/models/shared/gethrisemployeespositiveresponse_legal_entity.rbi:
+    id: 1ef13b44bfd4
+    last_write_checksum: sha1:46d11c0e3ff2b5275dd637221960bb8548523149
+    pristine_git_object: 08cd4f4c07be2fa8de0d71cd776ec6caa9a79e9f
   lib/kombo/models/shared/gethrisemployeespositiveresponse_pay_frequency.rb:
     id: 6ffd092c810d
     last_write_checksum: sha1:7f7a8bb9b13d9707fb6d4f5d4c40ac0aaf4926e0
@@ -6840,8 +7104,8 @@ trackedFiles:
     pristine_git_object: d4c9725f1635cfd7e0e94cabe9787ce51ee4fb3f
   lib/kombo/models/shared/gethrisemployeespositiveresponse_result.rb:
     id: 4fb26f808493
-    last_write_checksum: sha1:8454348e5ea277a3932ec01746c335b24c3ac123
-    pristine_git_object: 46c840bee74070681a55c6ea4055561cf45466e5
+    last_write_checksum: sha1:ae6f42b3ca08ad6480f1faed3323b2f3450fbba6
+    pristine_git_object: 5c4b9a14c285be152d46705f2bc420102196980b
   lib/kombo/models/shared/gethrisemployeespositiveresponse_result.rbi:
     id: 50a034a6faf5
     last_write_checksum: sha1:a4a0d5abeb8a3a38c15b5f1461b17a21c1767b4c
@@ -7054,6 +7318,86 @@ trackedFiles:
     id: 9b18db511300
     last_write_checksum: sha1:18f1ce7248215d0c995d86ced62bd738c4c7287d
     pristine_git_object: 3c7b8135c6a76b1f66f3d22396eef518e502ea6f
+  lib/kombo/models/shared/gethrisstaffingentitiespositiveresponse.rb:
+    id: 8942fb3869a4
+    last_write_checksum: sha1:7354e3defae21f0c77f79964c9e36e14f254c068
+    pristine_git_object: af6f58ad71f469152a771e14ce73a581cc031bef
+  lib/kombo/models/shared/gethrisstaffingentitiespositiveresponse.rbi:
+    id: 37160c5e1844
+    last_write_checksum: sha1:40fd34a211b6904e772fec7159acdeb2f366cb78
+    pristine_git_object: 1e297da7e5d612c3b694d3e51e4c4550e46317f4
+  lib/kombo/models/shared/gethrisstaffingentitiespositiveresponse_data.rb:
+    id: 54636a037470
+    last_write_checksum: sha1:4c5dc7bb2e07c30b8f045ed5e815973246416839
+    pristine_git_object: 6e573ea0102265d879bce58e40827a6bdb0fbe9b
+  lib/kombo/models/shared/gethrisstaffingentitiespositiveresponse_data.rbi:
+    id: 2c7e0a0feb8a
+    last_write_checksum: sha1:d4572cf875c424d54c3e96929ddcc19a668937d0
+    pristine_git_object: 494e8513ade74b0ddc10d01ad668c29ddcf5fef2
+  lib/kombo/models/shared/gethrisstaffingentitiespositiveresponse_employment_type.rb:
+    id: 4994662a4e01
+    last_write_checksum: sha1:1e6796d5adb8010acba59613f426fc3ada786ebd
+    pristine_git_object: c5ca595873038f7b498c1489eecfaf44e6953f5d
+  lib/kombo/models/shared/gethrisstaffingentitiespositiveresponse_employment_type.rbi:
+    id: 705d509b3fa8
+    last_write_checksum: sha1:5dad0f194e58cf643398633b020203c6746f4c55
+    pristine_git_object: ba633ccc4d80625f2c0c368face5b6ccd30d0764
+  lib/kombo/models/shared/gethrisstaffingentitiespositiveresponse_group.rb:
+    id: 19b9fc250175
+    last_write_checksum: sha1:3de23d9c27914f2556f8c997e010ae2329abfedf
+    pristine_git_object: e6632a0fff1fcb7a461d3d8f232effffc8a6b80f
+  lib/kombo/models/shared/gethrisstaffingentitiespositiveresponse_group.rbi:
+    id: ec931460d01a
+    last_write_checksum: sha1:eba66ec5e21f429ce43de3f61b67b131175c3354
+    pristine_git_object: 5cd2339c79e3a772a0d50ae7b37a68be19421984
+  lib/kombo/models/shared/gethrisstaffingentitiespositiveresponse_legal_entity.rb:
+    id: 1170ccfa238d
+    last_write_checksum: sha1:866433412408010e4192c725f28a72a241a66d64
+    pristine_git_object: ab986c0245e200d14fc1046be93550f8a156ed17
+  lib/kombo/models/shared/gethrisstaffingentitiespositiveresponse_legal_entity.rbi:
+    id: d043506dbdd1
+    last_write_checksum: sha1:504983781d868e53fc2b2412ce803c6718677cab
+    pristine_git_object: 7a96f525251377014445ee23f757e9c9542d0a63
+  lib/kombo/models/shared/gethrisstaffingentitiespositiveresponse_location.rb:
+    id: 9d03e9eb8372
+    last_write_checksum: sha1:004bbed30427cca206894bd2f6b98c57a3a6a210
+    pristine_git_object: e5ba9108fc154f72d7ca10de391fbf557cf9256d
+  lib/kombo/models/shared/gethrisstaffingentitiespositiveresponse_location.rbi:
+    id: 140de4e00c2d
+    last_write_checksum: sha1:4497796e66f8d3487c6bafa428997d9f50ae28af
+    pristine_git_object: 3d6561bb41b2b3b8697f7d24eb82a34fbb292690
+  lib/kombo/models/shared/gethrisstaffingentitiespositiveresponse_result.rb:
+    id: e7d283d7672e
+    last_write_checksum: sha1:99a92df462c0488af4958fd2c0f47c00ad8356a1
+    pristine_git_object: 354733a2e12d262b09cea7f807c888ffd367b487
+  lib/kombo/models/shared/gethrisstaffingentitiespositiveresponse_result.rbi:
+    id: ffa49bb82af4
+    last_write_checksum: sha1:f9e082f3ec8c6be1faa3398fbcc2e96895694175
+    pristine_git_object: cbb6cb916d3e904e4bb07bfe9b7a9b2be4135726
+  lib/kombo/models/shared/gethrisstaffingentitiespositiveresponse_status.rb:
+    id: 139a8da25284
+    last_write_checksum: sha1:20754e5ed94895319e20cf323c6e14c442409646
+    pristine_git_object: 88df478169659aad1e51fdd92962b257a054226a
+  lib/kombo/models/shared/gethrisstaffingentitiespositiveresponse_status.rbi:
+    id: e062f4a06a95
+    last_write_checksum: sha1:506550b03e328c128ee64f9f07afd1e11d683783
+    pristine_git_object: e00fee94f6b18c2af80a0f6dde54fdaab2934145
+  lib/kombo/models/shared/gethrisstaffingentitiespositiveresponse_type.rb:
+    id: e3d826b73673
+    last_write_checksum: sha1:a2d501f7236d2d95f14e287559292a9c22534c12
+    pristine_git_object: cca5076cc13c7db69bec65558813ff34ed537a8f
+  lib/kombo/models/shared/gethrisstaffingentitiespositiveresponse_type.rbi:
+    id: 92ed83e55075
+    last_write_checksum: sha1:4c0050839e924dd6241d73559777fb358362848d
+    pristine_git_object: a75f55a50e6a41e4943308546c66e038f8cd38fb
+  lib/kombo/models/shared/gethrisstaffingentitiespositiveresponse_unified_type.rb:
+    id: 89365c87f470
+    last_write_checksum: sha1:4c8618d5a9f3b741939a9e762c541cd8cab08662
+    pristine_git_object: 6fb71a57a617aba32aa9113be58f99ca4456d3d9
+  lib/kombo/models/shared/gethrisstaffingentitiespositiveresponse_unified_type.rbi:
+    id: 704468489ac2
+    last_write_checksum: sha1:90dbded68c4b0d7eeff94fe756df3f638c271c0c
+    pristine_git_object: b4d3df6aa3768ac9429cab113567c33fcdd7ffa9
   lib/kombo/models/shared/gethristimeoffbalancespositiveresponse.rb:
     id: 1dc68830a8cf
     last_write_checksum: sha1:e708d8dc5b6c87ab4bbb1085cc7b3b0851c50704
@@ -7422,22 +7766,6 @@ trackedFiles:
     id: 8ed42e2bb123
     last_write_checksum: sha1:c8e5cd8f0044d60e0067f3951433e31c73860c7d
     pristine_git_object: 473b2d3a296576f6760da8feebb6c868c6346039
-  lib/kombo/models/shared/group.rb:
-    id: 39eeb516cc32
-    last_write_checksum: sha1:f768a718c2304ed399823e37a5d8898234c8fb7a
-    pristine_git_object: 72f70631b1e6456b8ebc0af9ef0181eb2bcc2d80
-  lib/kombo/models/shared/group.rbi:
-    id: 2bd7eb6f602b
-    last_write_checksum: sha1:989fe7d5821ce1e305a8e19c999859c5e08c67d6
-    pristine_git_object: 346d763af188ce3f0b93d71108344a976adbf0d5
-  lib/kombo/models/shared/group_type.rb:
-    id: a3bcec708342
-    last_write_checksum: sha1:d6b13d8c44bca653e72717c46e26a17c3a1d617e
-    pristine_git_object: 92619a143f71e7ecdb6d9bc3ab582c87dca3ab7a
-  lib/kombo/models/shared/group_type.rbi:
-    id: 66061204a6e2
-    last_write_checksum: sha1:5b58a80f2f44940a15f240b8416ef91973e86089
-    pristine_git_object: 14fc39046621e8af2625e2292dd05894bb379bb4
   lib/kombo/models/shared/headers.rb:
     id: af1da2541ae7
     last_write_checksum: sha1:011d5ccdcded16a0d115e15451baa5c88dca64bc
@@ -7496,16 +7824,16 @@ trackedFiles:
     pristine_git_object: 986a5588d501ef6f64d2950c4893346e256317e9
   lib/kombo/models/shared/inlineassessmentorderreceivedwebhookpayload_hiring_team.rb:
     id: 6c006c6609a6
-    last_write_checksum: sha1:9cec28f3daf56879d672e21cff8d04d200338b41
-    pristine_git_object: 7983bfda894a83e4ff1f04eac0b7028eff49a58d
+    last_write_checksum: sha1:a92165351c72ea480df8a786d4823f32b4fb1d1a
+    pristine_git_object: 3af5cde0fac4feaa23303a6beab5d72421cdbc3d
   lib/kombo/models/shared/inlineassessmentorderreceivedwebhookpayload_hiring_team.rbi:
     id: 9e90c70ea152
-    last_write_checksum: sha1:9b3b26985115f7a492db56912c9e9e0e8675aad0
-    pristine_git_object: 551e223c7ab815502b96044034e5b80ae875aac8
+    last_write_checksum: sha1:4df41c115f09650c959660180fa93c9349f6715b
+    pristine_git_object: eaa48acfa18e9831c811c04c4b15a876ed8ebe7a
   lib/kombo/models/shared/inlineassessmentorderreceivedwebhookpayload_hiring_team_role.rb:
     id: fb6322e3d6a1
-    last_write_checksum: sha1:373cf8f6c4a393f30eea648ba577d5ff587af2c4
-    pristine_git_object: c65fcd2eba3f46066aaaf1c698758297934d9bf0
+    last_write_checksum: sha1:22b6b9ebffeea78c488589438b7557f4e4e68dd4
+    pristine_git_object: c2ee79fc007bcfefafe96f6785135d6faeec36df
   lib/kombo/models/shared/inlineassessmentorderreceivedwebhookpayload_hiring_team_role.rbi:
     id: ddde284bed35
     last_write_checksum: sha1:f80ddf282e841aee138c14b6967331495e2df853
@@ -7544,8 +7872,8 @@ trackedFiles:
     pristine_git_object: 61d9236f014e29375471436f1af74f42efce65d1
   lib/kombo/models/shared/integration_tool.rb:
     id: ec252bdaa1fd
-    last_write_checksum: sha1:4972c9c5afda662191c4f993c24cdf8caa14595d
-    pristine_git_object: 706170ed307190c65aa19717d594ff2b1df3881a
+    last_write_checksum: sha1:4624b5f0eb689cfa4098690ea0455d8244970ab4
+    pristine_git_object: 55e0914600e62f48ac0642573518fa6e9cd6a9a5
   lib/kombo/models/shared/integration_tool.rbi:
     id: fecc74b6f738
     last_write_checksum: sha1:c0987391d8322f5bca901ba6cc47a8c2bac6b195
@@ -7710,10 +8038,18 @@ trackedFiles:
     id: e7a6d4ff1eea
     last_write_checksum: sha1:6d766ff5c99e1286b2184bff9d01767f05a3dadf
     pristine_git_object: ccc0849f510e377ce5e9e4cd138d093c5e02d394
+  lib/kombo/models/shared/job_role.rb:
+    id: dbe92eba8197
+    last_write_checksum: sha1:149720a0828bfdfebf78c4091040a45d6a1340d9
+    pristine_git_object: 0ac69d3215e73645200c75948cf40933134fa71d
+  lib/kombo/models/shared/job_role.rbi:
+    id: 2c435971c1c5
+    last_write_checksum: sha1:ac5acdac6cca90e96c5e9caa49109781fb861a76
+    pristine_git_object: 0578494337ff26d7848f24b1accc8258aba264b1
   lib/kombo/models/shared/komboatserror_code.rb:
     id: 893199233faa
-    last_write_checksum: sha1:8651fe4ff25b792dfd7116cdfea3f1d49fe5784e
-    pristine_git_object: 839a5b1fb50062539d041bca6e3b45a88d72743e
+    last_write_checksum: sha1:ab7795dae415022d3385a6fc3d5fbe07628a8eaa
+    pristine_git_object: a9e8f481236738234b1d813c4b6cae5602a97dec
   lib/kombo/models/shared/komboatserror_code.rbi:
     id: b551dcf0c3ec
     last_write_checksum: sha1:3a8689b8d762891d9360f052f585bce9ce965727
@@ -7736,8 +8072,8 @@ trackedFiles:
     pristine_git_object: 589ac9c786ceefc47902fb75e10a9870f60a1b67
   lib/kombo/models/shared/kombogeneralerror_code.rb:
     id: 12114726771c
-    last_write_checksum: sha1:48129e2e9c4168c3ce4c0ada98c9f17db5c3c6ef
-    pristine_git_object: a49f54eae156ddbb02f58060c47e1415d3ade1e3
+    last_write_checksum: sha1:a8388eea923a3f379db85ee1ed1f2ea1e580d762
+    pristine_git_object: 0e63777668adeb214c92a81a4a4f7f0f9d329084
   lib/kombo/models/shared/kombogeneralerror_code.rbi:
     id: 14c2e94cd3d9
     last_write_checksum: sha1:50e6fa9ce2e2e5e0c0c78a7fe03d6200cbc9f3d6
@@ -7760,8 +8096,8 @@ trackedFiles:
     pristine_git_object: 3459c5d25590d23c6375cab80cbd02377c4d6d82
   lib/kombo/models/shared/kombohriserror_code.rb:
     id: 17683c32f63d
-    last_write_checksum: sha1:60cc0bf5fc28aa58485c8740d999b898702bcf50
-    pristine_git_object: 51ae80bc59228bee66adfda70061a31b93edb733
+    last_write_checksum: sha1:be19384db2725a2d0688349f8a181d0793fff221
+    pristine_git_object: b9788b79d35d9a4952b383a765f4424d4c8d2adf
   lib/kombo/models/shared/kombohriserror_code.rbi:
     id: 60abd07b49e8
     last_write_checksum: sha1:fcd610bd92060e489a416a18623747845b5743c7
@@ -7782,14 +8118,6 @@ trackedFiles:
     id: a75fcc4b4b04
     last_write_checksum: sha1:ddfc598de7393f2bcec892be4ca8dfac1b1607c2
     pristine_git_object: c9f800802e5fbdcfa63d5644e05c6c4063de6559
-  lib/kombo/models/shared/legal_entity.rb:
-    id: 6075fcb441a6
-    last_write_checksum: sha1:2876eb8b63f5566554d841ae03bd797eec20a289
-    pristine_git_object: 28a63bfd1f267cd630577d6d8eb345ec3c84f64a
-  lib/kombo/models/shared/legal_entity.rbi:
-    id: 8f519586c7a7
-    last_write_checksum: sha1:e408a3a038b625a39e0c81bb8c7f6c906031033c
-    pristine_git_object: 0403ff0f3b926e196a16f90ac454161bb4579344
   lib/kombo/models/shared/legal_entity_address.rb:
     id: f4dc4c1303db
     last_write_checksum: sha1:6686c355974997eaba80d9b72c6b1f9d6f20200e
@@ -7830,6 +8158,14 @@ trackedFiles:
     id: eebf1ed1f147
     last_write_checksum: sha1:aa8109e843c0b5e081ec29e1ca8b2687723188f2
     pristine_git_object: 4ddea25230dd89e2af7103ecb5c6bbd06c269e6b
+  lib/kombo/models/shared/model_type.rb:
+    id: b08403da6605
+    last_write_checksum: sha1:4e1541b64c1faa3b36168368ec726624d95938d0
+    pristine_git_object: 3c28257a268d6abaaaf44d618f52d59c3e55d5c5
+  lib/kombo/models/shared/model_type.rbi:
+    id: 4d1344e77a36
+    last_write_checksum: sha1:a0e2c736ee0abec10c51987290a80280bbc08e4f
+    pristine_git_object: d2ee08610d3811a728ca1378bad5e43af7787ed9
   lib/kombo/models/shared/multipart_form_datum.rb:
     id: 4c0b00247d1d
     last_write_checksum: sha1:9ca3c69b48ee0f835f4c17b7a33edaff3dbd5bae
@@ -7840,8 +8176,8 @@ trackedFiles:
     pristine_git_object: 88004f4a4fac10af695709af27bf15a7a59ab706
   lib/kombo/models/shared/name.rb:
     id: 70047deb719d
-    last_write_checksum: sha1:ab867071055afd15261af8b6b1f767993b5cc2d1
-    pristine_git_object: c5d6e99bbc31f8a36f48306f1b0e74394375c1ea
+    last_write_checksum: sha1:d372afa51c215d0c7cfaebadf3e59d5ac182318b
+    pristine_git_object: 82f08e862a99bd4a1b86414067362e55eaa577ce
   lib/kombo/models/shared/name.rbi:
     id: 42b088602335
     last_write_checksum: sha1:269e15d7d41493ba578d91bbf5cc64adc55f775c
@@ -8046,6 +8382,14 @@ trackedFiles:
     id: f3cdc75f3e3c
     last_write_checksum: sha1:c9232943010126fa9d4624b7bff89924281c46ee
     pristine_git_object: d53f1d856e412eb0bdaced85e40dfba8a6e86b5f
+  lib/kombo/models/shared/postatsapplicationsapplicationidnotesrequestbody_lever.rb:
+    id: deaeda7ac0b5
+    last_write_checksum: sha1:9c08b4c450b62d7eb1fffc59b3e6b5d962504ef2
+    pristine_git_object: e6c6535b0857017b08d932f691cb5b23cbcc3a14
+  lib/kombo/models/shared/postatsapplicationsapplicationidnotesrequestbody_lever.rbi:
+    id: 170a8fe5f6c0
+    last_write_checksum: sha1:5f302343fbb3992308a594a879f554baac5b8e3b
+    pristine_git_object: 6f4b192052928907809c352f0405ecb12937141c
   lib/kombo/models/shared/postatsapplicationsapplicationidnotesrequestbody_post_headers.rb:
     id: fd4b1cc7835c
     last_write_checksum: sha1:d7b56ed1cde7f5bd8674ccce4216aa148c74dd7e
@@ -8064,12 +8408,12 @@ trackedFiles:
     pristine_git_object: 284df9c1e378093bf07b20ee1ed6143a070b77b4
   lib/kombo/models/shared/postatsapplicationsapplicationidnotesrequestbody_remote_fields.rb:
     id: 3e817bff19d5
-    last_write_checksum: sha1:af61f86aa09d6b32d3b0e3699aa7c1af3344e00e
-    pristine_git_object: 0df5f9bfe2b1e23f8e0462df1cc0d69a253b5ac6
+    last_write_checksum: sha1:9e5abff35fcfacc91b8eb3916d8788b6cc21ea49
+    pristine_git_object: 1ee47a44c0eb2c1e97c913ab5138d0b8b11c8280
   lib/kombo/models/shared/postatsapplicationsapplicationidnotesrequestbody_remote_fields.rbi:
     id: 2d32ffad0550
-    last_write_checksum: sha1:bff11fb7fd4ef0d9f7a459e01c13508fa0a04f06
-    pristine_git_object: cda2b1ba20f85ee1c9fa1e7aa96ecc990d9d6d5b
+    last_write_checksum: sha1:daae35d05e7e6dff8e199beabfbd80027aee3f2e
+    pristine_git_object: c5df56278577f83dbc8b77818f39a9ac4c587881
   lib/kombo/models/shared/postatsapplicationsapplicationidnotesrequestbody_teamtailor.rb:
     id: c3ca0f6b2f47
     last_write_checksum: sha1:770ceb033706a1e32d2ccf677bbe2cc252d2aafa
@@ -8726,6 +9070,14 @@ trackedFiles:
     id: dec9f869d0f9
     last_write_checksum: sha1:a065a6fe81980dd444a6fc77ddd5839b37ede6aa
     pristine_git_object: 100b8ddc36d723a3244ce57c83c71edaf2f69dee
+  lib/kombo/models/shared/postatscandidatesrequestbody_consent_decisions.rb:
+    id: 19177f7b765f
+    last_write_checksum: sha1:f95c5cd40c8eac3faf0f2243335ca77e356bb0bc
+    pristine_git_object: 7b67efe22cd51dc4907e47a1d493ad386486c51b
+  lib/kombo/models/shared/postatscandidatesrequestbody_consent_decisions.rbi:
+    id: 59deff4f2805
+    last_write_checksum: sha1:41b4695d50e46573995b38cae8e5f2c2608e3df9
+    pristine_git_object: 7a377b329c81a24f396fcc24de3b4d17a861de06
   lib/kombo/models/shared/postatscandidatesrequestbody_contact_data.rb:
     id: 648dc374b75f
     last_write_checksum: sha1:35aa0357bf59744f812c246724ea23c3a8ca5065
@@ -8776,12 +9128,12 @@ trackedFiles:
     pristine_git_object: 67a6934dddf886389343828135575fcc2f5b4770
   lib/kombo/models/shared/postatscandidatesrequestbody_dvinci.rb:
     id: 734e6c468b73
-    last_write_checksum: sha1:c0aac67058d6ad49e0335cad244ea29fae0e2d18
-    pristine_git_object: 9c72434775f33a95ec75f781b3b00c948695c0d2
+    last_write_checksum: sha1:538f2824308b165a03f38cc40f044a3936ad8a79
+    pristine_git_object: 5837995e3128a4db963bb6397ca93adf5da6f737
   lib/kombo/models/shared/postatscandidatesrequestbody_dvinci.rbi:
     id: 742ffccc5abf
-    last_write_checksum: sha1:5457c8e1f3fa1befd8f33bfab17dd6f83b3452ec
-    pristine_git_object: b0f0da22788a564e275e7f57ec1d5a0cc522cf36
+    last_write_checksum: sha1:798e78b2da1d91ff94fa20981c69150103f9f961
+    pristine_git_object: 88ac6bd80917c656195b3baa78cab7439ac16d8a
   lib/kombo/models/shared/postatscandidatesrequestbody_education_datum.rb:
     id: eb9090afce5e
     last_write_checksum: sha1:c4671df1d876734fdaf6d150ca8a3e04fc33f262
@@ -9048,12 +9400,12 @@ trackedFiles:
     pristine_git_object: 9103f6e1ba91d2e2badcf2b6e2aed6b235b8b81a
   lib/kombo/models/shared/postatscandidatesrequestbody_remote_fields.rb:
     id: 00229232130a
-    last_write_checksum: sha1:7527f70360744a61fa823337974a0b52e88f3ad2
-    pristine_git_object: 61bdfb6a3704b7fae15e18ca7f8d7e0e54fa5aec
+    last_write_checksum: sha1:5648464fd1553ac79072174bff71ed886319227a
+    pristine_git_object: 8f97d49f4a258531552eded3421f8db51f596dd7
   lib/kombo/models/shared/postatscandidatesrequestbody_remote_fields.rbi:
     id: cd2ffbe1b918
-    last_write_checksum: sha1:21986f1c2120cb599b8701725a5bd60eb412632b
-    pristine_git_object: 8d957b437eaf20e99fd7ce43080fc4a57d035df2
+    last_write_checksum: sha1:3a6266a483b682f54f6cda74d278db43f39eac83
+    pristine_git_object: 25165407ae5730f689e50a4fa5cd4378ecf652e3
   lib/kombo/models/shared/postatscandidatesrequestbody_resume_data.rb:
     id: 71d8203cece8
     last_write_checksum: sha1:e69b2ab72266879135964934a628b877ec258686
@@ -9062,6 +9414,14 @@ trackedFiles:
     id: b8f780481079
     last_write_checksum: sha1:f21026b9bf6ef52b89dda16d0a3bb6bebb648ed2
     pristine_git_object: 3af8e8a6a97dc0a02e8d07772595e3cf6087fb6c
+  lib/kombo/models/shared/postatscandidatesrequestbody_rexx.rb:
+    id: 5a9717ec2d93
+    last_write_checksum: sha1:64bffa466d97b17b3294e720b9254a41eac936af
+    pristine_git_object: a84310c3711582b5a6ca2b119bc6cb000b4adb67
+  lib/kombo/models/shared/postatscandidatesrequestbody_rexx.rbi:
+    id: a420b12ad4ff
+    last_write_checksum: sha1:66e192d4843c8532bcc83bc10ab8734d8c76185c
+    pristine_git_object: d84a95fffcd1220572c4806762b3b52902ea35e0
   lib/kombo/models/shared/postatscandidatesrequestbody_salary_expectations.rb:
     id: 9c48489cd6ef
     last_write_checksum: sha1:cf067c4c400e94fa3a984dc6967af75f7d24c767
@@ -9088,12 +9448,12 @@ trackedFiles:
     pristine_git_object: 822b03fb9d8e230a76143a7059c66a442c74f552
   lib/kombo/models/shared/postatscandidatesrequestbody_smartrecruiters.rb:
     id: 9525af141d26
-    last_write_checksum: sha1:85947ae8465736b1e4d7b8ef629523228d533ffc
-    pristine_git_object: eace1e9bc6c43e47509ba45cd780551a7f8c5f9d
+    last_write_checksum: sha1:60545930bcceba76c1f6fee596c1163be76bd9e8
+    pristine_git_object: 6d36bfa2f9eacf61df7345a9e8f70e3aab00c12d
   lib/kombo/models/shared/postatscandidatesrequestbody_smartrecruiters.rbi:
     id: bde7810632e1
-    last_write_checksum: sha1:6699bef3f8f4347dec737e7e3d680a8f34945132
-    pristine_git_object: a55a594c23ece75f926b7da570148b85f549d6f3
+    last_write_checksum: sha1:70b14c4f90830b33cfaa1b73d4d912fe827cee4e
+    pristine_git_object: d22eb3fe9858983c4d0e12df2964730a5724fe96
   lib/kombo/models/shared/postatscandidatesrequestbody_social_link.rb:
     id: 406fca091493
     last_write_checksum: sha1:296190a8414b96bab0b6acfcd6c1a1a0daa2e265
@@ -9838,6 +10198,14 @@ trackedFiles:
     id: 5aab62a2e3c7
     last_write_checksum: sha1:333cc5136cb897473826753773b7f25e68fd0b8b
     pristine_git_object: 2cf5629bd6ac0005a4c85a4c5e33f04b0f62711f
+  lib/kombo/models/shared/postatsjobsjobidapplicationsrequestbody_consent_decisions.rb:
+    id: f8293557a13a
+    last_write_checksum: sha1:4db8ecf9dd06aaf332005ec20ba808a3c4c6f48f
+    pristine_git_object: f995986271fd60925d42fc58a3eb0e680f3a4a9f
+  lib/kombo/models/shared/postatsjobsjobidapplicationsrequestbody_consent_decisions.rbi:
+    id: c30464b1e7e3
+    last_write_checksum: sha1:78b7f7260235088bc984f541b22ad592031912c6
+    pristine_git_object: 5288f3c7115caf57f8a824c4b8a43132eeb0d1ee
   lib/kombo/models/shared/postatsjobsjobidapplicationsrequestbody_contact_data.rb:
     id: "6853824889e1"
     last_write_checksum: sha1:f4a4c44e76816dc214ab70d0dc2aee52bc0d71f8
@@ -9888,12 +10256,12 @@ trackedFiles:
     pristine_git_object: 95426c59df63df62689c1c9939d7aa1f248a4acb
   lib/kombo/models/shared/postatsjobsjobidapplicationsrequestbody_dvinci.rb:
     id: e8b2b1127a93
-    last_write_checksum: sha1:62287a72c87cec0b1e04dd24597c32b598f8dfea
-    pristine_git_object: 57bf5677344d9863f744d5f5d7696b1864a9677b
+    last_write_checksum: sha1:0f35cce37502a384d93c22ef245234ddf155bd45
+    pristine_git_object: 9e1f98377749803d6856af25ba6573501b6cbde9
   lib/kombo/models/shared/postatsjobsjobidapplicationsrequestbody_dvinci.rbi:
     id: "232920804213"
-    last_write_checksum: sha1:e1da5fcb5a88671fd959c4e7a998dd1fecf93fb9
-    pristine_git_object: 30f725390d4f717031251fa1ef0bf6e4319c9a42
+    last_write_checksum: sha1:ea2c496db21ba65b31f9a88ee21adeda7fd66694
+    pristine_git_object: cb9a300cfd55588634eb418c755f85b03c4e64c9
   lib/kombo/models/shared/postatsjobsjobidapplicationsrequestbody_education_datum.rb:
     id: 6ab25e12ad44
     last_write_checksum: sha1:f4ca33f666c01c9d3c19772cbb51e8d5fb5720ce
@@ -10160,12 +10528,12 @@ trackedFiles:
     pristine_git_object: 47475f9787208ce9b7264a0d0d74ba7e685457ec
   lib/kombo/models/shared/postatsjobsjobidapplicationsrequestbody_remote_fields.rb:
     id: ceaae939e064
-    last_write_checksum: sha1:cf5179e0df13c2c45653a7799519f7dce2c0d39d
-    pristine_git_object: 1d29352b1612d2e7cd21f425a249a2a9084723fb
+    last_write_checksum: sha1:dfde50a629a6e4698e2cdb3fcba92bd03852a906
+    pristine_git_object: 2af3b60bab3c634d513d0791823708bde6743499
   lib/kombo/models/shared/postatsjobsjobidapplicationsrequestbody_remote_fields.rbi:
     id: e25573f2a369
-    last_write_checksum: sha1:9007acfe8b03e4fa9deab84b25608c0336bda105
-    pristine_git_object: 785cd1947efcfef37d92f9f506caaaf830c67e58
+    last_write_checksum: sha1:d253edfdc4113809358fd82886378c783f425cb3
+    pristine_git_object: b150f52380a0827d293dffa84fa66099f169445a
   lib/kombo/models/shared/postatsjobsjobidapplicationsrequestbody_resume_data.rb:
     id: 86c06ac18ea5
     last_write_checksum: sha1:3811acb473f7b7d3a6a977c61e95118e2fe6ad57
@@ -10174,6 +10542,14 @@ trackedFiles:
     id: c2a96e049d69
     last_write_checksum: sha1:83a859a63645facd1091c4a6e86f13318464fb7a
     pristine_git_object: adb5f1f47c070ef3a8030bc719811cc8beb80f49
+  lib/kombo/models/shared/postatsjobsjobidapplicationsrequestbody_rexx.rb:
+    id: e823483e6583
+    last_write_checksum: sha1:59712a3fe5f60873f93975bf424677399d55d746
+    pristine_git_object: c6006c4b4db41cbd431a99c2f8f76815f487d418
+  lib/kombo/models/shared/postatsjobsjobidapplicationsrequestbody_rexx.rbi:
+    id: 0ab0f3bdb3cd
+    last_write_checksum: sha1:b9faea42df59874bc093873496e7b13627909276
+    pristine_git_object: f3fdc6286af436eb60a971fa126503ef7488bce2
   lib/kombo/models/shared/postatsjobsjobidapplicationsrequestbody_salary_expectations.rb:
     id: 595c76916800
     last_write_checksum: sha1:f2e70d65988d25951aae70b8b301ad4f4e8df982
@@ -10200,12 +10576,12 @@ trackedFiles:
     pristine_git_object: b4c480e7613c7ba690de907ab33f4e3d67d6120a
   lib/kombo/models/shared/postatsjobsjobidapplicationsrequestbody_smartrecruiters.rb:
     id: d8344cbfeade
-    last_write_checksum: sha1:7e2b41b2d7b4880229e91f71c6e2e9ab21bfaea0
-    pristine_git_object: 93c93a70557849e6d2f209d6dbfefdac1de3d5d3
+    last_write_checksum: sha1:116beec6fe2f7f960f53b4d703e14949a04221cd
+    pristine_git_object: 3d3ae5d4e9da3e78c0e9e9b7575312367a3d5148
   lib/kombo/models/shared/postatsjobsjobidapplicationsrequestbody_smartrecruiters.rbi:
     id: 49cca1af5dec
-    last_write_checksum: sha1:847c6f7e494906965eebef8ee32d319ba2ce322e
-    pristine_git_object: 1940826501f26c478ec4d668fb7a5a6aa01ba1fe
+    last_write_checksum: sha1:f0ffcafc7e4fa3e9d712baca7f05cd94115eb400
+    pristine_git_object: a5e0c9a59cf458793dfe045d2f9c1b10b5edbaa1
   lib/kombo/models/shared/postatsjobsjobidapplicationsrequestbody_social_link.rb:
     id: 6cb7edfe3751
     last_write_checksum: sha1:c940dc7e95535f6db1a0be3e449e7556647c81a4
@@ -10766,14 +11142,22 @@ trackedFiles:
     id: 0b685b9707eb
     last_write_checksum: sha1:9cc35f462f1441d22b298737cb21a1ed1173b06b
     pristine_git_object: 3640e72b1620cc3a5d05f68fba16c09badf3c24b
+  lib/kombo/models/shared/putassessmentordersassessmentorderidresultrequestbody_recruitee.rb:
+    id: f38c2e553100
+    last_write_checksum: sha1:0b65149c1a6018ed3b865d6e77ca8d49aa1fce3a
+    pristine_git_object: b106dc400c159e0bfb1bb957d2057b3ae0a01d00
+  lib/kombo/models/shared/putassessmentordersassessmentorderidresultrequestbody_recruitee.rbi:
+    id: 3bf15270cc6c
+    last_write_checksum: sha1:b98cf53e071f122040366e19802c3310cf22a555
+    pristine_git_object: 66fe8702e0481cd6a0e5961ef21e1a683a5db481
   lib/kombo/models/shared/putassessmentordersassessmentorderidresultrequestbody_remote_fields.rb:
     id: e3bd001d3853
-    last_write_checksum: sha1:3c9333299de2846b3f810deb26f43690b1f7d684
-    pristine_git_object: 020ca87e4c9c8d99c9eca11961cba4c2de35b8e0
+    last_write_checksum: sha1:14d55cacd1fc5aaa83081cd327a5a0cf54880b29
+    pristine_git_object: 935388d64d5d701d20332523e5d344245a9663d7
   lib/kombo/models/shared/putassessmentordersassessmentorderidresultrequestbody_remote_fields.rbi:
     id: 85b6dbc1f32b
-    last_write_checksum: sha1:7052735ccce085859e6c86e103abf5d14ae40bb8
-    pristine_git_object: e9d7d16edf9936c00705a0f0edecbd2f6e229968
+    last_write_checksum: sha1:b7c9206d121ab1bddd828aa29a104fb6d4c0de3a
+    pristine_git_object: b37bb72ff408a14af03434d638a578381fbfecfa
   lib/kombo/models/shared/putassessmentordersassessmentorderidresultrequestbody_smartrecruiters.rb:
     id: 7723249b64a3
     last_write_checksum: sha1:e5c490a04ba3c484a0b4236326e698946fee3d4b
@@ -10888,12 +11272,12 @@ trackedFiles:
     pristine_git_object: 83fc703f6f0e66071135574bf2d70954c5884acc
   lib/kombo/models/shared/putatsapplicationsapplicationidstagerequestbody_remote_fields.rb:
     id: 0827b7a692e8
-    last_write_checksum: sha1:e0bf8f447498e54af9ee181729b1b9801074afde
-    pristine_git_object: 4a48402b21320dbf40b4e6130e4eff946c41b607
+    last_write_checksum: sha1:83e3d8051d37ec481df77278f83afc00772e78d1
+    pristine_git_object: 3e48c7622460b7162f406a8075f0a929d8fe340f
   lib/kombo/models/shared/putatsapplicationsapplicationidstagerequestbody_remote_fields.rbi:
     id: baa2e3985608
-    last_write_checksum: sha1:21f6a9d4dc07dc5bdacfe8eca326b6515881fb3b
-    pristine_git_object: b0f705106240600f207ee7bb187f2fd741646ed8
+    last_write_checksum: sha1:597c2e58fb05a87e6d3198fe4968a93f621b2803
+    pristine_git_object: 6466db489d11a884997b049328b672df2c30f436
   lib/kombo/models/shared/putatsapplicationsapplicationidstagerequestbody_workable.rb:
     id: 3a46e39e2cf7
     last_write_checksum: sha1:85275725b99a040d5e379b86c20dac880445359b
@@ -10902,6 +11286,14 @@ trackedFiles:
     id: 86493d44173d
     last_write_checksum: sha1:10961a084f48ad35629d71ba22ad94c399d126a4
     pristine_git_object: 79cdb4d9ca967b2f7767728d4ffe8fe700410926
+  lib/kombo/models/shared/putatsapplicationsapplicationidstagerequestbody_workday.rb:
+    id: 5e7680373c9b
+    last_write_checksum: sha1:1b3d5eb79bf45692406c2d16724624d055cebcc4
+    pristine_git_object: 7037c82b0ac0567455c85619e56de0d59537c732
+  lib/kombo/models/shared/putatsapplicationsapplicationidstagerequestbody_workday.rbi:
+    id: 10762d286972
+    last_write_checksum: sha1:10775e85a867a8aab895404f26b6f9197dafbeb5
+    pristine_git_object: e482b231f0883f24df7a1a2d0f550e4230e9c735
   lib/kombo/models/shared/putintegrationsintegrationidcustomfieldscustomfieldidpositiveresponse.rb:
     id: b0d3badc56ac
     last_write_checksum: sha1:acae2c9addff80c74939719d093323dd560c2cda
@@ -11590,6 +11982,14 @@ trackedFiles:
     id: 12c6e3067bf6
     last_write_checksum: sha1:c742f74bb25d9860256674fbbc206f5cbb878610
     pristine_git_object: 40a6e84a554e968e3cb82bf8790e79734d6a5115
+  lib/kombo/models/shared/step_type.rb:
+    id: d7ba2e345f2c
+    last_write_checksum: sha1:57a26e456747c98a699d75aa0d527d6a8eca71df
+    pristine_git_object: 7d1fe16d2e6f289827fafdc2dc79ee98eb4459ac
+  lib/kombo/models/shared/step_type.rbi:
+    id: d4d2cf0c7763
+    last_write_checksum: sha1:884231f47cd9d8c42157e45a683bcd775b309a6f
+    pristine_git_object: 1a8417cea2067864efd9c3db2bf66af2e2b987fc
   lib/kombo/models/shared/summary_rating.rb:
     id: 56ebf1b34103
     last_write_checksum: sha1:3bd942737d6093a395bda3de3611acbe91041d0a
@@ -11654,6 +12054,14 @@ trackedFiles:
     id: 613d01af652c
     last_write_checksum: sha1:52426b399d789397f9ee483eb6c267e9fb91df1c
     pristine_git_object: e04b3c2e4ad92deae229adfcc6f48040f8d036e9
+  lib/kombo/models/shared/system_role.rb:
+    id: 928385a7f893
+    last_write_checksum: sha1:68b6b26690b33546656d94765ee326a5dff92ab0
+    pristine_git_object: 0b6c62c53fbef8290963c31bd2c0a7b41f792f20
+  lib/kombo/models/shared/system_role.rbi:
+    id: c5bf25a8ccca
+    last_write_checksum: sha1:15e966b518b712b4847477bc35674dc653b9d1cc
+    pristine_git_object: db69b909074b7f63967d634f56e8e9ea4097e807
   lib/kombo/models/shared/time_off_balance.rb:
     id: fbf2bf9b50ae
     last_write_checksum: sha1:8971592e6dc474db28362b47079ab26f5d70b853
@@ -11856,8 +12264,8 @@ trackedFiles:
     pristine_git_object: cc0af5d0bc79da7ef48343408db80c1436d75ef9
   lib/kombo/sdkconfiguration.rb:
     id: 576e58b2ad72
-    last_write_checksum: sha1:9dfdefcd79060ccab8c170c3223674fd2b3ff73d
-    pristine_git_object: 35f7a2bb34f46c02ccf8bf1f11688c6dbc73f5fb
+    last_write_checksum: sha1:6953b42293f9c073ae9f4ae43f58cfe2fde2315d
+    pristine_git_object: 2ebc998dfe43c2d8a9175f7a8cc9ca1dcd184af2
   lib/kombo/sdkconfiguration.rbi:
     id: d1d4becc3542
     last_write_checksum: sha1:d6a79e38280d703264428e6158d6d796ba61d63f
@@ -13793,7 +14201,7 @@ examples:
           X-Integration-Id: "workday:HWUTwvyx2wLoSUHphiWVrp28"
       responses:
         "200":
-          application/json: {"status": "success", "data": {"next": "eyJwYWdlIjoxMiwibm90ZSI6InRoaXMgaXMganVzdCBhbiBleGFtcGxlIGFuZCBub3QgcmVwcmVzZW50YXRpdmUgZm9yIGEgcmVhbCBjdXJzb3IhIn0=", "results": [{"id": "H5daSm8e85Dmvmne3wLeCPhX", "remote_id": "32", "name": "Backend Engineer", "job_code": "BE-2021-01", "description": "<p>Kombo is hiring engineers! If you are reading this and you are located in Berlin, Germany, feel free to contact us about this position.</p>", "confidential": false, "weekly_hours": 37, "employment_type": "FULL_TIME", "status": "OPEN", "visibility": "PUBLIC", "category": "Technical Job", "department": "Engineering", "post_url": "https://jobs.example.com/post/159829112", "experience_level": "Mid-Senior", "remote_work_status": "HYBRID", "salary_amount": 4200, "salary_amount_from": null, "salary_amount_to": null, "salary_currency": "EUR", "salary_period": "MONTH", "location": {"city": "Berlin", "country": "DE", "raw": "Berlin, Germany", "state": "Berlin", "street_1": "Lohmühlenstraße 65", "street_2": null, "zip_code": "12435"}, "custom_fields": {}, "remote_url": "https://app.greenhouse.io/jobs/32", "opened_at": "2022-08-07T14:01:29.196Z", "closed_at": null, "remote_created_at": "2022-08-07T14:01:29.196Z", "remote_updated_at": "2022-08-07T14:01:29.196Z", "contact_id": "6gT2yLMBEipd3zpezATv3Rhu", "changed_at": "2022-08-07T14:01:29.196Z", "remote_deleted_at": null, "stages": [{"id": "5J7L4b48wBfffYwek9Az9pkM", "remote_id": "32", "name": "Initial Screening", "index": 0}], "screening_questions": [{"id": "26vafvWSRmbhNcxJYqjCzuJg", "remote_id": "48b4d36a-1d4b-4c50-ada7-9519078e65b4", "title": "Which is your primary programming language?", "description": "Please enter the language you are most comfortable with.", "format": {"display_type": "SINGLE_LINE", "max_length": null, "type": "TEXT"}, "category": null, "index": 0, "required": true, "precondition_question_id": "4ZVteCSSgDw3BdwGzcQqGEPk", "precondition_options": ["7qd5qjPwDHarsMLFMGzXYG1K"]}], "job_postings": [{"id": "26vafvWSRmbhNcxJYqjCzuJg", "remote_id": "48b4d36a-1d4b-4c50-ada7-9519078e65b4", "title": "Frontend Engineer", "description_html": "<p>We are looking for a Frontend Engineer.</p>", "status": "ACTIVE", "visibility": "PUBLIC", "url": "https://jobs.example.com/post/159829112"}], "hiring_team": [{"id": "26vafvWSRmbhNcxJYqjCzuJg", "remote_id": "32", "first_name": "John", "last_name": "Doe", "email": "john.doe@kombo.dev", "hiring_team_roles": ["RECRUITER"]}]}]}}
+          application/json: {"status": "success", "data": {"next": "eyJwYWdlIjoxMiwibm90ZSI6InRoaXMgaXMganVzdCBhbiBleGFtcGxlIGFuZCBub3QgcmVwcmVzZW50YXRpdmUgZm9yIGEgcmVhbCBjdXJzb3IhIn0=", "results": [{"id": "H5daSm8e85Dmvmne3wLeCPhX", "remote_id": "32", "name": "Backend Engineer", "job_code": "BE-2021-01", "description": "<p>Kombo is hiring engineers! If you are reading this and you are located in Berlin, Germany, feel free to contact us about this position.</p>", "confidential": false, "weekly_hours": 37, "employment_type": "FULL_TIME", "status": "OPEN", "visibility": "PUBLIC", "category": "Technical Job", "department": "Engineering", "post_url": "https://jobs.example.com/post/159829112", "experience_level": "Mid-Senior", "remote_work_status": "HYBRID", "salary_amount": 4200, "salary_amount_from": null, "salary_amount_to": null, "salary_currency": "EUR", "salary_period": "MONTH", "location": {"city": "Berlin", "country": "DE", "raw": "Berlin, Germany", "state": "Berlin", "street_1": "Lohmühlenstraße 65", "street_2": null, "zip_code": "12435"}, "custom_fields": {}, "remote_url": "https://app.greenhouse.io/jobs/32", "opened_at": "2022-08-07T14:01:29.196Z", "closed_at": null, "remote_created_at": "2022-08-07T14:01:29.196Z", "remote_updated_at": "2022-08-07T14:01:29.196Z", "contact_id": "6gT2yLMBEipd3zpezATv3Rhu", "changed_at": "2022-08-07T14:01:29.196Z", "remote_deleted_at": null, "stages": [{"id": "5J7L4b48wBfffYwek9Az9pkM", "remote_id": "32", "name": "Initial Screening", "index": 0}], "screening_questions": [{"id": "26vafvWSRmbhNcxJYqjCzuJg", "remote_id": "48b4d36a-1d4b-4c50-ada7-9519078e65b4", "title": "Which is your primary programming language?", "description": "Please enter the language you are most comfortable with.", "format": {"display_type": "SINGLE_LINE", "max_length": null, "type": "TEXT"}, "category": null, "index": 0, "required": true, "precondition_question_id": "4ZVteCSSgDw3BdwGzcQqGEPk", "precondition_options": ["7qd5qjPwDHarsMLFMGzXYG1K"]}], "job_postings": [{"id": "26vafvWSRmbhNcxJYqjCzuJg", "remote_id": "48b4d36a-1d4b-4c50-ada7-9519078e65b4", "title": "Frontend Engineer", "description_html": "<p>We are looking for a Frontend Engineer.</p>", "status": "ACTIVE", "visibility": "PUBLIC", "url": "https://jobs.example.com/post/159829112"}], "hiring_team": [{"id": "26vafvWSRmbhNcxJYqjCzuJg", "remote_id": "32", "first_name": "John", "last_name": "Doe", "email": "john.doe@kombo.dev", "hiring_team_roles": ["RECRUITER"], "job_roles": [{"remote_id": "32", "remote_label": "Hiring Manager", "scope": "JOB", "unified_type": "HIRING_MANAGER"}]}]}]}}
         default:
           application/json: {"status": "error", "error": {"code": "ATS.JOB_CLOSED", "title": "<value>", "message": "<value>", "log_url": "https://suburban-request.net"}}
     example1:
@@ -13806,7 +14214,7 @@ examples:
           X-Integration-Id: "workday:HWUTwvyx2wLoSUHphiWVrp28"
       responses:
         "200":
-          application/json: {"status": "success", "data": {"next": "eyJwYWdlIjoxMiwibm90ZSI6InRoaXMgaXMganVzdCBhbiBleGFtcGxlIGFuZCBub3QgcmVwcmVzZW50YXRpdmUgZm9yIGEgcmVhbCBjdXJzb3IhIn0=", "results": [{"id": "H5daSm8e85Dmvmne3wLeCPhX", "remote_id": "32", "name": "Backend Engineer", "job_code": "BE-2021-01", "description": "<p>Kombo is hiring engineers! If you are reading this and you are located in Berlin, Germany, feel free to contact us about this position.</p>", "confidential": false, "weekly_hours": 37, "employment_type": "FULL_TIME", "status": "OPEN", "visibility": "PUBLIC", "category": "Technical Job", "department": "Engineering", "post_url": "https://jobs.example.com/post/159829112", "experience_level": "Mid-Senior", "remote_work_status": "HYBRID", "salary_amount": 4200, "salary_amount_from": null, "salary_amount_to": null, "salary_currency": "EUR", "salary_period": "MONTH", "location": {"city": "Berlin", "country": "DE", "raw": "Berlin, Germany", "state": "Berlin", "street_1": "Lohmühlenstraße 65", "street_2": null, "zip_code": "12435"}, "custom_fields": {}, "remote_url": "https://app.greenhouse.io/jobs/32", "opened_at": "2022-08-07T14:01:29.196Z", "closed_at": null, "remote_created_at": "2022-08-07T14:01:29.196Z", "remote_updated_at": "2022-08-07T14:01:29.196Z", "contact_id": "6gT2yLMBEipd3zpezATv3Rhu", "changed_at": "2022-08-07T14:01:29.196Z", "remote_deleted_at": null, "stages": [{"id": "5J7L4b48wBfffYwek9Az9pkM", "remote_id": "32", "name": "Initial Screening", "index": 0}], "screening_questions": [{"id": "26vafvWSRmbhNcxJYqjCzuJg", "remote_id": "48b4d36a-1d4b-4c50-ada7-9519078e65b4", "title": "Which is your primary programming language?", "description": "Please enter the language you are most comfortable with.", "format": {"display_type": "SINGLE_LINE", "max_length": null, "type": "TEXT"}, "category": null, "index": 0, "required": true, "precondition_question_id": "4ZVteCSSgDw3BdwGzcQqGEPk", "precondition_options": ["7qd5qjPwDHarsMLFMGzXYG1K"]}], "job_postings": [{"id": "26vafvWSRmbhNcxJYqjCzuJg", "remote_id": "48b4d36a-1d4b-4c50-ada7-9519078e65b4", "title": "Frontend Engineer", "description_html": "<p>We are looking for a Frontend Engineer.</p>", "status": "ACTIVE", "visibility": "PUBLIC", "url": "https://jobs.example.com/post/159829112"}], "hiring_team": [{"id": "26vafvWSRmbhNcxJYqjCzuJg", "remote_id": "32", "first_name": "John", "last_name": "Doe", "email": "john.doe@kombo.dev", "hiring_team_roles": ["RECRUITER"]}]}]}}
+          application/json: {"status": "success", "data": {"next": "eyJwYWdlIjoxMiwibm90ZSI6InRoaXMgaXMganVzdCBhbiBleGFtcGxlIGFuZCBub3QgcmVwcmVzZW50YXRpdmUgZm9yIGEgcmVhbCBjdXJzb3IhIn0=", "results": [{"id": "H5daSm8e85Dmvmne3wLeCPhX", "remote_id": "32", "name": "Backend Engineer", "job_code": "BE-2021-01", "description": "<p>Kombo is hiring engineers! If you are reading this and you are located in Berlin, Germany, feel free to contact us about this position.</p>", "confidential": false, "weekly_hours": 37, "employment_type": "FULL_TIME", "status": "OPEN", "visibility": "PUBLIC", "category": "Technical Job", "department": "Engineering", "post_url": "https://jobs.example.com/post/159829112", "experience_level": "Mid-Senior", "remote_work_status": "HYBRID", "salary_amount": 4200, "salary_amount_from": null, "salary_amount_to": null, "salary_currency": "EUR", "salary_period": "MONTH", "location": {"city": "Berlin", "country": "DE", "raw": "Berlin, Germany", "state": "Berlin", "street_1": "Lohmühlenstraße 65", "street_2": null, "zip_code": "12435"}, "custom_fields": {}, "remote_url": "https://app.greenhouse.io/jobs/32", "opened_at": "2022-08-07T14:01:29.196Z", "closed_at": null, "remote_created_at": "2022-08-07T14:01:29.196Z", "remote_updated_at": "2022-08-07T14:01:29.196Z", "contact_id": "6gT2yLMBEipd3zpezATv3Rhu", "changed_at": "2022-08-07T14:01:29.196Z", "remote_deleted_at": null, "stages": [{"id": "5J7L4b48wBfffYwek9Az9pkM", "remote_id": "32", "name": "Initial Screening", "index": 0}], "screening_questions": [{"id": "26vafvWSRmbhNcxJYqjCzuJg", "remote_id": "48b4d36a-1d4b-4c50-ada7-9519078e65b4", "title": "Which is your primary programming language?", "description": "Please enter the language you are most comfortable with.", "format": {"display_type": "SINGLE_LINE", "max_length": null, "type": "TEXT"}, "category": null, "index": 0, "required": true, "precondition_question_id": "4ZVteCSSgDw3BdwGzcQqGEPk", "precondition_options": ["7qd5qjPwDHarsMLFMGzXYG1K"]}], "job_postings": [{"id": "26vafvWSRmbhNcxJYqjCzuJg", "remote_id": "48b4d36a-1d4b-4c50-ada7-9519078e65b4", "title": "Frontend Engineer", "description_html": "<p>We are looking for a Frontend Engineer.</p>", "status": "ACTIVE", "visibility": "PUBLIC", "url": "https://jobs.example.com/post/159829112"}], "hiring_team": [{"id": "26vafvWSRmbhNcxJYqjCzuJg", "remote_id": "32", "first_name": "John", "last_name": "Doe", "email": "john.doe@kombo.dev", "hiring_team_roles": ["RECRUITER"], "job_roles": [{"remote_id": "32", "remote_label": "Hiring Manager", "scope": "JOB", "unified_type": "HIRING_MANAGER"}]}]}]}}
     Error Response:
       parameters:
         query:
@@ -13887,7 +14295,7 @@ examples:
           X-Integration-Id: "workday:HWUTwvyx2wLoSUHphiWVrp28"
       responses:
         "200":
-          application/json: {"status": "success", "data": {"next": "eyJwYWdlIjoxMiwibm90ZSI6InRoaXMgaXMganVzdCBhbiBleGFtcGxlIGFuZCBub3QgcmVwcmVzZW50YXRpdmUgZm9yIGEgcmVhbCBjdXJzb3IhIn0=", "results": [{"id": "26vafvWSRmbhNcxJYqjCzuJg", "remote_id": "32", "first_name": "John", "last_name": "Doe", "email": "john.doe@kombo.dev", "status": "ACTIVE", "changed_at": "2022-08-07T14:01:29.196Z", "remote_deleted_at": null}]}}
+          application/json: {"status": "success", "data": {"next": "eyJwYWdlIjoxMiwibm90ZSI6InRoaXMgaXMganVzdCBhbiBleGFtcGxlIGFuZCBub3QgcmVwcmVzZW50YXRpdmUgZm9yIGEgcmVhbCBjdXJzb3IhIn0=", "results": [{"id": "26vafvWSRmbhNcxJYqjCzuJg", "remote_id": "32", "first_name": "John", "last_name": "Doe", "email": "john.doe@kombo.dev", "status": "ACTIVE", "changed_at": "2022-08-07T14:01:29.196Z", "remote_deleted_at": null, "system_roles": [{"remote_id": "32", "remote_label": "Hiring Manager", "scope": "JOB", "unified_type": "HIRING_MANAGER"}]}]}}
         default:
           application/json: {"status": "error", "error": {"code": "ATS.JOB_CLOSED", "title": null, "message": "<value>", "log_url": "https://earnest-patroller.net/"}}
     example1:
@@ -13900,7 +14308,7 @@ examples:
           X-Integration-Id: "workday:HWUTwvyx2wLoSUHphiWVrp28"
       responses:
         "200":
-          application/json: {"status": "success", "data": {"next": "eyJwYWdlIjoxMiwibm90ZSI6InRoaXMgaXMganVzdCBhbiBleGFtcGxlIGFuZCBub3QgcmVwcmVzZW50YXRpdmUgZm9yIGEgcmVhbCBjdXJzb3IhIn0=", "results": [{"id": "26vafvWSRmbhNcxJYqjCzuJg", "remote_id": "32", "first_name": "John", "last_name": "Doe", "email": "john.doe@kombo.dev", "status": "ACTIVE", "changed_at": "2022-08-07T14:01:29.196Z", "remote_deleted_at": null}]}}
+          application/json: {"status": "success", "data": {"next": "eyJwYWdlIjoxMiwibm90ZSI6InRoaXMgaXMganVzdCBhbiBleGFtcGxlIGFuZCBub3QgcmVwcmVzZW50YXRpdmUgZm9yIGEgcmVhbCBjdXJzb3IhIn0=", "results": [{"id": "26vafvWSRmbhNcxJYqjCzuJg", "remote_id": "32", "first_name": "John", "last_name": "Doe", "email": "john.doe@kombo.dev", "status": "ACTIVE", "changed_at": "2022-08-07T14:01:29.196Z", "remote_deleted_at": null, "system_roles": [{"remote_id": "32", "remote_label": "Hiring Manager", "scope": "JOB", "unified_type": "HIRING_MANAGER"}]}]}}
     Error Response:
       parameters:
         query:
@@ -14295,4 +14703,99 @@ examples:
       responses:
         default:
           application/json: {"status": "error", "error": {"code": null, "title": null, "message": "The message is always in the response.", "log_url": null}}
+  GetHrisStaffingEntities:
+    speakeasy-default-get-hris-staffing-entities:
+      parameters:
+        query:
+          page_size: 100
+          include_deleted: false
+          ignore_unsupported_filters: false
+        header:
+          X-Integration-Id: "workday:HWUTwvyx2wLoSUHphiWVrp28"
+      responses:
+        "200":
+          application/json: {"status": "success", "data": {"next": "eyJwYWdlIjoxMiwibm90ZSI6InRoaXMgaXMganVzdCBhbiBleGFtcGxlIGFuZCBub3QgcmVwcmVzZW50YXRpdmUgZm9yIGEgcmVhbCBjdXJzb3IhIn0=", "results": [{"id": "26vafvWSRmbhNcxJYqjCzuJg", "remote_id": "32", "name": "Software Engineer", "model_type": "POSITION", "description": "Description of the position", "status": "OPEN_UNLIMITED", "employment_types": [{"remote_label": "Vollzeit", "unified_type": "FULL_TIME"}], "number_of_openings": null, "parent_id": "KGaJ5XaVPob8mYVfD49W4DGB", "remote_url": "https://example.com/position/32", "remote_created_at": "2022-08-07T14:01:29.196Z", "remote_updated_at": "2022-08-07T14:01:29.196Z", "changed_at": "2022-08-07T14:01:29.196Z", "remote_deleted_at": null, "custom_fields": {}, "locations": [{"id": "22st2Ji8XpncEYEak8mvQgQF", "remote_id": "1348", "name": "Kombo HQ", "type": "OFFICE"}], "legal_entities": [{"id": "4B9bKBpX5tnwjiG93TAqF7ci", "remote_id": "49", "name": "ACME Inc."}], "groups": [{"id": "4B9bKBpX5tnwjiG93TAqF7ci", "remote_id": "49", "name": "Customer Success", "type": "TEAM"}]}]}}
+        default:
+          application/json: {"status": "error", "error": {"code": "HRIS.EMPLOYEE_ALREADY_EXISTS", "title": "<value>", "message": "<value>", "log_url": "https://short-tabletop.biz"}}
+    example1:
+      parameters:
+        query:
+          page_size: 100
+          include_deleted: false
+          ignore_unsupported_filters: false
+        header:
+          X-Integration-Id: "workday:HWUTwvyx2wLoSUHphiWVrp28"
+      responses:
+        "200":
+          application/json: {"status": "success", "data": {"next": "eyJwYWdlIjoxMiwibm90ZSI6InRoaXMgaXMganVzdCBhbiBleGFtcGxlIGFuZCBub3QgcmVwcmVzZW50YXRpdmUgZm9yIGEgcmVhbCBjdXJzb3IhIn0=", "results": [{"id": "26vafvWSRmbhNcxJYqjCzuJg", "remote_id": "32", "name": "Software Engineer", "model_type": "POSITION", "description": "Description of the position", "status": "OPEN_UNLIMITED", "employment_types": [{"remote_label": "Vollzeit", "unified_type": "FULL_TIME"}], "number_of_openings": null, "parent_id": "KGaJ5XaVPob8mYVfD49W4DGB", "remote_url": "https://example.com/position/32", "remote_created_at": "2022-08-07T14:01:29.196Z", "remote_updated_at": "2022-08-07T14:01:29.196Z", "changed_at": "2022-08-07T14:01:29.196Z", "remote_deleted_at": null, "custom_fields": {}, "locations": [{"id": "22st2Ji8XpncEYEak8mvQgQF", "remote_id": "1348", "name": "Kombo HQ", "type": "OFFICE"}], "legal_entities": [{"id": "4B9bKBpX5tnwjiG93TAqF7ci", "remote_id": "49", "name": "ACME Inc."}], "groups": [{"id": "4B9bKBpX5tnwjiG93TAqF7ci", "remote_id": "49", "name": "Customer Success", "type": "TEAM"}]}]}}
+    Error Response:
+      parameters:
+        query:
+          page_size: 100
+          include_deleted: false
+          ignore_unsupported_filters: false
+        header:
+          X-Integration-Id: "workday:HWUTwvyx2wLoSUHphiWVrp28"
+      responses:
+        default:
+          application/json: {"status": "error", "error": {"code": "INTEGRATION.MODEL_NOT_AVAILABLE", "title": "This data model isn't supported for the selected integration.", "message": "The \"employees\" model is not yet available for Greenhouse. Please reach out to Kombo if you need this functionality.", "log_url": "https://app.kombo.dev/my-prod/logs?interactionId=123456"}}
+    Minimal Error Response:
+      parameters:
+        query:
+          page_size: 100
+          include_deleted: false
+          ignore_unsupported_filters: false
+        header:
+          X-Integration-Id: "workday:HWUTwvyx2wLoSUHphiWVrp28"
+      responses:
+        default:
+          application/json: {"status": "error", "error": {"code": null, "title": null, "message": "The message is always in the response.", "log_url": null}}
+  GetAtsRoles:
+    speakeasy-default-get-ats-roles:
+      parameters:
+        query:
+          page_size: 100
+          include_deleted: false
+          ignore_unsupported_filters: false
+        header:
+          X-Integration-Id: "workday:HWUTwvyx2wLoSUHphiWVrp28"
+      responses:
+        "200":
+          application/json: {"status": "success", "data": {"next": "eyJwYWdlIjoxMiwibm90ZSI6InRoaXMgaXMganVzdCBhbiBleGFtcGxlIGFuZCBub3QgcmVwcmVzZW50YXRpdmUgZm9yIGEgcmVhbCBjdXJzb3IhIn0=", "results": [{"id": "26vafvWSRmbhNcxJYqjCzuJg", "remote_id": "32", "remote_label": "Hiring Manager", "scope": "JOB", "unified_type": "HIRING_MANAGER", "changed_at": "2022-08-07T14:01:29.196Z", "remote_deleted_at": null}]}}
+        default:
+          application/json: {"status": "error", "error": {"code": "ATS.JOB_CLOSED", "title": "<value>", "message": "<value>", "log_url": "https://slight-mallard.org/"}}
+    example1:
+      parameters:
+        query:
+          page_size: 100
+          include_deleted: false
+          ignore_unsupported_filters: false
+        header:
+          X-Integration-Id: "workday:HWUTwvyx2wLoSUHphiWVrp28"
+      responses:
+        "200":
+          application/json: {"status": "success", "data": {"next": "eyJwYWdlIjoxMiwibm90ZSI6InRoaXMgaXMganVzdCBhbiBleGFtcGxlIGFuZCBub3QgcmVwcmVzZW50YXRpdmUgZm9yIGEgcmVhbCBjdXJzb3IhIn0=", "results": [{"id": "26vafvWSRmbhNcxJYqjCzuJg", "remote_id": "32", "remote_label": "Hiring Manager", "scope": "JOB", "unified_type": "HIRING_MANAGER", "changed_at": "2022-08-07T14:01:29.196Z", "remote_deleted_at": null}]}}
+    Error Response:
+      parameters:
+        query:
+          page_size: 100
+          include_deleted: false
+          ignore_unsupported_filters: false
+        header:
+          X-Integration-Id: "workday:HWUTwvyx2wLoSUHphiWVrp28"
+      responses:
+        default:
+          application/json: {"status": "error", "error": {"code": "INTEGRATION.MODEL_NOT_AVAILABLE", "title": "This data model isn't supported for the selected integration.", "message": "The \"employees\" model is not yet available for Greenhouse. Please reach out to Kombo if you need this functionality.", "log_url": "https://app.kombo.dev/my-prod/logs?interactionId=123456"}}
+    Minimal Error Response:
+      parameters:
+        query:
+          page_size: 100
+          include_deleted: false
+          ignore_unsupported_filters: false
+        header:
+          X-Integration-Id: "workday:HWUTwvyx2wLoSUHphiWVrp28"
+      responses:
+        default:
+          application/json: {"status": "error", "error": {"code": null, "title": null, "message": "The message is always in the response.", "log_url": null}}
 examplesVersion: 1.0.2
+releaseNotes: "## Ruby SDK Changes:\n* `kombo.general.check_api_key()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.general.trigger_sync()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.general.send_passthrough_request()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.general.delete_integration()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.general.get_integration_details()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.general.set_integration_enabled()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.general.create_reconnection_link()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.general.get_integration_fields()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.general.update_integration_field()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.general.get_custom_fields()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.general.update_custom_field_mapping()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.general.get_tools()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.hris.get_employees()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.hris.get_employee_form()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.hris.create_employee_with_form()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.hris.add_employee_document()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.hris.get_employee_document_categories()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.hris.get_groups()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.hris.get_employments()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.hris.get_locations()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.hris.get_absence_types()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.hris.get_time_off_balances()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.hris.get_absences()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.hris.create_absence()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.hris.delete_absence()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.hris.get_legal_entities()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.hris.get_timesheets()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.hris.get_performance_review_cycles()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.hris.get_performance_reviews()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.ats.get_applications()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.ats.move_application_to_stage()`: \n  *  `request.body.remote_fields.workday` **Added**\n  *  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.ats.add_application_result_link()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.ats.add_application_note()`: \n  *  `request.body.remote_fields.lever` **Added**\n  *  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.ats.get_application_attachments()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.ats.add_application_attachment()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.ats.reject_application()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.ats.get_candidates()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.ats.create_candidate()`: \n  *  `request.body.remote_fields` **Changed**\n  *  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.ats.get_candidate_attachments()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.ats.add_candidate_attachment()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.ats.add_candidate_result_link()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.ats.add_candidate_tag()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.ats.remove_candidate_tag()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.ats.get_tags()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.ats.get_application_stages()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.ats.get_jobs()`: \n  *  `response.data.results[].hiring_team[]` **Changed** **Breaking** ⚠️\n  *  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.ats.create_application()`: \n  *  `request.body.remote_fields` **Changed**\n  *  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.ats.get_users()`: \n  *  `response.data.results[].system_roles` **Added**\n  *  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.ats.get_offers()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.ats.get_rejection_reasons()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.ats.get_interviews()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.ats.import_tracked_application()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.assessment.get_packages()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.assessment.set_packages()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.assessment.get_open_orders()`: \n  *  `response.data.results[].job.hiring_team[]` **Changed** **Breaking** ⚠️\n  *  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.assessment.update_order_result()`: \n  *  `request.body.remote_fields.recruitee` **Added**\n  *  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.connect.create_connection_link()`: \n  *  `request.integration_tool` **Changed**\n  *  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.connect.get_integration_by_token()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.hris.get_staffing_entities()`: **Added**\n* `kombo.ats.get_roles()`: **Added**\n"

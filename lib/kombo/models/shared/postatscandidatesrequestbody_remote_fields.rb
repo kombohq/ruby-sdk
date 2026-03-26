@@ -48,6 +48,8 @@ module Kombo
         field :avature, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyAvature), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('avature') } }
         # Fields specific to Recruitee.
         field :recruitee, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyRecruitee), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('recruitee') } }
+        # Fields specific to Rexx.
+        field :rexx, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyRexx), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('rexx') } }
         # Fields specific to Abacus Umantis.
         field :umantis, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyUmantis), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('umantis') } }
         # Fields specific to P&I Loga.
@@ -57,8 +59,8 @@ module Kombo
         # Fields specific to Coveto REST.
         field :covetorest, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyCovetorest), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('covetorest') } }
 
-        sig { params(successfactors: T.nilable(Models::Shared::PostAtsCandidatesRequestBodySuccessfactors), personio: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyPersonio), talentsoft: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyTalentsoft), teamtailor: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyTeamtailor), greenhouse: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyGreenhouse), lever: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyLever), workable: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyWorkable), workday: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyWorkday), zohorecruit: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyZohorecruit), bullhorn: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyBullhorn), smartrecruiters: T.nilable(Models::Shared::PostAtsCandidatesRequestBodySmartrecruiters), talentadore: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyTalentadore), guidecom: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyGuidecom), dvinci: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyDvinci), hrworks: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyHrworks), jobylon: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyJobylon), avature: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyAvature), recruitee: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyRecruitee), umantis: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyUmantis), piloga: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyPiloga), pinpoint: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyPinpoint), covetorest: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyCovetorest)).void }
-        def initialize(successfactors: nil, personio: nil, talentsoft: nil, teamtailor: nil, greenhouse: nil, lever: nil, workable: nil, workday: nil, zohorecruit: nil, bullhorn: nil, smartrecruiters: nil, talentadore: nil, guidecom: nil, dvinci: nil, hrworks: nil, jobylon: nil, avature: nil, recruitee: nil, umantis: nil, piloga: nil, pinpoint: nil, covetorest: nil)
+        sig { params(successfactors: T.nilable(Models::Shared::PostAtsCandidatesRequestBodySuccessfactors), personio: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyPersonio), talentsoft: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyTalentsoft), teamtailor: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyTeamtailor), greenhouse: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyGreenhouse), lever: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyLever), workable: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyWorkable), workday: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyWorkday), zohorecruit: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyZohorecruit), bullhorn: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyBullhorn), smartrecruiters: T.nilable(Models::Shared::PostAtsCandidatesRequestBodySmartrecruiters), talentadore: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyTalentadore), guidecom: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyGuidecom), dvinci: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyDvinci), hrworks: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyHrworks), jobylon: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyJobylon), avature: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyAvature), recruitee: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyRecruitee), rexx: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyRexx), umantis: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyUmantis), piloga: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyPiloga), pinpoint: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyPinpoint), covetorest: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyCovetorest)).void }
+        def initialize(successfactors: nil, personio: nil, talentsoft: nil, teamtailor: nil, greenhouse: nil, lever: nil, workable: nil, workday: nil, zohorecruit: nil, bullhorn: nil, smartrecruiters: nil, talentadore: nil, guidecom: nil, dvinci: nil, hrworks: nil, jobylon: nil, avature: nil, recruitee: nil, rexx: nil, umantis: nil, piloga: nil, pinpoint: nil, covetorest: nil)
           @successfactors = successfactors
           @personio = personio
           @talentsoft = talentsoft
@@ -77,6 +79,7 @@ module Kombo
           @jobylon = jobylon
           @avature = avature
           @recruitee = recruitee
+          @rexx = rexx
           @umantis = umantis
           @piloga = piloga
           @pinpoint = pinpoint
@@ -104,6 +107,7 @@ module Kombo
           return false unless @jobylon == other.jobylon
           return false unless @avature == other.avature
           return false unless @recruitee == other.recruitee
+          return false unless @rexx == other.rexx
           return false unless @umantis == other.umantis
           return false unless @piloga == other.piloga
           return false unless @pinpoint == other.pinpoint

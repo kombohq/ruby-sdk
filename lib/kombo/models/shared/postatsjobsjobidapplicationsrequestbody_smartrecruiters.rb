@@ -22,12 +22,15 @@ module Kombo
         field :candidate_without_questions, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('candidate_without_questions') } }
         # Fields that we will pass through to the SmartRecruiters's `Candidate` object. This API is used: https://developers.smartrecruiters.com/reference/createcandidate-1
         field :candidate, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('candidate') } }
+        # The consent decisions for the candidate. SmartRecruiters supports two consent models: 'Single' (use the `SINGLE` key) and 'Separated' (use `SMART_RECRUIT`, `SMART_CRM`, `SMART_MESSAGE_SMS`, and/or `SMART_MESSAGE_WHATSAPP` keys). When this field is provided, it takes precedence over the `gdpr_consent` field for the `consentDecisions` property. See: https://developers.smartrecruiters.com/docs/partners-post-an-application
+        field :consent_decisions, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyConsentDecisions), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('consent_decisions') } }
 
-        sig { params(candidate_with_questions: T.nilable(T::Hash[Symbol, ::Object]), candidate_without_questions: T.nilable(T::Hash[Symbol, ::Object]), candidate: T.nilable(T::Hash[Symbol, ::Object])).void }
-        def initialize(candidate_with_questions: nil, candidate_without_questions: nil, candidate: nil)
+        sig { params(candidate_with_questions: T.nilable(T::Hash[Symbol, ::Object]), candidate_without_questions: T.nilable(T::Hash[Symbol, ::Object]), candidate: T.nilable(T::Hash[Symbol, ::Object]), consent_decisions: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyConsentDecisions)).void }
+        def initialize(candidate_with_questions: nil, candidate_without_questions: nil, candidate: nil, consent_decisions: nil)
           @candidate_with_questions = candidate_with_questions
           @candidate_without_questions = candidate_without_questions
           @candidate = candidate
+          @consent_decisions = consent_decisions
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
@@ -36,6 +39,7 @@ module Kombo
           return false unless @candidate_with_questions == other.candidate_with_questions
           return false unless @candidate_without_questions == other.candidate_without_questions
           return false unless @candidate == other.candidate
+          return false unless @consent_decisions == other.consent_decisions
           true
         end
       end

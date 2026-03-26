@@ -12,6 +12,8 @@ class Kombo::Models::Shared::GetAtsUsersPositiveResponseResult
   def id=(str_); end
   def changed_at(); end
   def changed_at=(str_); end
+  def system_roles(); end
+  def system_roles=(str_); end
   def remote_id(); end
   def remote_id=(str_); end
   def first_name(); end

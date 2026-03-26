@@ -15,15 +15,19 @@ module Kombo
 
         field :smartrecruiters, Crystalline::Nilable.new(Models::Shared::PutAssessmentOrdersAssessmentOrderIdResultRequestBodySmartrecruiters), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('smartrecruiters') } }
 
-        sig { params(smartrecruiters: T.nilable(Models::Shared::PutAssessmentOrdersAssessmentOrderIdResultRequestBodySmartrecruiters)).void }
-        def initialize(smartrecruiters: nil)
+        field :recruitee, Crystalline::Nilable.new(Models::Shared::PutAssessmentOrdersAssessmentOrderIdResultRequestBodyRecruitee), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('recruitee') } }
+
+        sig { params(smartrecruiters: T.nilable(Models::Shared::PutAssessmentOrdersAssessmentOrderIdResultRequestBodySmartrecruiters), recruitee: T.nilable(Models::Shared::PutAssessmentOrdersAssessmentOrderIdResultRequestBodyRecruitee)).void }
+        def initialize(smartrecruiters: nil, recruitee: nil)
           @smartrecruiters = smartrecruiters
+          @recruitee = recruitee
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @smartrecruiters == other.smartrecruiters
+          return false unless @recruitee == other.recruitee
           true
         end
       end

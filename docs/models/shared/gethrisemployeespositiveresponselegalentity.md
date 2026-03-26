@@ -1,4 +1,4 @@
-# LegalEntity
+# GetHrisEmployeesPositiveResponseLegalEntity
 
 
 ## Fields

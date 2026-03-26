@@ -17,6 +17,12 @@ module Kombo
         # The timestamp when this specific record was last modified. This field only updates when properties directly on this record change, NOT when related or nested models change. For filtering that considers nested data changes, use the `updated_after` parameter which will return records when either the record itself OR its related models have been updated.
         # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
         field :changed_at, ::DateTime, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('changed_at'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
+        # System-wide roles assigned to this user in the ATS.
+        # 
+        # Visit our in-depth guide about [roles](/ats/features/roles) to learn more.
+        # 
+        # Note: Use `job_roles` on the `/v1/ats/jobs` endpoint for job-specific roles.
+        field :system_roles, Crystalline::Array.new(Models::Shared::SystemRole), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('system_roles'), required: true } }
         # The raw ID of the object in the remote system. We don't recommend using this as a primary key on your side as it might sometimes be compromised of multiple identifiers if a system doesn't provide a clear primary key.
         field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_id'), required: true } }
         # First name of the user.
@@ -31,10 +37,11 @@ module Kombo
         # Email of the user. If the email address is invalid, it will be set to null.
         field :email, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('email') } }
 
-        sig { params(id: ::String, changed_at: ::DateTime, remote_id: T.nilable(::String), first_name: T.nilable(::String), last_name: T.nilable(::String), status: T.nilable(Models::Shared::GetAtsUsersPositiveResponseStatus), remote_deleted_at: T.nilable(::DateTime), email: T.nilable(::String)).void }
-        def initialize(id:, changed_at:, remote_id: nil, first_name: nil, last_name: nil, status: nil, remote_deleted_at: nil, email: nil)
+        sig { params(id: ::String, changed_at: ::DateTime, system_roles: T::Array[Models::Shared::SystemRole], remote_id: T.nilable(::String), first_name: T.nilable(::String), last_name: T.nilable(::String), status: T.nilable(Models::Shared::GetAtsUsersPositiveResponseStatus), remote_deleted_at: T.nilable(::DateTime), email: T.nilable(::String)).void }
+        def initialize(id:, changed_at:, system_roles:, remote_id: nil, first_name: nil, last_name: nil, status: nil, remote_deleted_at: nil, email: nil)
           @id = id
           @changed_at = changed_at
+          @system_roles = system_roles
           @remote_id = remote_id
           @first_name = first_name
           @last_name = last_name
@@ -48,6 +55,7 @@ module Kombo
           return false unless other.is_a? self.class
           return false unless @id == other.id
           return false unless @changed_at == other.changed_at
+          return false unless @system_roles == other.system_roles
           return false unless @remote_id == other.remote_id
           return false unless @first_name == other.first_name
           return false unless @last_name == other.last_name

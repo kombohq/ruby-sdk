@@ -8,7 +8,7 @@ module Kombo
   module Models
     module Shared
 
-      class LegalEntity
+      class GetHrisEmployeesPositiveResponseLegalEntity
         extend T::Sig
         include Crystalline::MetadataFields
 

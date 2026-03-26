@@ -7,8 +7,8 @@
 module Kombo
   module Models
     module Shared
-      # GroupType - Type of the group.
-      class GroupType < T::Enum
+      # GetHrisEmployeesPositiveResponseGroupType - Type of the group.
+      class GetHrisEmployeesPositiveResponseGroupType < T::Enum
 
 
         enums do

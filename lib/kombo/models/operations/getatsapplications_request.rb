@@ -21,6 +21,15 @@ module Kombo
         # If you want to track entry deletion, also set the `include_deleted=true` query parameter, because otherwise, deleted entries will be hidden.
         # 
         # For more details, see [Understanding changed_at vs updated_after Behavior](https://docs.kombo.dev/ats/getting-started/fetching-data#understanding-changed_at-vs-updated_after-behavior).
+        # 
+        # For this endpoint, `updated_after` considers changes to the record itself as well as changes to the following relations:
+        # 
+        # - ✓ `candidate`
+        #   - ✗ `tags`
+        # - ✓ `current_stage`
+        # - ✗ `job`
+        # - ✓ `interviews`
+        # - ✓ `offers`
         field :updated_after, Crystalline::Nilable.new(::DateTime), { 'query_param': { 'field_name': 'updated_after', 'style': 'form', 'explode': true } }
         # Filter by a comma-separated list of IDs such as `222k7eCGyUdgt2JWZDNnkDs3,B5DVmypWENfU6eMe6gYDyJG3`.
         field :ids, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'query_param': { 'field_name': 'ids', 'style': 'form', 'explode': false } }

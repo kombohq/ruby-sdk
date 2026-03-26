@@ -16,6 +16,8 @@ class Kombo::Models::Shared::PostAtsApplicationsApplicationIdNotesRequestBodyRem
   def recruitee=(str_); end
   def bullhorn(); end
   def bullhorn=(str_); end
+  def lever(); end
+  def lever=(str_); end
   def workable(); end
   def workable=(str_); end
 end

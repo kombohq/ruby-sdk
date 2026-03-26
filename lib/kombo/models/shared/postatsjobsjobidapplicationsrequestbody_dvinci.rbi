@@ -10,4 +10,6 @@ end
 class Kombo::Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyDvinci
   def application(); end
   def application=(str_); end
+  def candidate(); end
+  def candidate=(str_); end
 end
