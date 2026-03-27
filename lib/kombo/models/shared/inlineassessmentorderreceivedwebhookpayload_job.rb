@@ -18,14 +18,20 @@ module Kombo
         field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_id') } }
         # The job title.
         field :name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('name') } }
+        # The human readable job code. Some systems expose this as the Requisition Code/ID.
+        field :job_code, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('job_code') } }
+        # Description of the job. This field is usually returned as HTML.
+        field :description, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('description') } }
         # The job location information.
         field :location, Crystalline::Nilable.new(Models::Shared::InlineAssessmentOrderReceivedWebhookPayloadLocation), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('location') } }
 
-        sig { params(hiring_team: T::Array[Models::Shared::InlineAssessmentOrderReceivedWebhookPayloadHiringTeam], remote_id: T.nilable(::String), name: T.nilable(::String), location: T.nilable(Models::Shared::InlineAssessmentOrderReceivedWebhookPayloadLocation)).void }
-        def initialize(hiring_team:, remote_id: nil, name: nil, location: nil)
+        sig { params(hiring_team: T::Array[Models::Shared::InlineAssessmentOrderReceivedWebhookPayloadHiringTeam], remote_id: T.nilable(::String), name: T.nilable(::String), job_code: T.nilable(::String), description: T.nilable(::String), location: T.nilable(Models::Shared::InlineAssessmentOrderReceivedWebhookPayloadLocation)).void }
+        def initialize(hiring_team:, remote_id: nil, name: nil, job_code: nil, description: nil, location: nil)
           @hiring_team = hiring_team
           @remote_id = remote_id
           @name = name
+          @job_code = job_code
+          @description = description
           @location = location
         end
 
@@ -35,6 +41,8 @@ module Kombo
           return false unless @hiring_team == other.hiring_team
           return false unless @remote_id == other.remote_id
           return false unless @name == other.name
+          return false unless @job_code == other.job_code
+          return false unless @description == other.description
           return false unless @location == other.location
           true
         end

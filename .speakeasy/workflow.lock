@@ -2,20 +2,20 @@ speakeasyVersion: 1.700.2
 sources:
     kombo-prepared-spec:
         sourceNamespace: kombo-api
-        sourceRevisionDigest: sha256:33340c16e7ba53e7587911a63024f906006040c931ab6829404d7159b553dabd
-        sourceBlobDigest: sha256:ab2d7b04437d529407d7e874b58df144a1d47651f73c789fc3c48dce567df180
+        sourceRevisionDigest: sha256:39807609d1198677b0f0b4dfcce3278a66d86fb4041e659df0f555509f03530c
+        sourceBlobDigest: sha256:45ec84f5c4833c0d37d470d00955738ccbddac8b1f5d39eb33259d5371c8025e
         tags:
             - latest
-            - speakeasy-sdk-regen-1772153310
+            - speakeasy-sdk-regen-1774572746
             - 1.0.0
 targets:
     kombo-ruby:
         source: kombo-prepared-spec
         sourceNamespace: kombo-api
-        sourceRevisionDigest: sha256:33340c16e7ba53e7587911a63024f906006040c931ab6829404d7159b553dabd
-        sourceBlobDigest: sha256:ab2d7b04437d529407d7e874b58df144a1d47651f73c789fc3c48dce567df180
+        sourceRevisionDigest: sha256:39807609d1198677b0f0b4dfcce3278a66d86fb4041e659df0f555509f03530c
+        sourceBlobDigest: sha256:45ec84f5c4833c0d37d470d00955738ccbddac8b1f5d39eb33259d5371c8025e
         codeSamplesNamespace: kombo-api-python-ruby-code-samples
-        codeSamplesRevisionDigest: sha256:19a54e88777a0e8921e3008de0e8d85a4bb36d47f7f8b65bcad1b8b6535b2f0f
+        codeSamplesRevisionDigest: sha256:17a2cdc67743825552dfca872ffd1961347c90b7264f0ffbc5da19ec30d1bbdc
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
