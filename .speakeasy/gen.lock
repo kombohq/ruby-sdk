@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: a945ea15-b620-47b9-9868-c165c173bf88
 management:
-  docChecksum: 25967155257ec846118046d80f46f2c6
+  docChecksum: 86932d8f1407cef1f3322166bb562ea4
   docVersion: 1.0.0
   speakeasyVersion: 1.700.2
   generationVersion: 2.801.2
-  releaseVersion: 1.0.5
-  configChecksum: 6646c496d1f63192be2db3e3d48c0e14
+  releaseVersion: 1.0.6
+  configChecksum: 021e6550ad2e098260c5167d141e76fa
   repoURL: https://github.com/kombohq/ruby-sdk.git
   installationURL: https://github.com/kombohq/ruby-sdk
   published: true
 persistentEdits:
-  generation_id: 8b1bfbf8-c1b9-4597-a63d-5cdfc2c2598a
-  pristine_commit_hash: da8ba7e32b3a64790f9adbb80079d1a9660c60be
-  pristine_tree_hash: d2a95afaae827a7f59969114e977475ac37490d3
+  generation_id: 1be056c3-7668-4582-ae59-ddeb9459670f
+  pristine_commit_hash: 9158f10c10a208ac5a7811bbc162b87418c0b19f
+  pristine_tree_hash: 2cad7fb6c381f9cea8042beeca634e45697b364a
 features:
   ruby:
     constsAndDefaults: 0.1.1
@@ -48,8 +48,8 @@ trackedFiles:
     pristine_git_object: b0ea40558f3ca80dcf7d30b159d34a1e5ab33440
   Gemfile.lock:
     id: 21fb5836b499
-    last_write_checksum: sha1:ab0d71abdc5082c00fa7d3f5e523bccf05477dc0
-    pristine_git_object: 6d3f6c43c157c6814de2a68350f6daab5907c51c
+    last_write_checksum: sha1:5a0d5b36ed171d117cfe5e80f8845af186df2e12
+    pristine_git_object: cadee5cd8e60f1d3a5a5dd816ac77b6c0212febd
   Rakefile:
     id: 44b7fa1ba503
     last_write_checksum: sha1:bb15946e7c34d00098a6ee8fef994bbd57960092
@@ -572,8 +572,8 @@ trackedFiles:
     pristine_git_object: 47dd45b7eff67dab71dec905b99f3ff57cac83f7
   docs/models/shared/assessmentorderreceivedwebhookpayloadjob.md:
     id: 32610655acd2
-    last_write_checksum: sha1:9901c4a1111cb94a223c11ce3d261f3a77ad4876
-    pristine_git_object: 5b4d35f169ddedb92f163f768f64067397e2bcc1
+    last_write_checksum: sha1:dc862e91345d8ca69df98d3ad8a8427f32254a2f
+    pristine_git_object: cbacfbeca9817f5f550d1b1f345a7696c735e787
   docs/models/shared/assessmentorderreceivedwebhookpayloadlocation.md:
     id: 91b563348561
     last_write_checksum: sha1:bbc7ac692361f49871e40a79b0e8f6dbff019b0d
@@ -864,8 +864,8 @@ trackedFiles:
     pristine_git_object: ea4605b95cb2d4af551f827518099ab2f7216729
   docs/models/shared/getassessmentordersopenpositiveresponsejob.md:
     id: 13e9b2d3079f
-    last_write_checksum: sha1:2501d57145ca3bb5c33ffb6f01ae148539c9782e
-    pristine_git_object: 0cb16d7f7abd3c2c1914e478c57b0b71436661e7
+    last_write_checksum: sha1:a4df323d61043d30e5de7cddb4cb58c34031337d
+    pristine_git_object: 977f7729d291a28d15000817dbdcf1c008efc609
   docs/models/shared/getassessmentordersopenpositiveresponselocation.md:
     id: 039db1290a80
     last_write_checksum: sha1:221d23afdf5d04def51d8e713d6879078297409e
@@ -1884,8 +1884,8 @@ trackedFiles:
     pristine_git_object: 113004b86110d139790b1dfaffeba671e969d9d0
   docs/models/shared/inlineassessmentorderreceivedwebhookpayloadjob.md:
     id: 5bae8d85f5ed
-    last_write_checksum: sha1:98691e949e831f4ede5483ae35e43b5ca328d5c5
-    pristine_git_object: a81d7ed7d2e18cd6583a77ad1da249c6216006bf
+    last_write_checksum: sha1:e97f9517821d3217c44742ffe1cb7041d7f1ec28
+    pristine_git_object: cb2834a970500768d23812bca57a3d088c4a47b4
   docs/models/shared/inlineassessmentorderreceivedwebhookpayloadlocation.md:
     id: e79616152a65
     last_write_checksum: sha1:46cb92fd3e842020f85c420896a96642cace5e67
@@ -4104,8 +4104,8 @@ trackedFiles:
     pristine_git_object: fe85124ef65d5d4cc291875df2918323cc450776
   docs/sdks/general/README.md:
     id: ce0ada6fa2e1
-    last_write_checksum: sha1:9fbf486e5b54d1258cc36dcc4d50b96800131666
-    pristine_git_object: 36f8cb6e30fcc4538a144c901991156e071cdb76
+    last_write_checksum: sha1:98d685b32c9fc3a655b36932cbad9b8a0af37d60
+    pristine_git_object: bde663d798a779e4dd5770854f8f839e26d46c85
   docs/sdks/hris/README.md:
     id: 0baa868a038c
     last_write_checksum: sha1:f351986e1926c888422666ae7c7ef89e47a01133
@@ -4116,8 +4116,8 @@ trackedFiles:
     pristine_git_object: 237a19c94ed3feee821ecd5611703991f84d91fa
   kombo.gemspec:
     id: 476dd5dc2d31
-    last_write_checksum: sha1:b82543a22540e6edb9e1a7b133118d0e63f2a85d
-    pristine_git_object: 236dc58445823559d87e10d8891ae8f745f4b016
+    last_write_checksum: sha1:abbeced6c3d0ffda153bfed39cba605e76f35cf3
+    pristine_git_object: a8bda4a665bcc428f5adce93569801334ae0085a
   lib/crystalline.rb:
     id: eca767cf937a
     last_write_checksum: sha1:b6ec0a2833f58ba9a6f07c9637fdca05e59006d3
@@ -4156,8 +4156,8 @@ trackedFiles:
     pristine_git_object: da6a94f73a3dfc084ec6129c87056d1ab1604b1c
   lib/kombo/general.rb:
     id: b25b5d515a10
-    last_write_checksum: sha1:a705df251240cba629a9225bd9ebee48f04f2869
-    pristine_git_object: ef404870047f55969de6297d50ee669d2a692fe5
+    last_write_checksum: sha1:3f3bf1a4b1efbb96567c5637062064d3ec374e10
+    pristine_git_object: 4e49e1c8fd017f7bf155c5ba7d72c8ceacac0c92
   lib/kombo/hris.rb:
     id: 13c3ecc1e9af
     last_write_checksum: sha1:5b9f81cfa1808df3ec805ddf75d98ec625de30bd
@@ -5216,12 +5216,12 @@ trackedFiles:
     pristine_git_object: cb3ea845310493e5545e72647330b1009f36c027
   lib/kombo/models/shared/assessmentorderreceivedwebhookpayload_job.rb:
     id: b451e6528aa7
-    last_write_checksum: sha1:cecf26c477ccf36c02a548d2d8e1306fe42aa006
-    pristine_git_object: 79ae4cd045ca731ba5abadf30445250d7512562d
+    last_write_checksum: sha1:facd210ad5a953f8d7a4f542ad2ee0b9957d6073
+    pristine_git_object: f7010869cd6c2cfa66676e1d9f46921c6bfc01e7
   lib/kombo/models/shared/assessmentorderreceivedwebhookpayload_job.rbi:
     id: fa7cbe32f105
-    last_write_checksum: sha1:8124eba91763476622f9978c9df63e8265c1efc5
-    pristine_git_object: fa2b8b1e0b13fc416393ac3442db1247130b342b
+    last_write_checksum: sha1:e96438bb5ebfc1d52307093bf8bb54e456bb9bfc
+    pristine_git_object: be0cfcc2edb682ef6fa67b725640e4ee7d81cb39
   lib/kombo/models/shared/assessmentorderreceivedwebhookpayload_location.rb:
     id: 2e5c99d4d63c
     last_write_checksum: sha1:2893440954ef51f2564ac226f267e6a9e20b7893
@@ -5800,12 +5800,12 @@ trackedFiles:
     pristine_git_object: b05e3d16d7bde5b59281cd3bd3ff669e7deb16b2
   lib/kombo/models/shared/getassessmentordersopenpositiveresponse_job.rb:
     id: e04c3cf515c3
-    last_write_checksum: sha1:5534c79c9d9f201da3eb094604b2f0f63a3f0aac
-    pristine_git_object: 73cfc77da588e5cf772649dfa975d72453fd7e31
+    last_write_checksum: sha1:378dd28a76623165e180b307d4e017d8e8f00c8c
+    pristine_git_object: a4a464c56e5fed0c1aceb6360b6ada2df30866ee
   lib/kombo/models/shared/getassessmentordersopenpositiveresponse_job.rbi:
     id: d9017f326104
-    last_write_checksum: sha1:8616dc3d581db71a476ce83ae34d64579c5d68d2
-    pristine_git_object: d47717da1fcbba30070ef2213c0a08a0705f5bd8
+    last_write_checksum: sha1:e810f5a6d3002801200c0fc0c05141af62fd6d50
+    pristine_git_object: a865d02ba61a3e1af9bd5ef196299ff142218523
   lib/kombo/models/shared/getassessmentordersopenpositiveresponse_location.rb:
     id: d7a65c57b26d
     last_write_checksum: sha1:d92d2ddd0ce1dd8a32ce606a038a14b649a87733
@@ -7840,12 +7840,12 @@ trackedFiles:
     pristine_git_object: 280d5baa2524326f5b980fb387744d0790cbed35
   lib/kombo/models/shared/inlineassessmentorderreceivedwebhookpayload_job.rb:
     id: 800cf229220e
-    last_write_checksum: sha1:961e4fc705aee51e5c853931f0f62b468ad91454
-    pristine_git_object: cac43d36ac2b93a0cc8f8c346e002aaea309363e
+    last_write_checksum: sha1:ea18fcb8f9454b83c5443eb16ad51d707396862e
+    pristine_git_object: a6ac05f90c6730e36d7159d9918dd3cd62b36b3a
   lib/kombo/models/shared/inlineassessmentorderreceivedwebhookpayload_job.rbi:
     id: a49afcd00c8b
-    last_write_checksum: sha1:24198ae2a0be558c2ec201cc17b6d3a0734a63eb
-    pristine_git_object: 5724da662c774861fe406946864fb3085ab47d73
+    last_write_checksum: sha1:8dc4ab7875f7d8c87be1b4ea91afec76dd2e64ee
+    pristine_git_object: f25a089f05ac2d762e140d60902a6abf4d238888
   lib/kombo/models/shared/inlineassessmentorderreceivedwebhookpayload_location.rb:
     id: 96c21b70438e
     last_write_checksum: sha1:249e3d18223f4429e7e9501eb88c820313982953
@@ -12264,8 +12264,8 @@ trackedFiles:
     pristine_git_object: cc0af5d0bc79da7ef48343408db80c1436d75ef9
   lib/kombo/sdkconfiguration.rb:
     id: 576e58b2ad72
-    last_write_checksum: sha1:6953b42293f9c073ae9f4ae43f58cfe2fde2315d
-    pristine_git_object: 2ebc998dfe43c2d8a9175f7a8cc9ca1dcd184af2
+    last_write_checksum: sha1:8643fe71b4c71d9c873af6731db2e65c09a0fdb0
+    pristine_git_object: 6b5e47d4b697707cad595165a61f5410c03d34fe
   lib/kombo/sdkconfiguration.rbi:
     id: d1d4becc3542
     last_write_checksum: sha1:d6a79e38280d703264428e6158d6d796ba61d63f
@@ -14798,4 +14798,6 @@ examples:
         default:
           application/json: {"status": "error", "error": {"code": null, "title": null, "message": "The message is always in the response.", "log_url": null}}
 examplesVersion: 1.0.2
-releaseNotes: "## Ruby SDK Changes:\n* `kombo.general.check_api_key()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.general.trigger_sync()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.general.send_passthrough_request()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.general.delete_integration()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.general.get_integration_details()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.general.set_integration_enabled()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.general.create_reconnection_link()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.general.get_integration_fields()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.general.update_integration_field()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.general.get_custom_fields()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.general.update_custom_field_mapping()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.general.get_tools()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.hris.get_employees()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.hris.get_employee_form()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.hris.create_employee_with_form()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.hris.add_employee_document()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.hris.get_employee_document_categories()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.hris.get_groups()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.hris.get_employments()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.hris.get_locations()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.hris.get_absence_types()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.hris.get_time_off_balances()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.hris.get_absences()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.hris.create_absence()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.hris.delete_absence()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.hris.get_legal_entities()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.hris.get_timesheets()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.hris.get_performance_review_cycles()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.hris.get_performance_reviews()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.ats.get_applications()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.ats.move_application_to_stage()`: \n  *  `request.body.remote_fields.workday` **Added**\n  *  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.ats.add_application_result_link()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.ats.add_application_note()`: \n  *  `request.body.remote_fields.lever` **Added**\n  *  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.ats.get_application_attachments()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.ats.add_application_attachment()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.ats.reject_application()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.ats.get_candidates()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.ats.create_candidate()`: \n  *  `request.body.remote_fields` **Changed**\n  *  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.ats.get_candidate_attachments()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.ats.add_candidate_attachment()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.ats.add_candidate_result_link()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.ats.add_candidate_tag()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.ats.remove_candidate_tag()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.ats.get_tags()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.ats.get_application_stages()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.ats.get_jobs()`: \n  *  `response.data.results[].hiring_team[]` **Changed** **Breaking** ⚠️\n  *  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.ats.create_application()`: \n  *  `request.body.remote_fields` **Changed**\n  *  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.ats.get_users()`: \n  *  `response.data.results[].system_roles` **Added**\n  *  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.ats.get_offers()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.ats.get_rejection_reasons()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.ats.get_interviews()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.ats.import_tracked_application()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.assessment.get_packages()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.assessment.set_packages()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.assessment.get_open_orders()`: \n  *  `response.data.results[].job.hiring_team[]` **Changed** **Breaking** ⚠️\n  *  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.assessment.update_order_result()`: \n  *  `request.body.remote_fields.recruitee` **Added**\n  *  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.connect.create_connection_link()`: \n  *  `request.integration_tool` **Changed**\n  *  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.connect.get_integration_by_token()`:  `error.code.enum(platform.concurrency_limit_exceeded)` **Added** **Breaking** ⚠️\n* `kombo.hris.get_staffing_entities()`: **Added**\n* `kombo.ats.get_roles()`: **Added**\n"
+releaseNotes: |
+  ## Ruby SDK Changes:
+  * `kombo.assessment.get_open_orders()`:  `response.data.results[].job` **Changed**

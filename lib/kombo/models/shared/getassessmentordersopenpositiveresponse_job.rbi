@@ -14,6 +14,10 @@ class Kombo::Models::Shared::GetAssessmentOrdersOpenPositiveResponseJob
   def remote_id=(str_); end
   def name(); end
   def name=(str_); end
+  def job_code(); end
+  def job_code=(str_); end
+  def description(); end
+  def description=(str_); end
   def location(); end
   def location=(str_); end
 end
