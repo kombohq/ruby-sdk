@@ -13,7 +13,7 @@ module Kombo
         include Crystalline::MetadataFields
 
         # The application's identifier in the integrated system.
-        field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_id') } }
+        field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_id'), required: true } }
 
         sig { params(remote_id: T.nilable(::String)).void }
         def initialize(remote_id: nil)

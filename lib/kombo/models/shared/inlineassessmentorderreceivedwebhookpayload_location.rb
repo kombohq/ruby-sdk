@@ -12,42 +12,42 @@ module Kombo
         extend T::Sig
         include Crystalline::MetadataFields
 
-
-        field :city, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('city') } }
-        # Contains the ISO2 country code if possible. If not, it contains the original value.
-        field :country, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('country') } }
-        # If we have address data, this is filled with the raw address string.
-        field :raw, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('raw') } }
-
-        field :state, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('state') } }
         # If we can parse the address data, this field contains the first part of the street information.
         field :street_1, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('street_1') } }
 
         field :street_2, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('street_2') } }
 
-        field :zip_code, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('zip_code') } }
+        field :city, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('city') } }
 
-        sig { params(city: T.nilable(::String), country: T.nilable(::String), raw: T.nilable(::String), state: T.nilable(::String), street_1: T.nilable(::String), street_2: T.nilable(::String), zip_code: T.nilable(::String)).void }
-        def initialize(city: nil, country: nil, raw: nil, state: nil, street_1: nil, street_2: nil, zip_code: nil)
-          @city = city
-          @country = country
-          @raw = raw
-          @state = state
+        field :state, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('state') } }
+
+        field :zip_code, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('zip_code') } }
+        # Contains the ISO2 country code if possible. If not, it contains the original value.
+        field :country, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('country') } }
+        # If we have address data, this is filled with the raw address string.
+        field :raw, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('raw') } }
+
+        sig { params(street_1: T.nilable(::String), street_2: T.nilable(::String), city: T.nilable(::String), state: T.nilable(::String), zip_code: T.nilable(::String), country: T.nilable(::String), raw: T.nilable(::String)).void }
+        def initialize(street_1: nil, street_2: nil, city: nil, state: nil, zip_code: nil, country: nil, raw: nil)
           @street_1 = street_1
           @street_2 = street_2
+          @city = city
+          @state = state
           @zip_code = zip_code
+          @country = country
+          @raw = raw
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
-          return false unless @city == other.city
-          return false unless @country == other.country
-          return false unless @raw == other.raw
-          return false unless @state == other.state
           return false unless @street_1 == other.street_1
           return false unless @street_2 == other.street_2
+          return false unless @city == other.city
+          return false unless @state == other.state
           return false unless @zip_code == other.zip_code
+          return false unless @country == other.country
+          return false unless @raw == other.raw
           true
         end
       end
