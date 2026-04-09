@@ -310,21 +310,24 @@ module Kombo
     end
 
 
-    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), timeout_ms: T.nilable(Integer)).returns(Models::Operations::GetAssessmentOrdersOpenResponse) }
-    def get_open_orders(integration_id: nil, cursor: nil, page_size: nil, timeout_ms: nil)
-      # get_open_orders - Get open orders
-      # Get all open assessment and background check orders of an integration.
-      request = Models::Operations::GetAssessmentOrdersOpenRequest.new(
+    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), ids: T.nilable(T::Array[::String]), statuses: T.nilable(T::Array[::String]), created_after: T.nilable(::DateTime), timeout_ms: T.nilable(Integer)).returns(Models::Operations::GetAssessmentOrdersResponse) }
+    def get_assessment_orders(integration_id: nil, cursor: nil, page_size: nil, ids: nil, statuses: nil, created_after: nil, timeout_ms: nil)
+      # get_assessment_orders - Get orders
+      # Get all assessment and background check orders of an integration.
+      request = Models::Operations::GetAssessmentOrdersRequest.new(
         integration_id: integration_id,
         cursor: cursor,
-        page_size: page_size
+        page_size: page_size,
+        ids: ids,
+        statuses: statuses,
+        created_after: created_after
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
-      url = "#{base_url}/assessment/orders/open"
+      url = "#{base_url}/assessment/orders"
       headers = Utils.get_headers(request, @sdk_configuration.globals)
       headers = T.cast(headers, T::Hash[String, String])
-      query_params = Utils.get_query_params(Models::Operations::GetAssessmentOrdersOpenRequest, request, nil, @sdk_configuration.globals)
+      query_params = Utils.get_query_params(Models::Operations::GetAssessmentOrdersRequest, request, nil, @sdk_configuration.globals)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
 
@@ -340,7 +343,7 @@ module Kombo
         config: @sdk_configuration,
         base_url: base_url,
         oauth2_scopes: nil,
-        operation_id: 'GetAssessmentOrdersOpen',
+        operation_id: 'GetAssessmentOrders',
         security_source: @sdk_configuration.security_source
       )
 
@@ -398,12 +401,12 @@ module Kombo
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::GetAssessmentOrdersOpenPositiveResponse)
-          response = Models::Operations::GetAssessmentOrdersOpenResponse.new(
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::GetAssessmentOrdersPositiveResponse)
+          response = Models::Operations::GetAssessmentOrdersResponse.new(
             status_code: http_response.status,
             content_type: content_type,
             raw_response: http_response,
-            get_assessment_orders_open_positive_response: T.unsafe(obj)
+            get_assessment_orders_positive_response: T.unsafe(obj)
           )
           sdk = self
 
@@ -418,10 +421,13 @@ module Kombo
               end
             end
 
-            sdk.get_open_orders(
+            sdk.get_assessment_orders(
               integration_id: integration_id,
               cursor: next_cursor,
-              page_size: page_size
+              page_size: page_size,
+              ids: ids,
+              statuses: statuses,
+              created_after: created_after
             )
           end
 

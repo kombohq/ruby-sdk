@@ -41,14 +41,20 @@ module Kombo
         field :employee_note, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('employee_note'), required: true } }
         # The Kombo absence type ID of this absence.
         field :type_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('type_id'), required: true } }
+        # The date and time the object was created in the remote system.
+        # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
+        field :remote_created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_created_at'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
+        # A timestamp retrieved from the remote system, describing when the resource was last updated.
+        # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
+        field :remote_updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_updated_at'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
         # The date and time the object was deleted in the remote system. Objects are automatically marked as deleted when Kombo can't retrieve them from the remote system anymore. Kombo will also anonymize entries 14 days after they disappear.
         # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
         field :remote_deleted_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_deleted_at'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
         # The absence’s current status. In rare cases where we can’t find a clear mapping, the original string is passed through.
         field :status, Crystalline::Nilable.new(Models::Shared::PostHrisAbsencesPositiveResponseStatus), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('status'), 'decoder': Utils.enum_from_string(Models::Shared::PostHrisAbsencesPositiveResponseStatus, true) } }
 
-        sig { params(id: ::String, employee_id: ::String, changed_at: ::DateTime, remote_id: T.nilable(::String), start_date: T.nilable(::Object), end_date: T.nilable(::Object), start_half_day: T.nilable(T::Boolean), end_half_day: T.nilable(T::Boolean), start_time: T.nilable(::Object), end_time: T.nilable(::Object), amount: T.nilable(::Float), unit: T.nilable(Models::Shared::PostHrisAbsencesPositiveResponseUnit), employee_note: T.nilable(::String), type_id: T.nilable(::String), remote_deleted_at: T.nilable(::DateTime), status: T.nilable(Models::Shared::PostHrisAbsencesPositiveResponseStatus)).void }
-        def initialize(id:, employee_id:, changed_at:, remote_id: nil, start_date: nil, end_date: nil, start_half_day: nil, end_half_day: nil, start_time: nil, end_time: nil, amount: nil, unit: nil, employee_note: nil, type_id: nil, remote_deleted_at: nil, status: nil)
+        sig { params(id: ::String, employee_id: ::String, changed_at: ::DateTime, remote_id: T.nilable(::String), start_date: T.nilable(::Object), end_date: T.nilable(::Object), start_half_day: T.nilable(T::Boolean), end_half_day: T.nilable(T::Boolean), start_time: T.nilable(::Object), end_time: T.nilable(::Object), amount: T.nilable(::Float), unit: T.nilable(Models::Shared::PostHrisAbsencesPositiveResponseUnit), employee_note: T.nilable(::String), type_id: T.nilable(::String), remote_created_at: T.nilable(::DateTime), remote_updated_at: T.nilable(::DateTime), remote_deleted_at: T.nilable(::DateTime), status: T.nilable(Models::Shared::PostHrisAbsencesPositiveResponseStatus)).void }
+        def initialize(id:, employee_id:, changed_at:, remote_id: nil, start_date: nil, end_date: nil, start_half_day: nil, end_half_day: nil, start_time: nil, end_time: nil, amount: nil, unit: nil, employee_note: nil, type_id: nil, remote_created_at: nil, remote_updated_at: nil, remote_deleted_at: nil, status: nil)
           @id = id
           @employee_id = employee_id
           @changed_at = changed_at
@@ -63,6 +69,8 @@ module Kombo
           @unit = unit
           @employee_note = employee_note
           @type_id = type_id
+          @remote_created_at = remote_created_at
+          @remote_updated_at = remote_updated_at
           @remote_deleted_at = remote_deleted_at
           @status = status
         end
@@ -84,6 +92,8 @@ module Kombo
           return false unless @unit == other.unit
           return false unless @employee_note == other.employee_note
           return false unless @type_id == other.type_id
+          return false unless @remote_created_at == other.remote_created_at
+          return false unless @remote_updated_at == other.remote_updated_at
           return false unless @remote_deleted_at == other.remote_deleted_at
           return false unless @status == other.status
           true

@@ -15,15 +15,15 @@ module Kombo
         # The hiring team allows you to provision users into your system who can access the job and its applications.
         field :hiring_team, Crystalline::Array.new(Models::Shared::AssessmentOrderReceivedWebhookPayloadHiringTeam), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('hiring_team'), required: true } }
         # The job's identifier in the integrated system.
-        field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_id') } }
+        field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_id'), required: true } }
         # The job title.
-        field :name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('name') } }
+        field :name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('name'), required: true } }
         # The human readable job code. Some systems expose this as the Requisition Code/ID.
-        field :job_code, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('job_code') } }
+        field :job_code, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('job_code'), required: true } }
         # Description of the job. This field is usually returned as HTML.
-        field :description, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('description') } }
+        field :description, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('description'), required: true } }
         # The job location information.
-        field :location, Crystalline::Nilable.new(Models::Shared::AssessmentOrderReceivedWebhookPayloadLocation), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('location') } }
+        field :location, Crystalline::Nilable.new(Models::Shared::AssessmentOrderReceivedWebhookPayloadLocation), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('location'), required: true } }
 
         sig { params(hiring_team: T::Array[Models::Shared::AssessmentOrderReceivedWebhookPayloadHiringTeam], remote_id: T.nilable(::String), name: T.nilable(::String), job_code: T.nilable(::String), description: T.nilable(::String), location: T.nilable(Models::Shared::AssessmentOrderReceivedWebhookPayloadLocation)).void }
         def initialize(hiring_team:, remote_id: nil, name: nil, job_code: nil, description: nil, location: nil)
