@@ -6,7 +6,7 @@
 
 * [get_packages](#get_packages) - Get packages
 * [set_packages](#set_packages) - Set packages
-* [get_open_orders](#get_open_orders) - Get open orders
+* [get_assessment_orders](#get_assessment_orders) - Get orders
 * [update_order_result](#update_order_result) - Update order result
 
 ## get_packages
@@ -138,13 +138,13 @@ end
 | Models::Errors::KomboAtsError | default                       | application/json              |
 | Errors::APIError              | 4XX, 5XX                      | \*/\*                         |
 
-## get_open_orders
+## get_assessment_orders
 
-Get all open assessment and background check orders of an integration.
+Get all assessment and background check orders of an integration.
 
 ### Example Usage
 
-<!-- UsageSnippet language="ruby" operationID="GetAssessmentOrdersOpen" method="get" path="/assessment/orders/open" -->
+<!-- UsageSnippet language="ruby" operationID="GetAssessmentOrders" method="get" path="/assessment/orders" -->
 ```ruby
 require 'kombo'
 
@@ -156,9 +156,9 @@ s = ::Kombo::Kombo.new(
       ),
     )
 
-res = s.assessment.get_open_orders(page_size: 100)
+res = s.assessment.get_assessment_orders(page_size: 100)
 
-unless res.get_assessment_orders_open_positive_response.nil?
+unless res.get_assessment_orders_positive_response.nil?
   # handle response
 end
 
@@ -171,10 +171,13 @@ end
 | `integration_id`                                                                                                             | *T.nilable(::String)*                                                                                                        | :heavy_minus_sign:                                                                                                           | ID of the integration you want to interact with.                                                                             | workday:HWUTwvyx2wLoSUHphiWVrp28                                                                                             |
 | `cursor`                                                                                                                     | *T.nilable(::String)*                                                                                                        | :heavy_minus_sign:                                                                                                           | An optional cursor string used for pagination. This can be retrieved from the `next` property of the previous page response. |                                                                                                                              |
 | `page_size`                                                                                                                  | *T.nilable(::Integer)*                                                                                                       | :heavy_minus_sign:                                                                                                           | The number of results to return per page. Maximum is 250.                                                                    |                                                                                                                              |
+| `ids`                                                                                                                        | T::Array<*::String*>                                                                                                         | :heavy_minus_sign:                                                                                                           | Filter by a comma-separated list of IDs such as `222k7eCGyUdgt2JWZDNnkDs3,B5DVmypWENfU6eMe6gYDyJG3`.                         |                                                                                                                              |
+| `statuses`                                                                                                                   | T::Array<*::String*>                                                                                                         | :heavy_minus_sign:                                                                                                           | Filter by a comma-separated list of statuses such as `OPEN,COMPLETED`.                                                       |                                                                                                                              |
+| `created_after`                                                                                                              | [Date](https://ruby-doc.org/stdlib-2.6.1/libdoc/date/rdoc/Date.html)                                                         | :heavy_minus_sign:                                                                                                           | Filter orders by their creation date. Only orders created on or after this date will be returned.                            |                                                                                                                              |
 
 ### Response
 
-**[T.nilable(Models::Operations::GetAssessmentOrdersOpenResponse)](../../models/operations/getassessmentordersopenresponse.md)**
+**[T.nilable(Models::Operations::GetAssessmentOrdersResponse)](../../models/operations/getassessmentordersresponse.md)**
 
 ### Errors
 

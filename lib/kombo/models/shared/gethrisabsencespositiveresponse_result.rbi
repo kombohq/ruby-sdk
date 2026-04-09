@@ -36,6 +36,10 @@ class Kombo::Models::Shared::GetHrisAbsencesPositiveResponseResult
   def employee_note=(str_); end
   def type_id(); end
   def type_id=(str_); end
+  def remote_created_at(); end
+  def remote_created_at=(str_); end
+  def remote_updated_at(); end
+  def remote_updated_at=(str_); end
   def remote_deleted_at(); end
   def remote_deleted_at=(str_); end
   def type(); end

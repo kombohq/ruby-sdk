@@ -183,6 +183,7 @@ module Kombo
           ABSENCEIO = new('absenceio')
           A3INNUVANOMINA = new('a3innuvanomina')
           SCIM = new('scim')
+          DATEVLAUDS = new('datevlauds')
           DATEVHR = new('datevhr')
           DATEV = new('datev')
           DATEVLUG = new('datevlug')
@@ -196,6 +197,7 @@ module Kombo
           TALENTLMS = new('talentlms')
           UDEMY = new('udemy')
           LINKEDINLEARNING = new('linkedinlearning')
+          MOODLE = new('moodle')
         end
       end
     end

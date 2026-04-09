@@ -178,6 +178,7 @@ Pre-define a tool this integration link can be used for.
 | `ABSENCEIO`                       | absenceio                         |
 | `A3INNUVANOMINA`                  | a3innuvanomina                    |
 | `SCIM`                            | scim                              |
+| `DATEVLAUDS`                      | datevlauds                        |
 | `DATEVHR`                         | datevhr                           |
 | `DATEV`                           | datev                             |
 | `DATEVLUG`                        | datevlug                          |
@@ -191,3 +192,4 @@ Pre-define a tool this integration link can be used for.
 | `TALENTLMS`                       | talentlms                         |
 | `UDEMY`                           | udemy                             |
 | `LINKEDINLEARNING`                | linkedinlearning                  |
+| `MOODLE`                          | moodle                            |
