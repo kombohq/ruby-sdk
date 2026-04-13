@@ -99,6 +99,7 @@ module Kombo
           LAURA = new('laura')
           COVETOREST = new('covetorest')
           COVETO = new('coveto')
+          MERCURY = new('mercury')
           CRELATE = new('crelate')
           MANATAL = new('manatal')
           AVIONTE = new('avionte')

@@ -14,9 +14,6 @@ module Kombo
         enums do
           RECRUITER = new('RECRUITER')
           HIRING_MANAGER = new('HIRING_MANAGER')
-          COORDINATOR = new('COORDINATOR')
-          SOURCER = new('SOURCER')
-          INTERVIEWER = new('INTERVIEWER')
         end
       end
     end

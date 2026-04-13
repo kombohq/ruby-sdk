@@ -12,7 +12,7 @@ module Kombo
         extend T::Sig
         include Crystalline::MetadataFields
 
-        # Array of the roles of the user for this specific job. Currently only `RECRUITER` and `HIRING_MANAGER` are mapped into our unified schema.
+        # Array of the roles of the user for this specific job.
         field :hiring_team_roles, Crystalline::Array.new(Models::Shared::GetAssessmentOrdersPositiveResponseHiringTeamRole), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('hiring_team_roles'), required: true } }
         # The team member's identifier in the integrated system.
         field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_id'), required: true } }
