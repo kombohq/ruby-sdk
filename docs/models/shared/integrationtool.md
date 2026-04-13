@@ -94,6 +94,7 @@ Pre-define a tool this integration link can be used for.
 | `LAURA`                           | laura                             |
 | `COVETOREST`                      | covetorest                        |
 | `COVETO`                          | coveto                            |
+| `MERCURY`                         | mercury                           |
 | `CRELATE`                         | crelate                           |
 | `MANATAL`                         | manatal                           |
 | `AVIONTE`                         | avionte                           |
