@@ -423,7 +423,7 @@ module Kombo
       security = @sdk_configuration.security_source&.call
 
       timeout = (timeout_ms.to_f / 1000) unless timeout_ms.nil?
-      timeout ||= @sdk_configuration.timeout
+      timeout ||= (300_000.to_f / 1000)
       
 
       connection = @sdk_configuration.client
@@ -574,7 +574,7 @@ module Kombo
       security = @sdk_configuration.security_source&.call
 
       timeout = (timeout_ms.to_f / 1000) unless timeout_ms.nil?
-      timeout ||= @sdk_configuration.timeout
+      timeout ||= (300_000.to_f / 1000)
       
 
       connection = @sdk_configuration.client
@@ -860,7 +860,7 @@ module Kombo
       security = @sdk_configuration.security_source&.call
 
       timeout = (timeout_ms.to_f / 1000) unless timeout_ms.nil?
-      timeout ||= @sdk_configuration.timeout
+      timeout ||= (300_000.to_f / 1000)
       
 
       connection = @sdk_configuration.client
@@ -1011,7 +1011,7 @@ module Kombo
       security = @sdk_configuration.security_source&.call
 
       timeout = (timeout_ms.to_f / 1000) unless timeout_ms.nil?
-      timeout ||= @sdk_configuration.timeout
+      timeout ||= (300_000.to_f / 1000)
       
 
       connection = @sdk_configuration.client
@@ -1371,7 +1371,7 @@ module Kombo
       security = @sdk_configuration.security_source&.call
 
       timeout = (timeout_ms.to_f / 1000) unless timeout_ms.nil?
-      timeout ||= @sdk_configuration.timeout
+      timeout ||= (300_000.to_f / 1000)
       
 
       connection = @sdk_configuration.client
@@ -1656,7 +1656,7 @@ module Kombo
       security = @sdk_configuration.security_source&.call
 
       timeout = (timeout_ms.to_f / 1000) unless timeout_ms.nil?
-      timeout ||= @sdk_configuration.timeout
+      timeout ||= (300_000.to_f / 1000)
       
 
       connection = @sdk_configuration.client
@@ -1826,7 +1826,7 @@ module Kombo
       security = @sdk_configuration.security_source&.call
 
       timeout = (timeout_ms.to_f / 1000) unless timeout_ms.nil?
-      timeout ||= @sdk_configuration.timeout
+      timeout ||= (300_000.to_f / 1000)
       
 
       connection = @sdk_configuration.client
@@ -1977,7 +1977,7 @@ module Kombo
       security = @sdk_configuration.security_source&.call
 
       timeout = (timeout_ms.to_f / 1000) unless timeout_ms.nil?
-      timeout ||= @sdk_configuration.timeout
+      timeout ||= (300_000.to_f / 1000)
       
 
       connection = @sdk_configuration.client
@@ -2811,7 +2811,7 @@ module Kombo
       security = @sdk_configuration.security_source&.call
 
       timeout = (timeout_ms.to_f / 1000) unless timeout_ms.nil?
-      timeout ||= @sdk_configuration.timeout
+      timeout ||= (300_000.to_f / 1000)
       
 
       connection = @sdk_configuration.client
@@ -3722,7 +3722,7 @@ module Kombo
       security = @sdk_configuration.security_source&.call
 
       timeout = (timeout_ms.to_f / 1000) unless timeout_ms.nil?
-      timeout ||= @sdk_configuration.timeout
+      timeout ||= (300_000.to_f / 1000)
       
 
       connection = @sdk_configuration.client
