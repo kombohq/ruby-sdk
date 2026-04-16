@@ -18,9 +18,11 @@ module Kombo
         field :cursor, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'cursor', 'style': 'form', 'explode': true } }
         # Filter by a comma-separated list of IDs such as `222k7eCGyUdgt2JWZDNnkDs3,B5DVmypWENfU6eMe6gYDyJG3`.
         field :ids, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'query_param': { 'field_name': 'ids', 'style': 'form', 'explode': false } }
-        # Filter by a comma-separated list of statuses such as `OPEN,COMPLETED`.
+        # Filter by a comma-separated list of `OPEN`, `COMPLETED`, `CANCELLED`, `REJECTED`.
+        # 
+        # Leave this blank to get results matching all values.
         field :statuses, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'query_param': { 'field_name': 'statuses', 'style': 'form', 'explode': false } }
-        # Filter orders by their creation date. Only orders created on or after this date will be returned.
+        # Filter orders by their creation date-timestamp in the format: `YYYY-MM-DDTHH:mm:ss.sssZ`. Only orders created on or after this date-timestamp will be returned.
         field :created_after, Crystalline::Nilable.new(::DateTime), { 'query_param': { 'field_name': 'created_after', 'style': 'form', 'explode': true } }
         # The number of results to return per page. Maximum is 250.
         field :page_size, Crystalline::Nilable.new(::Integer), { 'query_param': { 'field_name': 'page_size', 'style': 'form', 'explode': true } }
