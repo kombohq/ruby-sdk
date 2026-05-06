@@ -18,6 +18,7 @@ Pre-define a tool this integration link can be used for.
 | `RECRUITEE`                       | recruitee                         |
 | `RECRUITERFLOW`                   | recruiterflow                     |
 | `GREENHOUSE`                      | greenhouse                        |
+| `GREENHOUSEV3`                    | greenhousev3                      |
 | `GREENHOUSEJOBBOARD`              | greenhousejobboard                |
 | `TEAMTAILOR`                      | teamtailor                        |
 | `TEAMTAILORJOBBOARDS`             | teamtailorjobboards               |
@@ -36,6 +37,7 @@ Pre-define a tool this integration link can be used for.
 | `REXX`                            | rexx                              |
 | `AFAS`                            | afas                              |
 | `BAMBOOHR`                        | bamboohr                          |
+| `BULLHORN4SALESFORCE`             | bullhorn4salesforce               |
 | `BULLHORN`                        | bullhorn                          |
 | `BULLHORNLOGIN`                   | bullhornlogin                     |
 | `WORKABLE`                        | workable                          |
@@ -75,6 +77,7 @@ Pre-define a tool this integration link can be used for.
 | `RECRUITCRM`                      | recruitcrm                        |
 | `JAZZHR`                          | jazzhr                            |
 | `BITE`                            | bite                              |
+| `BRASSRING`                       | brassring                         |
 | `HOMERUN`                         | homerun                           |
 | `MYSOLUTION`                      | mysolution                        |
 | `CARERIX`                         | carerix                           |
@@ -110,9 +113,12 @@ Pre-define a tool this integration link can be used for.
 | `SANDBOX`                         | sandbox                           |
 | `GUIDECOM`                        | guidecom                          |
 | `SPOTT`                           | spott                             |
+| `LOGICMELON`                      | logicmelon                        |
 | `LOXO`                            | loxo                              |
+| `KULA`                            | kula                              |
 | `WORKDAYCUSTOMREPORT`             | workdaycustomreport               |
 | `WORKDAYCUSTOMREPORTSFTP`         | workdaycustomreportsftp           |
+| `UKGPROWFM`                       | ukgprowfm                         |
 | `PAYFITCUSTOMER`                  | payfitcustomer                    |
 | `PAYFITPARTNER`                   | payfitpartner                     |
 | `PAYFIT`                          | payfit                            |

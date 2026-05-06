@@ -162,6 +162,7 @@ s = ::Kombo::Kombo.new(
 * [get_integration_details](docs/sdks/general/README.md#get_integration_details) - Get integration details
 * [set_integration_enabled](docs/sdks/general/README.md#set_integration_enabled) - Set integration enabled
 * [create_reconnection_link](docs/sdks/general/README.md#create_reconnection_link) - Create reconnection link
+* [create_setup_link](docs/sdks/general/README.md#create_setup_link) - Create Setup Flow link
 * [get_integration_fields](docs/sdks/general/README.md#get_integration_fields) - Get integration fields
 * [update_integration_field](docs/sdks/general/README.md#update_integration_field) - Updates an integration fields passthrough setting
 * [get_custom_fields](docs/sdks/general/README.md#get_custom_fields) - Get custom fields with current mappings
