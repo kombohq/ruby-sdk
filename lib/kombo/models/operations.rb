@@ -112,6 +112,8 @@ module Kombo
       autoload :PostHrisEmployeesFormResponse, 'kombo/models/operations/posthrisemployeesform_response.rb'
       autoload :PostIntegrationsIntegrationIdRelinkRequest, 'kombo/models/operations/postintegrationsintegrationidrelink_request.rb'
       autoload :PostIntegrationsIntegrationIdRelinkResponse, 'kombo/models/operations/postintegrationsintegrationidrelink_response.rb'
+      autoload :PostIntegrationsIntegrationIdSetupLinkRequest, 'kombo/models/operations/postintegrationsintegrationidsetuplink_request.rb'
+      autoload :PostIntegrationsIntegrationIdSetupLinkResponse, 'kombo/models/operations/postintegrationsintegrationidsetuplink_response.rb'
       autoload :PostPassthroughToolApiRequest, 'kombo/models/operations/postpassthroughtoolapi_request.rb'
       autoload :PostPassthroughToolApiResponse, 'kombo/models/operations/postpassthroughtoolapi_response.rb'
       autoload :PutAssessmentOrdersAssessmentOrderIdResultRequest, 'kombo/models/operations/putassessmentordersassessmentorderidresult_request.rb'
