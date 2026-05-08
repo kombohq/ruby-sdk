@@ -313,6 +313,7 @@ module Kombo
       # |BITE|`bite/v1`|[Bite's v1 API](https://api.b-ite.io/docs/#/). We automatically authenticate all requests and use 'https://api.b-ite.io/v1' as base URL.|
       # |BoondManager|`boondmanager/api`|BoondManager [REST API](https://ui.boondmanager.com/administrator/developer/apisandbox). We automatically authenticate all requests and use `https://ui.boondmanager.com/api` as the base URL.|
       # |Breezy HR|`breezyhr/v3`|[BreezyHR's v3 API](https://developer.breezy.hr/reference/overview). We automatically authenticate all requests and use "https://api.breezy.hr/v3/" as the base URL.|
+      # |Bullhorn for Salesforce|`bullhorn4salesforce/v66`|We use `https://\{subdomain\}.my.salesforce.com/services/data/v66.0` as the base URL. Find the official docs [here](https://kb.bullhorn.com/bh4sf/Content/BH4SF/Topics/bh4sfRestAPI.htm).|
       # |Bullhorn|`bullhorn/default`|[Bullhorn's API](https://bullhorn.github.io/rest-api-docs/index.html). We automatically use the right `https://rest.bullhornstaffing.com/rest-services/\{corpToken\}` base URL.|
       # |CareerPlug|`careerplug/api`|We use `https://api.careerplug.com` as the base URL. Find the official docs [here](https://api.careerplug.com/docs#api).|
       # |Carerix|`carerix/api`|Carerix [REST API](https://docs.carerix.io/rest/introduction). We automatically authenticate all requests and use `https://api.carerix.com` as the base URL. Please note that Carerix uses XML for request and response bodies.|
@@ -354,12 +355,13 @@ module Kombo
       # |Gem|`gem/api`|Gem's [ATS API](https://api.gem.com/ats/v0/reference) We automatically authenticate all requests.|
       # |Google Workspace|`googleworkspace/admin`|[Googles's API](https://developers.google.com/admin-sdk/directory/reference/rest). We automatically authenticate all requests and use 'https://admin.googleapis.com' as the base URL.|
       # |Google Workspace|`googleworkspace/people`|[Googles's API](https://developers.google.com/people/api/rest). We automatically authenticate all requests and use 'https://people.googleapis.com' as the base URL.|
+      # |Greenhouse (V3)|`greenhousev3/harvestv3`|We use `https://harvest.greenhouse.io/v3` as the base URL. Find the official docs [here](https://harvestdocs.greenhouse.io/reference/).|
       # |Greenhouse Job Board|`greenhousejobboard/boards-api`|[Greenhouse Job Board API](https://developers.greenhouse.io/job-board). We automatically authenticate all requests and use 'https://boards-api.greenhouse.io/v1/boards/\{job_board_token\}' as the base URL. Optionally, you can provide a custom job_board_token to use a different job board.|
       # |Greenhouse|`greenhouse/harvest-v2`|Greenhouse [Harvest API v2](https://developers.greenhouse.io/harvest.html). We automatically authenticate all requests using the API key and use `https://harvest.greenhouse.io/v2` as the base URL.|
       # |Greenhouse|`greenhouse/harvest`|Greenhouse [Harvest API v1](https://developers.greenhouse.io/harvest.html). We automatically authenticate all requests using the API key and use `https://harvest.greenhouse.io/v1` as the base URL.|
       # |GuideCom|`guidecom/api`|GuideCom's API. We automatically authenticate all requests and use the configured API base URL.|
       # |Gusto|`gusto/v1`|[Gusto API](https://docs.gusto.com/app-integrations/docs/introduction). We automatically authenticate all requests with OAuth and use `\{api_base_url\}/v1` as the base URL (`https://api.gusto.com/v1` in production, `https://api.gusto-demo.com/v1` in development).|
-      # |Hailey HR|`haileyhr/api`|Hailey HR's [API](https://api.haileyhr.app/docs/index.html). We automatically authenticate all requests using the provided credentials and use `https://api.haileyhr.app` as the base URL.|
+      # |Hailey HR|`haileyhr/api`|Hailey HR's [API](https://api.haileyhr.app/docs/index.html). We automatically authenticate all requests using the provided credentials and use `https://api.haileyhr.app` as the base URL. Connections created against the `DEMO` remote environment are routed to `https://api.demo.haileyhr.app` instead.|
       # |Hansalog|`hansalog/vision`|Hansalog's [Vision API](https://hansalog-vision.document360.io/docs/). We automatically authenticate all requests and use `https://\{subdomain\}.hansalog-cloud.de/vision` as the base URL.|
       # |Haufe Umantis|`umantis/v1`|[Umantis API v1](https://recruitingapp-91005709.umantis.com/api/v1/swagger-ui). We automatically authenticate all requests and use `https://\{subdomain\}.umantis.com/api/v1` as the base URL.|
       # |HeavenHR|`heavenhr/v2`|[HeavenHR API](https://api.heavenhr.com/). We automatically authenticate all requests using the provided credentials and use `https://api.heavenhr.com/api/v2` as the base URL.|
@@ -384,6 +386,7 @@ module Kombo
       # |Jobylon|`jobylon/push`|The [Jobylon Push API](https://developer.jobylon.com/push-api-and-webhooks/). We automatically authenticate all requests and use `https://\{subdomain\}.jobylon.com/p1` as the base URL.|
       # |JOIN|`join/v2`|Join's [V2 API](https://docs.join.com/reference/getting-started). We automatically authenticate all requests and use `https://api.join.com/v2` as the base URL.|
       # |Kenjo|`kenjo/api`|Kenjo's [API](https://kenjo.readme.io/reference/generate-the-api-key). We automatically authenticate all requests using the API key and use `https://api.kenjo.io/` as the base URL.|
+      # |Kula|`kula/v1`|Kula's [REST API](https://developers.kula.ai/docs/getting-started/overview). We automatically authenticate all requests with the provided credentials and use `https://api.kula.ai/v1` as the base URL.|
       # |Lattice Talent|`latticetalent/talent`|Lattice's [Talent API](https://developers.lattice.com/reference/introduction). We automatically authenticate all requests using API key credentials with `https://api.latticehq.com` as the base URL.|
       # |Lattice|`lattice/passthrough`|Lattice's [API](https://developers.lattice.com/v2/docs/base-url-1). We automatically authenticate all requests using OAuth credentials with `https://api.latticehq.com` as the base URL.|
       # |Lattice|`lattice/talent`|Lattice's [Talent API](https://developers.lattice.com/docs/introduction-1). We automatically authenticate all requests using OAuth credentials with `https://api.latticehq.com` as the base URL.|
@@ -392,6 +395,7 @@ module Kombo
       # |Leapsome|`leapsome/v1`|Leapsome [API](https://api.leapsome.com/v1/api-docs/). We automatically authenticate all requests using the credentials supplied by the customer and use `https://api.leapsome.com/v1` as the base URL.|
       # |Lever|`lever/v1`|[Lever's v1 API](https://hire.lever.co/developer/documentation). We automatically authenticate all requests using the partner credentials which have been configured in the Lever tool settings (this uses Kombo's partner credentials by default).|
       # |LinkedIn Learning|`linkedinlearning/v2`|LinkedIn Learning [API v2](https://learn.microsoft.com/en-us/linkedin/learning/). We automatically handle authentication and use `https://api.linkedin.com/v2` as the base URL.|
+      # |Logic Melon|`logicmelon/json`|We use `https://api.logicmelon.co.uk` as the base URL. Find the official docs [here](https://api.logicmelon.com/JSON/Multiposter.asmx).|
       # |Loket|`loket/api`|[Loket's REST API](https://developers.loket.nl/). We automatically authenticate all requests and use `https://\{api_domain\}` as the base URL, where `api_domain` is the API domain configured during integration setup (e.g. `api.loket.nl`).|
       # |Loxo|`loxo/v1`|[Loxo's API](https://loxo.readme.io/reference/loxo-api). We automatically authenticate all requests and use 'https://app.loxo.co/api/\{agency_slug\}' as base URL.|
       # |Lucca|`lucca/api`|[Luccas's API](https://developers.lucca.fr/api-reference/legacy/introduction). We automatically authenticate all requests and use 'https://\{account\}.\{ilucca|ilucca-demo\}.\{region\}/' as the base URL.|
@@ -463,6 +467,7 @@ module Kombo
       # |TriNet PEO|`trinetpeo/v1`|We use `https://api.trinet.com` as the base URL. Find the official docs [here](https://developers.trinet.com).|
       # |Ubeeo|`ubeeo/api`|Ubeeo ATS API. We automatically authenticate all requests using OAuth client credentials and use `https://api.ats-platform.com` as the base URL (sandbox: `https://api.acc.ats-platform.com`).|
       # |Udemy Business|`udemy/learning`|Udemy Business REST API. We automatically handle authentication and use `https://\{account_name\}.udemy.com/api-2.0/organizations/\{account_id\}/` as the base URL.|
+      # |UKG Pro WFM|`ukgprowfm/api`|UKG Pro WFM's [API](https://developer.ukg.com/wfm/reference/welcome-to-the-ukg-pro-workforce-management-api). We automatically authenticate all requests and use `https://\{hostname\}` as the base URL.|
       # |UKG Pro|`ukgpro/default`|[UKG Pro's HRIS API](https://developer.ukg.com/hcm/reference/get_personnel-v1-person-details). We automatically authenticate all requests and use  `https://\{hostname\}` as the base URL.|
       # |UKG Pro|`ukgpro/recruting`|[UKG Pro's Recruiting API](https://developer.ukg.com/hcm/reference/retrieveapplications). We automatically authenticate all requests and use  `https://\{hostname\}/talent/recruiting/v2/\{tenantalias\}/api` as the base URL.|
       # |UKG Ready|`ukgready/api`|UKG Ready [API](https://secure.saashr.com/ta/docs/rest/public/). We automatically authenticate all requests using the provided credentials and use `https://\{api_domain\}` as the base URL.|
@@ -1127,6 +1132,142 @@ module Kombo
             content_type: content_type,
             raw_response: http_response,
             post_integrations_integration_id_relink_positive_response: T.unsafe(obj)
+          )
+
+          return response
+        else
+          raise ::Kombo::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+        end
+      else
+        if Utils.match_content_type(content_type, 'application/json')
+          http_response = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: http_response
+          )
+          response_data = http_response.env.response_body
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::KomboGeneralError)
+          obj.raw_response = http_response
+          raise obj
+        else
+          raise ::Kombo::Models::Errors::APIError.new(status_code: http_response.status, body: http_response.env.response_body, raw_response: http_response), 'Unknown content type received'
+        end
+      end
+    end
+
+
+    sig { params(body: Models::Shared::PostIntegrationsIntegrationIdSetupLinkRequestBody, integration_id: ::String, timeout_ms: T.nilable(Integer)).returns(Models::Operations::PostIntegrationsIntegrationIdSetupLinkResponse) }
+    def create_setup_link(body:, integration_id:, timeout_ms: nil)
+      # create_setup_link - Create Setup Flow link
+      # Create a link that lets your customer run the [Setup Flow](/hris/features/setup-flow/introduction) for an integration. Use this to send customers back into setup steps like field mapping or employee filtering without having to go through the initial connection flow again. Pass the returned URL to `showKomboConnect` from the Kombo Connect SDK, the same way you do with a connection link.
+      # 
+      # The integration must have at least one Setup Flow step enabled (e.g. field mapping or employee filtering); otherwise this endpoint returns a `PLATFORM.INPUT_INVALID` error. Steps can be enabled from the Integration Settings tab in the dashboard or via the [Create Connection Link endpoint](./post-connect-create-link).
+      request = Models::Operations::PostIntegrationsIntegrationIdSetupLinkRequest.new(
+        integration_id: integration_id,
+        body: body
+      )
+      url, params = @sdk_configuration.get_server_details
+      base_url = Utils.template_url(url, params)
+      url = Utils.generate_url(
+        Models::Operations::PostIntegrationsIntegrationIdSetupLinkRequest,
+        base_url,
+        '/integrations/{integration_id}/setup-link',
+        request,
+        @sdk_configuration.globals
+      )
+      headers = {}
+      headers = T.cast(headers, T::Hash[String, String])
+      req_content_type, data, form = Utils.serialize_request_body(request, false, false, :body, :json)
+      headers['content-type'] = req_content_type
+      raise StandardError, 'request body is required' if data.nil? && form.nil?
+
+      if form
+        body = Utils.encode_form(form)
+      elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
+        body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
+      else
+        body = data
+      end
+      headers['Accept'] = 'application/json'
+      headers['user-agent'] = @sdk_configuration.user_agent
+
+      security = @sdk_configuration.security_source&.call
+
+      timeout = (timeout_ms.to_f / 1000) unless timeout_ms.nil?
+      timeout ||= (300_000.to_f / 1000)
+      
+
+      connection = @sdk_configuration.client
+
+      hook_ctx = SDKHooks::HookContext.new(
+        config: @sdk_configuration,
+        base_url: base_url,
+        oauth2_scopes: nil,
+        operation_id: 'PostIntegrationsIntegrationIdSetupLink',
+        security_source: @sdk_configuration.security_source
+      )
+
+      error = T.let(nil, T.nilable(StandardError))
+      http_response = T.let(nil, T.nilable(Faraday::Response))
+      
+      
+      begin
+        http_response = T.must(connection).post(url) do |req|
+          req.body = body
+          req.headers.merge!(headers)
+          req.options.timeout = timeout unless timeout.nil?
+          Utils.configure_request_security(req, security)
+
+          @sdk_configuration.hooks.before_request(
+            hook_ctx: SDKHooks::BeforeRequestHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            request: req
+          )
+        end
+      rescue StandardError => e
+        error = e
+      ensure
+        if http_response.nil? || Utils.error_status?(http_response.status)
+          http_response = @sdk_configuration.hooks.after_error(
+            error: error,
+            hook_ctx: SDKHooks::AfterErrorHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: http_response
+          )
+        else
+          http_response = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: http_response
+          )
+        end
+        
+        if http_response.nil?
+          raise error if !error.nil?
+          raise 'no response'
+        end
+      end
+      
+      content_type = http_response.headers.fetch('Content-Type', 'application/octet-stream')
+      if Utils.match_status_code(http_response.status, ['200'])
+        if Utils.match_content_type(content_type, 'application/json')
+          http_response = @sdk_configuration.hooks.after_success(
+            hook_ctx: SDKHooks::AfterSuccessHookContext.new(
+              hook_ctx: hook_ctx
+            ),
+            response: http_response
+          )
+          response_data = http_response.env.response_body
+          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::PostIntegrationsIntegrationIdSetupLinkPositiveResponse)
+          response = Models::Operations::PostIntegrationsIntegrationIdSetupLinkResponse.new(
+            status_code: http_response.status,
+            content_type: content_type,
+            raw_response: http_response,
+            post_integrations_integration_id_setup_link_positive_response: T.unsafe(obj)
           )
 
           return response

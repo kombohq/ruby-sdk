@@ -24,7 +24,7 @@ module Kombo
         # 
         # For this endpoint, `updated_after` matches when the returned record changed, or when related data changed as described below.
         # 
-        # | Path | Relationship | Target Record |
+        # | Path | Added/Removed | Linked Record |
         # | --- | --- | --- |
         # | `employments` | ✓ Yes | ✓ Yes |
         # | `time_off_balances` | ✓ Yes | ✓ Yes |
@@ -33,7 +33,7 @@ module Kombo
         # | `legal_entity` | n/a | ✓ Yes |
         # | `work_location` | n/a | ✓ Yes |
         # 
-        # _**Relationship**: Whether adding or removing entries from this list triggers an update (n/a for single references that are not lists). **Target Record**: Whether changes to the linked record itself trigger an update._
+        # _**Added/Removed**: Whether adding or removing entries from this list triggers an update (n/a for single records). **Linked Record**: Whether changes to the linked record itself trigger an update._
         field :updated_after, Crystalline::Nilable.new(::DateTime), { 'query_param': { 'field_name': 'updated_after', 'style': 'form', 'explode': true } }
         # Filter by a comma-separated list of IDs such as `222k7eCGyUdgt2JWZDNnkDs3,B5DVmypWENfU6eMe6gYDyJG3`.
         field :ids, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'query_param': { 'field_name': 'ids', 'style': 'form', 'explode': false } }
