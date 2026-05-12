@@ -14,14 +14,17 @@ module Kombo
 
         # Fields specific to Greenhouse.
         field :greenhouse, Crystalline::Nilable.new(Models::Shared::PostAtsApplicationsApplicationIdRejectRequestBodyGreenhouse), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('greenhouse') } }
+        # Fields specific to Greenhouse V3.
+        field :greenhousev3, Crystalline::Nilable.new(Models::Shared::PostAtsApplicationsApplicationIdRejectRequestBodyGreenhousev3), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('greenhousev3') } }
         # Fields specific to Teamtailor.
         field :teamtailor, Crystalline::Nilable.new(Models::Shared::PostAtsApplicationsApplicationIdRejectRequestBodyTeamtailor), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('teamtailor') } }
         # Workable specific remote fields for ATS actions.
         field :workable, Crystalline::Nilable.new(Models::Shared::PostAtsApplicationsApplicationIdRejectRequestBodyWorkable), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('workable') } }
 
-        sig { params(greenhouse: T.nilable(Models::Shared::PostAtsApplicationsApplicationIdRejectRequestBodyGreenhouse), teamtailor: T.nilable(Models::Shared::PostAtsApplicationsApplicationIdRejectRequestBodyTeamtailor), workable: T.nilable(Models::Shared::PostAtsApplicationsApplicationIdRejectRequestBodyWorkable)).void }
-        def initialize(greenhouse: nil, teamtailor: nil, workable: nil)
+        sig { params(greenhouse: T.nilable(Models::Shared::PostAtsApplicationsApplicationIdRejectRequestBodyGreenhouse), greenhousev3: T.nilable(Models::Shared::PostAtsApplicationsApplicationIdRejectRequestBodyGreenhousev3), teamtailor: T.nilable(Models::Shared::PostAtsApplicationsApplicationIdRejectRequestBodyTeamtailor), workable: T.nilable(Models::Shared::PostAtsApplicationsApplicationIdRejectRequestBodyWorkable)).void }
+        def initialize(greenhouse: nil, greenhousev3: nil, teamtailor: nil, workable: nil)
           @greenhouse = greenhouse
+          @greenhousev3 = greenhousev3
           @teamtailor = teamtailor
           @workable = workable
         end
@@ -30,6 +33,7 @@ module Kombo
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @greenhouse == other.greenhouse
+          return false unless @greenhousev3 == other.greenhousev3
           return false unless @teamtailor == other.teamtailor
           return false unless @workable == other.workable
           true

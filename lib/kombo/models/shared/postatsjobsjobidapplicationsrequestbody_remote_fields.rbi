@@ -18,6 +18,8 @@ class Kombo::Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyRemoteFields
   def teamtailor=(str_); end
   def greenhouse(); end
   def greenhouse=(str_); end
+  def greenhousev3(); end
+  def greenhousev3=(str_); end
   def lever(); end
   def lever=(str_); end
   def workable(); end
