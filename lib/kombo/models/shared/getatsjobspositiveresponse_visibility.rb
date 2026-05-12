@@ -8,7 +8,7 @@ module Kombo
   module Models
     module Shared
 
-      class Visibility < T::Enum
+      class GetAtsJobsPositiveResponseVisibility < T::Enum
 
 
         enums do

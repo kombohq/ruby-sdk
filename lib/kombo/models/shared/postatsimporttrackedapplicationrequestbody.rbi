@@ -16,6 +16,8 @@ class Kombo::Models::Shared::PostAtsImportTrackedApplicationRequestBody
   def recruitee=(str_); end
   def greenhouse(); end
   def greenhouse=(str_); end
+  def greenhousev3(); end
+  def greenhousev3=(str_); end
   def onlyfy(); end
   def onlyfy=(str_); end
   def smartrecruiters(); end

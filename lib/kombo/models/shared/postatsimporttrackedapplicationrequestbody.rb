@@ -21,6 +21,8 @@ module Kombo
 
         field :greenhouse, Crystalline::Nilable.new(Models::Shared::PostAtsImportTrackedApplicationRequestBodyGreenhouseApplicationID), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('greenhouse') } }
 
+        field :greenhousev3, Crystalline::Nilable.new(Models::Shared::PostAtsImportTrackedApplicationRequestBodyGreenhousev3ApplicationID), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('greenhousev3') } }
+
         field :onlyfy, Crystalline::Nilable.new(Models::Shared::PostAtsImportTrackedApplicationRequestBodyOnlyfyApplicationID), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('onlyfy') } }
 
         field :smartrecruiters, Crystalline::Nilable.new(Models::Shared::PostAtsImportTrackedApplicationRequestBodySmartrecruitersCandidateAndJobRemoteIds), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('smartrecruiters') } }
@@ -28,12 +30,13 @@ module Kombo
         # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
         field :tracked_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('tracked_at'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
 
-        sig { params(erecruiter: T.nilable(T.any(Models::Shared::PostAtsImportTrackedApplicationRequestBodyErecruiterApplicationAndJobRemoteIds, Models::Shared::PostAtsImportTrackedApplicationRequestBodyErecruiterApplicationAndCandidateRemoteIds)), successfactors: T.nilable(Models::Shared::PostAtsImportTrackedApplicationRequestBodySuccessfactorsApplicationRemoteID), recruitee: T.nilable(Models::Shared::PostAtsImportTrackedApplicationRequestBodyRecruiteePlacementID), greenhouse: T.nilable(Models::Shared::PostAtsImportTrackedApplicationRequestBodyGreenhouseApplicationID), onlyfy: T.nilable(Models::Shared::PostAtsImportTrackedApplicationRequestBodyOnlyfyApplicationID), smartrecruiters: T.nilable(Models::Shared::PostAtsImportTrackedApplicationRequestBodySmartrecruitersCandidateAndJobRemoteIds), tracked_at: T.nilable(::DateTime)).void }
-        def initialize(erecruiter: nil, successfactors: nil, recruitee: nil, greenhouse: nil, onlyfy: nil, smartrecruiters: nil, tracked_at: nil)
+        sig { params(erecruiter: T.nilable(T.any(Models::Shared::PostAtsImportTrackedApplicationRequestBodyErecruiterApplicationAndJobRemoteIds, Models::Shared::PostAtsImportTrackedApplicationRequestBodyErecruiterApplicationAndCandidateRemoteIds)), successfactors: T.nilable(Models::Shared::PostAtsImportTrackedApplicationRequestBodySuccessfactorsApplicationRemoteID), recruitee: T.nilable(Models::Shared::PostAtsImportTrackedApplicationRequestBodyRecruiteePlacementID), greenhouse: T.nilable(Models::Shared::PostAtsImportTrackedApplicationRequestBodyGreenhouseApplicationID), greenhousev3: T.nilable(Models::Shared::PostAtsImportTrackedApplicationRequestBodyGreenhousev3ApplicationID), onlyfy: T.nilable(Models::Shared::PostAtsImportTrackedApplicationRequestBodyOnlyfyApplicationID), smartrecruiters: T.nilable(Models::Shared::PostAtsImportTrackedApplicationRequestBodySmartrecruitersCandidateAndJobRemoteIds), tracked_at: T.nilable(::DateTime)).void }
+        def initialize(erecruiter: nil, successfactors: nil, recruitee: nil, greenhouse: nil, greenhousev3: nil, onlyfy: nil, smartrecruiters: nil, tracked_at: nil)
           @erecruiter = erecruiter
           @successfactors = successfactors
           @recruitee = recruitee
           @greenhouse = greenhouse
+          @greenhousev3 = greenhousev3
           @onlyfy = onlyfy
           @smartrecruiters = smartrecruiters
           @tracked_at = tracked_at
@@ -46,6 +49,7 @@ module Kombo
           return false unless @successfactors == other.successfactors
           return false unless @recruitee == other.recruitee
           return false unless @greenhouse == other.greenhouse
+          return false unless @greenhousev3 == other.greenhousev3
           return false unless @onlyfy == other.onlyfy
           return false unless @smartrecruiters == other.smartrecruiters
           return false unless @tracked_at == other.tracked_at

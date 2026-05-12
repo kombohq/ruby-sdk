@@ -10,6 +10,8 @@ end
 class Kombo::Models::Shared::PostAtsApplicationsApplicationIdRejectRequestBodyRemoteFields
   def greenhouse(); end
   def greenhouse=(str_); end
+  def greenhousev3(); end
+  def greenhousev3=(str_); end
   def teamtailor(); end
   def teamtailor=(str_); end
   def workable(); end

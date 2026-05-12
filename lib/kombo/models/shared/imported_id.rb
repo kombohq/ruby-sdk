@@ -21,16 +21,19 @@ module Kombo
 
         field :greenhouse, Crystalline::Nilable.new(Models::Shared::PostAtsImportTrackedApplicationPositiveResponseGreenhouseApplicationID), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('greenhouse') } }
 
+        field :greenhousev3, Crystalline::Nilable.new(Models::Shared::PostAtsImportTrackedApplicationPositiveResponseGreenhousev3ApplicationID), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('greenhousev3') } }
+
         field :onlyfy, Crystalline::Nilable.new(Models::Shared::PostAtsImportTrackedApplicationPositiveResponseOnlyfyApplicationID), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('onlyfy') } }
 
         field :smartrecruiters, Crystalline::Nilable.new(Models::Shared::PostAtsImportTrackedApplicationPositiveResponseSmartrecruitersCandidateAndJobRemoteIds), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('smartrecruiters') } }
 
-        sig { params(erecruiter: T.nilable(T.any(Models::Shared::PostAtsImportTrackedApplicationPositiveResponseErecruiterApplicationAndJobRemoteIds, Models::Shared::PostAtsImportTrackedApplicationPositiveResponseErecruiterApplicationAndCandidateRemoteIds)), successfactors: T.nilable(Models::Shared::PostAtsImportTrackedApplicationPositiveResponseSuccessfactorsApplicationRemoteID), recruitee: T.nilable(Models::Shared::PostAtsImportTrackedApplicationPositiveResponseRecruiteePlacementID), greenhouse: T.nilable(Models::Shared::PostAtsImportTrackedApplicationPositiveResponseGreenhouseApplicationID), onlyfy: T.nilable(Models::Shared::PostAtsImportTrackedApplicationPositiveResponseOnlyfyApplicationID), smartrecruiters: T.nilable(Models::Shared::PostAtsImportTrackedApplicationPositiveResponseSmartrecruitersCandidateAndJobRemoteIds)).void }
-        def initialize(erecruiter: nil, successfactors: nil, recruitee: nil, greenhouse: nil, onlyfy: nil, smartrecruiters: nil)
+        sig { params(erecruiter: T.nilable(T.any(Models::Shared::PostAtsImportTrackedApplicationPositiveResponseErecruiterApplicationAndJobRemoteIds, Models::Shared::PostAtsImportTrackedApplicationPositiveResponseErecruiterApplicationAndCandidateRemoteIds)), successfactors: T.nilable(Models::Shared::PostAtsImportTrackedApplicationPositiveResponseSuccessfactorsApplicationRemoteID), recruitee: T.nilable(Models::Shared::PostAtsImportTrackedApplicationPositiveResponseRecruiteePlacementID), greenhouse: T.nilable(Models::Shared::PostAtsImportTrackedApplicationPositiveResponseGreenhouseApplicationID), greenhousev3: T.nilable(Models::Shared::PostAtsImportTrackedApplicationPositiveResponseGreenhousev3ApplicationID), onlyfy: T.nilable(Models::Shared::PostAtsImportTrackedApplicationPositiveResponseOnlyfyApplicationID), smartrecruiters: T.nilable(Models::Shared::PostAtsImportTrackedApplicationPositiveResponseSmartrecruitersCandidateAndJobRemoteIds)).void }
+        def initialize(erecruiter: nil, successfactors: nil, recruitee: nil, greenhouse: nil, greenhousev3: nil, onlyfy: nil, smartrecruiters: nil)
           @erecruiter = erecruiter
           @successfactors = successfactors
           @recruitee = recruitee
           @greenhouse = greenhouse
+          @greenhousev3 = greenhousev3
           @onlyfy = onlyfy
           @smartrecruiters = smartrecruiters
         end
@@ -42,6 +45,7 @@ module Kombo
           return false unless @successfactors == other.successfactors
           return false unless @recruitee == other.recruitee
           return false unless @greenhouse == other.greenhouse
+          return false unless @greenhousev3 == other.greenhousev3
           return false unless @onlyfy == other.onlyfy
           return false unless @smartrecruiters == other.smartrecruiters
           true

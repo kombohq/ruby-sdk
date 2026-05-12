@@ -16,6 +16,8 @@ module Kombo
         field :teamtailor, Crystalline::Nilable.new(Models::Shared::PostAtsApplicationsApplicationIdNotesRequestBodyTeamtailor), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('teamtailor') } }
         # Fields specific to Greenhouse.
         field :greenhouse, Crystalline::Nilable.new(Models::Shared::PostAtsApplicationsApplicationIdNotesRequestBodyGreenhouse), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('greenhouse') } }
+        # Greenhouse V3 specific remote fields for the note.
+        field :greenhousev3, Crystalline::Nilable.new(Models::Shared::PostAtsApplicationsApplicationIdNotesRequestBodyGreenhousev3), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('greenhousev3') } }
         # Recruitee specific remote fields for the note.
         field :recruitee, Crystalline::Nilable.new(Models::Shared::PostAtsApplicationsApplicationIdNotesRequestBodyRecruitee), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('recruitee') } }
         # Bullhorn specific remote fields for the note.
@@ -25,10 +27,11 @@ module Kombo
         # Workable specific remote fields for ATS actions.
         field :workable, Crystalline::Nilable.new(Models::Shared::PostAtsApplicationsApplicationIdNotesRequestBodyWorkable), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('workable') } }
 
-        sig { params(teamtailor: T.nilable(Models::Shared::PostAtsApplicationsApplicationIdNotesRequestBodyTeamtailor), greenhouse: T.nilable(Models::Shared::PostAtsApplicationsApplicationIdNotesRequestBodyGreenhouse), recruitee: T.nilable(Models::Shared::PostAtsApplicationsApplicationIdNotesRequestBodyRecruitee), bullhorn: T.nilable(Models::Shared::PostAtsApplicationsApplicationIdNotesRequestBodyBullhorn), lever: T.nilable(Models::Shared::PostAtsApplicationsApplicationIdNotesRequestBodyLever), workable: T.nilable(Models::Shared::PostAtsApplicationsApplicationIdNotesRequestBodyWorkable)).void }
-        def initialize(teamtailor: nil, greenhouse: nil, recruitee: nil, bullhorn: nil, lever: nil, workable: nil)
+        sig { params(teamtailor: T.nilable(Models::Shared::PostAtsApplicationsApplicationIdNotesRequestBodyTeamtailor), greenhouse: T.nilable(Models::Shared::PostAtsApplicationsApplicationIdNotesRequestBodyGreenhouse), greenhousev3: T.nilable(Models::Shared::PostAtsApplicationsApplicationIdNotesRequestBodyGreenhousev3), recruitee: T.nilable(Models::Shared::PostAtsApplicationsApplicationIdNotesRequestBodyRecruitee), bullhorn: T.nilable(Models::Shared::PostAtsApplicationsApplicationIdNotesRequestBodyBullhorn), lever: T.nilable(Models::Shared::PostAtsApplicationsApplicationIdNotesRequestBodyLever), workable: T.nilable(Models::Shared::PostAtsApplicationsApplicationIdNotesRequestBodyWorkable)).void }
+        def initialize(teamtailor: nil, greenhouse: nil, greenhousev3: nil, recruitee: nil, bullhorn: nil, lever: nil, workable: nil)
           @teamtailor = teamtailor
           @greenhouse = greenhouse
+          @greenhousev3 = greenhousev3
           @recruitee = recruitee
           @bullhorn = bullhorn
           @lever = lever
@@ -40,6 +43,7 @@ module Kombo
           return false unless other.is_a? self.class
           return false unless @teamtailor == other.teamtailor
           return false unless @greenhouse == other.greenhouse
+          return false unless @greenhousev3 == other.greenhousev3
           return false unless @recruitee == other.recruitee
           return false unless @bullhorn == other.bullhorn
           return false unless @lever == other.lever
