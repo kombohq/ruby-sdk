@@ -9,8 +9,6 @@ module Kombo
     module Shared
       # SyncFinishedWebhookPayloadType - Type of the webhook event
       class SyncFinishedWebhookPayloadType < T::Enum
-
-
         enums do
           SYNC_FINISHED = new('sync-finished')
         end

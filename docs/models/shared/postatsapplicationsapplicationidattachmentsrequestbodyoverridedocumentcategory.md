@@ -2,6 +2,14 @@
 
 Allows you to override the document category for the attachment.
 
+## Example Usage
+
+```ruby
+require "kombo"
+
+value = PostAtsApplicationsApplicationIdAttachmentsRequestBodyOverrideDocumentCategory::IRC_CANDIDATE_RESUME
+```
+
 
 ## Values
 

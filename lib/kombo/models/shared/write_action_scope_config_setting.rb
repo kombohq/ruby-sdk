@@ -9,8 +9,6 @@ module Kombo
     module Shared
       # WriteActionScopeConfigSetting - The setting of the datapoint in the scope config that you configured in the Kombo dashboard.
       class WriteActionScopeConfigSetting < T::Enum
-
-
         enums do
           ENABLED = new('ENABLED')
           DISABLED = new('DISABLED')

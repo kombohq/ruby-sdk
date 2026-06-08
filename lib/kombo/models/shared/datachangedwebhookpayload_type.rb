@@ -9,8 +9,6 @@ module Kombo
     module Shared
       # DataChangedWebhookPayloadType - Type of the webhook event
       class DataChangedWebhookPayloadType < T::Enum
-
-
         enums do
           DATA_CHANGED = new('data-changed')
         end

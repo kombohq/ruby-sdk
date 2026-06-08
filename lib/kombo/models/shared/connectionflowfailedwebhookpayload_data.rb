@@ -15,7 +15,7 @@ module Kombo
         # The name of the integrated tool (e.g., "personio", "greenhouse").
         field :integration_tool, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('integration_tool'), required: true } }
         # The category of the integration (HRIS, ATS, ASSESSMENT, or LMS).
-        field :integration_category, Models::Shared::ConnectionFlowFailedWebhookPayloadIntegrationCategory, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('integration_category'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::ConnectionFlowFailedWebhookPayloadIntegrationCategory, false) } }
+        field :integration_category, Models::Shared::ConnectionFlowFailedWebhookPayloadIntegrationCategory, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('integration_category'), required: true, 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::ConnectionFlowFailedWebhookPayloadIntegrationCategory, false) } }
         # Information about the end user who created the integration.
         field :end_user, Models::Shared::ConnectionFlowFailedWebhookPayloadEndUser, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('end_user'), required: true } }
         # URL to view detailed logs for the operation.

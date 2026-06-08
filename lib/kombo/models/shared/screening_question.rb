@@ -21,7 +21,7 @@ module Kombo
         # Additional instructions or context. Typically a short sentence, but sometimes a long detailed description (e.g., for EEO questions). May include HTML for extra formatting.
         field :description, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('description'), required: true } }
         # The category of the screening question (default `null`). "EEO" questions are related to Equal Employment Opportunity (e.g. "What is your veteran status?"), while "DEMOGRAPHIC" questions are for other diversity and demographic data collection.
-        field :category, Crystalline::Nilable.new(Models::Shared::GetAtsJobsPositiveResponseCategory), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('category'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::GetAtsJobsPositiveResponseCategory, false) } }
+        field :category, Crystalline::Nilable.new(Models::Shared::GetAtsJobsPositiveResponseCategory), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('category'), required: true, 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::GetAtsJobsPositiveResponseCategory, false) } }
 
         field :required, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('required'), required: true } }
 

@@ -1,5 +1,13 @@
 # Schema2UnifiedKey6
 
+## Example Usage
+
+```ruby
+require "kombo"
+
+value = Schema2UnifiedKey6::FIRST_NAME
+```
+
 
 ## Values
 

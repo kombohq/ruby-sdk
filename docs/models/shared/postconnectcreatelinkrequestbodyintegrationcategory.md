@@ -2,6 +2,14 @@
 
 Category of the integration you want your customer to create.
 
+## Example Usage
+
+```ruby
+require "kombo"
+
+value = PostConnectCreateLinkRequestBodyIntegrationCategory::HRIS
+```
+
 
 ## Values
 

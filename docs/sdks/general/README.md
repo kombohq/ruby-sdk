@@ -24,18 +24,17 @@ Check whether your API key is working properly.
 
 ### Example Usage
 
-<!-- UsageSnippet language="ruby" operationID="GetCheckApiKey" method="get" path="/check-api-key" -->
+<!-- UsageSnippet language="ruby" operationID="GetCheckApiKey" method="get" path="/check-api-key" example="example1" -->
 ```ruby
 require 'kombo'
 
 Models = ::Kombo::Models
 s = ::Kombo::Kombo.new(
-      security: Models::Shared::Security.new(
-        api_key: '<YOUR_BEARER_TOKEN_HERE>',
-      ),
-    )
-
-res = s.general.check_api_key()
+  security: Models::Shared::Security.new(
+    api_key: '<YOUR_BEARER_TOKEN_HERE>'
+  )
+)
+res = s.general.check_api_key
 
 unless res.get_check_api_key_positive_response.nil?
   # handle response
@@ -60,21 +59,60 @@ Trigger a sync for a specific integration.
 
 <Warning>Please note that it is **not** necessary nor recommended to call this endpoint periodically on your side. Kombo already performs periodic syncs for you and you should only trigger syncs yourself in special cases (like when a user clicks on a "Sync" button in your app).</Warning>
 
-### Example Usage
+### Example Usage: Error Response
 
-<!-- UsageSnippet language="ruby" operationID="PostForceSync" method="post" path="/force-sync" -->
+<!-- UsageSnippet language="ruby" operationID="PostForceSync" method="post" path="/force-sync" example="Error Response" -->
 ```ruby
 require 'kombo'
 
 Models = ::Kombo::Models
 s = ::Kombo::Kombo.new(
-      integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
-      security: Models::Shared::Security.new(
-        api_key: '<YOUR_BEARER_TOKEN_HERE>',
-      ),
-    )
+  integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
+  security: Models::Shared::Security.new(
+    api_key: '<YOUR_BEARER_TOKEN_HERE>'
+  )
+)
+res = s.general.trigger_sync(body: Models::Shared::PostForceSyncRequestBody.new)
 
-res = s.general.trigger_sync(body: Models::Shared::PostForceSyncRequestBody.new())
+unless res.post_force_sync_positive_response.nil?
+  # handle response
+end
+
+```
+### Example Usage: Minimal Error Response
+
+<!-- UsageSnippet language="ruby" operationID="PostForceSync" method="post" path="/force-sync" example="Minimal Error Response" -->
+```ruby
+require 'kombo'
+
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
+  integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
+  security: Models::Shared::Security.new(
+    api_key: '<YOUR_BEARER_TOKEN_HERE>'
+  )
+)
+res = s.general.trigger_sync(body: Models::Shared::PostForceSyncRequestBody.new)
+
+unless res.post_force_sync_positive_response.nil?
+  # handle response
+end
+
+```
+### Example Usage: example1
+
+<!-- UsageSnippet language="ruby" operationID="PostForceSync" method="post" path="/force-sync" example="example1" -->
+```ruby
+require 'kombo'
+
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
+  integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
+  security: Models::Shared::Security.new(
+    api_key: '<YOUR_BEARER_TOKEN_HERE>'
+  )
+)
+res = s.general.trigger_sync(body: Models::Shared::PostForceSyncRequestBody.new)
 
 unless res.post_force_sync_positive_response.nil?
   # handle response
@@ -309,23 +347,68 @@ To get started, please pick the relevant API (some tools provide multiple to due
 
 <Note>Please note that the passthrough API endpoints are only meant for edge cases. That's why we only expose them for new integrations after understanding a concrete customer use case. If you have such a use case in mind, please reach out to Kombo.</Note>
 
-### Example Usage
+### Example Usage: Error Response
 
-<!-- UsageSnippet language="ruby" operationID="PostPassthroughToolApi" method="post" path="/passthrough/{tool}/{api}" -->
+<!-- UsageSnippet language="ruby" operationID="PostPassthroughToolApi" method="post" path="/passthrough/{tool}/{api}" example="Error Response" -->
 ```ruby
 require 'kombo'
 
 Models = ::Kombo::Models
 s = ::Kombo::Kombo.new(
-      integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
-      security: Models::Shared::Security.new(
-        api_key: '<YOUR_BEARER_TOKEN_HERE>',
-      ),
-    )
+  integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
+  security: Models::Shared::Security.new(
+    api_key: '<YOUR_BEARER_TOKEN_HERE>'
+  )
+)
+res = s.general.send_passthrough_request(tool: '<value>', api: '<value>', body: Models::Shared::PostPassthroughToolApiRequestBody.new(
+  method: Models::Shared::Method::DELETE,
+  path: '/private/var'
+))
 
+unless res.post_passthrough_tool_api_positive_response.nil?
+  # handle response
+end
+
+```
+### Example Usage: Minimal Error Response
+
+<!-- UsageSnippet language="ruby" operationID="PostPassthroughToolApi" method="post" path="/passthrough/{tool}/{api}" example="Minimal Error Response" -->
+```ruby
+require 'kombo'
+
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
+  integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
+  security: Models::Shared::Security.new(
+    api_key: '<YOUR_BEARER_TOKEN_HERE>'
+  )
+)
+res = s.general.send_passthrough_request(tool: '<value>', api: '<value>', body: Models::Shared::PostPassthroughToolApiRequestBody.new(
+  method: Models::Shared::Method::DELETE,
+  path: '/private/var'
+))
+
+unless res.post_passthrough_tool_api_positive_response.nil?
+  # handle response
+end
+
+```
+### Example Usage: example1
+
+<!-- UsageSnippet language="ruby" operationID="PostPassthroughToolApi" method="post" path="/passthrough/{tool}/{api}" example="example1" -->
+```ruby
+require 'kombo'
+
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
+  integration_id: 'workday:HWUTwvyx2wLoSUHphiWVrp28',
+  security: Models::Shared::Security.new(
+    api_key: '<YOUR_BEARER_TOKEN_HERE>'
+  )
+)
 res = s.general.send_passthrough_request(tool: 'personio', api: 'personnel', body: Models::Shared::PostPassthroughToolApiRequestBody.new(
   method: Models::Shared::Method::GET,
-  path: '/company/employees',
+  path: '/company/employees'
 ))
 
 unless res.post_passthrough_tool_api_positive_response.nil?
@@ -359,20 +442,38 @@ end
 Delete the specified integration.
 **⚠️ This can not be undone!**
 
-### Example Usage
+### Example Usage: Error Response
 
-<!-- UsageSnippet language="ruby" operationID="DeleteIntegrationsIntegrationId" method="delete" path="/integrations/{integration_id}" -->
+<!-- UsageSnippet language="ruby" operationID="DeleteIntegrationsIntegrationId" method="delete" path="/integrations/{integration_id}" example="Error Response" -->
 ```ruby
 require 'kombo'
 
 Models = ::Kombo::Models
 s = ::Kombo::Kombo.new(
-      security: Models::Shared::Security.new(
-        api_key: '<YOUR_BEARER_TOKEN_HERE>',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    api_key: '<YOUR_BEARER_TOKEN_HERE>'
+  )
+)
+res = s.general.delete_integration(integration_id: '<id>', body: Models::Shared::DeleteIntegrationsIntegrationIdRequestBody.new)
 
-res = s.general.delete_integration(integration_id: '<id>', body: Models::Shared::DeleteIntegrationsIntegrationIdRequestBody.new())
+unless res.delete_integrations_integration_id_positive_response.nil?
+  # handle response
+end
+
+```
+### Example Usage: Minimal Error Response
+
+<!-- UsageSnippet language="ruby" operationID="DeleteIntegrationsIntegrationId" method="delete" path="/integrations/{integration_id}" example="Minimal Error Response" -->
+```ruby
+require 'kombo'
+
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
+  security: Models::Shared::Security.new(
+    api_key: '<YOUR_BEARER_TOKEN_HERE>'
+  )
+)
+res = s.general.delete_integration(integration_id: '<id>', body: Models::Shared::DeleteIntegrationsIntegrationIdRequestBody.new)
 
 unless res.delete_integrations_integration_id_positive_response.nil?
   # handle response
@@ -404,17 +505,16 @@ Get the specified integration with everything you need to display it to your cus
 
 ### Example Usage
 
-<!-- UsageSnippet language="ruby" operationID="GetIntegrationsIntegrationId" method="get" path="/integrations/{integration_id}" -->
+<!-- UsageSnippet language="ruby" operationID="GetIntegrationsIntegrationId" method="get" path="/integrations/{integration_id}" example="example1" -->
 ```ruby
 require 'kombo'
 
 Models = ::Kombo::Models
 s = ::Kombo::Kombo.new(
-      security: Models::Shared::Security.new(
-        api_key: '<YOUR_BEARER_TOKEN_HERE>',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    api_key: '<YOUR_BEARER_TOKEN_HERE>'
+  )
+)
 res = s.general.get_integration_details(integration_id: '<id>')
 
 unless res.get_integrations_integration_id_positive_response.nil?
@@ -448,21 +548,41 @@ All authentication credentials and configuration are preserved. Syncs can be res
 
 You may use this to, for example, pause syncing for customers that are temporarily not using the integration.
 
-### Example Usage
+### Example Usage: Error Response
 
-<!-- UsageSnippet language="ruby" operationID="PutIntegrationsIntegrationIdEnabled" method="put" path="/integrations/{integration_id}/enabled" -->
+<!-- UsageSnippet language="ruby" operationID="PutIntegrationsIntegrationIdEnabled" method="put" path="/integrations/{integration_id}/enabled" example="Error Response" -->
 ```ruby
 require 'kombo'
 
 Models = ::Kombo::Models
 s = ::Kombo::Kombo.new(
-      security: Models::Shared::Security.new(
-        api_key: '<YOUR_BEARER_TOKEN_HERE>',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    api_key: '<YOUR_BEARER_TOKEN_HERE>'
+  )
+)
 res = s.general.set_integration_enabled(integration_id: '<id>', body: Models::Shared::PutIntegrationsIntegrationIdEnabledRequestBody.new(
-  value: false,
+  value: false
+))
+
+unless res.put_integrations_integration_id_enabled_positive_response.nil?
+  # handle response
+end
+
+```
+### Example Usage: Minimal Error Response
+
+<!-- UsageSnippet language="ruby" operationID="PutIntegrationsIntegrationIdEnabled" method="put" path="/integrations/{integration_id}/enabled" example="Minimal Error Response" -->
+```ruby
+require 'kombo'
+
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
+  security: Models::Shared::Security.new(
+    api_key: '<YOUR_BEARER_TOKEN_HERE>'
+  )
+)
+res = s.general.set_integration_enabled(integration_id: '<id>', body: Models::Shared::PutIntegrationsIntegrationIdEnabledRequestBody.new(
+  value: false
 ))
 
 unless res.put_integrations_integration_id_enabled_positive_response.nil?
@@ -505,21 +625,58 @@ Embed this the same way you would [embed the connect link](/connect/embedded-flo
 }
 ```
 
-### Example Usage
+### Example Usage: Error Response
 
-<!-- UsageSnippet language="ruby" operationID="PostIntegrationsIntegrationIdRelink" method="post" path="/integrations/{integration_id}/relink" -->
+<!-- UsageSnippet language="ruby" operationID="PostIntegrationsIntegrationIdRelink" method="post" path="/integrations/{integration_id}/relink" example="Error Response" -->
 ```ruby
 require 'kombo'
 
 Models = ::Kombo::Models
 s = ::Kombo::Kombo.new(
-      security: Models::Shared::Security.new(
-        api_key: '<YOUR_BEARER_TOKEN_HERE>',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    api_key: '<YOUR_BEARER_TOKEN_HERE>'
+  )
+)
+res = s.general.create_reconnection_link(integration_id: '<id>', body: Models::Shared::PostIntegrationsIntegrationIdRelinkRequestBody.new)
 
+unless res.post_integrations_integration_id_relink_positive_response.nil?
+  # handle response
+end
+
+```
+### Example Usage: Minimal Error Response
+
+<!-- UsageSnippet language="ruby" operationID="PostIntegrationsIntegrationIdRelink" method="post" path="/integrations/{integration_id}/relink" example="Minimal Error Response" -->
+```ruby
+require 'kombo'
+
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
+  security: Models::Shared::Security.new(
+    api_key: '<YOUR_BEARER_TOKEN_HERE>'
+  )
+)
+res = s.general.create_reconnection_link(integration_id: '<id>', body: Models::Shared::PostIntegrationsIntegrationIdRelinkRequestBody.new)
+
+unless res.post_integrations_integration_id_relink_positive_response.nil?
+  # handle response
+end
+
+```
+### Example Usage: example1
+
+<!-- UsageSnippet language="ruby" operationID="PostIntegrationsIntegrationIdRelink" method="post" path="/integrations/{integration_id}/relink" example="example1" -->
+```ruby
+require 'kombo'
+
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
+  security: Models::Shared::Security.new(
+    api_key: '<YOUR_BEARER_TOKEN_HERE>'
+  )
+)
 res = s.general.create_reconnection_link(integration_id: 'personio:93fCvorjZ2jas7ZekX1V1n5d', body: Models::Shared::PostIntegrationsIntegrationIdRelinkRequestBody.new(
-  scope_config_id: '9Pv6aCFwNDEzPNmwjSsY9SQx',
+  scope_config_id: '9Pv6aCFwNDEzPNmwjSsY9SQx'
 ))
 
 unless res.post_integrations_integration_id_relink_positive_response.nil?
@@ -552,21 +709,62 @@ Create a link that lets your customer run the [Setup Flow](/hris/features/setup-
 
 The integration must have at least one Setup Flow step enabled (e.g. field mapping or employee filtering); otherwise this endpoint returns a `PLATFORM.INPUT_INVALID` error. Steps can be enabled from the Integration Settings tab in the dashboard or via the [Create Connection Link endpoint](./post-connect-create-link).
 
-### Example Usage
+### Example Usage: Error Response
 
-<!-- UsageSnippet language="ruby" operationID="PostIntegrationsIntegrationIdSetupLink" method="post" path="/integrations/{integration_id}/setup-link" -->
+<!-- UsageSnippet language="ruby" operationID="PostIntegrationsIntegrationIdSetupLink" method="post" path="/integrations/{integration_id}/setup-link" example="Error Response" -->
 ```ruby
 require 'kombo'
 
 Models = ::Kombo::Models
 s = ::Kombo::Kombo.new(
-      security: Models::Shared::Security.new(
-        api_key: '<YOUR_BEARER_TOKEN_HERE>',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    api_key: '<YOUR_BEARER_TOKEN_HERE>'
+  )
+)
+res = s.general.create_setup_link(integration_id: '<id>', body: Models::Shared::PostIntegrationsIntegrationIdSetupLinkRequestBody.new(
+  link_type: Models::Shared::PostIntegrationsIntegrationIdSetupLinkRequestBodyLinkType::MAGIC_LINK
+))
 
+unless res.post_integrations_integration_id_setup_link_positive_response.nil?
+  # handle response
+end
+
+```
+### Example Usage: Minimal Error Response
+
+<!-- UsageSnippet language="ruby" operationID="PostIntegrationsIntegrationIdSetupLink" method="post" path="/integrations/{integration_id}/setup-link" example="Minimal Error Response" -->
+```ruby
+require 'kombo'
+
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
+  security: Models::Shared::Security.new(
+    api_key: '<YOUR_BEARER_TOKEN_HERE>'
+  )
+)
+res = s.general.create_setup_link(integration_id: '<id>', body: Models::Shared::PostIntegrationsIntegrationIdSetupLinkRequestBody.new(
+  link_type: Models::Shared::PostIntegrationsIntegrationIdSetupLinkRequestBodyLinkType::MAGIC_LINK
+))
+
+unless res.post_integrations_integration_id_setup_link_positive_response.nil?
+  # handle response
+end
+
+```
+### Example Usage: example1
+
+<!-- UsageSnippet language="ruby" operationID="PostIntegrationsIntegrationIdSetupLink" method="post" path="/integrations/{integration_id}/setup-link" example="example1" -->
+```ruby
+require 'kombo'
+
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
+  security: Models::Shared::Security.new(
+    api_key: '<YOUR_BEARER_TOKEN_HERE>'
+  )
+)
 res = s.general.create_setup_link(integration_id: 'personio:93fCvorjZ2jas7ZekX1V1n5d', body: Models::Shared::PostIntegrationsIntegrationIdSetupLinkRequestBody.new(
-  link_type: Models::Shared::PostIntegrationsIntegrationIdSetupLinkRequestBodyLinkType::EMBEDDED,
+  link_type: Models::Shared::PostIntegrationsIntegrationIdSetupLinkRequestBodyLinkType::EMBEDDED
 ))
 
 unless res.post_integrations_integration_id_setup_link_positive_response.nil?
@@ -600,17 +798,16 @@ Get all fields available on the specified integration.
 
 ### Example Usage
 
-<!-- UsageSnippet language="ruby" operationID="GetIntegrationsIntegrationIdIntegrationFields" method="get" path="/integrations/{integration_id}/integration-fields" -->
+<!-- UsageSnippet language="ruby" operationID="GetIntegrationsIntegrationIdIntegrationFields" method="get" path="/integrations/{integration_id}/integration-fields" example="example1" -->
 ```ruby
 require 'kombo'
 
 Models = ::Kombo::Models
 s = ::Kombo::Kombo.new(
-      security: Models::Shared::Security.new(
-        api_key: '<YOUR_BEARER_TOKEN_HERE>',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    api_key: '<YOUR_BEARER_TOKEN_HERE>'
+  )
+)
 res = s.general.get_integration_fields(integration_id: '<id>', page_size: 100)
 
 unless res.get_integrations_integration_id_integration_fields_positive_response.nil?
@@ -642,21 +839,62 @@ end
 
 When enabled, the integration field will be passed as part of the `integration_fields` array on the specific model endpoint. Providing false will disable the passthrough for the specified field.
 
-### Example Usage
+### Example Usage: Error Response
 
-<!-- UsageSnippet language="ruby" operationID="PatchIntegrationsIntegrationIdIntegrationFieldsIntegrationFieldId" method="patch" path="/integrations/{integration_id}/integration-fields/{integration_field_id}" -->
+<!-- UsageSnippet language="ruby" operationID="PatchIntegrationsIntegrationIdIntegrationFieldsIntegrationFieldId" method="patch" path="/integrations/{integration_id}/integration-fields/{integration_field_id}" example="Error Response" -->
 ```ruby
 require 'kombo'
 
 Models = ::Kombo::Models
 s = ::Kombo::Kombo.new(
-      security: Models::Shared::Security.new(
-        api_key: '<YOUR_BEARER_TOKEN_HERE>',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    api_key: '<YOUR_BEARER_TOKEN_HERE>'
+  )
+)
+res = s.general.update_integration_field(integration_id: '<id>', integration_field_id: '<id>', body: Models::Shared::PatchIntegrationsIntegrationIdIntegrationFieldsIntegrationFieldIdRequestBody.new(
+  enable_passthrough: nil
+))
 
+unless res.patch_integrations_integration_id_integration_fields_integration_field_id_positive_response.nil?
+  # handle response
+end
+
+```
+### Example Usage: Minimal Error Response
+
+<!-- UsageSnippet language="ruby" operationID="PatchIntegrationsIntegrationIdIntegrationFieldsIntegrationFieldId" method="patch" path="/integrations/{integration_id}/integration-fields/{integration_field_id}" example="Minimal Error Response" -->
+```ruby
+require 'kombo'
+
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
+  security: Models::Shared::Security.new(
+    api_key: '<YOUR_BEARER_TOKEN_HERE>'
+  )
+)
+res = s.general.update_integration_field(integration_id: '<id>', integration_field_id: '<id>', body: Models::Shared::PatchIntegrationsIntegrationIdIntegrationFieldsIntegrationFieldIdRequestBody.new(
+  enable_passthrough: nil
+))
+
+unless res.patch_integrations_integration_id_integration_fields_integration_field_id_positive_response.nil?
+  # handle response
+end
+
+```
+### Example Usage: example1
+
+<!-- UsageSnippet language="ruby" operationID="PatchIntegrationsIntegrationIdIntegrationFieldsIntegrationFieldId" method="patch" path="/integrations/{integration_id}/integration-fields/{integration_field_id}" example="example1" -->
+```ruby
+require 'kombo'
+
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
+  security: Models::Shared::Security.new(
+    api_key: '<YOUR_BEARER_TOKEN_HERE>'
+  )
+)
 res = s.general.update_integration_field(integration_id: 'integration_id', integration_field_id: 'integration_field_id', body: Models::Shared::PatchIntegrationsIntegrationIdIntegrationFieldsIntegrationFieldIdRequestBody.new(
-  enable_passthrough: true,
+  enable_passthrough: true
 ))
 
 unless res.patch_integrations_integration_id_integration_fields_integration_field_id_positive_response.nil?
@@ -691,17 +929,16 @@ Get all custom fields available on the specified integration.
 
 ### Example Usage
 
-<!-- UsageSnippet language="ruby" operationID="GetIntegrationsIntegrationIdCustomFields" method="get" path="/integrations/{integration_id}/custom-fields" -->
+<!-- UsageSnippet language="ruby" operationID="GetIntegrationsIntegrationIdCustomFields" method="get" path="/integrations/{integration_id}/custom-fields" example="example1" -->
 ```ruby
 require 'kombo'
 
 Models = ::Kombo::Models
 s = ::Kombo::Kombo.new(
-      security: Models::Shared::Security.new(
-        api_key: '<YOUR_BEARER_TOKEN_HERE>',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    api_key: '<YOUR_BEARER_TOKEN_HERE>'
+  )
+)
 res = s.general.get_custom_fields(integration_id: '<id>', page_size: 100)
 
 unless res.get_integrations_integration_id_custom_fields_positive_response.nil?
@@ -733,21 +970,62 @@ end
 
 Updates the mapping of a given custom field. If the custom field is already mapped, it will be updated.
 
-### Example Usage
+### Example Usage: Error Response
 
-<!-- UsageSnippet language="ruby" operationID="PutIntegrationsIntegrationIdCustomFieldsCustomFieldId" method="put" path="/integrations/{integration_id}/custom-fields/{custom_field_id}" -->
+<!-- UsageSnippet language="ruby" operationID="PutIntegrationsIntegrationIdCustomFieldsCustomFieldId" method="put" path="/integrations/{integration_id}/custom-fields/{custom_field_id}" example="Error Response" -->
 ```ruby
 require 'kombo'
 
 Models = ::Kombo::Models
 s = ::Kombo::Kombo.new(
-      security: Models::Shared::Security.new(
-        api_key: '<YOUR_BEARER_TOKEN_HERE>',
-      ),
-    )
+  security: Models::Shared::Security.new(
+    api_key: '<YOUR_BEARER_TOKEN_HERE>'
+  )
+)
+res = s.general.update_custom_field_mapping(integration_id: '<id>', custom_field_id: '<id>', body: Models::Shared::PutIntegrationsIntegrationIdCustomFieldsCustomFieldIdRequestBody.new(
+  integration_field_id: '<id>'
+))
 
+unless res.put_integrations_integration_id_custom_fields_custom_field_id_positive_response.nil?
+  # handle response
+end
+
+```
+### Example Usage: Minimal Error Response
+
+<!-- UsageSnippet language="ruby" operationID="PutIntegrationsIntegrationIdCustomFieldsCustomFieldId" method="put" path="/integrations/{integration_id}/custom-fields/{custom_field_id}" example="Minimal Error Response" -->
+```ruby
+require 'kombo'
+
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
+  security: Models::Shared::Security.new(
+    api_key: '<YOUR_BEARER_TOKEN_HERE>'
+  )
+)
+res = s.general.update_custom_field_mapping(integration_id: '<id>', custom_field_id: '<id>', body: Models::Shared::PutIntegrationsIntegrationIdCustomFieldsCustomFieldIdRequestBody.new(
+  integration_field_id: '<id>'
+))
+
+unless res.put_integrations_integration_id_custom_fields_custom_field_id_positive_response.nil?
+  # handle response
+end
+
+```
+### Example Usage: example1
+
+<!-- UsageSnippet language="ruby" operationID="PutIntegrationsIntegrationIdCustomFieldsCustomFieldId" method="put" path="/integrations/{integration_id}/custom-fields/{custom_field_id}" example="example1" -->
+```ruby
+require 'kombo'
+
+Models = ::Kombo::Models
+s = ::Kombo::Kombo.new(
+  security: Models::Shared::Security.new(
+    api_key: '<YOUR_BEARER_TOKEN_HERE>'
+  )
+)
 res = s.general.update_custom_field_mapping(integration_id: 'integration_id', custom_field_id: 'custom_field_id', body: Models::Shared::PutIntegrationsIntegrationIdCustomFieldsCustomFieldIdRequestBody.new(
-  integration_field_id: 'integration_field_id',
+  integration_field_id: 'integration_field_id'
 ))
 
 unless res.put_integrations_integration_id_custom_fields_custom_field_id_positive_response.nil?
@@ -782,17 +1060,16 @@ Get a list of the tools (i.e., integrations) enabled in your environment.
 
 ### Example Usage
 
-<!-- UsageSnippet language="ruby" operationID="GetToolsCategory" method="get" path="/tools/{category}" -->
+<!-- UsageSnippet language="ruby" operationID="GetToolsCategory" method="get" path="/tools/{category}" example="example1" -->
 ```ruby
 require 'kombo'
 
 Models = ::Kombo::Models
 s = ::Kombo::Kombo.new(
-      security: Models::Shared::Security.new(
-        api_key: '<YOUR_BEARER_TOKEN_HERE>',
-      ),
-    )
-
+  security: Models::Shared::Security.new(
+    api_key: '<YOUR_BEARER_TOKEN_HERE>'
+  )
+)
 res = s.general.get_tools(category: Models::Shared::GetToolsCategoryParameterCategory::ATS)
 
 unless res.get_tools_category_positive_response.nil?

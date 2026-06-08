@@ -9,8 +9,6 @@ module Kombo
     module Shared
       # JobPostingStatus - The job posting’s current status.
       class JobPostingStatus < T::Enum
-
-
         enums do
           ACTIVE = new('ACTIVE')
           INACTIVE = new('INACTIVE')

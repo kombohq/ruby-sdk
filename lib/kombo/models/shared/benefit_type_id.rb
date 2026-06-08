@@ -9,8 +9,6 @@ module Kombo
     module Shared
       # BenefitTypeId - Required for illness absences. Benefit type: Delegated Payment, No Right to Benefit, or Direct payment.
       class BenefitTypeId < T::Enum
-
-
         enums do
           DELEGATED_PAYMENT = new('Delegated Payment')
           NO_RIGHT_TO_BENEFIT = new('No Right to Benefit')

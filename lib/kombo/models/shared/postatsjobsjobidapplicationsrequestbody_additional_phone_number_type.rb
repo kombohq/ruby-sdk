@@ -9,8 +9,6 @@ module Kombo
     module Shared
 
       class PostAtsJobsJobIdApplicationsRequestBodyAdditionalPhoneNumberType < T::Enum
-
-
         enums do
           PERSONAL = new('PERSONAL')
           WORK = new('WORK')

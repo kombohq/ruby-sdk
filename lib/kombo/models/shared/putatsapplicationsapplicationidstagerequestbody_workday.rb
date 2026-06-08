@@ -15,7 +15,7 @@ module Kombo
         # The Workflow_Step_ID to pass directly to the Move_Candidate request. When provided, the automatic workflow step matching logic is skipped.
         field :workflow_step_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('Workflow_Step_ID') } }
         # The type of step reference to use. Use "Next_Step_Reference" for regular stage moves and "Disposition_Step_Reference" for conclusion/disposition stages (e.g., rejected, declined). Defaults to "Next_Step_Reference".
-        field :step_type, Crystalline::Nilable.new(Models::Shared::StepType), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('Step_Type'), 'decoder': Utils.enum_from_string(Models::Shared::StepType, true) } }
+        field :step_type, Crystalline::Nilable.new(Models::Shared::StepType), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('Step_Type'), 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::StepType, true) } }
 
         sig { params(workflow_step_id: T.nilable(::String), step_type: T.nilable(Models::Shared::StepType)).void }
         def initialize(workflow_step_id: nil, step_type: nil)

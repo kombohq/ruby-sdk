@@ -31,10 +31,10 @@ module Kombo
         # The location of the candidate.
         field :location, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyLocation), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('location') } }
         # The gender of the candidate. Must be one of `MALE`, `FEMALE`, or `OTHER`.
-        field :gender, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyGender), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('gender'), 'decoder': Utils.enum_from_string(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyGender, true) } }
+        field :gender, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyGender), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('gender'), 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyGender, true) } }
         # The date the candidate is available to start working.
         # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
-        field :availability_date, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('availability_date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :availability_date, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('availability_date'), 'decoder': ::Kombo::Utils.datetime_from_iso_format(true) } }
         # The salary expectations of the applicant. We will automatically convert the amount to a format that is suitable for the ATS you are using. For example, if you are using monthly salary expectations, we will convert the amount to a yearly salary if the ATS expects yearly salary expectations.
         field :salary_expectations, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodySalaryExpectations), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('salary_expectations') } }
         # A list of social media links of the candidate. The links must be valid URLs.

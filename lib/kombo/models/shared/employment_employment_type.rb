@@ -8,9 +8,8 @@ module Kombo
   module Models
     module Shared
 
-      class EmploymentEmploymentType < T::Enum
-
-
+      class EmploymentEmploymentType
+        include ::Crystalline::Enum
         enums do
           FULL_TIME = new('FULL_TIME')
           PART_TIME = new('PART_TIME')
@@ -21,6 +20,7 @@ module Kombo
           APPRENTICESHIP = new('APPRENTICESHIP')
           TRAINING = new('TRAINING')
         end
+        open!
       end
     end
   end

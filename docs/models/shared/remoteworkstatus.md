@@ -1,5 +1,16 @@
 # RemoteWorkStatus
 
+## Example Usage
+
+```ruby
+require "kombo"
+
+value = RemoteWorkStatus::REMOTE
+
+# Open enum: use .deserialize() to create instances from custom string values
+custom = RemoteWorkStatus.deserialize("custom_value")
+```
+
 
 ## Values
 

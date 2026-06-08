@@ -17,20 +17,20 @@ module Kombo
         # An optional cursor string used for pagination. This can be retrieved from the `next` property of the previous page response.
         field :cursor, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'cursor', 'style': 'form', 'explode': true } }
         # Filter the entries based on the modification date in format `YYYY-MM-DDTHH:mm:ss.sssZ`. Returns records where either the record itself **OR** its nested data has been updated since this timestamp, even if the record's own `changed_at` field remains unchanged.
-        # 
+        #
         # If you want to track entry deletion, also set the `include_deleted=true` query parameter, because otherwise, deleted entries will be hidden.
-        # 
+        #
         # For more details, see [Understanding changed_at vs updated_after Behavior](https://docs.kombo.dev/ats/getting-started/fetching-data#understanding-changed_at-vs-updated_after-behavior).
-        # 
+        #
         # For this endpoint, `updated_after` matches when the returned record changed, or when related data changed as described below.
-        # 
+        #
         # | Path | Added/Removed | Linked Record |
         # | --- | --- | --- |
         # | `stages` | ✓ Yes | ✗ No |
         # | `screening_questions` | ✓ Yes | ✗ No |
         # | `job_postings` | ✓ Yes | ✓ Yes |
         # | `hiring_team` | ✓ Yes | ✗ No |
-        # 
+        #
         # _**Added/Removed**: Whether adding or removing entries from this list triggers an update (n/a for single records). **Linked Record**: Whether changes to the linked record itself trigger an update._
         field :updated_after, Crystalline::Nilable.new(::DateTime), { 'query_param': { 'field_name': 'updated_after', 'style': 'form', 'explode': true } }
         # Filter by a comma-separated list of IDs such as `222k7eCGyUdgt2JWZDNnkDs3,B5DVmypWENfU6eMe6gYDyJG3`.
@@ -42,15 +42,15 @@ module Kombo
         # Filter by the `post_url` field. Can be used to find a job based on its public posting URL.
         field :post_url, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'post_url', 'style': 'form', 'explode': true } }
         # Filter by a comma-separated list of `OPEN`, `CLOSED`, `DRAFT`, `ARCHIVED`  
-        # 
+        #
         # Leave this blank to get results matching all values.
         field :statuses, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'query_param': { 'field_name': 'statuses', 'style': 'form', 'explode': false } }
         # Filter by a comma-separated list of `FULL_TIME`, `PART_TIME`, `CONTRACT`, `SEASONAL`, `INTERNSHIP`  
-        # 
+        #
         # Leave this blank to get results matching all values.
         field :employment_types, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'query_param': { 'field_name': 'employment_types', 'style': 'form', 'explode': false } }
         # Filter by a comma-separated list of `PUBLIC`, `INTERNAL`, `UNLISTED`, `CONFIDENTIAL`  
-        # 
+        #
         # Leave this blank to get results matching all values.
         field :visibilities, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'query_param': { 'field_name': 'visibilities', 'style': 'form', 'explode': false } }
         # Filter jobs by the day they were created in the remote system. This allows you to get jobs that were created on or after a certain day.

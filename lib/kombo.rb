@@ -15,6 +15,7 @@ module Kombo
     autoload :Operations, 'kombo/models/operations'
     autoload :Errors, 'kombo/models/errors'
     autoload :Callbacks, 'kombo/models/callbacks'
+    autoload :Webhooks, 'kombo/models/webhooks'
   end
 end
 

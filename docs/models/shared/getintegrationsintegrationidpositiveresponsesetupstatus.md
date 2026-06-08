@@ -6,6 +6,14 @@ The setup_status is used in conjunction with the filtering and field mapping fea
 - `FINAL_SYNC_PENDING`: Setup is complete, and the final sync is running. Data will be available after this sync is done.
 - `COMPLETED`: Setup is fully finished, and the integration is ready to use.
 
+## Example Usage
+
+```ruby
+require "kombo"
+
+value = GetIntegrationsIntegrationIdPositiveResponseSetupStatus::INCOMPLETE
+```
+
 
 ## Values
 

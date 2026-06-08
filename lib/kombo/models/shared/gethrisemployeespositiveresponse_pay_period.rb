@@ -8,9 +8,8 @@ module Kombo
   module Models
     module Shared
 
-      class GetHrisEmployeesPositiveResponsePayPeriod < T::Enum
-
-
+      class GetHrisEmployeesPositiveResponsePayPeriod
+        include ::Crystalline::Enum
         enums do
           HOUR = new('HOUR')
           DAY = new('DAY')
@@ -23,6 +22,7 @@ module Kombo
           HALF_YEAR = new('HALF_YEAR')
           YEAR = new('YEAR')
         end
+        open!
       end
     end
   end

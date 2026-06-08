@@ -12,10 +12,10 @@ class Kombo::Models::Shared::Schema2File
   def label=(str_); end
   def required(); end
   def required=(str_); end
-  def type(); end
-  def type=(str_); end
   def file_restrictions(); end
   def file_restrictions=(str_); end
+  def type(); end
+  def type=(str_); end
   def description(); end
   def description=(str_); end
   def unified_key(); end

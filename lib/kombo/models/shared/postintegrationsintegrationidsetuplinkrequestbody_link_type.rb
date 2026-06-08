@@ -9,8 +9,6 @@ module Kombo
     module Shared
       # PostIntegrationsIntegrationIdSetupLinkRequestBodyLinkType - The type of link you want to create. `EMBEDDED` is for the [embedded flow](../guides/connect/embedded-flow) using the Kombo Connect SDK (these links are valid for 1 hour) and `MAGIC_LINK` is for [magic links](../guides/connect/magic-links) which you send out manually to customers (these are valid for 1 year).
       class PostIntegrationsIntegrationIdSetupLinkRequestBodyLinkType < T::Enum
-
-
         enums do
           EMBEDDED = new('EMBEDDED')
           MAGIC_LINK = new('MAGIC_LINK')

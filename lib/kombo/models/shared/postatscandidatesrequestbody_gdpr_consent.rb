@@ -14,7 +14,7 @@ module Kombo
 
         # Until when the candidate has granted the company they're applying to permission to process their personal data.
         # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
-        field :expires_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('expires_at'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :expires_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('expires_at'), 'decoder': ::Kombo::Utils.datetime_from_iso_format(true) } }
         # Whether the candidate has given consent.
         field :given, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('given') } }
 

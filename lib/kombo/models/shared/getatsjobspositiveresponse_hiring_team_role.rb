@@ -9,8 +9,6 @@ module Kombo
     module Shared
 
       class GetAtsJobsPositiveResponseHiringTeamRole < T::Enum
-
-
         enums do
           RECRUITER = new('RECRUITER')
           HIRING_MANAGER = new('HIRING_MANAGER')

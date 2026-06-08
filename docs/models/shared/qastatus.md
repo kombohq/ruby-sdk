@@ -2,6 +2,14 @@
 
 The quality assurance status of the integration.
 
+## Example Usage
+
+```ruby
+require "kombo"
+
+value = QaStatus::PENDING
+```
+
 
 ## Values
 

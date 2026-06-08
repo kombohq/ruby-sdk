@@ -9,8 +9,6 @@ module Kombo
     module Shared
       # GetHrisTimeOffBalancesPositiveResponseUsedUnit - The time-unit of the used time.
       class GetHrisTimeOffBalancesPositiveResponseUsedUnit < T::Enum
-
-
         enums do
           HOURS = new('HOURS')
           DAYS = new('DAYS')

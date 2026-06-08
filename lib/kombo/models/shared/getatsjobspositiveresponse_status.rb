@@ -8,15 +8,15 @@ module Kombo
   module Models
     module Shared
 
-      class GetAtsJobsPositiveResponseStatus < T::Enum
-
-
+      class GetAtsJobsPositiveResponseStatus
+        include ::Crystalline::Enum
         enums do
           OPEN = new('OPEN')
           CLOSED = new('CLOSED')
           DRAFT = new('DRAFT')
           ARCHIVED = new('ARCHIVED')
         end
+        open!
       end
     end
   end

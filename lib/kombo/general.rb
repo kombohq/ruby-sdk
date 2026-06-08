@@ -40,8 +40,10 @@ module Kombo
     end
 
 
-    sig { params(timeout_ms: T.nilable(Integer)).returns(Models::Operations::GetCheckApiKeyResponse) }
-    def check_api_key(timeout_ms: nil)
+
+
+    sig { params(timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::GetCheckApiKeyResponse) }
+    def check_api_key(timeout_ms: nil, http_headers: nil)
       # check_api_key - Check API key
       # Check whether your API key is working properly.
       url, params = @sdk_configuration.get_server_details
@@ -77,6 +79,9 @@ module Kombo
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -152,11 +157,11 @@ module Kombo
     end
 
 
-    sig { params(body: Models::Shared::PostForceSyncRequestBody, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::PostForceSyncResponse) }
-    def trigger_sync(body:, integration_id: nil, timeout_ms: nil)
+    sig { params(body: Models::Shared::PostForceSyncRequestBody, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::PostForceSyncResponse) }
+    def trigger_sync(body:, integration_id: nil, timeout_ms: nil, http_headers: nil)
       # trigger_sync - Trigger sync
       # Trigger a sync for a specific integration.
-      # 
+      #
       # <Warning>Please note that it is **not** necessary nor recommended to call this endpoint periodically on your side. Kombo already performs periodic syncs for you and you should only trigger syncs yourself in special cases (like when a user clicks on a "Sync" button in your app).</Warning>
       request = Models::Operations::PostForceSyncRequest.new(
         body: body,
@@ -171,7 +176,7 @@ module Kombo
       headers['content-type'] = req_content_type
       raise StandardError, 'request body is required' if data.nil? && form.nil?
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -207,6 +212,9 @@ module Kombo
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -282,17 +290,17 @@ module Kombo
     end
 
 
-    sig { params(body: Models::Shared::PostPassthroughToolApiRequestBody, tool: ::String, api: ::String, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::PostPassthroughToolApiResponse) }
-    def send_passthrough_request(body:, tool:, api:, integration_id: nil, timeout_ms: nil)
+    sig { params(body: Models::Shared::PostPassthroughToolApiRequestBody, tool: ::String, api: ::String, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::PostPassthroughToolApiResponse) }
+    def send_passthrough_request(body:, tool:, api:, integration_id: nil, timeout_ms: nil, http_headers: nil)
       # send_passthrough_request - Send passthrough request
       # Send a request to the specified integration's native API.
-      # 
+      #
       # At Kombo we put a lot of work into making sure that our unified API covers all our customers' use cases and that they never have to think about integration-specific logic again. There are cases, however, where our customers want to build features that are very integration-specific. That's where this endpoint comes in.
-      # 
+      #
       # Pass in details about the request you want to make to the integration's API and we'll forward it for you. We'll also take care of setting the right base URL and authenticating your requests.
-      # 
+      #
       # To get started, please pick the relevant API (some tools provide multiple to due different base URLs or authentication schemes) from the table below and pass in the `{tool}/{api}` identifier as part of the path.
-      # 
+      #
       # |Integration|`{tool}/{api}`|Description|
       # |---|---|---|
       # |360Learning|`360learning/v2`|360Learning [API v2](https://360learning.readme.io/docs). We automatically handle authentication and use `https://app.360learning.com/api/v2/` as the base URL.|
@@ -489,7 +497,7 @@ module Kombo
       # |Zoho Recruit|`zohorecruit/v2`|Zoho Recruit's [V2 API](https://www.zoho.com/recruit/developer-guide/apiv2/modules-api.html). We automatically authenticate all requests and use `https://recruit.\{domain\}/recruit/v2` as the base URL.|
       # |Zvoove Recruit|`zvooverecruit/applicants`|[Zvoove Recruit's Applicants API](https://api.zvoove.com/docs/). We automatically authenticate all requests using the applicants API key and use 'https://\{domain\}/api/public' as base URL.|
       # |Zvoove Recruit|`zvooverecruit/jobs`|[Zvoove Recruit's Jobs API](https://api.zvoove.com/docs/). We automatically authenticate all requests using the jobs API key and use 'https://\{domain\}/api/public' as base URL.|
-      # 
+      #
       # <Note>Please note that the passthrough API endpoints are only meant for edge cases. That's why we only expose them for new integrations after understanding a concrete customer use case. If you have such a use case in mind, please reach out to Kombo.</Note>
       request = Models::Operations::PostPassthroughToolApiRequest.new(
         tool: tool,
@@ -512,7 +520,7 @@ module Kombo
       headers['content-type'] = req_content_type
       raise StandardError, 'request body is required' if data.nil? && form.nil?
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -548,6 +556,9 @@ module Kombo
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -623,8 +634,8 @@ module Kombo
     end
 
 
-    sig { params(body: Models::Shared::DeleteIntegrationsIntegrationIdRequestBody, integration_id: ::String, timeout_ms: T.nilable(Integer)).returns(Models::Operations::DeleteIntegrationsIntegrationIdResponse) }
-    def delete_integration(body:, integration_id:, timeout_ms: nil)
+    sig { params(body: Models::Shared::DeleteIntegrationsIntegrationIdRequestBody, integration_id: ::String, timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::DeleteIntegrationsIntegrationIdResponse) }
+    def delete_integration(body:, integration_id:, timeout_ms: nil, http_headers: nil)
       # delete_integration - Delete integration
       # Delete the specified integration.
       # **⚠️ This can not be undone!**
@@ -647,7 +658,7 @@ module Kombo
       headers['content-type'] = req_content_type
       raise StandardError, 'request body is required' if data.nil? && form.nil?
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -683,6 +694,9 @@ module Kombo
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -758,8 +772,8 @@ module Kombo
     end
 
 
-    sig { params(integration_id: ::String, timeout_ms: T.nilable(Integer)).returns(Models::Operations::GetIntegrationsIntegrationIdResponse) }
-    def get_integration_details(integration_id:, timeout_ms: nil)
+    sig { params(integration_id: ::String, timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::GetIntegrationsIntegrationIdResponse) }
+    def get_integration_details(integration_id:, timeout_ms: nil, http_headers: nil)
       # get_integration_details - Get integration details
       # Get the specified integration with everything you need to display it to your customer.
       request = Models::Operations::GetIntegrationsIntegrationIdRequest.new(
@@ -804,6 +818,9 @@ module Kombo
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -879,13 +896,13 @@ module Kombo
     end
 
 
-    sig { params(body: Models::Shared::PutIntegrationsIntegrationIdEnabledRequestBody, integration_id: ::String, timeout_ms: T.nilable(Integer)).returns(Models::Operations::PutIntegrationsIntegrationIdEnabledResponse) }
-    def set_integration_enabled(body:, integration_id:, timeout_ms: nil)
+    sig { params(body: Models::Shared::PutIntegrationsIntegrationIdEnabledRequestBody, integration_id: ::String, timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::PutIntegrationsIntegrationIdEnabledResponse) }
+    def set_integration_enabled(body:, integration_id:, timeout_ms: nil, http_headers: nil)
       # set_integration_enabled - Set integration enabled
       # Enable or disable the specified integration. When disabling, all currently running syncs will be cancelled.
-      # 
+      #
       # All authentication credentials and configuration are preserved. Syncs can be resumed by re-enabling the integration.
-      # 
+      #
       # You may use this to, for example, pause syncing for customers that are temporarily not using the integration.
       request = Models::Operations::PutIntegrationsIntegrationIdEnabledRequest.new(
         integration_id: integration_id,
@@ -906,7 +923,7 @@ module Kombo
       headers['content-type'] = req_content_type
       raise StandardError, 'request body is required' if data.nil? && form.nil?
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -942,6 +959,9 @@ module Kombo
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -1017,15 +1037,15 @@ module Kombo
     end
 
 
-    sig { params(body: Models::Shared::PostIntegrationsIntegrationIdRelinkRequestBody, integration_id: ::String, timeout_ms: T.nilable(Integer)).returns(Models::Operations::PostIntegrationsIntegrationIdRelinkResponse) }
-    def create_reconnection_link(body:, integration_id:, timeout_ms: nil)
+    sig { params(body: Models::Shared::PostIntegrationsIntegrationIdRelinkRequestBody, integration_id: ::String, timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::PostIntegrationsIntegrationIdRelinkResponse) }
+    def create_reconnection_link(body:, integration_id:, timeout_ms: nil, http_headers: nil)
       # create_reconnection_link - Create reconnection link
       # Create a link that will allow the user to reconnect an integration. This is useful if you want to allow your users to update the credentials if the old ones for example expired.
-      # 
+      #
       # Embed this the same way you would [embed the connect link](/connect/embedded-flow). By default, the link will be valid for 1 hour.
-      # 
+      #
       # ### Example Request Body
-      # 
+      #
       # ```json
       # {
       #   "language": "en",
@@ -1052,7 +1072,7 @@ module Kombo
       headers['content-type'] = req_content_type
       raise StandardError, 'request body is required' if data.nil? && form.nil?
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -1088,6 +1108,9 @@ module Kombo
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -1163,11 +1186,11 @@ module Kombo
     end
 
 
-    sig { params(body: Models::Shared::PostIntegrationsIntegrationIdSetupLinkRequestBody, integration_id: ::String, timeout_ms: T.nilable(Integer)).returns(Models::Operations::PostIntegrationsIntegrationIdSetupLinkResponse) }
-    def create_setup_link(body:, integration_id:, timeout_ms: nil)
+    sig { params(body: Models::Shared::PostIntegrationsIntegrationIdSetupLinkRequestBody, integration_id: ::String, timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::PostIntegrationsIntegrationIdSetupLinkResponse) }
+    def create_setup_link(body:, integration_id:, timeout_ms: nil, http_headers: nil)
       # create_setup_link - Create Setup Flow link
       # Create a link that lets your customer run the [Setup Flow](/hris/features/setup-flow/introduction) for an integration. Use this to send customers back into setup steps like field mapping or employee filtering without having to go through the initial connection flow again. Pass the returned URL to `showKomboConnect` from the Kombo Connect SDK, the same way you do with a connection link.
-      # 
+      #
       # The integration must have at least one Setup Flow step enabled (e.g. field mapping or employee filtering); otherwise this endpoint returns a `PLATFORM.INPUT_INVALID` error. Steps can be enabled from the Integration Settings tab in the dashboard or via the [Create Connection Link endpoint](./post-connect-create-link).
       request = Models::Operations::PostIntegrationsIntegrationIdSetupLinkRequest.new(
         integration_id: integration_id,
@@ -1188,7 +1211,7 @@ module Kombo
       headers['content-type'] = req_content_type
       raise StandardError, 'request body is required' if data.nil? && form.nil?
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -1224,6 +1247,9 @@ module Kombo
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -1299,8 +1325,8 @@ module Kombo
     end
 
 
-    sig { params(integration_id: ::String, cursor: T.nilable(::String), page_size: T.nilable(::Integer), timeout_ms: T.nilable(Integer)).returns(Models::Operations::GetIntegrationsIntegrationIdIntegrationFieldsResponse) }
-    def get_integration_fields(integration_id:, cursor: nil, page_size: nil, timeout_ms: nil)
+    sig { params(integration_id: ::String, cursor: T.nilable(::String), page_size: T.nilable(::Integer), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::GetIntegrationsIntegrationIdIntegrationFieldsResponse) }
+    def get_integration_fields(integration_id:, cursor: nil, page_size: nil, timeout_ms: nil, http_headers: nil)
       # get_integration_fields - Get integration fields
       # Get all fields available on the specified integration.
       # **This includes the mapping to your custom fields**
@@ -1350,6 +1376,9 @@ module Kombo
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -1415,9 +1444,10 @@ module Kombo
             end
 
             sdk.get_integration_fields(
-              integration_id: integration_id,
+              integration_id: request.integration_id,
               cursor: next_cursor,
-              page_size: page_size
+              page_size: request.page_size,
+              http_headers: http_headers
             )
           end
 
@@ -1445,8 +1475,8 @@ module Kombo
     end
 
 
-    sig { params(body: Models::Shared::PatchIntegrationsIntegrationIdIntegrationFieldsIntegrationFieldIdRequestBody, integration_id: ::String, integration_field_id: ::String, timeout_ms: T.nilable(Integer)).returns(Models::Operations::PatchIntegrationsIntegrationIdIntegrationFieldsIntegrationFieldIdResponse) }
-    def update_integration_field(body:, integration_id:, integration_field_id:, timeout_ms: nil)
+    sig { params(body: Models::Shared::PatchIntegrationsIntegrationIdIntegrationFieldsIntegrationFieldIdRequestBody, integration_id: ::String, integration_field_id: ::String, timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::PatchIntegrationsIntegrationIdIntegrationFieldsIntegrationFieldIdResponse) }
+    def update_integration_field(body:, integration_id:, integration_field_id:, timeout_ms: nil, http_headers: nil)
       # update_integration_field - Updates an integration fields passthrough setting
       # When enabled, the integration field will be passed as part of the `integration_fields` array on the specific model endpoint. Providing false will disable the passthrough for the specified field.
       request = Models::Operations::PatchIntegrationsIntegrationIdIntegrationFieldsIntegrationFieldIdRequest.new(
@@ -1469,7 +1499,7 @@ module Kombo
       headers['content-type'] = req_content_type
       raise StandardError, 'request body is required' if data.nil? && form.nil?
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -1505,6 +1535,9 @@ module Kombo
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -1580,8 +1613,8 @@ module Kombo
     end
 
 
-    sig { params(integration_id: ::String, cursor: T.nilable(::String), page_size: T.nilable(::Integer), timeout_ms: T.nilable(Integer)).returns(Models::Operations::GetIntegrationsIntegrationIdCustomFieldsResponse) }
-    def get_custom_fields(integration_id:, cursor: nil, page_size: nil, timeout_ms: nil)
+    sig { params(integration_id: ::String, cursor: T.nilable(::String), page_size: T.nilable(::Integer), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::GetIntegrationsIntegrationIdCustomFieldsResponse) }
+    def get_custom_fields(integration_id:, cursor: nil, page_size: nil, timeout_ms: nil, http_headers: nil)
       # get_custom_fields - Get custom fields with current mappings
       # Get all custom fields available on the specified integration.
       # **This includes the mapping to the corresponding integration field if applicable*
@@ -1631,6 +1664,9 @@ module Kombo
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -1696,9 +1732,10 @@ module Kombo
             end
 
             sdk.get_custom_fields(
-              integration_id: integration_id,
+              integration_id: request.integration_id,
               cursor: next_cursor,
-              page_size: page_size
+              page_size: request.page_size,
+              http_headers: http_headers
             )
           end
 
@@ -1726,8 +1763,8 @@ module Kombo
     end
 
 
-    sig { params(body: Models::Shared::PutIntegrationsIntegrationIdCustomFieldsCustomFieldIdRequestBody, integration_id: ::String, custom_field_id: ::String, timeout_ms: T.nilable(Integer)).returns(Models::Operations::PutIntegrationsIntegrationIdCustomFieldsCustomFieldIdResponse) }
-    def update_custom_field_mapping(body:, integration_id:, custom_field_id:, timeout_ms: nil)
+    sig { params(body: Models::Shared::PutIntegrationsIntegrationIdCustomFieldsCustomFieldIdRequestBody, integration_id: ::String, custom_field_id: ::String, timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::PutIntegrationsIntegrationIdCustomFieldsCustomFieldIdResponse) }
+    def update_custom_field_mapping(body:, integration_id:, custom_field_id:, timeout_ms: nil, http_headers: nil)
       # update_custom_field_mapping - Put custom field mappings
       # Updates the mapping of a given custom field. If the custom field is already mapped, it will be updated.
       request = Models::Operations::PutIntegrationsIntegrationIdCustomFieldsCustomFieldIdRequest.new(
@@ -1750,7 +1787,7 @@ module Kombo
       headers['content-type'] = req_content_type
       raise StandardError, 'request body is required' if data.nil? && form.nil?
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -1786,6 +1823,9 @@ module Kombo
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -1861,8 +1901,8 @@ module Kombo
     end
 
 
-    sig { params(category: Models::Shared::GetToolsCategoryParameterCategory, timeout_ms: T.nilable(Integer)).returns(Models::Operations::GetToolsCategoryResponse) }
-    def get_tools(category:, timeout_ms: nil)
+    sig { params(category: Models::Shared::GetToolsCategoryParameterCategory, timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::GetToolsCategoryResponse) }
+    def get_tools(category:, timeout_ms: nil, http_headers: nil)
       # get_tools - Get tools
       # Get a list of the tools (i.e., integrations) enabled in your environment.
       #  This can (in combination with the `integration_tool` parameter of [the "Create Link" endpoint](/v1/post-create-link)) be used to, for example, display a custom list or grid of available integrations to your end users instead of exposing Kombo Connect's standard tool selector.
@@ -1908,6 +1948,9 @@ module Kombo
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -1981,5 +2024,5 @@ module Kombo
         end
       end
     end
-  end
+end
 end

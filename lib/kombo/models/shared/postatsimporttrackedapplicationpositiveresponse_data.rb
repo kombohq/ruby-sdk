@@ -18,7 +18,7 @@ module Kombo
         field :imported_id, Models::Shared::ImportedId, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('imported_id'), required: true } }
         # YYYY-MM-DDTHH:mm:ss.sssZ
         # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
-        field :tracked_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('tracked_at'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
+        field :tracked_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('tracked_at'), required: true, 'decoder': ::Kombo::Utils.datetime_from_iso_format(false) } }
 
         sig { params(id: ::String, imported_id: Models::Shared::ImportedId, tracked_at: T.nilable(::DateTime)).void }
         def initialize(id:, imported_id:, tracked_at: nil)

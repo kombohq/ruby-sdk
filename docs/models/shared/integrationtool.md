@@ -2,6 +2,14 @@
 
 Pre-define a tool this integration link can be used for.
 
+## Example Usage
+
+```ruby
+require "kombo"
+
+value = IntegrationTool::WORKDAY
+```
+
 
 ## Values
 

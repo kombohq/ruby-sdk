@@ -20,7 +20,7 @@ module Kombo
         field :max_file_size_bytes, Crystalline::Nilable.new(::Integer), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('max_file_size_bytes') } }
 
         sig { params(type: ::String, accepted_mime_types: T.nilable(T::Array[::String]), max_file_size_bytes: T.nilable(::Integer)).void }
-        def initialize(type:, accepted_mime_types: nil, max_file_size_bytes: nil)
+        def initialize(type: 'FILE', accepted_mime_types: nil, max_file_size_bytes: nil)
           unless type == 'FILE'
             raise ArgumentError, 'Invalid value for type'
           end

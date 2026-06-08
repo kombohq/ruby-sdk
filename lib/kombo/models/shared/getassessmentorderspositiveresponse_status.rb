@@ -9,8 +9,6 @@ module Kombo
     module Shared
       # GetAssessmentOrdersPositiveResponseStatus - The current status of the assessment order.
       class GetAssessmentOrdersPositiveResponseStatus < T::Enum
-
-
         enums do
           OPEN = new('OPEN')
           COMPLETED = new('COMPLETED')

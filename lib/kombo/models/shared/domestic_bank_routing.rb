@@ -15,7 +15,7 @@ module Kombo
         # Bank routing number (e.g. DE Bankleitzahl, GB Sort Code, US ABA routing number, AU BSB code). This field is not formatted and therefore might contain delimiters (eg. 01-23-45).
         field :number, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('number'), required: true } }
         # Enum of the routing type, prefixed with the iso-3166-1-alpha-2 banks origin country. If there is uncertainty about the type, it will be set to null.
-        field :type, Crystalline::Nilable.new(Models::Shared::DomesticBankRoutingType), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('type'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::DomesticBankRoutingType, false) } }
+        field :type, Crystalline::Nilable.new(Models::Shared::DomesticBankRoutingType), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('type'), required: true, 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::DomesticBankRoutingType, false) } }
 
         sig { params(number: ::String, type: T.nilable(Models::Shared::DomesticBankRoutingType)).void }
         def initialize(number:, type: nil)

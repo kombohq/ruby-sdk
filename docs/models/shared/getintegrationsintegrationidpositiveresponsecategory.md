@@ -1,5 +1,13 @@
 # GetIntegrationsIntegrationIdPositiveResponseCategory
 
+## Example Usage
+
+```ruby
+require "kombo"
+
+value = GetIntegrationsIntegrationIdPositiveResponseCategory::HRIS
+```
+
 
 ## Values
 

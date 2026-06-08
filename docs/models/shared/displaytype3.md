@@ -1,5 +1,13 @@
 # DisplayType3
 
+## Example Usage
+
+```ruby
+require "kombo"
+
+value = DisplayType3::DROPDOWN
+```
+
 
 ## Values
 

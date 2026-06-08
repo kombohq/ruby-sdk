@@ -39,17 +39,19 @@ module Kombo
     end
 
 
-    sig { params(request: Models::Shared::PostConnectCreateLinkRequestBody, timeout_ms: T.nilable(Integer)).returns(Models::Operations::PostConnectCreateLinkResponse) }
-    def create_connection_link(request:, timeout_ms: nil)
+
+
+    sig { params(request: Models::Shared::PostConnectCreateLinkRequestBody, timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::PostConnectCreateLinkResponse) }
+    def create_connection_link(request:, timeout_ms: nil, http_headers: nil)
       # create_connection_link - Create connection link
       # Generate a unique link that allows your user to enter the embedded Kombo Connect flow.
-      # 
+      #
       # > Check out [our full guide](/connect/embedded-flow) for more details about implementing the connection flow into your app.
-      # 
+      #
       # > Kombo will not deduplicate integrations for you that are created with this endpoint. You are responsible for keeping track of integrations in your system and prevent customers from connecting the same tool again. Use the [reconnection link](/v1/post-integrations-integration-id-relink) endpoint if you want a customer to update their credentials.
-      # 
+      #
       # ### Example Request Body
-      # 
+      #
       # ```json
       # {
       #   "end_user_email": "test@example.com",
@@ -70,7 +72,7 @@ module Kombo
       headers['content-type'] = req_content_type
       raise StandardError, 'request body is required' if data.nil? && form.nil?
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -106,6 +108,9 @@ module Kombo
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -181,15 +186,15 @@ module Kombo
     end
 
 
-    sig { params(token: ::String, timeout_ms: T.nilable(Integer)).returns(Models::Operations::GetConnectIntegrationByTokenTokenResponse) }
-    def get_integration_by_token(token:, timeout_ms: nil)
+    sig { params(token: ::String, timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::GetConnectIntegrationByTokenTokenResponse) }
+    def get_integration_by_token(token:, timeout_ms: nil, http_headers: nil)
       # get_integration_by_token - Get integration by token
       # Use this endpoint with the token you get from the connection flow to retrieve information about the created integration.
-      # 
+      #
       #   It works in a similar way as the OAuth2 code flow to securely retrieve information and connect the integration to your user.
-      # 
+      #
       # > Check out [our full guide](/connect/embedded-flow) for more details about implementing the connection flow into your app.
-      # 
+      #
       # This endpoint is used to ensure users can't trick your system connecting their
       # account in your system to another customers integration. You don't get the integration ID
       # from the `showKomboConnect(link)` function but only the short lived token used
@@ -237,6 +242,9 @@ module Kombo
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -310,5 +318,5 @@ module Kombo
         end
       end
     end
-  end
+end
 end

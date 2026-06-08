@@ -2,6 +2,14 @@
 
 The category of the integration.
 
+## Example Usage
+
+```ruby
+require "kombo"
+
+value = IntegrationDeletedWebhookPayloadCategory::HRIS
+```
+
 
 ## Values
 

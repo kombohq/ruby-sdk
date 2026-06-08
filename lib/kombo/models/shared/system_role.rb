@@ -17,9 +17,9 @@ module Kombo
         # The label of the role.
         field :remote_label, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_label'), required: true } }
         # Whether the role applies globally or is scoped to a specific job.
-        field :scope, Crystalline::Nilable.new(Models::Shared::GetAtsUsersPositiveResponseScope), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('scope'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::GetAtsUsersPositiveResponseScope, false) } }
+        field :scope, Crystalline::Nilable.new(Models::Shared::GetAtsUsersPositiveResponseScope), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('scope'), required: true, 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::GetAtsUsersPositiveResponseScope, false) } }
         # Unified role type if Kombo can map it.
-        field :unified_type, Crystalline::Nilable.new(Models::Shared::GetAtsUsersPositiveResponseUnifiedType), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('unified_type'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::GetAtsUsersPositiveResponseUnifiedType, false) } }
+        field :unified_type, Crystalline::Nilable.new(Models::Shared::GetAtsUsersPositiveResponseUnifiedType), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('unified_type'), required: true, 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::GetAtsUsersPositiveResponseUnifiedType, false) } }
 
         sig { params(remote_id: T.nilable(::String), remote_label: T.nilable(::String), scope: T.nilable(Models::Shared::GetAtsUsersPositiveResponseScope), unified_type: T.nilable(Models::Shared::GetAtsUsersPositiveResponseUnifiedType)).void }
         def initialize(remote_id: nil, remote_label: nil, scope: nil, unified_type: nil)

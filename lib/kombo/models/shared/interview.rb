@@ -20,10 +20,10 @@ module Kombo
         field :title, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('title'), required: true } }
         # The start time of the interview.
         # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
-        field :starting_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('starting_at'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
+        field :starting_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('starting_at'), required: true, 'decoder': ::Kombo::Utils.datetime_from_iso_format(false) } }
         # The end time of the interview.
         # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
-        field :ending_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('ending_at'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
+        field :ending_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('ending_at'), required: true, 'decoder': ::Kombo::Utils.datetime_from_iso_format(false) } }
         # Whether the interview was canceled or not. If we have no information, this field will be `null`.
         field :canceled, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('canceled'), required: true } }
         # Location of the interview.

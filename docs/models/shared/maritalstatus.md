@@ -1,5 +1,16 @@
 # MaritalStatus
 
+## Example Usage
+
+```ruby
+require "kombo"
+
+value = MaritalStatus::SINGLE
+
+# Open enum: use .deserialize() to create instances from custom string values
+custom = MaritalStatus.deserialize("custom_value")
+```
+
 
 ## Values
 

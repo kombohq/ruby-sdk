@@ -17,10 +17,10 @@ module Kombo
 
         field :type, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('type'), required: true } }
 
-        field :display_type, Crystalline::Nilable.new(Models::Shared::DisplayType3), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('display_type'), 'decoder': Utils.enum_from_string(Models::Shared::DisplayType3, true) } }
+        field :display_type, Crystalline::Nilable.new(Models::Shared::DisplayType3), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('display_type'), 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::DisplayType3, true) } }
 
         sig { params(options: T::Array[Models::Shared::Option1], type: ::String, display_type: T.nilable(Models::Shared::DisplayType3)).void }
-        def initialize(options:, type:, display_type: nil)
+        def initialize(options:, type: 'SINGLE_SELECT', display_type: nil)
           @options = options
           unless type == 'SINGLE_SELECT'
             raise ArgumentError, 'Invalid value for type'

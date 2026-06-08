@@ -2,6 +2,14 @@
 
 The category of the integration (HRIS, ATS, ASSESSMENT, or LMS).
 
+## Example Usage
+
+```ruby
+require "kombo"
+
+value = ConnectionFlowFailedWebhookPayloadIntegrationCategory::HRIS
+```
+
 
 ## Values
 

@@ -1,5 +1,13 @@
 # PutAssessmentPackagesRequestBodyType
 
+## Example Usage
+
+```ruby
+require "kombo"
+
+value = PutAssessmentPackagesRequestBodyType::BEHAVIORAL
+```
+
 
 ## Values
 

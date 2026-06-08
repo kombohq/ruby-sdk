@@ -9,8 +9,6 @@ module Kombo
     module Shared
       # IntegrationStateChangedWebhookPayloadSetupStatus - The current status of an integration that has filtering, field mapping features or required setup steps.
       class IntegrationStateChangedWebhookPayloadSetupStatus < T::Enum
-
-
         enums do
           INCOMPLETE = new('INCOMPLETE')
           FINAL_SYNC_PENDING = new('FINAL_SYNC_PENDING')

@@ -2,6 +2,14 @@
 
 The HTTP method (e.g., `GET`) of the request.
 
+## Example Usage
+
+```ruby
+require "kombo"
+
+value = Method::GET
+```
+
 
 ## Values
 

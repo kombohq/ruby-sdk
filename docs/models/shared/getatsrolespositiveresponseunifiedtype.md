@@ -2,6 +2,14 @@
 
 Unified role type if Kombo can map it.
 
+## Example Usage
+
+```ruby
+require "kombo"
+
+value = GetAtsRolesPositiveResponseUnifiedType::HIRING_MANAGER
+```
+
 
 ## Values
 

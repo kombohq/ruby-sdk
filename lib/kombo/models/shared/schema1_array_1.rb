@@ -17,27 +17,27 @@ module Kombo
 
         field :required, Crystalline::Boolean.new, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('required'), required: true } }
 
-        field :type, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('type'), required: true } }
-
         field :item_type, Crystalline::Union.new(Models::Shared::Schema2Text, Models::Shared::Schema2Number, Models::Shared::Schema2Date, Models::Shared::Schema2SingleSelect, Models::Shared::Schema2MultiSelect, Models::Shared::Schema2Checkbox, Models::Shared::Schema2Object1, Models::Shared::Schema2Array1, Models::Shared::Schema2File), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('item_type'), required: true } }
+
+        field :type, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('type'), required: true } }
 
         field :description, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('description') } }
 
-        field :unified_key, Crystalline::Nilable.new(Models::Shared::Schema1UnifiedKey7), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('unified_key'), 'decoder': Utils.enum_from_string(Models::Shared::Schema1UnifiedKey7, true) } }
+        field :unified_key, Crystalline::Nilable.new(Models::Shared::Schema1UnifiedKey7), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('unified_key'), 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::Schema1UnifiedKey7, true) } }
 
         field :min_items, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('min_items') } }
 
         field :max_items, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('max_items') } }
 
-        sig { params(label: ::String, required: T::Boolean, type: ::String, item_type: T.any(Models::Shared::Schema2Text, Models::Shared::Schema2Number, Models::Shared::Schema2Date, Models::Shared::Schema2SingleSelect, Models::Shared::Schema2MultiSelect, Models::Shared::Schema2Checkbox, Models::Shared::Schema2Object1, Models::Shared::Schema2Array1, Models::Shared::Schema2File), description: T.nilable(::String), unified_key: T.nilable(Models::Shared::Schema1UnifiedKey7), min_items: T.nilable(::Float), max_items: T.nilable(::Float)).void }
-        def initialize(label:, required:, type:, item_type:, description: nil, unified_key: nil, min_items: nil, max_items: nil)
+        sig { params(label: ::String, required: T::Boolean, item_type: T.any(Models::Shared::Schema2Text, Models::Shared::Schema2Number, Models::Shared::Schema2Date, Models::Shared::Schema2SingleSelect, Models::Shared::Schema2MultiSelect, Models::Shared::Schema2Checkbox, Models::Shared::Schema2Object1, Models::Shared::Schema2Array1, Models::Shared::Schema2File), type: ::String, description: T.nilable(::String), unified_key: T.nilable(Models::Shared::Schema1UnifiedKey7), min_items: T.nilable(::Float), max_items: T.nilable(::Float)).void }
+        def initialize(label:, required:, item_type:, type: 'array', description: nil, unified_key: nil, min_items: nil, max_items: nil)
           @label = label
           @required = required
+          @item_type = item_type
           unless type == 'array'
             raise ArgumentError, 'Invalid value for type'
           end
           @type = 'array'
-          @item_type = item_type
           @description = description
           @unified_key = unified_key
           @min_items = min_items
@@ -49,8 +49,8 @@ module Kombo
           return false unless other.is_a? self.class
           return false unless @label == other.label
           return false unless @required == other.required
-          return false unless @type == other.type
           return false unless @item_type == other.item_type
+          return false unless @type == other.type
           return false unless @description == other.description
           return false unless @unified_key == other.unified_key
           return false unless @min_items == other.min_items

@@ -9,8 +9,6 @@ module Kombo
     module Shared
       # PostAtsApplicationsApplicationIdResultLinksRequestBodyOverrideDocumentCategory - Allows you to override the document category for the url. (Default: MISC)
       class PostAtsApplicationsApplicationIdResultLinksRequestBodyOverrideDocumentCategory < T::Enum
-
-
         enums do
           IRC_CANDIDATE_RESUME = new('IRC_CANDIDATE_RESUME')
           IRC_CANDIDATE_COVERLETTER = new('IRC_CANDIDATE_COVERLETTER')

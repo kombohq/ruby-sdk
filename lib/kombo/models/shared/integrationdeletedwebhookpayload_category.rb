@@ -9,8 +9,6 @@ module Kombo
     module Shared
       # IntegrationDeletedWebhookPayloadCategory - The category of the integration.
       class IntegrationDeletedWebhookPayloadCategory < T::Enum
-
-
         enums do
           HRIS = new('HRIS')
           ATS = new('ATS')

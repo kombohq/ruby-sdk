@@ -1,5 +1,13 @@
 # GetAtsCandidatesCandidateIdAttachmentsPositiveResponseType
 
+## Example Usage
+
+```ruby
+require "kombo"
+
+value = GetAtsCandidatesCandidateIdAttachmentsPositiveResponseType::CV
+```
+
 
 ## Values
 

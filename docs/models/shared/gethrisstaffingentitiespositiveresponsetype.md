@@ -2,6 +2,14 @@
 
 Type of the group.
 
+## Example Usage
+
+```ruby
+require "kombo"
+
+value = GetHrisStaffingEntitiesPositiveResponseType::DEPARTMENT
+```
+
 
 ## Values
 

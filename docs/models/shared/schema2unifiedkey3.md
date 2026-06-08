@@ -1,5 +1,13 @@
 # Schema2UnifiedKey3
 
+## Example Usage
+
+```ruby
+require "kombo"
+
+value = Schema2UnifiedKey3::FIRST_NAME
+```
+
 
 ## Values
 

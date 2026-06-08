@@ -9,8 +9,6 @@ module Kombo
     module Shared
       # IntegrationDeletedWebhookPayloadType - Type of the webhook event
       class IntegrationDeletedWebhookPayloadType < T::Enum
-
-
         enums do
           INTEGRATION_DELETED = new('integration-deleted')
         end

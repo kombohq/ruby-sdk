@@ -4,6 +4,14 @@ The type of link you want to create. `EMBEDDED` is for the [embedded flow](../gu
 
 This defaults to `EMBEDDED`, which is our recommended method of implementing the connection flow for a seamless user experience.
 
+## Example Usage
+
+```ruby
+require "kombo"
+
+value = PostConnectCreateLinkRequestBodyLinkType::EMBEDDED
+```
+
 
 ## Values
 

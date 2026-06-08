@@ -9,8 +9,6 @@ module Kombo
     module Shared
       # FieldScopeConfigSetting - The setting of the datapoint in the scope config that you configured in the Kombo dashboard.
       class FieldScopeConfigSetting < T::Enum
-
-
         enums do
           ENABLED = new('ENABLED')
           DISABLED = new('DISABLED')

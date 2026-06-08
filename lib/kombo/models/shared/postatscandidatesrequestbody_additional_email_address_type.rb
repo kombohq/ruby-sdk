@@ -9,8 +9,6 @@ module Kombo
     module Shared
 
       class PostAtsCandidatesRequestBodyAdditionalEmailAddressType < T::Enum
-
-
         enums do
           PERSONAL = new('PERSONAL')
           WORK = new('WORK')

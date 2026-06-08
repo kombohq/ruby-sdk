@@ -19,10 +19,10 @@ module Kombo
 
         field :min, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('min') } }
 
-        field :display_type, Crystalline::Nilable.new(Models::Shared::DisplayType2), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('display_type'), 'decoder': Utils.enum_from_string(Models::Shared::DisplayType2, true) } }
+        field :display_type, Crystalline::Nilable.new(Models::Shared::DisplayType2), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('display_type'), 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::DisplayType2, true) } }
 
         sig { params(type: ::String, max: T.nilable(::Float), min: T.nilable(::Float), display_type: T.nilable(Models::Shared::DisplayType2)).void }
-        def initialize(type:, max: nil, min: nil, display_type: Models::Shared::DisplayType2::FIELD)
+        def initialize(type: 'NUMBER', max: nil, min: nil, display_type: Models::Shared::DisplayType2::FIELD)
           unless type == 'NUMBER'
             raise ArgumentError, 'Invalid value for type'
           end

@@ -22,7 +22,7 @@ module Kombo
         field :value, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('value'), required: true } }
 
         sig { params(type: ::String, min: T.nilable(::Float), max: T.nilable(::Float), value: T.nilable(::Float)).void }
-        def initialize(type:, min: nil, max: nil, value: nil)
+        def initialize(type: 'NUMERIC', min: nil, max: nil, value: nil)
           unless type == 'NUMERIC'
             raise ArgumentError, 'Invalid value for type'
           end

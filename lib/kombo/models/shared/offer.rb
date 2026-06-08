@@ -18,17 +18,17 @@ module Kombo
         field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_id'), required: true } }
         # The offer’s current status. The usual flow of statuses is as follows:
         # `DRAFT` -> `APPROVED` -> `SENT` -> `ACCEPTED` or `DECLINED`.
-        # 
+        #
         # Please note that not all systems will expose all statuses. For example, most systems do not include the `APPROVED` status
-        # 
+        #
         # - `ACCEPTED`: The offer was accepted by the candidate.
         # - `DECLINED`: The offer was declined by the candidate.
         # - `SENT`: The offer was sent to the candidate.
         # - `APPROVED`: The draft was approved.
         # - `DRAFT`: The offer is a draft and has not yet been sent to the candidate.
         # - `ABANDONED`: The offer has expired or is no longer valid and should not be considered.
-        # 
-        field :status, Crystalline::Nilable.new(Models::Shared::GetAtsApplicationsPositiveResponseStatus), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('status'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::GetAtsApplicationsPositiveResponseStatus, false) } }
+        #
+        field :status, Crystalline::Nilable.new(Models::Shared::GetAtsApplicationsPositiveResponseStatus), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('status'), required: true, 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::GetAtsApplicationsPositiveResponseStatus, false) } }
 
         sig { params(id: ::String, remote_id: T.nilable(::String), status: T.nilable(Models::Shared::GetAtsApplicationsPositiveResponseStatus)).void }
         def initialize(id:, remote_id: nil, status: nil)

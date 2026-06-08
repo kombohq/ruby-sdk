@@ -2,6 +2,14 @@
 
 Language of the connection flow UI.
 
+## Example Usage
+
+```ruby
+require "kombo"
+
+value = PostConnectCreateLinkRequestBodyLanguage::EN
+```
+
 
 ## Values
 

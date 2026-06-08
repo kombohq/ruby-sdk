@@ -13,7 +13,7 @@ module Kombo
         include Crystalline::MetadataFields
 
         # The type of the triggered sync.
-        field :type, Crystalline::Nilable.new(Models::Shared::PostForceSyncRequestBodyType), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('type'), 'decoder': Utils.enum_from_string(Models::Shared::PostForceSyncRequestBodyType, true) } }
+        field :type, Crystalline::Nilable.new(Models::Shared::PostForceSyncRequestBodyType), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('type'), 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::PostForceSyncRequestBodyType, true) } }
 
         sig { params(type: T.nilable(Models::Shared::PostForceSyncRequestBodyType)).void }
         def initialize(type: Models::Shared::PostForceSyncRequestBodyType::FULL)

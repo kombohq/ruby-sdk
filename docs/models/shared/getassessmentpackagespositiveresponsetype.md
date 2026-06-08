@@ -1,5 +1,13 @@
 # GetAssessmentPackagesPositiveResponseType
 
+## Example Usage
+
+```ruby
+require "kombo"
+
+value = GetAssessmentPackagesPositiveResponseType::BEHAVIORAL
+```
+
 
 ## Values
 

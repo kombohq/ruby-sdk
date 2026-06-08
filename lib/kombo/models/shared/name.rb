@@ -9,8 +9,6 @@ module Kombo
     module Shared
       # Name - The name of the Kombo model or connection that changed.
       class Name < T::Enum
-
-
         enums do
           HRIS_LEGAL_ENTITIES = new('hris_legal_entities')
           HRIS_LOCATIONS = new('hris_locations')

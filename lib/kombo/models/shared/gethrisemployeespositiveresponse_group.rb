@@ -19,7 +19,7 @@ module Kombo
         # The name of the group.
         field :name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('name'), required: true } }
         # Type of the group.
-        field :type, Crystalline::Nilable.new(Models::Shared::GetHrisEmployeesPositiveResponseGroupType), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('type'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::GetHrisEmployeesPositiveResponseGroupType, false) } }
+        field :type, Crystalline::Nilable.new(Models::Shared::GetHrisEmployeesPositiveResponseGroupType), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('type'), required: true, 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::GetHrisEmployeesPositiveResponseGroupType, false) } }
 
         sig { params(id: ::String, remote_id: ::String, name: T.nilable(::String), type: T.nilable(Models::Shared::GetHrisEmployeesPositiveResponseGroupType)).void }
         def initialize(id:, remote_id:, name: nil, type: nil)

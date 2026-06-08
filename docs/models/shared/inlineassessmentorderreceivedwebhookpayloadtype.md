@@ -2,6 +2,14 @@
 
 Type of the webhook event
 
+## Example Usage
+
+```ruby
+require "kombo"
+
+value = InlineAssessmentOrderReceivedWebhookPayloadType::INLINE_ASSESSMENT_ORDER_RECEIVED
+```
+
 
 ## Values
 

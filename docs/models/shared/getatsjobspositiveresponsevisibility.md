@@ -1,5 +1,16 @@
 # GetAtsJobsPositiveResponseVisibility
 
+## Example Usage
+
+```ruby
+require "kombo"
+
+value = GetAtsJobsPositiveResponseVisibility::PUBLIC
+
+# Open enum: use .deserialize() to create instances from custom string values
+custom = GetAtsJobsPositiveResponseVisibility.deserialize("custom_value")
+```
+
 
 ## Values
 

@@ -19,11 +19,11 @@ module Kombo
 
         field :end_user_organization_name, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('end_user_organization_name'), required: true } }
         # The setup_status is used in conjunction with the filtering and field mapping features. If these are enabled in the connection flow, the integration will start in an "INCOMPLETE" state and move to "COMPLETE" once all steps are finished.
-        # 
+        #
         # - `INCOMPLETE`: Setup is still in progress. Some steps aren’t finished, so no data is available yet. Syncs only run as needed for setup.
         # - `FINAL_SYNC_PENDING`: Setup is complete, and the final sync is running. Data will be available after this sync is done.
         # - `COMPLETED`: Setup is fully finished, and the integration is ready to use.
-        field :setup_status, Models::Shared::GetConnectIntegrationByTokenTokenPositiveResponseSetupStatus, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('setup_status'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::GetConnectIntegrationByTokenTokenPositiveResponseSetupStatus, false) } }
+        field :setup_status, Models::Shared::GetConnectIntegrationByTokenTokenPositiveResponseSetupStatus, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('setup_status'), required: true, 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::GetConnectIntegrationByTokenTokenPositiveResponseSetupStatus, false) } }
 
         field :end_user_origin_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('end_user_origin_id'), required: true } }
 

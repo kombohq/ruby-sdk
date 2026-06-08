@@ -13,24 +13,24 @@ module Kombo
         include Crystalline::MetadataFields
 
 
-        field :type, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('type'), required: true } }
-
         field :entries, Crystalline::Array.new(Models::Shared::Schema2Entry1), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('entries'), required: true } }
 
-        sig { params(type: ::String, entries: T::Array[Models::Shared::Schema2Entry1]).void }
-        def initialize(type:, entries:)
+        field :type, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('type'), required: true } }
+
+        sig { params(entries: T::Array[Models::Shared::Schema2Entry1], type: ::String).void }
+        def initialize(entries:, type: 'inline')
+          @entries = entries
           unless type == 'inline'
             raise ArgumentError, 'Invalid value for type'
           end
           @type = 'inline'
-          @entries = entries
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
-          return false unless @type == other.type
           return false unless @entries == other.entries
+          return false unless @type == other.type
           true
         end
       end

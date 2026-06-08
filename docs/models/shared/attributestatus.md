@@ -1,5 +1,13 @@
 # AttributeStatus
 
+## Example Usage
+
+```ruby
+require "kombo"
+
+value = AttributeStatus::COMPLETED
+```
+
 
 ## Values
 

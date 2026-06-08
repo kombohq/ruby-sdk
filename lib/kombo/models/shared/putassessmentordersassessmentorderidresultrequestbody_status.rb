@@ -8,11 +8,9 @@ module Kombo
   module Models
     module Shared
       # PutAssessmentOrdersAssessmentOrderIdResultRequestBodyStatus - Status of the assessment.
-      # 
+      #
       # **Please note the `status` can only be updated to a different value if its current value is `OPEN`.**
       class PutAssessmentOrdersAssessmentOrderIdResultRequestBodyStatus < T::Enum
-
-
         enums do
           COMPLETED = new('COMPLETED')
           CANCELLED = new('CANCELLED')

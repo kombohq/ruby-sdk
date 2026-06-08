@@ -8,8 +8,8 @@ end
 
 
 class Kombo::Models::Shared::GetHrisEmploymentsPositiveResponse
-  def status(); end
-  def status=(str_); end
   def data(); end
   def data=(str_); end
+  def status(); end
+  def status=(str_); end
 end

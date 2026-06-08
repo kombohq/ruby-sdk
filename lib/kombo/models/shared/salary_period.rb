@@ -8,9 +8,8 @@ module Kombo
   module Models
     module Shared
 
-      class SalaryPeriod < T::Enum
-
-
+      class SalaryPeriod
+        include ::Crystalline::Enum
         enums do
           YEAR = new('YEAR')
           MONTH = new('MONTH')
@@ -19,6 +18,7 @@ module Kombo
           DAY = new('DAY')
           HOUR = new('HOUR')
         end
+        open!
       end
     end
   end

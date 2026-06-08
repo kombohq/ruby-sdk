@@ -19,26 +19,26 @@ module Kombo
         # The model the field is associated with.
         field :model, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('model'), required: true } }
         # The type of the integration field. There is a type to avoid collisions between DEFAULT fields and CUSTOM fields with the same key.
-        field :type, Models::Shared::PatchIntegrationsIntegrationIdIntegrationFieldsIntegrationFieldIdPositiveResponseType, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('type'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::PatchIntegrationsIntegrationIdIntegrationFieldsIntegrationFieldIdPositiveResponseType, false) } }
+        field :type, Models::Shared::PatchIntegrationsIntegrationIdIntegrationFieldsIntegrationFieldIdPositiveResponseType, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('type'), required: true, 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::PatchIntegrationsIntegrationIdIntegrationFieldsIntegrationFieldIdPositiveResponseType, false) } }
         # Whether the field is included in the integrations_fields array of the corresponding model.
         field :is_passthrough_enabled, Crystalline::Boolean.new, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('is_passthrough_enabled'), required: true } }
-        # This field is related to a deprecated feature and means nothing, but is kept for backwards compatibility.
-        field :is_writable, Crystalline::Boolean.new, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('is_writable'), required: true } }
         # The label of the field in the remote system.
         field :label, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('label'), required: true } }
+        # This field is related to a deprecated feature and means nothing, but is kept for backwards compatibility.
+        field :is_writable, Crystalline::Boolean.new, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('is_writable'), required: true } }
 
-        sig { params(id: ::String, key: ::String, model: ::String, type: Models::Shared::PatchIntegrationsIntegrationIdIntegrationFieldsIntegrationFieldIdPositiveResponseType, is_passthrough_enabled: T::Boolean, is_writable: T::Boolean, label: T.nilable(::String)).void }
-        def initialize(id:, key:, model:, type:, is_passthrough_enabled:, is_writable:, label: nil)
+        sig { params(id: ::String, key: ::String, model: ::String, type: Models::Shared::PatchIntegrationsIntegrationIdIntegrationFieldsIntegrationFieldIdPositiveResponseType, is_passthrough_enabled: T::Boolean, label: T.nilable(::String), is_writable: T::Boolean).void }
+        def initialize(id:, key:, model:, type:, is_passthrough_enabled:, label: nil, is_writable: false)
           @id = id
           @key = key
           @model = model
           @type = type
           @is_passthrough_enabled = is_passthrough_enabled
+          @label = label
           unless is_writable == false
             raise ArgumentError, 'Invalid value for is_writable'
           end
           @is_writable = false
-          @label = label
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
@@ -49,8 +49,8 @@ module Kombo
           return false unless @model == other.model
           return false unless @type == other.type
           return false unless @is_passthrough_enabled == other.is_passthrough_enabled
-          return false unless @is_writable == other.is_writable
           return false unless @label == other.label
+          return false unless @is_writable == other.is_writable
           true
         end
       end

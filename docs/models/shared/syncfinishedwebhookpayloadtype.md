@@ -2,6 +2,14 @@
 
 Type of the webhook event
 
+## Example Usage
+
+```ruby
+require "kombo"
+
+value = SyncFinishedWebhookPayloadType::SYNC_FINISHED
+```
+
 
 ## Values
 

@@ -2,6 +2,14 @@
 
 Visibility of the created note.
 
+## Example Usage
+
+```ruby
+require "kombo"
+
+value = PostAtsApplicationsApplicationIdNotesRequestBodyVisibility::ADMIN_ONLY
+```
+
 
 ## Values
 

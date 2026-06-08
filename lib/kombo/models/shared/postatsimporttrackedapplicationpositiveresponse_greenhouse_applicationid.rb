@@ -12,25 +12,25 @@ module Kombo
         extend T::Sig
         include Crystalline::MetadataFields
 
+
+        field :application_id, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('application_id'), required: true } }
         # Uses the `/applications/{id}` endpoint to retrieve the application.
         field :id_type, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('id_type'), required: true } }
 
-        field :application_id, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('application_id'), required: true } }
-
-        sig { params(id_type: ::String, application_id: ::String).void }
-        def initialize(id_type:, application_id:)
+        sig { params(application_id: ::String, id_type: ::String).void }
+        def initialize(application_id:, id_type: 'application_id')
+          @application_id = application_id
           unless id_type == 'application_id'
             raise ArgumentError, 'Invalid value for id_type'
           end
           @id_type = 'application_id'
-          @application_id = application_id
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
-          return false unless @id_type == other.id_type
           return false unless @application_id == other.application_id
+          return false unless @id_type == other.id_type
           true
         end
       end

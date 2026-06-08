@@ -9,8 +9,6 @@ module Kombo
     module Shared
       # GetHrisStaffingEntitiesPositiveResponseUnifiedType - The unified type, how Kombo categorize this label.
       class GetHrisStaffingEntitiesPositiveResponseUnifiedType < T::Enum
-
-
         enums do
           FULL_TIME = new('FULL_TIME')
           PART_TIME = new('PART_TIME')

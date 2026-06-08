@@ -9,8 +9,6 @@ module Kombo
     module Shared
       # PostConnectCreateLinkRequestBodyIntegrationCategory - Category of the integration you want your customer to create.
       class PostConnectCreateLinkRequestBodyIntegrationCategory < T::Enum
-
-
         enums do
           HRIS = new('HRIS')
           ATS = new('ATS')

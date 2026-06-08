@@ -9,8 +9,6 @@ module Kombo
     module Shared
       # GetAtsJobsPositiveResponseCategory - The category of the screening question (default `null`). "EEO" questions are related to Equal Employment Opportunity (e.g. "What is your veteran status?"), while "DEMOGRAPHIC" questions are for other diversity and demographic data collection.
       class GetAtsJobsPositiveResponseCategory < T::Enum
-
-
         enums do
           EEO = new('EEO')
           DEMOGRAPHIC = new('DEMOGRAPHIC')

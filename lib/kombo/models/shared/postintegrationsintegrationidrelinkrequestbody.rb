@@ -13,15 +13,15 @@ module Kombo
         include Crystalline::MetadataFields
 
         # Specify a scope config which the integration will start using once the reconnection flow has been completed.
-        # 
+        #
         # This can be useful if you want to update the permissions of an integration, but only want the change to take effect once the user has updated their API credentials to prevent sync issues.
         field :scope_config_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('scope_config_id') } }
         # The type of link you want to create. `EMBEDDED` is for the [embedded flow](../guides/connect/embedded-flow) using the Kombo Connect SDK (these links are valid for 1 hour) and `MAGIC_LINK` is for [magic links](../guides/connect/magic-links) which you send out manually to customers (there are valid for 1 year).
-        # 
+        #
         # This defaults to `EMBEDDED`, which is our recommended method of implementing the connection flow for a seamless user experience.
-        field :link_type, Crystalline::Nilable.new(Models::Shared::PostIntegrationsIntegrationIdRelinkRequestBodyLinkType), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('link_type'), 'decoder': Utils.enum_from_string(Models::Shared::PostIntegrationsIntegrationIdRelinkRequestBodyLinkType, true) } }
+        field :link_type, Crystalline::Nilable.new(Models::Shared::PostIntegrationsIntegrationIdRelinkRequestBodyLinkType), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('link_type'), 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::PostIntegrationsIntegrationIdRelinkRequestBodyLinkType, true) } }
         # Language of the connection flow UI.
-        field :language, Crystalline::Nilable.new(Models::Shared::PostIntegrationsIntegrationIdRelinkRequestBodyLanguage), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('language'), 'decoder': Utils.enum_from_string(Models::Shared::PostIntegrationsIntegrationIdRelinkRequestBodyLanguage, true) } }
+        field :language, Crystalline::Nilable.new(Models::Shared::PostIntegrationsIntegrationIdRelinkRequestBodyLanguage), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('language'), 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::PostIntegrationsIntegrationIdRelinkRequestBodyLanguage, true) } }
 
         sig { params(scope_config_id: T.nilable(::String), link_type: T.nilable(Models::Shared::PostIntegrationsIntegrationIdRelinkRequestBodyLinkType), language: T.nilable(Models::Shared::PostIntegrationsIntegrationIdRelinkRequestBodyLanguage)).void }
         def initialize(scope_config_id: nil, link_type: Models::Shared::PostIntegrationsIntegrationIdRelinkRequestBodyLinkType::EMBEDDED, language: Models::Shared::PostIntegrationsIntegrationIdRelinkRequestBodyLanguage::EN)

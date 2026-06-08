@@ -1,5 +1,13 @@
 # PostAtsCandidatesRequestBodyAdditionalPhoneNumberType
 
+## Example Usage
+
+```ruby
+require "kombo"
+
+value = PostAtsCandidatesRequestBodyAdditionalPhoneNumberType::PERSONAL
+```
+
 
 ## Values
 

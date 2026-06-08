@@ -2,6 +2,14 @@
 
 The unified type, how Kombo categorize this label.
 
+## Example Usage
+
+```ruby
+require "kombo"
+
+value = GetHrisStaffingEntitiesPositiveResponseUnifiedType::FULL_TIME
+```
+
 
 ## Values
 

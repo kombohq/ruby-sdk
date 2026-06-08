@@ -9,8 +9,6 @@ module Kombo
     module Shared
       # GetAtsRolesPositiveResponseScope - Whether the role applies globally or is scoped to a specific job.
       class GetAtsRolesPositiveResponseScope < T::Enum
-
-
         enums do
           SYSTEM = new('SYSTEM')
           JOB = new('JOB')

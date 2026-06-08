@@ -8,7 +8,7 @@ module Kombo
   module Models
     module Shared
       # Credit the recruiter or team member who sourced this candidate.
-      # 
+      #
       # While the `source` field tracks the channel/platform (e.g., "Awesome Jobboard"), the `sourced_by` field tracks the individual person responsible for finding the candidate.
       class PostAtsJobsJobIdApplicationsRequestBodySourcedBy
         extend T::Sig
