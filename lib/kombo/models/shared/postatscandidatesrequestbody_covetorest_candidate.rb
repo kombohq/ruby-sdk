@@ -14,16 +14,20 @@ module Kombo
 
         # The mandant field for the candidate in Coveto.
         field :mandant, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('mandant') } }
+        # The numeric status ID to assign to the candidate on creation in Coveto. Refer to your Coveto `/bewerber-status` endpoint for available IDs.
+        field :status, Crystalline::Nilable.new(::Integer), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('status') } }
 
-        sig { params(mandant: T.nilable(::Float)).void }
-        def initialize(mandant: nil)
+        sig { params(mandant: T.nilable(::Float), status: T.nilable(::Integer)).void }
+        def initialize(mandant: nil, status: nil)
           @mandant = mandant
+          @status = status
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @mandant == other.mandant
+          return false unless @status == other.status
           true
         end
       end

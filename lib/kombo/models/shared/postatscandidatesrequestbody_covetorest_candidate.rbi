@@ -10,4 +10,6 @@ end
 class Kombo::Models::Shared::PostAtsCandidatesRequestBodyCovetorestCandidate
   def mandant(); end
   def mandant=(str_); end
+  def status(); end
+  def status=(str_); end
 end

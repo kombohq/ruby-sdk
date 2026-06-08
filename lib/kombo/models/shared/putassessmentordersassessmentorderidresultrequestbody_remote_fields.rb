@@ -16,11 +16,14 @@ module Kombo
         field :smartrecruiters, Crystalline::Nilable.new(Models::Shared::PutAssessmentOrdersAssessmentOrderIdResultRequestBodySmartrecruiters), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('smartrecruiters') } }
 
         field :recruitee, Crystalline::Nilable.new(Models::Shared::PutAssessmentOrdersAssessmentOrderIdResultRequestBodyRecruitee), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('recruitee') } }
+        # Fields specific to Workday's `Assess_Candidate` [operation](https://community.workday.com/sites/default/files/file-hosting/productionapi/Recruiting/v46.0/Assess_Candidate.html).
+        field :workday, Crystalline::Nilable.new(Models::Shared::PutAssessmentOrdersAssessmentOrderIdResultRequestBodyWorkday), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('workday') } }
 
-        sig { params(smartrecruiters: T.nilable(Models::Shared::PutAssessmentOrdersAssessmentOrderIdResultRequestBodySmartrecruiters), recruitee: T.nilable(Models::Shared::PutAssessmentOrdersAssessmentOrderIdResultRequestBodyRecruitee)).void }
-        def initialize(smartrecruiters: nil, recruitee: nil)
+        sig { params(smartrecruiters: T.nilable(Models::Shared::PutAssessmentOrdersAssessmentOrderIdResultRequestBodySmartrecruiters), recruitee: T.nilable(Models::Shared::PutAssessmentOrdersAssessmentOrderIdResultRequestBodyRecruitee), workday: T.nilable(Models::Shared::PutAssessmentOrdersAssessmentOrderIdResultRequestBodyWorkday)).void }
+        def initialize(smartrecruiters: nil, recruitee: nil, workday: nil)
           @smartrecruiters = smartrecruiters
           @recruitee = recruitee
+          @workday = workday
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
@@ -28,6 +31,7 @@ module Kombo
           return false unless other.is_a? self.class
           return false unless @smartrecruiters == other.smartrecruiters
           return false unless @recruitee == other.recruitee
+          return false unless @workday == other.workday
           true
         end
       end

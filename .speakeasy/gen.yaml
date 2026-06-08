@@ -31,7 +31,7 @@ generation:
     skipResponseBodyAssertions: false
   versioningStrategy: automatic
 ruby:
-  version: 1.1.3
+  version: 1.1.4
   additionalDependencies:
     development:
       irb: ""
@@ -67,6 +67,7 @@ ruby:
       webhooks: models/webhooks
   inferUnionDiscriminators: false
   inputModelSuffix: input
+  license: Apache-2.0
   maxMethodParams: 999
   module: Kombo
   multipartArrayFormat: legacy

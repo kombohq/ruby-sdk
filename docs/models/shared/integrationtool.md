@@ -84,6 +84,7 @@ Pre-define a tool this integration link can be used for.
 | `HROFFICE`                        | hroffice                          |
 | `TALENTCLUE`                      | talentclue                        |
 | `INRECRUITING`                    | inrecruiting                      |
+| `JOBADDER`                        | jobadder                          |
 | `UBEEO`                           | ubeeo                             |
 | `CONNEXYS`                        | connexys                          |
 | `HR4YOU`                          | hr4you                            |
@@ -91,8 +92,9 @@ Pre-define a tool this integration link can be used for.
 | `ZVOOVERECRUIT`                   | zvooverecruit                     |
 | `ODOO`                            | odoo                              |
 | `COMEET`                          | comeet                            |
-| `COMPLEET`                        | compleet                          |
 | `COMPLEETPITCHER`                 | compleetpitcher                   |
+| `COMPLEETPERSY`                   | compleetpersy                     |
+| `COMPLEET`                        | compleet                          |
 | `GEM`                             | gem                               |
 | `LAURA`                           | laura                             |
 | `COVETOREST`                      | covetorest                        |

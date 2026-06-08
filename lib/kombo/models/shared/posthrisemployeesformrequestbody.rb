@@ -15,15 +15,19 @@ module Kombo
 
         field :properties, Crystalline::Hash.new(Symbol, Crystalline::Union.new(::String, ::Float, Crystalline::Boolean.new, Crystalline::Hash.new(Symbol, Crystalline::Hash.new(Symbol, Object)), Crystalline::Array.new(Crystalline::Hash.new(Symbol, Object)))), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('properties'), required: true } }
 
-        sig { params(properties: T::Hash[Symbol, T.any(::String, ::Float, T::Boolean, T::Hash[Symbol, T::Hash[Symbol, Object]], T::Array[T::Hash[Symbol, Object]])]).void }
-        def initialize(properties:)
+        field :staffing_entity_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('staffing_entity_id') } }
+
+        sig { params(properties: T::Hash[Symbol, T.any(::String, ::Float, T::Boolean, T::Hash[Symbol, T::Hash[Symbol, Object]], T::Array[T::Hash[Symbol, Object]])], staffing_entity_id: T.nilable(::String)).void }
+        def initialize(properties:, staffing_entity_id: nil)
           @properties = properties
+          @staffing_entity_id = staffing_entity_id
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @properties == other.properties
+          return false unless @staffing_entity_id == other.staffing_entity_id
           true
         end
       end

@@ -14,16 +14,20 @@ module Kombo
 
         # ID of the integration you want to interact with.
         field :integration_id, Crystalline::Nilable.new(::String), { 'header': { 'field_name': 'X-Integration-Id', 'style': 'simple', 'explode': false } }
+        # GET /hris/employees/form Parameter
+        field :staffing_entity_id, Crystalline::Nilable.new(::String), { 'query_param': { 'field_name': 'staffing_entity_id', 'style': 'form', 'explode': true } }
 
-        sig { params(integration_id: T.nilable(::String)).void }
-        def initialize(integration_id: nil)
+        sig { params(integration_id: T.nilable(::String), staffing_entity_id: T.nilable(::String)).void }
+        def initialize(integration_id: nil, staffing_entity_id: nil)
           @integration_id = integration_id
+          @staffing_entity_id = staffing_entity_id
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @integration_id == other.integration_id
+          return false unless @staffing_entity_id == other.staffing_entity_id
           true
         end
       end
