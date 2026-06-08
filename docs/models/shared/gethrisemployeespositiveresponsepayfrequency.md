@@ -1,5 +1,16 @@
 # GetHrisEmployeesPositiveResponsePayFrequency
 
+## Example Usage
+
+```ruby
+require "kombo"
+
+value = GetHrisEmployeesPositiveResponsePayFrequency::DAILY
+
+# Open enum: use .deserialize() to create instances from custom string values
+custom = GetHrisEmployeesPositiveResponsePayFrequency.deserialize("custom_value")
+```
+
 
 ## Values
 

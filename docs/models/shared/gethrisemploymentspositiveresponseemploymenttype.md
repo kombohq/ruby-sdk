@@ -1,5 +1,16 @@
 # GetHrisEmploymentsPositiveResponseEmploymentType
 
+## Example Usage
+
+```ruby
+require "kombo"
+
+value = GetHrisEmploymentsPositiveResponseEmploymentType::FULL_TIME
+
+# Open enum: use .deserialize() to create instances from custom string values
+custom = GetHrisEmploymentsPositiveResponseEmploymentType.deserialize("custom_value")
+```
+
 
 ## Values
 

@@ -9,8 +9,6 @@ module Kombo
     module Shared
       # PostAtsJobsJobIdApplicationsRequestBodyPeriod - The period of the salary expectations. Must be one of `MONTH` or `YEAR`.
       class PostAtsJobsJobIdApplicationsRequestBodyPeriod < T::Enum
-
-
         enums do
           MONTH = new('MONTH')
           YEAR = new('YEAR')

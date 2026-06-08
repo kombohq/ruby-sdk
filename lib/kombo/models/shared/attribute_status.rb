@@ -9,8 +9,6 @@ module Kombo
     module Shared
 
       class AttributeStatus < T::Enum
-
-
         enums do
           COMPLETED = new('COMPLETED')
           CANCELLED = new('CANCELLED')

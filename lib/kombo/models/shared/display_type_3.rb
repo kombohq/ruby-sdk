@@ -9,8 +9,6 @@ module Kombo
     module Shared
 
       class DisplayType3 < T::Enum
-
-
         enums do
           DROPDOWN = new('DROPDOWN')
           RADIO = new('RADIO')

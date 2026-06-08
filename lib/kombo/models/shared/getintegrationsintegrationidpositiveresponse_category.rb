@@ -9,8 +9,6 @@ module Kombo
     module Shared
 
       class GetIntegrationsIntegrationIdPositiveResponseCategory < T::Enum
-
-
         enums do
           HRIS = new('HRIS')
           ATS = new('ATS')

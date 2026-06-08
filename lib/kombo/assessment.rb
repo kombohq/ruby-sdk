@@ -40,11 +40,13 @@ module Kombo
     end
 
 
-    sig { params(integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::GetAssessmentPackagesResponse) }
-    def get_packages(integration_id: nil, timeout_ms: nil)
+
+
+    sig { params(integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::GetAssessmentPackagesResponse) }
+    def get_packages(integration_id: nil, timeout_ms: nil, http_headers: nil)
       # get_packages - Get packages
       # Get all available assessment and background check packages for an integration.
-      # 
+      #
       # This is mainly intended for debugging. As you always need to submit the full list of available packages when using ["set packages"](/assessment/v1/put-packages), there shouldn't ever be a need to call this endpoint in production.
       request = Models::Operations::GetAssessmentPackagesRequest.new(
         integration_id: integration_id
@@ -82,6 +84,9 @@ module Kombo
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -157,17 +162,17 @@ module Kombo
     end
 
 
-    sig { params(body: Models::Shared::PutAssessmentPackagesRequestBody, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::PutAssessmentPackagesResponse) }
-    def set_packages(body:, integration_id: nil, timeout_ms: nil)
+    sig { params(body: Models::Shared::PutAssessmentPackagesRequestBody, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::PutAssessmentPackagesResponse) }
+    def set_packages(body:, integration_id: nil, timeout_ms: nil, http_headers: nil)
       # set_packages - Set packages
       # Set packages
-      # 
+      #
       # Replaces the list of available assessment and or background check packages.
-      # 
+      #
       # Packages that have been previously submitted through this endpoint but aren't included again will be marked as deleted.
-      # 
+      #
       # ### Example Request Body
-      # 
+      #
       # ```json
       # {
       #   "packages": [
@@ -199,7 +204,7 @@ module Kombo
       headers['content-type'] = req_content_type
       raise StandardError, 'request body is required' if data.nil? && form.nil?
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -235,6 +240,9 @@ module Kombo
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -310,8 +318,8 @@ module Kombo
     end
 
 
-    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), ids: T.nilable(T::Array[::String]), statuses: T.nilable(T::Array[::String]), created_after: T.nilable(::DateTime), timeout_ms: T.nilable(Integer)).returns(Models::Operations::GetAssessmentOrdersResponse) }
-    def get_assessment_orders(integration_id: nil, cursor: nil, page_size: nil, ids: nil, statuses: nil, created_after: nil, timeout_ms: nil)
+    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), ids: T.nilable(T::Array[::String]), statuses: T.nilable(T::Array[::String]), created_after: T.nilable(::DateTime), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::GetAssessmentOrdersResponse) }
+    def get_assessment_orders(integration_id: nil, cursor: nil, page_size: nil, ids: nil, statuses: nil, created_after: nil, timeout_ms: nil, http_headers: nil)
       # get_assessment_orders - Get orders
       # Get all assessment and background check orders of an integration.
       request = Models::Operations::GetAssessmentOrdersRequest.new(
@@ -357,6 +365,9 @@ module Kombo
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -422,12 +433,13 @@ module Kombo
             end
 
             sdk.get_assessment_orders(
-              integration_id: integration_id,
+              integration_id: request.integration_id,
               cursor: next_cursor,
-              page_size: page_size,
-              ids: ids,
-              statuses: statuses,
-              created_after: created_after
+              page_size: request.page_size,
+              ids: request.ids,
+              statuses: request.statuses,
+              created_after: request.created_after,
+              http_headers: http_headers
             )
           end
 
@@ -455,13 +467,13 @@ module Kombo
     end
 
 
-    sig { params(body: Models::Shared::PutAssessmentOrdersAssessmentOrderIdResultRequestBody, assessment_order_id: ::String, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::PutAssessmentOrdersAssessmentOrderIdResultResponse) }
-    def update_order_result(body:, assessment_order_id:, integration_id: nil, timeout_ms: nil)
+    sig { params(body: Models::Shared::PutAssessmentOrdersAssessmentOrderIdResultRequestBody, assessment_order_id: ::String, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::PutAssessmentOrdersAssessmentOrderIdResultResponse) }
+    def update_order_result(body:, assessment_order_id:, integration_id: nil, timeout_ms: nil, http_headers: nil)
       # update_order_result - Update order result
       # Updates an assessment or a background check order result.
-      # 
+      #
       # ### Example Request Body
-      # 
+      #
       # ```json
       # {
       #   "status": "COMPLETED",
@@ -515,7 +527,7 @@ module Kombo
       headers['content-type'] = req_content_type
       raise StandardError, 'request body is required' if data.nil? && form.nil?
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -551,6 +563,9 @@ module Kombo
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -624,5 +639,5 @@ module Kombo
         end
       end
     end
-  end
+end
 end

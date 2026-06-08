@@ -9,8 +9,6 @@ module Kombo
     module Shared
 
       class KomboGeneralErrorStatus < T::Enum
-
-
         enums do
           ERROR = new('error')
         end

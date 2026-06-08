@@ -9,8 +9,6 @@ module Kombo
     module Shared
       # PostForceSyncPositiveResponseType - The type of the triggered sync. May differ from request, if the integration does not support delta syncs or if another sync is already running.
       class PostForceSyncPositiveResponseType < T::Enum
-
-
         enums do
           FULL = new('FULL')
           DELTA = new('DELTA')

@@ -20,7 +20,7 @@ module Kombo
         field :type_id, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('type_id'), required: true } }
         # The timestamp when this specific record was last modified. This field only updates when properties directly on this record change, NOT when related or nested models change. For filtering that considers nested data changes, use the `updated_after` parameter which will return records when either the record itself OR its related models have been updated.
         # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
-        field :changed_at, ::DateTime, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('changed_at'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
+        field :changed_at, ::DateTime, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('changed_at'), required: true, 'decoder': ::Kombo::Utils.datetime_from_iso_format(false) } }
 
         field :type, Models::Shared::GetHrisTimeOffBalancesPositiveResponseType, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('type'), required: true } }
         # The raw ID of the object in the remote system. We don't recommend using this as a primary key on your side as it might sometimes be compromised of multiple identifiers if a system doesn't provide a clear primary key.
@@ -28,14 +28,14 @@ module Kombo
         # The amount of time available to the employee.
         field :balance, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('balance'), required: true } }
         # The time-unit of the balance.
-        field :balance_unit, Crystalline::Nilable.new(Models::Shared::GetHrisTimeOffBalancesPositiveResponseBalanceUnit), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('balance_unit'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::GetHrisTimeOffBalancesPositiveResponseBalanceUnit, false) } }
+        field :balance_unit, Crystalline::Nilable.new(Models::Shared::GetHrisTimeOffBalancesPositiveResponseBalanceUnit), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('balance_unit'), required: true, 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::GetHrisTimeOffBalancesPositiveResponseBalanceUnit, false) } }
         # The date and time the object was deleted in the remote system. Objects are automatically marked as deleted when Kombo can't retrieve them from the remote system anymore. Kombo will also anonymize entries 14 days after they disappear.
         # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
-        field :remote_deleted_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_deleted_at'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
+        field :remote_deleted_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_deleted_at'), required: true, 'decoder': ::Kombo::Utils.datetime_from_iso_format(false) } }
         # The amount of time used by the employee.
         field :used, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('used'), required: true } }
         # The time-unit of the used time.
-        field :used_unit, Crystalline::Nilable.new(Models::Shared::GetHrisTimeOffBalancesPositiveResponseUsedUnit), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('used_unit'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::GetHrisTimeOffBalancesPositiveResponseUsedUnit, false) } }
+        field :used_unit, Crystalline::Nilable.new(Models::Shared::GetHrisTimeOffBalancesPositiveResponseUsedUnit), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('used_unit'), required: true, 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::GetHrisTimeOffBalancesPositiveResponseUsedUnit, false) } }
 
         sig { params(id: ::String, employee_id: ::String, type_id: ::String, changed_at: ::DateTime, type: Models::Shared::GetHrisTimeOffBalancesPositiveResponseType, remote_id: T.nilable(::String), balance: T.nilable(::Float), balance_unit: T.nilable(Models::Shared::GetHrisTimeOffBalancesPositiveResponseBalanceUnit), remote_deleted_at: T.nilable(::DateTime), used: T.nilable(::Float), used_unit: T.nilable(Models::Shared::GetHrisTimeOffBalancesPositiveResponseUsedUnit)).void }
         def initialize(id:, employee_id:, type_id:, changed_at:, type:, remote_id: nil, balance: nil, balance_unit: nil, remote_deleted_at: nil, used: nil, used_unit: nil)

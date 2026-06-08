@@ -9,8 +9,6 @@ module Kombo
     module Shared
 
       class GetAtsApplicationsApplicationIdAttachmentsPositiveResponseType < T::Enum
-
-
         enums do
           CV = new('CV')
           COVER_LETTER = new('COVER_LETTER')

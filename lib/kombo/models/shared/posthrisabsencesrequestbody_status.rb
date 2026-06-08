@@ -9,8 +9,6 @@ module Kombo
     module Shared
       # PostHrisAbsencesRequestBodyStatus - The state that the absence should be created in. Some tools may approve absences automatically if they were created for an absence type that does not require approval.
       class PostHrisAbsencesRequestBodyStatus < T::Enum
-
-
         enums do
           REQUESTED = new('REQUESTED')
           APPROVED = new('APPROVED')

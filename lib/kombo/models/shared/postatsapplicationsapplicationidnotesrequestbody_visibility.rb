@@ -9,8 +9,6 @@ module Kombo
     module Shared
       # PostAtsApplicationsApplicationIdNotesRequestBodyVisibility - Visibility of the created note.
       class PostAtsApplicationsApplicationIdNotesRequestBodyVisibility < T::Enum
-
-
         enums do
           ADMIN_ONLY = new('admin_only')
           PRIVATE = new('private')

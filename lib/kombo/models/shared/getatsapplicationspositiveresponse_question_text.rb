@@ -15,26 +15,26 @@ module Kombo
 
         field :title, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('title'), required: true } }
 
-        field :type, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('type'), required: true } }
-
         field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_id'), required: true } }
 
-        sig { params(title: ::String, type: ::String, remote_id: T.nilable(::String)).void }
-        def initialize(title:, type:, remote_id: nil)
+        field :type, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('type'), required: true } }
+
+        sig { params(title: ::String, remote_id: T.nilable(::String), type: ::String).void }
+        def initialize(title:, remote_id: nil, type: 'TEXT')
           @title = title
+          @remote_id = remote_id
           unless type == 'TEXT'
             raise ArgumentError, 'Invalid value for type'
           end
           @type = 'TEXT'
-          @remote_id = remote_id
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @title == other.title
-          return false unless @type == other.type
           return false unless @remote_id == other.remote_id
+          return false unless @type == other.type
           true
         end
       end

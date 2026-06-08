@@ -1,5 +1,13 @@
 # PostAtsJobsJobIdApplicationsRequestBodyAdditionalEmailAddressType
 
+## Example Usage
+
+```ruby
+require "kombo"
+
+value = PostAtsJobsJobIdApplicationsRequestBodyAdditionalEmailAddressType::PERSONAL
+```
+
 
 ## Values
 

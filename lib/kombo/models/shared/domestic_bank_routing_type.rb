@@ -9,8 +9,6 @@ module Kombo
     module Shared
       # DomesticBankRoutingType - Enum of the routing type, prefixed with the iso-3166-1-alpha-2 banks origin country. If there is uncertainty about the type, it will be set to null.
       class DomesticBankRoutingType < T::Enum
-
-
         enums do
           GB_SORT_CODE = new('GB_SORT_CODE')
           DE_BANKLEITZAHL = new('DE_BANKLEITZAHL')

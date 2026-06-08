@@ -9,8 +9,6 @@ module Kombo
     module Shared
       # KomboAtsErrorCode - Some errors include an error code that can be used to identify their cause. See the [Error Handling Docs](https://docs.kombo.dev/guides/errors) for more information. For your error handling logic please use the error `code` instead of other properties (e.g. message, http status code, ...).
       class KomboAtsErrorCode < T::Enum
-
-
         enums do
           PLATFORM_RATE_LIMIT_EXCEEDED = new('PLATFORM.RATE_LIMIT_EXCEEDED')
           PLATFORM_CONCURRENCY_LIMIT_EXCEEDED = new('PLATFORM.CONCURRENCY_LIMIT_EXCEEDED')

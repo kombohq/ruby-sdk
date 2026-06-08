@@ -17,7 +17,7 @@ module Kombo
         # ID of the newly-created or already-queued-or-running sync.
         field :sync_id, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('sync_id'), required: true } }
         # The type of the triggered sync. May differ from request, if the integration does not support delta syncs or if another sync is already running.
-        field :type, Models::Shared::PostForceSyncPositiveResponseType, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('type'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::PostForceSyncPositiveResponseType, false) } }
+        field :type, Models::Shared::PostForceSyncPositiveResponseType, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('type'), required: true, 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::PostForceSyncPositiveResponseType, false) } }
 
         sig { params(already_queued: T::Boolean, sync_id: ::String, type: Models::Shared::PostForceSyncPositiveResponseType).void }
         def initialize(already_queued:, sync_id:, type:)

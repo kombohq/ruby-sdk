@@ -9,8 +9,6 @@ module Kombo
     module Shared
       # GetAtsRolesPositiveResponseUnifiedType - Unified role type if Kombo can map it.
       class GetAtsRolesPositiveResponseUnifiedType < T::Enum
-
-
         enums do
           HIRING_MANAGER = new('HIRING_MANAGER')
           RECRUITER = new('RECRUITER')

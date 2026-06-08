@@ -2,6 +2,14 @@
 
 The name of the Kombo model or connection that changed.
 
+## Example Usage
+
+```ruby
+require "kombo"
+
+value = Name::HRIS_LEGAL_ENTITIES
+```
+
 
 ## Values
 

@@ -8,9 +8,8 @@ module Kombo
   module Models
     module Shared
 
-      class Ethnicity < T::Enum
-
-
+      class Ethnicity
+        include ::Crystalline::Enum
         enums do
           WHITE = new('WHITE')
           ASIAN = new('ASIAN')
@@ -21,6 +20,7 @@ module Kombo
           MULTIPLE_ETHNICITIES = new('MULTIPLE_ETHNICITIES')
           DECLINE_TO_SPECIFY = new('DECLINE_TO_SPECIFY')
         end
+        open!
       end
     end
   end

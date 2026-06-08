@@ -9,8 +9,6 @@ module Kombo
     module Shared
       # IntegrationTool - Pre-define a tool this integration link can be used for.
       class IntegrationTool < T::Enum
-
-
         enums do
           WORKDAY = new('workday')
           SUCCESSFACTORS = new('successfactors')

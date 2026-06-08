@@ -9,8 +9,6 @@ module Kombo
     module Shared
       # PostIntegrationsIntegrationIdSetupLinkRequestBodyLanguage - Language of the setup flow UI.
       class PostIntegrationsIntegrationIdSetupLinkRequestBodyLanguage < T::Enum
-
-
         enums do
           EN = new('en')
           DE = new('de')

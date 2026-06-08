@@ -15,7 +15,7 @@ module Kombo
         # The label of the employment type how it appears in the remote system.
         field :remote_label, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_label'), required: true } }
         # The unified type, how Kombo categorize this label.
-        field :unified_type, Crystalline::Nilable.new(Models::Shared::GetHrisStaffingEntitiesPositiveResponseUnifiedType), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('unified_type'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::GetHrisStaffingEntitiesPositiveResponseUnifiedType, false) } }
+        field :unified_type, Crystalline::Nilable.new(Models::Shared::GetHrisStaffingEntitiesPositiveResponseUnifiedType), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('unified_type'), required: true, 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::GetHrisStaffingEntitiesPositiveResponseUnifiedType, false) } }
 
         sig { params(remote_label: ::String, unified_type: T.nilable(Models::Shared::GetHrisStaffingEntitiesPositiveResponseUnifiedType)).void }
         def initialize(remote_label:, unified_type: nil)

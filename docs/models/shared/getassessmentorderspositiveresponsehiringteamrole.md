@@ -1,5 +1,13 @@
 # GetAssessmentOrdersPositiveResponseHiringTeamRole
 
+## Example Usage
+
+```ruby
+require "kombo"
+
+value = GetAssessmentOrdersPositiveResponseHiringTeamRole::RECRUITER
+```
+
 
 ## Values
 

@@ -8,8 +8,8 @@ end
 
 
 class Kombo::Models::Shared::FormatUnknown
-  def type(); end
-  def type=(str_); end
   def raw_question(); end
   def raw_question=(str_); end
+  def type(); end
+  def type=(str_); end
 end

@@ -2,6 +2,14 @@
 
 The current state of the integration.
 
+## Example Usage
+
+```ruby
+require "kombo"
+
+value = State::ACTIVE
+```
+
 
 ## Values
 

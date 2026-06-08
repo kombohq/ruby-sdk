@@ -18,7 +18,7 @@ module Kombo
         field :remote_id, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_id'), required: true } }
         # The timestamp when this specific record was last modified. This field only updates when properties directly on this record change, NOT when related or nested models change. For filtering that considers nested data changes, use the `updated_after` parameter which will return records when either the record itself OR its related models have been updated.
         # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
-        field :changed_at, ::DateTime, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('changed_at'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
+        field :changed_at, ::DateTime, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('changed_at'), required: true, 'decoder': ::Kombo::Utils.datetime_from_iso_format(false) } }
         # The physical work locations associated with this staffing entity. A position or requisition can be linked to one or more offices or sites where the role is to be filled.
         field :locations, Crystalline::Array.new(Models::Shared::GetHrisStaffingEntitiesPositiveResponseLocation), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('locations'), required: true } }
         # The legal entities (companies or sub-companies) associated with this staffing entity. Indicates which employing entities within the organization the position or requisition belongs to.
@@ -28,7 +28,7 @@ module Kombo
         # The name/title of the staffing entity.
         field :name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('name'), required: true } }
         # The remote model type of the record. Possible values are "JOB", "POSITION" or "REQUISITION". We recommend that users of our `create employee` endpoint ask the customer whether they want to hire into positions or requisitions.
-        field :model_type, Crystalline::Nilable.new(Models::Shared::ModelType), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('model_type'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::ModelType, false) } }
+        field :model_type, Crystalline::Nilable.new(Models::Shared::ModelType), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('model_type'), required: true, 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::ModelType, false) } }
         # A text description of the staffing entity — typically covering responsibilities, requirements, and scope. Commonly referred to as the "job description" in HRIS systems. May contain HTML, depending on the source system.
         field :description, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('description'), required: true } }
         # The status of the staffing entity.
@@ -38,7 +38,7 @@ module Kombo
         #         FROZEN: The staffing entity is frozen (hiring freeze) and does not accept applications/hires.
         #         FILLED: The staffing entity is filled (to its maximum capacity) and not available for new hires.
         #         CLOSED: The staffing entity is closed and not available for new hires.
-        field :status, Crystalline::Nilable.new(Models::Shared::GetHrisStaffingEntitiesPositiveResponseStatus), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('status'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::GetHrisStaffingEntitiesPositiveResponseStatus, false) } }
+        field :status, Crystalline::Nilable.new(Models::Shared::GetHrisStaffingEntitiesPositiveResponseStatus), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('status'), required: true, 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::GetHrisStaffingEntitiesPositiveResponseStatus, false) } }
         # The employment types available for/used by the staffing entity. Use the `remote_label` for display in your UI as it is consistent with the language of the remote system. Use the `unified_type` for internal categorization as it is unified across all tools.
         field :employment_types, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::GetHrisStaffingEntitiesPositiveResponseEmploymentType)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('employment_types'), required: true } }
         # The number of openings for the staffing entity. Only meaningful for staffing entities with the status "OPEN_LIMITED".
@@ -49,13 +49,13 @@ module Kombo
         field :remote_url, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_url'), required: true } }
         # The date and time the object was created in the remote system.
         # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
-        field :remote_created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_created_at'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
+        field :remote_created_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_created_at'), required: true, 'decoder': ::Kombo::Utils.datetime_from_iso_format(false) } }
         # A timestamp retrieved from the remote system, describing when the resource was last updated.
         # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
-        field :remote_updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_updated_at'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
+        field :remote_updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_updated_at'), required: true, 'decoder': ::Kombo::Utils.datetime_from_iso_format(false) } }
         # The date and time the object was deleted in the remote system. Objects are automatically marked as deleted when Kombo can't retrieve them from the remote system anymore. Kombo will also anonymize entries 14 days after they disappear.
         # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
-        field :remote_deleted_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_deleted_at'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
+        field :remote_deleted_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_deleted_at'), required: true, 'decoder': ::Kombo::Utils.datetime_from_iso_format(false) } }
         # A key-value store of fields not covered by the schema. [Read more](/custom-fields)
         field :custom_fields, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('custom_fields'), required: true } }
 

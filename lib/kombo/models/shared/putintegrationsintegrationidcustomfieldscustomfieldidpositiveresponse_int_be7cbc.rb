@@ -17,7 +17,7 @@ module Kombo
         # The key of the integration field in the remote system
         field :key, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('key'), required: true } }
         # The type of the integration field. There is a type to avoid collisions between DEFAULT fields and CUSTOM fields with the same key.
-        field :type, Models::Shared::PutIntegrationsIntegrationIdCustomFieldsCustomFieldIdPositiveResponseType, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('type'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::PutIntegrationsIntegrationIdCustomFieldsCustomFieldIdPositiveResponseType, false) } }
+        field :type, Models::Shared::PutIntegrationsIntegrationIdCustomFieldsCustomFieldIdPositiveResponseType, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('type'), required: true, 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::PutIntegrationsIntegrationIdCustomFieldsCustomFieldIdPositiveResponseType, false) } }
         # The label of the integration field in the remote system
         field :label, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('label'), required: true } }
 

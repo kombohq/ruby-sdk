@@ -8,6 +8,14 @@ The status of the staffing entity.
         FILLED: The staffing entity is filled (to its maximum capacity) and not available for new hires.
         CLOSED: The staffing entity is closed and not available for new hires.
 
+## Example Usage
+
+```ruby
+require "kombo"
+
+value = GetHrisStaffingEntitiesPositiveResponseStatus::OPEN_LIMITED
+```
+
 
 ## Values
 

@@ -8,9 +8,8 @@ module Kombo
   module Models
     module Shared
 
-      class MaritalStatus < T::Enum
-
-
+      class MaritalStatus
+        include ::Crystalline::Enum
         enums do
           SINGLE = new('SINGLE')
           MARRIED = new('MARRIED')
@@ -20,6 +19,7 @@ module Kombo
           SEPARATED = new('SEPARATED')
           NOT_MARRIED = new('NOT_MARRIED')
         end
+        open!
       end
     end
   end

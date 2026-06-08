@@ -8,15 +8,15 @@ module Kombo
   module Models
     module Shared
 
-      class RemoteWorkStatus < T::Enum
-
-
+      class RemoteWorkStatus
+        include ::Crystalline::Enum
         enums do
           REMOTE = new('REMOTE')
           HYBRID = new('HYBRID')
           TEMPORARY = new('TEMPORARY')
           ON_SITE = new('ON_SITE')
         end
+        open!
       end
     end
   end

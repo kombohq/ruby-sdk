@@ -15,7 +15,7 @@ module Kombo
         # A dynamic, detailed description of what went wrong in this specific instance.
         field :message, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('message'), required: true } }
         # Some errors include an error code that can be used to identify their cause. See the [Error Handling Docs](https://docs.kombo.dev/guides/errors) for more information. For your error handling logic please use the error `code` instead of other properties (e.g. message, http status code, ...).
-        field :code, Crystalline::Nilable.new(Models::Shared::KomboAtsErrorCode), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('code'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::KomboAtsErrorCode, false) } }
+        field :code, Crystalline::Nilable.new(Models::Shared::KomboAtsErrorCode), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('code'), required: true, 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::KomboAtsErrorCode, false) } }
         # A static, human-readable label.
         field :title, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('title'), required: true } }
         # The log page in the Kombo UI lists every interaction with full details. If you need assistance, share that link with our support team.

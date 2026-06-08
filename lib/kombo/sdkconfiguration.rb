@@ -15,11 +15,10 @@ module Kombo
 
   SERVER_EU = :eu # Kombo EU Region
   SERVER_US = :us # Kombo US Region
-  SERVERS = {
+  SERVERS = T.let({
     eu: 'https://api.kombo.dev/v1',
     us: 'https://api.us.kombo.dev/v1',
-  }.freeze
-  SERVERS = T.let(SERVERS, T::Hash[T.any(String, Symbol), String])
+  }.freeze, T::Hash[T.any(String, Symbol), String])
   # Contains the list of servers available to the SDK
 
   class SDKConfiguration
@@ -98,9 +97,9 @@ module Kombo
       @globals = globals.nil? ? {} : globals
       @language = 'ruby'
       @openapi_doc_version = '1.0.0'
-      @sdk_version = '1.1.4'
-      @gen_version = '2.801.2'
-      @user_agent = 'speakeasy-sdk/ruby 1.1.4 2.801.2 1.0.0 kombo'
+      @sdk_version = '1.2.0'
+      @gen_version = '2.893.0'
+      @user_agent = 'speakeasy-sdk/ruby 1.2.0 2.893.0 1.0.0 kombo'
     end
 
     sig { returns([String, T::Hash[Symbol, String]]) }

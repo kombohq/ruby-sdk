@@ -9,8 +9,6 @@ module Kombo
     module Shared
       # QaStatus - The quality assurance status of the integration.
       class QaStatus < T::Enum
-
-
         enums do
           PENDING = new('PENDING')
           FAILED = new('FAILED')

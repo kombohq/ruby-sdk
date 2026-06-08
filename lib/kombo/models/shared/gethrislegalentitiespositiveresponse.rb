@@ -13,24 +13,24 @@ module Kombo
         include Crystalline::MetadataFields
 
 
-        field :status, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('status'), required: true } }
-
         field :data, Models::Shared::GetHrisLegalEntitiesPositiveResponseData, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('data'), required: true } }
 
-        sig { params(status: ::String, data: Models::Shared::GetHrisLegalEntitiesPositiveResponseData).void }
-        def initialize(status:, data:)
+        field :status, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('status'), required: true } }
+
+        sig { params(data: Models::Shared::GetHrisLegalEntitiesPositiveResponseData, status: ::String).void }
+        def initialize(data:, status: 'success')
+          @data = data
           unless status == 'success'
             raise ArgumentError, 'Invalid value for status'
           end
           @status = 'success'
-          @data = data
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
-          return false unless @status == other.status
           return false unless @data == other.data
+          return false unless @status == other.status
           true
         end
       end

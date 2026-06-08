@@ -1,5 +1,13 @@
 # GetAtsApplicationsApplicationIdAttachmentsPositiveResponseType
 
+## Example Usage
+
+```ruby
+require "kombo"
+
+value = GetAtsApplicationsApplicationIdAttachmentsPositiveResponseType::CV
+```
+
 
 ## Values
 

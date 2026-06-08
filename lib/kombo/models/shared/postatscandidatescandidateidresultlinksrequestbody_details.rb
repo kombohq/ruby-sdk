@@ -8,7 +8,7 @@ module Kombo
   module Models
     module Shared
       # Additional details with attributes that will be added to the result. This can be percentages, scores, or any text.
-      # 
+      #
       # We generally recommend using short attribute keys and a short custom_field_name_prefix to avoid overflowing the ATS UI.
       class PostAtsCandidatesCandidateIdResultLinksRequestBodyDetails
         extend T::Sig

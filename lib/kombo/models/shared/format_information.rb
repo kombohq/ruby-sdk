@@ -16,7 +16,7 @@ module Kombo
         field :type, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('type'), required: true } }
 
         sig { params(type: ::String).void }
-        def initialize(type:)
+        def initialize(type: 'INFORMATION')
           unless type == 'INFORMATION'
             raise ArgumentError, 'Invalid value for type'
           end

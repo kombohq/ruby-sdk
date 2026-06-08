@@ -9,8 +9,6 @@ module Kombo
     module Shared
       # GetHrisEmployeesPositiveResponseUsedUnit - The time-unit of the used time.
       class GetHrisEmployeesPositiveResponseUsedUnit < T::Enum
-
-
         enums do
           HOURS = new('HOURS')
           DAYS = new('DAYS')

@@ -1,5 +1,13 @@
 # JobPostingVisibility
 
+## Example Usage
+
+```ruby
+require "kombo"
+
+value = JobPostingVisibility::PUBLIC
+```
+
 
 ## Values
 

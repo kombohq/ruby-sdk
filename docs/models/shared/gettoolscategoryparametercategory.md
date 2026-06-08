@@ -1,5 +1,13 @@
 # GetToolsCategoryParameterCategory
 
+## Example Usage
+
+```ruby
+require "kombo"
+
+value = GetToolsCategoryParameterCategory::HRIS
+```
+
 
 ## Values
 

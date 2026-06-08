@@ -13,7 +13,7 @@ module Kombo
         include Crystalline::MetadataFields
 
         # Visibility of the created note.
-        field :visibility, Crystalline::Nilable.new(Models::Shared::PostAtsApplicationsApplicationIdNotesRequestBodyVisibility), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('visibility'), 'decoder': Utils.enum_from_string(Models::Shared::PostAtsApplicationsApplicationIdNotesRequestBodyVisibility, true) } }
+        field :visibility, Crystalline::Nilable.new(Models::Shared::PostAtsApplicationsApplicationIdNotesRequestBodyVisibility), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('visibility'), 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::PostAtsApplicationsApplicationIdNotesRequestBodyVisibility, true) } }
 
         sig { params(visibility: T.nilable(Models::Shared::PostAtsApplicationsApplicationIdNotesRequestBodyVisibility)).void }
         def initialize(visibility: nil)

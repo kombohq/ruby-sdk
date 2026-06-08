@@ -1,5 +1,13 @@
 # GetHrisEmployeesFormPositiveResponseUnifiedKey6
 
+## Example Usage
+
+```ruby
+require "kombo"
+
+value = GetHrisEmployeesFormPositiveResponseUnifiedKey6::FIRST_NAME
+```
+
 
 ## Values
 

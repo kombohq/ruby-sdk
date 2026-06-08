@@ -18,12 +18,12 @@ module Kombo
         field :title, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('Title'), required: true } }
         # YYYY-MM-DDTHH:mm:ss.sssZ
         # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
-        field :start_date, ::DateTime, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('Start_Date'), required: true, 'decoder': Utils.datetime_from_iso_format(false) } }
+        field :start_date, ::DateTime, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('Start_Date'), required: true, 'decoder': ::Kombo::Utils.datetime_from_iso_format(false) } }
 
         field :location, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('Location') } }
         # YYYY-MM-DDTHH:mm:ss.sssZ
         # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
-        field :end_date, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('End_Date'), 'decoder': Utils.datetime_from_iso_format(true) } }
+        field :end_date, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('End_Date'), 'decoder': ::Kombo::Utils.datetime_from_iso_format(true) } }
 
         field :currently_work_here, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('Currently_Work_Here') } }
 

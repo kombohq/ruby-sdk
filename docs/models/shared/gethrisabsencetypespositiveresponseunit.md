@@ -2,6 +2,14 @@
 
 The time-unit of the absence.
 
+## Example Usage
+
+```ruby
+require "kombo"
+
+value = GetHrisAbsenceTypesPositiveResponseUnit::HOURS
+```
+
 
 ## Values
 

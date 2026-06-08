@@ -2,6 +2,14 @@
 
 Language of the setup flow UI.
 
+## Example Usage
+
+```ruby
+require "kombo"
+
+value = PostIntegrationsIntegrationIdSetupLinkRequestBodyLanguage::EN
+```
+
 
 ## Values
 

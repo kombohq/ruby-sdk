@@ -17,7 +17,7 @@ module Kombo
         # URL of the link.
         field :url, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('url'), required: true } }
         # Additional details with attributes that will be added to the result. This can be percentages, scores, or any text.
-        # 
+        #
         # We generally recommend using short attribute keys and a short custom_field_name_prefix to avoid overflowing the ATS UI.
         field :details, Crystalline::Nilable.new(Models::Shared::PostAtsApplicationsApplicationIdResultLinksRequestBodyDetails), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('details') } }
         # Additional fields that we will pass through to specific ATS systems.

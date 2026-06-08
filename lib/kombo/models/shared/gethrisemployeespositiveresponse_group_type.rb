@@ -9,8 +9,6 @@ module Kombo
     module Shared
       # GetHrisEmployeesPositiveResponseGroupType - Type of the group.
       class GetHrisEmployeesPositiveResponseGroupType < T::Enum
-
-
         enums do
           DEPARTMENT = new('DEPARTMENT')
           TEAM = new('TEAM')

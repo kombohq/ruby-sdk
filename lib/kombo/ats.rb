@@ -40,18 +40,20 @@ module Kombo
     end
 
 
-    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), outcomes: T.nilable(T::Array[::String]), job_ids: T.nilable(T::Array[::String]), job_remote_ids: T.nilable(T::Array[::String]), current_stage_ids: T.nilable(T::Array[::String]), remote_created_after: T.nilable(::DateTime), timeout_ms: T.nilable(Integer)).returns(Models::Operations::GetAtsApplicationsResponse) }
-    def get_applications(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, outcomes: nil, job_ids: nil, job_remote_ids: nil, current_stage_ids: nil, remote_created_after: nil, timeout_ms: nil)
+
+
+    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), outcomes: T.nilable(T::Array[::String]), job_ids: T.nilable(T::Array[::String]), job_remote_ids: T.nilable(T::Array[::String]), current_stage_ids: T.nilable(T::Array[::String]), remote_created_after: T.nilable(::DateTime), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::GetAtsApplicationsResponse) }
+    def get_applications(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, outcomes: nil, job_ids: nil, job_remote_ids: nil, current_stage_ids: nil, remote_created_after: nil, timeout_ms: nil, http_headers: nil)
       # get_applications - Get applications
       # Retrieve all applications.
-      # 
+      #
       # Visit our in-depth guides to learn more about:
-      # 
+      #
       # - 💡 [Being aware of which applications are tracked](/ats/features/implementation-guide/tracking-created-applications#be-aware-of-which-applications-are-tracked)
       # - 🚦 [Hiring signals](/ats/features/implementation-guide/tracking-created-applications#hiring-signals)
       # - 📈 [Application stage changes](/ats/features/implementation-guide/tracking-created-applications#application-stage-changes)
       # - ❓ [ATS-specific limitations](/ats/features/implementation-guide/tracking-created-applications#ats-specific-limitations)
-      # 
+      #
       # Top level filters use AND, while individual filters use OR if they accept multiple arguments. That means filters will be resolved like this: `(id IN ids) AND (remote_id IN remote_ids)`
       request = Models::Operations::GetAtsApplicationsRequest.new(
         integration_id: integration_id,
@@ -103,6 +105,9 @@ module Kombo
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -168,19 +173,20 @@ module Kombo
             end
 
             sdk.get_applications(
-              integration_id: integration_id,
+              integration_id: request.integration_id,
               cursor: next_cursor,
-              page_size: page_size,
-              updated_after: updated_after,
-              include_deleted: include_deleted,
-              ignore_unsupported_filters: ignore_unsupported_filters,
-              ids: ids,
-              remote_ids: remote_ids,
-              outcomes: outcomes,
-              job_ids: job_ids,
-              job_remote_ids: job_remote_ids,
-              current_stage_ids: current_stage_ids,
-              remote_created_after: remote_created_after
+              page_size: request.page_size,
+              updated_after: request.updated_after,
+              include_deleted: request.include_deleted,
+              ignore_unsupported_filters: request.ignore_unsupported_filters,
+              ids: request.ids,
+              remote_ids: request.remote_ids,
+              outcomes: request.outcomes,
+              job_ids: request.job_ids,
+              job_remote_ids: request.job_remote_ids,
+              current_stage_ids: request.current_stage_ids,
+              remote_created_after: request.remote_created_after,
+              http_headers: http_headers
             )
           end
 
@@ -208,17 +214,17 @@ module Kombo
     end
 
 
-    sig { params(body: Models::Shared::PutAtsApplicationsApplicationIdStageRequestBody, application_id: ::String, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::PutAtsApplicationsApplicationIdStageResponse) }
-    def move_application_to_stage(body:, application_id:, integration_id: nil, timeout_ms: nil)
+    sig { params(body: Models::Shared::PutAtsApplicationsApplicationIdStageRequestBody, application_id: ::String, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::PutAtsApplicationsApplicationIdStageResponse) }
+    def move_application_to_stage(body:, application_id:, integration_id: nil, timeout_ms: nil, http_headers: nil)
       # move_application_to_stage - Move application to stage
       # Moves an application to a specified stage. Use job-specific stages from GET /jobs, not the deprecated /application-stages endpoint.
-      # 
+      #
       # <Note>
       #   This endpoint requires the permission **Set application stage** to be enabled in [your scope config](/scopes).
       # </Note>
-      # 
+      #
       # ### Example Request Body
-      # 
+      #
       # ```json
       # {
       #   "stage_id": "3PJ8PZhZZa1eEdd2DtPNtVup",
@@ -245,7 +251,7 @@ module Kombo
       headers['content-type'] = req_content_type
       raise StandardError, 'request body is required' if data.nil? && form.nil?
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -281,6 +287,9 @@ module Kombo
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -356,19 +365,19 @@ module Kombo
     end
 
 
-    sig { params(body: Models::Shared::PostAtsApplicationsApplicationIdResultLinksRequestBody, application_id: ::String, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::PostAtsApplicationsApplicationIdResultLinksResponse) }
-    def add_application_result_link(body:, application_id:, integration_id: nil, timeout_ms: nil)
+    sig { params(body: Models::Shared::PostAtsApplicationsApplicationIdResultLinksRequestBody, application_id: ::String, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::PostAtsApplicationsApplicationIdResultLinksResponse) }
+    def add_application_result_link(body:, application_id:, integration_id: nil, timeout_ms: nil, http_headers: nil)
       # add_application_result_link - Add result link to application
       # Add a result link to an application.
-      # 
+      #
       # This can, for example, be used to link a candidate back to a test result/assessment in your application. As not all ATS tools have a "result link" feature, we sometimes repurpose other fields to expose it.
-      # 
+      #
       # <Note>
       #   This endpoint requires the permission **Add result links** to be enabled in [your scope config](/scopes).
       # </Note>
-      # 
+      #
       # ### Example Request Body
-      # 
+      #
       # ```json
       # {
       #   "application_id": "8Xi6iZrwusZqJmDGXs49GBmJ",
@@ -410,7 +419,7 @@ module Kombo
       headers['content-type'] = req_content_type
       raise StandardError, 'request body is required' if data.nil? && form.nil?
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -446,6 +455,9 @@ module Kombo
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -521,19 +533,19 @@ module Kombo
     end
 
 
-    sig { params(body: Models::Shared::PostAtsApplicationsApplicationIdNotesRequestBody, application_id: ::String, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::PostAtsApplicationsApplicationIdNotesResponse) }
-    def add_application_note(body:, application_id:, integration_id: nil, timeout_ms: nil)
+    sig { params(body: Models::Shared::PostAtsApplicationsApplicationIdNotesRequestBody, application_id: ::String, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::PostAtsApplicationsApplicationIdNotesResponse) }
+    def add_application_note(body:, application_id:, integration_id: nil, timeout_ms: nil, http_headers: nil)
       # add_application_note - Add note to application
       # Add a note to an application.
-      # 
+      #
       # Add extra information to an application. This can be any extra text information you want to add to an application.
-      # 
+      #
       # <Note>
       #   This endpoint requires the permission **Add notes** to be enabled in [your scope config](/scopes).
       # </Note>
-      # 
+      #
       # ### Example Request Body
-      # 
+      #
       # ```json
       # {
       #   "content": "A new message from the candidate is available in YourChat!",
@@ -561,7 +573,7 @@ module Kombo
       headers['content-type'] = req_content_type
       raise StandardError, 'request body is required' if data.nil? && form.nil?
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -597,6 +609,9 @@ module Kombo
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -672,13 +687,13 @@ module Kombo
     end
 
 
-    sig { params(application_id: ::String, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::GetAtsApplicationsApplicationIdAttachmentsResponse) }
-    def get_application_attachments(application_id:, integration_id: nil, timeout_ms: nil)
+    sig { params(application_id: ::String, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::GetAtsApplicationsApplicationIdAttachmentsResponse) }
+    def get_application_attachments(application_id:, integration_id: nil, timeout_ms: nil, http_headers: nil)
       # get_application_attachments - Get application attachments
       # Get attachments from a candidate or application.
-      # 
+      #
       # Get attachments from an application. If the ATS stores the attachments on the candidate, it will get the attachments from the corresponding candidate instead.
-      # 
+      #
       # <Note>
       #   This endpoint requires the permission **Read document attachments** to be enabled in [your scope config](/scopes).
       # </Note>
@@ -725,6 +740,9 @@ module Kombo
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -800,21 +818,21 @@ module Kombo
     end
 
 
-    sig { params(body: Models::Shared::PostAtsApplicationsApplicationIdAttachmentsRequestBody, application_id: ::String, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::PostAtsApplicationsApplicationIdAttachmentsResponse) }
-    def add_application_attachment(body:, application_id:, integration_id: nil, timeout_ms: nil)
+    sig { params(body: Models::Shared::PostAtsApplicationsApplicationIdAttachmentsRequestBody, application_id: ::String, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::PostAtsApplicationsApplicationIdAttachmentsResponse) }
+    def add_application_attachment(body:, application_id:, integration_id: nil, timeout_ms: nil, http_headers: nil)
       # add_application_attachment - Add attachment to application
       # Uploads an attachment file for the specified applicant.
-      # 
+      #
       # <Warning>
       #   If adding an attachment to an application is not supported by the integration, the attachment will be [added to the candidate](/ats/v1/post-candidates-candidate-id-attachments) instead. 
       # </Warning>
-      # 
+      #
       # <Note>
       #   This endpoint requires the permission **Add attachments** to be enabled in [your scope config](/scopes).
       # </Note>
-      # 
+      #
       # ### Example Request Body
-      # 
+      #
       # ```json
       # {
       #   "application_id": "GRKdd9dibYKKCrmGRSMJf3wu",
@@ -847,7 +865,7 @@ module Kombo
       headers['content-type'] = req_content_type
       raise StandardError, 'request body is required' if data.nil? && form.nil?
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -883,6 +901,9 @@ module Kombo
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -958,19 +979,19 @@ module Kombo
     end
 
 
-    sig { params(body: Models::Shared::PostAtsApplicationsApplicationIdRejectRequestBody, application_id: ::String, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::PostAtsApplicationsApplicationIdRejectResponse) }
-    def reject_application(body:, application_id:, integration_id: nil, timeout_ms: nil)
+    sig { params(body: Models::Shared::PostAtsApplicationsApplicationIdRejectRequestBody, application_id: ::String, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::PostAtsApplicationsApplicationIdRejectResponse) }
+    def reject_application(body:, application_id:, integration_id: nil, timeout_ms: nil, http_headers: nil)
       # reject_application - Reject application
       # Rejects an application with a provided reason.
-      # 
+      #
       # Rejects an application with a provided reason. Optionally, you can provide a free text note. You can get the list of rejection reasons with our [Get rejection reasons endpoint](/ats/v1/get-rejection-reasons).
-      # 
+      #
       # <Note>
       #   This endpoint requires the permission **Reject applications** to be enabled in [your scope config](/scopes).
       # </Note>
-      # 
+      #
       # ### Example Request Body
-      # 
+      #
       # ```json
       # {
       #   "rejection_reason_id": "3PJ8PZhZZa1eEdd2DtPNtVup",
@@ -998,7 +1019,7 @@ module Kombo
       headers['content-type'] = req_content_type
       raise StandardError, 'request body is required' if data.nil? && form.nil?
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -1034,6 +1055,9 @@ module Kombo
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -1109,11 +1133,11 @@ module Kombo
     end
 
 
-    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), email: T.nilable(::String), job_ids: T.nilable(T::Array[::String]), first_name: T.nilable(::String), last_name: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::GetAtsCandidatesResponse) }
-    def get_candidates(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, email: nil, job_ids: nil, first_name: nil, last_name: nil, timeout_ms: nil)
+    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), email: T.nilable(::String), job_ids: T.nilable(T::Array[::String]), first_name: T.nilable(::String), last_name: T.nilable(::String), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::GetAtsCandidatesResponse) }
+    def get_candidates(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, email: nil, job_ids: nil, first_name: nil, last_name: nil, timeout_ms: nil, http_headers: nil)
       # get_candidates - Get candidates
       # Retrieve all candidates.
-      # 
+      #
       # Top level filters use AND, while individual filters use OR if they accept multiple arguments. That means filters will be resolved like this: `(id IN ids) AND (remote_id IN remote_ids)`
       request = Models::Operations::GetAtsCandidatesRequest.new(
         integration_id: integration_id,
@@ -1164,6 +1188,9 @@ module Kombo
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -1229,18 +1256,19 @@ module Kombo
             end
 
             sdk.get_candidates(
-              integration_id: integration_id,
+              integration_id: request.integration_id,
               cursor: next_cursor,
-              page_size: page_size,
-              updated_after: updated_after,
-              include_deleted: include_deleted,
-              ignore_unsupported_filters: ignore_unsupported_filters,
-              ids: ids,
-              remote_ids: remote_ids,
-              email: email,
-              job_ids: job_ids,
-              first_name: first_name,
-              last_name: last_name
+              page_size: request.page_size,
+              updated_after: request.updated_after,
+              include_deleted: request.include_deleted,
+              ignore_unsupported_filters: request.ignore_unsupported_filters,
+              ids: request.ids,
+              remote_ids: request.remote_ids,
+              email: request.email,
+              job_ids: request.job_ids,
+              first_name: request.first_name,
+              last_name: request.last_name,
+              http_headers: http_headers
             )
           end
 
@@ -1268,25 +1296,25 @@ module Kombo
     end
 
 
-    sig { params(body: Models::Shared::PostAtsCandidatesRequestBody, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::PostAtsCandidatesResponse) }
-    def create_candidate(body:, integration_id: nil, timeout_ms: nil)
+    sig { params(body: Models::Shared::PostAtsCandidatesRequestBody, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::PostAtsCandidatesResponse) }
+    def create_candidate(body:, integration_id: nil, timeout_ms: nil, http_headers: nil)
       # create_candidate - Create candidate
       # Create a new candidate and application for the specified job.
-      # 
+      #
       # <Warning>
       #       **We recommend using the [Create application](/ats/v1/post-jobs-job-id-applications) endpoint instead.**
-      # 
+      #
       #       We realized that in practice it was always more about creating _applications_ instead of _candidates_, so we created a new, more aptly named one that you should use instead: [Create application](/ats/v1/post-jobs-job-id-applications)
-      # 
+      #
       #       Using it also has the benefit that we return the newly created applicant at the root level, so you can easily store its ID.
       #     </Warning>
-      # 
+      #
       # <Note>
       #   This endpoint requires the permission **Create applications and candidates** to be enabled in [your scope config](/scopes).
       # </Note>
-      # 
+      #
       # ### Example Request Body
-      # 
+      #
       # ```json
       # {
       #   "candidate": {
@@ -1358,7 +1386,7 @@ module Kombo
       headers['content-type'] = req_content_type
       raise StandardError, 'request body is required' if data.nil? && form.nil?
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -1394,6 +1422,9 @@ module Kombo
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -1469,11 +1500,11 @@ module Kombo
     end
 
 
-    sig { params(candidate_id: ::String, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::GetAtsCandidatesCandidateIdAttachmentsResponse) }
-    def get_candidate_attachments(candidate_id:, integration_id: nil, timeout_ms: nil)
+    sig { params(candidate_id: ::String, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::GetAtsCandidatesCandidateIdAttachmentsResponse) }
+    def get_candidate_attachments(candidate_id:, integration_id: nil, timeout_ms: nil, http_headers: nil)
       # get_candidate_attachments - Get candidate attachments
       # Get attachments from a candidate, including all attachments of all of their applications.
-      # 
+      #
       # <Note>
       #   This endpoint requires the permission **Read document attachments** to be enabled in [your scope config](/scopes).
       # </Note>
@@ -1520,6 +1551,9 @@ module Kombo
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -1595,23 +1629,23 @@ module Kombo
     end
 
 
-    sig { params(body: Models::Shared::PostAtsCandidatesCandidateIdAttachmentsRequestBody, candidate_id: ::String, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::PostAtsCandidatesCandidateIdAttachmentsResponse) }
-    def add_candidate_attachment(body:, candidate_id:, integration_id: nil, timeout_ms: nil)
+    sig { params(body: Models::Shared::PostAtsCandidatesCandidateIdAttachmentsRequestBody, candidate_id: ::String, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::PostAtsCandidatesCandidateIdAttachmentsResponse) }
+    def add_candidate_attachment(body:, candidate_id:, integration_id: nil, timeout_ms: nil, http_headers: nil)
       # add_candidate_attachment - Add attachment to candidate
       # Uploads an attachment file for the specified candidate.
-      # 
+      #
       # <Warning>
       #   **We recommend using the [add attachment to application](/ats/v1/post-applications-application-id-attachments) endpoint instead.**
-      # 
+      #
       #   We realized that in practice it was always more about adding attachments to _applications_ instead of _candidates_, so we created a new, more aptly named one that you should use instead: [add attachment to application](/ats/v1/post-applications-application-id-attachments)
       #   </Warning>
-      # 
+      #
       # <Note>
       #   This endpoint requires the permission **Add attachments** to be enabled in [your scope config](/scopes).
       # </Note>
-      # 
+      #
       # ### Example Request Body
-      # 
+      #
       # ```json
       # {
       #   "candidate_id": "GRKdd9dibYKKCrmGRSMJf3wu",
@@ -1643,7 +1677,7 @@ module Kombo
       headers['content-type'] = req_content_type
       raise StandardError, 'request body is required' if data.nil? && form.nil?
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -1679,6 +1713,9 @@ module Kombo
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -1754,25 +1791,25 @@ module Kombo
     end
 
 
-    sig { params(body: Models::Shared::PostAtsCandidatesCandidateIdResultLinksRequestBody, candidate_id: ::String, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::PostAtsCandidatesCandidateIdResultLinksResponse) }
-    def add_candidate_result_link(body:, candidate_id:, integration_id: nil, timeout_ms: nil)
+    sig { params(body: Models::Shared::PostAtsCandidatesCandidateIdResultLinksRequestBody, candidate_id: ::String, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::PostAtsCandidatesCandidateIdResultLinksResponse) }
+    def add_candidate_result_link(body:, candidate_id:, integration_id: nil, timeout_ms: nil, http_headers: nil)
       # add_candidate_result_link - Add result link to candidate
       # Add a result link to a candidate.
-      # 
+      #
       # <Warning>
       #   **We recommend to use [add result link to application](/ats/v1/post-applications-application-id-result-links) instead.**
-      # 
+      #
       #   This can, for example, be used to link a candidate back to a test result/assessment in your application. As not all ATS tools have a "result link" feature, we sometimes repurpose other fields to expose it.
-      # 
+      #
       #   </Warning>
       #   
-      # 
+      #
       # <Note>
       #   This endpoint requires the permission **Add result links** to be enabled in [your scope config](/scopes).
       # </Note>
-      # 
+      #
       # ### Example Request Body
-      # 
+      #
       # ```json
       # {
       #   "label": "Assessment Result",
@@ -1813,7 +1850,7 @@ module Kombo
       headers['content-type'] = req_content_type
       raise StandardError, 'request body is required' if data.nil? && form.nil?
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -1849,6 +1886,9 @@ module Kombo
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -1924,19 +1964,19 @@ module Kombo
     end
 
 
-    sig { params(body: Models::Shared::PostAtsCandidatesCandidateIdTagsRequestBody, candidate_id: ::String, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::PostAtsCandidatesCandidateIdTagsResponse) }
-    def add_candidate_tag(body:, candidate_id:, integration_id: nil, timeout_ms: nil)
+    sig { params(body: Models::Shared::PostAtsCandidatesCandidateIdTagsRequestBody, candidate_id: ::String, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::PostAtsCandidatesCandidateIdTagsResponse) }
+    def add_candidate_tag(body:, candidate_id:, integration_id: nil, timeout_ms: nil, http_headers: nil)
       # add_candidate_tag - Add tag to candidate
       # Add a tag to a candidate.
-      # 
+      #
       # Kombo takes care of creating the tag if required, finding out the right ID, and appending it to the list of tags.
-      # 
+      #
       # <Note>
       #   This endpoint requires the permission **Manage tags** to be enabled in [your scope config](/scopes).
       # </Note>
-      # 
+      #
       # ### Example Request Body
-      # 
+      #
       # ```json
       # {
       #   "tag": {
@@ -1964,7 +2004,7 @@ module Kombo
       headers['content-type'] = req_content_type
       raise StandardError, 'request body is required' if data.nil? && form.nil?
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -2000,6 +2040,9 @@ module Kombo
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -2075,19 +2118,19 @@ module Kombo
     end
 
 
-    sig { params(body: Models::Shared::DeleteAtsCandidatesCandidateIdTagsRequestBody, candidate_id: ::String, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::DeleteAtsCandidatesCandidateIdTagsResponse) }
-    def remove_candidate_tag(body:, candidate_id:, integration_id: nil, timeout_ms: nil)
+    sig { params(body: Models::Shared::DeleteAtsCandidatesCandidateIdTagsRequestBody, candidate_id: ::String, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::DeleteAtsCandidatesCandidateIdTagsResponse) }
+    def remove_candidate_tag(body:, candidate_id:, integration_id: nil, timeout_ms: nil, http_headers: nil)
       # remove_candidate_tag - Remove tag from candidate
       # Remove a tag from a candidate based on its name.
-      # 
+      #
       # This will also succeed if the tag does not exist on the candidate.
-      # 
+      #
       # <Note>
       #   This endpoint requires the permission **Manage tags** to be enabled in [your scope config](/scopes).
       # </Note>
-      # 
+      #
       # ### Example Request Body
-      # 
+      #
       # ```json
       # {
       #   "tag": {
@@ -2115,7 +2158,7 @@ module Kombo
       headers['content-type'] = req_content_type
       raise StandardError, 'request body is required' if data.nil? && form.nil?
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -2151,6 +2194,9 @@ module Kombo
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -2226,11 +2272,11 @@ module Kombo
     end
 
 
-    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), timeout_ms: T.nilable(Integer)).returns(Models::Operations::GetAtsTagsResponse) }
-    def get_tags(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, timeout_ms: nil)
+    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::GetAtsTagsResponse) }
+    def get_tags(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, timeout_ms: nil, http_headers: nil)
       # get_tags - Get tags
       # Retrieve all tags.
-      # 
+      #
       # Top level filters use AND, while individual filters use OR if they accept multiple arguments. That means filters will be resolved like this: `(id IN ids) AND (remote_id IN remote_ids)`
       request = Models::Operations::GetAtsTagsRequest.new(
         integration_id: integration_id,
@@ -2277,6 +2323,9 @@ module Kombo
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -2342,14 +2391,15 @@ module Kombo
             end
 
             sdk.get_tags(
-              integration_id: integration_id,
+              integration_id: request.integration_id,
               cursor: next_cursor,
-              page_size: page_size,
-              updated_after: updated_after,
-              include_deleted: include_deleted,
-              ignore_unsupported_filters: ignore_unsupported_filters,
-              ids: ids,
-              remote_ids: remote_ids
+              page_size: request.page_size,
+              updated_after: request.updated_after,
+              include_deleted: request.include_deleted,
+              ignore_unsupported_filters: request.ignore_unsupported_filters,
+              ids: request.ids,
+              remote_ids: request.remote_ids,
+              http_headers: http_headers
             )
           end
 
@@ -2377,21 +2427,21 @@ module Kombo
     end
 
 
-    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), timeout_ms: T.nilable(Integer)).returns(Models::Operations::GetAtsApplicationStagesResponse) }
-    def get_application_stages(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, timeout_ms: nil)
+    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::GetAtsApplicationStagesResponse) }
+    def get_application_stages(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, timeout_ms: nil, http_headers: nil)
       # get_application_stages - Get application stages
       # Get all application stages available in the ATS.
-      # 
+      #
       # <Warning>
       #   **This endpoint is deprecated!**
-      # 
+      #
       #   Get all application stages available in the ATS. This is deprecated because most ATS systems have separate sets of stages for each job. We'd recommend using the `stages` property from the [GET Jobs endpoint](/ats/v1/get-jobs) instead.
-      # 
+      #
       # **Important**: Using global stages can cause "Stage not found" errors when moving applications, especially with systems like Workable that have job-specific stages.
-      # 
+      #
       # [Moving Applications Guide](/ats/implementation-guide/moving-and-rejecting-candidates).
       # </Warning>
-      # 
+      #
       # Top level filters use AND, while individual filters use OR if they accept multiple arguments. That means filters will be resolved like this: `(id IN ids) AND (remote_id IN remote_ids)`
       request = Models::Operations::GetAtsApplicationStagesRequest.new(
         integration_id: integration_id,
@@ -2438,6 +2488,9 @@ module Kombo
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -2503,14 +2556,15 @@ module Kombo
             end
 
             sdk.get_application_stages(
-              integration_id: integration_id,
+              integration_id: request.integration_id,
               cursor: next_cursor,
-              page_size: page_size,
-              updated_after: updated_after,
-              include_deleted: include_deleted,
-              ignore_unsupported_filters: ignore_unsupported_filters,
-              ids: ids,
-              remote_ids: remote_ids
+              page_size: request.page_size,
+              updated_after: request.updated_after,
+              include_deleted: request.include_deleted,
+              ignore_unsupported_filters: request.ignore_unsupported_filters,
+              ids: request.ids,
+              remote_ids: request.remote_ids,
+              http_headers: http_headers
             )
           end
 
@@ -2538,19 +2592,19 @@ module Kombo
     end
 
 
-    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), job_codes: T.nilable(T::Array[::String]), post_url: T.nilable(::String), statuses: T.nilable(T::Array[::String]), employment_types: T.nilable(T::Array[::String]), visibilities: T.nilable(T::Array[::String]), remote_created_after: T.nilable(::DateTime), name_contains: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::GetAtsJobsResponse) }
-    def get_jobs(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, job_codes: nil, post_url: nil, statuses: nil, employment_types: nil, visibilities: nil, remote_created_after: nil, name_contains: nil, timeout_ms: nil)
+    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), job_codes: T.nilable(T::Array[::String]), post_url: T.nilable(::String), statuses: T.nilable(T::Array[::String]), employment_types: T.nilable(T::Array[::String]), visibilities: T.nilable(T::Array[::String]), remote_created_after: T.nilable(::DateTime), name_contains: T.nilable(::String), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::GetAtsJobsResponse) }
+    def get_jobs(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, job_codes: nil, post_url: nil, statuses: nil, employment_types: nil, visibilities: nil, remote_created_after: nil, name_contains: nil, timeout_ms: nil, http_headers: nil)
       # get_jobs - Get jobs
       # Retrieve all jobs.
-      # 
+      #
       # Visit our in-depth guides to learn more about:
-      # 
+      #
       # - 🔄 [Getting updates of the data](/ats/features/implementation-guide/reading-jobs#getting-updates-of-the-data)
       # - ❗ [Handling failing syncs](/ats/features/implementation-guide/reading-jobs#handling-failing-syncs)
       # - 🔍 [Letting your customer choose which jobs to expose](/ats/features/implementation-guide/reading-jobs#let-your-customer-choose-which-jobs-to-expose-to-you)
       # - 🔗 [Matching jobs in your database to ATS jobs](/ats/features/implementation-guide/reading-jobs#match-jobs-in-your-database-to-ats-jobs)
       # - 🗑️ [Reacting to deleted/closed jobs](/ats/features/implementation-guide/reading-jobs#reacting-to-deleted-closed-jobs)
-      # 
+      #
       # Top level filters use AND, while individual filters use OR if they accept multiple arguments. That means filters will be resolved like this: `(id IN ids) AND (remote_id IN remote_ids)`
       request = Models::Operations::GetAtsJobsRequest.new(
         integration_id: integration_id,
@@ -2604,6 +2658,9 @@ module Kombo
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -2669,21 +2726,22 @@ module Kombo
             end
 
             sdk.get_jobs(
-              integration_id: integration_id,
+              integration_id: request.integration_id,
               cursor: next_cursor,
-              page_size: page_size,
-              updated_after: updated_after,
-              include_deleted: include_deleted,
-              ignore_unsupported_filters: ignore_unsupported_filters,
-              ids: ids,
-              remote_ids: remote_ids,
-              job_codes: job_codes,
-              post_url: post_url,
-              statuses: statuses,
-              employment_types: employment_types,
-              visibilities: visibilities,
-              remote_created_after: remote_created_after,
-              name_contains: name_contains
+              page_size: request.page_size,
+              updated_after: request.updated_after,
+              include_deleted: request.include_deleted,
+              ignore_unsupported_filters: request.ignore_unsupported_filters,
+              ids: request.ids,
+              remote_ids: request.remote_ids,
+              job_codes: request.job_codes,
+              post_url: request.post_url,
+              statuses: request.statuses,
+              employment_types: request.employment_types,
+              visibilities: request.visibilities,
+              remote_created_after: request.remote_created_after,
+              name_contains: request.name_contains,
+              http_headers: http_headers
             )
           end
 
@@ -2711,25 +2769,25 @@ module Kombo
     end
 
 
-    sig { params(body: Models::Shared::PostAtsJobsJobIdApplicationsRequestBody, job_id: ::String, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::PostAtsJobsJobIdApplicationsResponse) }
-    def create_application(body:, job_id:, integration_id: nil, timeout_ms: nil)
+    sig { params(body: Models::Shared::PostAtsJobsJobIdApplicationsRequestBody, job_id: ::String, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::PostAtsJobsJobIdApplicationsResponse) }
+    def create_application(body:, job_id:, integration_id: nil, timeout_ms: nil, http_headers: nil)
       # create_application - Create application
       # Create a new application and candidate for the specified job.
-      # 
+      #
       # Visit our in-depth guides to learn more about:
-      # 
+      #
       # - 🌐 [Setting the source of the application](/ats/features/implementation-guide/creating-applications#set-the-source-of-the-application) 
       # - 📎 [Uploading attachments with the application](/ats/features/implementation-guide/creating-applications#upload-attachments-with-the-application) 
       # - ♻️ [Retry behaviour](/ats/features/implementation-guide/creating-applications#retry-behaviour) 
       # - ✏️ [Writing answers to screening questions](/ats/features/implementation-guide/creating-applications#write-answers-to-screening-questions) 
       # - ⚠️ [Handling ATS-specific limitations](/ats/features/implementation-guide/creating-applications#handle-ats-specific-limitations)
-      # 
+      #
       # <Note>
       #   This endpoint requires the permission **Create applications and candidates** to be enabled in [your scope config](/scopes).
       # </Note>
-      # 
+      #
       # ### Example Request Body
-      # 
+      #
       # ```json
       # {
       #   "candidate": {
@@ -2798,7 +2856,7 @@ module Kombo
       headers['content-type'] = req_content_type
       raise StandardError, 'request body is required' if data.nil? && form.nil?
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -2834,6 +2892,9 @@ module Kombo
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -2909,11 +2970,11 @@ module Kombo
     end
 
 
-    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), emails: T.nilable(T::Array[::String]), timeout_ms: T.nilable(Integer)).returns(Models::Operations::GetAtsUsersResponse) }
-    def get_users(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, emails: nil, timeout_ms: nil)
+    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), emails: T.nilable(T::Array[::String]), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::GetAtsUsersResponse) }
+    def get_users(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, emails: nil, timeout_ms: nil, http_headers: nil)
       # get_users - Get users
       # Retrieve all users.
-      # 
+      #
       # Top level filters use AND, while individual filters use OR if they accept multiple arguments. That means filters will be resolved like this: `(id IN ids) AND (remote_id IN remote_ids)`
       request = Models::Operations::GetAtsUsersRequest.new(
         integration_id: integration_id,
@@ -2961,6 +3022,9 @@ module Kombo
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -3026,15 +3090,16 @@ module Kombo
             end
 
             sdk.get_users(
-              integration_id: integration_id,
+              integration_id: request.integration_id,
               cursor: next_cursor,
-              page_size: page_size,
-              updated_after: updated_after,
-              include_deleted: include_deleted,
-              ignore_unsupported_filters: ignore_unsupported_filters,
-              ids: ids,
-              remote_ids: remote_ids,
-              emails: emails
+              page_size: request.page_size,
+              updated_after: request.updated_after,
+              include_deleted: request.include_deleted,
+              ignore_unsupported_filters: request.ignore_unsupported_filters,
+              ids: request.ids,
+              remote_ids: request.remote_ids,
+              emails: request.emails,
+              http_headers: http_headers
             )
           end
 
@@ -3062,13 +3127,13 @@ module Kombo
     end
 
 
-    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), scopes: T.nilable(T::Array[::String]), timeout_ms: T.nilable(Integer)).returns(Models::Operations::GetAtsRolesResponse) }
-    def get_roles(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, scopes: nil, timeout_ms: nil)
+    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), scopes: T.nilable(T::Array[::String]), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::GetAtsRolesResponse) }
+    def get_roles(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, scopes: nil, timeout_ms: nil, http_headers: nil)
       # get_roles - Get roles
       # Retrieve all roles.
-      # 
+      #
       # Visit our in-depth guide about [roles](/ats/features/roles) to learn more.
-      # 
+      #
       # Top level filters use AND, while individual filters use OR if they accept multiple arguments. That means filters will be resolved like this: `(id IN ids) AND (remote_id IN remote_ids)`
       request = Models::Operations::GetAtsRolesRequest.new(
         integration_id: integration_id,
@@ -3116,6 +3181,9 @@ module Kombo
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -3181,15 +3249,16 @@ module Kombo
             end
 
             sdk.get_roles(
-              integration_id: integration_id,
+              integration_id: request.integration_id,
               cursor: next_cursor,
-              page_size: page_size,
-              updated_after: updated_after,
-              include_deleted: include_deleted,
-              ignore_unsupported_filters: ignore_unsupported_filters,
-              ids: ids,
-              remote_ids: remote_ids,
-              scopes: scopes
+              page_size: request.page_size,
+              updated_after: request.updated_after,
+              include_deleted: request.include_deleted,
+              ignore_unsupported_filters: request.ignore_unsupported_filters,
+              ids: request.ids,
+              remote_ids: request.remote_ids,
+              scopes: request.scopes,
+              http_headers: http_headers
             )
           end
 
@@ -3217,11 +3286,11 @@ module Kombo
     end
 
 
-    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), timeout_ms: T.nilable(Integer)).returns(Models::Operations::GetAtsOffersResponse) }
-    def get_offers(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, timeout_ms: nil)
+    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::GetAtsOffersResponse) }
+    def get_offers(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, timeout_ms: nil, http_headers: nil)
       # get_offers - Get offers
       # Retrieve all offers.
-      # 
+      #
       # Top level filters use AND, while individual filters use OR if they accept multiple arguments. That means filters will be resolved like this: `(id IN ids) AND (remote_id IN remote_ids)`
       request = Models::Operations::GetAtsOffersRequest.new(
         integration_id: integration_id,
@@ -3268,6 +3337,9 @@ module Kombo
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -3333,14 +3405,15 @@ module Kombo
             end
 
             sdk.get_offers(
-              integration_id: integration_id,
+              integration_id: request.integration_id,
               cursor: next_cursor,
-              page_size: page_size,
-              updated_after: updated_after,
-              include_deleted: include_deleted,
-              ignore_unsupported_filters: ignore_unsupported_filters,
-              ids: ids,
-              remote_ids: remote_ids
+              page_size: request.page_size,
+              updated_after: request.updated_after,
+              include_deleted: request.include_deleted,
+              ignore_unsupported_filters: request.ignore_unsupported_filters,
+              ids: request.ids,
+              remote_ids: request.remote_ids,
+              http_headers: http_headers
             )
           end
 
@@ -3368,13 +3441,13 @@ module Kombo
     end
 
 
-    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), timeout_ms: T.nilable(Integer)).returns(Models::Operations::GetAtsRejectionReasonsResponse) }
-    def get_rejection_reasons(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, timeout_ms: nil)
+    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::GetAtsRejectionReasonsResponse) }
+    def get_rejection_reasons(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, timeout_ms: nil, http_headers: nil)
       # get_rejection_reasons - Get rejection reasons
       # Retrieve all rejection reasons.
-      # 
+      #
       # Get all rejection reasons available in the system. The Kombo ID is required in the associated [reject application action](/ats/v1/post-applications-application-id-reject).
-      # 
+      #
       # Top level filters use AND, while individual filters use OR if they accept multiple arguments. That means filters will be resolved like this: `(id IN ids) AND (remote_id IN remote_ids)`
       request = Models::Operations::GetAtsRejectionReasonsRequest.new(
         integration_id: integration_id,
@@ -3421,6 +3494,9 @@ module Kombo
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -3486,14 +3562,15 @@ module Kombo
             end
 
             sdk.get_rejection_reasons(
-              integration_id: integration_id,
+              integration_id: request.integration_id,
               cursor: next_cursor,
-              page_size: page_size,
-              updated_after: updated_after,
-              include_deleted: include_deleted,
-              ignore_unsupported_filters: ignore_unsupported_filters,
-              ids: ids,
-              remote_ids: remote_ids
+              page_size: request.page_size,
+              updated_after: request.updated_after,
+              include_deleted: request.include_deleted,
+              ignore_unsupported_filters: request.ignore_unsupported_filters,
+              ids: request.ids,
+              remote_ids: request.remote_ids,
+              http_headers: http_headers
             )
           end
 
@@ -3521,11 +3598,11 @@ module Kombo
     end
 
 
-    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), job_ids: T.nilable(T::Array[::String]), timeout_ms: T.nilable(Integer)).returns(Models::Operations::GetAtsInterviewsResponse) }
-    def get_interviews(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, job_ids: nil, timeout_ms: nil)
+    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), job_ids: T.nilable(T::Array[::String]), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::GetAtsInterviewsResponse) }
+    def get_interviews(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, job_ids: nil, timeout_ms: nil, http_headers: nil)
       # get_interviews - Get interviews
       # Retrieve all interviews.
-      # 
+      #
       # Top level filters use AND, while individual filters use OR if they accept multiple arguments. That means filters will be resolved like this: `(id IN ids) AND (remote_id IN remote_ids)`
       request = Models::Operations::GetAtsInterviewsRequest.new(
         integration_id: integration_id,
@@ -3573,6 +3650,9 @@ module Kombo
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -3638,15 +3718,16 @@ module Kombo
             end
 
             sdk.get_interviews(
-              integration_id: integration_id,
+              integration_id: request.integration_id,
               cursor: next_cursor,
-              page_size: page_size,
-              updated_after: updated_after,
-              include_deleted: include_deleted,
-              ignore_unsupported_filters: ignore_unsupported_filters,
-              ids: ids,
-              remote_ids: remote_ids,
-              job_ids: job_ids
+              page_size: request.page_size,
+              updated_after: request.updated_after,
+              include_deleted: request.include_deleted,
+              ignore_unsupported_filters: request.ignore_unsupported_filters,
+              ids: request.ids,
+              remote_ids: request.remote_ids,
+              job_ids: request.job_ids,
+              http_headers: http_headers
             )
           end
 
@@ -3674,19 +3755,19 @@ module Kombo
     end
 
 
-    sig { params(body: Models::Shared::PostAtsImportTrackedApplicationRequestBody, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::PostAtsImportTrackedApplicationResponse) }
-    def import_tracked_application(body:, integration_id: nil, timeout_ms: nil)
+    sig { params(body: Models::Shared::PostAtsImportTrackedApplicationRequestBody, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::PostAtsImportTrackedApplicationResponse) }
+    def import_tracked_application(body:, integration_id: nil, timeout_ms: nil, http_headers: nil)
       # import_tracked_application - Import tracked application
       # Import tracked application
-      # 
+      #
       # Retroactively import existing applications into Kombo's tracking system. This is particularly useful if you have enabled the 'sync only created applications' setting and want to start tracking applications that were created before using Kombo.
-      # 
+      #
       # To import an application, you'll need to provide specific identifiers based on the ATS. The available `id_type` values are defined by Kombo based on the tool's API capabilities. Please reach out to Kombo support if you require further types to be supported.
-      # 
+      #
       # Once imported, Kombo will automatically fetch and update the application's complete data during the next sync.
-      # 
+      #
       # ### Example Request Body
-      # 
+      #
       # ```json
       # {
       #   "tracked_at": "2024-04-12T14:33:47.000Z",
@@ -3709,7 +3790,7 @@ module Kombo
       headers['content-type'] = req_content_type
       raise StandardError, 'request body is required' if data.nil? && form.nil?
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -3745,6 +3826,9 @@ module Kombo
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -3818,5 +3902,5 @@ module Kombo
         end
       end
     end
-  end
+end
 end

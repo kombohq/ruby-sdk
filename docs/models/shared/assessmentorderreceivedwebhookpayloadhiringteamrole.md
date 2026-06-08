@@ -1,5 +1,13 @@
 # AssessmentOrderReceivedWebhookPayloadHiringTeamRole
 
+## Example Usage
+
+```ruby
+require "kombo"
+
+value = AssessmentOrderReceivedWebhookPayloadHiringTeamRole::RECRUITER
+```
+
 
 ## Values
 

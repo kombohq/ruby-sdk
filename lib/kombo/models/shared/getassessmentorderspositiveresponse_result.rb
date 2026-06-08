@@ -17,7 +17,7 @@ module Kombo
         # The identifier of the assessment package.
         field :package_id, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('package_id'), required: true } }
         # The current status of the assessment order.
-        field :status, Models::Shared::GetAssessmentOrdersPositiveResponseStatus, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('status'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::GetAssessmentOrdersPositiveResponseStatus, false) } }
+        field :status, Models::Shared::GetAssessmentOrdersPositiveResponseStatus, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('status'), required: true, 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::GetAssessmentOrdersPositiveResponseStatus, false) } }
         # Information about the candidate taking the assessment.
         field :candidate, Models::Shared::GetAssessmentOrdersPositiveResponseCandidate, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('candidate'), required: true } }
         # Information about the job application.

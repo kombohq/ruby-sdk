@@ -1,5 +1,16 @@
 # SalaryPeriod
 
+## Example Usage
+
+```ruby
+require "kombo"
+
+value = SalaryPeriod::YEAR
+
+# Open enum: use .deserialize() to create instances from custom string values
+custom = SalaryPeriod.deserialize("custom_value")
+```
+
 
 ## Values
 

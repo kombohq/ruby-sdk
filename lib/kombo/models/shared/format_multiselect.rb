@@ -18,7 +18,7 @@ module Kombo
         field :type, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('type'), required: true } }
 
         sig { params(options: T::Array[Models::Shared::Option2], type: ::String).void }
-        def initialize(options:, type:)
+        def initialize(options:, type: 'MULTI_SELECT')
           @options = options
           unless type == 'MULTI_SELECT'
             raise ArgumentError, 'Invalid value for type'

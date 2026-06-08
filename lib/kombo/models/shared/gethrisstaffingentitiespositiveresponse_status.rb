@@ -15,8 +15,6 @@ module Kombo
       #         FILLED: The staffing entity is filled (to its maximum capacity) and not available for new hires.
       #         CLOSED: The staffing entity is closed and not available for new hires.
       class GetHrisStaffingEntitiesPositiveResponseStatus < T::Enum
-
-
         enums do
           OPEN_LIMITED = new('OPEN_LIMITED')
           OPEN_UNLIMITED = new('OPEN_UNLIMITED')

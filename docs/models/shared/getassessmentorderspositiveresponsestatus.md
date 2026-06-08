@@ -2,6 +2,14 @@
 
 The current status of the assessment order.
 
+## Example Usage
+
+```ruby
+require "kombo"
+
+value = GetAssessmentOrdersPositiveResponseStatus::OPEN
+```
+
 
 ## Values
 

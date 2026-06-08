@@ -2,6 +2,14 @@
 
 The type of step reference to use. Use "Next_Step_Reference" for regular stage moves and "Disposition_Step_Reference" for conclusion/disposition stages (e.g., rejected, declined). Defaults to "Next_Step_Reference".
 
+## Example Usage
+
+```ruby
+require "kombo"
+
+value = StepType::NEXT_STEP_REFERENCE
+```
+
 
 ## Values
 

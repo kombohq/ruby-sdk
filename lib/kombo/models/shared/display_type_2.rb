@@ -9,8 +9,6 @@ module Kombo
     module Shared
 
       class DisplayType2 < T::Enum
-
-
         enums do
           SLIDER = new('SLIDER')
           FIELD = new('FIELD')

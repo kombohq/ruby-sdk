@@ -17,23 +17,23 @@ module Kombo
 
         field :required, Crystalline::Boolean.new, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('required'), required: true } }
 
-        field :type, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('type'), required: true } }
-
         field :properties, Crystalline::Hash.new(Symbol, Crystalline::Union.new(Models::Shared::Schema1Text, Models::Shared::Schema1Number, Models::Shared::Schema1Date, Models::Shared::Schema1SingleSelect, Models::Shared::Schema1MultiSelect, Models::Shared::Schema1Checkbox, Models::Shared::Schema1Object, Models::Shared::Schema1Array1, Models::Shared::Schema1File)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('properties'), required: true } }
+
+        field :type, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('type'), required: true } }
 
         field :description, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('description') } }
 
-        field :unified_key, Crystalline::Nilable.new(Models::Shared::GetHrisEmployeesFormPositiveResponseUnifiedKey6), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('unified_key'), 'decoder': Utils.enum_from_string(Models::Shared::GetHrisEmployeesFormPositiveResponseUnifiedKey6, true) } }
+        field :unified_key, Crystalline::Nilable.new(Models::Shared::GetHrisEmployeesFormPositiveResponseUnifiedKey6), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('unified_key'), 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::GetHrisEmployeesFormPositiveResponseUnifiedKey6, true) } }
 
-        sig { params(label: ::String, required: T::Boolean, type: ::String, properties: T::Hash[Symbol, T.any(Models::Shared::Schema1Text, Models::Shared::Schema1Number, Models::Shared::Schema1Date, Models::Shared::Schema1SingleSelect, Models::Shared::Schema1MultiSelect, Models::Shared::Schema1Checkbox, Models::Shared::Schema1Object, Models::Shared::Schema1Array1, Models::Shared::Schema1File)], description: T.nilable(::String), unified_key: T.nilable(Models::Shared::GetHrisEmployeesFormPositiveResponseUnifiedKey6)).void }
-        def initialize(label:, required:, type:, properties:, description: nil, unified_key: nil)
+        sig { params(label: ::String, required: T::Boolean, properties: T::Hash[Symbol, T.any(Models::Shared::Schema1Text, Models::Shared::Schema1Number, Models::Shared::Schema1Date, Models::Shared::Schema1SingleSelect, Models::Shared::Schema1MultiSelect, Models::Shared::Schema1Checkbox, Models::Shared::Schema1Object, Models::Shared::Schema1Array1, Models::Shared::Schema1File)], type: ::String, description: T.nilable(::String), unified_key: T.nilable(Models::Shared::GetHrisEmployeesFormPositiveResponseUnifiedKey6)).void }
+        def initialize(label:, required:, properties:, type: 'object', description: nil, unified_key: nil)
           @label = label
           @required = required
+          @properties = properties
           unless type == 'object'
             raise ArgumentError, 'Invalid value for type'
           end
           @type = 'object'
-          @properties = properties
           @description = description
           @unified_key = unified_key
         end
@@ -43,8 +43,8 @@ module Kombo
           return false unless other.is_a? self.class
           return false unless @label == other.label
           return false unless @required == other.required
-          return false unless @type == other.type
           return false unless @properties == other.properties
+          return false unless @type == other.type
           return false unless @description == other.description
           return false unless @unified_key == other.unified_key
           true

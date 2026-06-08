@@ -2,6 +2,14 @@
 
 Required for illness absences. Benefit type: Delegated Payment, No Right to Benefit, or Direct payment.
 
+## Example Usage
+
+```ruby
+require "kombo"
+
+value = BenefitTypeId::DELEGATED_PAYMENT
+```
+
 
 ## Values
 

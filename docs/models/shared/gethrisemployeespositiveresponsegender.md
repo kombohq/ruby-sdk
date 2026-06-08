@@ -1,5 +1,16 @@
 # GetHrisEmployeesPositiveResponseGender
 
+## Example Usage
+
+```ruby
+require "kombo"
+
+value = GetHrisEmployeesPositiveResponseGender::MALE
+
+# Open enum: use .deserialize() to create instances from custom string values
+custom = GetHrisEmployeesPositiveResponseGender.deserialize("custom_value")
+```
+
 
 ## Values
 

@@ -9,8 +9,6 @@ module Kombo
     module Shared
       # DeleteHrisAbsencesAbsenceIdPositiveResponseUnit - The unit of time for this absence. Can be `HOURS` or `DAYS`.
       class DeleteHrisAbsencesAbsenceIdPositiveResponseUnit < T::Enum
-
-
         enums do
           HOURS = new('HOURS')
           DAYS = new('DAYS')

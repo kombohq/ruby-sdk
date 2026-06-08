@@ -13,9 +13,9 @@ module Kombo
         include Crystalline::MetadataFields
 
         # The type of link you want to create. `EMBEDDED` is for the [embedded flow](../guides/connect/embedded-flow) using the Kombo Connect SDK (these links are valid for 1 hour) and `MAGIC_LINK` is for [magic links](../guides/connect/magic-links) which you send out manually to customers (these are valid for 1 year).
-        field :link_type, Models::Shared::PostIntegrationsIntegrationIdSetupLinkRequestBodyLinkType, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('link_type'), required: true, 'decoder': Utils.enum_from_string(Models::Shared::PostIntegrationsIntegrationIdSetupLinkRequestBodyLinkType, false) } }
+        field :link_type, Models::Shared::PostIntegrationsIntegrationIdSetupLinkRequestBodyLinkType, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('link_type'), required: true, 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::PostIntegrationsIntegrationIdSetupLinkRequestBodyLinkType, false) } }
         # Language of the setup flow UI.
-        field :language, Crystalline::Nilable.new(Models::Shared::PostIntegrationsIntegrationIdSetupLinkRequestBodyLanguage), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('language'), 'decoder': Utils.enum_from_string(Models::Shared::PostIntegrationsIntegrationIdSetupLinkRequestBodyLanguage, true) } }
+        field :language, Crystalline::Nilable.new(Models::Shared::PostIntegrationsIntegrationIdSetupLinkRequestBodyLanguage), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('language'), 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::PostIntegrationsIntegrationIdSetupLinkRequestBodyLanguage, true) } }
 
         sig { params(link_type: Models::Shared::PostIntegrationsIntegrationIdSetupLinkRequestBodyLinkType, language: T.nilable(Models::Shared::PostIntegrationsIntegrationIdSetupLinkRequestBodyLanguage)).void }
         def initialize(link_type:, language: Models::Shared::PostIntegrationsIntegrationIdSetupLinkRequestBodyLanguage::EN)

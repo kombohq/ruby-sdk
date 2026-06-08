@@ -18,8 +18,8 @@ class Kombo::Models::Shared::PatchIntegrationsIntegrationIdIntegrationFieldsInte
   def type=(str_); end
   def is_passthrough_enabled(); end
   def is_passthrough_enabled=(str_); end
-  def is_writable(); end
-  def is_writable=(str_); end
   def label(); end
   def label=(str_); end
+  def is_writable(); end
+  def is_writable=(str_); end
 end

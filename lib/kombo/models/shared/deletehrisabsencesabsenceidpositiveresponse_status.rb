@@ -8,9 +8,8 @@ module Kombo
   module Models
     module Shared
 
-      class DeleteHrisAbsencesAbsenceIdPositiveResponseStatus < T::Enum
-
-
+      class DeleteHrisAbsencesAbsenceIdPositiveResponseStatus
+        include ::Crystalline::Enum
         enums do
           REQUESTED = new('REQUESTED')
           APPROVED = new('APPROVED')
@@ -18,6 +17,7 @@ module Kombo
           CANCELLED = new('CANCELLED')
           DELETED = new('DELETED')
         end
+        open!
       end
     end
   end

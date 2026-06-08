@@ -1,5 +1,16 @@
 # Ethnicity
 
+## Example Usage
+
+```ruby
+require "kombo"
+
+value = Ethnicity::WHITE
+
+# Open enum: use .deserialize() to create instances from custom string values
+custom = Ethnicity.deserialize("custom_value")
+```
+
 
 ## Values
 

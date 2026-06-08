@@ -9,8 +9,6 @@ module Kombo
     module Shared
       # StepType - The type of step reference to use. Use "Next_Step_Reference" for regular stage moves and "Disposition_Step_Reference" for conclusion/disposition stages (e.g., rejected, declined). Defaults to "Next_Step_Reference".
       class StepType < T::Enum
-
-
         enums do
           NEXT_STEP_REFERENCE = new('Next_Step_Reference')
           DISPOSITION_STEP_REFERENCE = new('Disposition_Step_Reference')

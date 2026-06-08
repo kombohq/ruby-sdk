@@ -2,6 +2,14 @@
 
 If unavailable, we recommend displaying a single-line input.
 
+## Example Usage
+
+```ruby
+require "kombo"
+
+value = DisplayType1::SINGLE_LINE
+```
+
 
 ## Values
 

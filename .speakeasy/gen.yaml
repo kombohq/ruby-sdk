@@ -24,14 +24,14 @@ generation:
   schemas:
     allOfMergeStrategy: shallowMerge
   requestBodyFieldName: body
+  versioningStrategy: automatic
   persistentEdits: {}
   tests:
     generateTests: false
     generateNewTests: true
     skipResponseBodyAssertions: false
-  versioningStrategy: automatic
 ruby:
-  version: 1.1.4
+  version: 1.2.0
   additionalDependencies:
     development:
       irb: ""

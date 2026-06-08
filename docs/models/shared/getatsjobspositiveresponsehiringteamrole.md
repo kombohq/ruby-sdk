@@ -1,5 +1,13 @@
 # GetAtsJobsPositiveResponseHiringTeamRole
 
+## Example Usage
+
+```ruby
+require "kombo"
+
+value = GetAtsJobsPositiveResponseHiringTeamRole::RECRUITER
+```
+
 
 ## Values
 

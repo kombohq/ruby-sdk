@@ -13,7 +13,7 @@ module Kombo
         include Crystalline::MetadataFields
 
         # Required for illness absences. Benefit type: Delegated Payment, No Right to Benefit, or Direct payment.
-        field :benefit_type_id, Crystalline::Nilable.new(Models::Shared::BenefitTypeId), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('benefit_type_id'), 'decoder': Utils.enum_from_string(Models::Shared::BenefitTypeId, true) } }
+        field :benefit_type_id, Crystalline::Nilable.new(Models::Shared::BenefitTypeId), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('benefit_type_id'), 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::BenefitTypeId, true) } }
 
         sig { params(benefit_type_id: T.nilable(Models::Shared::BenefitTypeId)).void }
         def initialize(benefit_type_id: nil)

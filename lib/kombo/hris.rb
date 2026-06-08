@@ -40,13 +40,15 @@ module Kombo
     end
 
 
-    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), employment_statuses: T.nilable(T::Array[::String]), group_ids: T.nilable(T::Array[::String]), legal_entity_ids: T.nilable(T::Array[::String]), work_location_ids: T.nilable(T::Array[::String]), work_emails: T.nilable(T::Array[::String]), personal_emails: T.nilable(T::Array[::String]), custom_fields: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::GetHrisEmployeesResponse) }
-    def get_employees(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, employment_statuses: nil, group_ids: nil, legal_entity_ids: nil, work_location_ids: nil, work_emails: nil, personal_emails: nil, custom_fields: nil, timeout_ms: nil)
+
+
+    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), employment_statuses: T.nilable(T::Array[::String]), group_ids: T.nilable(T::Array[::String]), legal_entity_ids: T.nilable(T::Array[::String]), work_location_ids: T.nilable(T::Array[::String]), work_emails: T.nilable(T::Array[::String]), personal_emails: T.nilable(T::Array[::String]), custom_fields: T.nilable(::String), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::GetHrisEmployeesResponse) }
+    def get_employees(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, employment_statuses: nil, group_ids: nil, legal_entity_ids: nil, work_location_ids: nil, work_emails: nil, personal_emails: nil, custom_fields: nil, timeout_ms: nil, http_headers: nil)
       # get_employees - Get employees
       # Retrieve all employees.
-      # 
+      #
       # <Note>Not interested in most fields? You can use our [our Scopes feature](/scopes) to customize what data points are synced.</Note>
-      # 
+      #
       # Top level filters use AND, while individual filters use OR if they accept multiple arguments. That means filters will be resolved like this: `(id IN ids) AND (remote_id IN remote_ids)`
       request = Models::Operations::GetHrisEmployeesRequest.new(
         integration_id: integration_id,
@@ -100,6 +102,9 @@ module Kombo
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -165,21 +170,22 @@ module Kombo
             end
 
             sdk.get_employees(
-              integration_id: integration_id,
+              integration_id: request.integration_id,
               cursor: next_cursor,
-              page_size: page_size,
-              updated_after: updated_after,
-              include_deleted: include_deleted,
-              ignore_unsupported_filters: ignore_unsupported_filters,
-              ids: ids,
-              remote_ids: remote_ids,
-              employment_statuses: employment_statuses,
-              group_ids: group_ids,
-              legal_entity_ids: legal_entity_ids,
-              work_location_ids: work_location_ids,
-              work_emails: work_emails,
-              personal_emails: personal_emails,
-              custom_fields: custom_fields
+              page_size: request.page_size,
+              updated_after: request.updated_after,
+              include_deleted: request.include_deleted,
+              ignore_unsupported_filters: request.ignore_unsupported_filters,
+              ids: request.ids,
+              remote_ids: request.remote_ids,
+              employment_statuses: request.employment_statuses,
+              group_ids: request.group_ids,
+              legal_entity_ids: request.legal_entity_ids,
+              work_location_ids: request.work_location_ids,
+              work_emails: request.work_emails,
+              personal_emails: request.personal_emails,
+              custom_fields: request.custom_fields,
+              http_headers: http_headers
             )
           end
 
@@ -207,14 +213,14 @@ module Kombo
     end
 
 
-    sig { params(integration_id: T.nilable(::String), staffing_entity_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::GetHrisEmployeesFormResponse) }
-    def get_employee_form(integration_id: nil, staffing_entity_id: nil, timeout_ms: nil)
+    sig { params(integration_id: T.nilable(::String), staffing_entity_id: T.nilable(::String), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::GetHrisEmployeesFormResponse) }
+    def get_employee_form(integration_id: nil, staffing_entity_id: nil, timeout_ms: nil, http_headers: nil)
       # get_employee_form - Get employee form
       # Get the form for creating an employee. This form can be rendered dynamically on your frontend to allow your customers to create employees in their HRIS.
-      # 
+      #
       # Follow our [create employee guide here](/hris/features/create-employee) to learn how this form is generated and how you can use it.
       # The usage and impact of the staffing_entity_id parameter is described in the our [Create Employee Form with Staffing Entities guide](/hris/implementation-guide/staffing-entities-in-create-employee).
-      # 
+      #
       # ### Example Form
       # ```json
       # {
@@ -328,6 +334,9 @@ module Kombo
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -403,17 +412,17 @@ module Kombo
     end
 
 
-    sig { params(body: Models::Shared::PostHrisEmployeesFormRequestBody, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::PostHrisEmployeesFormResponse) }
-    def create_employee_with_form(body:, integration_id: nil, timeout_ms: nil)
+    sig { params(body: Models::Shared::PostHrisEmployeesFormRequestBody, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::PostHrisEmployeesFormResponse) }
+    def create_employee_with_form(body:, integration_id: nil, timeout_ms: nil, http_headers: nil)
       # create_employee_with_form - Create employee with form
       # Create an employee, based on the form schema.
-      # 
+      #
       # <Note>
       #   This endpoint requires the permission **Create and manage employees** to be enabled in [your scope config](/scopes).
       # </Note>
-      # 
+      #
       # ### Example Request Body
-      # 
+      #
       # ```json
       # {
       #   "staffing_entity_id": "26vafvWSRmbhNcxJYqjCzuJg",
@@ -444,7 +453,7 @@ module Kombo
       headers['content-type'] = req_content_type
       raise StandardError, 'request body is required' if data.nil? && form.nil?
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -480,6 +489,9 @@ module Kombo
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -555,17 +567,17 @@ module Kombo
     end
 
 
-    sig { params(body: Models::Shared::PostHrisEmployeesEmployeeIdDocumentsRequestBody, employee_id: ::String, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::PostHrisEmployeesEmployeeIdDocumentsResponse) }
-    def add_employee_document(body:, employee_id:, integration_id: nil, timeout_ms: nil)
+    sig { params(body: Models::Shared::PostHrisEmployeesEmployeeIdDocumentsRequestBody, employee_id: ::String, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::PostHrisEmployeesEmployeeIdDocumentsResponse) }
+    def add_employee_document(body:, employee_id:, integration_id: nil, timeout_ms: nil, http_headers: nil)
       # add_employee_document - Add document to employee
       # Uploads an document file for the specified employee.
-      # 
+      #
       # <Note>
       #   This endpoint requires the permission **Manage documents** to be enabled in [your scope config](/scopes).
       # </Note>
-      # 
+      #
       # ### Example Request Body
-      # 
+      #
       # ```json
       # {
       #   "category_id": "3Cjwu7nA7pH5cX5X1NAPmb7M",
@@ -596,7 +608,7 @@ module Kombo
       headers['content-type'] = req_content_type
       raise StandardError, 'request body is required' if data.nil? && form.nil?
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -632,6 +644,9 @@ module Kombo
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -707,11 +722,11 @@ module Kombo
     end
 
 
-    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), timeout_ms: T.nilable(Integer)).returns(Models::Operations::GetHrisEmployeeDocumentCategoriesResponse) }
-    def get_employee_document_categories(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, timeout_ms: nil)
+    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::GetHrisEmployeeDocumentCategoriesResponse) }
+    def get_employee_document_categories(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, timeout_ms: nil, http_headers: nil)
       # get_employee_document_categories - Get employee document categories
       # Get employee document categories.
-      # 
+      #
       # Top level filters use AND, while individual filters use OR if they accept multiple arguments. That means filters will be resolved like this: `(id IN ids) AND (remote_id IN remote_ids)`
       request = Models::Operations::GetHrisEmployeeDocumentCategoriesRequest.new(
         integration_id: integration_id,
@@ -758,6 +773,9 @@ module Kombo
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -823,14 +841,15 @@ module Kombo
             end
 
             sdk.get_employee_document_categories(
-              integration_id: integration_id,
+              integration_id: request.integration_id,
               cursor: next_cursor,
-              page_size: page_size,
-              updated_after: updated_after,
-              include_deleted: include_deleted,
-              ignore_unsupported_filters: ignore_unsupported_filters,
-              ids: ids,
-              remote_ids: remote_ids
+              page_size: request.page_size,
+              updated_after: request.updated_after,
+              include_deleted: request.include_deleted,
+              ignore_unsupported_filters: request.ignore_unsupported_filters,
+              ids: request.ids,
+              remote_ids: request.remote_ids,
+              http_headers: http_headers
             )
           end
 
@@ -858,11 +877,11 @@ module Kombo
     end
 
 
-    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), types: T.nilable(T::Array[::String]), name_contains: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::GetHrisGroupsResponse) }
-    def get_groups(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, types: nil, name_contains: nil, timeout_ms: nil)
+    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), types: T.nilable(T::Array[::String]), name_contains: T.nilable(::String), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::GetHrisGroupsResponse) }
+    def get_groups(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, types: nil, name_contains: nil, timeout_ms: nil, http_headers: nil)
       # get_groups - Get groups
       # Retrieve all "groups" (teams, departments, and cost centers).
-      # 
+      #
       # Top level filters use AND, while individual filters use OR if they accept multiple arguments. That means filters will be resolved like this: `(id IN ids) AND (remote_id IN remote_ids)`
       request = Models::Operations::GetHrisGroupsRequest.new(
         integration_id: integration_id,
@@ -911,6 +930,9 @@ module Kombo
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -976,16 +998,17 @@ module Kombo
             end
 
             sdk.get_groups(
-              integration_id: integration_id,
+              integration_id: request.integration_id,
               cursor: next_cursor,
-              page_size: page_size,
-              updated_after: updated_after,
-              include_deleted: include_deleted,
-              ignore_unsupported_filters: ignore_unsupported_filters,
-              ids: ids,
-              remote_ids: remote_ids,
-              types: types,
-              name_contains: name_contains
+              page_size: request.page_size,
+              updated_after: request.updated_after,
+              include_deleted: request.include_deleted,
+              ignore_unsupported_filters: request.ignore_unsupported_filters,
+              ids: request.ids,
+              remote_ids: request.remote_ids,
+              types: request.types,
+              name_contains: request.name_contains,
+              http_headers: http_headers
             )
           end
 
@@ -1013,11 +1036,11 @@ module Kombo
     end
 
 
-    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), timeout_ms: T.nilable(Integer)).returns(Models::Operations::GetHrisEmploymentsResponse) }
-    def get_employments(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, timeout_ms: nil)
+    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::GetHrisEmploymentsResponse) }
+    def get_employments(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, timeout_ms: nil, http_headers: nil)
       # get_employments - Get employments
       # Retrieve all employments.
-      # 
+      #
       # Top level filters use AND, while individual filters use OR if they accept multiple arguments. That means filters will be resolved like this: `(id IN ids) AND (remote_id IN remote_ids)`
       request = Models::Operations::GetHrisEmploymentsRequest.new(
         integration_id: integration_id,
@@ -1064,6 +1087,9 @@ module Kombo
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -1129,14 +1155,15 @@ module Kombo
             end
 
             sdk.get_employments(
-              integration_id: integration_id,
+              integration_id: request.integration_id,
               cursor: next_cursor,
-              page_size: page_size,
-              updated_after: updated_after,
-              include_deleted: include_deleted,
-              ignore_unsupported_filters: ignore_unsupported_filters,
-              ids: ids,
-              remote_ids: remote_ids
+              page_size: request.page_size,
+              updated_after: request.updated_after,
+              include_deleted: request.include_deleted,
+              ignore_unsupported_filters: request.ignore_unsupported_filters,
+              ids: request.ids,
+              remote_ids: request.remote_ids,
+              http_headers: http_headers
             )
           end
 
@@ -1164,11 +1191,11 @@ module Kombo
     end
 
 
-    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), name_contains: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::GetHrisLocationsResponse) }
-    def get_locations(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, name_contains: nil, timeout_ms: nil)
+    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), name_contains: T.nilable(::String), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::GetHrisLocationsResponse) }
+    def get_locations(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, name_contains: nil, timeout_ms: nil, http_headers: nil)
       # get_locations - Get work locations
       # Retrieve all work locations.
-      # 
+      #
       # Top level filters use AND, while individual filters use OR if they accept multiple arguments. That means filters will be resolved like this: `(id IN ids) AND (remote_id IN remote_ids)`
       request = Models::Operations::GetHrisLocationsRequest.new(
         integration_id: integration_id,
@@ -1216,6 +1243,9 @@ module Kombo
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -1281,15 +1311,16 @@ module Kombo
             end
 
             sdk.get_locations(
-              integration_id: integration_id,
+              integration_id: request.integration_id,
               cursor: next_cursor,
-              page_size: page_size,
-              updated_after: updated_after,
-              include_deleted: include_deleted,
-              ignore_unsupported_filters: ignore_unsupported_filters,
-              ids: ids,
-              remote_ids: remote_ids,
-              name_contains: name_contains
+              page_size: request.page_size,
+              updated_after: request.updated_after,
+              include_deleted: request.include_deleted,
+              ignore_unsupported_filters: request.ignore_unsupported_filters,
+              ids: request.ids,
+              remote_ids: request.remote_ids,
+              name_contains: request.name_contains,
+              http_headers: http_headers
             )
           end
 
@@ -1317,11 +1348,11 @@ module Kombo
     end
 
 
-    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), timeout_ms: T.nilable(Integer)).returns(Models::Operations::GetHrisAbsenceTypesResponse) }
-    def get_absence_types(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, timeout_ms: nil)
+    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::GetHrisAbsenceTypesResponse) }
+    def get_absence_types(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, timeout_ms: nil, http_headers: nil)
       # get_absence_types - Get absence types
       # Retrieve all absence types.
-      # 
+      #
       # Top level filters use AND, while individual filters use OR if they accept multiple arguments. That means filters will be resolved like this: `(id IN ids) AND (remote_id IN remote_ids)`
       request = Models::Operations::GetHrisAbsenceTypesRequest.new(
         integration_id: integration_id,
@@ -1368,6 +1399,9 @@ module Kombo
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -1433,14 +1467,15 @@ module Kombo
             end
 
             sdk.get_absence_types(
-              integration_id: integration_id,
+              integration_id: request.integration_id,
               cursor: next_cursor,
-              page_size: page_size,
-              updated_after: updated_after,
-              include_deleted: include_deleted,
-              ignore_unsupported_filters: ignore_unsupported_filters,
-              ids: ids,
-              remote_ids: remote_ids
+              page_size: request.page_size,
+              updated_after: request.updated_after,
+              include_deleted: request.include_deleted,
+              ignore_unsupported_filters: request.ignore_unsupported_filters,
+              ids: request.ids,
+              remote_ids: request.remote_ids,
+              http_headers: http_headers
             )
           end
 
@@ -1468,11 +1503,11 @@ module Kombo
     end
 
 
-    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), employee_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::GetHrisTimeOffBalancesResponse) }
-    def get_time_off_balances(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, employee_id: nil, timeout_ms: nil)
+    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), employee_id: T.nilable(::String), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::GetHrisTimeOffBalancesResponse) }
+    def get_time_off_balances(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, employee_id: nil, timeout_ms: nil, http_headers: nil)
       # get_time_off_balances - Get time off balances
       # Retrieve all time off balances.
-      # 
+      #
       # Top level filters use AND, while individual filters use OR if they accept multiple arguments. That means filters will be resolved like this: `(id IN ids) AND (remote_id IN remote_ids)`
       request = Models::Operations::GetHrisTimeOffBalancesRequest.new(
         integration_id: integration_id,
@@ -1520,6 +1555,9 @@ module Kombo
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -1585,15 +1623,16 @@ module Kombo
             end
 
             sdk.get_time_off_balances(
-              integration_id: integration_id,
+              integration_id: request.integration_id,
               cursor: next_cursor,
-              page_size: page_size,
-              updated_after: updated_after,
-              include_deleted: include_deleted,
-              ignore_unsupported_filters: ignore_unsupported_filters,
-              ids: ids,
-              remote_ids: remote_ids,
-              employee_id: employee_id
+              page_size: request.page_size,
+              updated_after: request.updated_after,
+              include_deleted: request.include_deleted,
+              ignore_unsupported_filters: request.ignore_unsupported_filters,
+              ids: request.ids,
+              remote_ids: request.remote_ids,
+              employee_id: request.employee_id,
+              http_headers: http_headers
             )
           end
 
@@ -1621,11 +1660,11 @@ module Kombo
     end
 
 
-    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), date_from: T.nilable(::DateTime), date_until: T.nilable(::DateTime), type_ids: T.nilable(T::Array[::String]), employee_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::GetHrisAbsencesResponse) }
-    def get_absences(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, date_from: nil, date_until: nil, type_ids: nil, employee_id: nil, timeout_ms: nil)
+    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), date_from: T.nilable(::DateTime), date_until: T.nilable(::DateTime), type_ids: T.nilable(T::Array[::String]), employee_id: T.nilable(::String), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::GetHrisAbsencesResponse) }
+    def get_absences(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, date_from: nil, date_until: nil, type_ids: nil, employee_id: nil, timeout_ms: nil, http_headers: nil)
       # get_absences - Get absences
       # Retrieve all absences.
-      # 
+      #
       # Top level filters use AND, while individual filters use OR if they accept multiple arguments. That means filters will be resolved like this: `(id IN ids) AND (remote_id IN remote_ids)`
       request = Models::Operations::GetHrisAbsencesRequest.new(
         integration_id: integration_id,
@@ -1676,6 +1715,9 @@ module Kombo
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -1741,18 +1783,19 @@ module Kombo
             end
 
             sdk.get_absences(
-              integration_id: integration_id,
+              integration_id: request.integration_id,
               cursor: next_cursor,
-              page_size: page_size,
-              updated_after: updated_after,
-              include_deleted: include_deleted,
-              ignore_unsupported_filters: ignore_unsupported_filters,
-              ids: ids,
-              remote_ids: remote_ids,
-              date_from: date_from,
-              date_until: date_until,
-              type_ids: type_ids,
-              employee_id: employee_id
+              page_size: request.page_size,
+              updated_after: request.updated_after,
+              include_deleted: request.include_deleted,
+              ignore_unsupported_filters: request.ignore_unsupported_filters,
+              ids: request.ids,
+              remote_ids: request.remote_ids,
+              date_from: request.date_from,
+              date_until: request.date_until,
+              type_ids: request.type_ids,
+              employee_id: request.employee_id,
+              http_headers: http_headers
             )
           end
 
@@ -1780,19 +1823,19 @@ module Kombo
     end
 
 
-    sig { params(body: Models::Shared::PostHrisAbsencesRequestBody, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::PostHrisAbsencesResponse) }
-    def create_absence(body:, integration_id: nil, timeout_ms: nil)
+    sig { params(body: Models::Shared::PostHrisAbsencesRequestBody, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::PostHrisAbsencesResponse) }
+    def create_absence(body:, integration_id: nil, timeout_ms: nil, http_headers: nil)
       # create_absence - Create absence
       # Create a new absence.
-      # 
+      #
       # Check [this page](/hris/features/creating-absences) for a detailed guide.
-      # 
+      #
       # <Note>
       #   This endpoint requires the permission **Manage absences** to be enabled in [your scope config](/scopes).
       # </Note>
-      # 
+      #
       # ### Example Request Body
-      # 
+      #
       # ```json
       # {
       #   "employee_id": "wXJMxwDvPAjrJ4CyqdV9",
@@ -1819,7 +1862,7 @@ module Kombo
       headers['content-type'] = req_content_type
       raise StandardError, 'request body is required' if data.nil? && form.nil?
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -1855,6 +1898,9 @@ module Kombo
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -1930,17 +1976,17 @@ module Kombo
     end
 
 
-    sig { params(body: Models::Shared::DeleteHrisAbsencesAbsenceIdRequestBody, absence_id: ::String, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::DeleteHrisAbsencesAbsenceIdResponse) }
-    def delete_absence(body:, absence_id:, integration_id: nil, timeout_ms: nil)
+    sig { params(body: Models::Shared::DeleteHrisAbsencesAbsenceIdRequestBody, absence_id: ::String, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::DeleteHrisAbsencesAbsenceIdResponse) }
+    def delete_absence(body:, absence_id:, integration_id: nil, timeout_ms: nil, http_headers: nil)
       # delete_absence - Delete absence
       # Delete this absence.
-      # 
+      #
       # <Note>
       #   This endpoint requires the permission **Manage absences** to be enabled in [your scope config](/scopes).
       # </Note>
-      # 
+      #
       # ### Example Request Body
-      # 
+      #
       # ```json
       # {
       #   "absence_id": "wXJMxwDvPAjrJ4CyqdV9"
@@ -1966,7 +2012,7 @@ module Kombo
       headers['content-type'] = req_content_type
       raise StandardError, 'request body is required' if data.nil? && form.nil?
 
-      if form
+      if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
         body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
@@ -2002,6 +2048,9 @@ module Kombo
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -2077,11 +2126,11 @@ module Kombo
     end
 
 
-    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), name_contains: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::GetHrisLegalEntitiesResponse) }
-    def get_legal_entities(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, name_contains: nil, timeout_ms: nil)
+    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), name_contains: T.nilable(::String), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::GetHrisLegalEntitiesResponse) }
+    def get_legal_entities(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, name_contains: nil, timeout_ms: nil, http_headers: nil)
       # get_legal_entities - Get legal entities
       # Retrieve all legal entites.
-      # 
+      #
       # Top level filters use AND, while individual filters use OR if they accept multiple arguments. That means filters will be resolved like this: `(id IN ids) AND (remote_id IN remote_ids)`
       request = Models::Operations::GetHrisLegalEntitiesRequest.new(
         integration_id: integration_id,
@@ -2129,6 +2178,9 @@ module Kombo
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -2194,15 +2246,16 @@ module Kombo
             end
 
             sdk.get_legal_entities(
-              integration_id: integration_id,
+              integration_id: request.integration_id,
               cursor: next_cursor,
-              page_size: page_size,
-              updated_after: updated_after,
-              include_deleted: include_deleted,
-              ignore_unsupported_filters: ignore_unsupported_filters,
-              ids: ids,
-              remote_ids: remote_ids,
-              name_contains: name_contains
+              page_size: request.page_size,
+              updated_after: request.updated_after,
+              include_deleted: request.include_deleted,
+              ignore_unsupported_filters: request.ignore_unsupported_filters,
+              ids: request.ids,
+              remote_ids: request.remote_ids,
+              name_contains: request.name_contains,
+              http_headers: http_headers
             )
           end
 
@@ -2230,17 +2283,17 @@ module Kombo
     end
 
 
-    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), employee_id: T.nilable(::String), started_before: T.nilable(::DateTime), started_after: T.nilable(::DateTime), ended_before: T.nilable(::DateTime), ended_after: T.nilable(::DateTime), timeout_ms: T.nilable(Integer)).returns(Models::Operations::GetHrisTimesheetsResponse) }
-    def get_timesheets(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, employee_id: nil, started_before: nil, started_after: nil, ended_before: nil, ended_after: nil, timeout_ms: nil)
+    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), employee_id: T.nilable(::String), started_before: T.nilable(::DateTime), started_after: T.nilable(::DateTime), ended_before: T.nilable(::DateTime), ended_after: T.nilable(::DateTime), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::GetHrisTimesheetsResponse) }
+    def get_timesheets(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, employee_id: nil, started_before: nil, started_after: nil, ended_before: nil, ended_after: nil, timeout_ms: nil, http_headers: nil)
       # get_timesheets - Get timesheets
       # Get timesheets
-      # 
+      #
       # Retrieve attendance data and timesheets from HRIS tools.
-      # 
+      #
       # <Warning>**Open Beta Feature:** This endpoint is currently in beta. Please reach out to our support team if you need assistance with implementation.</Warning>
-      # 
+      #
       # For a detailed explanation of the data model, validation rules, time zones, payable hours, approvals, and break patterns, see the [Time & Attendance guide](/hris/features/time-and-attendance).
-      # 
+      #
       # Top level filters use AND, while individual filters use OR if they accept multiple arguments. That means filters will be resolved like this: `(id IN ids) AND (remote_id IN remote_ids)`
       request = Models::Operations::GetHrisTimesheetsRequest.new(
         integration_id: integration_id,
@@ -2292,6 +2345,9 @@ module Kombo
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -2357,19 +2413,20 @@ module Kombo
             end
 
             sdk.get_timesheets(
-              integration_id: integration_id,
+              integration_id: request.integration_id,
               cursor: next_cursor,
-              page_size: page_size,
-              updated_after: updated_after,
-              include_deleted: include_deleted,
-              ignore_unsupported_filters: ignore_unsupported_filters,
-              ids: ids,
-              remote_ids: remote_ids,
-              employee_id: employee_id,
-              started_before: started_before,
-              started_after: started_after,
-              ended_before: ended_before,
-              ended_after: ended_after
+              page_size: request.page_size,
+              updated_after: request.updated_after,
+              include_deleted: request.include_deleted,
+              ignore_unsupported_filters: request.ignore_unsupported_filters,
+              ids: request.ids,
+              remote_ids: request.remote_ids,
+              employee_id: request.employee_id,
+              started_before: request.started_before,
+              started_after: request.started_after,
+              ended_before: request.ended_before,
+              ended_after: request.ended_after,
+              http_headers: http_headers
             )
           end
 
@@ -2397,13 +2454,13 @@ module Kombo
     end
 
 
-    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), timeout_ms: T.nilable(Integer)).returns(Models::Operations::GetHrisPerformanceReviewCyclesResponse) }
-    def get_performance_review_cycles(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, timeout_ms: nil)
+    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::GetHrisPerformanceReviewCyclesResponse) }
+    def get_performance_review_cycles(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, timeout_ms: nil, http_headers: nil)
       # get_performance_review_cycles - Get performance review cycles
       # Get performance review cycles
-      # 
+      #
       # Retrieve performance review cycles data from HRIS tools.
-      # 
+      #
       # Top level filters use AND, while individual filters use OR if they accept multiple arguments. That means filters will be resolved like this: `(id IN ids) AND (remote_id IN remote_ids)`
       request = Models::Operations::GetHrisPerformanceReviewCyclesRequest.new(
         integration_id: integration_id,
@@ -2450,6 +2507,9 @@ module Kombo
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -2515,14 +2575,15 @@ module Kombo
             end
 
             sdk.get_performance_review_cycles(
-              integration_id: integration_id,
+              integration_id: request.integration_id,
               cursor: next_cursor,
-              page_size: page_size,
-              updated_after: updated_after,
-              include_deleted: include_deleted,
-              ignore_unsupported_filters: ignore_unsupported_filters,
-              ids: ids,
-              remote_ids: remote_ids
+              page_size: request.page_size,
+              updated_after: request.updated_after,
+              include_deleted: request.include_deleted,
+              ignore_unsupported_filters: request.ignore_unsupported_filters,
+              ids: request.ids,
+              remote_ids: request.remote_ids,
+              http_headers: http_headers
             )
           end
 
@@ -2550,13 +2611,13 @@ module Kombo
     end
 
 
-    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), types: T.nilable(T::Array[::String]), review_cycle_ids: T.nilable(T::Array[::String]), reviewee_ids: T.nilable(T::Array[::String]), timeout_ms: T.nilable(Integer)).returns(Models::Operations::GetHrisPerformanceReviewsResponse) }
-    def get_performance_reviews(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, types: nil, review_cycle_ids: nil, reviewee_ids: nil, timeout_ms: nil)
+    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), types: T.nilable(T::Array[::String]), review_cycle_ids: T.nilable(T::Array[::String]), reviewee_ids: T.nilable(T::Array[::String]), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::GetHrisPerformanceReviewsResponse) }
+    def get_performance_reviews(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, types: nil, review_cycle_ids: nil, reviewee_ids: nil, timeout_ms: nil, http_headers: nil)
       # get_performance_reviews - Get performance reviews
       # Get performance reviews
-      # 
+      #
       # Retrieve performance review data from HRIS tools.
-      # 
+      #
       # Top level filters use AND, while individual filters use OR if they accept multiple arguments. That means filters will be resolved like this: `(id IN ids) AND (remote_id IN remote_ids)`
       request = Models::Operations::GetHrisPerformanceReviewsRequest.new(
         integration_id: integration_id,
@@ -2606,6 +2667,9 @@ module Kombo
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -2671,17 +2735,18 @@ module Kombo
             end
 
             sdk.get_performance_reviews(
-              integration_id: integration_id,
+              integration_id: request.integration_id,
               cursor: next_cursor,
-              page_size: page_size,
-              updated_after: updated_after,
-              include_deleted: include_deleted,
-              ignore_unsupported_filters: ignore_unsupported_filters,
-              ids: ids,
-              remote_ids: remote_ids,
-              types: types,
-              review_cycle_ids: review_cycle_ids,
-              reviewee_ids: reviewee_ids
+              page_size: request.page_size,
+              updated_after: request.updated_after,
+              include_deleted: request.include_deleted,
+              ignore_unsupported_filters: request.ignore_unsupported_filters,
+              ids: request.ids,
+              remote_ids: request.remote_ids,
+              types: request.types,
+              review_cycle_ids: request.review_cycle_ids,
+              reviewee_ids: request.reviewee_ids,
+              http_headers: http_headers
             )
           end
 
@@ -2709,21 +2774,21 @@ module Kombo
     end
 
 
-    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), model_types: T.nilable(T::Array[::String]), statuses: T.nilable(T::Array[::String]), timeout_ms: T.nilable(Integer)).returns(Models::Operations::GetHrisStaffingEntitiesResponse) }
-    def get_staffing_entities(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, model_types: nil, statuses: nil, timeout_ms: nil)
+    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), model_types: T.nilable(T::Array[::String]), statuses: T.nilable(T::Array[::String]), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::GetHrisStaffingEntitiesResponse) }
+    def get_staffing_entities(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, model_types: nil, statuses: nil, timeout_ms: nil, http_headers: nil)
       # get_staffing_entities - Get staffing entities
       # Retrieve all staffing entities.
-      # 
+      #
       # Retrieve all staffing entities (positions, requisitions, and jobs) from the HRIS system.
-      # 
+      #
       # Many enterprise HRIS platforms distinguish between **positions**, **requisitions**, and **jobs** — three related but different concepts used to manage headcount and hiring. Not every HRIS uses all three, and naming varies across systems, but here is a general overview:
-      # 
+      #
       # - **Position**: A slot in the organizational structure that represents a role to be filled (or already filled) by one or more employees. Positions typically carry metadata like department, location, cost center, and reporting line. Think of it as "a chair at a desk" — it exists whether someone is sitting in it or not.
       # - **Requisition**: A formal request to fill a position. When a manager wants to hire for an open position, they usually create a requisition that goes through an approval workflow. Requisitions are time-bound and tied to a specific hiring need. In Kombo's data model, a requisition's `parent_id` points to the position it was opened for.
       # - **Job**: Some systems use "job" as a more generic or lightweight alternative to a requisition. Jobs often represent an ongoing, unlimited hiring need (e.g., a company that is always hiring for "Software Engineer") rather than a one-off backfill. This is reflected in the `OPEN_UNLIMITED` status.
-      # 
+      #
       # You can use the `model_types` filter to retrieve only the type(s) relevant to your use case. Each record's `model_type` field tells you which of the three concepts it represents.
-      # 
+      #
       # Top level filters use AND, while individual filters use OR if they accept multiple arguments. That means filters will be resolved like this: `(id IN ids) AND (remote_id IN remote_ids)`
       request = Models::Operations::GetHrisStaffingEntitiesRequest.new(
         integration_id: integration_id,
@@ -2772,6 +2837,9 @@ module Kombo
           req.options.timeout = timeout unless timeout.nil?
           req.params = query_params
           Utils.configure_request_security(req, security)
+          http_headers&.each do |key, value|
+            req.headers[key.to_s] = value
+          end
 
           @sdk_configuration.hooks.before_request(
             hook_ctx: SDKHooks::BeforeRequestHookContext.new(
@@ -2837,16 +2905,17 @@ module Kombo
             end
 
             sdk.get_staffing_entities(
-              integration_id: integration_id,
+              integration_id: request.integration_id,
               cursor: next_cursor,
-              page_size: page_size,
-              updated_after: updated_after,
-              include_deleted: include_deleted,
-              ignore_unsupported_filters: ignore_unsupported_filters,
-              ids: ids,
-              remote_ids: remote_ids,
-              model_types: model_types,
-              statuses: statuses
+              page_size: request.page_size,
+              updated_after: request.updated_after,
+              include_deleted: request.include_deleted,
+              ignore_unsupported_filters: request.ignore_unsupported_filters,
+              ids: request.ids,
+              remote_ids: request.remote_ids,
+              model_types: request.model_types,
+              statuses: request.statuses,
+              http_headers: http_headers
             )
           end
 
@@ -2872,5 +2941,5 @@ module Kombo
         end
       end
     end
-  end
+end
 end

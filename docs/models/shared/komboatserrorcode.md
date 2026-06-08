@@ -2,6 +2,14 @@
 
 Some errors include an error code that can be used to identify their cause. See the [Error Handling Docs](https://docs.kombo.dev/guides/errors) for more information. For your error handling logic please use the error `code` instead of other properties (e.g. message, http status code, ...).
 
+## Example Usage
+
+```ruby
+require "kombo"
+
+value = KomboAtsErrorCode::PLATFORM_RATE_LIMIT_EXCEEDED
+```
+
 
 ## Values
 

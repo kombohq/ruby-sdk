@@ -13,6 +13,14 @@ Please note that not all systems will expose all statuses. For example, most sys
 - `ABANDONED`: The offer has expired or is no longer valid and should not be considered.
 
 
+## Example Usage
+
+```ruby
+require "kombo"
+
+value = GetAtsOffersPositiveResponseStatus::ACCEPTED
+```
+
 
 ## Values
 

@@ -9,8 +9,6 @@ module Kombo
     module Shared
 
       class PutAssessmentPackagesRequestBodyType < T::Enum
-
-
         enums do
           BEHAVIORAL = new('BEHAVIORAL')
           VIDEO_INTERVIEW = new('VIDEO_INTERVIEW')

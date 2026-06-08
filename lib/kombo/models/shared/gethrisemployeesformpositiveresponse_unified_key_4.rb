@@ -9,8 +9,6 @@ module Kombo
     module Shared
 
       class GetHrisEmployeesFormPositiveResponseUnifiedKey4 < T::Enum
-
-
         enums do
           FIRST_NAME = new('first_name')
           LAST_NAME = new('last_name')

@@ -1,5 +1,16 @@
 # EmploymentEmploymentType
 
+## Example Usage
+
+```ruby
+require "kombo"
+
+value = EmploymentEmploymentType::FULL_TIME
+
+# Open enum: use .deserialize() to create instances from custom string values
+custom = EmploymentEmploymentType.deserialize("custom_value")
+```
+
 
 ## Values
 
