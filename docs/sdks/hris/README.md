@@ -89,6 +89,7 @@ end
 Get the form for creating an employee. This form can be rendered dynamically on your frontend to allow your customers to create employees in their HRIS.
 
 Follow our [create employee guide here](/hris/features/create-employee) to learn how this form is generated and how you can use it.
+The usage and impact of the staffing_entity_id parameter is described in the our [Create Employee Form with Staffing Entities guide](/hris/implementation-guide/staffing-entities-in-create-employee).
 
 ### Example Form
 ```json
@@ -192,6 +193,7 @@ end
 | Parameter                                        | Type                                             | Required                                         | Description                                      | Example                                          |
 | ------------------------------------------------ | ------------------------------------------------ | ------------------------------------------------ | ------------------------------------------------ | ------------------------------------------------ |
 | `integration_id`                                 | *T.nilable(::String)*                            | :heavy_minus_sign:                               | ID of the integration you want to interact with. | workday:HWUTwvyx2wLoSUHphiWVrp28                 |
+| `staffing_entity_id`                             | *T.nilable(::String)*                            | :heavy_minus_sign:                               | GET /hris/employees/form Parameter               |                                                  |
 
 ### Response
 
@@ -216,6 +218,7 @@ Create an employee, based on the form schema.
 
 ```json
 {
+  "staffing_entity_id": "26vafvWSRmbhNcxJYqjCzuJg",
   "properties": {
     "firstName": "John",
     "startDate": "2025-01-01",
@@ -246,6 +249,7 @@ s = ::Kombo::Kombo.new(
     )
 
 res = s.hris.create_employee_with_form(body: Models::Shared::PostHrisEmployeesFormRequestBody.new(
+  staffing_entity_id: '26vafvWSRmbhNcxJYqjCzuJg',
   properties: {
     "firstName": 'John',
     "startDate": '2025-01-01T00:00:00Z',

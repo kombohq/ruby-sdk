@@ -29,4 +29,5 @@ Some errors include an error code that can be used to identify their cause. See 
 | `REMOTE_RATE_LIMIT_EXCEEDED`          | REMOTE.RATE_LIMIT_EXCEEDED            |
 | `REMOTE_INPUT_INVALID`                | REMOTE.INPUT_INVALID                  |
 | `REMOTE_UNKNOWN_HTTP_ERROR`           | REMOTE.UNKNOWN_HTTP_ERROR             |
+| `HRIS_STAFFING_ENTITY_CLOSED`         | HRIS.STAFFING_ENTITY_CLOSED           |
 | `HRIS_EMPLOYEE_ALREADY_EXISTS`        | HRIS.EMPLOYEE_ALREADY_EXISTS          |

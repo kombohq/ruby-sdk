@@ -12,4 +12,6 @@ class Kombo::Models::Shared::PutAssessmentOrdersAssessmentOrderIdResultRequestBo
   def smartrecruiters=(str_); end
   def recruitee(); end
   def recruitee=(str_); end
+  def workday(); end
+  def workday=(str_); end
 end

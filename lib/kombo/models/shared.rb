@@ -6,6 +6,8 @@
 module Kombo
   module Models
     module Shared
+      autoload :AssessCandidateData, 'kombo/models/shared/assess_candidate_data.rb'
+      autoload :AssessCandidateTestResultData, 'kombo/models/shared/assess_candidate_test_result_data.rb'
       autoload :AssessmentOrderReceivedWebhookPayload, 'kombo/models/shared/assessmentorderreceivedwebhookpayload.rb'
       autoload :AssessmentOrderReceivedWebhookPayloadApplication, 'kombo/models/shared/assessmentorderreceivedwebhookpayload_application.rb'
       autoload :AssessmentOrderReceivedWebhookPayloadCandidate, 'kombo/models/shared/assessmentorderreceivedwebhookpayload_candidate.rb'
@@ -16,6 +18,8 @@ module Kombo
       autoload :AssessmentOrderReceivedWebhookPayloadLocation, 'kombo/models/shared/assessmentorderreceivedwebhookpayload_location.rb'
       autoload :AssessmentOrderReceivedWebhookPayloadStatus, 'kombo/models/shared/assessmentorderreceivedwebhookpayload_status.rb'
       autoload :AssessmentOrderReceivedWebhookPayloadType, 'kombo/models/shared/assessmentorderreceivedwebhookpayload_type.rb'
+      autoload :AssessmentTestStatusReference, 'kombo/models/shared/assessment_test_status_reference.rb'
+      autoload :CandidateAssessmentData, 'kombo/models/shared/candidate_assessment_data.rb'
       autoload :ConnectionFlowFailedWebhookPayload, 'kombo/models/shared/connectionflowfailedwebhookpayload.rb'
       autoload :ConnectionFlowFailedWebhookPayloadData, 'kombo/models/shared/connectionflowfailedwebhookpayload_data.rb'
       autoload :ConnectionFlowFailedWebhookPayloadEndUser, 'kombo/models/shared/connectionflowfailedwebhookpayload_end_user.rb'
@@ -708,6 +712,7 @@ module Kombo
       autoload :PutAssessmentOrdersAssessmentOrderIdResultRequestBodyRemoteFields, 'kombo/models/shared/putassessmentordersassessmentorderidresultrequestbody_remote_fields.rb'
       autoload :PutAssessmentOrdersAssessmentOrderIdResultRequestBodySmartrecruiters, 'kombo/models/shared/putassessmentordersassessmentorderidresultrequestbody_smartrecruiters.rb'
       autoload :PutAssessmentOrdersAssessmentOrderIdResultRequestBodyStatus, 'kombo/models/shared/putassessmentordersassessmentorderidresultrequestbody_status.rb'
+      autoload :PutAssessmentOrdersAssessmentOrderIdResultRequestBodyWorkday, 'kombo/models/shared/putassessmentordersassessmentorderidresultrequestbody_workday.rb'
       autoload :PutAssessmentPackagesPositiveResponse, 'kombo/models/shared/putassessmentpackagespositiveresponse.rb'
       autoload :PutAssessmentPackagesPositiveResponseData, 'kombo/models/shared/putassessmentpackagespositiveresponse_data.rb'
       autoload :PutAssessmentPackagesPositiveResponseWarning, 'kombo/models/shared/putassessmentpackagespositiveresponse_warning.rb'

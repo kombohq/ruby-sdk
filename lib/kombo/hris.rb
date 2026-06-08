@@ -207,12 +207,13 @@ module Kombo
     end
 
 
-    sig { params(integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::GetHrisEmployeesFormResponse) }
-    def get_employee_form(integration_id: nil, timeout_ms: nil)
+    sig { params(integration_id: T.nilable(::String), staffing_entity_id: T.nilable(::String), timeout_ms: T.nilable(Integer)).returns(Models::Operations::GetHrisEmployeesFormResponse) }
+    def get_employee_form(integration_id: nil, staffing_entity_id: nil, timeout_ms: nil)
       # get_employee_form - Get employee form
       # Get the form for creating an employee. This form can be rendered dynamically on your frontend to allow your customers to create employees in their HRIS.
       # 
       # Follow our [create employee guide here](/hris/features/create-employee) to learn how this form is generated and how you can use it.
+      # The usage and impact of the staffing_entity_id parameter is described in the our [Create Employee Form with Staffing Entities guide](/hris/implementation-guide/staffing-entities-in-create-employee).
       # 
       # ### Example Form
       # ```json
@@ -289,13 +290,15 @@ module Kombo
       # }
       # ```
       request = Models::Operations::GetHrisEmployeesFormRequest.new(
-        integration_id: integration_id
+        integration_id: integration_id,
+        staffing_entity_id: staffing_entity_id
       )
       url, params = @sdk_configuration.get_server_details
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/hris/employees/form"
       headers = Utils.get_headers(request, @sdk_configuration.globals)
       headers = T.cast(headers, T::Hash[String, String])
+      query_params = Utils.get_query_params(Models::Operations::GetHrisEmployeesFormRequest, request, nil, @sdk_configuration.globals)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
 
@@ -323,6 +326,7 @@ module Kombo
         http_response = T.must(connection).get(url) do |req|
           req.headers.merge!(headers)
           req.options.timeout = timeout unless timeout.nil?
+          req.params = query_params
           Utils.configure_request_security(req, security)
 
           @sdk_configuration.hooks.before_request(
@@ -412,6 +416,7 @@ module Kombo
       # 
       # ```json
       # {
+      #   "staffing_entity_id": "26vafvWSRmbhNcxJYqjCzuJg",
       #   "properties": {
       #     "firstName": "John",
       #     "startDate": "2025-01-01",

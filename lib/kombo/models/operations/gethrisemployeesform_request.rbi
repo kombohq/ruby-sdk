@@ -10,4 +10,6 @@ end
 class Kombo::Models::Operations::GetHrisEmployeesFormRequest
   def integration_id(); end
   def integration_id=(str_); end
+  def staffing_entity_id(); end
+  def staffing_entity_id=(str_); end
 end
