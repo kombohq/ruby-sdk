@@ -97,9 +97,9 @@ module Kombo
       @globals = globals.nil? ? {} : globals
       @language = 'ruby'
       @openapi_doc_version = '1.0.0'
-      @sdk_version = '1.2.0'
-      @gen_version = '2.893.0'
-      @user_agent = 'speakeasy-sdk/ruby 1.2.0 2.893.0 1.0.0 kombo'
+      @sdk_version = '1.2.1'
+      @gen_version = '2.904.2'
+      @user_agent = 'speakeasy-sdk/ruby 1.2.1 2.904.2 1.0.0 kombo'
     end
 
     sig { returns([String, T::Hash[Symbol, String]]) }
