@@ -126,9 +126,13 @@ value = IntegrationTool::WORKDAY
 | `LOGICMELON`                      | logicmelon                        |
 | `LOXO`                            | loxo                              |
 | `KULA`                            | kula                              |
+| `TRACKERRMS`                      | trackerrms                        |
+| `DATABITES`                       | databites                         |
+| `PAGEUP`                          | pageup                            |
 | `WORKDAYCUSTOMREPORT`             | workdaycustomreport               |
 | `WORKDAYCUSTOMREPORTSFTP`         | workdaycustomreportsftp           |
 | `UKGPROWFM`                       | ukgprowfm                         |
+| `ADPDECIDIUM`                     | adpdecidium                       |
 | `PAYFITCUSTOMER`                  | payfitcustomer                    |
 | `PAYFITPARTNER`                   | payfitpartner                     |
 | `PAYFIT`                          | payfit                            |
@@ -207,6 +211,8 @@ value = IntegrationTool::WORKDAY
 | `SFTPFETCH`                       | sftpfetch                         |
 | `THREE_HUNDRED_AND_SIXTYLEARNING` | 360learning                       |
 | `TALENTLMS`                       | talentlms                         |
+| `DOCEBO`                          | docebo                            |
+| `COURSERA`                        | coursera                          |
 | `UDEMY`                           | udemy                             |
 | `LINKEDINLEARNING`                | linkedinlearning                  |
 | `MOODLE`                          | moodle                            |
