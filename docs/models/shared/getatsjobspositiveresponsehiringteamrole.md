@@ -5,7 +5,7 @@
 ```ruby
 require "kombo"
 
-value = GetAtsJobsPositiveResponseHiringTeamRole::RECRUITER
+value = GetAtsJobsPositiveResponseHiringTeamRole::HIRING_MANAGER
 ```
 
 
@@ -13,8 +13,8 @@ value = GetAtsJobsPositiveResponseHiringTeamRole::RECRUITER
 
 | Name             | Value            |
 | ---------------- | ---------------- |
-| `RECRUITER`      | RECRUITER        |
 | `HIRING_MANAGER` | HIRING_MANAGER   |
+| `RECRUITER`      | RECRUITER        |
 | `COORDINATOR`    | COORDINATOR      |
 | `SOURCER`        | SOURCER          |
 | `INTERVIEWER`    | INTERVIEWER      |

@@ -25,9 +25,13 @@ value = Name::HRIS_LEGAL_ENTITIES
 | `HRIS_TIME_OFF_BALANCES`                     | hris_time_off_balances                       |
 | `HRIS_TIMESHEETS`                            | hris_timesheets                              |
 | `HRIS_EMPLOYEE_DOCUMENT_CATEGORIES`          | hris_employee_document_categories            |
-| `HRIS_PERFORMANCE_REVIEWS`                   | hris_performance_reviews                     |
 | `HRIS_PERFORMANCE_REVIEW_CYCLES`             | hris_performance_review_cycles               |
+| `HRIS_PERFORMANCE_REVIEWS`                   | hris_performance_reviews                     |
 | `HRIS_STAFFING_ENTITIES`                     | hris_staffing_entities                       |
+| `HRIS_SKILL_PROFICIENCY_SCALES`              | hris_skill_proficiency_scales                |
+| `HRIS_SKILLS`                                | hris_skills                                  |
+| `HRIS_SKILL_RATING_PROVIDERS`                | hris_skill_rating_providers                  |
+| `HRIS_EMPLOYEE_SKILL_PROFICIENCY_RATINGS`    | hris_employee_skill_proficiency_ratings      |
 | `ATS_USERS`                                  | ats_users                                    |
 | `ATS_JOBS`                                   | ats_jobs                                     |
 | `ATS_JOB_POSTINGS`                           | ats_job_postings                             |

@@ -12,4 +12,6 @@ class Kombo::Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyCovetorestCa
   def mandant=(str_); end
   def status(); end
   def status=(str_); end
+  def aktiv(); end
+  def aktiv=(str_); end
 end
