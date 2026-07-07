@@ -10,8 +10,8 @@ module Kombo
 
       class GetAtsJobsPositiveResponseHiringTeamRole < T::Enum
         enums do
-          RECRUITER = new('RECRUITER')
           HIRING_MANAGER = new('HIRING_MANAGER')
+          RECRUITER = new('RECRUITER')
           COORDINATOR = new('COORDINATOR')
           SOURCER = new('SOURCER')
           INTERVIEWER = new('INTERVIEWER')

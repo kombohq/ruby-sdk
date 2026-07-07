@@ -7,11 +7,10 @@
 module Kombo
   module Models
     module Shared
-      # GetAtsUsersPositiveResponseScope - Whether the role applies globally or is scoped to a specific job.
+      # GetAtsUsersPositiveResponseScope - Roles that apply at the system level.
       class GetAtsUsersPositiveResponseScope < T::Enum
         enums do
           SYSTEM = new('SYSTEM')
-          JOB = new('JOB')
         end
       end
     end

@@ -16,11 +16,14 @@ module Kombo
         field :mandant, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('mandant') } }
         # The numeric status ID to assign to the candidate on creation in Coveto. Refer to your Coveto `/bewerber-status` endpoint for available IDs.
         field :status, Crystalline::Nilable.new(::Integer), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('status') } }
+        # Whether the candidate is created as active (`Ja`) or inactive (`Nein`) in Coveto. If omitted, Coveto applies its default (active).
+        field :aktiv, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyAktiv), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('aktiv'), 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::PostAtsCandidatesRequestBodyAktiv, true) } }
 
-        sig { params(mandant: T.nilable(::Float), status: T.nilable(::Integer)).void }
-        def initialize(mandant: nil, status: nil)
+        sig { params(mandant: T.nilable(::Float), status: T.nilable(::Integer), aktiv: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyAktiv)).void }
+        def initialize(mandant: nil, status: nil, aktiv: nil)
           @mandant = mandant
           @status = status
+          @aktiv = aktiv
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
@@ -28,6 +31,7 @@ module Kombo
           return false unless other.is_a? self.class
           return false unless @mandant == other.mandant
           return false unless @status == other.status
+          return false unless @aktiv == other.aktiv
           true
         end
       end
