@@ -2,10 +2,10 @@
 # frozen_string_literal: true
 
 
-class Kombo::Models::Shared::Schema1Union2
+class Kombo::Models::Shared::Schema2
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class Kombo::Models::Shared::Schema1Union2
+class Kombo::Models::Shared::Schema2
 end

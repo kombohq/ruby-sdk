@@ -8,7 +8,7 @@ module Kombo
   module Models
     module Shared
 
-      class Schema1
+      class Schema2
         extend T::Sig
         include Crystalline::MetadataFields
 
