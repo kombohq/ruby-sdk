@@ -8,7 +8,7 @@ module Kombo
   module Models
     module Shared
 
-      class Schema2Object2
+      class Schema1Object1
         extend T::Sig
         include Crystalline::MetadataFields
 
@@ -17,15 +17,15 @@ module Kombo
 
         field :required, Crystalline::Boolean.new, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('required'), required: true } }
 
-        field :properties, Crystalline::Hash.new(Symbol, Crystalline::Union.new(Models::Shared::Schema1Text, Models::Shared::Schema1Number, Models::Shared::Schema1Date, Models::Shared::Schema1SingleSelect, Models::Shared::Schema1MultiSelect, Models::Shared::Schema1Checkbox, Models::Shared::Schema1Object, Models::Shared::Schema1Array2, Models::Shared::Schema1File)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('properties'), required: true } }
+        field :properties, Crystalline::Hash.new(Symbol, Crystalline::Union.new(Models::Shared::Schema1Text, Models::Shared::Schema1Number, Models::Shared::Schema1Date, Models::Shared::Schema1SingleSelect, Models::Shared::Schema1MultiSelect, Models::Shared::Schema1Checkbox, Models::Shared::Schema1Object1, Models::Shared::Schema1Array1, Models::Shared::Schema1File)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('properties'), required: true } }
 
         field :type, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('type'), required: true } }
 
         field :description, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('description') } }
 
-        field :unified_key, Crystalline::Nilable.new(Models::Shared::Schema2UnifiedKey6), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('unified_key'), 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::Schema2UnifiedKey6, true) } }
+        field :unified_key, Crystalline::Nilable.new(Models::Shared::Schema1UnifiedKey6), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('unified_key'), 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::Schema1UnifiedKey6, true) } }
 
-        sig { params(label: ::String, required: T::Boolean, properties: T::Hash[Symbol, T.any(Models::Shared::Schema1Text, Models::Shared::Schema1Number, Models::Shared::Schema1Date, Models::Shared::Schema1SingleSelect, Models::Shared::Schema1MultiSelect, Models::Shared::Schema1Checkbox, Models::Shared::Schema1Object, Models::Shared::Schema1Array2, Models::Shared::Schema1File)], type: ::String, description: T.nilable(::String), unified_key: T.nilable(Models::Shared::Schema2UnifiedKey6)).void }
+        sig { params(label: ::String, required: T::Boolean, properties: T::Hash[Symbol, T.any(Models::Shared::Schema1Text, Models::Shared::Schema1Number, Models::Shared::Schema1Date, Models::Shared::Schema1SingleSelect, Models::Shared::Schema1MultiSelect, Models::Shared::Schema1Checkbox, Models::Shared::Schema1Object1, Models::Shared::Schema1Array1, Models::Shared::Schema1File)], type: ::String, description: T.nilable(::String), unified_key: T.nilable(Models::Shared::Schema1UnifiedKey6)).void }
         def initialize(label:, required:, properties:, type: 'object', description: nil, unified_key: nil)
           @label = label
           @required = required

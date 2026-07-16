@@ -14,6 +14,8 @@ class Kombo::Models::Shared::Stage
   def remote_id=(str_); end
   def name(); end
   def name=(str_); end
+  def custom_fields(); end
+  def custom_fields=(str_); end
   def index(); end
   def index=(str_); end
 end

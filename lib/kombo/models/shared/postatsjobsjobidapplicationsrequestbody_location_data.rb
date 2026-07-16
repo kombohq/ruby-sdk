@@ -17,16 +17,19 @@ module Kombo
 
         field :address_line_2, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('Address_Line_2') } }
 
+        field :postal_code, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('Postal_Code') } }
+
         field :region_subdivision_1, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('Region_Subdivision_1') } }
 
         field :country_region_reference, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyCountryRegionReference), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('Country_Region_Reference') } }
 
         field :country_city_reference, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyCountryCityReference), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('Country_City_Reference') } }
 
-        sig { params(address_line_1: T.nilable(::String), address_line_2: T.nilable(::String), region_subdivision_1: T.nilable(::String), country_region_reference: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyCountryRegionReference), country_city_reference: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyCountryCityReference)).void }
-        def initialize(address_line_1: nil, address_line_2: nil, region_subdivision_1: nil, country_region_reference: nil, country_city_reference: nil)
+        sig { params(address_line_1: T.nilable(::String), address_line_2: T.nilable(::String), postal_code: T.nilable(::String), region_subdivision_1: T.nilable(::String), country_region_reference: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyCountryRegionReference), country_city_reference: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyCountryCityReference)).void }
+        def initialize(address_line_1: nil, address_line_2: nil, postal_code: nil, region_subdivision_1: nil, country_region_reference: nil, country_city_reference: nil)
           @address_line_1 = address_line_1
           @address_line_2 = address_line_2
+          @postal_code = postal_code
           @region_subdivision_1 = region_subdivision_1
           @country_region_reference = country_region_reference
           @country_city_reference = country_city_reference
@@ -37,6 +40,7 @@ module Kombo
           return false unless other.is_a? self.class
           return false unless @address_line_1 == other.address_line_1
           return false unless @address_line_2 == other.address_line_2
+          return false unless @postal_code == other.postal_code
           return false unless @region_subdivision_1 == other.region_subdivision_1
           return false unless @country_region_reference == other.country_region_reference
           return false unless @country_city_reference == other.country_city_reference

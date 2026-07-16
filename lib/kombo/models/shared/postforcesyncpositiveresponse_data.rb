@@ -12,7 +12,7 @@ module Kombo
         extend T::Sig
         include Crystalline::MetadataFields
 
-        # We only allow 1 concurrent sync to be running or queued.
+        # We only allow 1 concurrent sync of the same type to be running or queued.
         field :already_queued, Crystalline::Boolean.new, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('already_queued'), required: true } }
         # ID of the newly-created or already-queued-or-running sync.
         field :sync_id, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('sync_id'), required: true } }

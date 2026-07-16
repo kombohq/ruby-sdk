@@ -27,7 +27,7 @@ module Kombo
         # | Path | Added/Removed | Linked Record |
         # | --- | --- | --- |
         # | `stages` | ✓ Yes | ✗ No |
-        # | `screening_questions` | ✓ Yes | ✗ No |
+        # | `screening_questions` | ✓ Yes | ✓ Yes |
         # | `job_postings` | ✓ Yes | ✓ Yes |
         # | `hiring_team` | ✓ Yes | ✗ No |
         #

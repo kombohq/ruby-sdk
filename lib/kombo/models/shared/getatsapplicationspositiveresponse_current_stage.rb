@@ -18,14 +18,17 @@ module Kombo
         field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_id'), required: true } }
         # The application stage name. For example, "Initial Screening".
         field :name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('name'), required: true } }
+        # A key-value store of fields not covered by the schema. [Read more](/custom-fields)
+        field :custom_fields, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('custom_fields'), required: true } }
 
         field :index, Crystalline::Nilable.new(::Integer), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('index'), required: true } }
 
-        sig { params(id: ::String, remote_id: T.nilable(::String), name: T.nilable(::String), index: T.nilable(::Integer)).void }
-        def initialize(id:, remote_id: nil, name: nil, index: nil)
+        sig { params(id: ::String, remote_id: T.nilable(::String), name: T.nilable(::String), custom_fields: T.nilable(T::Hash[Symbol, ::Object]), index: T.nilable(::Integer)).void }
+        def initialize(id:, remote_id: nil, name: nil, custom_fields: nil, index: nil)
           @id = id
           @remote_id = remote_id
           @name = name
+          @custom_fields = custom_fields
           @index = index
         end
 
@@ -35,6 +38,7 @@ module Kombo
           return false unless @id == other.id
           return false unless @remote_id == other.remote_id
           return false unless @name == other.name
+          return false unless @custom_fields == other.custom_fields
           return false unless @index == other.index
           true
         end

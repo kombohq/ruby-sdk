@@ -17,7 +17,7 @@ module Kombo
 
         field :required, Crystalline::Boolean.new, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('required'), required: true } }
 
-        field :item_type, Crystalline::Union.new(Models::Shared::Schema2Text, Models::Shared::Schema2Number, Models::Shared::Schema2Date, Models::Shared::Schema2SingleSelect, Models::Shared::Schema2MultiSelect, Models::Shared::Schema2Checkbox, Models::Shared::Schema2Object2, Models::Shared::Schema2Array2, Models::Shared::Schema2File), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('item_type'), required: true } }
+        field :item_type, Crystalline::Union.new(Models::Shared::Schema2Text, Models::Shared::Schema2Number, Models::Shared::Schema2Date, Models::Shared::Schema2SingleSelect, Models::Shared::Schema2MultiSelect, Models::Shared::Schema2Checkbox, Models::Shared::Schema2Object1, Models::Shared::Schema2Array1, Models::Shared::Schema2File), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('item_type'), required: true } }
 
         field :type, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('type'), required: true } }
 
@@ -29,7 +29,7 @@ module Kombo
 
         field :max_items, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('max_items') } }
 
-        sig { params(label: ::String, required: T::Boolean, item_type: T.any(Models::Shared::Schema2Text, Models::Shared::Schema2Number, Models::Shared::Schema2Date, Models::Shared::Schema2SingleSelect, Models::Shared::Schema2MultiSelect, Models::Shared::Schema2Checkbox, Models::Shared::Schema2Object2, Models::Shared::Schema2Array2, Models::Shared::Schema2File), type: ::String, description: T.nilable(::String), unified_key: T.nilable(Models::Shared::GetHrisEmployeesFormPositiveResponseUnifiedKey7), min_items: T.nilable(::Float), max_items: T.nilable(::Float)).void }
+        sig { params(label: ::String, required: T::Boolean, item_type: T.any(Models::Shared::Schema2Text, Models::Shared::Schema2Number, Models::Shared::Schema2Date, Models::Shared::Schema2SingleSelect, Models::Shared::Schema2MultiSelect, Models::Shared::Schema2Checkbox, Models::Shared::Schema2Object1, Models::Shared::Schema2Array1, Models::Shared::Schema2File), type: ::String, description: T.nilable(::String), unified_key: T.nilable(Models::Shared::GetHrisEmployeesFormPositiveResponseUnifiedKey7), min_items: T.nilable(::Float), max_items: T.nilable(::Float)).void }
         def initialize(label:, required:, item_type:, type: 'array', description: nil, unified_key: nil, min_items: nil, max_items: nil)
           @label = label
           @required = required
