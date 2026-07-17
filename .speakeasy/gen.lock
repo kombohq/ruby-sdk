@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: a945ea15-b620-47b9-9868-c165c173bf88
 management:
-  docChecksum: 2239768b852efd1ae1f493ced6d51271
+  docChecksum: 09f7920ae889bbb03d2b6daacc64dddb
   docVersion: 1.0.0
   speakeasyVersion: 1.790.2
   generationVersion: 2.918.3
-  releaseVersion: 1.2.2
-  configChecksum: 7798eeffab14662e81340ee73cb8f087
+  releaseVersion: 1.2.3
+  configChecksum: 855bbfbda84bdabad022c90f176363d7
   repoURL: https://github.com/kombohq/ruby-sdk.git
   installationURL: https://github.com/kombohq/ruby-sdk
   published: true
 persistentEdits:
-  generation_id: 4a712886-9ca9-4ff5-9941-7dab62de5523
-  pristine_commit_hash: 676116efb7402bc4f2cde2504066dcfc6ccd6211
-  pristine_tree_hash: d0a712d5c1cf172c50ef3f894038387ae2c1b8ae
+  generation_id: 55e0370d-773f-461d-a82e-8ce63253c985
+  pristine_commit_hash: c2b74e172cfec34733b3bd8fa44966d347e54744
+  pristine_tree_hash: 6d69bb06db4107eaf328d0f33c8a3abd93ef4d26
 features:
   ruby:
     constsAndDefaults: 0.1.4
@@ -54,8 +54,8 @@ trackedFiles:
     pristine_git_object: b0ea40558f3ca80dcf7d30b159d34a1e5ab33440
   Gemfile.lock:
     id: 21fb5836b499
-    last_write_checksum: sha1:3152807f7e63416f8054bb5c02172f3dc0bc129d
-    pristine_git_object: 781b0795848628bff0a5112cf38913b48db66d95
+    last_write_checksum: sha1:fbbdf6fa6c8baf193fd9e0bc8201ddc5c1b36e64
+    pristine_git_object: f9aaf2db8f553f82a50bf628cbf5cff86c3e27b7
   Rakefile:
     id: 44b7fa1ba503
     last_write_checksum: sha1:c572639efdae8c7b24141ee5c02d8f009e101ed8
@@ -4186,16 +4186,16 @@ trackedFiles:
     pristine_git_object: ea63e68d96e99d9fc55cc53805523eb487b62dd7
   docs/sdks/general/README.md:
     id: ce0ada6fa2e1
-    last_write_checksum: sha1:c264d9cc5728a47ee75e494d4c01ad47076f8716
-    pristine_git_object: a127fa0f20bbf00d712eae3392ce053f51e51f21
+    last_write_checksum: sha1:06f75fd434737d4521e446bdd6dd2c8bd74da05e
+    pristine_git_object: f3e40f4b30533e08fae5945289a8ceec06ca5d62
   docs/sdks/hris/README.md:
     id: 0baa868a038c
     last_write_checksum: sha1:d656d4a6b204f5c1504a0735560e2668299759f4
     pristine_git_object: e909827135039455b4ad24b07b2177fe8c2dccf1
   kombo.gemspec:
     id: 476dd5dc2d31
-    last_write_checksum: sha1:eb3454c8f76798b6a064738e9745a7378a3e87f2
-    pristine_git_object: d6473640c8eb2f2eb03c631cdbad9cbb4f737168
+    last_write_checksum: sha1:3e7b732e7e31dac6a0fed3a235a8ac9aea158f50
+    pristine_git_object: 118d6d83e60f2704b9df9250205da197b8ab7868
   lib/crystalline.rb:
     id: eca767cf937a
     last_write_checksum: sha1:b6ec0a2833f58ba9a6f07c9637fdca05e59006d3
@@ -4238,8 +4238,8 @@ trackedFiles:
     pristine_git_object: 8f6448cc95e312ec494cf40001850f3214d3b395
   lib/kombo/general.rb:
     id: b25b5d515a10
-    last_write_checksum: sha1:933595c6833d0a235530aaddc56742cc6978fee1
-    pristine_git_object: fe766e4b12fc756105fa418e35adc09c803c0851
+    last_write_checksum: sha1:b2cf1d9b6f06ac18d9a33a5779db3669ba8e3de5
+    pristine_git_object: f1c957192a12c1e6a6dcb6a1cc0a3f9457a8898b
   lib/kombo/hris.rb:
     id: 13c3ecc1e9af
     last_write_checksum: sha1:ccd6d927007978ffe1ab637ba36753bc306cd196
@@ -12502,8 +12502,8 @@ trackedFiles:
     pristine_git_object: cc0af5d0bc79da7ef48343408db80c1436d75ef9
   lib/kombo/sdkconfiguration.rb:
     id: 576e58b2ad72
-    last_write_checksum: sha1:fa545eaa3e12bb2acfb14c19618d8d7af0e8cc26
-    pristine_git_object: 714a2d12c0ed286acad8dbb0073767d8e34bbef7
+    last_write_checksum: sha1:84661e67935f0fbea6491264769f14ce6678b870
+    pristine_git_object: c17b0bf8f51c861604bf3099e19c7163de8faad3
   lib/kombo/sdkconfiguration.rbi:
     id: d1d4becc3542
     last_write_checksum: sha1:d6a79e38280d703264428e6158d6d796ba61d63f
@@ -15107,4 +15107,3 @@ examples:
         default:
           application/json: {"status": "error", "error": {"code": "PLATFORM.RATE_LIMIT_EXCEEDED", "title": null, "message": "<value>", "log_url": "https://married-yin.org/"}}
 examplesVersion: 1.0.2
-releaseNotes: "## Ruby SDK Changes:\n* `kombo.ats.get_applications()`:  `response.data.results[].current_stage.custom_fields` **Added**\n* `kombo.ats.move_application_to_stage()`: \n  *  `request.body.remote_fields.successfactors` **Added**\n* `kombo.ats.create_candidate()`: \n  *  `request.body.remote_fields.workday.candidate_data.contact_data.location_data.postal_code` **Added**\n* `kombo.ats.get_application_stages()`:  `response.data.results[].custom_fields` **Added**\n* `kombo.ats.get_jobs()`:  `response.data.results[].stages[].custom_fields` **Added**\n* `kombo.ats.create_application()`: \n  *  `request.body.remote_fields.workday.candidate_data.contact_data.location_data.postal_code` **Added**\n"
