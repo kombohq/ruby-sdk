@@ -21,18 +21,21 @@ module Kombo
         field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_id'), required: true } }
         # The application stage name. For example, "Initial Screening".
         field :name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('name'), required: true } }
+        # Whether the application stage is active in the ATS. Inactive stages (also e.g., archived or hidden) may still be referenced by existing applications but are typically not part of the current hiring workflow.
+        field :status, Crystalline::Nilable.new(Models::Shared::GetAtsApplicationStagesPositiveResponseStatus), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('status'), required: true, 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::GetAtsApplicationStagesPositiveResponseStatus, false) } }
         # A key-value store of fields not covered by the schema. [Read more](/custom-fields)
         field :custom_fields, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('custom_fields'), required: true } }
         # The date and time the object was deleted in the remote system. Objects are automatically marked as deleted when Kombo can't retrieve them from the remote system anymore. Kombo will also anonymize entries 14 days after they disappear.
         # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
         field :remote_deleted_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_deleted_at'), required: true, 'decoder': ::Kombo::Utils.datetime_from_iso_format(false) } }
 
-        sig { params(id: ::String, changed_at: ::DateTime, remote_id: T.nilable(::String), name: T.nilable(::String), custom_fields: T.nilable(T::Hash[Symbol, ::Object]), remote_deleted_at: T.nilable(::DateTime)).void }
-        def initialize(id:, changed_at:, remote_id: nil, name: nil, custom_fields: nil, remote_deleted_at: nil)
+        sig { params(id: ::String, changed_at: ::DateTime, remote_id: T.nilable(::String), name: T.nilable(::String), status: T.nilable(Models::Shared::GetAtsApplicationStagesPositiveResponseStatus), custom_fields: T.nilable(T::Hash[Symbol, ::Object]), remote_deleted_at: T.nilable(::DateTime)).void }
+        def initialize(id:, changed_at:, remote_id: nil, name: nil, status: nil, custom_fields: nil, remote_deleted_at: nil)
           @id = id
           @changed_at = changed_at
           @remote_id = remote_id
           @name = name
+          @status = status
           @custom_fields = custom_fields
           @remote_deleted_at = remote_deleted_at
         end
@@ -44,6 +47,7 @@ module Kombo
           return false unless @changed_at == other.changed_at
           return false unless @remote_id == other.remote_id
           return false unless @name == other.name
+          return false unless @status == other.status
           return false unless @custom_fields == other.custom_fields
           return false unless @remote_deleted_at == other.remote_deleted_at
           true

@@ -28,9 +28,9 @@ module Kombo
         # - `DRAFT`: The offer is a draft and has not yet been sent to the candidate.
         # - `ABANDONED`: The offer has expired or is no longer valid and should not be considered.
         #
-        field :status, Crystalline::Nilable.new(Models::Shared::GetAtsApplicationsPositiveResponseStatus), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('status'), required: true, 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::GetAtsApplicationsPositiveResponseStatus, false) } }
+        field :status, Crystalline::Nilable.new(Models::Shared::OfferStatus), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('status'), required: true, 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::OfferStatus, false) } }
 
-        sig { params(id: ::String, remote_id: T.nilable(::String), status: T.nilable(Models::Shared::GetAtsApplicationsPositiveResponseStatus)).void }
+        sig { params(id: ::String, remote_id: T.nilable(::String), status: T.nilable(Models::Shared::OfferStatus)).void }
         def initialize(id:, remote_id: nil, status: nil)
           @id = id
           @remote_id = remote_id

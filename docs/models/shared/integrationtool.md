@@ -89,6 +89,7 @@ value = IntegrationTool::WORKDAY
 | `HOMERUN`                         | homerun                           |
 | `MYSOLUTION`                      | mysolution                        |
 | `CARERIX`                         | carerix                           |
+| `CARERIXGRAPHQL`                  | carerixgraphql                    |
 | `HROFFICE`                        | hroffice                          |
 | `TALENTCLUE`                      | talentclue                        |
 | `INRECRUITING`                    | inrecruiting                      |

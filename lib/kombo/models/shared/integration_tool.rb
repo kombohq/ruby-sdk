@@ -84,6 +84,7 @@ module Kombo
           HOMERUN = new('homerun')
           MYSOLUTION = new('mysolution')
           CARERIX = new('carerix')
+          CARERIXGRAPHQL = new('carerixgraphql')
           HROFFICE = new('hroffice')
           TALENTCLUE = new('talentclue')
           INRECRUITING = new('inrecruiting')
