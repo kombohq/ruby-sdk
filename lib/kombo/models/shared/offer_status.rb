@@ -7,7 +7,7 @@
 module Kombo
   module Models
     module Shared
-      # GetAtsApplicationsPositiveResponseStatus - The offer’s current status. The usual flow of statuses is as follows:
+      # OfferStatus - The offer’s current status. The usual flow of statuses is as follows:
       # `DRAFT` -> `APPROVED` -> `SENT` -> `ACCEPTED` or `DECLINED`.
       #
       # Please note that not all systems will expose all statuses. For example, most systems do not include the `APPROVED` status
@@ -19,7 +19,7 @@ module Kombo
       # - `DRAFT`: The offer is a draft and has not yet been sent to the candidate.
       # - `ABANDONED`: The offer has expired or is no longer valid and should not be considered.
       #
-      class GetAtsApplicationsPositiveResponseStatus < T::Enum
+      class OfferStatus < T::Enum
         enums do
           ACCEPTED = new('ACCEPTED')
           DECLINED = new('DECLINED')

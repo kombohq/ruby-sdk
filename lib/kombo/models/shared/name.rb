@@ -49,6 +49,7 @@ module Kombo
           HRIS_JOIN_STAFFING_ENTITIES_LOCATIONS = new('hris_join_staffing_entities_locations')
           HRIS_JOIN_STAFFING_ENTITIES_LEGAL_ENTITIES = new('hris_join_staffing_entities_legal_entities')
           HRIS_JOIN_STAFFING_ENTITIES_GROUPS = new('hris_join_staffing_entities_groups')
+          HRIS_JOIN_STAFFING_ENTITIES_SKILLS = new('hris_join_staffing_entities_skills')
           ATS_JOIN_CANDIDATES_TAGS = new('ats_join_candidates_tags')
           ATS_JOIN_JOBS_APPLICATION_STAGES = new('ats_join_jobs_application_stages')
           ATS_JOIN_JOBS_SCREENING_QUESTIONS = new('ats_join_jobs_screening_questions')

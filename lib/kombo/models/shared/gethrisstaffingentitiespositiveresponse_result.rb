@@ -25,6 +25,8 @@ module Kombo
         field :legal_entities, Crystalline::Array.new(Models::Shared::GetHrisStaffingEntitiesPositiveResponseLegalEntity), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('legal_entities'), required: true } }
         # The organizational groups (such as departments, teams, or cost centers) associated with this staffing entity.
         field :groups, Crystalline::Array.new(Models::Shared::GetHrisStaffingEntitiesPositiveResponseGroup), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('groups'), required: true } }
+        # The skills expected on this staffing entity (role), with the expected proficiency level per skill.
+        field :skills, Crystalline::Array.new(Models::Shared::Skill), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('skills'), required: true } }
         # The name/title of the staffing entity.
         field :name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('name'), required: true } }
         # The remote model type of the record. Possible values are "JOB", "POSITION" or "REQUISITION". We recommend that users of our `create employee` endpoint ask the customer whether they want to hire into positions or requisitions.
@@ -59,14 +61,15 @@ module Kombo
         # A key-value store of fields not covered by the schema. [Read more](/custom-fields)
         field :custom_fields, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('custom_fields'), required: true } }
 
-        sig { params(id: ::String, remote_id: ::String, changed_at: ::DateTime, locations: T::Array[Models::Shared::GetHrisStaffingEntitiesPositiveResponseLocation], legal_entities: T::Array[Models::Shared::GetHrisStaffingEntitiesPositiveResponseLegalEntity], groups: T::Array[Models::Shared::GetHrisStaffingEntitiesPositiveResponseGroup], name: T.nilable(::String), model_type: T.nilable(Models::Shared::ModelType), description: T.nilable(::String), status: T.nilable(Models::Shared::GetHrisStaffingEntitiesPositiveResponseStatus), employment_types: T.nilable(T::Array[Models::Shared::GetHrisStaffingEntitiesPositiveResponseEmploymentType]), number_of_openings: T.nilable(::Float), parent_id: T.nilable(::String), remote_url: T.nilable(::String), remote_created_at: T.nilable(::DateTime), remote_updated_at: T.nilable(::DateTime), remote_deleted_at: T.nilable(::DateTime), custom_fields: T.nilable(T::Hash[Symbol, ::Object])).void }
-        def initialize(id:, remote_id:, changed_at:, locations:, legal_entities:, groups:, name: nil, model_type: nil, description: nil, status: nil, employment_types: nil, number_of_openings: nil, parent_id: nil, remote_url: nil, remote_created_at: nil, remote_updated_at: nil, remote_deleted_at: nil, custom_fields: nil)
+        sig { params(id: ::String, remote_id: ::String, changed_at: ::DateTime, locations: T::Array[Models::Shared::GetHrisStaffingEntitiesPositiveResponseLocation], legal_entities: T::Array[Models::Shared::GetHrisStaffingEntitiesPositiveResponseLegalEntity], groups: T::Array[Models::Shared::GetHrisStaffingEntitiesPositiveResponseGroup], skills: T::Array[Models::Shared::Skill], name: T.nilable(::String), model_type: T.nilable(Models::Shared::ModelType), description: T.nilable(::String), status: T.nilable(Models::Shared::GetHrisStaffingEntitiesPositiveResponseStatus), employment_types: T.nilable(T::Array[Models::Shared::GetHrisStaffingEntitiesPositiveResponseEmploymentType]), number_of_openings: T.nilable(::Float), parent_id: T.nilable(::String), remote_url: T.nilable(::String), remote_created_at: T.nilable(::DateTime), remote_updated_at: T.nilable(::DateTime), remote_deleted_at: T.nilable(::DateTime), custom_fields: T.nilable(T::Hash[Symbol, ::Object])).void }
+        def initialize(id:, remote_id:, changed_at:, locations:, legal_entities:, groups:, skills:, name: nil, model_type: nil, description: nil, status: nil, employment_types: nil, number_of_openings: nil, parent_id: nil, remote_url: nil, remote_created_at: nil, remote_updated_at: nil, remote_deleted_at: nil, custom_fields: nil)
           @id = id
           @remote_id = remote_id
           @changed_at = changed_at
           @locations = locations
           @legal_entities = legal_entities
           @groups = groups
+          @skills = skills
           @name = name
           @model_type = model_type
           @description = description
@@ -90,6 +93,7 @@ module Kombo
           return false unless @locations == other.locations
           return false unless @legal_entities == other.legal_entities
           return false unless @groups == other.groups
+          return false unless @skills == other.skills
           return false unless @name == other.name
           return false unless @model_type == other.model_type
           return false unless @description == other.description

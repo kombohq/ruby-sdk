@@ -20,6 +20,8 @@ class Kombo::Models::Shared::GetHrisStaffingEntitiesPositiveResponseResult
   def legal_entities=(str_); end
   def groups(); end
   def groups=(str_); end
+  def skills(); end
+  def skills=(str_); end
   def name(); end
   def name=(str_); end
   def model_type(); end

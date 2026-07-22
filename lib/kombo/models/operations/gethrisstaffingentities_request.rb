@@ -29,6 +29,7 @@ module Kombo
         # | `locations` | ✓ Yes | ✓ Yes |
         # | `legal_entities` | ✓ Yes | ✓ Yes |
         # | `groups` | ✓ Yes | ✓ Yes |
+        # | `skills` | ✓ Yes | ✓ Yes |
         #
         # _**Added/Removed**: Whether adding or removing entries from this list triggers an update (n/a for single records). **Linked Record**: Whether changes to the linked record itself trigger an update._
         field :updated_after, Crystalline::Nilable.new(::DateTime), { 'query_param': { 'field_name': 'updated_after', 'style': 'form', 'explode': true } }

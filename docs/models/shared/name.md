@@ -54,6 +54,7 @@ value = Name::HRIS_LEGAL_ENTITIES
 | `HRIS_JOIN_STAFFING_ENTITIES_LOCATIONS`      | hris_join_staffing_entities_locations        |
 | `HRIS_JOIN_STAFFING_ENTITIES_LEGAL_ENTITIES` | hris_join_staffing_entities_legal_entities   |
 | `HRIS_JOIN_STAFFING_ENTITIES_GROUPS`         | hris_join_staffing_entities_groups           |
+| `HRIS_JOIN_STAFFING_ENTITIES_SKILLS`         | hris_join_staffing_entities_skills           |
 | `ATS_JOIN_CANDIDATES_TAGS`                   | ats_join_candidates_tags                     |
 | `ATS_JOIN_JOBS_APPLICATION_STAGES`           | ats_join_jobs_application_stages             |
 | `ATS_JOIN_JOBS_SCREENING_QUESTIONS`          | ats_join_jobs_screening_questions            |
