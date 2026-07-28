@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    kombo (1.2.4)
+    kombo (1.2.5)
       base64 (>= 0.2.0, < 1.0)
       faraday (>= 2.14.3)
       faraday-multipart (~> 1.2.0)

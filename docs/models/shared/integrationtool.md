@@ -34,6 +34,7 @@ value = IntegrationTool::WORKDAY
 | `TALENTSOFT`                      | talentsoft                        |
 | `TALENTSOFTCUSTOMER`              | talentsoftcustomer                |
 | `CONCLUDIS`                       | concludis                         |
+| `PERBILITYHELIX`                  | perbilityhelix                    |
 | `TALENTION`                       | talention                         |
 | `PILOGA`                          | piloga                            |
 | `ONLYFY`                          | onlyfy                            |
@@ -190,7 +191,6 @@ value = IntegrationTool::WORKDAY
 | `OYSTERHR`                        | oysterhr                          |
 | `KIWIHR`                          | kiwihr                            |
 | `SQUARE`                          | square                            |
-| `PERBILITYHELIX`                  | perbilityhelix                    |
 | `LEAPSOME`                        | leapsome                          |
 | `LOKET`                           | loket                             |
 | `WORKFORCECOM`                    | workforcecom                      |

@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: a945ea15-b620-47b9-9868-c165c173bf88
 management:
-  docChecksum: 134b13e5dfdfee8b564f510ed26c321e
+  docChecksum: da87c0bff2b2c2419968fa39284dc718
   docVersion: 1.0.0
-  speakeasyVersion: 1.790.3
-  generationVersion: 2.918.4
-  releaseVersion: 1.2.4
-  configChecksum: e28463b502fa5b4ba4d5acc9328da11f
+  speakeasyVersion: 1.791.0
+  generationVersion: 2.924.0
+  releaseVersion: 1.2.5
+  configChecksum: 85c64242982e837940439223e20bde56
   repoURL: https://github.com/kombohq/ruby-sdk.git
   installationURL: https://github.com/kombohq/ruby-sdk
   published: true
 persistentEdits:
-  generation_id: 1506868c-e05d-4bd4-97ca-ec79466bd214
-  pristine_commit_hash: 69394a32fe80349234e94efec9bc58d4ae7452bb
-  pristine_tree_hash: 2d22a1e3441cd5cb98bddc1540e93bacb361cf12
+  generation_id: 483169d6-d171-4b96-8b43-03b13f3a2aad
+  pristine_commit_hash: 46400bda64b62ffbc4282761e408adb7a234c240
+  pristine_tree_hash: 441d101d3016a8164c0a26871516060c3cd5399b
 features:
   ruby:
     constsAndDefaults: 0.1.4
@@ -54,8 +54,8 @@ trackedFiles:
     pristine_git_object: b0ea40558f3ca80dcf7d30b159d34a1e5ab33440
   Gemfile.lock:
     id: 21fb5836b499
-    last_write_checksum: sha1:9e807365c810ffa824c46217242ce4a27edc0371
-    pristine_git_object: eccaf9bdc4bbe50e8aef77b5981a6d2d8e3b349a
+    last_write_checksum: sha1:fc573c89abc478ff8930050fddcb9388ad4d260c
+    pristine_git_object: 9cc074e8e091b5c1cc24417667d65362fee32e86
   Rakefile:
     id: 44b7fa1ba503
     last_write_checksum: sha1:c572639efdae8c7b24141ee5c02d8f009e101ed8
@@ -2018,8 +2018,8 @@ trackedFiles:
     pristine_git_object: 8c4cd0f5a74e78fff37648b8c20dde4f9d2f68b1
   docs/models/shared/integrationtool.md:
     id: ccbce9847167
-    last_write_checksum: sha1:2c66187d24be5f53509f9ebf831882fdf33bf608
-    pristine_git_object: 72c7a7766270ef911399c6c7c83dea7e28a1068f
+    last_write_checksum: sha1:8cb45a34c268119879e801897e5f4df722c3c10a
+    pristine_git_object: 7c2f4b7b6291269683c3f066d815c8fc125ae764
   docs/models/shared/interview.md:
     id: d8d282f154af
     last_write_checksum: sha1:8a02e7bc37075650da6db4da83362416f77a08ac
@@ -4234,16 +4234,16 @@ trackedFiles:
     pristine_git_object: ea63e68d96e99d9fc55cc53805523eb487b62dd7
   docs/sdks/general/README.md:
     id: ce0ada6fa2e1
-    last_write_checksum: sha1:1a4874c7c4e41c889aaeae73f22434c4b86681b8
-    pristine_git_object: 1e81ead766e840fba05fc0341f82de029880c4de
+    last_write_checksum: sha1:e61b228c018c7f9ba31cccec329a9e0bba6d8181
+    pristine_git_object: 4167f844f9708fb84d0db3596c49cf0f8cf0f22a
   docs/sdks/hris/README.md:
     id: 0baa868a038c
     last_write_checksum: sha1:87d1167bd44b7353b9ebdedced15be45a85734dc
     pristine_git_object: 5083d2ba5fe09066617b232c52d785f38e20c30f
   kombo.gemspec:
     id: 476dd5dc2d31
-    last_write_checksum: sha1:e1c07a7e59be3b44ac17232d03da475c8a0a0588
-    pristine_git_object: a6c4295b7cbded67c8e52072e55a7fa933434e2a
+    last_write_checksum: sha1:ccbb742a588412e293963e2d5dda9c894633ca9a
+    pristine_git_object: 73512c23f390b642a32f19b9de2f2aa19e95c128
   lib/crystalline.rb:
     id: eca767cf937a
     last_write_checksum: sha1:b6ec0a2833f58ba9a6f07c9637fdca05e59006d3
@@ -4286,8 +4286,8 @@ trackedFiles:
     pristine_git_object: 8f6448cc95e312ec494cf40001850f3214d3b395
   lib/kombo/general.rb:
     id: b25b5d515a10
-    last_write_checksum: sha1:078450e1e53fc8b276fe62a2ae389cad1ee5b1d5
-    pristine_git_object: 68013610cae332ba5c255b6e2bdb967d7936c7e8
+    last_write_checksum: sha1:2f5dd8fc2ba08ccb0db41f432cc740486628424e
+    pristine_git_object: e277ef19aaf25d41bf05d485595d738fa7914190
   lib/kombo/hris.rb:
     id: 13c3ecc1e9af
     last_write_checksum: sha1:09e7bc0edc4c456f95923469378d13ba8050a5e1
@@ -8098,8 +8098,8 @@ trackedFiles:
     pristine_git_object: 09fbe2242df9ce143c5ddd53845afba6ae054e6f
   lib/kombo/models/shared/integration_tool.rb:
     id: ec252bdaa1fd
-    last_write_checksum: sha1:3018b9f0b8639e84cd74277ce39d021d893d7736
-    pristine_git_object: 7963d4a4297c3d4407805a11f54229992d971d1d
+    last_write_checksum: sha1:c0cf63a9857133d9a12fc83a5e7fe61e3a91225c
+    pristine_git_object: 345bd1ea40188b8a4f697d7537e60cd4658e59c5
   lib/kombo/models/shared/integration_tool.rbi:
     id: fecc74b6f738
     last_write_checksum: sha1:c0987391d8322f5bca901ba6cc47a8c2bac6b195
@@ -12646,8 +12646,8 @@ trackedFiles:
     pristine_git_object: cc0af5d0bc79da7ef48343408db80c1436d75ef9
   lib/kombo/sdkconfiguration.rb:
     id: 576e58b2ad72
-    last_write_checksum: sha1:214089adf1b8c2c041321936401a8c950593aa33
-    pristine_git_object: 1fb4da89d4c707aacf319e43f6a7aa4b48f27cca
+    last_write_checksum: sha1:b0b8cfa3acfcc6be1d7e825cc02111007671f2c0
+    pristine_git_object: 1896edae2f859b0c0d387f9c67287b914e341fed
   lib/kombo/sdkconfiguration.rbi:
     id: d1d4becc3542
     last_write_checksum: sha1:d6a79e38280d703264428e6158d6d796ba61d63f
@@ -15251,4 +15251,3 @@ examples:
         default:
           application/json: {"status": "error", "error": {"code": "PLATFORM.RATE_LIMIT_EXCEEDED", "title": null, "message": "<value>", "log_url": "https://married-yin.org/"}}
 examplesVersion: 1.0.2
-releaseNotes: "## Ruby SDK Changes:\n* `kombo.hris.get_staffing_entities()`:  `response.data.results[].skills` **Added**\n* `kombo.ats.get_applications()`:  `response.data.results[].current_stage.status` **Added**\n* `kombo.ats.get_application_stages()`:  `response.data.results[].status` **Added**\n* `kombo.ats.get_jobs()`:  `response.data.results[].stages[].status` **Added**\n* `kombo.connect.create_connection_link()`: \n  *  `request.integration_tool.enum(carerixgraphql)` **Added**\n"
