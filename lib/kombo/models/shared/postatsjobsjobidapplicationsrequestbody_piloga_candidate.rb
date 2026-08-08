@@ -14,16 +14,21 @@ module Kombo
 
         # The street address of the candidate.
         field :street, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('street') } }
+        # The birth date of the candidate, written into the "Geburtsdatum" field of the application form. Format: `YYYY-MM-DD`
+        # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
+        field :geburtsdatum, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('geburtsdatum'), 'decoder': ::Kombo::Utils.datetime_from_iso_format(true) } }
 
-        sig { params(street: T.nilable(::String)).void }
-        def initialize(street: nil)
+        sig { params(street: T.nilable(::String), geburtsdatum: T.nilable(::DateTime)).void }
+        def initialize(street: nil, geburtsdatum: nil)
           @street = street
+          @geburtsdatum = geburtsdatum
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @street == other.street
+          return false unless @geburtsdatum == other.geburtsdatum
           true
         end
       end

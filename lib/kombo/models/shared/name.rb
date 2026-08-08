@@ -39,6 +39,7 @@ module Kombo
           ATS_OFFERS = new('ats_offers')
           ATS_REJECTION_REASONS = new('ats_rejection_reasons')
           ATS_ROLES = new('ats_roles')
+          ATS_NOTES = new('ats_notes')
           LMS_USERS = new('lms_users')
           LMS_COURSE_PROVIDERS = new('lms_course_providers')
           LMS_SKILLS = new('lms_skills')

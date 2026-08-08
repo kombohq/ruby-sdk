@@ -44,6 +44,7 @@ value = Name::HRIS_LEGAL_ENTITIES
 | `ATS_OFFERS`                                 | ats_offers                                   |
 | `ATS_REJECTION_REASONS`                      | ats_rejection_reasons                        |
 | `ATS_ROLES`                                  | ats_roles                                    |
+| `ATS_NOTES`                                  | ats_notes                                    |
 | `LMS_USERS`                                  | lms_users                                    |
 | `LMS_COURSE_PROVIDERS`                       | lms_course_providers                         |
 | `LMS_SKILLS`                                 | lms_skills                                   |

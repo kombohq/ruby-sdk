@@ -30,6 +30,8 @@ module Kombo
       autoload :GetAtsInterviewsResponse, 'kombo/models/operations/getatsinterviews_response.rb'
       autoload :GetAtsJobsRequest, 'kombo/models/operations/getatsjobs_request.rb'
       autoload :GetAtsJobsResponse, 'kombo/models/operations/getatsjobs_response.rb'
+      autoload :GetAtsNotesRequest, 'kombo/models/operations/getatsnotes_request.rb'
+      autoload :GetAtsNotesResponse, 'kombo/models/operations/getatsnotes_response.rb'
       autoload :GetAtsOffersRequest, 'kombo/models/operations/getatsoffers_request.rb'
       autoload :GetAtsOffersResponse, 'kombo/models/operations/getatsoffers_response.rb'
       autoload :GetAtsRejectionReasonsRequest, 'kombo/models/operations/getatsrejectionreasons_request.rb'
