@@ -16,11 +16,14 @@ module Kombo
         field :candidate, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('candidate') } }
         # Fields that we will pass through to Bullhorn's `JobSubmission` object.
         field :job_submission, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('job_submission') } }
+        # The remote ID of the Bullhorn `Candidate` the application should be filed on. When set, we skip Bullhorn's duplicate detection and use exactly this candidate, which lets you pick the right record when several candidates share an email address or phone number. The request fails if the candidate does not exist (or was deleted) in Bullhorn.
+        field :existing_candidate_remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('existing_candidate_remote_id') } }
 
-        sig { params(candidate: T.nilable(T::Hash[Symbol, ::Object]), job_submission: T.nilable(T::Hash[Symbol, ::Object])).void }
-        def initialize(candidate: nil, job_submission: nil)
+        sig { params(candidate: T.nilable(T::Hash[Symbol, ::Object]), job_submission: T.nilable(T::Hash[Symbol, ::Object]), existing_candidate_remote_id: T.nilable(::String)).void }
+        def initialize(candidate: nil, job_submission: nil, existing_candidate_remote_id: nil)
           @candidate = candidate
           @job_submission = job_submission
+          @existing_candidate_remote_id = existing_candidate_remote_id
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
@@ -28,6 +31,7 @@ module Kombo
           return false unless other.is_a? self.class
           return false unless @candidate == other.candidate
           return false unless @job_submission == other.job_submission
+          return false unless @existing_candidate_remote_id == other.existing_candidate_remote_id
           true
         end
       end
