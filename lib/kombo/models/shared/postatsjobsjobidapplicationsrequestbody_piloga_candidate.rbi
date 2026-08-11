@@ -10,4 +10,6 @@ end
 class Kombo::Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyPilogaCandidate
   def street(); end
   def street=(str_); end
+  def geburtsdatum(); end
+  def geburtsdatum=(str_); end
 end
