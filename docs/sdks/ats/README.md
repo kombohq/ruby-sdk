@@ -27,7 +27,7 @@
 * [get_offers](#get_offers) - Get offers
 * [get_rejection_reasons](#get_rejection_reasons) - Get rejection reasons
 * [get_interviews](#get_interviews) - Get interviews
-* [get_ats_notes](#get_ats_notes) - Get notes
+* [get_notes](#get_notes) - Get notes
 * [import_tracked_application](#import_tracked_application) - Import tracked application
 
 ## get_applications
@@ -2208,7 +2208,7 @@ end
 | Models::Errors::KomboAtsError | default                       | application/json              |
 | Errors::APIError              | 4XX, 5XX                      | \*/\*                         |
 
-## get_ats_notes
+## get_notes
 
 Retrieve all notes.
 
@@ -2227,7 +2227,7 @@ s = ::Kombo::Kombo.new(
     api_key: '<YOUR_BEARER_TOKEN_HERE>'
   )
 )
-res = s.ats.get_ats_notes(page_size: 100, include_deleted: false, ignore_unsupported_filters: false)
+res = s.ats.get_notes(page_size: 100, include_deleted: false, ignore_unsupported_filters: false)
 
 unless res.get_ats_notes_positive_response.nil?
   # handle response

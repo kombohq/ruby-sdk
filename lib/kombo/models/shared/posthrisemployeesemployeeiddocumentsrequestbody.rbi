@@ -12,4 +12,6 @@ class Kombo::Models::Shared::PostHrisEmployeesEmployeeIdDocumentsRequestBody
   def category_id=(str_); end
   def document(); end
   def document=(str_); end
+  def remote_fields(); end
+  def remote_fields=(str_); end
 end

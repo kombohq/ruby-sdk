@@ -16,15 +16,18 @@ module Kombo
         field :icims, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesCandidateIdResultLinksRequestBodyIcims), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('icims') } }
         # Fields specific to Oracle.
         field :oracle, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesCandidateIdResultLinksRequestBodyOracle), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('oracle') } }
+        # Talent360 specific remote fields for the result link.
+        field :talent360, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesCandidateIdResultLinksRequestBodyTalent360), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('talent360') } }
         # Fields specific to Greenhouse.
         field :greenhouse, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesCandidateIdResultLinksRequestBodyGreenhouse), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('greenhouse') } }
         # Workable specific remote fields for ATS actions.
         field :workable, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesCandidateIdResultLinksRequestBodyWorkable), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('workable') } }
 
-        sig { params(icims: T.nilable(Models::Shared::PostAtsCandidatesCandidateIdResultLinksRequestBodyIcims), oracle: T.nilable(Models::Shared::PostAtsCandidatesCandidateIdResultLinksRequestBodyOracle), greenhouse: T.nilable(Models::Shared::PostAtsCandidatesCandidateIdResultLinksRequestBodyGreenhouse), workable: T.nilable(Models::Shared::PostAtsCandidatesCandidateIdResultLinksRequestBodyWorkable)).void }
-        def initialize(icims: nil, oracle: nil, greenhouse: nil, workable: nil)
+        sig { params(icims: T.nilable(Models::Shared::PostAtsCandidatesCandidateIdResultLinksRequestBodyIcims), oracle: T.nilable(Models::Shared::PostAtsCandidatesCandidateIdResultLinksRequestBodyOracle), talent360: T.nilable(Models::Shared::PostAtsCandidatesCandidateIdResultLinksRequestBodyTalent360), greenhouse: T.nilable(Models::Shared::PostAtsCandidatesCandidateIdResultLinksRequestBodyGreenhouse), workable: T.nilable(Models::Shared::PostAtsCandidatesCandidateIdResultLinksRequestBodyWorkable)).void }
+        def initialize(icims: nil, oracle: nil, talent360: nil, greenhouse: nil, workable: nil)
           @icims = icims
           @oracle = oracle
+          @talent360 = talent360
           @greenhouse = greenhouse
           @workable = workable
         end
@@ -34,6 +37,7 @@ module Kombo
           return false unless other.is_a? self.class
           return false unless @icims == other.icims
           return false unless @oracle == other.oracle
+          return false unless @talent360 == other.talent360
           return false unless @greenhouse == other.greenhouse
           return false unless @workable == other.workable
           true

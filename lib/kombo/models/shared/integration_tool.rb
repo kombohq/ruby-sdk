@@ -126,6 +126,7 @@ module Kombo
           TRACKERRMS = new('trackerrms')
           DATABITES = new('databites')
           PAGEUP = new('pageup')
+          TALENT360 = new('talent360')
           WORKDAYCUSTOMREPORT = new('workdaycustomreport')
           WORKDAYCUSTOMREPORTSFTP = new('workdaycustomreportsftp')
           UKGPROWFM = new('ukgprowfm')

@@ -12,6 +12,8 @@ class Kombo::Models::Shared::PostAtsCandidatesCandidateIdResultLinksRequestBodyR
   def icims=(str_); end
   def oracle(); end
   def oracle=(str_); end
+  def talent360(); end
+  def talent360=(str_); end
   def greenhouse(); end
   def greenhouse=(str_); end
   def workable(); end

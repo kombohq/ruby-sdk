@@ -20,6 +20,8 @@ class Kombo::Models::Shared::PostAtsApplicationsApplicationIdNotesRequestBodyRem
   def bullhorn=(str_); end
   def lever(); end
   def lever=(str_); end
+  def talent360(); end
+  def talent360=(str_); end
   def workable(); end
   def workable=(str_); end
 end
