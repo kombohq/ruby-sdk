@@ -16,11 +16,14 @@ module Kombo
         field :category_id, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('category_id'), required: true } }
 
         field :document, Models::Shared::Document, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('document'), required: true } }
+        # Additional fields that we will pass through to specific HRIS systems.
+        field :remote_fields, Crystalline::Nilable.new(Models::Shared::PostHrisEmployeesEmployeeIdDocumentsRequestBodyRemoteFields), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_fields') } }
 
-        sig { params(category_id: ::String, document: Models::Shared::Document).void }
-        def initialize(category_id:, document:)
+        sig { params(category_id: ::String, document: Models::Shared::Document, remote_fields: T.nilable(Models::Shared::PostHrisEmployeesEmployeeIdDocumentsRequestBodyRemoteFields)).void }
+        def initialize(category_id:, document:, remote_fields: nil)
           @category_id = category_id
           @document = document
+          @remote_fields = remote_fields
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
@@ -28,6 +31,7 @@ module Kombo
           return false unless other.is_a? self.class
           return false unless @category_id == other.category_id
           return false unless @document == other.document
+          return false unless @remote_fields == other.remote_fields
           true
         end
       end

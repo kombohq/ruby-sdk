@@ -131,6 +131,7 @@ value = IntegrationTool::WORKDAY
 | `TRACKERRMS`                      | trackerrms                        |
 | `DATABITES`                       | databites                         |
 | `PAGEUP`                          | pageup                            |
+| `TALENT360`                       | talent360                         |
 | `WORKDAYCUSTOMREPORT`             | workdaycustomreport               |
 | `WORKDAYCUSTOMREPORTSFTP`         | workdaycustomreportsftp           |
 | `UKGPROWFM`                       | ukgprowfm                         |

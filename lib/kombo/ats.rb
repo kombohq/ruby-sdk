@@ -3756,8 +3756,8 @@ module Kombo
 
 
     sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), candidate_ids: T.nilable(T::Array[::String]), application_ids: T.nilable(T::Array[::String]), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::GetAtsNotesResponse) }
-    def get_ats_notes(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, candidate_ids: nil, application_ids: nil, timeout_ms: nil, http_headers: nil)
-      # get_ats_notes - Get notes
+    def get_notes(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, candidate_ids: nil, application_ids: nil, timeout_ms: nil, http_headers: nil)
+      # get_notes - Get notes
       # Retrieve all notes.
       #
       # Top level filters use AND, while individual filters use OR if they accept multiple arguments. That means filters will be resolved like this: `(id IN ids) AND (remote_id IN remote_ids)`
@@ -3875,7 +3875,7 @@ module Kombo
               end
             end
 
-            sdk.get_ats_notes(
+            sdk.get_notes(
               integration_id: request.integration_id,
               cursor: next_cursor,
               page_size: request.page_size,
