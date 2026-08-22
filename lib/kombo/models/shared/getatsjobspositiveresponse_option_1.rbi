@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class Kombo::Models::Shared::Option2
+class Kombo::Models::Shared::GetAtsJobsPositiveResponseOption1
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class Kombo::Models::Shared::Option2
+class Kombo::Models::Shared::GetAtsJobsPositiveResponseOption1
   def id(); end
   def id=(str_); end
   def name(); end

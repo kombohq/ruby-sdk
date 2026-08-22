@@ -147,6 +147,7 @@ s = ::Kombo::Kombo.new(
 * [get_rejection_reasons](docs/sdks/ats/README.md#get_rejection_reasons) - Get rejection reasons
 * [get_interviews](docs/sdks/ats/README.md#get_interviews) - Get interviews
 * [get_notes](docs/sdks/ats/README.md#get_notes) - Get notes
+* [get_ats_scorecards](docs/sdks/ats/README.md#get_ats_scorecards) - Get scorecards
 * [import_tracked_application](docs/sdks/ats/README.md#import_tracked_application) - Import tracked application
 
 ### [Connect](docs/sdks/connect/README.md)

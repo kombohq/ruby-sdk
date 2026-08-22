@@ -359,6 +359,7 @@ module Kombo
       # |Docebo|`docebo/api`|Docebo [API](https://developer.docebo.com). We automatically handle authentication and use `https://\{subdomain\}.docebosaas.com` as the base URL.|
       # |Eightfold|`eightfold/api`|Eightfold's [API](https://apidocs.eightfold.ai/). We automatically authenticate all requests and use  `https://apiv2.\{region\}/api/v2/core/` as the base URL.|
       # |Employment Hero|`employmenthero/default`|EmploymentHero [API](https://developer.employmenthero.com/api-references/#icon-book-open-introduction). We automatically authenticate all requests using the credentials supplied by the customer and use `https://api.employmenthero.com/api` as the base URL.|
+      # |Emply People|`emplypeople/v2`|We use `https://api.emply.com/v2` as the base URL. Find the official docs [here](https://api.emply.com/v2/index.html).|
       # |Eploy|`eploy/api`|Eploy's [API](https://www.eploy.com/resources/developers/api-documentation/). We automatically authenticate all requests. The base URL is `https://\{hostname\}/api`, where `\{hostname\}` is either `\{subdomain\}.eploy.net` or your full custom hostname when applicable.|
       # |eRecruiter|`erecruiter/api`|[eRecruiter's API](https://api.erecruiter.net/swagger/ui/index). We automatically authenticate all requests and use `https://\{domain\}/Api` as the base URL.|
       # |Eurécia|`eurecia/api`|Eurécia [REST API](https://api.eurecia.com/eurecia/fw/swagger/index.html#/) We automatically authenticate all requests and use `https://\{domain\}/eurecia/rest` as the base URL.|
@@ -458,6 +459,7 @@ module Kombo
       # |Phenom|`phenom/rest-api`|The [Phenom API](https://developer.phenom.com/). We automatically authenticate all requests and use `https://api-stg.phenompro.com` as the base URL.|
       # |Pinpoint|`pinpoint/v1`|Pinpoint's [JSON:API](https://developers.pinpointhq.com/docs). We automatically authenticate all requests using the `X-API-KEY` header and use `https://\{subdomain\}.pinpointhq.com/api/v1` as the base URL.|
       # |Planday|`planday/api`|Planday's [HR API v1.0](https://openapi.planday.com/api/hr?version=v1.0). We automatically authenticate all requests and use `https://openapi.planday.com` as the base URL.|
+      # |ReachMee|`reachmee/reachmee`|[ReachMee API](https://developer.talentech.io/api-details#api=reachmee-api). We automatically authenticate all requests and use `https://api.talentech.io/reachmee/` as the base URL.|
       # |Recruit CRM|`recruitcrm/api`|We use `https://api.recruitcrm.io` as the base URL. Find the official docs [here](https://docs.recruitcrm.io/docs/rcrm-api-reference/ZG9jOjMyNzk0NA-getting-started).|
       # |RecruiterFlow|`recruiterflow/v1`|RecruiterFlow API [docs](https://docs.recruiterflow.com/). We automatically authenticate all requests using the RF-Api-Key header and use `https://api.recruiterflow.com` as the base URL.|
       # |Remote|`remotecom/default`|Remote's [API](https://remote.com/resources/api/getting-started). We automatically authenticate all requests using provided credentials. The base URL is `https://gateway.remote.com/v1` for production API keys (prefixed `ra_live_`), or `https://gateway.remote-sandbox.com/v1` for sandbox API keys.|
@@ -478,6 +480,7 @@ module Kombo
       # |Spott|`spott/protected`|The [Spott API](https://docs.gospott.com). We automatically authenticate all requests and use `https://api.gospott.com` as the base URL.|
       # |Sympa|`sympa/api`|Sympa's [API](https://documenter.getpostman.com/view/33639379/2sA3kXG1vX#intro). We automatically authenticate all requests and use `https://api.sympahr.net/api/` as the base URL.|
       # |Taleez|`taleez/0`|[Taleez's API](https://api.taleez.com/swagger-ui/index.html). We automatically authenticate all requests and use `https://api.taleez.com/0` as the base URL.|
+      # |Talent360|`talent360/v3`|We use `https://api.talent360.io/V3` as the base URL. Find the official docs [here](https://api-doc.talent360.io/).|
       # |Talention|`talention/v1`|Talention's API. We automatically authenticate all requests and use `https://\{api_domain\}/tms/\{account_id\}/external/api/1.0` as the base URL. Documentation is provided privately by Talention. Contact Kombo support for assistance with specific endpoints.|
       # |TalentLMS|`talentlms/v2`|We use `https://\{subdomain\}.talentlms.com/api/v2` as the base URL.|
       # |Teamtailor Job Boards|`teamtailorjobboards/direct-apply`|Teamtailor's [Job Board Direct Apply API](https://partner.teamtailor.com/job_boards/direct_apply/#direct-apply). We automatically authenticate all requests and use `https://5qbn6o9x4h.execute-api.eu-west-1.amazonaws.com/production` as the base URL. All requests are automatically signed with HMAC-SHA256 signature.|
