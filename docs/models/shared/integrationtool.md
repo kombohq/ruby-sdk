@@ -132,6 +132,7 @@ value = IntegrationTool::WORKDAY
 | `DATABITES`                       | databites                         |
 | `PAGEUP`                          | pageup                            |
 | `TALENT360`                       | talent360                         |
+| `EMPLYPEOPLE`                     | emplypeople                       |
 | `WORKDAYCUSTOMREPORT`             | workdaycustomreport               |
 | `WORKDAYCUSTOMREPORTSFTP`         | workdaycustomreportsftp           |
 | `UKGPROWFM`                       | ukgprowfm                         |

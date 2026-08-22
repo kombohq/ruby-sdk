@@ -38,6 +38,8 @@ module Kombo
       autoload :GetAtsRejectionReasonsResponse, 'kombo/models/operations/getatsrejectionreasons_response.rb'
       autoload :GetAtsRolesRequest, 'kombo/models/operations/getatsroles_request.rb'
       autoload :GetAtsRolesResponse, 'kombo/models/operations/getatsroles_response.rb'
+      autoload :GetAtsScorecardsRequest, 'kombo/models/operations/getatsscorecards_request.rb'
+      autoload :GetAtsScorecardsResponse, 'kombo/models/operations/getatsscorecards_response.rb'
       autoload :GetAtsTagsRequest, 'kombo/models/operations/getatstags_request.rb'
       autoload :GetAtsTagsResponse, 'kombo/models/operations/getatstags_response.rb'
       autoload :GetAtsUsersRequest, 'kombo/models/operations/getatsusers_request.rb'

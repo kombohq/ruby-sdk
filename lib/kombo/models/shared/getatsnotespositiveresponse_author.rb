@@ -8,7 +8,7 @@ module Kombo
   module Models
     module Shared
 
-      class Author
+      class GetAtsNotesPositiveResponseAuthor
         extend T::Sig
         include Crystalline::MetadataFields
 

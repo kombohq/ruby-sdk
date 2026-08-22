@@ -1,0 +1,19 @@
+# typed: true
+# frozen_string_literal: true
+
+
+class Kombo::Models::Shared::Integration
+  extend ::Crystalline::MetadataFields::ClassMethods
+end
+
+
+class Kombo::Models::Shared::Integration
+  def id(); end
+  def id=(str_); end
+  def tool(); end
+  def tool=(str_); end
+  def category(); end
+  def category=(str_); end
+  def end_user(); end
+  def end_user=(str_); end
+end

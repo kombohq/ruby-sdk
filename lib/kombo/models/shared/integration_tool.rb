@@ -127,6 +127,7 @@ module Kombo
           DATABITES = new('databites')
           PAGEUP = new('pageup')
           TALENT360 = new('talent360')
+          EMPLYPEOPLE = new('emplypeople')
           WORKDAYCUSTOMREPORT = new('workdaycustomreport')
           WORKDAYCUSTOMREPORTSFTP = new('workdaycustomreportsftp')
           UKGPROWFM = new('ukgprowfm')

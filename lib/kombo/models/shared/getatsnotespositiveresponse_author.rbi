@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 
-class Kombo::Models::Shared::Author
+class Kombo::Models::Shared::GetAtsNotesPositiveResponseAuthor
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
 
-class Kombo::Models::Shared::Author
+class Kombo::Models::Shared::GetAtsNotesPositiveResponseAuthor
   def id(); end
   def id=(str_); end
   def remote_id(); end

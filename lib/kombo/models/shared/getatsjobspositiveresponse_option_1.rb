@@ -8,7 +8,7 @@ module Kombo
   module Models
     module Shared
 
-      class Option1
+      class GetAtsJobsPositiveResponseOption1
         extend T::Sig
         include Crystalline::MetadataFields
 
