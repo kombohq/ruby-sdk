@@ -25,6 +25,7 @@ value = IntegrationTool::WORKDAY
 | `CORNERSTONETALENTLINK`           | cornerstonetalentlink             |
 | `RECRUITEE`                       | recruitee                         |
 | `RECRUITERFLOW`                   | recruiterflow                     |
+| `ATLAS`                           | atlas                             |
 | `GREENHOUSE`                      | greenhouse                        |
 | `GREENHOUSEV3`                    | greenhousev3                      |
 | `GREENHOUSEJOBBOARD`              | greenhousejobboard                |
@@ -132,6 +133,7 @@ value = IntegrationTool::WORKDAY
 | `DATABITES`                       | databites                         |
 | `PAGEUP`                          | pageup                            |
 | `TALENT360`                       | talent360                         |
+| `EMPLYPEOPLE`                     | emplypeople                       |
 | `WORKDAYCUSTOMREPORT`             | workdaycustomreport               |
 | `WORKDAYCUSTOMREPORTSFTP`         | workdaycustomreportsftp           |
 | `UKGPROWFM`                       | ukgprowfm                         |
@@ -189,6 +191,7 @@ value = IntegrationTool::WORKDAY
 | `BOONDMANAGER`                    | boondmanager                      |
 | `HAILEYHR`                        | haileyhr                          |
 | `SILAE`                           | silae                             |
+| `SKELLO`                          | skello                            |
 | `OYSTERHR`                        | oysterhr                          |
 | `KIWIHR`                          | kiwihr                            |
 | `SQUARE`                          | square                            |
@@ -209,6 +212,7 @@ value = IntegrationTool::WORKDAY
 | `YOUFORCE`                        | youforce                          |
 | `NIBELIS`                         | nibelis                           |
 | `PEOPLEXD`                        | peoplexd                          |
+| `ZELLIS`                          | zellis                            |
 | `SFTP`                            | sftp                              |
 | `SFTPFETCH`                       | sftpfetch                         |
 | `THREE_HUNDRED_AND_SIXTYLEARNING` | 360learning                       |

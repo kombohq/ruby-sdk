@@ -26,6 +26,8 @@ class Kombo::Models::Shared::PostConnectCreateLinkRequestBody
   def enable_filtering=(str_); end
   def enable_field_mapping(); end
   def enable_field_mapping=(str_); end
+  def enable_static_ips(); end
+  def enable_static_ips=(str_); end
   def link_type(); end
   def link_type=(str_); end
   def language(); end

@@ -56,4 +56,6 @@ class Kombo::Models::Shared::PostAtsCandidatesRequestBodyRemoteFields
   def pinpoint=(str_); end
   def covetorest(); end
   def covetorest=(str_); end
+  def afas(); end
+  def afas=(str_); end
 end

@@ -13,11 +13,11 @@ module Kombo
         include Crystalline::MetadataFields
 
 
-        field :options, Crystalline::Array.new(Models::Shared::Option2), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('options'), required: true } }
+        field :options, Crystalline::Array.new(Models::Shared::GetAtsJobsPositiveResponseOption2), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('options'), required: true } }
 
         field :type, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('type'), required: true } }
 
-        sig { params(options: T::Array[Models::Shared::Option2], type: ::String).void }
+        sig { params(options: T::Array[Models::Shared::GetAtsJobsPositiveResponseOption2], type: ::String).void }
         def initialize(options:, type: 'MULTI_SELECT')
           @options = options
           unless type == 'MULTI_SELECT'
