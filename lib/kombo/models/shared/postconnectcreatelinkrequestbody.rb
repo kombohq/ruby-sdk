@@ -30,6 +30,8 @@ module Kombo
         field :enable_filtering, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('enable_filtering') } }
         # Enable the [field mapping feature](https://docs.kombo.dev/hris/features/setup-flow/introduction#field-mapping) for this integration.
         field :enable_field_mapping, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('enable_field_mapping') } }
+        # Enable [Static IPs](https://docs.kombo.dev/hris/guides/static-ips) for this integration so all API calls originate from a fixed, allowlistable set of IPs.
+        field :enable_static_ips, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('enable_static_ips') } }
         # The type of link you want to create. `EMBEDDED` is for the [embedded flow](../guides/connect/embedded-flow) using the Kombo Connect SDK (these links are valid for 1 hour) and `MAGIC_LINK` is for [magic links](../guides/connect/magic-links) which you send out manually to customers (there are valid for 1 year).
         #
         # This defaults to `EMBEDDED`, which is our recommended method of implementing the connection flow for a seamless user experience.
@@ -37,8 +39,8 @@ module Kombo
         # Language of the connection flow UI.
         field :language, Crystalline::Nilable.new(Models::Shared::PostConnectCreateLinkRequestBodyLanguage), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('language'), 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::PostConnectCreateLinkRequestBodyLanguage, true) } }
 
-        sig { params(end_user_email: ::String, end_user_organization_name: ::String, end_user_origin_id: T.nilable(::String), remote_environment: T.nilable(::String), integration_category: T.nilable(Models::Shared::PostConnectCreateLinkRequestBodyIntegrationCategory), integration_tool: T.nilable(Models::Shared::IntegrationTool), scope_config_id: T.nilable(::String), enable_filtering: T.nilable(T::Boolean), enable_field_mapping: T.nilable(T::Boolean), link_type: T.nilable(Models::Shared::PostConnectCreateLinkRequestBodyLinkType), language: T.nilable(Models::Shared::PostConnectCreateLinkRequestBodyLanguage)).void }
-        def initialize(end_user_email:, end_user_organization_name:, end_user_origin_id: nil, remote_environment: nil, integration_category: Models::Shared::PostConnectCreateLinkRequestBodyIntegrationCategory::HRIS, integration_tool: nil, scope_config_id: nil, enable_filtering: false, enable_field_mapping: false, link_type: Models::Shared::PostConnectCreateLinkRequestBodyLinkType::EMBEDDED, language: Models::Shared::PostConnectCreateLinkRequestBodyLanguage::EN)
+        sig { params(end_user_email: ::String, end_user_organization_name: ::String, end_user_origin_id: T.nilable(::String), remote_environment: T.nilable(::String), integration_category: T.nilable(Models::Shared::PostConnectCreateLinkRequestBodyIntegrationCategory), integration_tool: T.nilable(Models::Shared::IntegrationTool), scope_config_id: T.nilable(::String), enable_filtering: T.nilable(T::Boolean), enable_field_mapping: T.nilable(T::Boolean), enable_static_ips: T.nilable(T::Boolean), link_type: T.nilable(Models::Shared::PostConnectCreateLinkRequestBodyLinkType), language: T.nilable(Models::Shared::PostConnectCreateLinkRequestBodyLanguage)).void }
+        def initialize(end_user_email:, end_user_organization_name:, end_user_origin_id: nil, remote_environment: nil, integration_category: Models::Shared::PostConnectCreateLinkRequestBodyIntegrationCategory::HRIS, integration_tool: nil, scope_config_id: nil, enable_filtering: false, enable_field_mapping: false, enable_static_ips: false, link_type: Models::Shared::PostConnectCreateLinkRequestBodyLinkType::EMBEDDED, language: Models::Shared::PostConnectCreateLinkRequestBodyLanguage::EN)
           @end_user_email = end_user_email
           @end_user_organization_name = end_user_organization_name
           @end_user_origin_id = end_user_origin_id
@@ -48,6 +50,7 @@ module Kombo
           @scope_config_id = scope_config_id
           @enable_filtering = enable_filtering
           @enable_field_mapping = enable_field_mapping
+          @enable_static_ips = enable_static_ips
           @link_type = link_type
           @language = language
         end
@@ -64,6 +67,7 @@ module Kombo
           return false unless @scope_config_id == other.scope_config_id
           return false unless @enable_filtering == other.enable_filtering
           return false unless @enable_field_mapping == other.enable_field_mapping
+          return false unless @enable_static_ips == other.enable_static_ips
           return false unless @link_type == other.link_type
           return false unless @language == other.language
           true
