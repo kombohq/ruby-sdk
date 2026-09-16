@@ -32,6 +32,10 @@ value = Name::HRIS_LEGAL_ENTITIES
 | `HRIS_SKILLS`                                | hris_skills                                  |
 | `HRIS_SKILL_RATING_PROVIDERS`                | hris_skill_rating_providers                  |
 | `HRIS_EMPLOYEE_SKILL_PROFICIENCY_RATINGS`    | hris_employee_skill_proficiency_ratings      |
+| `HRIS_PAY_RUNS`                              | hris_pay_runs                                |
+| `HRIS_PAYSLIPS`                              | hris_payslips                                |
+| `HRIS_SALARY_TYPES`                          | hris_salary_types                            |
+| `HRIS_PAYSLIP_LINE_ITEMS`                    | hris_payslip_line_items                      |
 | `ATS_USERS`                                  | ats_users                                    |
 | `ATS_JOBS`                                   | ats_jobs                                     |
 | `ATS_JOB_POSTINGS`                           | ats_job_postings                             |
@@ -45,6 +49,8 @@ value = Name::HRIS_LEGAL_ENTITIES
 | `ATS_REJECTION_REASONS`                      | ats_rejection_reasons                        |
 | `ATS_ROLES`                                  | ats_roles                                    |
 | `ATS_NOTES`                                  | ats_notes                                    |
+| `ATS_SCORECARDS`                             | ats_scorecards                               |
+| `ATS_ATTACHMENTS`                            | ats_attachments                              |
 | `LMS_USERS`                                  | lms_users                                    |
 | `LMS_COURSE_PROVIDERS`                       | lms_course_providers                         |
 | `LMS_SKILLS`                                 | lms_skills                                   |

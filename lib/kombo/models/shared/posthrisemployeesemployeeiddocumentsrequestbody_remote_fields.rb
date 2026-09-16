@@ -13,9 +13,9 @@ module Kombo
         include Crystalline::MetadataFields
 
         # Fields specific to AFAS.
-        field :afas, Crystalline::Nilable.new(Models::Shared::Afas), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('afas') } }
+        field :afas, Crystalline::Nilable.new(Models::Shared::PostHrisEmployeesEmployeeIdDocumentsRequestBodyAfas), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('afas') } }
 
-        sig { params(afas: T.nilable(Models::Shared::Afas)).void }
+        sig { params(afas: T.nilable(Models::Shared::PostHrisEmployeesEmployeeIdDocumentsRequestBodyAfas)).void }
         def initialize(afas: nil)
           @afas = afas
         end
