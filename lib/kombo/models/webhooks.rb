@@ -20,6 +20,8 @@ module Kombo
       autoload :WebhookIntegrationDeletedWebhookPayloadResponse, 'kombo/models/webhooks/webhookintegrationdeletedwebhookpayload_response.rb'
       autoload :WebhookIntegrationStateChangedWebhookPayloadRequest, 'kombo/models/webhooks/webhookintegrationstatechangedwebhookpayload_request.rb'
       autoload :WebhookIntegrationStateChangedWebhookPayloadResponse, 'kombo/models/webhooks/webhookintegrationstatechangedwebhookpayload_response.rb'
+      autoload :WebhookIssueStatusChangedWebhookPayloadRequest, 'kombo/models/webhooks/webhookissuestatuschangedwebhookpayload_request.rb'
+      autoload :WebhookIssueStatusChangedWebhookPayloadResponse, 'kombo/models/webhooks/webhookissuestatuschangedwebhookpayload_response.rb'
       autoload :WebhookSyncFinishedWebhookPayloadRequest, 'kombo/models/webhooks/webhooksyncfinishedwebhookpayload_request.rb'
       autoload :WebhookSyncFinishedWebhookPayloadResponse, 'kombo/models/webhooks/webhooksyncfinishedwebhookpayload_response.rb'
     end

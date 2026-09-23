@@ -14,16 +14,20 @@ module Kombo
 
 
         field :link, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('link'), required: true } }
+        # The allowlist IPs for this integration. Present when `enable_static_ips` is `true`.
+        field :static_ips, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('static_ips') } }
 
-        sig { params(link: ::String).void }
-        def initialize(link:)
+        sig { params(link: ::String, static_ips: T.nilable(T::Array[::String])).void }
+        def initialize(link:, static_ips: nil)
           @link = link
+          @static_ips = static_ips
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @link == other.link
+          return false unless @static_ips == other.static_ips
           true
         end
       end

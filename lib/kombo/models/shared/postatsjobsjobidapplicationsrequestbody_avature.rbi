@@ -8,6 +8,8 @@ end
 
 
 class Kombo::Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyAvature
+  def candidate(); end
+  def candidate=(str_); end
   def workflow(); end
   def workflow=(str_); end
 end
