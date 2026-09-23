@@ -41,9 +41,9 @@ module Kombo
         # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
         field :remote_deleted_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_deleted_at'), required: true, 'decoder': ::Kombo::Utils.datetime_from_iso_format(false) } }
 
-        field :author, Crystalline::Nilable.new(Models::Shared::Author), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('author'), required: true } }
+        field :author, Crystalline::Nilable.new(Models::Shared::GetAtsNotesPositiveResponseAuthor), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('author'), required: true } }
 
-        sig { params(id: ::String, remote_id: ::String, candidate_id: ::String, changed_at: ::DateTime, application_id: T.nilable(::String), author_id: T.nilable(::String), title: T.nilable(::String), content_html: T.nilable(::String), is_private: T.nilable(T::Boolean), remote_created_at: T.nilable(::DateTime), remote_updated_at: T.nilable(::DateTime), remote_deleted_at: T.nilable(::DateTime), author: T.nilable(Models::Shared::Author)).void }
+        sig { params(id: ::String, remote_id: ::String, candidate_id: ::String, changed_at: ::DateTime, application_id: T.nilable(::String), author_id: T.nilable(::String), title: T.nilable(::String), content_html: T.nilable(::String), is_private: T.nilable(T::Boolean), remote_created_at: T.nilable(::DateTime), remote_updated_at: T.nilable(::DateTime), remote_deleted_at: T.nilable(::DateTime), author: T.nilable(Models::Shared::GetAtsNotesPositiveResponseAuthor)).void }
         def initialize(id:, remote_id:, candidate_id:, changed_at:, application_id: nil, author_id: nil, title: nil, content_html: nil, is_private: nil, remote_created_at: nil, remote_updated_at: nil, remote_deleted_at: nil, author: nil)
           @id = id
           @remote_id = remote_id

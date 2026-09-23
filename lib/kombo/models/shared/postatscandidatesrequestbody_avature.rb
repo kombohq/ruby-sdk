@@ -12,17 +12,21 @@ module Kombo
         extend T::Sig
         include Crystalline::MetadataFields
 
+        # Fields that we will pass through to Avature's create person form (`POST /people`). Available fields depend on your Avature instance's People write configuration.
+        field :candidate, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('candidate') } }
 
         field :workflow, Crystalline::Nilable.new(Models::Shared::PostAtsCandidatesRequestBodyWorkflow), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('workflow') } }
 
-        sig { params(workflow: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyWorkflow)).void }
-        def initialize(workflow: nil)
+        sig { params(candidate: T.nilable(T::Hash[Symbol, ::Object]), workflow: T.nilable(Models::Shared::PostAtsCandidatesRequestBodyWorkflow)).void }
+        def initialize(candidate: nil, workflow: nil)
+          @candidate = candidate
           @workflow = workflow
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
+          return false unless @candidate == other.candidate
           return false unless @workflow == other.workflow
           true
         end

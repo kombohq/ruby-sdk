@@ -147,6 +147,8 @@ s = ::Kombo::Kombo.new(
 * [get_rejection_reasons](docs/sdks/ats/README.md#get_rejection_reasons) - Get rejection reasons
 * [get_interviews](docs/sdks/ats/README.md#get_interviews) - Get interviews
 * [get_notes](docs/sdks/ats/README.md#get_notes) - Get notes
+* [get_ats_scorecards](docs/sdks/ats/README.md#get_ats_scorecards) - Get scorecards
+* [get_ats_attachments](docs/sdks/ats/README.md#get_ats_attachments) - Get attachments
 * [import_tracked_application](docs/sdks/ats/README.md#import_tracked_application) - Import tracked application
 
 ### [Connect](docs/sdks/connect/README.md)
@@ -190,6 +192,8 @@ s = ::Kombo::Kombo.new(
 * [get_performance_review_cycles](docs/sdks/hris/README.md#get_performance_review_cycles) - Get performance review cycles
 * [get_performance_reviews](docs/sdks/hris/README.md#get_performance_reviews) - Get performance reviews
 * [get_staffing_entities](docs/sdks/hris/README.md#get_staffing_entities) - Get staffing entities
+* [get_hris_pay_runs](docs/sdks/hris/README.md#get_hris_pay_runs) - Pay Runs
+* [get_hris_payslips](docs/sdks/hris/README.md#get_hris_payslips) - Payslips
 
 </details>
 <!-- End Available Resources and Operations [operations] -->

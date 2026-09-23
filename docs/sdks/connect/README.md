@@ -25,7 +25,8 @@ Generate a unique link that allows your user to enter the embedded Kombo Connect
   "integration_tool": "personio",
   "end_user_origin_id": "123",
   "language": "en",
-  "link_type": "EMBEDDED"
+  "link_type": "EMBEDDED",
+  "enable_static_ips": true
 }
 ```
 
@@ -94,7 +95,8 @@ req = Models::Shared::PostConnectCreateLinkRequestBody.new(
   end_user_email: 'test@example.com',
   end_user_organization_name: 'Test Inc.',
   end_user_origin_id: '123',
-  integration_tool: Models::Shared::IntegrationTool::PERSONIO
+  integration_tool: Models::Shared::IntegrationTool::PERSONIO,
+  enable_static_ips: true
 )
 res = s.connect.create_connection_link(request: req)
 

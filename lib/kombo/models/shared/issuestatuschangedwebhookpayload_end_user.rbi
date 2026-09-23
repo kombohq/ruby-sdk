@@ -1,0 +1,17 @@
+# typed: true
+# frozen_string_literal: true
+
+
+class Kombo::Models::Shared::IssueStatusChangedWebhookPayloadEndUser
+  extend ::Crystalline::MetadataFields::ClassMethods
+end
+
+
+class Kombo::Models::Shared::IssueStatusChangedWebhookPayloadEndUser
+  def organization_name(); end
+  def organization_name=(str_); end
+  def creator_email(); end
+  def creator_email=(str_); end
+  def origin_id(); end
+  def origin_id=(str_); end
+end
