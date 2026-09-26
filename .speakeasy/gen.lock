@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: a945ea15-b620-47b9-9868-c165c173bf88
 management:
-  docChecksum: 46717390b4d61e8129895ab2c4077aca
+  docChecksum: 7683b23a1472f7d58c4e11e3dec812bc
   docVersion: 1.0.0
-  speakeasyVersion: 1.798.0
-  generationVersion: 2.938.0
-  releaseVersion: 1.2.9
-  configChecksum: 146cde135ed5a5c60783d1947736e902
+  speakeasyVersion: 1.799.0
+  generationVersion: 2.941.0
+  releaseVersion: 1.2.10
+  configChecksum: c6962a2e646442a39b3622df2ac1c1ef
   repoURL: https://github.com/kombohq/ruby-sdk.git
   installationURL: https://github.com/kombohq/ruby-sdk
   published: true
 persistentEdits:
-  generation_id: 234e34e4-aabf-4cfd-bdfa-268dce60137e
-  pristine_commit_hash: 11958c3d6ffaa9039f5245ea80ab0bfacdfd1f24
-  pristine_tree_hash: ce9b066992928233992673f4d5b75897c863280c
+  generation_id: 22099c5d-202b-49bf-bcc5-f1a9d5a63e0a
+  pristine_commit_hash: 0d851ce1313166114222bb50a5bbbd29a6545692
+  pristine_tree_hash: 2f7434a3bfb9f496a844af3dc119c2ea1af7504b
 features:
   ruby:
     constsAndDefaults: 0.1.4
@@ -54,8 +54,8 @@ trackedFiles:
     pristine_git_object: b0ea40558f3ca80dcf7d30b159d34a1e5ab33440
   Gemfile.lock:
     id: 21fb5836b499
-    last_write_checksum: sha1:06b3b03f7af934b7f3044521aa81e3237f6ac1ec
-    pristine_git_object: b7b4d692b8c930b07562eb1046a996cd896d54e0
+    last_write_checksum: sha1:88d541a6941a6337196932c5ba84b5d3be66b3e2
+    pristine_git_object: 3a530a7edf9110a84a6dba421a9b0114f16c1efd
   Rakefile:
     id: 44b7fa1ba503
     last_write_checksum: sha1:c572639efdae8c7b24141ee5c02d8f009e101ed8
@@ -2856,6 +2856,10 @@ trackedFiles:
     id: 7c96519c07c8
     last_write_checksum: sha1:ff4c1ccfeb2cf016824a3cd48716cbcaefd82d88
     pristine_git_object: 9268e978fed972c3509dfa9e69320d878e899170
+  docs/models/shared/postatscandidatesrequestbodyfountain.md:
+    id: c120e6b97ebe
+    last_write_checksum: sha1:ee65298a1e53710a8f0fe348c4f4a17f022c18e5
+    pristine_git_object: 7f325df07aa6a1467f09af285711d8426b7af5ff
   docs/models/shared/postatscandidatesrequestbodygdprconsent.md:
     id: 479c6963eb18
     last_write_checksum: sha1:fdfab217e8d1aa041da02b44057a4ffb9cc49ad7
@@ -2986,8 +2990,8 @@ trackedFiles:
     pristine_git_object: 59329b72af162a7e1314195b8659b14279c97db3
   docs/models/shared/postatscandidatesrequestbodyremotefields.md:
     id: 1c3e3aeb6a10
-    last_write_checksum: sha1:89ba8aa007479c992ada955d2e9e4124a5fddd50
-    pristine_git_object: 1e95abb379227f0e775dd94e5d63f6bf2c683759
+    last_write_checksum: sha1:5ba64ba21af358acfad6871b5f90481380063b07
+    pristine_git_object: 6626f3029cc2f6feb95af7a231d188632982af64
   docs/models/shared/postatscandidatesrequestbodyresumedata.md:
     id: be7178ead687
     last_write_checksum: sha1:7c7b80cca135eb2cb72c37839a5233568f206e18
@@ -3456,6 +3460,10 @@ trackedFiles:
     id: d0b30a1fe8c4
     last_write_checksum: sha1:3965e40d22576d640cea002bca7b3d511f0971e5
     pristine_git_object: 46f499902148940d2bd7bbfd791f85f45c84e26c
+  docs/models/shared/postatsjobsjobidapplicationsrequestbodyfountain.md:
+    id: 62a499641646
+    last_write_checksum: sha1:ada4825353f8fe117fd30ea8e9a814f4ca50294b
+    pristine_git_object: 9ea7b2ffa6d09d60cf55213386b034f6e5d85e28
   docs/models/shared/postatsjobsjobidapplicationsrequestbodygdprconsent.md:
     id: 84d98565daf1
     last_write_checksum: sha1:88720cffb3db1fda72b22de76edca64b676e06f9
@@ -3586,8 +3594,8 @@ trackedFiles:
     pristine_git_object: a608347fd4f42b722748eaccb962fa89f045ba77
   docs/models/shared/postatsjobsjobidapplicationsrequestbodyremotefields.md:
     id: bc0b4c50ab21
-    last_write_checksum: sha1:6e16d265c52ecaeac262b3e0a7993c005f00a58e
-    pristine_git_object: 9723021b45a2639e866d2e5d4f653b91449aa500
+    last_write_checksum: sha1:2a5ce2ec29a40a9d4538286a020a688fcfc87f40
+    pristine_git_object: 4d5841ee84ba0f93b7e2f363fafcced95c616a24
   docs/models/shared/postatsjobsjobidapplicationsrequestbodyresumedata.md:
     id: 8422c059d51c
     last_write_checksum: sha1:232861dfc7f146724e8dde6bada3ba759d2a3e7c
@@ -4538,8 +4546,8 @@ trackedFiles:
     pristine_git_object: 4c94b69d15d1b47b23f346a986b5e178a7e937a1
   kombo.gemspec:
     id: 476dd5dc2d31
-    last_write_checksum: sha1:99f3908cd6dc461ebc6ea8d7e431975e6cc475cf
-    pristine_git_object: bf7689c7182c0808a1a57937f6a60fd0d201cf54
+    last_write_checksum: sha1:0dd0c5923bdb35cb59ebb49df6ed9940081d5b88
+    pristine_git_object: 20145b69a20acc180d7de262532f8384f7be890f
   lib/crystalline.rb:
     id: eca767cf937a
     last_write_checksum: sha1:b6ec0a2833f58ba9a6f07c9637fdca05e59006d3
@@ -5678,8 +5686,8 @@ trackedFiles:
     pristine_git_object: 5db5c38680c5bd96726d6594f41b5646f4053832
   lib/kombo/models/shared.rb:
     id: 243803bd4275
-    last_write_checksum: sha1:624ee1f23d1ba4457e50ea341079e57e3be1af76
-    pristine_git_object: c7830ce7bea80e887c00d3ecb61de1bf8d77402a
+    last_write_checksum: sha1:fa4cd5c20a863cf4f38e1d23ba760901a46039bb
+    pristine_git_object: 8328f5fe1bae36755d7adc305cdb801884c75d85
   lib/kombo/models/shared/a3innuvanomina.rb:
     id: 9fd5b4269e9a
     last_write_checksum: sha1:aa902ab1d9ad08d60bab27183578daae819e2614
@@ -10200,6 +10208,14 @@ trackedFiles:
     id: 25f445e160e6
     last_write_checksum: sha1:c946483f80aca6ea5535afd696f87dad2fbd4a68
     pristine_git_object: 280400828a1039f7345b376ecab2a47b2cebf165
+  lib/kombo/models/shared/postatscandidatesrequestbody_fountain.rb:
+    id: 3a33a54e7582
+    last_write_checksum: sha1:6b90cd1a00294817bab1460a43eb1c7e1c3fde14
+    pristine_git_object: 396c6b2fdcf6c31b168287bc7cacc43f6489eab1
+  lib/kombo/models/shared/postatscandidatesrequestbody_fountain.rbi:
+    id: 4b8049b04798
+    last_write_checksum: sha1:d16b52d5d9548ef4f06cc71ede3f72e520835a2f
+    pristine_git_object: 9308e77476584e9706b12805be12bc35638328f5
   lib/kombo/models/shared/postatscandidatesrequestbody_gdpr_consent.rb:
     id: a65a9468167e
     last_write_checksum: sha1:1273d9484ba37c3be0143135277e8d5c5d600472
@@ -10458,12 +10474,12 @@ trackedFiles:
     pristine_git_object: c0b6c68b6ad113b77d1a5e90685da77d9d50e1c5
   lib/kombo/models/shared/postatscandidatesrequestbody_remote_fields.rb:
     id: 00229232130a
-    last_write_checksum: sha1:931e47eab2327c6c2d86c317885435f61fda4a38
-    pristine_git_object: 3589551bf64db9b93072395933e84dc4861acc05
+    last_write_checksum: sha1:5be4ca0335b1fef8377f3d7584f8e98415d7e002
+    pristine_git_object: eed21568d91d730a5ca9dcb48974e4a8192e4cdf
   lib/kombo/models/shared/postatscandidatesrequestbody_remote_fields.rbi:
     id: cd2ffbe1b918
-    last_write_checksum: sha1:559cbbc9a7f07060cee99ee721b555dae4becaa9
-    pristine_git_object: c360fe21857bd43b9651ffd9c95812709ce679b9
+    last_write_checksum: sha1:56f2a4932d99b393f5da218759b33594124b3ea6
+    pristine_git_object: c4b59bc1cb665dbb707eb7ccca12891600ed75c7
   lib/kombo/models/shared/postatscandidatesrequestbody_resume_data.rb:
     id: 71d8203cece8
     last_write_checksum: sha1:e69b2ab72266879135964934a628b877ec258686
@@ -11400,6 +11416,14 @@ trackedFiles:
     id: 822ccb10b27d
     last_write_checksum: sha1:c0e4b12e3e06cd8082f7eb9210cc2d017a5dd0ae
     pristine_git_object: a0b3cf48af1a23e106995d986ddc8c85682a3bcb
+  lib/kombo/models/shared/postatsjobsjobidapplicationsrequestbody_fountain.rb:
+    id: b99fbba876f1
+    last_write_checksum: sha1:8995d87f1fab076d2ac280841584adf32fc3b028
+    pristine_git_object: 6c531769d8d0aaeeb4fa9669ab3fd15e1988528a
+  lib/kombo/models/shared/postatsjobsjobidapplicationsrequestbody_fountain.rbi:
+    id: 7d5ce45428fe
+    last_write_checksum: sha1:fe8da7543eb6c525b23e4088b41236c676e80c88
+    pristine_git_object: 7127ac7194cd2b16dcf5b79df1f91b8c7fc4e1c5
   lib/kombo/models/shared/postatsjobsjobidapplicationsrequestbody_gdpr_consent.rb:
     id: d57a1c9479d1
     last_write_checksum: sha1:4fae1d04bbbe193b519066aaa86f14b571b49966
@@ -11658,12 +11682,12 @@ trackedFiles:
     pristine_git_object: 7254584d66b44a89964764bc2f1db815e592fb5f
   lib/kombo/models/shared/postatsjobsjobidapplicationsrequestbody_remote_fields.rb:
     id: ceaae939e064
-    last_write_checksum: sha1:3c72e3c65c0f38899cf867e876a1a6fa6cff46b1
-    pristine_git_object: 2ab2d76e6e3b6c694c9d37d11d48d6c809136b25
+    last_write_checksum: sha1:3fbff7bd475dce95ad7bb388f70785cd1adabc1a
+    pristine_git_object: 1c23f5babaf7da7c9964c4295b428aea3cad8b58
   lib/kombo/models/shared/postatsjobsjobidapplicationsrequestbody_remote_fields.rbi:
     id: e25573f2a369
-    last_write_checksum: sha1:eca2093f9942e84772ae99ad3e51466c45783c40
-    pristine_git_object: c0a8aa0811da59df2e878e9dbce3dc3a99cdc6cd
+    last_write_checksum: sha1:4e64434594956538c9b284f1e1e05c05421dffd6
+    pristine_git_object: 776bd1354db49a0662dbeb9d4169e3664a764761
   lib/kombo/models/shared/postatsjobsjobidapplicationsrequestbody_resume_data.rb:
     id: 86c06ac18ea5
     last_write_checksum: sha1:3811acb473f7b7d3a6a977c61e95118e2fe6ad57
@@ -13534,8 +13558,8 @@ trackedFiles:
     pristine_git_object: cc0af5d0bc79da7ef48343408db80c1436d75ef9
   lib/kombo/sdkconfiguration.rb:
     id: 576e58b2ad72
-    last_write_checksum: sha1:bbc5cd972a1a055ee3cb78c52eba87eb2e45e6ef
-    pristine_git_object: 5c05fca2ef3d8ad1e4e6ed118c397d9f496127c7
+    last_write_checksum: sha1:c25cff537dd112a4ee190e672ad5457260802626
+    pristine_git_object: d7fe5502511ede8aeda3ca2094e4aca0f4566f43
   lib/kombo/sdkconfiguration.rbi:
     id: d1d4becc3542
     last_write_checksum: sha1:d6a79e38280d703264428e6158d6d796ba61d63f
@@ -16374,4 +16398,4 @@ examples:
         default:
           application/json: {"status": "error", "error": {"code": null, "title": null, "message": "The message is always in the response.", "log_url": null}}
 examplesVersion: 1.0.2
-releaseNotes: "## Ruby SDK Changes:\n* `kombo.hris.get_hris_pay_runs()`: **Added**\n* `kombo.hris.get_hris_payslips()`: **Added**\n* `kombo.ats.get_ats_scorecards()`: **Added**\n* `kombo.ats.get_ats_attachments()`: **Added**\n* `kombo.ats.create_candidate()`: \n  *  `request.body.remote_fields` **Changed**\n* `kombo.ats.create_application()`: \n  *  `request.body.remote_fields` **Changed**\n* `kombo.connect.create_connection_link()`: \n  *  `request` **Changed**\n  *  `response.data.static_ips` **Added**\n"
+releaseNotes: "## Ruby SDK Changes:\n* `kombo.ats.create_candidate()`: \n  *  `request.body.remote_fields.fountain` **Added**\n* `kombo.ats.create_application()`: \n  *  `request.body.remote_fields.fountain` **Added**\n"
