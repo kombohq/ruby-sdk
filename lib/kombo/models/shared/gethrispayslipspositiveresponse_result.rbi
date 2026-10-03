@@ -20,6 +20,8 @@ class Kombo::Models::Shared::GetHrisPayslipsPositiveResponseResult
   def employee=(str_); end
   def line_items(); end
   def line_items=(str_); end
+  def custom_fields(); end
+  def custom_fields=(str_); end
   def remote_deleted_at(); end
   def remote_deleted_at=(str_); end
   def pay_run(); end
