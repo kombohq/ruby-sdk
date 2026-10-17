@@ -12,4 +12,6 @@ class Kombo::Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyTalentsoft
   def applicant=(str_); end
   def application(); end
   def application=(str_); end
+  def custom_fields(); end
+  def custom_fields=(str_); end
 end

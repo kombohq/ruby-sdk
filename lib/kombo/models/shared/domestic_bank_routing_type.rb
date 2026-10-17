@@ -16,6 +16,7 @@ module Kombo
           CA_ROUTING_NUMBER = new('CA_ROUTING_NUMBER')
           AU_BSB_CODE = new('AU_BSB_CODE')
           FR_RIB = new('FR_RIB')
+          SG_BANK_BRANCH_CODE = new('SG_BANK_BRANCH_CODE')
         end
       end
     end

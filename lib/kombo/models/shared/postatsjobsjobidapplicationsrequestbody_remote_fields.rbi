@@ -58,6 +58,8 @@ class Kombo::Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyRemoteFields
   def covetorest=(str_); end
   def afas(); end
   def afas=(str_); end
+  def fountain(); end
+  def fountain=(str_); end
   def recruitcrm(); end
   def recruitcrm=(str_); end
 end
