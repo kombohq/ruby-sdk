@@ -18,6 +18,8 @@ class Kombo::Models::Shared::GetHrisLegalEntitiesPositiveResponseResult
   def name=(str_); end
   def remote_deleted_at(); end
   def remote_deleted_at=(str_); end
+  def custom_fields(); end
+  def custom_fields=(str_); end
   def address(); end
   def address=(str_); end
 end

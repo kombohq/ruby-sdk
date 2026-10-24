@@ -16,13 +16,16 @@ module Kombo
         field :content, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('content'), required: true } }
         # Content type of the note. Currently only `PLAIN_TEXT` is supported.
         field :content_type, Models::Shared::ContentType, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('content_type'), required: true, 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::ContentType, false) } }
+        # Title of the note, often called "subject" in the ATS. If the ATS has no note title, the title becomes the first line of the content instead.
+        field :title, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('title') } }
         # Tool specific remote fields for the note.
         field :remote_fields, Crystalline::Nilable.new(Models::Shared::PostAtsApplicationsApplicationIdNotesRequestBodyRemoteFields), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_fields') } }
 
-        sig { params(content: ::String, content_type: Models::Shared::ContentType, remote_fields: T.nilable(Models::Shared::PostAtsApplicationsApplicationIdNotesRequestBodyRemoteFields)).void }
-        def initialize(content:, content_type:, remote_fields: nil)
+        sig { params(content: ::String, content_type: Models::Shared::ContentType, title: T.nilable(::String), remote_fields: T.nilable(Models::Shared::PostAtsApplicationsApplicationIdNotesRequestBodyRemoteFields)).void }
+        def initialize(content:, content_type:, title: nil, remote_fields: nil)
           @content = content
           @content_type = content_type
+          @title = title
           @remote_fields = remote_fields
         end
 
@@ -31,6 +34,7 @@ module Kombo
           return false unless other.is_a? self.class
           return false unless @content == other.content
           return false unless @content_type == other.content_type
+          return false unless @title == other.title
           return false unless @remote_fields == other.remote_fields
           true
         end
