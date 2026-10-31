@@ -26,17 +26,20 @@ module Kombo
         # The date and time the object was deleted in the remote system. Objects are automatically marked as deleted when Kombo can't retrieve them from the remote system anymore. Kombo will also anonymize entries 14 days after they disappear.
         # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
         field :remote_deleted_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_deleted_at'), required: true, 'decoder': ::Kombo::Utils.datetime_from_iso_format(false) } }
+        # A key-value store of fields not covered by the schema. [Read more](/custom-fields)
+        field :custom_fields, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('custom_fields'), required: true } }
         # The work location’s address
         field :address, Crystalline::Nilable.new(Models::Shared::WorkLocationAddress), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('address') } }
 
-        sig { params(id: ::String, changed_at: ::DateTime, remote_id: T.nilable(::String), name: T.nilable(::String), type: T.nilable(::String), remote_deleted_at: T.nilable(::DateTime), address: T.nilable(Models::Shared::WorkLocationAddress)).void }
-        def initialize(id:, changed_at:, remote_id: nil, name: nil, type: nil, remote_deleted_at: nil, address: nil)
+        sig { params(id: ::String, changed_at: ::DateTime, remote_id: T.nilable(::String), name: T.nilable(::String), type: T.nilable(::String), remote_deleted_at: T.nilable(::DateTime), custom_fields: T.nilable(T::Hash[Symbol, ::Object]), address: T.nilable(Models::Shared::WorkLocationAddress)).void }
+        def initialize(id:, changed_at:, remote_id: nil, name: nil, type: nil, remote_deleted_at: nil, custom_fields: nil, address: nil)
           @id = id
           @changed_at = changed_at
           @remote_id = remote_id
           @name = name
           @type = type
           @remote_deleted_at = remote_deleted_at
+          @custom_fields = custom_fields
           @address = address
         end
 
@@ -49,6 +52,7 @@ module Kombo
           return false unless @name == other.name
           return false unless @type == other.type
           return false unless @remote_deleted_at == other.remote_deleted_at
+          return false unless @custom_fields == other.custom_fields
           return false unless @address == other.address
           true
         end
