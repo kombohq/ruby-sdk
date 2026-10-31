@@ -18,12 +18,21 @@ module Kombo
         field :net_pay, Crystalline::Nilable.new(Models::Shared::GetHrisPayslipsPositiveResponseNetPay), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('net_pay') } }
         # The amount of the payslip that was actually paid out to the employee. This value accounts for net earnings and deductions.
         field :paid_amount, Crystalline::Nilable.new(Models::Shared::GetHrisPayslipsPositiveResponsePaidAmount), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('paid_amount') } }
+        # The year-to-date gross pay as returned by the remote system. Kombo never calculates this value. `null` when the remote API does not provide a year-to-date amount.
+        field :gross_pay_ytd, Crystalline::Nilable.new(Models::Shared::GrossPayYtd), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('gross_pay_ytd') } }
+        # The year-to-date net pay as returned by the remote system. Kombo never calculates this value. `null` when the remote API does not provide a year-to-date amount.
+        field :net_pay_ytd, Crystalline::Nilable.new(Models::Shared::NetPayYtd), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('net_pay_ytd') } }
+        # The year-to-date paid amount as returned by the remote system. Kombo never calculates this value. `null` when the remote API does not provide a year-to-date amount.
+        field :paid_amount_ytd, Crystalline::Nilable.new(Models::Shared::PaidAmountYtd), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('paid_amount_ytd') } }
 
-        sig { params(gross_pay: T.nilable(Models::Shared::GetHrisPayslipsPositiveResponseGrossPay), net_pay: T.nilable(Models::Shared::GetHrisPayslipsPositiveResponseNetPay), paid_amount: T.nilable(Models::Shared::GetHrisPayslipsPositiveResponsePaidAmount)).void }
-        def initialize(gross_pay: nil, net_pay: nil, paid_amount: nil)
+        sig { params(gross_pay: T.nilable(Models::Shared::GetHrisPayslipsPositiveResponseGrossPay), net_pay: T.nilable(Models::Shared::GetHrisPayslipsPositiveResponseNetPay), paid_amount: T.nilable(Models::Shared::GetHrisPayslipsPositiveResponsePaidAmount), gross_pay_ytd: T.nilable(Models::Shared::GrossPayYtd), net_pay_ytd: T.nilable(Models::Shared::NetPayYtd), paid_amount_ytd: T.nilable(Models::Shared::PaidAmountYtd)).void }
+        def initialize(gross_pay: nil, net_pay: nil, paid_amount: nil, gross_pay_ytd: nil, net_pay_ytd: nil, paid_amount_ytd: nil)
           @gross_pay = gross_pay
           @net_pay = net_pay
           @paid_amount = paid_amount
+          @gross_pay_ytd = gross_pay_ytd
+          @net_pay_ytd = net_pay_ytd
+          @paid_amount_ytd = paid_amount_ytd
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
@@ -32,6 +41,9 @@ module Kombo
           return false unless @gross_pay == other.gross_pay
           return false unless @net_pay == other.net_pay
           return false unless @paid_amount == other.paid_amount
+          return false unless @gross_pay_ytd == other.gross_pay_ytd
+          return false unless @net_pay_ytd == other.net_pay_ytd
+          return false unless @paid_amount_ytd == other.paid_amount_ytd
           true
         end
       end
