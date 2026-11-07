@@ -239,3 +239,13 @@ Based on:
 - [ruby v1.2.9] .
 ### Releases
 - [Ruby Gems v1.2.9] https://rubygems.org/gems/kombo/versions/1.2.9 - .
+
+## 2026-11-07 00:31:03
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.806.0 (2.956.1) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [ruby v1.2.10] .
+### Releases
+- [Ruby Gems v1.2.10] https://rubygems.org/gems/kombo/versions/1.2.10 - .

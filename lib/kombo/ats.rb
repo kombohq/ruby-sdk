@@ -694,6 +694,8 @@ module Kombo
       #
       # Get attachments from an application. If the ATS stores the attachments on the candidate, it will get the attachments from the corresponding candidate instead.
       #
+      # This endpoint calls the ATS on every request. To get the files of all candidates without a request per application, use [synced attachments](/ats/features/attachments).
+      #
       # <Note>
       #   This endpoint requires the permission **Read document attachments** to be enabled in [your scope config](/scopes).
       # </Note>
@@ -1504,6 +1506,8 @@ module Kombo
     def get_candidate_attachments(candidate_id:, integration_id: nil, timeout_ms: nil, http_headers: nil)
       # get_candidate_attachments - Get candidate attachments
       # Get attachments from a candidate, including all attachments of all of their applications.
+      #
+      # This endpoint calls the ATS on every request. To get the files of all candidates without a request per candidate, use [synced attachments](/ats/features/attachments).
       #
       # <Note>
       #   This endpoint requires the permission **Read document attachments** to be enabled in [your scope config](/scopes).
@@ -4078,9 +4082,9 @@ module Kombo
       # get_ats_attachments - Get attachments
       # Retrieve all attachments.
       #
-      # These attachments are already synced, so this endpoint never calls the ATS and the files sit in the destination you configured.
+      # Returns the attachments Kombo synced into your file destination.
       #
-      # The on-demand alternatives call the ATS and return a `data_url` we host: [get candidate attachments](/ats/v1/get-candidates-candidate-id-attachments) for every file of one candidate, [get application attachments](/ats/v1/get-applications-application-id-attachments) for the files of one application.
+      # [Attachments](/ats/features/attachments) compares synced attachments with reading files on demand.
       #
       # Top level filters use AND, while individual filters use OR if they accept multiple arguments. That means filters will be resolved like this: `(id IN ids) AND (remote_id IN remote_ids)`
       request = Models::Operations::GetAtsAttachmentsRequest.new(

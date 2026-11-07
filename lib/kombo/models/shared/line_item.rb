@@ -16,17 +16,26 @@ module Kombo
         field :id, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('id'), required: true } }
         # The raw ID of the object in the remote system. We don't recommend using this as a primary key on your side as it might sometimes be compromised of multiple identifiers if a system doesn't provide a clear primary key. This value may include the item's position on the payslip, which can change if the payslip is edited.
         field :remote_id, ::String, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_id'), required: true } }
+        # The pay code (salary type) this line item belongs to in the remote system.
+        field :pay_code, Models::Shared::PayCode, { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('pay_code'), required: true } }
         # The name of the salary type.
         field :name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('name'), required: true } }
+        # A key-value store of fields not covered by the schema. [Read more](/custom-fields)
+        field :custom_fields, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('custom_fields'), required: true } }
         # The amount of the line item.
         field :amount, Crystalline::Nilable.new(Models::Shared::Amount), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('amount') } }
+        # The year-to-date amount of the line item as returned by the remote system. Kombo never calculates this value. `null` when the remote API does not provide a year-to-date amount.
+        field :amount_ytd, Crystalline::Nilable.new(Models::Shared::AmountYtd), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('amount_ytd') } }
 
-        sig { params(id: ::String, remote_id: ::String, name: T.nilable(::String), amount: T.nilable(Models::Shared::Amount)).void }
-        def initialize(id:, remote_id:, name: nil, amount: nil)
+        sig { params(id: ::String, remote_id: ::String, pay_code: Models::Shared::PayCode, name: T.nilable(::String), custom_fields: T.nilable(T::Hash[Symbol, ::Object]), amount: T.nilable(Models::Shared::Amount), amount_ytd: T.nilable(Models::Shared::AmountYtd)).void }
+        def initialize(id:, remote_id:, pay_code:, name: nil, custom_fields: nil, amount: nil, amount_ytd: nil)
           @id = id
           @remote_id = remote_id
+          @pay_code = pay_code
           @name = name
+          @custom_fields = custom_fields
           @amount = amount
+          @amount_ytd = amount_ytd
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
@@ -34,8 +43,11 @@ module Kombo
           return false unless other.is_a? self.class
           return false unless @id == other.id
           return false unless @remote_id == other.remote_id
+          return false unless @pay_code == other.pay_code
           return false unless @name == other.name
+          return false unless @custom_fields == other.custom_fields
           return false unless @amount == other.amount
+          return false unless @amount_ytd == other.amount_ytd
           true
         end
       end

@@ -20,6 +20,8 @@ class Kombo::Models::Shared::GetHrisLocationsPositiveResponseResult
   def type=(str_); end
   def remote_deleted_at(); end
   def remote_deleted_at=(str_); end
+  def custom_fields(); end
+  def custom_fields=(str_); end
   def address(); end
   def address=(str_); end
 end
