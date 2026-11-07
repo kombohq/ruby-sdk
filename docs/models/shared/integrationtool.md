@@ -96,6 +96,7 @@ value = IntegrationTool::WORKDAY
 | `TALENTCLUE`                      | talentclue                        |
 | `INRECRUITING`                    | inrecruiting                      |
 | `JOBADDER`                        | jobadder                          |
+| `JOBADDERJOBBOARD`                | jobadderjobboard                  |
 | `UBEEO`                           | ubeeo                             |
 | `CONNEXYS`                        | connexys                          |
 | `HR4YOU`                          | hr4you                            |
@@ -126,6 +127,7 @@ value = IntegrationTool::WORKDAY
 | `SANDBOX`                         | sandbox                           |
 | `GUIDECOM`                        | guidecom                          |
 | `SPOTT`                           | spott                             |
+| `STARDEX`                         | stardex                           |
 | `LOGICMELON`                      | logicmelon                        |
 | `LOXO`                            | loxo                              |
 | `KULA`                            | kula                              |
@@ -134,10 +136,12 @@ value = IntegrationTool::WORKDAY
 | `PAGEUP`                          | pageup                            |
 | `TALENT360`                       | talent360                         |
 | `EMPLYPEOPLE`                     | emplypeople                       |
+| `HIBOB`                           | hibob                             |
 | `WORKDAYCUSTOMREPORT`             | workdaycustomreport               |
 | `WORKDAYCUSTOMREPORTSFTP`         | workdaycustomreportsftp           |
 | `UKGPROWFM`                       | ukgprowfm                         |
 | `ADPDECIDIUM`                     | adpdecidium                       |
+| `ADPLINK`                         | adplink                           |
 | `PAYFITCUSTOMER`                  | payfitcustomer                    |
 | `PAYFITPARTNER`                   | payfitpartner                     |
 | `PAYFIT`                          | payfit                            |
@@ -145,7 +149,6 @@ value = IntegrationTool::WORKDAY
 | `FOURTH`                          | fourth                            |
 | `KENJO`                           | kenjo                             |
 | `HEAVENHR`                        | heavenhr                          |
-| `HIBOB`                           | hibob                             |
 | `CEZANNEHR`                       | cezannehr                         |
 | `ENTRAID`                         | entraid                           |
 | `AZUREAD`                         | azuread                           |
@@ -213,6 +216,7 @@ value = IntegrationTool::WORKDAY
 | `NIBELIS`                         | nibelis                           |
 | `PEOPLEXD`                        | peoplexd                          |
 | `ZELLIS`                          | zellis                            |
+| `VEDA`                            | veda                              |
 | `SFTP`                            | sftp                              |
 | `SFTPFETCH`                       | sftpfetch                         |
 | `THREE_HUNDRED_AND_SIXTYLEARNING` | 360learning                       |
