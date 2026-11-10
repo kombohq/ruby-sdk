@@ -22,4 +22,6 @@ class Kombo::Models::Shared::GetHrisGroupsPositiveResponseResult
   def type=(str_); end
   def parent_id(); end
   def parent_id=(str_); end
+  def custom_fields(); end
+  def custom_fields=(str_); end
 end
