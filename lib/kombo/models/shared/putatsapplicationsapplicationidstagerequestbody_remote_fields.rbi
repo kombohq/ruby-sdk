@@ -12,6 +12,8 @@ class Kombo::Models::Shared::PutAtsApplicationsApplicationIdStageRequestBodyRemo
   def workday=(str_); end
   def successfactors(); end
   def successfactors=(str_); end
+  def lever(); end
+  def lever=(str_); end
   def greenhouse(); end
   def greenhouse=(str_); end
   def workable(); end
