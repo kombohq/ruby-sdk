@@ -13,9 +13,9 @@ module Kombo
         include Crystalline::MetadataFields
 
         # Fields that we will pass through to Teamtailor's attributes section `Job application` object.
-        field :attributes, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('attributes') } }
+        field :attributes, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('attributes') } }
 
-        sig { params(attributes: T.nilable(T::Hash[Symbol, ::Object])).void }
+        sig { params(attributes: T.nilable(T::Hash[::Symbol, ::Object])).void }
         def initialize(attributes: nil)
           @attributes = attributes
         end

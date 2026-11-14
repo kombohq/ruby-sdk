@@ -13,9 +13,9 @@ module Kombo
         include Crystalline::MetadataFields
 
         # Fields that we will pass through to SuccessFactor's `JobApplication` object when moving the application to a new stage. Useful for instance-specific fields that SAP requires on certain status transitions (e.g. `custEventReason`).
-        field :job_application, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('JobApplication') } }
+        field :job_application, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('JobApplication') } }
 
-        sig { params(job_application: T.nilable(T::Hash[Symbol, ::Object])).void }
+        sig { params(job_application: T.nilable(T::Hash[::Symbol, ::Object])).void }
         def initialize(job_application: nil)
           @job_application = job_application
         end

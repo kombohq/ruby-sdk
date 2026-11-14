@@ -21,7 +21,7 @@ module Kombo
         def initialize(data:, status: 'success')
           @data = data
           unless status == 'success'
-            raise ArgumentError, 'Invalid value for status'
+            raise ::ArgumentError, 'Invalid value for status'
           end
           @status = 'success'
         end

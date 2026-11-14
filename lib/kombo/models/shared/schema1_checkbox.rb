@@ -28,7 +28,7 @@ module Kombo
           @label = label
           @required = required
           unless type == 'checkbox'
-            raise ArgumentError, 'Invalid value for type'
+            raise ::ArgumentError, 'Invalid value for type'
           end
           @type = 'checkbox'
           @description = description

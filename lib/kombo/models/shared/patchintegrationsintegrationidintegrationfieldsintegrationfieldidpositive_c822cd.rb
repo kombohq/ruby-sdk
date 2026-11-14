@@ -36,7 +36,7 @@ module Kombo
           @is_passthrough_enabled = is_passthrough_enabled
           @label = label
           unless is_writable == false
-            raise ArgumentError, 'Invalid value for is_writable'
+            raise ::ArgumentError, 'Invalid value for is_writable'
           end
           @is_writable = false
         end

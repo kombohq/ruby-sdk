@@ -13,9 +13,9 @@ module Kombo
         include Crystalline::MetadataFields
 
         # Fields that we will write to the Traffit candidate before adding the result note. Custom fields are keyed by their SID with a `_` prefix, for example `{ "_Assessment_Score": "5" }`. The field must be available via integration in Traffit.
-        field :candidate, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('candidate') } }
+        field :candidate, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('candidate') } }
 
-        sig { params(candidate: T.nilable(T::Hash[Symbol, ::Object])).void }
+        sig { params(candidate: T.nilable(T::Hash[::Symbol, ::Object])).void }
         def initialize(candidate: nil)
           @candidate = candidate
         end

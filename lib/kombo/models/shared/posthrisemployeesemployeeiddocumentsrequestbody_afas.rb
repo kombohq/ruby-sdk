@@ -13,9 +13,9 @@ module Kombo
         include Crystalline::MetadataFields
 
         # Additional fields that we will pass through to the AFAS `KnSubject` `Fields` object. These are merged on top of the default fields (`StId`, `Ds`, and `FvF1`).
-        field :fields_, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('Fields') } }
+        field :fields_, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('Fields') } }
 
-        sig { params(fields_: T.nilable(T::Hash[Symbol, ::Object])).void }
+        sig { params(fields_: T.nilable(T::Hash[::Symbol, ::Object])).void }
         def initialize(fields_: nil)
           @fields_ = fields_
         end

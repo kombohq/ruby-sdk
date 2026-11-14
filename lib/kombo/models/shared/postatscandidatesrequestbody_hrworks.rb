@@ -13,9 +13,9 @@ module Kombo
         include Crystalline::MetadataFields
 
         # Fields that we will pass through to HRWorks's `Job Application` object. This API is used: https://developers.hrworks.de/docs/hrworks-api-v2/53021f035f62d-post-job-applications
-        field :job_application, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('jobApplication') } }
+        field :job_application, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('jobApplication') } }
 
-        sig { params(job_application: T.nilable(T::Hash[Symbol, ::Object])).void }
+        sig { params(job_application: T.nilable(T::Hash[::Symbol, ::Object])).void }
         def initialize(job_application: nil)
           @job_application = job_application
         end

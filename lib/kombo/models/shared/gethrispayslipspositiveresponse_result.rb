@@ -26,14 +26,14 @@ module Kombo
         # The individual earnings, deductions, and contributions that make up the payslip.
         field :line_items, Crystalline::Array.new(Models::Shared::LineItem), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('line_items'), required: true } }
         # A key-value store of fields not covered by the schema. [Read more](/custom-fields)
-        field :custom_fields, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('custom_fields'), required: true } }
+        field :custom_fields, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('custom_fields'), required: true } }
         # The date and time the object was deleted in the remote system. Objects are automatically marked as deleted when Kombo can't retrieve them from the remote system anymore. Kombo will also anonymize entries 14 days after they disappear.
         # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
         field :remote_deleted_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_deleted_at'), required: true, 'decoder': ::Kombo::Utils.datetime_from_iso_format(false) } }
         # The pay run the payslip was paid out through.
         field :pay_run, Crystalline::Nilable.new(Models::Shared::PayRun), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('pay_run'), required: true } }
 
-        sig { params(id: ::String, remote_id: ::String, changed_at: ::DateTime, totals: Models::Shared::GetHrisPayslipsPositiveResponseTotals, employee: Models::Shared::Employee, line_items: T::Array[Models::Shared::LineItem], custom_fields: T.nilable(T::Hash[Symbol, ::Object]), remote_deleted_at: T.nilable(::DateTime), pay_run: T.nilable(Models::Shared::PayRun)).void }
+        sig { params(id: ::String, remote_id: ::String, changed_at: ::DateTime, totals: Models::Shared::GetHrisPayslipsPositiveResponseTotals, employee: Models::Shared::Employee, line_items: T::Array[Models::Shared::LineItem], custom_fields: T.nilable(T::Hash[::Symbol, ::Object]), remote_deleted_at: T.nilable(::DateTime), pay_run: T.nilable(Models::Shared::PayRun)).void }
         def initialize(id:, remote_id:, changed_at:, totals:, employee:, line_items:, custom_fields: nil, remote_deleted_at: nil, pay_run: nil)
           @id = id
           @remote_id = remote_id

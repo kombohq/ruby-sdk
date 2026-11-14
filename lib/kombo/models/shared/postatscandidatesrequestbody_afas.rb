@@ -13,9 +13,9 @@ module Kombo
         include Crystalline::MetadataFields
 
         # Additional fields passed through to AFAS `HrCreateApplicant.Element.Fields`.
-        field :fields_, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('Fields') } }
+        field :fields_, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('Fields') } }
 
-        sig { params(fields_: T.nilable(T::Hash[Symbol, ::Object])).void }
+        sig { params(fields_: T.nilable(T::Hash[::Symbol, ::Object])).void }
         def initialize(fields_: nil)
           @fields_ = fields_
         end

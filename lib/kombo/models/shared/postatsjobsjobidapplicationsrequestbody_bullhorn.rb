@@ -13,17 +13,20 @@ module Kombo
         include Crystalline::MetadataFields
 
         # Fields that we will pass through to Bullhorn's `Candidate` object.
-        field :candidate, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('candidate') } }
+        field :candidate, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('candidate') } }
         # Fields that we will pass through to Bullhorn's `JobSubmission` object.
-        field :job_submission, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('job_submission') } }
+        field :job_submission, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('job_submission') } }
         # The remote ID of the Bullhorn `Candidate` the application should be filed on. When set, we skip Bullhorn's duplicate detection and use exactly this candidate, which lets you pick the right record when several candidates share an email address or phone number. The request fails if the candidate does not exist (or was deleted) in Bullhorn.
         field :existing_candidate_remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('existing_candidate_remote_id') } }
+        # The remote IDs of Bullhorn `Specialty` records to add to the candidate. You can list the available specialties with `GET options/Specialty` through our passthrough API. Only applied when we create a new candidate, not when we file the application on an existing one. Bullhorn silently ignores IDs that do not exist, so make sure they are valid. If Bullhorn returns an error, the application is still created and the response includes a warning.
+        field :candidate_specialty_remote_ids, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('candidate_specialty_remote_ids') } }
 
-        sig { params(candidate: T.nilable(T::Hash[Symbol, ::Object]), job_submission: T.nilable(T::Hash[Symbol, ::Object]), existing_candidate_remote_id: T.nilable(::String)).void }
-        def initialize(candidate: nil, job_submission: nil, existing_candidate_remote_id: nil)
+        sig { params(candidate: T.nilable(T::Hash[::Symbol, ::Object]), job_submission: T.nilable(T::Hash[::Symbol, ::Object]), existing_candidate_remote_id: T.nilable(::String), candidate_specialty_remote_ids: T.nilable(T::Array[::String])).void }
+        def initialize(candidate: nil, job_submission: nil, existing_candidate_remote_id: nil, candidate_specialty_remote_ids: nil)
           @candidate = candidate
           @job_submission = job_submission
           @existing_candidate_remote_id = existing_candidate_remote_id
+          @candidate_specialty_remote_ids = candidate_specialty_remote_ids
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
@@ -32,6 +35,7 @@ module Kombo
           return false unless @candidate == other.candidate
           return false unless @job_submission == other.job_submission
           return false unless @existing_candidate_remote_id == other.existing_candidate_remote_id
+          return false unless @candidate_specialty_remote_ids == other.candidate_specialty_remote_ids
           true
         end
       end

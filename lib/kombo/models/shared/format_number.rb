@@ -24,7 +24,7 @@ module Kombo
         sig { params(type: ::String, max: T.nilable(::Float), min: T.nilable(::Float), display_type: T.nilable(Models::Shared::DisplayType2)).void }
         def initialize(type: 'NUMBER', max: nil, min: nil, display_type: Models::Shared::DisplayType2::FIELD)
           unless type == 'NUMBER'
-            raise ArgumentError, 'Invalid value for type'
+            raise ::ArgumentError, 'Invalid value for type'
           end
           @type = 'NUMBER'
           @max = max

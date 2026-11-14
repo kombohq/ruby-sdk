@@ -21,7 +21,7 @@ module Kombo
         def initialize(placement_id:, id_type: 'placement_id')
           @placement_id = placement_id
           unless id_type == 'placement_id'
-            raise ArgumentError, 'Invalid value for id_type'
+            raise ::ArgumentError, 'Invalid value for id_type'
           end
           @id_type = 'placement_id'
         end

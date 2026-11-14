@@ -22,7 +22,7 @@ module Kombo
         sig { params(type: ::String, accepted_mime_types: T.nilable(T::Array[::String]), max_file_size_bytes: T.nilable(::Integer)).void }
         def initialize(type: 'FILE', accepted_mime_types: nil, max_file_size_bytes: nil)
           unless type == 'FILE'
-            raise ArgumentError, 'Invalid value for type'
+            raise ::ArgumentError, 'Invalid value for type'
           end
           @type = 'FILE'
           @accepted_mime_types = accepted_mime_types

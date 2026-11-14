@@ -27,11 +27,11 @@ module Kombo
         # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
         field :remote_deleted_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_deleted_at'), required: true, 'decoder': ::Kombo::Utils.datetime_from_iso_format(false) } }
         # A key-value store of fields not covered by the schema. [Read more](/custom-fields)
-        field :custom_fields, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('custom_fields'), required: true } }
+        field :custom_fields, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('custom_fields'), required: true } }
         # The work location’s address
         field :address, Crystalline::Nilable.new(Models::Shared::WorkLocationAddress), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('address') } }
 
-        sig { params(id: ::String, changed_at: ::DateTime, remote_id: T.nilable(::String), name: T.nilable(::String), type: T.nilable(::String), remote_deleted_at: T.nilable(::DateTime), custom_fields: T.nilable(T::Hash[Symbol, ::Object]), address: T.nilable(Models::Shared::WorkLocationAddress)).void }
+        sig { params(id: ::String, changed_at: ::DateTime, remote_id: T.nilable(::String), name: T.nilable(::String), type: T.nilable(::String), remote_deleted_at: T.nilable(::DateTime), custom_fields: T.nilable(T::Hash[::Symbol, ::Object]), address: T.nilable(Models::Shared::WorkLocationAddress)).void }
         def initialize(id:, changed_at:, remote_id: nil, name: nil, type: nil, remote_deleted_at: nil, custom_fields: nil, address: nil)
           @id = id
           @changed_at = changed_at

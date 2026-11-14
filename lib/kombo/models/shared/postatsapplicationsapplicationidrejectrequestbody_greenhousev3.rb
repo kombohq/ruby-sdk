@@ -13,9 +13,9 @@ module Kombo
         include Crystalline::MetadataFields
 
         # Additional data fields passed through to the `rejection_email` field of Greenhouse V3's reject-application endpoint.
-        field :rejection_email, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('rejection_email') } }
+        field :rejection_email, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('rejection_email') } }
 
-        sig { params(rejection_email: T.nilable(T::Hash[Symbol, ::Object])).void }
+        sig { params(rejection_email: T.nilable(T::Hash[::Symbol, ::Object])).void }
         def initialize(rejection_email: nil)
           @rejection_email = rejection_email
         end

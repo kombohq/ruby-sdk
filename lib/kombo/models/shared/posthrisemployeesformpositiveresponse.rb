@@ -24,7 +24,7 @@ module Kombo
           @data = data
           @warnings = warnings
           unless status == 'success'
-            raise ArgumentError, 'Invalid value for status'
+            raise ::ArgumentError, 'Invalid value for status'
           end
           @status = 'success'
         end
