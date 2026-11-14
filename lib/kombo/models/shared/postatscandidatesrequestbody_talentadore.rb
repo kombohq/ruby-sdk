@@ -13,9 +13,9 @@ module Kombo
         include Crystalline::MetadataFields
 
         # Fields that we will pass through to the Talentadore's when creating applications.
-        field :applications, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('applications') } }
+        field :applications, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('applications') } }
 
-        sig { params(applications: T.nilable(T::Hash[Symbol, ::Object])).void }
+        sig { params(applications: T.nilable(T::Hash[::Symbol, ::Object])).void }
         def initialize(applications: nil)
           @applications = applications
         end

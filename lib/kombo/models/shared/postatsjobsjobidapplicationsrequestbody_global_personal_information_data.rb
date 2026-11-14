@@ -14,16 +14,20 @@ module Kombo
 
 
         field :date_of_birth, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('Date_of_Birth') } }
+        # Gender reference written to Person Biographic and Demographic Information Data.
+        field :gender_reference, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyGenderReference), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('Gender_Reference') } }
 
-        sig { params(date_of_birth: T.nilable(::String)).void }
-        def initialize(date_of_birth: nil)
+        sig { params(date_of_birth: T.nilable(::String), gender_reference: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyGenderReference)).void }
+        def initialize(date_of_birth: nil, gender_reference: nil)
           @date_of_birth = date_of_birth
+          @gender_reference = gender_reference
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @date_of_birth == other.date_of_birth
+          return false unless @gender_reference == other.gender_reference
           true
         end
       end

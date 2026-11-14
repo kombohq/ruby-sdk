@@ -31,7 +31,7 @@ module Kombo
           @required = required
           @options = options
           unless type == 'single_select'
-            raise ArgumentError, 'Invalid value for type'
+            raise ::ArgumentError, 'Invalid value for type'
           end
           @type = 'single_select'
           @description = description

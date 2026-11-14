@@ -35,7 +35,7 @@ module Kombo
           @required = required
           @options = options
           unless type == 'multi_select'
-            raise ArgumentError, 'Invalid value for type'
+            raise ::ArgumentError, 'Invalid value for type'
           end
           @type = 'multi_select'
           @description = description

@@ -217,6 +217,7 @@ value = IntegrationTool::WORKDAY
 | `PEOPLEXD`                        | peoplexd                          |
 | `ZELLIS`                          | zellis                            |
 | `VEDA`                            | veda                              |
+| `SONA`                            | sona                              |
 | `SFTP`                            | sftp                              |
 | `SFTPFETCH`                       | sftpfetch                         |
 | `THREE_HUNDRED_AND_SIXTYLEARNING` | 360learning                       |

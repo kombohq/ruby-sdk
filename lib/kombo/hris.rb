@@ -24,7 +24,7 @@ module Kombo
       
     end
 
-    sig { params(base_url: String, url_variables: T.nilable(T::Hash[Symbol, T.any(String, T::Enum)])).returns(String) }
+    sig { params(base_url: ::String, url_variables: T.nilable(T::Hash[::Symbol, T.any(::String, T::Enum)])).returns(::String) }
     def get_url(base_url:, url_variables: nil)
       sd_base_url, sd_options = @sdk_configuration.get_server_details
 
@@ -42,7 +42,7 @@ module Kombo
 
 
 
-    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), employment_statuses: T.nilable(T::Array[::String]), group_ids: T.nilable(T::Array[::String]), legal_entity_ids: T.nilable(T::Array[::String]), work_location_ids: T.nilable(T::Array[::String]), work_emails: T.nilable(T::Array[::String]), personal_emails: T.nilable(T::Array[::String]), custom_fields: T.nilable(::String), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::GetHrisEmployeesResponse) }
+    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), employment_statuses: T.nilable(T::Array[::String]), group_ids: T.nilable(T::Array[::String]), legal_entity_ids: T.nilable(T::Array[::String]), work_location_ids: T.nilable(T::Array[::String]), work_emails: T.nilable(T::Array[::String]), personal_emails: T.nilable(T::Array[::String]), custom_fields: T.nilable(::String), timeout_ms: T.nilable(::Integer), http_headers: T.nilable(T::Hash[T.any(::String, ::Symbol), ::String])).returns(Models::Operations::GetHrisEmployeesResponse) }
     def get_employees(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, employment_statuses: nil, group_ids: nil, legal_entity_ids: nil, work_location_ids: nil, work_emails: nil, personal_emails: nil, custom_fields: nil, timeout_ms: nil, http_headers: nil)
       # get_employees - Get employees
       # Retrieve all employees.
@@ -71,7 +71,7 @@ module Kombo
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/hris/employees"
       headers = Utils.get_headers(request, @sdk_configuration.globals)
-      headers = T.cast(headers, T::Hash[String, String])
+      headers = T.cast(headers, T::Hash[::String, ::String])
       query_params = Utils.get_query_params(Models::Operations::GetHrisEmployeesRequest, request, nil, @sdk_configuration.globals)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
@@ -92,7 +92,7 @@ module Kombo
         security_source: @sdk_configuration.security_source
       )
 
-      error = T.let(nil, T.nilable(StandardError))
+      error = T.let(nil, T.nilable(::StandardError))
       http_response = T.let(nil, T.nilable(Faraday::Response))
       
 
@@ -113,7 +113,7 @@ module Kombo
             request: req
           )
         end
-      rescue StandardError => e
+      rescue ::StandardError => e
         error = e
       ensure
         if http_response.nil? || Utils.error_status?(http_response.status)
@@ -149,7 +149,7 @@ module Kombo
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::GetHrisEmployeesPositiveResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Shared::GetHrisEmployeesPositiveResponse)
           response = Models::Operations::GetHrisEmployeesResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -159,7 +159,7 @@ module Kombo
           sdk = self
 
           response.next_page = proc do 
-            next_cursor = Janeway.enum_for('$.data.next', JSON.parse(response_data)).search
+            next_cursor = Janeway.enum_for('$.data.next', ::JSON.parse(response_data)).search
             if next_cursor.nil?
               next nil
             else
@@ -203,7 +203,7 @@ module Kombo
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::KomboHrisError)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::KomboHrisError)
           obj.raw_response = http_response
           raise obj
         else
@@ -213,7 +213,7 @@ module Kombo
     end
 
 
-    sig { params(integration_id: T.nilable(::String), staffing_entity_id: T.nilable(::String), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::GetHrisEmployeesFormResponse) }
+    sig { params(integration_id: T.nilable(::String), staffing_entity_id: T.nilable(::String), timeout_ms: T.nilable(::Integer), http_headers: T.nilable(T::Hash[T.any(::String, ::Symbol), ::String])).returns(Models::Operations::GetHrisEmployeesFormResponse) }
     def get_employee_form(integration_id: nil, staffing_entity_id: nil, timeout_ms: nil, http_headers: nil)
       # get_employee_form - Get employee form
       # Get the form for creating an employee. This form can be rendered dynamically on your frontend to allow your customers to create employees in their HRIS.
@@ -303,7 +303,7 @@ module Kombo
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/hris/employees/form"
       headers = Utils.get_headers(request, @sdk_configuration.globals)
-      headers = T.cast(headers, T::Hash[String, String])
+      headers = T.cast(headers, T::Hash[::String, ::String])
       query_params = Utils.get_query_params(Models::Operations::GetHrisEmployeesFormRequest, request, nil, @sdk_configuration.globals)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
@@ -324,7 +324,7 @@ module Kombo
         security_source: @sdk_configuration.security_source
       )
 
-      error = T.let(nil, T.nilable(StandardError))
+      error = T.let(nil, T.nilable(::StandardError))
       http_response = T.let(nil, T.nilable(Faraday::Response))
       
 
@@ -345,7 +345,7 @@ module Kombo
             request: req
           )
         end
-      rescue StandardError => e
+      rescue ::StandardError => e
         error = e
       ensure
         if http_response.nil? || Utils.error_status?(http_response.status)
@@ -381,7 +381,7 @@ module Kombo
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::GetHrisEmployeesFormPositiveResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Shared::GetHrisEmployeesFormPositiveResponse)
           response = Models::Operations::GetHrisEmployeesFormResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -402,7 +402,7 @@ module Kombo
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::KomboHrisError)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::KomboHrisError)
           obj.raw_response = http_response
           raise obj
         else
@@ -412,7 +412,7 @@ module Kombo
     end
 
 
-    sig { params(body: Models::Shared::PostHrisEmployeesFormRequestBody, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::PostHrisEmployeesFormResponse) }
+    sig { params(body: Models::Shared::PostHrisEmployeesFormRequestBody, integration_id: T.nilable(::String), timeout_ms: T.nilable(::Integer), http_headers: T.nilable(T::Hash[T.any(::String, ::Symbol), ::String])).returns(Models::Operations::PostHrisEmployeesFormResponse) }
     def create_employee_with_form(body:, integration_id: nil, timeout_ms: nil, http_headers: nil)
       # create_employee_with_form - Create employee with form
       # Create an employee, based on the form schema.
@@ -448,15 +448,15 @@ module Kombo
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/hris/employees/form"
       headers = Utils.get_headers(request, @sdk_configuration.globals)
-      headers = T.cast(headers, T::Hash[String, String])
+      headers = T.cast(headers, T::Hash[::String, ::String])
       req_content_type, data, form = Utils.serialize_request_body(request, false, false, :body, :json)
       headers['content-type'] = req_content_type
-      raise StandardError, 'request body is required' if data.nil? && form.nil?
+      raise ::StandardError, 'request body is required' if data.nil? && form.nil?
 
       if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
-        body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
+        body = ::URI.encode_www_form(T.cast(data, T::Hash[::Symbol, ::Object]))
       else
         body = data
       end
@@ -479,7 +479,7 @@ module Kombo
         security_source: @sdk_configuration.security_source
       )
 
-      error = T.let(nil, T.nilable(StandardError))
+      error = T.let(nil, T.nilable(::StandardError))
       http_response = T.let(nil, T.nilable(Faraday::Response))
       
 
@@ -500,7 +500,7 @@ module Kombo
             request: req
           )
         end
-      rescue StandardError => e
+      rescue ::StandardError => e
         error = e
       ensure
         if http_response.nil? || Utils.error_status?(http_response.status)
@@ -536,7 +536,7 @@ module Kombo
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::PostHrisEmployeesFormPositiveResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Shared::PostHrisEmployeesFormPositiveResponse)
           response = Models::Operations::PostHrisEmployeesFormResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -557,7 +557,7 @@ module Kombo
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::KomboHrisError)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::KomboHrisError)
           obj.raw_response = http_response
           raise obj
         else
@@ -567,7 +567,7 @@ module Kombo
     end
 
 
-    sig { params(body: Models::Shared::PostHrisEmployeesEmployeeIdDocumentsRequestBody, employee_id: ::String, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::PostHrisEmployeesEmployeeIdDocumentsResponse) }
+    sig { params(body: Models::Shared::PostHrisEmployeesEmployeeIdDocumentsRequestBody, employee_id: ::String, integration_id: T.nilable(::String), timeout_ms: T.nilable(::Integer), http_headers: T.nilable(T::Hash[T.any(::String, ::Symbol), ::String])).returns(Models::Operations::PostHrisEmployeesEmployeeIdDocumentsResponse) }
     def add_employee_document(body:, employee_id:, integration_id: nil, timeout_ms: nil, http_headers: nil)
       # add_employee_document - Add document to employee
       # Uploads an document file for the specified employee.
@@ -603,15 +603,15 @@ module Kombo
         @sdk_configuration.globals
       )
       headers = Utils.get_headers(request, @sdk_configuration.globals)
-      headers = T.cast(headers, T::Hash[String, String])
+      headers = T.cast(headers, T::Hash[::String, ::String])
       req_content_type, data, form = Utils.serialize_request_body(request, false, false, :body, :json)
       headers['content-type'] = req_content_type
-      raise StandardError, 'request body is required' if data.nil? && form.nil?
+      raise ::StandardError, 'request body is required' if data.nil? && form.nil?
 
       if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
-        body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
+        body = ::URI.encode_www_form(T.cast(data, T::Hash[::Symbol, ::Object]))
       else
         body = data
       end
@@ -634,7 +634,7 @@ module Kombo
         security_source: @sdk_configuration.security_source
       )
 
-      error = T.let(nil, T.nilable(StandardError))
+      error = T.let(nil, T.nilable(::StandardError))
       http_response = T.let(nil, T.nilable(Faraday::Response))
       
 
@@ -655,7 +655,7 @@ module Kombo
             request: req
           )
         end
-      rescue StandardError => e
+      rescue ::StandardError => e
         error = e
       ensure
         if http_response.nil? || Utils.error_status?(http_response.status)
@@ -691,7 +691,7 @@ module Kombo
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::PostHrisEmployeesEmployeeIdDocumentsPositiveResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Shared::PostHrisEmployeesEmployeeIdDocumentsPositiveResponse)
           response = Models::Operations::PostHrisEmployeesEmployeeIdDocumentsResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -712,7 +712,7 @@ module Kombo
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::KomboHrisError)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::KomboHrisError)
           obj.raw_response = http_response
           raise obj
         else
@@ -722,7 +722,7 @@ module Kombo
     end
 
 
-    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::GetHrisEmployeeDocumentCategoriesResponse) }
+    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), timeout_ms: T.nilable(::Integer), http_headers: T.nilable(T::Hash[T.any(::String, ::Symbol), ::String])).returns(Models::Operations::GetHrisEmployeeDocumentCategoriesResponse) }
     def get_employee_document_categories(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, timeout_ms: nil, http_headers: nil)
       # get_employee_document_categories - Get employee document categories
       # Get employee document categories.
@@ -742,7 +742,7 @@ module Kombo
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/hris/employee-document-categories"
       headers = Utils.get_headers(request, @sdk_configuration.globals)
-      headers = T.cast(headers, T::Hash[String, String])
+      headers = T.cast(headers, T::Hash[::String, ::String])
       query_params = Utils.get_query_params(Models::Operations::GetHrisEmployeeDocumentCategoriesRequest, request, nil, @sdk_configuration.globals)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
@@ -763,7 +763,7 @@ module Kombo
         security_source: @sdk_configuration.security_source
       )
 
-      error = T.let(nil, T.nilable(StandardError))
+      error = T.let(nil, T.nilable(::StandardError))
       http_response = T.let(nil, T.nilable(Faraday::Response))
       
 
@@ -784,7 +784,7 @@ module Kombo
             request: req
           )
         end
-      rescue StandardError => e
+      rescue ::StandardError => e
         error = e
       ensure
         if http_response.nil? || Utils.error_status?(http_response.status)
@@ -820,7 +820,7 @@ module Kombo
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::GetHrisEmployeeDocumentCategoriesPositiveResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Shared::GetHrisEmployeeDocumentCategoriesPositiveResponse)
           response = Models::Operations::GetHrisEmployeeDocumentCategoriesResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -830,7 +830,7 @@ module Kombo
           sdk = self
 
           response.next_page = proc do 
-            next_cursor = Janeway.enum_for('$.data.next', JSON.parse(response_data)).search
+            next_cursor = Janeway.enum_for('$.data.next', ::JSON.parse(response_data)).search
             if next_cursor.nil?
               next nil
             else
@@ -867,7 +867,7 @@ module Kombo
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::KomboHrisError)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::KomboHrisError)
           obj.raw_response = http_response
           raise obj
         else
@@ -877,7 +877,7 @@ module Kombo
     end
 
 
-    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), types: T.nilable(T::Array[::String]), name_contains: T.nilable(::String), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::GetHrisGroupsResponse) }
+    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), types: T.nilable(T::Array[::String]), name_contains: T.nilable(::String), timeout_ms: T.nilable(::Integer), http_headers: T.nilable(T::Hash[T.any(::String, ::Symbol), ::String])).returns(Models::Operations::GetHrisGroupsResponse) }
     def get_groups(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, types: nil, name_contains: nil, timeout_ms: nil, http_headers: nil)
       # get_groups - Get groups
       # Retrieve all "groups" (teams, departments, and cost centers).
@@ -899,7 +899,7 @@ module Kombo
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/hris/groups"
       headers = Utils.get_headers(request, @sdk_configuration.globals)
-      headers = T.cast(headers, T::Hash[String, String])
+      headers = T.cast(headers, T::Hash[::String, ::String])
       query_params = Utils.get_query_params(Models::Operations::GetHrisGroupsRequest, request, nil, @sdk_configuration.globals)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
@@ -920,7 +920,7 @@ module Kombo
         security_source: @sdk_configuration.security_source
       )
 
-      error = T.let(nil, T.nilable(StandardError))
+      error = T.let(nil, T.nilable(::StandardError))
       http_response = T.let(nil, T.nilable(Faraday::Response))
       
 
@@ -941,7 +941,7 @@ module Kombo
             request: req
           )
         end
-      rescue StandardError => e
+      rescue ::StandardError => e
         error = e
       ensure
         if http_response.nil? || Utils.error_status?(http_response.status)
@@ -977,7 +977,7 @@ module Kombo
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::GetHrisGroupsPositiveResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Shared::GetHrisGroupsPositiveResponse)
           response = Models::Operations::GetHrisGroupsResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -987,7 +987,7 @@ module Kombo
           sdk = self
 
           response.next_page = proc do 
-            next_cursor = Janeway.enum_for('$.data.next', JSON.parse(response_data)).search
+            next_cursor = Janeway.enum_for('$.data.next', ::JSON.parse(response_data)).search
             if next_cursor.nil?
               next nil
             else
@@ -1026,7 +1026,7 @@ module Kombo
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::KomboHrisError)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::KomboHrisError)
           obj.raw_response = http_response
           raise obj
         else
@@ -1036,7 +1036,7 @@ module Kombo
     end
 
 
-    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::GetHrisEmploymentsResponse) }
+    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), timeout_ms: T.nilable(::Integer), http_headers: T.nilable(T::Hash[T.any(::String, ::Symbol), ::String])).returns(Models::Operations::GetHrisEmploymentsResponse) }
     def get_employments(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, timeout_ms: nil, http_headers: nil)
       # get_employments - Get employments
       # Retrieve all employments.
@@ -1056,7 +1056,7 @@ module Kombo
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/hris/employments"
       headers = Utils.get_headers(request, @sdk_configuration.globals)
-      headers = T.cast(headers, T::Hash[String, String])
+      headers = T.cast(headers, T::Hash[::String, ::String])
       query_params = Utils.get_query_params(Models::Operations::GetHrisEmploymentsRequest, request, nil, @sdk_configuration.globals)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
@@ -1077,7 +1077,7 @@ module Kombo
         security_source: @sdk_configuration.security_source
       )
 
-      error = T.let(nil, T.nilable(StandardError))
+      error = T.let(nil, T.nilable(::StandardError))
       http_response = T.let(nil, T.nilable(Faraday::Response))
       
 
@@ -1098,7 +1098,7 @@ module Kombo
             request: req
           )
         end
-      rescue StandardError => e
+      rescue ::StandardError => e
         error = e
       ensure
         if http_response.nil? || Utils.error_status?(http_response.status)
@@ -1134,7 +1134,7 @@ module Kombo
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::GetHrisEmploymentsPositiveResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Shared::GetHrisEmploymentsPositiveResponse)
           response = Models::Operations::GetHrisEmploymentsResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -1144,7 +1144,7 @@ module Kombo
           sdk = self
 
           response.next_page = proc do 
-            next_cursor = Janeway.enum_for('$.data.next', JSON.parse(response_data)).search
+            next_cursor = Janeway.enum_for('$.data.next', ::JSON.parse(response_data)).search
             if next_cursor.nil?
               next nil
             else
@@ -1181,7 +1181,7 @@ module Kombo
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::KomboHrisError)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::KomboHrisError)
           obj.raw_response = http_response
           raise obj
         else
@@ -1191,7 +1191,7 @@ module Kombo
     end
 
 
-    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), name_contains: T.nilable(::String), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::GetHrisLocationsResponse) }
+    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), name_contains: T.nilable(::String), timeout_ms: T.nilable(::Integer), http_headers: T.nilable(T::Hash[T.any(::String, ::Symbol), ::String])).returns(Models::Operations::GetHrisLocationsResponse) }
     def get_locations(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, name_contains: nil, timeout_ms: nil, http_headers: nil)
       # get_locations - Get work locations
       # Retrieve all work locations.
@@ -1212,7 +1212,7 @@ module Kombo
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/hris/locations"
       headers = Utils.get_headers(request, @sdk_configuration.globals)
-      headers = T.cast(headers, T::Hash[String, String])
+      headers = T.cast(headers, T::Hash[::String, ::String])
       query_params = Utils.get_query_params(Models::Operations::GetHrisLocationsRequest, request, nil, @sdk_configuration.globals)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
@@ -1233,7 +1233,7 @@ module Kombo
         security_source: @sdk_configuration.security_source
       )
 
-      error = T.let(nil, T.nilable(StandardError))
+      error = T.let(nil, T.nilable(::StandardError))
       http_response = T.let(nil, T.nilable(Faraday::Response))
       
 
@@ -1254,7 +1254,7 @@ module Kombo
             request: req
           )
         end
-      rescue StandardError => e
+      rescue ::StandardError => e
         error = e
       ensure
         if http_response.nil? || Utils.error_status?(http_response.status)
@@ -1290,7 +1290,7 @@ module Kombo
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::GetHrisLocationsPositiveResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Shared::GetHrisLocationsPositiveResponse)
           response = Models::Operations::GetHrisLocationsResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -1300,7 +1300,7 @@ module Kombo
           sdk = self
 
           response.next_page = proc do 
-            next_cursor = Janeway.enum_for('$.data.next', JSON.parse(response_data)).search
+            next_cursor = Janeway.enum_for('$.data.next', ::JSON.parse(response_data)).search
             if next_cursor.nil?
               next nil
             else
@@ -1338,7 +1338,7 @@ module Kombo
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::KomboHrisError)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::KomboHrisError)
           obj.raw_response = http_response
           raise obj
         else
@@ -1348,7 +1348,7 @@ module Kombo
     end
 
 
-    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::GetHrisAbsenceTypesResponse) }
+    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), timeout_ms: T.nilable(::Integer), http_headers: T.nilable(T::Hash[T.any(::String, ::Symbol), ::String])).returns(Models::Operations::GetHrisAbsenceTypesResponse) }
     def get_absence_types(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, timeout_ms: nil, http_headers: nil)
       # get_absence_types - Get absence types
       # Retrieve all absence types.
@@ -1368,7 +1368,7 @@ module Kombo
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/hris/absence-types"
       headers = Utils.get_headers(request, @sdk_configuration.globals)
-      headers = T.cast(headers, T::Hash[String, String])
+      headers = T.cast(headers, T::Hash[::String, ::String])
       query_params = Utils.get_query_params(Models::Operations::GetHrisAbsenceTypesRequest, request, nil, @sdk_configuration.globals)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
@@ -1389,7 +1389,7 @@ module Kombo
         security_source: @sdk_configuration.security_source
       )
 
-      error = T.let(nil, T.nilable(StandardError))
+      error = T.let(nil, T.nilable(::StandardError))
       http_response = T.let(nil, T.nilable(Faraday::Response))
       
 
@@ -1410,7 +1410,7 @@ module Kombo
             request: req
           )
         end
-      rescue StandardError => e
+      rescue ::StandardError => e
         error = e
       ensure
         if http_response.nil? || Utils.error_status?(http_response.status)
@@ -1446,7 +1446,7 @@ module Kombo
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::GetHrisAbsenceTypesPositiveResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Shared::GetHrisAbsenceTypesPositiveResponse)
           response = Models::Operations::GetHrisAbsenceTypesResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -1456,7 +1456,7 @@ module Kombo
           sdk = self
 
           response.next_page = proc do 
-            next_cursor = Janeway.enum_for('$.data.next', JSON.parse(response_data)).search
+            next_cursor = Janeway.enum_for('$.data.next', ::JSON.parse(response_data)).search
             if next_cursor.nil?
               next nil
             else
@@ -1493,7 +1493,7 @@ module Kombo
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::KomboHrisError)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::KomboHrisError)
           obj.raw_response = http_response
           raise obj
         else
@@ -1503,7 +1503,7 @@ module Kombo
     end
 
 
-    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), employee_id: T.nilable(::String), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::GetHrisTimeOffBalancesResponse) }
+    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), employee_id: T.nilable(::String), timeout_ms: T.nilable(::Integer), http_headers: T.nilable(T::Hash[T.any(::String, ::Symbol), ::String])).returns(Models::Operations::GetHrisTimeOffBalancesResponse) }
     def get_time_off_balances(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, employee_id: nil, timeout_ms: nil, http_headers: nil)
       # get_time_off_balances - Get time off balances
       # Retrieve all time off balances.
@@ -1524,7 +1524,7 @@ module Kombo
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/hris/time-off-balances"
       headers = Utils.get_headers(request, @sdk_configuration.globals)
-      headers = T.cast(headers, T::Hash[String, String])
+      headers = T.cast(headers, T::Hash[::String, ::String])
       query_params = Utils.get_query_params(Models::Operations::GetHrisTimeOffBalancesRequest, request, nil, @sdk_configuration.globals)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
@@ -1545,7 +1545,7 @@ module Kombo
         security_source: @sdk_configuration.security_source
       )
 
-      error = T.let(nil, T.nilable(StandardError))
+      error = T.let(nil, T.nilable(::StandardError))
       http_response = T.let(nil, T.nilable(Faraday::Response))
       
 
@@ -1566,7 +1566,7 @@ module Kombo
             request: req
           )
         end
-      rescue StandardError => e
+      rescue ::StandardError => e
         error = e
       ensure
         if http_response.nil? || Utils.error_status?(http_response.status)
@@ -1602,7 +1602,7 @@ module Kombo
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::GetHrisTimeOffBalancesPositiveResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Shared::GetHrisTimeOffBalancesPositiveResponse)
           response = Models::Operations::GetHrisTimeOffBalancesResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -1612,7 +1612,7 @@ module Kombo
           sdk = self
 
           response.next_page = proc do 
-            next_cursor = Janeway.enum_for('$.data.next', JSON.parse(response_data)).search
+            next_cursor = Janeway.enum_for('$.data.next', ::JSON.parse(response_data)).search
             if next_cursor.nil?
               next nil
             else
@@ -1650,7 +1650,7 @@ module Kombo
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::KomboHrisError)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::KomboHrisError)
           obj.raw_response = http_response
           raise obj
         else
@@ -1660,7 +1660,7 @@ module Kombo
     end
 
 
-    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), date_from: T.nilable(::DateTime), date_until: T.nilable(::DateTime), type_ids: T.nilable(T::Array[::String]), employee_id: T.nilable(::String), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::GetHrisAbsencesResponse) }
+    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), date_from: T.nilable(::DateTime), date_until: T.nilable(::DateTime), type_ids: T.nilable(T::Array[::String]), employee_id: T.nilable(::String), timeout_ms: T.nilable(::Integer), http_headers: T.nilable(T::Hash[T.any(::String, ::Symbol), ::String])).returns(Models::Operations::GetHrisAbsencesResponse) }
     def get_absences(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, date_from: nil, date_until: nil, type_ids: nil, employee_id: nil, timeout_ms: nil, http_headers: nil)
       # get_absences - Get absences
       # Retrieve all absences.
@@ -1684,7 +1684,7 @@ module Kombo
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/hris/absences"
       headers = Utils.get_headers(request, @sdk_configuration.globals)
-      headers = T.cast(headers, T::Hash[String, String])
+      headers = T.cast(headers, T::Hash[::String, ::String])
       query_params = Utils.get_query_params(Models::Operations::GetHrisAbsencesRequest, request, nil, @sdk_configuration.globals)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
@@ -1705,7 +1705,7 @@ module Kombo
         security_source: @sdk_configuration.security_source
       )
 
-      error = T.let(nil, T.nilable(StandardError))
+      error = T.let(nil, T.nilable(::StandardError))
       http_response = T.let(nil, T.nilable(Faraday::Response))
       
 
@@ -1726,7 +1726,7 @@ module Kombo
             request: req
           )
         end
-      rescue StandardError => e
+      rescue ::StandardError => e
         error = e
       ensure
         if http_response.nil? || Utils.error_status?(http_response.status)
@@ -1762,7 +1762,7 @@ module Kombo
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::GetHrisAbsencesPositiveResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Shared::GetHrisAbsencesPositiveResponse)
           response = Models::Operations::GetHrisAbsencesResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -1772,7 +1772,7 @@ module Kombo
           sdk = self
 
           response.next_page = proc do 
-            next_cursor = Janeway.enum_for('$.data.next', JSON.parse(response_data)).search
+            next_cursor = Janeway.enum_for('$.data.next', ::JSON.parse(response_data)).search
             if next_cursor.nil?
               next nil
             else
@@ -1813,7 +1813,7 @@ module Kombo
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::KomboHrisError)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::KomboHrisError)
           obj.raw_response = http_response
           raise obj
         else
@@ -1823,7 +1823,7 @@ module Kombo
     end
 
 
-    sig { params(body: Models::Shared::PostHrisAbsencesRequestBody, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::PostHrisAbsencesResponse) }
+    sig { params(body: Models::Shared::PostHrisAbsencesRequestBody, integration_id: T.nilable(::String), timeout_ms: T.nilable(::Integer), http_headers: T.nilable(T::Hash[T.any(::String, ::Symbol), ::String])).returns(Models::Operations::PostHrisAbsencesResponse) }
     def create_absence(body:, integration_id: nil, timeout_ms: nil, http_headers: nil)
       # create_absence - Create absence
       # Create a new absence.
@@ -1857,15 +1857,15 @@ module Kombo
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/hris/absences"
       headers = Utils.get_headers(request, @sdk_configuration.globals)
-      headers = T.cast(headers, T::Hash[String, String])
+      headers = T.cast(headers, T::Hash[::String, ::String])
       req_content_type, data, form = Utils.serialize_request_body(request, false, false, :body, :json)
       headers['content-type'] = req_content_type
-      raise StandardError, 'request body is required' if data.nil? && form.nil?
+      raise ::StandardError, 'request body is required' if data.nil? && form.nil?
 
       if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
-        body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
+        body = ::URI.encode_www_form(T.cast(data, T::Hash[::Symbol, ::Object]))
       else
         body = data
       end
@@ -1888,7 +1888,7 @@ module Kombo
         security_source: @sdk_configuration.security_source
       )
 
-      error = T.let(nil, T.nilable(StandardError))
+      error = T.let(nil, T.nilable(::StandardError))
       http_response = T.let(nil, T.nilable(Faraday::Response))
       
 
@@ -1909,7 +1909,7 @@ module Kombo
             request: req
           )
         end
-      rescue StandardError => e
+      rescue ::StandardError => e
         error = e
       ensure
         if http_response.nil? || Utils.error_status?(http_response.status)
@@ -1945,7 +1945,7 @@ module Kombo
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::PostHrisAbsencesPositiveResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Shared::PostHrisAbsencesPositiveResponse)
           response = Models::Operations::PostHrisAbsencesResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -1966,7 +1966,7 @@ module Kombo
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::KomboHrisError)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::KomboHrisError)
           obj.raw_response = http_response
           raise obj
         else
@@ -1976,7 +1976,7 @@ module Kombo
     end
 
 
-    sig { params(body: Models::Shared::DeleteHrisAbsencesAbsenceIdRequestBody, absence_id: ::String, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::DeleteHrisAbsencesAbsenceIdResponse) }
+    sig { params(body: Models::Shared::DeleteHrisAbsencesAbsenceIdRequestBody, absence_id: ::String, integration_id: T.nilable(::String), timeout_ms: T.nilable(::Integer), http_headers: T.nilable(T::Hash[T.any(::String, ::Symbol), ::String])).returns(Models::Operations::DeleteHrisAbsencesAbsenceIdResponse) }
     def delete_absence(body:, absence_id:, integration_id: nil, timeout_ms: nil, http_headers: nil)
       # delete_absence - Delete absence
       # Delete this absence.
@@ -2007,15 +2007,15 @@ module Kombo
         @sdk_configuration.globals
       )
       headers = Utils.get_headers(request, @sdk_configuration.globals)
-      headers = T.cast(headers, T::Hash[String, String])
+      headers = T.cast(headers, T::Hash[::String, ::String])
       req_content_type, data, form = Utils.serialize_request_body(request, false, false, :body, :json)
       headers['content-type'] = req_content_type
-      raise StandardError, 'request body is required' if data.nil? && form.nil?
+      raise ::StandardError, 'request body is required' if data.nil? && form.nil?
 
       if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
-        body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
+        body = ::URI.encode_www_form(T.cast(data, T::Hash[::Symbol, ::Object]))
       else
         body = data
       end
@@ -2038,7 +2038,7 @@ module Kombo
         security_source: @sdk_configuration.security_source
       )
 
-      error = T.let(nil, T.nilable(StandardError))
+      error = T.let(nil, T.nilable(::StandardError))
       http_response = T.let(nil, T.nilable(Faraday::Response))
       
 
@@ -2059,7 +2059,7 @@ module Kombo
             request: req
           )
         end
-      rescue StandardError => e
+      rescue ::StandardError => e
         error = e
       ensure
         if http_response.nil? || Utils.error_status?(http_response.status)
@@ -2095,7 +2095,7 @@ module Kombo
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::DeleteHrisAbsencesAbsenceIdPositiveResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Shared::DeleteHrisAbsencesAbsenceIdPositiveResponse)
           response = Models::Operations::DeleteHrisAbsencesAbsenceIdResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -2116,7 +2116,7 @@ module Kombo
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::KomboHrisError)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::KomboHrisError)
           obj.raw_response = http_response
           raise obj
         else
@@ -2126,7 +2126,7 @@ module Kombo
     end
 
 
-    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), name_contains: T.nilable(::String), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::GetHrisLegalEntitiesResponse) }
+    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), name_contains: T.nilable(::String), timeout_ms: T.nilable(::Integer), http_headers: T.nilable(T::Hash[T.any(::String, ::Symbol), ::String])).returns(Models::Operations::GetHrisLegalEntitiesResponse) }
     def get_legal_entities(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, name_contains: nil, timeout_ms: nil, http_headers: nil)
       # get_legal_entities - Get legal entities
       # Retrieve all legal entites.
@@ -2147,7 +2147,7 @@ module Kombo
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/hris/legal-entities"
       headers = Utils.get_headers(request, @sdk_configuration.globals)
-      headers = T.cast(headers, T::Hash[String, String])
+      headers = T.cast(headers, T::Hash[::String, ::String])
       query_params = Utils.get_query_params(Models::Operations::GetHrisLegalEntitiesRequest, request, nil, @sdk_configuration.globals)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
@@ -2168,7 +2168,7 @@ module Kombo
         security_source: @sdk_configuration.security_source
       )
 
-      error = T.let(nil, T.nilable(StandardError))
+      error = T.let(nil, T.nilable(::StandardError))
       http_response = T.let(nil, T.nilable(Faraday::Response))
       
 
@@ -2189,7 +2189,7 @@ module Kombo
             request: req
           )
         end
-      rescue StandardError => e
+      rescue ::StandardError => e
         error = e
       ensure
         if http_response.nil? || Utils.error_status?(http_response.status)
@@ -2225,7 +2225,7 @@ module Kombo
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::GetHrisLegalEntitiesPositiveResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Shared::GetHrisLegalEntitiesPositiveResponse)
           response = Models::Operations::GetHrisLegalEntitiesResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -2235,7 +2235,7 @@ module Kombo
           sdk = self
 
           response.next_page = proc do 
-            next_cursor = Janeway.enum_for('$.data.next', JSON.parse(response_data)).search
+            next_cursor = Janeway.enum_for('$.data.next', ::JSON.parse(response_data)).search
             if next_cursor.nil?
               next nil
             else
@@ -2273,7 +2273,7 @@ module Kombo
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::KomboHrisError)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::KomboHrisError)
           obj.raw_response = http_response
           raise obj
         else
@@ -2283,7 +2283,7 @@ module Kombo
     end
 
 
-    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), employee_id: T.nilable(::String), started_before: T.nilable(::DateTime), started_after: T.nilable(::DateTime), ended_before: T.nilable(::DateTime), ended_after: T.nilable(::DateTime), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::GetHrisTimesheetsResponse) }
+    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), employee_id: T.nilable(::String), started_before: T.nilable(::DateTime), started_after: T.nilable(::DateTime), ended_before: T.nilable(::DateTime), ended_after: T.nilable(::DateTime), timeout_ms: T.nilable(::Integer), http_headers: T.nilable(T::Hash[T.any(::String, ::Symbol), ::String])).returns(Models::Operations::GetHrisTimesheetsResponse) }
     def get_timesheets(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, employee_id: nil, started_before: nil, started_after: nil, ended_before: nil, ended_after: nil, timeout_ms: nil, http_headers: nil)
       # get_timesheets - Get timesheets
       # Get timesheets
@@ -2316,7 +2316,7 @@ module Kombo
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/hris/timesheets"
       headers = Utils.get_headers(request, @sdk_configuration.globals)
-      headers = T.cast(headers, T::Hash[String, String])
+      headers = T.cast(headers, T::Hash[::String, ::String])
       query_params = Utils.get_query_params(Models::Operations::GetHrisTimesheetsRequest, request, nil, @sdk_configuration.globals)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
@@ -2337,7 +2337,7 @@ module Kombo
         security_source: @sdk_configuration.security_source
       )
 
-      error = T.let(nil, T.nilable(StandardError))
+      error = T.let(nil, T.nilable(::StandardError))
       http_response = T.let(nil, T.nilable(Faraday::Response))
       
 
@@ -2358,7 +2358,7 @@ module Kombo
             request: req
           )
         end
-      rescue StandardError => e
+      rescue ::StandardError => e
         error = e
       ensure
         if http_response.nil? || Utils.error_status?(http_response.status)
@@ -2394,7 +2394,7 @@ module Kombo
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::GetHrisTimesheetsPositiveResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Shared::GetHrisTimesheetsPositiveResponse)
           response = Models::Operations::GetHrisTimesheetsResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -2404,7 +2404,7 @@ module Kombo
           sdk = self
 
           response.next_page = proc do 
-            next_cursor = Janeway.enum_for('$.data.next', JSON.parse(response_data)).search
+            next_cursor = Janeway.enum_for('$.data.next', ::JSON.parse(response_data)).search
             if next_cursor.nil?
               next nil
             else
@@ -2446,7 +2446,7 @@ module Kombo
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::KomboHrisError)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::KomboHrisError)
           obj.raw_response = http_response
           raise obj
         else
@@ -2456,7 +2456,7 @@ module Kombo
     end
 
 
-    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::GetHrisPerformanceReviewCyclesResponse) }
+    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), timeout_ms: T.nilable(::Integer), http_headers: T.nilable(T::Hash[T.any(::String, ::Symbol), ::String])).returns(Models::Operations::GetHrisPerformanceReviewCyclesResponse) }
     def get_performance_review_cycles(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, timeout_ms: nil, http_headers: nil)
       # get_performance_review_cycles - Get performance review cycles
       # Get performance review cycles
@@ -2478,7 +2478,7 @@ module Kombo
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/hris/performance-review-cycles"
       headers = Utils.get_headers(request, @sdk_configuration.globals)
-      headers = T.cast(headers, T::Hash[String, String])
+      headers = T.cast(headers, T::Hash[::String, ::String])
       query_params = Utils.get_query_params(Models::Operations::GetHrisPerformanceReviewCyclesRequest, request, nil, @sdk_configuration.globals)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
@@ -2499,7 +2499,7 @@ module Kombo
         security_source: @sdk_configuration.security_source
       )
 
-      error = T.let(nil, T.nilable(StandardError))
+      error = T.let(nil, T.nilable(::StandardError))
       http_response = T.let(nil, T.nilable(Faraday::Response))
       
 
@@ -2520,7 +2520,7 @@ module Kombo
             request: req
           )
         end
-      rescue StandardError => e
+      rescue ::StandardError => e
         error = e
       ensure
         if http_response.nil? || Utils.error_status?(http_response.status)
@@ -2556,7 +2556,7 @@ module Kombo
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::GetHrisPerformanceReviewCyclesPositiveResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Shared::GetHrisPerformanceReviewCyclesPositiveResponse)
           response = Models::Operations::GetHrisPerformanceReviewCyclesResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -2566,7 +2566,7 @@ module Kombo
           sdk = self
 
           response.next_page = proc do 
-            next_cursor = Janeway.enum_for('$.data.next', JSON.parse(response_data)).search
+            next_cursor = Janeway.enum_for('$.data.next', ::JSON.parse(response_data)).search
             if next_cursor.nil?
               next nil
             else
@@ -2603,7 +2603,7 @@ module Kombo
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::KomboHrisError)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::KomboHrisError)
           obj.raw_response = http_response
           raise obj
         else
@@ -2613,7 +2613,7 @@ module Kombo
     end
 
 
-    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), types: T.nilable(T::Array[::String]), review_cycle_ids: T.nilable(T::Array[::String]), reviewee_ids: T.nilable(T::Array[::String]), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::GetHrisPerformanceReviewsResponse) }
+    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), types: T.nilable(T::Array[::String]), review_cycle_ids: T.nilable(T::Array[::String]), reviewee_ids: T.nilable(T::Array[::String]), timeout_ms: T.nilable(::Integer), http_headers: T.nilable(T::Hash[T.any(::String, ::Symbol), ::String])).returns(Models::Operations::GetHrisPerformanceReviewsResponse) }
     def get_performance_reviews(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, types: nil, review_cycle_ids: nil, reviewee_ids: nil, timeout_ms: nil, http_headers: nil)
       # get_performance_reviews - Get performance reviews
       # Get performance reviews
@@ -2638,7 +2638,7 @@ module Kombo
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/hris/performance-reviews"
       headers = Utils.get_headers(request, @sdk_configuration.globals)
-      headers = T.cast(headers, T::Hash[String, String])
+      headers = T.cast(headers, T::Hash[::String, ::String])
       query_params = Utils.get_query_params(Models::Operations::GetHrisPerformanceReviewsRequest, request, nil, @sdk_configuration.globals)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
@@ -2659,7 +2659,7 @@ module Kombo
         security_source: @sdk_configuration.security_source
       )
 
-      error = T.let(nil, T.nilable(StandardError))
+      error = T.let(nil, T.nilable(::StandardError))
       http_response = T.let(nil, T.nilable(Faraday::Response))
       
 
@@ -2680,7 +2680,7 @@ module Kombo
             request: req
           )
         end
-      rescue StandardError => e
+      rescue ::StandardError => e
         error = e
       ensure
         if http_response.nil? || Utils.error_status?(http_response.status)
@@ -2716,7 +2716,7 @@ module Kombo
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::GetHrisPerformanceReviewsPositiveResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Shared::GetHrisPerformanceReviewsPositiveResponse)
           response = Models::Operations::GetHrisPerformanceReviewsResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -2726,7 +2726,7 @@ module Kombo
           sdk = self
 
           response.next_page = proc do 
-            next_cursor = Janeway.enum_for('$.data.next', JSON.parse(response_data)).search
+            next_cursor = Janeway.enum_for('$.data.next', ::JSON.parse(response_data)).search
             if next_cursor.nil?
               next nil
             else
@@ -2766,7 +2766,7 @@ module Kombo
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::KomboHrisError)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::KomboHrisError)
           obj.raw_response = http_response
           raise obj
         else
@@ -2776,7 +2776,7 @@ module Kombo
     end
 
 
-    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), model_types: T.nilable(T::Array[::String]), statuses: T.nilable(T::Array[::String]), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::GetHrisStaffingEntitiesResponse) }
+    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), model_types: T.nilable(T::Array[::String]), statuses: T.nilable(T::Array[::String]), timeout_ms: T.nilable(::Integer), http_headers: T.nilable(T::Hash[T.any(::String, ::Symbol), ::String])).returns(Models::Operations::GetHrisStaffingEntitiesResponse) }
     def get_staffing_entities(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, model_types: nil, statuses: nil, timeout_ms: nil, http_headers: nil)
       # get_staffing_entities - Get staffing entities
       # Retrieve all staffing entities.
@@ -2808,7 +2808,7 @@ module Kombo
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/hris/staffing-entities"
       headers = Utils.get_headers(request, @sdk_configuration.globals)
-      headers = T.cast(headers, T::Hash[String, String])
+      headers = T.cast(headers, T::Hash[::String, ::String])
       query_params = Utils.get_query_params(Models::Operations::GetHrisStaffingEntitiesRequest, request, nil, @sdk_configuration.globals)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
@@ -2829,7 +2829,7 @@ module Kombo
         security_source: @sdk_configuration.security_source
       )
 
-      error = T.let(nil, T.nilable(StandardError))
+      error = T.let(nil, T.nilable(::StandardError))
       http_response = T.let(nil, T.nilable(Faraday::Response))
       
 
@@ -2850,7 +2850,7 @@ module Kombo
             request: req
           )
         end
-      rescue StandardError => e
+      rescue ::StandardError => e
         error = e
       ensure
         if http_response.nil? || Utils.error_status?(http_response.status)
@@ -2886,7 +2886,7 @@ module Kombo
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::GetHrisStaffingEntitiesPositiveResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Shared::GetHrisStaffingEntitiesPositiveResponse)
           response = Models::Operations::GetHrisStaffingEntitiesResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -2896,7 +2896,7 @@ module Kombo
           sdk = self
 
           response.next_page = proc do 
-            next_cursor = Janeway.enum_for('$.data.next', JSON.parse(response_data)).search
+            next_cursor = Janeway.enum_for('$.data.next', ::JSON.parse(response_data)).search
             if next_cursor.nil?
               next nil
             else
@@ -2935,7 +2935,7 @@ module Kombo
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::KomboHrisError)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::KomboHrisError)
           obj.raw_response = http_response
           raise obj
         else
@@ -2945,7 +2945,7 @@ module Kombo
     end
 
 
-    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), legal_entity_ids: T.nilable(T::Array[::String]), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::GetHrisPayRunsResponse) }
+    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), legal_entity_ids: T.nilable(T::Array[::String]), timeout_ms: T.nilable(::Integer), http_headers: T.nilable(T::Hash[T.any(::String, ::Symbol), ::String])).returns(Models::Operations::GetHrisPayRunsResponse) }
     def get_hris_pay_runs(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, legal_entity_ids: nil, timeout_ms: nil, http_headers: nil)
       # get_hris_pay_runs - Pay Runs
       # Retrieve all pay runs for all legal entities, across all time.
@@ -2968,7 +2968,7 @@ module Kombo
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/hris/pay-runs"
       headers = Utils.get_headers(request, @sdk_configuration.globals)
-      headers = T.cast(headers, T::Hash[String, String])
+      headers = T.cast(headers, T::Hash[::String, ::String])
       query_params = Utils.get_query_params(Models::Operations::GetHrisPayRunsRequest, request, nil, @sdk_configuration.globals)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
@@ -2989,7 +2989,7 @@ module Kombo
         security_source: @sdk_configuration.security_source
       )
 
-      error = T.let(nil, T.nilable(StandardError))
+      error = T.let(nil, T.nilable(::StandardError))
       http_response = T.let(nil, T.nilable(Faraday::Response))
       
 
@@ -3010,7 +3010,7 @@ module Kombo
             request: req
           )
         end
-      rescue StandardError => e
+      rescue ::StandardError => e
         error = e
       ensure
         if http_response.nil? || Utils.error_status?(http_response.status)
@@ -3046,7 +3046,7 @@ module Kombo
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::GetHrisPayRunsPositiveResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Shared::GetHrisPayRunsPositiveResponse)
           response = Models::Operations::GetHrisPayRunsResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -3056,7 +3056,7 @@ module Kombo
           sdk = self
 
           response.next_page = proc do 
-            next_cursor = Janeway.enum_for('$.data.next', JSON.parse(response_data)).search
+            next_cursor = Janeway.enum_for('$.data.next', ::JSON.parse(response_data)).search
             if next_cursor.nil?
               next nil
             else
@@ -3094,7 +3094,7 @@ module Kombo
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::KomboHrisError)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::KomboHrisError)
           obj.raw_response = http_response
           raise obj
         else
@@ -3104,7 +3104,7 @@ module Kombo
     end
 
 
-    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), legal_entity_ids: T.nilable(T::Array[::String]), employee_ids: T.nilable(T::Array[::String]), payrun_ids: T.nilable(T::Array[::String]), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::GetHrisPayslipsResponse) }
+    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), updated_after: T.nilable(::DateTime), include_deleted: T.nilable(T::Boolean), ignore_unsupported_filters: T.nilable(T::Boolean), ids: T.nilable(T::Array[::String]), remote_ids: T.nilable(T::Array[::String]), legal_entity_ids: T.nilable(T::Array[::String]), employee_ids: T.nilable(T::Array[::String]), payrun_ids: T.nilable(T::Array[::String]), timeout_ms: T.nilable(::Integer), http_headers: T.nilable(T::Hash[T.any(::String, ::Symbol), ::String])).returns(Models::Operations::GetHrisPayslipsResponse) }
     def get_hris_payslips(integration_id: nil, cursor: nil, page_size: nil, updated_after: nil, include_deleted: nil, ignore_unsupported_filters: nil, ids: nil, remote_ids: nil, legal_entity_ids: nil, employee_ids: nil, payrun_ids: nil, timeout_ms: nil, http_headers: nil)
       # get_hris_payslips - Payslips
       # Retrieve all payslips for all employees, across all time.
@@ -3129,7 +3129,7 @@ module Kombo
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/hris/payslips"
       headers = Utils.get_headers(request, @sdk_configuration.globals)
-      headers = T.cast(headers, T::Hash[String, String])
+      headers = T.cast(headers, T::Hash[::String, ::String])
       query_params = Utils.get_query_params(Models::Operations::GetHrisPayslipsRequest, request, nil, @sdk_configuration.globals)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
@@ -3150,7 +3150,7 @@ module Kombo
         security_source: @sdk_configuration.security_source
       )
 
-      error = T.let(nil, T.nilable(StandardError))
+      error = T.let(nil, T.nilable(::StandardError))
       http_response = T.let(nil, T.nilable(Faraday::Response))
       
 
@@ -3171,7 +3171,7 @@ module Kombo
             request: req
           )
         end
-      rescue StandardError => e
+      rescue ::StandardError => e
         error = e
       ensure
         if http_response.nil? || Utils.error_status?(http_response.status)
@@ -3207,7 +3207,7 @@ module Kombo
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::GetHrisPayslipsPositiveResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Shared::GetHrisPayslipsPositiveResponse)
           response = Models::Operations::GetHrisPayslipsResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -3217,7 +3217,7 @@ module Kombo
           sdk = self
 
           response.next_page = proc do 
-            next_cursor = Janeway.enum_for('$.data.next', JSON.parse(response_data)).search
+            next_cursor = Janeway.enum_for('$.data.next', ::JSON.parse(response_data)).search
             if next_cursor.nil?
               next nil
             else
@@ -3257,7 +3257,7 @@ module Kombo
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::KomboHrisError)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::KomboHrisError)
           obj.raw_response = http_response
           raise obj
         else

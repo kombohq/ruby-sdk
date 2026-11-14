@@ -21,7 +21,7 @@ module Kombo
         def initialize(options:, type: 'MULTI_SELECT')
           @options = options
           unless type == 'MULTI_SELECT'
-            raise ArgumentError, 'Invalid value for type'
+            raise ::ArgumentError, 'Invalid value for type'
           end
           @type = 'MULTI_SELECT'
         end

@@ -32,7 +32,7 @@ module Kombo
           @description = description
           @required = required
           unless type == 'BOOLEAN'
-            raise ArgumentError, 'Invalid value for type'
+            raise ::ArgumentError, 'Invalid value for type'
           end
           @type = 'BOOLEAN'
           @answer = answer

@@ -24,7 +24,7 @@ module Kombo
           @title = title
           @remote_id = remote_id
           unless type == 'BOOLEAN'
-            raise ArgumentError, 'Invalid value for type'
+            raise ::ArgumentError, 'Invalid value for type'
           end
           @type = 'BOOLEAN'
         end

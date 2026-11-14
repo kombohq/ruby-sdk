@@ -20,7 +20,7 @@ module Kombo
     eu: 'https://api.kombo.dev/v1',
     us: 'https://api.us.kombo.dev/v1',
     ca: 'https://api.ca.kombo.dev/v1',
-  }.freeze, T::Hash[T.any(String, Symbol), String])
+  }.freeze, T::Hash[T.any(::String, ::Symbol), ::String])
   # Contains the list of servers available to the SDK
 
   class SDKConfiguration
@@ -35,7 +35,7 @@ module Kombo
     sig { returns(T.nilable(::Kombo::Utils::RetryConfig)) }
     attr_accessor :retry_config
 
-    sig { returns(T.nilable(Float)) }
+    sig { returns(T.nilable(::Float)) }
     attr_accessor :timeout
 
     
@@ -43,31 +43,31 @@ module Kombo
     attr_accessor :security_source
 
     
-    sig { returns(T.nilable(String)) }
+    sig { returns(T.nilable(::String)) }
     attr_accessor :server_url
 
     
-    sig { returns(Symbol) }
+    sig { returns(::Symbol) }
     attr_accessor :server
 
     
-    sig { returns(T::Hash[Symbol, T::Hash[Symbol, T::Hash[Symbol, Object]]]) }
+    sig { returns(T::Hash[::Symbol, T::Hash[::Symbol, T::Hash[::Symbol, ::Object]]]) }
     attr_accessor :globals
 
     
-    sig { returns(String) }
+    sig { returns(::String) }
     attr_accessor :language
 
-    sig { returns(String) }
+    sig { returns(::String) }
     attr_accessor :openapi_doc_version
 
-    sig { returns(String) }
+    sig { returns(::String) }
     attr_accessor :sdk_version
 
-    sig { returns(String) }
+    sig { returns(::String) }
     attr_accessor :gen_version
 
-    sig { returns(String) }
+    sig { returns(::String) }
     attr_accessor :user_agent
 
     sig do
@@ -75,12 +75,12 @@ module Kombo
         client: T.nilable(Faraday::Connection),
         hooks: ::Kombo::SDKHooks::Hooks,
         retry_config: T.nilable(::Kombo::Utils::RetryConfig),
-        timeout_ms: T.nilable(Integer),
+        timeout_ms: T.nilable(::Integer),
         security: T.nilable(Models::Shared::Security),
         security_source: T.nilable(T.proc.returns(Models::Shared::Security)),
-        server_url: T.nilable(String),
-        server: T.nilable(Symbol),
-        globals: T.nilable(T::Hash[Symbol, T::Hash[Symbol, T::Hash[Symbol, Object]]])
+        server_url: T.nilable(::String),
+        server: T.nilable(::Symbol),
+        globals: T.nilable(T::Hash[::Symbol, T::Hash[::Symbol, T::Hash[::Symbol, ::Object]]])
       ).void
     end
     def initialize(client, hooks, retry_config, timeout_ms, security, security_source, server_url, server, globals)
@@ -90,7 +90,7 @@ module Kombo
       @server_url = server_url
       @timeout = (timeout_ms.to_f / 1000) unless timeout_ms.nil?
       @server = server.nil? ? SERVER_EU : server
-      raise StandardError, "Invalid server \"#{server}\"" if !SERVERS.key?(@server)
+      raise ::StandardError, "Invalid server \"#{server}\"" if !SERVERS.key?(@server)
       if !security_source.nil?
         @security_source = security_source
       elsif !security.nil?
@@ -99,12 +99,12 @@ module Kombo
       @globals = globals.nil? ? {} : globals
       @language = 'ruby'
       @openapi_doc_version = '1.0.0'
-      @sdk_version = '1.2.10'
-      @gen_version = '2.960.7'
-      @user_agent = 'speakeasy-sdk/ruby 1.2.10 2.960.7 1.0.0 kombo'
+      @sdk_version = '1.2.11'
+      @gen_version = '2.961.1'
+      @user_agent = 'speakeasy-sdk/ruby 1.2.11 2.961.1 1.0.0 kombo'
     end
 
-    sig { returns([String, T::Hash[Symbol, String]]) }
+    sig { returns([::String, T::Hash[::Symbol, ::String]]) }
     def get_server_details
       return [@server_url.delete_suffix('/'), {}] if !@server_url.nil?
       @server = T.must(@server)

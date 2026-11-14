@@ -21,7 +21,7 @@ module Kombo
         def initialize(raw_question: nil, type: 'UNKNOWN')
           @raw_question = raw_question
           unless type == 'UNKNOWN'
-            raise ArgumentError, 'Invalid value for type'
+            raise ::ArgumentError, 'Invalid value for type'
           end
           @type = 'UNKNOWN'
         end

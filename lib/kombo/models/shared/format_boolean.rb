@@ -18,7 +18,7 @@ module Kombo
         sig { params(type: ::String).void }
         def initialize(type: 'BOOLEAN')
           unless type == 'BOOLEAN'
-            raise ArgumentError, 'Invalid value for type'
+            raise ::ArgumentError, 'Invalid value for type'
           end
           @type = 'BOOLEAN'
         end

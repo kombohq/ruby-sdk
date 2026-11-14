@@ -23,7 +23,7 @@ module Kombo
       
     end
 
-    sig { params(base_url: String, url_variables: T.nilable(T::Hash[Symbol, T.any(String, T::Enum)])).returns(String) }
+    sig { params(base_url: ::String, url_variables: T.nilable(T::Hash[::Symbol, T.any(::String, T::Enum)])).returns(::String) }
     def get_url(base_url:, url_variables: nil)
       sd_base_url, sd_options = @sdk_configuration.get_server_details
 
@@ -41,7 +41,7 @@ module Kombo
 
 
 
-    sig { params(request: Models::Shared::PostConnectCreateLinkRequestBody, timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::PostConnectCreateLinkResponse) }
+    sig { params(request: Models::Shared::PostConnectCreateLinkRequestBody, timeout_ms: T.nilable(::Integer), http_headers: T.nilable(T::Hash[T.any(::String, ::Symbol), ::String])).returns(Models::Operations::PostConnectCreateLinkResponse) }
     def create_connection_link(request:, timeout_ms: nil, http_headers: nil)
       # create_connection_link - Create connection link
       # Generate a unique link that allows your user to enter the embedded Kombo Connect flow.
@@ -68,15 +68,15 @@ module Kombo
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/connect/create-link"
       headers = {}
-      headers = T.cast(headers, T::Hash[String, String])
+      headers = T.cast(headers, T::Hash[::String, ::String])
       req_content_type, data, form = Utils.serialize_request_body(request, false, false, :request, :json)
       headers['content-type'] = req_content_type
-      raise StandardError, 'request body is required' if data.nil? && form.nil?
+      raise ::StandardError, 'request body is required' if data.nil? && form.nil?
 
       if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
-        body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
+        body = ::URI.encode_www_form(T.cast(data, T::Hash[::Symbol, ::Object]))
       else
         body = data
       end
@@ -99,7 +99,7 @@ module Kombo
         security_source: @sdk_configuration.security_source
       )
 
-      error = T.let(nil, T.nilable(StandardError))
+      error = T.let(nil, T.nilable(::StandardError))
       http_response = T.let(nil, T.nilable(Faraday::Response))
       
 
@@ -120,7 +120,7 @@ module Kombo
             request: req
           )
         end
-      rescue StandardError => e
+      rescue ::StandardError => e
         error = e
       ensure
         if http_response.nil? || Utils.error_status?(http_response.status)
@@ -156,7 +156,7 @@ module Kombo
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::PostConnectCreateLinkPositiveResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Shared::PostConnectCreateLinkPositiveResponse)
           response = Models::Operations::PostConnectCreateLinkResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -177,7 +177,7 @@ module Kombo
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::KomboGeneralError)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::KomboGeneralError)
           obj.raw_response = http_response
           raise obj
         else
@@ -187,7 +187,7 @@ module Kombo
     end
 
 
-    sig { params(token: ::String, timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::GetConnectIntegrationByTokenTokenResponse) }
+    sig { params(token: ::String, timeout_ms: T.nilable(::Integer), http_headers: T.nilable(T::Hash[T.any(::String, ::Symbol), ::String])).returns(Models::Operations::GetConnectIntegrationByTokenTokenResponse) }
     def get_integration_by_token(token:, timeout_ms: nil, http_headers: nil)
       # get_integration_by_token - Get integration by token
       # Use this endpoint with the token you get from the connection flow to retrieve information about the created integration.
@@ -214,7 +214,7 @@ module Kombo
         @sdk_configuration.globals
       )
       headers = {}
-      headers = T.cast(headers, T::Hash[String, String])
+      headers = T.cast(headers, T::Hash[::String, ::String])
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
 
@@ -234,7 +234,7 @@ module Kombo
         security_source: @sdk_configuration.security_source
       )
 
-      error = T.let(nil, T.nilable(StandardError))
+      error = T.let(nil, T.nilable(::StandardError))
       http_response = T.let(nil, T.nilable(Faraday::Response))
       
 
@@ -254,7 +254,7 @@ module Kombo
             request: req
           )
         end
-      rescue StandardError => e
+      rescue ::StandardError => e
         error = e
       ensure
         if http_response.nil? || Utils.error_status?(http_response.status)
@@ -290,7 +290,7 @@ module Kombo
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::GetConnectIntegrationByTokenTokenPositiveResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Shared::GetConnectIntegrationByTokenTokenPositiveResponse)
           response = Models::Operations::GetConnectIntegrationByTokenTokenResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -311,7 +311,7 @@ module Kombo
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::KomboGeneralError)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::KomboGeneralError)
           obj.raw_response = http_response
           raise obj
         else

@@ -23,7 +23,7 @@ module Kombo
         def initialize(options:, type: 'SINGLE_SELECT', display_type: nil)
           @options = options
           unless type == 'SINGLE_SELECT'
-            raise ArgumentError, 'Invalid value for type'
+            raise ::ArgumentError, 'Invalid value for type'
           end
           @type = 'SINGLE_SELECT'
           @display_type = display_type

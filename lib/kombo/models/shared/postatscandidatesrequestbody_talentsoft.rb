@@ -13,13 +13,13 @@ module Kombo
         include Crystalline::MetadataFields
 
         # Fields that we will pass through to TalentSoft's `applicant` object.
-        field :applicant, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('applicant') } }
+        field :applicant, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('applicant') } }
         # Fields that we will pass through to TalentSoft's `application` object.
-        field :application, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('application') } }
+        field :application, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('application') } }
         # Fields that we will pass through to TalentSoft's top-level `customFields` object when creating applications without an account. For account-based application creation, pass custom fields in `applicant.customFields` instead.
-        field :custom_fields, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('customFields') } }
+        field :custom_fields, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('customFields') } }
 
-        sig { params(applicant: T.nilable(T::Hash[Symbol, ::Object]), application: T.nilable(T::Hash[Symbol, ::Object]), custom_fields: T.nilable(T::Hash[Symbol, ::Object])).void }
+        sig { params(applicant: T.nilable(T::Hash[::Symbol, ::Object]), application: T.nilable(T::Hash[::Symbol, ::Object]), custom_fields: T.nilable(T::Hash[::Symbol, ::Object])).void }
         def initialize(applicant: nil, application: nil, custom_fields: nil)
           @applicant = applicant
           @application = application

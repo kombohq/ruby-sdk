@@ -22,7 +22,7 @@ module Kombo
         sig { params(type: ::String, ordered_options: T.nilable(T::Array[::String]), value: T.nilable(::String)).void }
         def initialize(type: 'SINGLE_SELECT', ordered_options: nil, value: nil)
           unless type == 'SINGLE_SELECT'
-            raise ArgumentError, 'Invalid value for type'
+            raise ::ArgumentError, 'Invalid value for type'
           end
           @type = 'SINGLE_SELECT'
           @ordered_options = ordered_options
