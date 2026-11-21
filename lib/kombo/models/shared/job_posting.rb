@@ -26,9 +26,11 @@ module Kombo
         field :visibility, Crystalline::Nilable.new(Models::Shared::JobPostingVisibility), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('visibility'), required: true, 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::JobPostingVisibility, false) } }
         # The public URL to the job posting on the ATS platform.
         field :url, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('url'), required: true } }
+        # A key-value store of fields not covered by the schema. [Read more](/custom-fields)
+        field :custom_fields, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('custom_fields'), required: true } }
 
-        sig { params(id: ::String, remote_id: T.nilable(::String), title: T.nilable(::String), description_html: T.nilable(::String), status: T.nilable(Models::Shared::JobPostingStatus), visibility: T.nilable(Models::Shared::JobPostingVisibility), url: T.nilable(::String)).void }
-        def initialize(id:, remote_id: nil, title: nil, description_html: nil, status: nil, visibility: nil, url: nil)
+        sig { params(id: ::String, remote_id: T.nilable(::String), title: T.nilable(::String), description_html: T.nilable(::String), status: T.nilable(Models::Shared::JobPostingStatus), visibility: T.nilable(Models::Shared::JobPostingVisibility), url: T.nilable(::String), custom_fields: T.nilable(T::Hash[::Symbol, ::Object])).void }
+        def initialize(id:, remote_id: nil, title: nil, description_html: nil, status: nil, visibility: nil, url: nil, custom_fields: nil)
           @id = id
           @remote_id = remote_id
           @title = title
@@ -36,6 +38,7 @@ module Kombo
           @status = status
           @visibility = visibility
           @url = url
+          @custom_fields = custom_fields
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
@@ -48,6 +51,7 @@ module Kombo
           return false unless @status == other.status
           return false unless @visibility == other.visibility
           return false unless @url == other.url
+          return false unless @custom_fields == other.custom_fields
           true
         end
       end

@@ -22,6 +22,8 @@ class Kombo::Models::Shared::PostAtsApplicationsApplicationIdNotesRequestBodyRem
   def lever=(str_); end
   def talent360(); end
   def talent360=(str_); end
+  def smartrecruiters(); end
+  def smartrecruiters=(str_); end
   def workable(); end
   def workable=(str_); end
 end

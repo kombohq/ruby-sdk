@@ -33,13 +33,13 @@ module Kombo
       params(
         client: T.nilable(Faraday::Connection),
         retry_config: T.nilable(::Kombo::Utils::RetryConfig),
-        timeout_ms: T.nilable(Integer),
+        timeout_ms: T.nilable(::Integer),
         security: T.nilable(Models::Shared::Security),
         security_source: T.nilable(T.proc.returns(Models::Shared::Security)),
         integration_id: T.nilable(::String),
-        server: T.nilable(Symbol),
-        server_url: T.nilable(String),
-        url_params: T.nilable(T::Hash[Symbol, String])
+        server: T.nilable(::Symbol),
+        server_url: T.nilable(::String),
+        url_params: T.nilable(T::Hash[::Symbol, ::String])
       ).void
     end
     def initialize(client: nil, retry_config: nil, timeout_ms: nil, security: nil, security_source: nil, integration_id: nil, server: nil, server_url: nil, url_params: nil)
@@ -62,7 +62,7 @@ module Kombo
         end
       end
 
-      raise StandardError, "Invalid server \"#{server}\"" if !server.nil? && !SERVERS.key?(server)
+      raise ::StandardError, "Invalid server \"#{server}\"" if !server.nil? && !SERVERS.key?(server)
 
       globals = {
         'parameters': {
@@ -100,7 +100,7 @@ module Kombo
       @connect = Connect.new(@sdk_configuration)
     end
 
-    sig { params(base_url: String, url_variables: T.nilable(T::Hash[Symbol, T.any(String, T::Enum)])).returns(String) }
+    sig { params(base_url: ::String, url_variables: T.nilable(T::Hash[::Symbol, T.any(::String, T::Enum)])).returns(::String) }
     def get_url(base_url:, url_variables: nil)
       sd_base_url, sd_options = @sdk_configuration.get_server_details
 

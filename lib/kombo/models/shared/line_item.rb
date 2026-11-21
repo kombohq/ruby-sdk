@@ -21,13 +21,13 @@ module Kombo
         # The name of the salary type.
         field :name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('name'), required: true } }
         # A key-value store of fields not covered by the schema. [Read more](/custom-fields)
-        field :custom_fields, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('custom_fields'), required: true } }
+        field :custom_fields, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('custom_fields'), required: true } }
         # The amount of the line item.
         field :amount, Crystalline::Nilable.new(Models::Shared::Amount), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('amount') } }
         # The year-to-date amount of the line item as returned by the remote system. Kombo never calculates this value. `null` when the remote API does not provide a year-to-date amount.
         field :amount_ytd, Crystalline::Nilable.new(Models::Shared::AmountYtd), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('amount_ytd') } }
 
-        sig { params(id: ::String, remote_id: ::String, pay_code: Models::Shared::PayCode, name: T.nilable(::String), custom_fields: T.nilable(T::Hash[Symbol, ::Object]), amount: T.nilable(Models::Shared::Amount), amount_ytd: T.nilable(Models::Shared::AmountYtd)).void }
+        sig { params(id: ::String, remote_id: ::String, pay_code: Models::Shared::PayCode, name: T.nilable(::String), custom_fields: T.nilable(T::Hash[::Symbol, ::Object]), amount: T.nilable(Models::Shared::Amount), amount_ytd: T.nilable(Models::Shared::AmountYtd)).void }
         def initialize(id:, remote_id:, pay_code:, name: nil, custom_fields: nil, amount: nil, amount_ytd: nil)
           @id = id
           @remote_id = remote_id

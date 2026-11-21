@@ -13,9 +13,9 @@ module Kombo
         include Crystalline::MetadataFields
 
         # Fields that we will pass through to Personio's `application` object.
-        field :application, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('application') } }
+        field :application, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('application') } }
 
-        sig { params(application: T.nilable(T::Hash[Symbol, ::Object])).void }
+        sig { params(application: T.nilable(T::Hash[::Symbol, ::Object])).void }
         def initialize(application: nil)
           @application = application
         end

@@ -21,7 +21,7 @@ module Kombo
         def initialize(link:, type: 'referenced')
           @link = link
           unless type == 'referenced'
-            raise ArgumentError, 'Invalid value for type'
+            raise ::ArgumentError, 'Invalid value for type'
           end
           @type = 'referenced'
         end

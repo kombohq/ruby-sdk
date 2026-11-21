@@ -30,7 +30,7 @@ module Kombo
           @score = score
           @status = status
           unless type == 'SUB_RESULT'
-            raise ArgumentError, 'Invalid value for type'
+            raise ::ArgumentError, 'Invalid value for type'
           end
           @type = 'SUB_RESULT'
         end

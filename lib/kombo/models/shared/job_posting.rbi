@@ -22,4 +22,6 @@ class Kombo::Models::Shared::JobPosting
   def visibility=(str_); end
   def url(); end
   def url=(str_); end
+  def custom_fields(); end
+  def custom_fields=(str_); end
 end

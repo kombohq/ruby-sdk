@@ -8,7 +8,7 @@ module Kombo
   module Models
     module Errors
       # The standard error response with the error codes for the HRIS use case.
-      class KomboHrisError < StandardError
+      class KomboHrisError < ::StandardError
         extend T::Sig
         include Crystalline::MetadataFields
 

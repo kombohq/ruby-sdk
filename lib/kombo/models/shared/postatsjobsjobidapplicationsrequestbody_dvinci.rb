@@ -13,11 +13,11 @@ module Kombo
         include Crystalline::MetadataFields
 
         # Fields that we will pass through to d.vinci's application object. This API is used: https://static.dvinci-easy.com/files/d.vinci%20application-apply-api.html#jobs__id__applyApi_post
-        field :application, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('application') } }
+        field :application, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('application') } }
         # Fields that we will pass through to d.vinci's candidate/application payload as top-level fields (e.g., dateOfBirth).
-        field :candidate, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('candidate') } }
+        field :candidate, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('candidate') } }
 
-        sig { params(application: T.nilable(T::Hash[Symbol, ::Object]), candidate: T.nilable(T::Hash[Symbol, ::Object])).void }
+        sig { params(application: T.nilable(T::Hash[::Symbol, ::Object]), candidate: T.nilable(T::Hash[::Symbol, ::Object])).void }
         def initialize(application: nil, candidate: nil)
           @application = application
           @candidate = candidate

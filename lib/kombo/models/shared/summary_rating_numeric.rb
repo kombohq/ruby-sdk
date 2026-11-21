@@ -24,7 +24,7 @@ module Kombo
         sig { params(type: ::String, min: T.nilable(::Float), max: T.nilable(::Float), value: T.nilable(::Float)).void }
         def initialize(type: 'NUMERIC', min: nil, max: nil, value: nil)
           unless type == 'NUMERIC'
-            raise ArgumentError, 'Invalid value for type'
+            raise ::ArgumentError, 'Invalid value for type'
           end
           @type = 'NUMERIC'
           @min = min

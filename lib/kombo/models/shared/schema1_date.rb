@@ -28,7 +28,7 @@ module Kombo
           @label = label
           @required = required
           unless type == 'date'
-            raise ArgumentError, 'Invalid value for type'
+            raise ::ArgumentError, 'Invalid value for type'
           end
           @type = 'date'
           @description = description

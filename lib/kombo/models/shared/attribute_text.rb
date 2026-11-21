@@ -24,7 +24,7 @@ module Kombo
           @label = label
           @value = value
           unless type == 'TEXT'
-            raise ArgumentError, 'Invalid value for type'
+            raise ::ArgumentError, 'Invalid value for type'
           end
           @type = 'TEXT'
         end
