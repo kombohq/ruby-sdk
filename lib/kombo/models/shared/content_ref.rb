@@ -24,7 +24,7 @@ module Kombo
           @bucket = bucket
           @key = key
           unless type == 's3'
-            raise ArgumentError, 'Invalid value for type'
+            raise ::ArgumentError, 'Invalid value for type'
           end
           @type = 's3'
         end

@@ -50,13 +50,15 @@ module Kombo
         # The date and time the object was deleted in the remote system. Objects are automatically marked as deleted when Kombo can't retrieve them from the remote system anymore. Kombo will also anonymize entries 14 days after they disappear.
         # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
         field :remote_deleted_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_deleted_at'), required: true, 'decoder': ::Kombo::Utils.datetime_from_iso_format(false) } }
+        # A key-value store of fields not covered by the schema. [Read more](/custom-fields)
+        field :custom_fields, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('custom_fields'), required: true } }
 
         field :type, Crystalline::Nilable.new(Models::Shared::GetHrisAbsencesPositiveResponseType), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('type'), required: true } }
         # The absence’s current status. In rare cases where we can’t find a clear mapping, the original string is passed through.
         field :status, Crystalline::Nilable.new(Models::Shared::GetHrisAbsencesPositiveResponseStatus), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('status'), 'decoder': ::Kombo::Utils.open_enum_from_string(Models::Shared::GetHrisAbsencesPositiveResponseStatus, true) } }
 
-        sig { params(id: ::String, employee_id: ::String, changed_at: ::DateTime, remote_id: T.nilable(::String), start_date: T.nilable(::Object), end_date: T.nilable(::Object), start_half_day: T.nilable(T::Boolean), end_half_day: T.nilable(T::Boolean), start_time: T.nilable(::Object), end_time: T.nilable(::Object), amount: T.nilable(::Float), unit: T.nilable(Models::Shared::GetHrisAbsencesPositiveResponseUnit), employee_note: T.nilable(::String), type_id: T.nilable(::String), remote_created_at: T.nilable(::DateTime), remote_updated_at: T.nilable(::DateTime), remote_deleted_at: T.nilable(::DateTime), type: T.nilable(Models::Shared::GetHrisAbsencesPositiveResponseType), status: T.nilable(Models::Shared::GetHrisAbsencesPositiveResponseStatus)).void }
-        def initialize(id:, employee_id:, changed_at:, remote_id: nil, start_date: nil, end_date: nil, start_half_day: nil, end_half_day: nil, start_time: nil, end_time: nil, amount: nil, unit: nil, employee_note: nil, type_id: nil, remote_created_at: nil, remote_updated_at: nil, remote_deleted_at: nil, type: nil, status: nil)
+        sig { params(id: ::String, employee_id: ::String, changed_at: ::DateTime, remote_id: T.nilable(::String), start_date: T.nilable(::Object), end_date: T.nilable(::Object), start_half_day: T.nilable(T::Boolean), end_half_day: T.nilable(T::Boolean), start_time: T.nilable(::Object), end_time: T.nilable(::Object), amount: T.nilable(::Float), unit: T.nilable(Models::Shared::GetHrisAbsencesPositiveResponseUnit), employee_note: T.nilable(::String), type_id: T.nilable(::String), remote_created_at: T.nilable(::DateTime), remote_updated_at: T.nilable(::DateTime), remote_deleted_at: T.nilable(::DateTime), custom_fields: T.nilable(T::Hash[::Symbol, ::Object]), type: T.nilable(Models::Shared::GetHrisAbsencesPositiveResponseType), status: T.nilable(Models::Shared::GetHrisAbsencesPositiveResponseStatus)).void }
+        def initialize(id:, employee_id:, changed_at:, remote_id: nil, start_date: nil, end_date: nil, start_half_day: nil, end_half_day: nil, start_time: nil, end_time: nil, amount: nil, unit: nil, employee_note: nil, type_id: nil, remote_created_at: nil, remote_updated_at: nil, remote_deleted_at: nil, custom_fields: nil, type: nil, status: nil)
           @id = id
           @employee_id = employee_id
           @changed_at = changed_at
@@ -74,6 +76,7 @@ module Kombo
           @remote_created_at = remote_created_at
           @remote_updated_at = remote_updated_at
           @remote_deleted_at = remote_deleted_at
+          @custom_fields = custom_fields
           @type = type
           @status = status
         end
@@ -98,6 +101,7 @@ module Kombo
           return false unless @remote_created_at == other.remote_created_at
           return false unless @remote_updated_at == other.remote_updated_at
           return false unless @remote_deleted_at == other.remote_deleted_at
+          return false unless @custom_fields == other.custom_fields
           return false unless @type == other.type
           return false unless @status == other.status
           true

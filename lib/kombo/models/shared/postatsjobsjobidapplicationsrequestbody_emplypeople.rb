@@ -13,9 +13,9 @@ module Kombo
         include Crystalline::MetadataFields
 
         # Form data written to the application right after it is created, keyed by Emply People form ID. Each value is sent as-is as the `formData` of `PUT /v2/applications/{id}/form-data/{formId}`. Use it for questions that are not on the job's application form.
-        field :form_data, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('form_data') } }
+        field :form_data, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('form_data') } }
 
-        sig { params(form_data: T.nilable(T::Hash[Symbol, ::Object])).void }
+        sig { params(form_data: T.nilable(T::Hash[::Symbol, ::Object])).void }
         def initialize(form_data: nil)
           @form_data = form_data
         end

@@ -21,7 +21,7 @@ module Kombo
         def initialize(value:, type: 'NUMERIC')
           @value = value
           unless type == 'NUMERIC'
-            raise ArgumentError, 'Invalid value for type'
+            raise ::ArgumentError, 'Invalid value for type'
           end
           @type = 'NUMERIC'
         end

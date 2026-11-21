@@ -35,7 +35,7 @@ module Kombo
           @description = description
           @required = required
           unless type == 'SINGLE_SELECT'
-            raise ArgumentError, 'Invalid value for type'
+            raise ::ArgumentError, 'Invalid value for type'
           end
           @type = 'SINGLE_SELECT'
           @answer = answer

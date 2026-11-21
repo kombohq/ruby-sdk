@@ -21,7 +21,7 @@ module Kombo
         def initialize(application_remote_id:, id_type: 'application_remote_id')
           @application_remote_id = application_remote_id
           unless id_type == 'application_remote_id'
-            raise ArgumentError, 'Invalid value for id_type'
+            raise ::ArgumentError, 'Invalid value for id_type'
           end
           @id_type = 'application_remote_id'
         end

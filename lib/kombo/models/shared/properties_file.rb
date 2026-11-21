@@ -31,7 +31,7 @@ module Kombo
           @required = required
           @file_restrictions = file_restrictions
           unless type == 'file'
-            raise ArgumentError, 'Invalid value for type'
+            raise ::ArgumentError, 'Invalid value for type'
           end
           @type = 'file'
           @description = description
