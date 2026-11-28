@@ -212,6 +212,8 @@ module Kombo
           PEOPLEXD = new('peoplexd')
           ZELLIS = new('zellis')
           VEDA = new('veda')
+          SONA = new('sona')
+          DAYWIZE = new('daywize')
           SFTP = new('sftp')
           SFTPFETCH = new('sftpfetch')
           THREE_HUNDRED_AND_SIXTYLEARNING = new('360learning')

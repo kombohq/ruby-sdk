@@ -24,7 +24,7 @@ module Kombo
       
     end
 
-    sig { params(base_url: String, url_variables: T.nilable(T::Hash[Symbol, T.any(String, T::Enum)])).returns(String) }
+    sig { params(base_url: ::String, url_variables: T.nilable(T::Hash[::Symbol, T.any(::String, T::Enum)])).returns(::String) }
     def get_url(base_url:, url_variables: nil)
       sd_base_url, sd_options = @sdk_configuration.get_server_details
 
@@ -42,7 +42,7 @@ module Kombo
 
 
 
-    sig { params(integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::GetAssessmentPackagesResponse) }
+    sig { params(integration_id: T.nilable(::String), timeout_ms: T.nilable(::Integer), http_headers: T.nilable(T::Hash[T.any(::String, ::Symbol), ::String])).returns(Models::Operations::GetAssessmentPackagesResponse) }
     def get_packages(integration_id: nil, timeout_ms: nil, http_headers: nil)
       # get_packages - Get packages
       # Get all available assessment and background check packages for an integration.
@@ -55,7 +55,7 @@ module Kombo
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/assessment/packages"
       headers = Utils.get_headers(request, @sdk_configuration.globals)
-      headers = T.cast(headers, T::Hash[String, String])
+      headers = T.cast(headers, T::Hash[::String, ::String])
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
 
@@ -75,7 +75,7 @@ module Kombo
         security_source: @sdk_configuration.security_source
       )
 
-      error = T.let(nil, T.nilable(StandardError))
+      error = T.let(nil, T.nilable(::StandardError))
       http_response = T.let(nil, T.nilable(Faraday::Response))
       
 
@@ -95,7 +95,7 @@ module Kombo
             request: req
           )
         end
-      rescue StandardError => e
+      rescue ::StandardError => e
         error = e
       ensure
         if http_response.nil? || Utils.error_status?(http_response.status)
@@ -131,7 +131,7 @@ module Kombo
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::GetAssessmentPackagesPositiveResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Shared::GetAssessmentPackagesPositiveResponse)
           response = Models::Operations::GetAssessmentPackagesResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -152,7 +152,7 @@ module Kombo
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::KomboAtsError)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::KomboAtsError)
           obj.raw_response = http_response
           raise obj
         else
@@ -162,7 +162,7 @@ module Kombo
     end
 
 
-    sig { params(body: Models::Shared::PutAssessmentPackagesRequestBody, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::PutAssessmentPackagesResponse) }
+    sig { params(body: Models::Shared::PutAssessmentPackagesRequestBody, integration_id: T.nilable(::String), timeout_ms: T.nilable(::Integer), http_headers: T.nilable(T::Hash[T.any(::String, ::Symbol), ::String])).returns(Models::Operations::PutAssessmentPackagesResponse) }
     def set_packages(body:, integration_id: nil, timeout_ms: nil, http_headers: nil)
       # set_packages - Set packages
       # Set packages
@@ -199,15 +199,15 @@ module Kombo
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/assessment/packages"
       headers = Utils.get_headers(request, @sdk_configuration.globals)
-      headers = T.cast(headers, T::Hash[String, String])
+      headers = T.cast(headers, T::Hash[::String, ::String])
       req_content_type, data, form = Utils.serialize_request_body(request, false, false, :body, :json)
       headers['content-type'] = req_content_type
-      raise StandardError, 'request body is required' if data.nil? && form.nil?
+      raise ::StandardError, 'request body is required' if data.nil? && form.nil?
 
       if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
-        body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
+        body = ::URI.encode_www_form(T.cast(data, T::Hash[::Symbol, ::Object]))
       else
         body = data
       end
@@ -230,7 +230,7 @@ module Kombo
         security_source: @sdk_configuration.security_source
       )
 
-      error = T.let(nil, T.nilable(StandardError))
+      error = T.let(nil, T.nilable(::StandardError))
       http_response = T.let(nil, T.nilable(Faraday::Response))
       
 
@@ -251,7 +251,7 @@ module Kombo
             request: req
           )
         end
-      rescue StandardError => e
+      rescue ::StandardError => e
         error = e
       ensure
         if http_response.nil? || Utils.error_status?(http_response.status)
@@ -287,7 +287,7 @@ module Kombo
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::PutAssessmentPackagesPositiveResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Shared::PutAssessmentPackagesPositiveResponse)
           response = Models::Operations::PutAssessmentPackagesResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -308,7 +308,7 @@ module Kombo
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::KomboAtsError)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::KomboAtsError)
           obj.raw_response = http_response
           raise obj
         else
@@ -318,7 +318,7 @@ module Kombo
     end
 
 
-    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), ids: T.nilable(T::Array[::String]), statuses: T.nilable(T::Array[::String]), created_after: T.nilable(::DateTime), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::GetAssessmentOrdersResponse) }
+    sig { params(integration_id: T.nilable(::String), cursor: T.nilable(::String), page_size: T.nilable(::Integer), ids: T.nilable(T::Array[::String]), statuses: T.nilable(T::Array[::String]), created_after: T.nilable(::DateTime), timeout_ms: T.nilable(::Integer), http_headers: T.nilable(T::Hash[T.any(::String, ::Symbol), ::String])).returns(Models::Operations::GetAssessmentOrdersResponse) }
     def get_assessment_orders(integration_id: nil, cursor: nil, page_size: nil, ids: nil, statuses: nil, created_after: nil, timeout_ms: nil, http_headers: nil)
       # get_assessment_orders - Get orders
       # Get all assessment and background check orders of an integration.
@@ -334,7 +334,7 @@ module Kombo
       base_url = Utils.template_url(url, params)
       url = "#{base_url}/assessment/orders"
       headers = Utils.get_headers(request, @sdk_configuration.globals)
-      headers = T.cast(headers, T::Hash[String, String])
+      headers = T.cast(headers, T::Hash[::String, ::String])
       query_params = Utils.get_query_params(Models::Operations::GetAssessmentOrdersRequest, request, nil, @sdk_configuration.globals)
       headers['Accept'] = 'application/json'
       headers['user-agent'] = @sdk_configuration.user_agent
@@ -355,7 +355,7 @@ module Kombo
         security_source: @sdk_configuration.security_source
       )
 
-      error = T.let(nil, T.nilable(StandardError))
+      error = T.let(nil, T.nilable(::StandardError))
       http_response = T.let(nil, T.nilable(Faraday::Response))
       
 
@@ -376,7 +376,7 @@ module Kombo
             request: req
           )
         end
-      rescue StandardError => e
+      rescue ::StandardError => e
         error = e
       ensure
         if http_response.nil? || Utils.error_status?(http_response.status)
@@ -412,7 +412,7 @@ module Kombo
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::GetAssessmentOrdersPositiveResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Shared::GetAssessmentOrdersPositiveResponse)
           response = Models::Operations::GetAssessmentOrdersResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -422,7 +422,7 @@ module Kombo
           sdk = self
 
           response.next_page = proc do 
-            next_cursor = Janeway.enum_for('$.data.next', JSON.parse(response_data)).search
+            next_cursor = Janeway.enum_for('$.data.next', ::JSON.parse(response_data)).search
             if next_cursor.nil?
               next nil
             else
@@ -457,7 +457,7 @@ module Kombo
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::KomboAtsError)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::KomboAtsError)
           obj.raw_response = http_response
           raise obj
         else
@@ -467,7 +467,7 @@ module Kombo
     end
 
 
-    sig { params(body: Models::Shared::PutAssessmentOrdersAssessmentOrderIdResultRequestBody, assessment_order_id: ::String, integration_id: T.nilable(::String), timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(Models::Operations::PutAssessmentOrdersAssessmentOrderIdResultResponse) }
+    sig { params(body: Models::Shared::PutAssessmentOrdersAssessmentOrderIdResultRequestBody, assessment_order_id: ::String, integration_id: T.nilable(::String), timeout_ms: T.nilable(::Integer), http_headers: T.nilable(T::Hash[T.any(::String, ::Symbol), ::String])).returns(Models::Operations::PutAssessmentOrdersAssessmentOrderIdResultResponse) }
     def update_order_result(body:, assessment_order_id:, integration_id: nil, timeout_ms: nil, http_headers: nil)
       # update_order_result - Update order result
       # Updates an assessment or a background check order result.
@@ -522,15 +522,15 @@ module Kombo
         @sdk_configuration.globals
       )
       headers = Utils.get_headers(request, @sdk_configuration.globals)
-      headers = T.cast(headers, T::Hash[String, String])
+      headers = T.cast(headers, T::Hash[::String, ::String])
       req_content_type, data, form = Utils.serialize_request_body(request, false, false, :body, :json)
       headers['content-type'] = req_content_type
-      raise StandardError, 'request body is required' if data.nil? && form.nil?
+      raise ::StandardError, 'request body is required' if data.nil? && form.nil?
 
       if form && !form.empty?
         body = Utils.encode_form(form)
       elsif Utils.match_content_type(req_content_type, 'application/x-www-form-urlencoded')
-        body = URI.encode_www_form(T.cast(data, T::Hash[Symbol, Object]))
+        body = ::URI.encode_www_form(T.cast(data, T::Hash[::Symbol, ::Object]))
       else
         body = data
       end
@@ -553,7 +553,7 @@ module Kombo
         security_source: @sdk_configuration.security_source
       )
 
-      error = T.let(nil, T.nilable(StandardError))
+      error = T.let(nil, T.nilable(::StandardError))
       http_response = T.let(nil, T.nilable(Faraday::Response))
       
 
@@ -574,7 +574,7 @@ module Kombo
             request: req
           )
         end
-      rescue StandardError => e
+      rescue ::StandardError => e
         error = e
       ensure
         if http_response.nil? || Utils.error_status?(http_response.status)
@@ -610,7 +610,7 @@ module Kombo
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::PutAssessmentOrdersAssessmentOrderIdResultPositiveResponse)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Shared::PutAssessmentOrdersAssessmentOrderIdResultPositiveResponse)
           response = Models::Operations::PutAssessmentOrdersAssessmentOrderIdResultResponse.new(
             status_code: http_response.status,
             content_type: content_type,
@@ -631,7 +631,7 @@ module Kombo
             response: http_response
           )
           response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::KomboAtsError)
+          obj = Crystalline.unmarshal_json(::JSON.parse(response_data), Models::Errors::KomboAtsError)
           obj.raw_response = http_response
           raise obj
         else

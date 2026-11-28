@@ -178,6 +178,8 @@ s = ::Kombo::Kombo.new(
 * [get_employee_form](docs/sdks/hris/README.md#get_employee_form) - Get employee form
 * [create_employee_with_form](docs/sdks/hris/README.md#create_employee_with_form) - Create employee with form
 * [add_employee_document](docs/sdks/hris/README.md#add_employee_document) - Add document to employee
+* [get_hris_employees_employee_id_form_rehire](docs/sdks/hris/README.md#get_hris_employees_employee_id_form_rehire) - Get rehire form
+* [post_hris_employees_employee_id_form_rehire](docs/sdks/hris/README.md#post_hris_employees_employee_id_form_rehire) - Rehire employee
 * [get_employee_document_categories](docs/sdks/hris/README.md#get_employee_document_categories) - Get employee document categories
 * [get_groups](docs/sdks/hris/README.md#get_groups) - Get groups
 * [get_employments](docs/sdks/hris/README.md#get_employments) - Get employments

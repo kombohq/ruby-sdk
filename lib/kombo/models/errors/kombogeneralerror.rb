@@ -8,7 +8,7 @@ module Kombo
   module Models
     module Errors
       # The standard error response with just the platform error codes.
-      class KomboGeneralError < StandardError
+      class KomboGeneralError < ::StandardError
         extend T::Sig
         include Crystalline::MetadataFields
 

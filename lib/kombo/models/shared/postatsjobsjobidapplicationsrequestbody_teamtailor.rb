@@ -13,11 +13,11 @@ module Kombo
         include Crystalline::MetadataFields
 
         # Fields that we will pass through to Teamtailor's `Candidate` object.
-        field :candidate, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('candidate') } }
+        field :candidate, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('candidate') } }
 
         field :application, Crystalline::Nilable.new(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyTeamtailorApplication), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('application') } }
 
-        sig { params(candidate: T.nilable(T::Hash[Symbol, ::Object]), application: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyTeamtailorApplication)).void }
+        sig { params(candidate: T.nilable(T::Hash[::Symbol, ::Object]), application: T.nilable(Models::Shared::PostAtsJobsJobIdApplicationsRequestBodyTeamtailorApplication)).void }
         def initialize(candidate: nil, application: nil)
           @candidate = candidate
           @application = application

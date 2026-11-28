@@ -32,7 +32,7 @@ module Kombo
           @label = label
           @required = required
           unless type == 'number'
-            raise ArgumentError, 'Invalid value for type'
+            raise ::ArgumentError, 'Invalid value for type'
           end
           @type = 'number'
           @description = description

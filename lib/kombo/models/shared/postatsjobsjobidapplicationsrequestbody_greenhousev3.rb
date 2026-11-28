@@ -13,11 +13,11 @@ module Kombo
         include Crystalline::MetadataFields
 
         # Additional fields passed through to Greenhouse V3's `POST /v3/candidates` request body.
-        field :candidate, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('candidate') } }
+        field :candidate, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('candidate') } }
         # Additional fields passed through to Greenhouse V3's `POST /v3/applications` request body.
-        field :application, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('application') } }
+        field :application, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('application') } }
 
-        sig { params(candidate: T.nilable(T::Hash[Symbol, ::Object]), application: T.nilable(T::Hash[Symbol, ::Object])).void }
+        sig { params(candidate: T.nilable(T::Hash[::Symbol, ::Object]), application: T.nilable(T::Hash[::Symbol, ::Object])).void }
         def initialize(candidate: nil, application: nil)
           @candidate = candidate
           @application = application

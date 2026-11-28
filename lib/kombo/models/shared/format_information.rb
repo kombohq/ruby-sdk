@@ -18,7 +18,7 @@ module Kombo
         sig { params(type: ::String).void }
         def initialize(type: 'INFORMATION')
           unless type == 'INFORMATION'
-            raise ArgumentError, 'Invalid value for type'
+            raise ::ArgumentError, 'Invalid value for type'
           end
           @type = 'INFORMATION'
         end

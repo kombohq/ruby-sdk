@@ -30,7 +30,7 @@ module Kombo
           @id = id
           @remote_id = remote_id
           unless type == 'NUMERIC'
-            raise ArgumentError, 'Invalid value for type'
+            raise ::ArgumentError, 'Invalid value for type'
           end
           @type = 'NUMERIC'
           @min = min

@@ -42,6 +42,8 @@ class Kombo::Models::Shared::GetHrisAbsencesPositiveResponseResult
   def remote_updated_at=(str_); end
   def remote_deleted_at(); end
   def remote_deleted_at=(str_); end
+  def custom_fields(); end
+  def custom_fields=(str_); end
   def type(); end
   def type=(str_); end
   def status(); end
