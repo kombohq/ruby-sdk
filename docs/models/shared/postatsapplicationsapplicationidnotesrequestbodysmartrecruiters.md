@@ -1,0 +1,10 @@
+# PostAtsApplicationsApplicationIdNotesRequestBodySmartrecruiters
+
+SmartRecruiters specific remote fields for the note.
+
+
+## Fields
+
+| Field                                                                                                                                                            | Type                                                                                                                                                             | Required                                                                                                                                                         | Description                                                                                                                                                      |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `share_with`                                                                                                                                                     | [T.nilable(Models::Shared::ShareWith)](../../models/shared/sharewith.md)                                                                                         | :heavy_minus_sign:                                                                                                                                               | Sharing and visibility options passed through to SmartRecruiters' `POST /messages/shares` `shareWith` field. Defaults to `{ openNote: true }` when not provided. |

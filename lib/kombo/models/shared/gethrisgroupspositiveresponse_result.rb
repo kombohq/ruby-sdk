@@ -29,9 +29,9 @@ module Kombo
         # The Kombo ID of the group’s parent group in the organizational structure. The ID can be used to retrieve the group from the `get groups` endpoint.
         field :parent_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('parent_id'), required: true } }
         # A key-value store of fields not covered by the schema. [Read more](/custom-fields)
-        field :custom_fields, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('custom_fields'), required: true } }
+        field :custom_fields, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('custom_fields'), required: true } }
 
-        sig { params(id: ::String, remote_id: ::String, changed_at: ::DateTime, name: T.nilable(::String), remote_deleted_at: T.nilable(::DateTime), type: T.nilable(Models::Shared::GetHrisGroupsPositiveResponseType), parent_id: T.nilable(::String), custom_fields: T.nilable(T::Hash[Symbol, ::Object])).void }
+        sig { params(id: ::String, remote_id: ::String, changed_at: ::DateTime, name: T.nilable(::String), remote_deleted_at: T.nilable(::DateTime), type: T.nilable(Models::Shared::GetHrisGroupsPositiveResponseType), parent_id: T.nilable(::String), custom_fields: T.nilable(T::Hash[::Symbol, ::Object])).void }
         def initialize(id:, remote_id:, changed_at:, name: nil, remote_deleted_at: nil, type: nil, parent_id: nil, custom_fields: nil)
           @id = id
           @remote_id = remote_id

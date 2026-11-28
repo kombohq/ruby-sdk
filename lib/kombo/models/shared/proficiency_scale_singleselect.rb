@@ -27,7 +27,7 @@ module Kombo
           @remote_id = remote_id
           @ordered_options = ordered_options
           unless type == 'SINGLE_SELECT'
-            raise ArgumentError, 'Invalid value for type'
+            raise ::ArgumentError, 'Invalid value for type'
           end
           @type = 'SINGLE_SELECT'
         end

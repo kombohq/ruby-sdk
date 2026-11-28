@@ -24,7 +24,7 @@ module Kombo
           @candidate_remote_id = candidate_remote_id
           @application_remote_id = application_remote_id
           unless id_type == 'application_and_candidate_remote_ids'
-            raise ArgumentError, 'Invalid value for id_type'
+            raise ::ArgumentError, 'Invalid value for id_type'
           end
           @id_type = 'application_and_candidate_remote_ids'
         end

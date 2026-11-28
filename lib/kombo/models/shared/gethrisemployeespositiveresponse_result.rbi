@@ -54,6 +54,8 @@ class Kombo::Models::Shared::GetHrisEmployeesPositiveResponseResult
   def start_date=(str_); end
   def termination_date(); end
   def termination_date=(str_); end
+  def eligible_for_rehire(); end
+  def eligible_for_rehire=(str_); end
   def remote_created_at(); end
   def remote_created_at=(str_); end
   def remote_deleted_at(); end

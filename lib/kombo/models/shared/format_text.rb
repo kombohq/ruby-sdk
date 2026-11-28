@@ -22,7 +22,7 @@ module Kombo
         sig { params(type: ::String, display_type: T.nilable(Models::Shared::DisplayType1), max_length: T.nilable(::Integer)).void }
         def initialize(type: 'TEXT', display_type: nil, max_length: nil)
           unless type == 'TEXT'
-            raise ArgumentError, 'Invalid value for type'
+            raise ::ArgumentError, 'Invalid value for type'
           end
           @type = 'TEXT'
           @display_type = display_type

@@ -21,11 +21,11 @@ module Kombo
         # Whether the application stage is active in the ATS. Inactive stages (also e.g., archived or hidden) may still be referenced by existing applications but are typically not part of the current hiring workflow.
         field :status, Crystalline::Nilable.new(Models::Shared::CurrentStageStatus), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('status'), required: true, 'decoder': ::Kombo::Utils.enum_from_string(Models::Shared::CurrentStageStatus, false) } }
         # A key-value store of fields not covered by the schema. [Read more](/custom-fields)
-        field :custom_fields, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('custom_fields'), required: true } }
+        field :custom_fields, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('custom_fields'), required: true } }
 
         field :index, Crystalline::Nilable.new(::Integer), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('index'), required: true } }
 
-        sig { params(id: ::String, remote_id: T.nilable(::String), name: T.nilable(::String), status: T.nilable(Models::Shared::CurrentStageStatus), custom_fields: T.nilable(T::Hash[Symbol, ::Object]), index: T.nilable(::Integer)).void }
+        sig { params(id: ::String, remote_id: T.nilable(::String), name: T.nilable(::String), status: T.nilable(Models::Shared::CurrentStageStatus), custom_fields: T.nilable(T::Hash[::Symbol, ::Object]), index: T.nilable(::Integer)).void }
         def initialize(id:, remote_id: nil, name: nil, status: nil, custom_fields: nil, index: nil)
           @id = id
           @remote_id = remote_id

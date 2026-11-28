@@ -8,7 +8,7 @@ module Kombo
   module Models
     module Errors
       # The standard error response with the error codes for the ATS use case.
-      class KomboAtsError < StandardError
+      class KomboAtsError < ::StandardError
         extend T::Sig
         include Crystalline::MetadataFields
 

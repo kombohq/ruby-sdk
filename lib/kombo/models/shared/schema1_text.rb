@@ -34,7 +34,7 @@ module Kombo
           @label = label
           @required = required
           unless type == 'text'
-            raise ArgumentError, 'Invalid value for type'
+            raise ::ArgumentError, 'Invalid value for type'
           end
           @type = 'text'
           @description = description

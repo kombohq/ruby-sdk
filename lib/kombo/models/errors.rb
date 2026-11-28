@@ -10,6 +10,7 @@ module Kombo
       autoload :KomboAtsError, 'kombo/models/errors/komboatserror.rb'
       autoload :KomboGeneralError, 'kombo/models/errors/kombogeneralerror.rb'
       autoload :KomboHrisError, 'kombo/models/errors/kombohriserror.rb'
+      autoload :KomboPassthroughError, 'kombo/models/errors/kombopassthrougherror.rb'
     end
   end
 end

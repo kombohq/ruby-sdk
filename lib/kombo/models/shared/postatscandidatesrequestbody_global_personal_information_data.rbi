@@ -10,4 +10,6 @@ end
 class Kombo::Models::Shared::PostAtsCandidatesRequestBodyGlobalPersonalInformationData
   def date_of_birth(); end
   def date_of_birth=(str_); end
+  def gender_reference(); end
+  def gender_reference=(str_); end
 end

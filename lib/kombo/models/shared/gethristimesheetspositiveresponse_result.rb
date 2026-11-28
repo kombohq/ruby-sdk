@@ -41,14 +41,14 @@ module Kombo
         # Comment on the shift.
         field :comment, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('comment'), required: true } }
         # A key-value store of fields not covered by the schema. [Read more](/custom-fields)
-        field :custom_fields, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('custom_fields'), required: true } }
+        field :custom_fields, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('custom_fields'), required: true } }
         # The date and time the object was deleted in the remote system. Objects are automatically marked as deleted when Kombo can't retrieve them from the remote system anymore. Kombo will also anonymize entries 14 days after they disappear.
         # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
         field :remote_deleted_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('remote_deleted_at'), required: true, 'decoder': ::Kombo::Utils.datetime_from_iso_format(false) } }
         # Concrete times of the breaks.
         field :breaks, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::Break)), { 'format_json': { 'letter_case': ::Kombo::Utils.field_name('breaks') } }
 
-        sig { params(id: ::String, employee_id: ::String, changed_at: ::DateTime, remote_id: T.nilable(::String), started_at: T.nilable(::DateTime), ended_at: T.nilable(::DateTime), timezone: T.nilable(::String), payable_hours: T.nilable(::Float), unpaid_break_minutes: T.nilable(::Float), approval_status: T.nilable(::String), approved_at: T.nilable(::DateTime), comment: T.nilable(::String), custom_fields: T.nilable(T::Hash[Symbol, ::Object]), remote_deleted_at: T.nilable(::DateTime), breaks: T.nilable(T::Array[Models::Shared::Break])).void }
+        sig { params(id: ::String, employee_id: ::String, changed_at: ::DateTime, remote_id: T.nilable(::String), started_at: T.nilable(::DateTime), ended_at: T.nilable(::DateTime), timezone: T.nilable(::String), payable_hours: T.nilable(::Float), unpaid_break_minutes: T.nilable(::Float), approval_status: T.nilable(::String), approved_at: T.nilable(::DateTime), comment: T.nilable(::String), custom_fields: T.nilable(T::Hash[::Symbol, ::Object]), remote_deleted_at: T.nilable(::DateTime), breaks: T.nilable(T::Array[Models::Shared::Break])).void }
         def initialize(id:, employee_id:, changed_at:, remote_id: nil, started_at: nil, ended_at: nil, timezone: nil, payable_hours: nil, unpaid_break_minutes: nil, approval_status: nil, approved_at: nil, comment: nil, custom_fields: nil, remote_deleted_at: nil, breaks: nil)
           @id = id
           @employee_id = employee_id

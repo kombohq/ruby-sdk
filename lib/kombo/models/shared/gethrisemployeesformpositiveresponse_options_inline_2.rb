@@ -21,7 +21,7 @@ module Kombo
         def initialize(entries:, type: 'inline')
           @entries = entries
           unless type == 'inline'
-            raise ArgumentError, 'Invalid value for type'
+            raise ::ArgumentError, 'Invalid value for type'
           end
           @type = 'inline'
         end
